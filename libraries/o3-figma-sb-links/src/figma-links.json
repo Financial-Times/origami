@@ -27,6 +27,7 @@
   "core-o3-foundation-o3-typography-link--links": "https://www.figma.com/design/VVM0PixrY3IRZq2ZUTdWfU/%F0%9F%92%A0-Core---Origami-(o3)?node-id=6519-6425&t=58TFgNdha3aoeQtE-4",
   "core-o3-foundation-o3-typography-orderedlist--ordered-list-story": "https://www.figma.com/design/VVM0PixrY3IRZq2ZUTdWfU/%F0%9F%92%A0-Core---Origami-(o3)?node-id=7532-3257&t=58TFgNdha3aoeQtE-4",
   "core-o3-foundation-o3-typography-unorderedlist--unordered-list-story": "https://www.figma.com/design/VVM0PixrY3IRZq2ZUTdWfU/%F0%9F%92%A0-Core---Origami-(o3)?node-id=7532-3257&t=58TFgNdha3aoeQtE-4",
+  "core-o3-social-sign-in--social-sign-in-stories": "https://www.figma.com/design/daVzwmvTLKAPf9cf9dU2Bj/o3-button-sso?node-id=8266-485&t=w4QaZHJHIWOdLdZG-4",
   "core-o3-tooltip--onboarding-tooltip": "https://www.figma.com/design/VVM0PixrY3IRZq2ZUTdWfU/%F0%9F%92%A0-Core---Origami-(o3)?node-id=6660-336&t=58TFgNdha3aoeQtE-4",
   "core-o3-tooltip--toggle-tooltip": "https://www.figma.com/design/VVM0PixrY3IRZq2ZUTdWfU/%F0%9F%92%A0-Core---Origami-(o3)?node-id=6660-395&t=58TFgNdha3aoeQtE-4",
   "core-professional-o3-button--button": "https://www.figma.com/design/qfi6fTq5V05b0mnXw3F7q5/%F0%9F%92%A0-Professional---Origami-(o3)?node-id=3604-103&t=uSXzpLGDcxFzfDex-0",
@@ -53,6 +54,7 @@
   "core-professional-o3-foundation-o3-typography-link--links": "https://www.figma.com/design/qfi6fTq5V05b0mnXw3F7q5/%F0%9F%92%A0-Professional---Origami-(o3)?node-id=4161-379&t=uSXzpLGDcxFzfDex-4",
   "core-professional-o3-foundation-o3-typography-orderedlist--ordered-list-story": "https://www.figma.com/design/qfi6fTq5V05b0mnXw3F7q5/%F0%9F%92%A0-Professional---Origami-(o3)?node-id=4287-213&t=uSXzpLGDcxFzfDex-4",
   "core-professional-o3-foundation-o3-typography-unorderedlist--unordered-list-story": "https://www.figma.com/design/qfi6fTq5V05b0mnXw3F7q5/%F0%9F%92%A0-Professional---Origami-(o3)?node-id=4287-213&t=uSXzpLGDcxFzfDex-4",
+  "core-professional-o3-social-sign-in--social-sign-in-stories": "https://www.figma.com/design/daVzwmvTLKAPf9cf9dU2Bj/o3-button-sso?node-id=8266-485&t=w4QaZHJHIWOdLdZG-4",
   "core-professional-o3-tooltip--onboarding-tooltip": "https://www.figma.com/design/qfi6fTq5V05b0mnXw3F7q5/%F0%9F%92%A0-Professional---Origami-(o3)?node-id=4200-365&t=uSXzpLGDcxFzfDex-4",
   "core-professional-o3-tooltip--toggle-tooltip": "https://www.figma.com/design/qfi6fTq5V05b0mnXw3F7q5/%F0%9F%92%A0-Professional---Origami-(o3)?node-id=4200-424&t=uSXzpLGDcxFzfDex-4",
   "internal-o3-button--button": "https://www.figma.com/design/H9vTWZgEzqzTtX689nwq4R/%F0%9F%92%A0-Internal---Origami-(o3)?node-id=2819-133&t=uSXzpLGDcxFzfDex-0",
@@ -100,6 +102,7 @@
   "sustainable-views-o3-foundation-o3-typography-link--link": "https://www.figma.com/design/Y7u0SwIJ1mCNDE0dpzgHCJ/%F0%9F%92%A0-Sustainable-Views---Origami-(o3)?node-id=6648-329&t=T6WBB5s5ODUcvHqu-4",
   "sustainable-views-o3-foundation-o3-typography-orderedlist--ordered-list-story": "",
   "sustainable-views-o3-foundation-o3-typography-unorderedlist--unordered-list-story": "",
+  "sustainable-views-o3-social-sign-in--social-sign-in-stories": "https://www.figma.com/design/daVzwmvTLKAPf9cf9dU2Bj/o3-button-sso?node-id=8266-485&t=w4QaZHJHIWOdLdZG-4",
   "sustainable-views-o3-tooltip--onboarding-tooltip": "https://www.figma.com/design/Y7u0SwIJ1mCNDE0dpzgHCJ/%F0%9F%92%A0-Sustainable-Views---Origami-(o3)?node-id=6318-414&t=jZcQ882g8fhmd6uu-4",
   "sustainable-views-o3-tooltip--toggle-tooltip": "https://www.figma.com/design/Y7u0SwIJ1mCNDE0dpzgHCJ/%F0%9F%92%A0-Sustainable-Views---Origami-(o3)?node-id=6318-473&t=jZcQ882g8fhmd6uu-4",
   "sustainable-views-o3-typography-orderedlist--ordered-list-story": "",
@@ -138,6 +141,7 @@
   "whitelabel-o3-foundation-o3-typography-link--link": "https://www.figma.com/design/5ATknbGociZMlnNXX4sy4f/Whitelabel---Origami-(o3)?node-id=5133-1523&t=uSXzpLGDcxFzfDex-4",
   "whitelabel-o3-foundation-o3-typography-orderedlist--ordered-list-story": "https://www.figma.com/design/5ATknbGociZMlnNXX4sy4f/Whitelabel---Origami-(o3)?node-id=5851-969&t=uSXzpLGDcxFzfDex-4",
   "whitelabel-o3-foundation-o3-typography-unorderedlist--unordered-list-story": "https://www.figma.com/design/5ATknbGociZMlnNXX4sy4f/Whitelabel---Origami-(o3)?node-id=5851-969&t=uSXzpLGDcxFzfDex-4",
+  "whitelabel-o3-social-sign-in--social-sign-in-stories": "https://www.figma.com/design/daVzwmvTLKAPf9cf9dU2Bj/o3-button-sso?node-id=8266-485&t=w4QaZHJHIWOdLdZG-4",
   "whitelabel-o3-tooltip--onboarding-tooltip": "https://www.figma.com/design/5ATknbGociZMlnNXX4sy4f/Whitelabel---Origami-(o3)?node-id=4036-1844&t=uSXzpLGDcxFzfDex-4",
   "whitelabel-o3-tooltip--toggle-tooltip": "https://www.figma.com/design/5ATknbGociZMlnNXX4sy4f/Whitelabel---Origami-(o3)?node-id=4433-581&t=uSXzpLGDcxFzfDex-4"
 }
