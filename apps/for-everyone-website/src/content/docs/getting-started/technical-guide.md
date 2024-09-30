@@ -2,7 +2,8 @@
 title: Technical Guide
 description: A technical guide to using "o3" Origami.
 sidebar:
-  order: 11
+  order: 14
+next: {link: '/getting-started/o3-specification', label: 'O3 Specification'}
 ---
 
 This technical guide covers Origami "o3", the [latest evolution of Origami](/about/what-is-new/). If you are working with older Origami components, which are still most commonly in use today, we have a separate ["o2" technical guide](/o2-components/technical-guide/).

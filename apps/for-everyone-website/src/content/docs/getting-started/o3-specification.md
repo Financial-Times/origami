@@ -2,7 +2,9 @@
 title: O3 Specification
 description: A technical guide to using "o3" Origami.
 sidebar:
-  order: 13
+  hidden: true
+prev: {link: '/getting-started/technical-guide', label: 'Technical Guide'}
+next: {link: '/getting-started/package-manager-npm', label: 'Using Components (o3) via npm'}
 ---
 
 ## Code Structure & Languages

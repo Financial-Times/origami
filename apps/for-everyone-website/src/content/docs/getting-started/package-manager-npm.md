@@ -2,7 +2,9 @@
 title: Using Components (o3) via npm
 description: A reference of components
 sidebar:
-  order: 12
+  hidden: true
+prev: {link: '/getting-started/o3-specification', label: 'O3 Specification'}
+next: {link: '/support', label: "Contact & Support"}
 ---
 
 Origami components are published to npm as [Custom Elements](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements), and other standards based web component technologies.
@@ -100,9 +102,9 @@ import {TooltipOnboarding} from '@financial-times/o3-tooltip';
 Origami packages include component CSS for each supported brand `/css/[brand].css`. Import these to your CSS globally. For example, for the `core` brand:
 
 ```css
-@import '../../../../../../../node_modules/@financial-times/o3-foundation/css/core.css';
-@import '../../../../../../../node_modules/@financial-times/o3-button/css/core.css';
-@import '../../../../../../../node_modules/@financial-times/o3-tooltip/css/core.css';
+@import '../../../../../../node_modules/@financial-times/o3-foundation/css/core.css';
+@import '../../../../../../node_modules/@financial-times/o3-button/css/core.css';
+@import '../../../../../../node_modules/@financial-times/o3-tooltip/css/core.css';
 
 body {
     background-color: var(--o3-color-use-case-page-background);
