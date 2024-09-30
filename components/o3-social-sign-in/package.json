@@ -23,7 +23,7 @@
     "social-sign-in"
   ],
   "scripts": {
-    "build": "node ../../apps/dictionary/scripts/build-config/build.js && bash ../../scripts/component/build-o3.bash o3-social-sign-in"
+    "build": "bash ../../scripts/component/build-o3.bash o3-social-sign-in"
   },
   "author": "",
   "license": "ISC",
