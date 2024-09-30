@@ -1,6 +1,10 @@
 ---
 title: Buttons
 description: Buttons are triggers that provide users with a call to action. Typically allowing users to execute, choose, submit and confirm actions.
+sidebar:
+  badge:
+    text: New
+    variant: tip
 ---
 
 import {Button, ButtonGroup} from '@financial-times/o3-button';
@@ -11,18 +15,25 @@ import '@financial-times/o3-button/css/sustainable-views.css';
 import '@financial-times/o3-button/css/core.css';
 import '@financial-times/o3-button/css/professional.css';
 
+import '@financial-times/o3-social-sign-in/css/whitelabel.css';
+import '@financial-times/o3-social-sign-in/css/internal.css';
+import '@financial-times/o3-social-sign-in/css/sustainable-views.css';
+import '@financial-times/o3-social-sign-in/css/core.css';
+import '@financial-times/o3-social-sign-in/css/professional.css';
+
 import {default as Example} from '../../../components/Example.astro';
 import {default as Guideline} from '../../../components/Guideline.astro';
 
 import {default as ButtonAnatomy} from '../../../components/button/ButtonAnatomy.astro';
 import {default as Preview} from '../../../components/button/ButtonPreview.astro';
 import {default as GroupPreview} from '../../../components/button/ButtonGroupPreview.astro';
+import {default as SocialPreview} from '../../../components/button/SocialPreview.astro';
 
 Buttons are triggers that provide users with a call to action. Typically allowing users to execute, choose, submit and confirm actions.
 
-## Anatomy
+## FT Buttons
 
-The button component contains two required elements and one optional element.
+FT buttons are those that are designed for FT's digital products, with FT branding.
 
 <ButtonAnatomy />
 
@@ -34,7 +45,7 @@ The button component contains two required elements and one optional element.
 1. <strong>Container</strong>: has minimum width of 80px for standard buttons
    and 64px for small buttons.
 
-## Usage Guidelines
+### Usage Guidelines
 
 <Guideline summary="Keep button labels short" do={true}>
 	<p slot="description">
@@ -132,9 +143,7 @@ The button component contains two required elements and one optional element.
 
 </Guideline>
 
-## Behaviour
-
-### Width
+#### Width
 
 A button's width is dependant on the length of its content by default. Alternatively buttons may be "fluid", and stretch to fill the full width of their container.
 
@@ -149,11 +158,11 @@ _(Resize your browser to preview the fluid button's responsive width)_
 	componentProps={{label: 'Fluid button', type: 'primary', fluid: true}}
 />
 
-## Icons
+### Icons
 
 Buttons may be used with icons, without icons, or only icons.
 
-### Without icon
+#### Without icon
 
 <Preview
 	previewFile="Types-Primary"
@@ -161,7 +170,7 @@ Buttons may be used with icons, without icons, or only icons.
 	componentProps={{label: 'Hello', type: 'primary'}}
 />
 
-### With icon
+#### With icon
 
 When icons are used, these are always left aligned.
 
@@ -171,7 +180,7 @@ When icons are used, these are always left aligned.
 	componentProps={{label: 'Hello', type: 'primary', icon: 'search'}}
 />
 
-### Only icon
+#### Only icon
 
 <Preview
 	previewFile="Icons-IconOnly"
@@ -184,11 +193,11 @@ When icons are used, these are always left aligned.
 	}}
 />
 
-## Sizes
+### Sizes
 
 The button comes in two sizes: standard and small.
 
-### Standard
+#### Standard
 
 <Preview
 	previewFile="Types-Primary"
@@ -196,7 +205,7 @@ The button comes in two sizes: standard and small.
 	componentProps={{label: 'Hello', type: 'primary'}}
 />
 
-### Small
+#### Small
 
 <Preview
 	previewFile="Sizes-Small"
@@ -204,11 +213,11 @@ The button comes in two sizes: standard and small.
 	componentProps={{label: 'Hello', type: 'primary', size: 'small'}}
 />
 
-## Types
+### Types
 
 There are three types of buttons to support different contexts.
 
-### Primary
+#### Primary
 
 The primary button is used for the most important calls to action on a page. Primary buttons should only appear once per product area (not including the application header, modal dialogue, on-site messaging, or side panel).
 
@@ -218,7 +227,7 @@ The primary button is used for the most important calls to action on a page. Pri
 	componentProps={{label: 'Hello', type: 'primary'}}
 />
 
-### Secondary
+#### Secondary
 
 For secondary actions on each page or used in conjunction with a primary button. As part of a pair, the secondary button’s function is to perform the negative action of the set, such as “Cancel” or “Back”.
 
@@ -228,7 +237,7 @@ For secondary actions on each page or used in conjunction with a primary button.
 	componentProps={{label: 'Hello', type: 'secondary'}}
 />
 
-### Ghost
+#### Ghost
 
 For the least pronounced actions; often used in conjunction with a primary button. In a situation such as a progress flow, a ghost button may be paired with a primary and secondary button set, where the primary button is for ‘Save and continue’ the ghost button would be ‘Skip’.
 
@@ -238,11 +247,11 @@ For the least pronounced actions; often used in conjunction with a primary butto
 	componentProps={{label: 'Hello', type: 'ghost'}}
 />
 
-## Themes
+### Themes
 
 Each button type supports the following themes.
 
-### Standard
+#### Standard
 
 <Preview
 	previewFile="Types-Primary"
@@ -250,7 +259,7 @@ Each button type supports the following themes.
 	componentProps={{label: 'Hello', type: 'primary'}}
 />
 
-### Inverse
+#### Inverse
 
 An alternative theme for use on dark backgrounds.
 
@@ -263,7 +272,7 @@ An alternative theme for use on dark backgrounds.
 </div>
 
 <BrandedContent brands="core, sustainable-views">
-### Mono
+#### Mono
 
 Mono can be helpful where the standard theme distracts from other colour used, for example when placed near data visualisations.
 
@@ -276,7 +285,7 @@ Mono can be helpful where the standard theme distracts from other colour used, f
 </div>
 </BrandedContent>
 
-## Button Groups
+## FT Button Groups
 
 Buttons may be grouped to combine related buttons together which present users with a set of related, frequently used actions or options in a compact and organized manner.
 
@@ -333,3 +342,27 @@ In terms of user experience, button groups provide a straightforward way for use
     </Example>
 
 </Guideline>
+
+## Single Sign On
+
+Single Sign On (<abbr title="Single Sign On">SSO</abbr>) buttons allow users to sign in or sign up using their social media accounts.
+
+<SocialPreview />
+
+### Usage Guidelines
+
+#### Sign up vs Sign in
+
+Ensure consistent wording for different user flows. This may be changed if needed, but refer to [Apple and Google guidelines below](#branding-compliance-reference) on appropriate wording. We recommend:
+
+- "Sign in with [Provider]" for login
+- "Sign up with [Provider]" for registration
+
+#### Responsiveness
+
+The <abbr title="Single Sign On">SSO</abbr> button spans the full-width of its container to increase tap area on mobile, up to a maximum width of [4 grid columns](/guides/grid/) on tablet and desktop. When used with form fields, always align SSO button width to ensure consistency.
+
+#### Branding Compliance Reference
+
+- [Apple's guidelines](https://developer.apple.com/design/human-interface-guidelines/sign-in-with-apple)
+- [Google's guidelines](https://developers.google.com/identity/branding-guidelines)
