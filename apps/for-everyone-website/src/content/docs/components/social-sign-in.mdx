@@ -1,0 +1,39 @@
+---
+title: Social Sign-On Buttons
+description: Buttons that provide styling for third party sign on flows.
+sidebar:
+  badge:
+    text: New
+    variant: tip
+---
+import '@financial-times/o3-social-sign-in/css/whitelabel.css';
+import '@financial-times/o3-social-sign-in/css/internal.css';
+import '@financial-times/o3-social-sign-in/css/sustainable-views.css';
+import '@financial-times/o3-social-sign-in/css/core.css';
+import '@financial-times/o3-social-sign-in/css/professional.css';
+
+import Preview from '../../../components/utils/Preview.astro';
+import * as preview from '../../../components/social-sign-in/preview/Social-Sign-In.js'
+
+Social sign on (SSO) buttons, such as "Sign up with Apple" or "Sign in with Google," allow users to quickly and securely sign in or create accounts using their existing credentials from trusted third-party services.
+
+
+<Preview
+	component={preview}
+/>
+
+## Usage Guidelines
+
+### Sign up vs Sign in
+
+Ensure consistent wording for different user flows. Use "Sign up with Apple" or "Sign in with Apple" appropriately depending on whether it's a registration or login flow. Copy can be changed if needed but refer to Apple and Google guidelines below on appropriate wording.
+
+### Responsiveness
+
+The SSO button spans full-width of the container to increase tap area on mobile.   Scales appropriately as the screen size increases, container max-width is set to 4 columns on tablet and desktop. When used with form fields, always align SSO button width to ensure consistency.
+
+### Branding Compliance Reference
+
+See [Apple's guidelines](https://developer.apple.com/design/human-interface-guidelines/sign-in-with-apple).
+
+See [Google's guidelines](https://developers.google.com/identity/branding-guidelines).
