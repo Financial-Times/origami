@@ -207,7 +207,7 @@ const uniqueID = 'switcher-' + Math.random().toString(36).substring(7);
 	.component-preview {
 		padding: 4rem;
 		gap: 1rem;
-		justify-content: center;
+		justify-content: var(--preview-justify, center);
 		align-items: center;
 		background-image: url('/assets/images/utils/dot.svg');
 		background-repeat: repeat;
@@ -220,6 +220,6 @@ const uniqueID = 'switcher-' + Math.random().toString(36).substring(7);
 	}
 
 	.visible {
-		display: flex;
+		display: var(--preview-display, flex);
 	}
 </style>

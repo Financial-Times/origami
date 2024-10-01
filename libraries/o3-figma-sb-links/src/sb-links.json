@@ -144,5 +144,9 @@
   "whitelabel-o3-foundation-o3-typography-link--link": "?path=/story/whitelabel-o3-foundation-o3-typography-link--link",
   "whitelabel-o3-foundation-o3-typography-orderedlist--ordered-list-story": "?path=/story/whitelabel-o3-foundation-o3-typography-orderedlist--ordered-list-story",
   "whitelabel-o3-foundation-o3-typography-unorderedlist--unordered-list-story": "?path=/story/whitelabel-o3-foundation-o3-typography-unorderedlist--unordered-list-story",
-  "whitelabel-o3-foundation-o3-typography--wrapper-story": "?path=/story/whitelabel-o3-foundation-o3-typography--wrapper-story"
+  "whitelabel-o3-foundation-o3-typography--wrapper-story": "?path=/story/whitelabel-o3-foundation-o3-typography--wrapper-story",
+  "core-professional-o3-social-sign-in--social-sign-in-stories": "?path=/story/core-professional-o3-social-sign-in--social-sign-in-stories",
+  "core-o3-social-sign-in--social-sign-in-stories": "?path=/story/core-o3-social-sign-in--social-sign-in-stories",
+  "sustainable-views-o3-social-sign-in--social-sign-in-stories": "?path=/story/sustainable-views-o3-social-sign-in--social-sign-in-stories",
+  "whitelabel-o3-social-sign-in--social-sign-in-stories": "?path=/story/whitelabel-o3-social-sign-in--social-sign-in-stories"
 }

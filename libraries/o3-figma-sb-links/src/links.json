@@ -113,6 +113,10 @@
   "core-o3-grid--grid": {
     "sb": "?path=/story/core-o3-grid--grid"
   },
+  "core-o3-social-sign-in--social-sign-in-stories": {
+    "sb": "?path=/story/core-o3-social-sign-in--social-sign-in-stories",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FdaVzwmvTLKAPf9cf9dU2Bj%2Fo3-button-sso%3Fnode-id%3D8266-485%26t%3Dw4QaZHJHIWOdLdZG-4"
+  },
   "core-o3-tooltip--onboarding-tooltip": {
     "sb": "?path=/story/core-o3-tooltip--onboarding-tooltip",
     "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FVVM0PixrY3IRZq2ZUTdWfU%2F%25F0%259F%2592%25A0-Core---Origami-(o3)%3Fnode-id%3D6660-336%26t%3D58TFgNdha3aoeQtE-4"
@@ -250,6 +254,10 @@
   },
   "core-professional-o3-grid--grid": {
     "sb": "?path=/story/core-professional-o3-grid--grid"
+  },
+  "core-professional-o3-social-sign-in--social-sign-in-stories": {
+    "sb": "?path=/story/core-professional-o3-social-sign-in--social-sign-in-stories",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FdaVzwmvTLKAPf9cf9dU2Bj%2Fo3-button-sso%3Fnode-id%3D8266-485%26t%3Dw4QaZHJHIWOdLdZG-4"
   },
   "core-professional-o3-tooltip--onboarding-tooltip": {
     "sb": "?path=/story/core-professional-o3-tooltip--onboarding-tooltip",
@@ -506,6 +514,10 @@
   "sustainable-views-o3-grid--grid": {
     "sb": "?path=/story/sustainable-views-o3-grid--grid"
   },
+  "sustainable-views-o3-social-sign-in--social-sign-in-stories": {
+    "sb": "?path=/story/sustainable-views-o3-social-sign-in--social-sign-in-stories",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FdaVzwmvTLKAPf9cf9dU2Bj%2Fo3-button-sso%3Fnode-id%3D8266-485%26t%3Dw4QaZHJHIWOdLdZG-4"
+  },
   "sustainable-views-o3-tooltip--onboarding-tooltip": {
     "sb": "?path=/story/sustainable-views-o3-tooltip--onboarding-tooltip",
     "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FY7u0SwIJ1mCNDE0dpzgHCJ%2F%25F0%259F%2592%25A0-Sustainable-Views---Origami-(o3)%3Fnode-id%3D6318-414%26t%3DjZcQ882g8fhmd6uu-4"
@@ -683,6 +695,10 @@
   },
   "whitelabel-o3-grid--grid": {
     "sb": "?path=/story/whitelabel-o3-grid--grid"
+  },
+  "whitelabel-o3-social-sign-in--social-sign-in-stories": {
+    "sb": "?path=/story/whitelabel-o3-social-sign-in--social-sign-in-stories",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FdaVzwmvTLKAPf9cf9dU2Bj%2Fo3-button-sso%3Fnode-id%3D8266-485%26t%3Dw4QaZHJHIWOdLdZG-4"
   },
   "whitelabel-o3-tooltip--onboarding-tooltip": {
     "sb": "?path=/story/whitelabel-o3-tooltip--onboarding-tooltip",

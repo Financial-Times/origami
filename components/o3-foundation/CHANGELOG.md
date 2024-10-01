@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0](https://github.com/Financial-Times/origami/compare/o3-foundation-v2.0.0...o3-foundation-v2.1.0) (2024-09-27)
+
+
+### Features
+
+* add z-index values to o3 ([#1827](https://github.com/Financial-Times/origami/issues/1827)) ([1f74480](https://github.com/Financial-Times/origami/commit/1f74480dc51dd161657faef6f0384b853115f96c))
+
 ## [2.0.0](https://github.com/Financial-Times/origami/compare/o3-foundation-v1.6.0...o3-foundation-v1.6.1) (2024-09-19)
 
 ### ⚠ BREAKING CHANGES
