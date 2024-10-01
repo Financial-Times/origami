@@ -2,7 +2,10 @@ import { dirname, join } from "path";
 import type {StorybookConfig} from '@storybook/react-webpack5';
 
 const config: StorybookConfig = {
-	stories: ['../../../components/o3-*/stories/**/*.@(mdx|stories.@(js|jsx|mjs|ts|tsx))'],
+	stories: [
+		'../../../components/o3-*/stories/**/*.mdx',
+		'../../../components/o3-*/stories/**/*.stories.@(js|jsx|mjs|ts|tsx)'
+	],
 	addons: [
 		getAbsolutePath("@storybook/addon-links"),
 		getAbsolutePath("@storybook/addon-essentials"),
@@ -41,6 +44,7 @@ const config: StorybookConfig = {
 		},
 		getAbsolutePath("@chromatic-com/storybook"),
 		getAbsolutePath("@storybook/addon-webpack5-compiler-swc"),
+		getAbsolutePath("@storybook/addon-docs"),
 	],
 	framework: {
 		name: getAbsolutePath("@storybook/react-webpack5"),
