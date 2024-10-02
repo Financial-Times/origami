@@ -1,0 +1,34 @@
+.o3-form__error-summary {
+	display: flex;
+	padding: var(--o3-spacing-xs);
+	background-color: rgba(204, 0, 0, 0.14); /* token needed */
+	/* make this token more generic or create new token for error-summary */
+	border-radius: var(--_o3-form-text-input-border-radius);
+
+	.o3-form__error-summary__heading {
+		margin-left: var(--o3-spacing-4xs);
+		& > span {
+			font-weight: var(--o3-font-weight-medium);
+			color: var(--o3-color-use-case-alert-text);
+			display: inline-block;
+			margin-bottom: var(--o3-spacing-4xs);
+		}
+	}
+
+	.o3-forms__error-summary__list {
+		list-style-type: none;
+		padding-left: 0;
+		margin-top: 0;
+		a {
+			line-height: var(--o3-font-lineheight-metric2-2);
+			color: var(--o3-color-use-case-body-text);
+			text-decoration-color: var(--o3-color-use-case-body-text);
+			text-decoration-thickness: 2px;
+			text-underline-offset: var(--o3-spacing-5xs);
+		}
+	}
+
+	@media screen and (max-width: 489px) {
+		padding: var(--o3-spacing-3xs);
+	}
+}

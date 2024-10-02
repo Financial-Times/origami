@@ -148,5 +148,6 @@
   "core-professional-o3-social-sign-in--social-sign-in-stories": "?path=/story/core-professional-o3-social-sign-in--social-sign-in-stories",
   "core-o3-social-sign-in--social-sign-in-stories": "?path=/story/core-o3-social-sign-in--social-sign-in-stories",
   "sustainable-views-o3-social-sign-in--social-sign-in-stories": "?path=/story/sustainable-views-o3-social-sign-in--social-sign-in-stories",
-  "whitelabel-o3-social-sign-in--social-sign-in-stories": "?path=/story/whitelabel-o3-social-sign-in--social-sign-in-stories"
+  "whitelabel-o3-social-sign-in--social-sign-in-stories": "?path=/story/whitelabel-o3-social-sign-in--social-sign-in-stories",
+  "whitelabel-o3-form--error-summary": "?path=/story/whitelabel-o3-form--error-summary"
 }
