@@ -19,12 +19,12 @@
 		list-style-type: none;
 		padding-left: 0;
 		margin-top: 0;
-		a {
-			line-height: var(--o3-font-lineheight-metric2-2);
-			color: var(--o3-color-use-case-body-text);
-			text-decoration-color: var(--o3-color-use-case-body-text);
-			text-decoration-thickness: 2px;
-			text-underline-offset: var(--o3-spacing-5xs);
+		margin-bottom: 0;
+		li {
+			margin-bottom: var(--o3-spacing-4xs);
+			&:last-child {
+				margin-bottom: 0;
+			}
 		}
 	}
 

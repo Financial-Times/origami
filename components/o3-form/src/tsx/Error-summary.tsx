@@ -32,7 +32,7 @@ export const ErrorSummary = ({
 				<ul className="o3-forms__error-summary__list o3-typography-body-small">
 					{errors.map(({id, fieldName, message}) => (
 						<li key={id}>
-							<a href={`#${id}`}>{fieldName}</a>
+							<a className='o3-typography-link' href={`#${id}`}>{fieldName}</a>
 							<span>: {message}</span>
 						</li>
 					))}
