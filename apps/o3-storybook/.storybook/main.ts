@@ -44,7 +44,6 @@ const config: StorybookConfig = {
 		},
 		getAbsolutePath("@chromatic-com/storybook"),
 		getAbsolutePath("@storybook/addon-webpack5-compiler-swc"),
-		getAbsolutePath("@storybook/addon-docs"),
 	],
 	framework: {
 		name: getAbsolutePath("@storybook/react-webpack5"),
