@@ -1,0 +1,24 @@
+{
+  "o3": {
+    "form": {
+      "color": {
+        "use-case": {
+          "background": {
+            "@": {
+              "value": "{o3.color.palette.white}",
+              "type": "color"
+            },
+            "disabled": {
+              "value": "{o3.color.palette.black-5}",
+              "type": "color"
+            },
+            "error": {
+              "value": "rgba(204, 0, 0, 0.06)",
+              "type": "color"
+            }
+          }
+        }
+      }
+    }
+  }
+}
