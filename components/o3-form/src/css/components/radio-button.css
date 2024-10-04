@@ -1,0 +1,84 @@
+.o3-form-input__radio-button-input {
+	+ label::before {
+		content: '';
+		display: inline-block;
+		width: var(--o3-spacing-s);
+		height: var(--o3-spacing-s);
+		margin-right: var(--o3-spacing-3xs);
+		border: 2px solid var(--o3-color-palette-black-50);
+		border-radius: 50%;
+		box-sizing: border-box;
+	}
+
+	&:hover + label::before {
+		border-color: var(--o3-color-palette-black-40);
+	}
+
+	&:active + label::before {
+		border-color: var(--o3-color-palette-black-30);
+	}
+
+	&:checked + label::after {
+		position: absolute;
+		content: '';
+		width: var(--o3-spacing-s);
+		height: var(--o3-spacing-s);
+		background-color: var(--o3-color-palette-white);
+		mask-image: var(--o3-icons-ft-icon-tick); /* instead of tick icon we need circle icon */
+		mask-repeat: no-repeat;
+		mask-size: contain;
+	}
+
+	&:checked + label::before {
+		background-color: var(--o3-color-palette-black-50);
+	}
+
+	&:checked:hover + label::before {
+		background-color: var(--o3-color-palette-black-40);
+	}
+
+	&:checked:active + label::before {
+		background-color: var(--o3-color-palette-black-30);
+	}
+
+	&:disabled + label::before {
+		border-color: var(--o3-color-palette-black-30);
+	}
+
+	&:disabled + label {
+		color: var(--o3-color-palette-black-30);
+	}
+
+	&:checked:disabled + label::before {
+		background-color: var(--o3-color-palette-black-30);
+	}
+
+	&.o3-form-input-error + label::before {
+		border-color: var(--o3-color-use-case-error);
+		background-color: var(--o3-color-use-case-error-background);
+	}
+
+	&.o3-form-input-error:checked + label::before {
+		border-color: var(--o3-color-use-case-error);
+		background-color: var(--o3-color-use-case-error-background);
+	}
+
+	&.o3-form-input-error:checked + label::after {
+		background-color: var(--o3-color-use-case-error);
+	}
+
+}
+
+.o3-form-input__radio-button-label {
+	display: flex;
+	align-items: center;
+	font-size: var(--o3-font-size-metric2-negative-1);
+	line-height: var(--o3-font-lineheight-metric2-negative-1);
+	font-weight: var(--o3-font-weight-regular);
+	color: var(--o3-color-use-case-body-text);
+
+	&:focus-visible {
+		padding: var(--o3-spacing-5xs);
+		margin: calc(-1 * var(--o3-spacing-5xs)) 0 calc(-1 * var(--o3-spacing-5xs)) calc(-1 * var(--o3-spacing-5xs));
+	}
+}
