@@ -1,9 +1,19 @@
 .o3-form__error-summary {
 	display: flex;
 	padding: var(--o3-spacing-xs);
-	background-color: rgba(204, 0, 0, 0.14); /* token needed */
-	/* make this token more generic or create new token for error-summary */
-	border-radius: var(--_o3-form-text-input-border-radius);
+	background-color: var(--_o3-form-error-summary-background-color);
+	border-radius: var(--_o3-form-input-border-radius);
+
+	.o3-form__error-summary-icon::before {
+		content: '';
+		display: inline-block;
+		background-color: var(--o3-color-use-case-error);
+		width: var(--o3-typography-use-case-body-small-font-size);
+		height: var(--o3-typography-use-case-body-small-font-size);
+		mask-image: var(--o3-icons-ft-icon-error);
+		mask-repeat: no-repeat;
+		mask-size: contain;
+	}
 
 	.o3-form__error-summary__heading {
 		margin-left: var(--o3-spacing-4xs);
