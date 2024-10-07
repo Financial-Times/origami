@@ -26,7 +26,7 @@
             "type": "color"
           },
           "error": {
-            "value": "{o3.form.color.use-case.background.error}",
+            "value": "{o3.color.use-case.error-background}",
             "type": "color"
           },
           "focus": {
