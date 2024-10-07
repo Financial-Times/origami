@@ -12,8 +12,7 @@
       "core/use-case/color": "enabled",
       "core/use-case/typography": "enabled",
       "core/use-case/focus": "enabled",
-      "core/components/o3-editorial-typography": "source",
-      "whitelabel/components/o3-form/use-case": "disabled"
+      "core/components/o3-editorial-typography": "source"
     },
     "$figmaStyleReferences": {
       "color-usecase.background.button.primary.active": "S:ef8234289a222e339b586d8ea3466f08d0d010f5,",
@@ -223,8 +222,7 @@
       "core/professional/components/o3-tooltip": "source",
       "core/use-case/typography": "enabled",
       "core/use-case/focus": "enabled",
-      "core/components/o3-editorial-typography": "source",
-      "whitelabel/components/o3-form/use-case": "disabled"
+      "core/components/o3-editorial-typography": "source"
     },
     "$figmaStyleReferences": {
       "color-usecase.background.button.primary.active": "S:55d4b73d90c40ff305a097a15d86f53de276da57,",
@@ -426,8 +424,7 @@
       "internal/components/o3-tooltip": "source",
       "internal/use-case/color": "enabled",
       "internal/use-case/typography": "enabled",
-      "internal/use-case/focus": "enabled",
-      "whitelabel/components/o3-form/use-case": "disabled"
+      "internal/use-case/focus": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:6510:3502",
     "$figmaModeId": "6510:2",
@@ -525,7 +522,7 @@
       "whitelabel/use-case/focus": "enabled",
       "whitelabel/components/o3-editorial-typography": "source",
       "whitelabel/components/o3-form": "source",
-      "whitelabel/components/o3-form/use-case": "disabled"
+      "whitelabel/components/o3-form/use-case": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:4842:355",
     "$figmaModeId": "4842:3",
@@ -651,8 +648,7 @@
       "sustainable-views/use-case/color": "enabled",
       "sustainable-views/components/o3-editorial-typography": "source",
       "sustainable-views/use-case/typography": "enabled",
-      "sustainable-views/use-case/focus": "enabled",
-      "whitelabel/components/o3-form/use-case": "disabled"
+      "sustainable-views/use-case/focus": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:6169:227",
     "$figmaModeId": "6169:4",
