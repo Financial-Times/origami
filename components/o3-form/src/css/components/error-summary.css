@@ -19,7 +19,7 @@
 		margin-left: var(--o3-spacing-4xs);
 		& > span {
 			font-weight: var(--o3-font-weight-medium);
-			color: var(--o3-color-use-case-alert-text);
+			color: var(--o3-color-use-case-error-text);
 			display: inline-block;
 			margin-bottom: var(--o3-spacing-4xs);
 		}
