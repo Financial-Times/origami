@@ -2,8 +2,9 @@
 title: Using Components (o3) via npm
 description: A reference of components
 sidebar:
-  order: 3
   hidden: true
+prev: {link: '/getting-started/o3-specification', label: 'O3 Specification'}
+next: {link: '/support', label: "Contact & Support"}
 ---
 
 Origami components are published to npm as [Custom Elements](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements), and other standards based web component technologies.
@@ -106,7 +107,7 @@ Origami packages include component CSS for each supported brand `/css/[brand].cs
 @import '@financial-times/o3-tooltip/css/core.css';
 
 body {
-	background-color: var(--o3-color-use-case-page-background);
+    background-color: var(--o3-color-use-case-page-background);
 }
 ```
 
