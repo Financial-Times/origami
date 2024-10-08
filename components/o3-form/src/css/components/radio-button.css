@@ -21,23 +21,22 @@
 	&:checked + label::after {
 		position: absolute;
 		content: '';
-		width: var(--o3-spacing-s);
-		height: var(--o3-spacing-s);
-		background-color: var(--o3-color-palette-white);
-		mask-image: var(--o3-icons-ft-icon-tick); /* instead of tick icon we need circle icon */
-		mask-repeat: no-repeat;
-		mask-size: contain;
+		width: var(--o3-spacing-3xs);
+		height: var(--o3-spacing-3xs);
+		background-color: var(--o3-color-palette-black-50);
+		margin: 6px;
+		border-radius: 50%;
 	}
 
 	&:checked + label::before {
-		background-color: var(--o3-color-palette-black-50);
+		background-color: var(--o3-color-palette-white);
 	}
 
-	&:checked:hover + label::before {
+	&:checked:hover + label::after {
 		background-color: var(--o3-color-palette-black-40);
 	}
 
-	&:checked:active + label::before {
+	&:checked:active + label::after {
 		background-color: var(--o3-color-palette-black-30);
 	}
 
@@ -49,7 +48,7 @@
 		color: var(--o3-color-palette-black-30);
 	}
 
-	&:checked:disabled + label::before {
+	&:checked:disabled + label::after {
 		background-color: var(--o3-color-palette-black-30);
 	}
 

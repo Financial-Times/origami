@@ -23,7 +23,7 @@ export interface CheckBoxProps extends BaseInputProps {
 
 export interface RadioButtonProps extends BaseInputProps {
 	inputId: string;
-	radioButtonLabel: string; // Label specifically for the checkbox
+	radioButtonLabel: string; // Label specifically for the radio button
 }
 export interface FormFieldsetProps {
 	label: string;
