@@ -31,7 +31,7 @@ export const PasswordInput = {
 	parameters: {
 		design: {
 			type: 'figma',
-			url: links['whitelabel-o3-form--text-input'].figma,//TODO: make these link to correct figma place
+			url: links['whitelabel-o3-form--password-input'].figma,
 		},
 	},
 	render: (args) => {
@@ -52,7 +52,7 @@ export const PasswordInputErrorState = {
 	parameters: {
 		design: {
 			type: 'figma',
-			url: links['whitelabel-o3-form--text-input-error-state'].figma,//TODO: make these link to correct figma place
+			url: links['whitelabel-o3-form--password-input-error-state'].figma,
 		},
 	},
 	render: (args) => {
