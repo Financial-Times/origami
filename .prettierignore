@@ -3,3 +3,4 @@ tools/*
 !tools/create-component
 !tools/o3-chrome-extension
 apps/website/_emails/
+apps/dictionary/tokens
