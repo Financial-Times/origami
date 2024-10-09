@@ -18,6 +18,12 @@
               "style": "solid"
             },
             "type": "border"
+          },
+          "hover": {
+            "value": {
+              "color": "{o3.color.palette.black-20}"
+            },
+            "type": "border"
           }
         },
         "background-color": {
@@ -40,6 +46,11 @@
           "hover": {
             "value": "{o3.form.color.use-case.background.@}",
             "type": "color"
+          },
+          "selected": {
+            "value": "{o3.color.palette.black-50}",
+            "type": "color",
+            "description": "applies to non-text input backgrounds like radio button & checkbox"
           }
         },
         "border-radius": {
