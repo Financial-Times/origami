@@ -35,6 +35,10 @@
 			&:last-child {
 				margin-bottom: 0;
 			}
+			a {
+				color: var(--o3-color-use-case-body-text);
+				text-decoration-color: var(--o3-color-use-case-body-text);
+			}
 		}
 	}
 
