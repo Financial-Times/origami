@@ -39,7 +39,7 @@ export const PasswordInput = ({
 				/>
 			</LabeledFormField>
 			<div className="o3-password-input__controls">
-				<CheckBoxItem inputId="showPassword" checkboxLabel="Show Password" />
+				<CheckBoxItem attributes={{disabled}} inputId="showPassword" checkboxLabel="Show Password" />
 				<a href="">Forgot password?</a>
 			</div>
 		</>
