@@ -5,7 +5,7 @@
 		width: var(--o3-spacing-s);
 		height: var(--o3-spacing-s);
 		margin-right: var(--o3-spacing-3xs);
-		border: 2px solid var(--o3-color-palette-black-50);
+		border: var(--_o3-form-input-border);
 		border-radius: 50%;
 		box-sizing: border-box;
 	}
@@ -23,7 +23,7 @@
 		content: '';
 		width: var(--o3-spacing-3xs);
 		height: var(--o3-spacing-3xs);
-		background-color: var(--o3-color-palette-black-50);
+		background-color: var(--o3-color-palette-black-30);
 		margin: 6px;
 		border-radius: 50%;
 	}
@@ -42,6 +42,7 @@
 
 	&:disabled + label::before {
 		border-color: var(--o3-color-palette-black-30);
+		background-color: var(--_o3-form-input-background-color-disabled)
 	}
 
 	&:disabled + label {
@@ -54,12 +55,12 @@
 
 	&.o3-form-input-error + label::before {
 		border-color: var(--o3-color-use-case-error);
-		background-color: var(--o3-color-use-case-error-background);
+		background-color: var(--o3-form-color-use-case-background-error);
 	}
 
 	&.o3-form-input-error:checked + label::before {
 		border-color: var(--o3-color-use-case-error);
-		background-color: var(--o3-color-use-case-error-background);
+		background-color: var(--o3-form-color-use-case-background-error);
 	}
 
 	&.o3-form-input-error:checked + label::after {
@@ -71,9 +72,10 @@
 .o3-form-input__radio-button-label {
 	display: flex;
 	align-items: center;
-	font-size: var(--o3-font-size-metric2-negative-1);
-	line-height: var(--o3-font-lineheight-metric2-negative-1);
-	font-weight: var(--o3-font-weight-regular);
+	font-size: var(--o3-typography-use-case-body-small-font-size);
+	line-height: var(--o3-typography-use-case-body-small-line-height);
+	font-weight: var(--o3-typography-use-case-body-small-font-weight);
+	font-family: var(--o3-typography-use-case-body-small-font-family);
 	color: var(--o3-color-use-case-body-text);
 
 	&:focus-visible {
