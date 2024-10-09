@@ -50,7 +50,12 @@
           "selected": {
             "value": "{o3.color.palette.black-50}",
             "type": "color",
-            "description": "applies to non-text input backgrounds like radio button & checkbox"
+            "description": "For non-text input backgrounds like radio button & checkbox, also applies to indeterminate state."
+          },
+          "selected-hover": {
+            "value": "{o3.color.palette.black-30}",
+            "type": "color",
+            "description": "For non-text input backgrounds like radio button & checkbox, also applies to indeterminate state."
           }
         },
         "border-radius": {
