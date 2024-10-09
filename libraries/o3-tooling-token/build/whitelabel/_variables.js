@@ -513,8 +513,8 @@ export default {
 		"css": "--o3-color-use-case-heading-inverse-text",
 		"figma": "o3/color/use-case/heading-inverse/text"
 },
-	"o3-color-use-case-alert-text": {
-		"shortName": "alert-text",
+	"o3-color-use-case-error-text": {
+		"shortName": "error-text",
 		"value": "#cc0000",
 		"originalValue": "{o3.color.palette.crimson}",
 		"type": "color",
@@ -522,10 +522,10 @@ export default {
 				"o3",
 				"color",
 				"use-case",
-				"alert-text"
+				"error-text"
 		],
-		"css": "--o3-color-use-case-alert-text",
-		"figma": "o3/color/use-case/alert-text"
+		"css": "--o3-color-use-case-error-text",
+		"figma": "o3/color/use-case/error-text"
 },
 	"o3-spacing-5xs": {
 		"shortName": "5xs",

@@ -4,16 +4,19 @@
 
 
 [data-o3-brand="whitelabel"] .o3-form {
-  --o3-form-color-use-case-background-error: rgba(204, 0, 0, 0.06);
+  --_o3-form-color-use-case-background-error: rgba(204, 0, 0, 0.06);
   --_o3-form-error-summary-background-color: rgba(204, 0, 0, 0.14);
   --_o3-form-input-border-radius: 6px;
-  --o3-form-color-use-case-background-disabled: var(--o3-color-palette-black-5);
-  --o3-form-color-use-case-background: var(--o3-color-palette-white);
-  --_o3-form-input-background-color-error: var(--o3-form-color-use-case-background-error);
+  --_o3-form-color-use-case-background-disabled: var(--o3-color-palette-black-5);
+  --_o3-form-color-use-case-background: var(--o3-color-palette-white);
+  --_o3-form-input-background-color-selected-hover: var(--o3-color-palette-black-30); /* For non-text input backgrounds like radio button & checkbox, also applies to indeterminate state. */
+  --_o3-form-input-background-color-selected: var(--o3-color-palette-black-50); /* For non-text input backgrounds like radio button & checkbox, also applies to indeterminate state. */
+  --_o3-form-input-background-color-error: var(--_o3-form-color-use-case-background-error);
+  --_o3-form-input-border-hover: none var(--o3-color-palette-black-20);
   --_o3-form-input-border: 2px solid var(--o3-color-palette-black-30);
-  --_o3-form-input-background-color-hover: var(--o3-form-color-use-case-background);
-  --_o3-form-input-background-color-disabled: var(--o3-form-color-use-case-background-disabled);
-  --_o3-form-input-background-color-focus: var(--o3-form-color-use-case-background);
-  --_o3-form-input-background-color: var(--o3-form-color-use-case-background);
+  --_o3-form-input-background-color-hover: var(--_o3-form-color-use-case-background);
+  --_o3-form-input-background-color-disabled: var(--_o3-form-color-use-case-background-disabled);
+  --_o3-form-input-background-color-focus: var(--_o3-form-color-use-case-background);
+  --_o3-form-input-background-color: var(--_o3-form-color-use-case-background);
   --_o3-form-input-border-error: 2px solid var(--o3-color-use-case-error);
 }
