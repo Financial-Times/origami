@@ -5,8 +5,8 @@
 		width: var(--o3-spacing-s);
 		height: var(--o3-spacing-s);
 		margin-right: var(--o3-spacing-3xs);
-		border: 2px solid var(--o3-color-palette-black-50);
-		border-radius: var(--o3-spacing-5xs);
+		border: var(--_o3-form-input-border);
+		border-radius: var(--_o3-form-input-border-radius);
 		box-sizing: border-box;
 	}
 
@@ -23,14 +23,14 @@
 		content: '';
 		width: var(--o3-spacing-s);
 		height: var(--o3-spacing-s);
-		background-color: var(--o3-color-palette-white);
+		background-color: var(--_o3-form-input-background-color);
 		mask-image: var(--o3-icons-ft-icon-tick);
 		mask-repeat: no-repeat;
 		mask-size: contain;
 	}
 
 	&:checked + label::before {
-		background-color: var(--o3-color-palette-black-50);
+		background-color: var(--o3-color-palette-black-30);
 	}
 
 	&:checked:hover + label::before {
