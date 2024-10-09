@@ -3,7 +3,6 @@
     padding: var(--o3-spacing-3xs) var(--o3-spacing-2xs);
     background-color: var(--_o3-form-input-background-color);
     border-radius: var(--_o3-form-input-border-radius);
-
     --o3-grid-columns-to-span-count: 4;
     max-width: var(--_o3-form-text-input-max-width, var(--o3-grid-columns-to-span-width));
 }
