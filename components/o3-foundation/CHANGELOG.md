@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.1](https://github.com/Financial-Times/origami/compare/o3-foundation-v2.1.0...o3-foundation-v2.1.1) (2024-10-09)
+
+
+### Bug Fixes
+
+* remove link use case tokens so it inherits font styles from parent element ([#1841](https://github.com/Financial-Times/origami/issues/1841)) ([3b39eb2](https://github.com/Financial-Times/origami/commit/3b39eb2a09b0d360c5f47dbc7976b6c25cd6549b))
+
 ## [2.1.0](https://github.com/Financial-Times/origami/compare/o3-foundation-v2.0.0...o3-foundation-v2.1.0) (2024-09-27)
 
 
