@@ -2,6 +2,7 @@
 	border: var(--_o3-form-text-input-border);
 	padding: var(--o3-spacing-3xs) var(--o3-spacing-2xs);
 	background-color: var(--_o3-form-text-input-background-color);
+	box-sizing: border-box;
 	border-radius: var(--_o3-form-text-input-border-radius);
 
 	--o3-grid-columns-to-span-count: 4;
