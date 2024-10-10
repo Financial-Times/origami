@@ -1,11 +1,6 @@
 .o3-typography-link,
 .o3-typography-wrapper > a,
 .o3-typography-wrapper > p > a {
-	font-family: var(--o3-typography-use-case-link-font-family);
-	font-size: var(--o3-typography-use-case-link-font-size);
-	font-weight: var(--o3-typography-use-case-link-font-weight);
-	line-height: var(--o3-typography-use-case-link-line-height);
-
 	color: var(--o3-color-use-case-link-text);
 	border-bottom-color: var(--o3-color-use-case-link-underline);
 	text-decoration-color: var(--o3-color-use-case-link-underline);
