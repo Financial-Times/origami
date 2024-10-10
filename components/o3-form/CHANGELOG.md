@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.3](https://github.com/Financial-Times/origami/compare/o3-form-v0.3.2...o3-form-v0.3.3) (2024-10-10)
+
+
+### Bug Fixes
+
+* size text input with border-box ([#1846](https://github.com/Financial-Times/origami/issues/1846)) ([cd6ab51](https://github.com/Financial-Times/origami/commit/cd6ab51f223c45ce33e355a6041a2f441677b58c))
+
 ## [0.3.2](https://github.com/Financial-Times/origami/compare/o3-form-v0.3.1...o3-form-v0.3.2) (2024-09-19)
 
 
