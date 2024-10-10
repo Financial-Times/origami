@@ -6,7 +6,7 @@ import {
 	CheckBoxItem,
 	CheckBox,
 	RadioButtonGroup,
-	RadioButtonItem
+	RadioButtonItem,
 } from '../src/tsx/index';
 import type {CheckBoxProps} from '../src/types/index';
 
@@ -96,9 +96,13 @@ const RadioButtonGroupTemplate: RadioButtonGroupStory = {
 		return (
 			<Form>
 				<RadioButtonGroup {...args}>
-					<RadioButtonItem inputId='radio_1' radioButtonLabel='Option 1' />
-					<RadioButtonItem inputId='radio_2' radioButtonLabel='Option 2' />
-					<RadioButtonItem inputId='radio_3' radioButtonLabel='Option 3' attributes={{disabled: true}} />
+					<RadioButtonItem inputId="radio_1" radioButtonLabel="Option 1" />
+					<RadioButtonItem inputId="radio_2" radioButtonLabel="Option 2" />
+					<RadioButtonItem
+						inputId="radio_3"
+						radioButtonLabel="Option 3"
+						attributes={{disabled: true}}
+					/>
 				</RadioButtonGroup>
 			</Form>
 		);
@@ -133,7 +137,6 @@ export const CheckBoxGroupStory: CheckBoxGroupStory = {
 		},
 	},
 };
-
 
 export const RadioButtonGroupStory: RadioButtonGroupStory = {
 	...RadioButtonGroupTemplate,

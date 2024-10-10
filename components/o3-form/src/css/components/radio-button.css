@@ -11,11 +11,15 @@
 	}
 
 	&:hover + label::before {
-		border-color: var(--o3-color-palette-black-40);
+		border-color: var(--o3-form-color-use-case-border-hover);
 	}
 
 	&:active + label::before {
-		border-color: var(--o3-color-palette-black-30);
+		border-color: var(--o3-form-color-use-case-border-active);
+	}
+
+	&:checked + label::before {
+		border-color: var(--o3-form-color-use-case-selected);
 	}
 
 	&:checked + label::after {
@@ -23,34 +27,38 @@
 		content: '';
 		width: var(--o3-spacing-3xs);
 		height: var(--o3-spacing-3xs);
-		background-color: var(--o3-color-palette-black-30);
+		background-color: var(--o3-form-color-use-case-selected);
+		/* 6px margin centers our 12px width/height circle within the checkbox outer ring, so checkbox is 24px in total  */
 		margin: 6px;
 		border-radius: 50%;
 	}
 
-	&:checked + label::before {
-		background-color: var(--o3-color-palette-white);
+	&:checked:hover + label::before {
+		border-color: var(--o3-form-color-use-case-selected-hover);
 	}
 
 	&:checked:hover + label::after {
-		background-color: var(--o3-color-palette-black-40);
+		background-color: var(--o3-form-color-use-case-selected-hover);
+	}
+
+	&:checked:active + label::before {
+		border-color: var(--o3-form-color-use-case-selected-active);
 	}
 
 	&:checked:active + label::after {
-		background-color: var(--o3-color-palette-black-30);
+		background-color: var(--o3-form-color-use-case-selected-active);
 	}
 
 	&:disabled + label::before {
-		border-color: var(--o3-color-palette-black-30);
-		background-color: var(--_o3-form-input-background-color-disabled)
+		border-color: var(--o3-form-color-use-case-border-disabled);
+	}
+
+	&:disabled:checked + label::after {
+		background-color: var(--o3-form-color-use-case-border-disabled);
 	}
 
 	&:disabled + label {
-		color: var(--o3-color-palette-black-30);
-	}
-
-	&:checked:disabled + label::after {
-		background-color: var(--o3-color-palette-black-30);
+		color: var(--o3-form-color-use-case-border-disabled);
 	}
 
 	&.o3-form-input-error + label::before {
@@ -66,7 +74,6 @@
 	&.o3-form-input-error:checked + label::after {
 		background-color: var(--o3-color-use-case-error);
 	}
-
 }
 
 .o3-form-input__radio-button-label {
