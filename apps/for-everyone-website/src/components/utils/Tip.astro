@@ -1,0 +1,48 @@
+---
+---
+
+<div class="not-content">
+	<div class="wrapper">
+
+		<p>
+			<slot name="tip-content"></slot>
+		</p>
+
+	</div>
+	<div class="tip-source">
+		<strong>SOURCES: </strong>
+		<div class="sources-wrapper	">
+			<slot name="tip-sources"></slot>
+		</div>
+	</div>
+</div>
+
+<style>
+	.wrapper {
+		background-color: #F4F4F5;
+
+	}
+	p {
+		position: relative;
+		margin: 14px 0px 14px 44px;
+		&::before {
+			content: '';
+			display: inline-block;
+			position: absolute;
+			left: -30px;
+			top: 5px;
+			width: 24px;
+			height: 24px;
+			background-image: url('/assets/images/documentation/components/tip.svg');
+			background-repeat: no-repeat;
+		}
+	}
+	.tip-source {
+		display: flex;
+		.sources-wrapper {
+			* {
+				all: unset;
+			}
+		}
+	}
+</style>
