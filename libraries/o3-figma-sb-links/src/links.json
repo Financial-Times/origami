@@ -647,6 +647,10 @@
     "sb": "?path=/story/whitelabel-o3-form--check-box-group",
     "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FiPTwPXBVyBX57GLtfFWuY3%2Fo3-input-checkbox%3Fnode-id%3D7300-387%26t%3D8ztgwLe3KFu3H8NJ-4"
   },
+  "whitelabel-o3-form--radio-button": {
+    "sb": "?path=/story/whitelabel-o3-form--radio-button",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FXmoBNJpiRQth8ir71ZZ2tY%2Fo3-input-radio%3Fnode-id%3D7457-121%26t%3DJ6TmA1OXty5bbOot-4"
+  },
   "whitelabel-o3-form--short-text-input": {
     "sb": "?path=/story/whitelabel-o3-form--short-text-input"
   },

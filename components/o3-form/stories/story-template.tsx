@@ -98,6 +98,7 @@ const RadioButtonGroupTemplate: RadioButtonGroupStory = {
 				<RadioButtonGroup {...args}>
 					<RadioButtonItem inputId='radio_1' radioButtonLabel='Option 1' />
 					<RadioButtonItem inputId='radio_2' radioButtonLabel='Option 2' />
+					<RadioButtonItem inputId='radio_3' radioButtonLabel='Option 3' attributes={{disabled: true}} />
 				</RadioButtonGroup>
 			</Form>
 		);

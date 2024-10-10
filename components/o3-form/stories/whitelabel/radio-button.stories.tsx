@@ -18,7 +18,7 @@ export default {
 		backgrounds: {disable: true},
 		design: {
 			type: 'figma',
-			url: links["whitelabel-o3-form--check-box"].figma
+			url: links["whitelabel-o3-form--radio-button"].figma
 		}
 	},
 } as Meta;
