@@ -16,6 +16,42 @@
               "value": "rgba(204, 0, 0, 0.06)",
               "type": "color"
             }
+          },
+          "border": {
+            "@": {
+              "value": "{o3.color.palette.black-30}",
+              "type": "color"
+            },
+            "hover": {
+              "value": "{o3.color.palette.black-20}",
+              "type": "color"
+            },
+            "active": {
+              "value": "{o3.color.palette.black-40}",
+              "type": "color"
+            },
+            "disabled": {
+              "value": "{o3.color.palette.black-30}",
+              "type": "color"
+            }
+          },
+          "selected": {
+            "@": {
+              "value": "{o3.color.palette.black-50}",
+              "type": "color"
+            },
+            "hover": {
+              "value": "{o3.color.palette.black-30}",
+              "type": "color"
+            },
+            "active": {
+              "value": "{o3.color.palette.black-40}",
+              "type": "color"
+            },
+            "diabled": {
+              "value": "{o3.color.palette.black-30}",
+              "type": "color"
+            }
           }
         }
       }
