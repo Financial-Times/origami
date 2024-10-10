@@ -1618,30 +1618,6 @@ export default {
 		"css": "--o3-typography-use-case-heading5",
 		"figma": "o3/typography/use-case/heading5"
 },
-	"o3-typography-use-case-link": {
-		"shortName": "link",
-		"value": {
-				"fontFamily": "metric 2 VF",
-				"fontWeight": "400",
-				"fontSize": "18",
-				"lineHeight": "24px"
-		},
-		"originalValue": {
-				"fontFamily": "{o3.font.family.metric}",
-				"fontWeight": "{o3.font.weight.regular}",
-				"fontSize": "{o3.font.size-metric2.1}",
-				"lineHeight": "{o3.font.lineheight-metric2.1}"
-		},
-		"type": "typography",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"link"
-		],
-		"css": "--o3-typography-use-case-link",
-		"figma": "o3/typography/use-case/link"
-},
 	"o3-typography-use-case-footer": {
 		"shortName": "footer",
 		"value": {

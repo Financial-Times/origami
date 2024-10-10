@@ -2050,30 +2050,6 @@ export default {
 		"css": "--o3-typography-use-case-body-small-bold",
 		"figma": "o3/typography/use-case/body-small-bold"
 },
-	"o3-typography-use-case-link": {
-		"shortName": "link",
-		"value": {
-				"fontFamily": "metric 2 VF",
-				"fontWeight": "400",
-				"fontSize": "16",
-				"lineHeight": "20px"
-		},
-		"originalValue": {
-				"fontFamily": "{o3.font.family.metric}",
-				"fontWeight": "{o3.font.weight.regular}",
-				"fontSize": "{o3.font.size-metric2.0}",
-				"lineHeight": "{o3.font.lineheight-metric2.0}"
-		},
-		"type": "typography",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"link"
-		],
-		"css": "--o3-typography-use-case-link",
-		"figma": "o3/typography/use-case/link"
-},
 	"o3-typography-use-case-footer": {
 		"shortName": "footer",
 		"value": {

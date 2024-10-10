@@ -513,8 +513,8 @@ export default {
 		"css": "--o3-color-use-case-heading-inverse-text",
 		"figma": "o3/color/use-case/heading-inverse/text"
 },
-	"o3-color-use-case-alert-text": {
-		"shortName": "alert-text",
+	"o3-color-use-case-error-text": {
+		"shortName": "error-text",
 		"value": "#cc0000",
 		"originalValue": "{o3.color.palette.crimson}",
 		"type": "color",
@@ -522,10 +522,10 @@ export default {
 				"o3",
 				"color",
 				"use-case",
-				"alert-text"
+				"error-text"
 		],
-		"css": "--o3-color-use-case-alert-text",
-		"figma": "o3/color/use-case/alert-text"
+		"css": "--o3-color-use-case-error-text",
+		"figma": "o3/color/use-case/error-text"
 },
 	"o3-spacing-5xs": {
 		"shortName": "5xs",
@@ -1642,30 +1642,6 @@ export default {
 		],
 		"css": "--o3-typography-use-case-body-small-bold",
 		"figma": "o3/typography/use-case/body-small-bold"
-},
-	"o3-typography-use-case-link": {
-		"shortName": "link",
-		"value": {
-				"fontFamily": "metric 2 VF",
-				"fontWeight": "400",
-				"fontSize": "16",
-				"lineHeight": "20px"
-		},
-		"originalValue": {
-				"fontFamily": "{o3.font.family.metric}",
-				"fontWeight": "{o3.font.weight.regular}",
-				"fontSize": "{o3.font.size-metric2.0}",
-				"lineHeight": "{o3.font.lineheight-metric2.0}"
-		},
-		"type": "typography",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"link"
-		],
-		"css": "--o3-typography-use-case-link",
-		"figma": "o3/typography/use-case/link"
 },
 	"o3-typography-use-case-footer": {
 		"shortName": "footer",

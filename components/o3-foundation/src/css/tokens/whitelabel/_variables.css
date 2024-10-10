@@ -129,10 +129,6 @@
   --o3-typography-use-case-footer-font-size: var(--o3-font-size-metric2-0);
   --o3-typography-use-case-footer-font-weight: var(--o3-font-weight-regular);
   --o3-typography-use-case-footer-font-family: var(--o3-font-family-metric);
-  --o3-typography-use-case-link-line-height: var(--o3-font-lineheight-metric2-0);
-  --o3-typography-use-case-link-font-size: var(--o3-font-size-metric2-0);
-  --o3-typography-use-case-link-font-weight: var(--o3-font-weight-regular);
-  --o3-typography-use-case-link-font-family: var(--o3-font-family-metric);
   --o3-typography-use-case-body-small-bold-line-height: var(--o3-font-lineheight-metric2-negative-1);
   --o3-typography-use-case-body-small-bold-font-size: var(--o3-font-size-metric2-negative-1);
   --o3-typography-use-case-body-small-bold-font-weight: var(--o3-font-weight-semibold);
@@ -153,7 +149,7 @@
   --o3-typography-use-case-body-standard-font-size: var(--o3-font-size-metric2-0);
   --o3-typography-use-case-body-standard-font-weight: var(--o3-font-weight-regular);
   --o3-typography-use-case-body-standard-font-family: var(--o3-font-family-metric);
-  --o3-color-use-case-alert-text: var(--o3-color-palette-crimson);
+  --o3-color-use-case-error-text: var(--o3-color-palette-crimson);
   --o3-color-use-case-heading-inverse-text: var(--o3-color-palette-white);
   --o3-color-use-case-heading-text: var(--o3-color-palette-black-90);
   --o3-color-use-case-muted-inverse-text: var(--o3-color-palette-black-20);
