@@ -48,7 +48,7 @@
               "value": "{o3.color.palette.black-40}",
               "type": "color"
             },
-            "diabled": {
+            "disabled": {
               "value": "{o3.color.palette.black-30}",
               "type": "color"
             }
