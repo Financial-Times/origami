@@ -1,6 +1,6 @@
 import {useEffect} from 'react';
 import type {StoryObj} from '@storybook/react';
-import {Form, CheckBoxGroup, CheckBoxItem, CheckBox} from '../src/tsx/index';
+import {Form, CheckBoxGroup, CheckBoxItem, CheckBox, ErrorSummary} from '../src/tsx/index';
 import type {CheckBoxProps} from '../src/types/index';
 
 type CheckBoxStoryProps = CheckBoxProps & {
@@ -81,6 +81,29 @@ const CheckBoxGroupTemplate: CheckBoxGroupStory = {
 	},
 };
 
+const ErrorSummaryTemplate: StoryObj = {
+	render: () => {
+		return (
+			<Form>
+				<ErrorSummary
+					errors={[
+						{
+							id: 'email_address',
+							fieldName: 'Email Address',
+							message: 'not a valid email',
+						},
+						{
+							id: 'phone_number',
+							fieldName: 'Phone Number',
+							message: 'the number you provided is wrong',
+						},
+					]}
+				/>
+			</Form>
+		);
+	},
+};
+
 export const CheckBoxStory: CheckBoxStory = {
 	...CheckBoxTemplate,
 	args: {
@@ -108,4 +131,9 @@ export const CheckBoxGroupStory: CheckBoxGroupStory = {
 			type: 'error',
 		},
 	},
+};
+
+
+export const ErrorSummaryStory: StoryObj = {
+	...ErrorSummaryTemplate,
 };
