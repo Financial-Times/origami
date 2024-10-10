@@ -5,17 +5,17 @@
 		width: var(--o3-spacing-s);
 		height: var(--o3-spacing-s);
 		margin-right: var(--o3-spacing-3xs);
-		border: 2px solid var(--o3-color-palette-black-50);
-		border-radius: var(--o3-spacing-5xs);
+		border: var(--_o3-form-input-border);
+		border-radius: var(--_o3-form-input-border-radius);
 		box-sizing: border-box;
 	}
 
 	&:hover + label::before {
-		border-color: var(--o3-color-palette-black-40);
+		border-color: var(--_o3-form-input-background-color-selected-hover);
 	}
 
 	&:active + label::before {
-		border-color: var(--o3-color-palette-black-30);
+		border-color: var(--_o3-form-input-background-color-selected);
 	}
 
 	&:checked + label::after {
@@ -23,26 +23,29 @@
 		content: '';
 		width: var(--o3-spacing-s);
 		height: var(--o3-spacing-s);
-		background-color: var(--o3-color-palette-white);
+		background-color: var(--_o3-form-input-background-color);
 		mask-image: var(--o3-icons-ft-icon-tick);
 		mask-repeat: no-repeat;
 		mask-size: contain;
 	}
 
 	&:checked + label::before {
-		background-color: var(--o3-color-palette-black-50);
+		background-color: var(--_o3-form-input-background-color-selected);
+		border-color: var(--_o3-form-input-background-color-selected);
 	}
 
 	&:checked:hover + label::before {
-		background-color: var(--o3-color-palette-black-40);
+		background-color: var(--_o3-form-input-background-color-selected-hover);
+		border-color: var(--_o3-form-input-background-color-selected-hover);
 	}
 
 	&:checked:active + label::before {
-		background-color: var(--o3-color-palette-black-30);
+		background-color: var(--_o3-form-input-background-color-selected-hover);
+		border-color: var(--_o3-form-input-background-color-selected-hover);
 	}
 
 	&:disabled + label::before {
-		border-color: var(--o3-color-palette-black-30);
+		border-color: var(--_o3-form-color-use-case-background-disabled);
 	}
 
 	&:disabled + label {
@@ -51,6 +54,7 @@
 
 	&:checked:disabled + label::before {
 		background-color: var(--o3-color-palette-black-30);
+		border-color: var(--o3-color-palette-black-30);
 	}
 
 	&.o3-form-input-error + label::before {
@@ -68,8 +72,8 @@
 	}
 
 	&:indeterminate + label::before {
-		border-color: var(--o3-color-palette-black-50);
-		background-color: var(--o3-color-palette-black-50);
+		border-color: var(--_o3-form-input-background-color-selected);
+		background-color: var(--_o3-form-input-background-color-selected);
 	}
 
 	&:indeterminate + label::after {
@@ -77,21 +81,21 @@
 		content: '';
 		width: var(--o3-spacing-s);
 		height: var(--o3-spacing-s);
-		background-color: var(--o3-color-palette-white);
+		background-color: var(--_o3-form-input-background-color);
 		mask-image: var(--o3-icons-ft-icon-minus);
 		mask-repeat: no-repeat;
 		mask-size: contain;
 	}
 
 	&:indeterminate:hover + label::before {
-		border-color: var(--o3-color-palette-black-40);
-		background-color: var(--o3-color-palette-black-40);
+		border-color: var(--_o3-form-input-background-color-selected-hover);
+		background-color: var(--_o3-form-input-background-color-selected-hover);
 	}
 
 	&:indeterminate:active + label::before,
 	&:indeterminate:disabled + label::before {
-		border-color: var(--o3-color-palette-black-30);
-		background-color: var(--o3-color-palette-black-30);
+		border-color: var(--_o3-form-input-background-color-selected-hover);
+		background-color: var(--_o3-form-input-background-color-selected-hover);
 	}
 
 	&.o3-form-input-error:indeterminate + label::before {
