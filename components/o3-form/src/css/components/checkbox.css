@@ -1,21 +1,21 @@
-.o3-form-input__checkbox-input {
+.o3-form-input-checkbox__input {
 	+ label::before {
 		content: '';
 		display: inline-block;
 		width: var(--o3-spacing-s);
 		height: var(--o3-spacing-s);
 		margin-right: var(--o3-spacing-3xs);
-		border: 2px solid var(--o3-color-palette-black-50);
-		border-radius: var(--o3-spacing-5xs);
+		border: var(--_o3-form-input-border);
+		border-radius: var(--_o3-form-input-border-radius);
 		box-sizing: border-box;
 	}
 
 	&:hover + label::before {
-		border-color: var(--o3-color-palette-black-40);
+		border-color: var(--o3-form-color-use-case-selected-hover);
 	}
 
 	&:active + label::before {
-		border-color: var(--o3-color-palette-black-30);
+		border-color: var(--o3-form-color-use-case-selected-active);
 	}
 
 	&:checked + label::after {
@@ -23,34 +23,38 @@
 		content: '';
 		width: var(--o3-spacing-s);
 		height: var(--o3-spacing-s);
-		background-color: var(--o3-color-palette-white);
+		background-color: var(--o3-form-color-use-case-background);
 		mask-image: var(--o3-icons-ft-icon-tick);
 		mask-repeat: no-repeat;
 		mask-size: contain;
 	}
 
 	&:checked + label::before {
-		background-color: var(--o3-color-palette-black-50);
+		background-color: var(--o3-form-color-use-case-selected-active);
+		border-color: var(--o3-form-color-use-case-selected-active);
 	}
 
 	&:checked:hover + label::before {
-		background-color: var(--o3-color-palette-black-40);
+		background-color: var(--o3-form-color-use-case-selected-hover);
+		border-color: var(--o3-form-color-use-case-selected-hover);
 	}
 
 	&:checked:active + label::before {
-		background-color: var(--o3-color-palette-black-30);
+		background-color: var(--o3-form-color-use-case-selected-active);
+		border-color: var(--o3-form-color-use-case-selected-active);
 	}
 
 	&:disabled + label::before {
-		border-color: var(--o3-color-palette-black-30);
+		border-color: var(--o3-form-color-use-case-border-disabled);
 	}
 
 	&:disabled + label {
-		color: var(--o3-color-palette-black-30);
+		color: var(--o3-form-color-use-case-border-disabled);
 	}
 
 	&:checked:disabled + label::before {
-		background-color: var(--o3-color-palette-black-30);
+		background-color: var(--o3-form-color-use-case-selected-disabled);
+		border-color: var(--o3-form-color-use-case-selected-disabled);
 	}
 
 	&.o3-form-input-error + label::before {
@@ -68,8 +72,8 @@
 	}
 
 	&:indeterminate + label::before {
-		border-color: var(--o3-color-palette-black-50);
-		background-color: var(--o3-color-palette-black-50);
+		border-color: var(--o3-form-color-use-case-selected-active);
+		background-color: var(--o3-form-color-use-case-selected-active);
 	}
 
 	&:indeterminate + label::after {
@@ -77,21 +81,21 @@
 		content: '';
 		width: var(--o3-spacing-s);
 		height: var(--o3-spacing-s);
-		background-color: var(--o3-color-palette-white);
+		background-color: var(--o3-form-color-use-case-background);
 		mask-image: var(--o3-icons-ft-icon-minus);
 		mask-repeat: no-repeat;
 		mask-size: contain;
 	}
 
 	&:indeterminate:hover + label::before {
-		border-color: var(--o3-color-palette-black-40);
-		background-color: var(--o3-color-palette-black-40);
+		border-color: var(--o3-form-color-use-case-selected-hover);
+		background-color: var(--o3-form-color-use-case-selected-hover);
 	}
 
 	&:indeterminate:active + label::before,
 	&:indeterminate:disabled + label::before {
-		border-color: var(--o3-color-palette-black-30);
-		background-color: var(--o3-color-palette-black-30);
+		border-color: var(--o3-form-color-use-case-selected-hover);
+		background-color: var(--o3-form-color-use-case-selected-hover);
 	}
 
 	&.o3-form-input-error:indeterminate + label::before {
@@ -104,12 +108,12 @@
 	}
 }
 
-.o3-form-input__checkbox-label {
+.o3-form-input-checkbox__label {
 	display: flex;
 	align-items: center;
-	font-size: var(--o3-font-size-metric2-negative-1);
-	line-height: var(--o3-font-lineheight-metric2-negative-1);
-	font-weight: var(--o3-font-weight-regular);
+	font-size: var(--o3-typography-use-case-body-small-font-size);
+	line-height: var(--o3-typography-use-case-body-small-line-height);
+	font-weight: var(--o3-typography-use-case-body-small-font-weight);
 	color: var(--o3-color-use-case-body-text);
 
 	&:focus-visible {
