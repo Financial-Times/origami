@@ -673,6 +673,10 @@
     "sb": "?path=/story/whitelabel-o3-form--check-box-group",
     "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FiPTwPXBVyBX57GLtfFWuY3%2Fo3-input-checkbox%3Fnode-id%3D7300-387%26t%3D8ztgwLe3KFu3H8NJ-4"
   },
+  "whitelabel-o3-form--error-summary": {
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FR6fcpcKjdAtJZ7qxuNgN0G%2F%25D0%25BE3-input-summary%3Fnode-id%3D7167-920%26t%3DjMXNNS1bUt1HIpLw-4",
+    "sb": "?path=/story/whitelabel-o3-form--error-summary"
+  },
   "whitelabel-o3-form--password-input": {
     "sb": "?path=/story/whitelabel-o3-form--password-input",
     "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FGd3FgVbUqkz57FQZYIlHuN%2Fo3-input-password%3Fnode-id%3D6760-479%26t%3DC50iu949aCHJtJK2-4"
