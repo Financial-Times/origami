@@ -3,3 +3,4 @@ export * from './fieldComponents/FormField';
 export * from './fieldComponents/Form';
 export * from './CheckBox';
 export * from './RadioButton';
+export * from './Error-summary';

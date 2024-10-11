@@ -7,7 +7,7 @@ import {
 	CheckBox,
 	RadioButtonGroup,
 	RadioButtonItem,
-} from '../src/tsx/index';
+	ErrorSummary} from '../src/tsx/index';
 import type {CheckBoxProps} from '../src/types/index';
 
 type CheckBoxStoryProps = CheckBoxProps & {
@@ -109,6 +109,29 @@ const RadioButtonGroupTemplate: RadioButtonGroupStory = {
 	},
 };
 
+const ErrorSummaryTemplate: StoryObj = {
+	render: () => {
+		return (
+			<Form>
+				<ErrorSummary
+					errors={[
+						{
+							id: 'email_address',
+							fieldName: 'Email Address',
+							message: 'not a valid email',
+						},
+						{
+							id: 'phone_number',
+							fieldName: 'Phone Number',
+							message: 'the number you provided is wrong',
+						},
+					]}
+				/>
+			</Form>
+		);
+	},
+};
+
 export const CheckBoxStory: CheckBoxStory = {
 	...CheckBoxTemplate,
 	args: {
@@ -149,4 +172,9 @@ export const RadioButtonGroupStory: RadioButtonGroupStory = {
 			type: 'error',
 		},
 	},
+};
+
+
+export const ErrorSummaryStory: StoryObj = {
+	...ErrorSummaryTemplate,
 };
