@@ -4,14 +4,14 @@ import type {CheckBoxProps, FormFieldsetProps} from '../types/index';
 export const CheckBoxItem = (props: CheckBoxProps) => {
 	let {inputId, attributes, optional, error} = props;
 
-	const classNames = ['o3-form-input__checkbox-input', 'o3-visually-hidden'];
+	const classNames = ['o3-form-input-checkbox__input', 'o3-visually-hidden'];
 
 	if (error) {
 		classNames.push('o3-form-input-error');
 	}
 
 	return (
-		<div className="o3-form-input__checkbox">
+		<div className="o3-form-input-checkbox">
 			<input
 				{...attributes}
 				type="checkbox"
@@ -20,7 +20,7 @@ export const CheckBoxItem = (props: CheckBoxProps) => {
 				required={!optional}
 				aria-required={!optional}
 			/>
-			<label htmlFor={inputId} className="o3-form-input__checkbox-label">
+			<label htmlFor={inputId} className="o3-form-input-checkbox__label">
 				{props.checkboxLabel}
 			</label>
 		</div>
