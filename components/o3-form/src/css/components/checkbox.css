@@ -1,4 +1,4 @@
-.o3-form-input__checkbox-input {
+.o3-form-input-checkbox__input {
 	+ label::before {
 		content: '';
 		display: inline-block;
@@ -108,7 +108,7 @@
 	}
 }
 
-.o3-form-input__checkbox-label {
+.o3-form-input-checkbox__label {
 	display: flex;
 	align-items: center;
 	font-size: var(--o3-typography-use-case-body-small-font-size);
