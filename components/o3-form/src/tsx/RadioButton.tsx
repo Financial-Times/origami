@@ -5,7 +5,7 @@ export const RadioButtonItem = (props: RadioButtonProps) => {
 	let {inputId, attributes, optional, error} = props;
 
 	const classNames = [
-		'o3-form-input__radio-button-input',
+		'o3-form-input-radio-button',
 		'o3-visually-hidden',
 	];
 
@@ -14,7 +14,7 @@ export const RadioButtonItem = (props: RadioButtonProps) => {
 	}
 
 	return (
-		<div className="o3-form-input__radio-button">
+		<div>
 			<input
 				{...attributes}
 				type="radio"
@@ -24,7 +24,7 @@ export const RadioButtonItem = (props: RadioButtonProps) => {
 				aria-required={!optional}
 				name="test"
 			/>
-			<label htmlFor={inputId} className="o3-form-input__radio-button-label">
+			<label htmlFor={inputId} className="o3-form-input-radio-button__label">
 				{props.radioButtonLabel}
 			</label>
 		</div>

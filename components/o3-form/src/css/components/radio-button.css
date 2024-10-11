@@ -1,4 +1,4 @@
-.o3-form-input__radio-button-input {
+.o3-form-input-radio-button {
 	+ label::before {
 		content: '';
 		display: inline-block;
@@ -76,7 +76,7 @@
 	}
 }
 
-.o3-form-input__radio-button-label {
+.o3-form-input-radio-button__label {
 	display: flex;
 	align-items: center;
 	font-size: var(--o3-typography-use-case-body-small-font-size);
