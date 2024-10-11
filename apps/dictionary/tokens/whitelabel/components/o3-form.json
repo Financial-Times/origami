@@ -20,28 +20,6 @@
             "type": "border"
           }
         },
-        "background-color": {
-          "@": {
-            "value": "{o3.form.color.use-case.background.@}",
-            "type": "color"
-          },
-          "error": {
-            "value": "{o3.form.color.use-case.background.error}",
-            "type": "color"
-          },
-          "focus": {
-            "value": "{o3.form.color.use-case.background.@}",
-            "type": "color"
-          },
-          "disabled": {
-            "value": "{o3.form.color.use-case.background.disabled}",
-            "type": "color"
-          },
-          "hover": {
-            "value": "{o3.form.color.use-case.background.@}",
-            "type": "color"
-          }
-        },
         "border-radius": {
           "value": "6px",
           "type": "borderRadius"
