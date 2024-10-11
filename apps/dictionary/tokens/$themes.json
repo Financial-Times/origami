@@ -522,7 +522,7 @@
       "whitelabel/use-case/focus": "enabled",
       "whitelabel/components/o3-editorial-typography": "source",
       "whitelabel/components/o3-form": "source",
-      "whitelabel/components/o3-form/use-case": "source"
+      "whitelabel/components/o3-form/use-case": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:4842:355",
     "$figmaModeId": "4842:3",

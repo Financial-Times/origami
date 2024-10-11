@@ -75,6 +75,14 @@
     "sb": "?path=/story/core-o3-editorial-typography--topic-tag",
     "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FVVM0PixrY3IRZq2ZUTdWfU%2F%25F0%259F%2592%25A0-Core---Origami-(o3)%3Fnode-id%3D6420-5630%26t%3D58TFgNdha3aoeQtE-4"
   },
+  "core-o3-form--password-input": {
+    "sb": "?path=/story/core-o3-form--password-input",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FGd3FgVbUqkz57FQZYIlHuN%2Fo3-input-password%3Fnode-id%3D6760-479%26t%3DxAYYryqwXxC9aYh3-4"
+  },
+  "core-o3-form--password-input-error-state": {
+    "sb": "?path=/story/core-o3-form--password-input-error-state",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FGd3FgVbUqkz57FQZYIlHuN%2Fo3-input-password%3Fnode-id%3D6760-479%26t%3DxAYYryqwXxC9aYh3-4"
+  },
   "core-o3-foundation-o3-grid--grid": {
     "sb": "?path=/story/core-o3-foundation-o3-grid--grid"
   },
@@ -217,6 +225,12 @@
     "sb": "?path=/story/core-professional-o3-editorial-typography--topic-tag",
     "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2Fqfi6fTq5V05b0mnXw3F7q5%2F%25F0%259F%2592%25A0-Professional---Origami-(o3)%3Fnode-id%3D4287-1027%26t%3DxcH8QRZUayrRLl8o-4"
   },
+  "core-professional-o3-form--password-input": {
+    "sb": "?path=/story/core-professional-o3-form--password-input"
+  },
+  "core-professional-o3-form--password-input-error-state": {
+    "sb": "?path=/story/core-professional-o3-form--password-input-error-state"
+  },
   "core-professional-o3-foundation-o3-grid--grid": {
     "sb": "?path=/story/core-professional-o3-foundation-o3-grid--grid"
   },
@@ -318,6 +332,12 @@
   "internal-o3-button--small-button": {
     "sb": "?path=/story/internal-o3-button--small-button",
     "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FH9vTWZgEzqzTtX689nwq4R%2F%25F0%259F%2592%25A0-Internal---Origami-(o3)%3Fnode-id%3D2819-133%26t%3DuSXzpLGDcxFzfDex-0"
+  },
+  "internal-o3-form--password-input": {
+    "sb": "?path=/story/internal-o3-form--password-input"
+  },
+  "internal-o3-form--password-input-error-state": {
+    "sb": "?path=/story/internal-o3-form--password-input-error-state"
   },
   "internal-o3-foundation-o3-grid--grid": {
     "sb": "?path=/story/internal-o3-foundation-o3-grid--grid"
@@ -477,6 +497,12 @@
   "sustainable-views-o3-editorial-typography--topic-tag": {
     "sb": "?path=/story/sustainable-views-o3-editorial-typography--topic-tag",
     "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FY7u0SwIJ1mCNDE0dpzgHCJ%2F%25F0%259F%2592%25A0-Sustainable-Views---Origami-(o3)%3Fnode-id%3D6418-178%26t%3Df6FGZ2XYbvorQQMT-4"
+  },
+  "sustainable-views-o3-form--password-input": {
+    "sb": "?path=/story/sustainable-views-o3-form--password-input"
+  },
+  "sustainable-views-o3-form--password-input-error-state": {
+    "sb": "?path=/story/sustainable-views-o3-form--password-input-error-state"
   },
   "sustainable-views-o3-foundation-o3-grid--grid": {
     "sb": "?path=/story/sustainable-views-o3-foundation-o3-grid--grid"
@@ -646,6 +672,10 @@
   "whitelabel-o3-form--check-box-group": {
     "sb": "?path=/story/whitelabel-o3-form--check-box-group",
     "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FiPTwPXBVyBX57GLtfFWuY3%2Fo3-input-checkbox%3Fnode-id%3D7300-387%26t%3D8ztgwLe3KFu3H8NJ-4"
+  },
+  "whitelabel-o3-form--error-summary": {
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FR6fcpcKjdAtJZ7qxuNgN0G%2F%25D0%25BE3-input-summary%3Fnode-id%3D7167-920%26t%3DjMXNNS1bUt1HIpLw-4",
+    "sb": "?path=/story/whitelabel-o3-form--error-summary"
   },
   "whitelabel-o3-form--password-input": {
     "sb": "?path=/story/whitelabel-o3-form--password-input",

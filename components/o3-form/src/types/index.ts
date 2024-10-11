@@ -1,4 +1,3 @@
-
 // Base Input Props
 export type BaseInputProps = {
 	inputId?: string;
@@ -9,11 +8,11 @@ export type BaseInputProps = {
 	attributes?: JSX.IntrinsicElements['input'];
 };
 
-export interface TextInputProps extends FormFieldProps{
-	disabled?: boolean,
-	length?: 2 | 3 | 4 | 5,
-	feedback?: FeedbackProps
-};
+export interface TextInputProps extends FormFieldProps {
+	disabled?: boolean;
+	length?: 2 | 3 | 4 | 5;
+	feedback?: FeedbackProps;
+}
 
 export interface CheckBoxProps extends BaseInputProps {
 	inputId: string;
@@ -36,4 +35,13 @@ export type FeedbackProps = {
 	errorElementIds?: string[];
 	message: string;
 	type: 'error';
+};
+
+export type ErrorSummaryProps = {
+	errorMessage?: string;
+	errors: {
+		id: string;
+		fieldName: string;
+		message: string;
+	}[];
 };
