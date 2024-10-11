@@ -159,5 +159,9 @@
   "internal-o3-form--password-input": "?path=/story/internal-o3-form--password-input",
   "internal-o3-form--password-input-error-state": "?path=/story/internal-o3-form--password-input-error-state",
   "sustainable-views-o3-form--password-input": "?path=/story/sustainable-views-o3-form--password-input",
-  "sustainable-views-o3-form--password-input-error-state": "?path=/story/sustainable-views-o3-form--password-input-error-state"
+  "sustainable-views-o3-form--password-input-error-state": "?path=/story/sustainable-views-o3-form--password-input-error-state",
+  "core-o3-form--error-summary": "?path=/story/core-o3-form--error-summary",
+  "core-professional-o3-form--error-summary": "?path=/story/core-professional-o3-form--error-summary",
+  "internal-o3-form--error-summary": "?path=/story/internal-o3-form--error-summary",
+  "sustainable-views-o3-form--error-summary": "?path=/story/sustainable-views-o3-form--error-summary"
 }

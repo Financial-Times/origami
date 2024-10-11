@@ -1,48 +1,75 @@
 ---
+import tip from '../../../public/assets/images/documentation/components/tip.svg?raw';
+
+const {sourcesEnabled} = Astro.props;
 ---
 
-<div class="not-content">
-	<div class="wrapper">
-
-		<p>
-			<slot name="tip-content"></slot>
-		</p>
-
-	</div>
-	<div class="tip-source">
-		<strong>SOURCES: </strong>
-		<div class="sources-wrapper	">
-			<slot name="tip-sources"></slot>
+<div class="not-content tip-container">
+	<div class="tip-description">
+		<div class="icon">
+			<Fragment set:html={tip} />
 		</div>
+		<slot name="tip-content" />
 	</div>
+	{
+		sourcesEnabled && (
+			<div class="tip-sources">
+				<strong>SOURCES:</strong>
+				<div class="tip-sources-wrapper">
+					<slot name="tip-sources" />
+				</div>
+			</div>
+		)
+	}
 </div>
 
 <style>
-	.wrapper {
-		background-color: #F4F4F5;
-
+	.tip-container {
+		--_icon-width: 24px;
+		background-color: #f4f4f5;
+		border: 1px solid var(--slate-white-15, #dedfe0);
+		border-radius: var(--o3-spacing-5xs);
+		box-shadow: var(--o3-spacing-5xs) var(--o3-spacing-5xs)
+			var(--o3-spacing-3xs) 0px rgba(222, 223, 224, 0.08);
 	}
-	p {
+	.tip-description {
+		padding: var(--o3-spacing-2xs) 0px;
 		position: relative;
-		margin: 14px 0px 14px 44px;
-		&::before {
-			content: '';
-			display: inline-block;
-			position: absolute;
-			left: -30px;
-			top: 5px;
-			width: 24px;
-			height: 24px;
-			background-image: url('/assets/images/documentation/components/tip.svg');
-			background-repeat: no-repeat;
+		display: flex;
+		.icon {
+			width: var(--_icon-width);
+			height: var(--_icon-width);
+			margin: 0px var(--o3-spacing-4xs);
 		}
 	}
-	.tip-source {
+
+	.tip-sources {
 		display: flex;
-		.sources-wrapper {
+		/* Icon size plus its margins */
+		padding: var(--o3-spacing-3xs) 0 var(--o3-spacing-3xs)
+			calc(var(--_icon-width) + 2 * var(--o3-spacing-4xs));
+
+		border-radius: 0px 0px var(--o3-spacing-5xs) var(--o3-spacing-5xs);
+		border-right: 1px solid var(--slate-white-15, #dedfe0);
+		border-bottom: 1px solid var(--slate-white-15, #dedfe0);
+		border-left: 1px solid var(--slate-white-15, #dedfe0);
+		background: #ececee;
+		.tip-sources-wrapper {
 			* {
 				all: unset;
 			}
+			a {
+				cursor: pointer;
+				text-decoration-line: underline;
+			}
+
+			color: #8f8f8f;
+			font-size: var(--o3-font-size-negative-2);
+		}
+		strong {
+			color: #8f8f8f;
+			font-size: var(--o3-font-size-negative-2);
+			margin-right: var(--o3-spacing-5xs);
 		}
 	}
 </style>

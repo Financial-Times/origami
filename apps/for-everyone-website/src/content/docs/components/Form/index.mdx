@@ -3,8 +3,7 @@ title: Introduction
 description: Form components are used to collect information and guide users. Here you’ll find general rules for using them that apply to all components. Structure, sequence, and messaging are essential to creating a good user experience.
 ---
 
-import Tip from '../../../../components/utils/Tip.astro'
-
+import {default as PlacementOrderGuidlines} from '../../../../components/form/Placement-order-guidelines.astro'
 
 Form components are used to collect information and guide users. Here you’ll find general rules for using them that apply to all components. Structure, sequence, and messaging are essential to creating a good user experience.
 
@@ -12,23 +11,18 @@ Form components are used to collect information and guide users. Here you’ll f
 
 <div style="display: flex; flex-direction: column">
 	<a href="text-input">Text Input</a>
+	<a href="text-input">Password Input</a>
 	<a href="text-input">Checkbox</a>
 	<a href="text-input">Radio Button</a>
 	<a href="text-input">Error summary</a>
 </div>
 
-
 ## Placement and Order
+
 When placing form components on a page, there are two basic rules:
-1. Always left-align components.
-2. Stack components vertically rather than placing them side by side.
+
+1.  Always left-align components.
+2.  Stack components vertically rather than placing them side by side.
 
 
-<Tip>
-	<Fragment slot="tip-content">The vertical order of form components is crucial for helping users navigate efficiently. A clear top-to-bottom layout aligns with natural reading patterns, ensuring a smoother experience. Avoid placing components horizontally, as it can disrupt the flow and lead to confusion.</Fragment>
-	<Fragment slot="tip-sources">
-		<a href="https://www.lukew.com/ff/entry.asp?680">Luke W: Web Form Design: Filling in the Blanks</a>
-		<span> | </span>
-		<a href='https://www.nngroup.com/articles/web-form-design/'>NN/g: Website Forms Usability: Top 10 Recommendations</a>
-	</Fragment>
-</Tip>
+<PlacementOrderGuidlines />
