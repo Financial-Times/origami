@@ -3,6 +3,7 @@ import links from '@financial-times/o3-figma-sb-links';
 
 import {PasswordInput as PasswordInputTsx} from '../../src/tsx/PasswordInput';
 import '../../src/css/brands/whitelabel.css';
+import {Form} from '../../src/tsx';
 
 const meta: Meta<typeof PasswordInputTsx> = {
 	title: 'Whitelabel/o3-form',
@@ -36,9 +37,11 @@ export const PasswordInput = {
 	},
 	render: (args) => {
 		return (
-			<PasswordInputTsx label={args.label} disabled={args.disabled} description={args.description}
-												feedback={args.feedback}
-			/>);
+			<Form>
+				<PasswordInputTsx label={args.label} disabled={args.disabled} description={args.description}
+													feedback={args.feedback}
+				/>
+			</Form>);
 	},
 };
 
@@ -57,9 +60,12 @@ export const PasswordInputErrorState = {
 	},
 	render: (args) => {
 		return (
-			<PasswordInputTsx label={args.label} disabled={args.disabled} description={args.description} length={args.length}
-												feedback={args.feedback}
-			/>);
+			<Form>
+				<PasswordInputTsx label={args.label} disabled={args.disabled} description={args.description}
+													length={args.length}
+													feedback={args.feedback}
+				/>
+			</Form>);
 	},
 };
 
