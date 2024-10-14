@@ -1,28 +1,12 @@
 ---
 import Example from '../Example.astro';
-import Tip from '../utils/Tip.astro';
+
 ---
 
-<Example slot="examples" do={true}>
+<Example slot="examples" do>
 
 </Example>
 
-<Example slot="examples" do={false} />
-
-<Tip sourcesEnabled={true}>
-	<p slot="tip-content">
-		The vertical order of form components is crucial for helping users navigate
-		efficiently. A clear top-to-bottom layout aligns with natural reading
-		patterns, ensuring a smoother experience. Avoid placing components
-		horizontally, as it can disrupt the flow and lead to confusion.
-	</p>
-	<Fragment slot="tip-sources">
-		<a href="https://www.lukew.com/ff/entry.asp?680">
-			Luke W: Web Form Design: Filling in the Blanks
-		</a>
-		<span> |</span>
-		<a href="https://www.nngroup.com/articles/web-form-design/">
-			NN/g: Website Forms Usability: Top 10 Recommendations
-		</a>
-	</Fragment>
-</Tip>
+<Example slot="examples" do={false}>
+	Hehe
+</Example>
