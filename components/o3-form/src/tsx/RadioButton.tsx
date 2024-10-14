@@ -1,5 +1,5 @@
 import {FormFieldset} from './fieldComponents/FormField';
-import type {RadioButtonProps, FormFieldsetProps} from '../types/index';
+import type {RadioButtonProps, FormFieldsetProps} from '../types';
 
 export const RadioButtonItem = (props: RadioButtonProps) => {
 	let {inputId, attributes, optional, error} = props;
@@ -22,7 +22,6 @@ export const RadioButtonItem = (props: RadioButtonProps) => {
 				className={classNames.join(' ')}
 				required={!optional}
 				aria-required={!optional}
-				name="test"
 			/>
 			<label htmlFor={inputId} className="o3-form-input-radio-button__label">
 				{props.radioButtonLabel}
