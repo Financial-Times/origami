@@ -1,25 +1,34 @@
 import {useEffect} from 'react';
 import type {StoryObj} from '@storybook/react';
-import {Form, CheckBoxGroup, CheckBoxItem, CheckBox, ErrorSummary} from '../src/tsx/index';
+import {
+	Form,
+	CheckBoxGroup,
+	CheckBoxItem,
+	CheckBox,
+	RadioButtonGroup,
+	RadioButtonItem,
+	ErrorSummary} from '../src/tsx/index';
 import type {CheckBoxProps} from '../src/types/index';
 
 type CheckBoxStoryProps = CheckBoxProps & {
-  enableIndeterminate?: boolean;
+	enableIndeterminate?: boolean;
 };
 
 type CheckBoxStory = StoryObj<CheckBoxStoryProps>;
 
 const CheckBoxTemplate: CheckBoxStory = {
-	render: (args) => {
+	render: args => {
 		useEffect(() => {
-      const inputEl = document.getElementById(args.inputId) as HTMLInputElement | null;
-      if (inputEl) {
-        inputEl.indeterminate = args.enableIndeterminate || false;
-      }
-    }, [args.inputId, args.enableIndeterminate]);
+			const inputEl = document.getElementById(
+				args.inputId
+			) as HTMLInputElement | null;
+			if (inputEl) {
+				inputEl.indeterminate = args.enableIndeterminate || false;
+			}
+		}, [args.inputId, args.enableIndeterminate]);
 
-    // Omit enableIndeterminate when passing props to CheckBox
-    const { enableIndeterminate, ...checkBoxProps } = args;
+		// Omit enableIndeterminate when passing props to CheckBox
+		const {enableIndeterminate, ...checkBoxProps} = args;
 
 		return (
 			<Form>
@@ -81,6 +90,25 @@ const CheckBoxGroupTemplate: CheckBoxGroupStory = {
 	},
 };
 
+type RadioButtonGroupStory = StoryObj<typeof RadioButtonGroup>;
+const RadioButtonGroupTemplate: RadioButtonGroupStory = {
+	render: args => {
+		return (
+			<Form>
+				<RadioButtonGroup {...args}>
+					<RadioButtonItem inputId="radio_1" radioButtonLabel="Option 1" />
+					<RadioButtonItem inputId="radio_2" radioButtonLabel="Option 2" />
+					<RadioButtonItem
+						inputId="radio_3"
+						radioButtonLabel="Option 3"
+						attributes={{disabled: true}}
+					/>
+				</RadioButtonGroup>
+			</Form>
+		);
+	},
+};
+
 const ErrorSummaryTemplate: StoryObj = {
 	render: () => {
 		return (
@@ -127,6 +155,19 @@ export const CheckBoxGroupStory: CheckBoxGroupStory = {
 		description: 'This is a description of the checkbox group',
 		feedback: {
 			errorElementIds: ['checkbox_5', 'checkbox_6'],
+			message: 'Error message',
+			type: 'error',
+		},
+	},
+};
+
+export const RadioButtonGroupStory: RadioButtonGroupStory = {
+	...RadioButtonGroupTemplate,
+	args: {
+		label: 'Select an option',
+		description: 'This is a description of the radio button group',
+		feedback: {
+			errorElementIds: ['radio_1'],
 			message: 'Error message',
 			type: 'error',
 		},
