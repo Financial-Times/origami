@@ -17,3 +17,7 @@ components/g-audio/ @Financial-Times/visual-data-journalism-admins
 
 # Data platform own o-tracking
 libraries/o-tracking @Financial-Times/data-platform
+
+
+# Allow Dependency Auto-Merger to approve dependency bump PRs
+**/package*.json @ft-dependency-auto-merger @Financial-Times/origami-core 
