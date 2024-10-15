@@ -3,8 +3,11 @@ title: Introduction
 description: Form components are used to collect information and guide users. Here you’ll find general rules for using them that apply to all components. Structure, sequence, and messaging are essential to creating a good user experience.
 ---
 
-import {default as PlacementOrderGuidlines} from '../../../../components/form/Placement-order-guidelines.astro'
 import Tip from '../../../../components/utils/Tip.astro';
+import {default as PlacementOrderGuidlines} from '../../../../components/form/Guideline-placement-order.astro'
+import {default as RequiredOptionalInput} from '../../../../components/form/Guideline-required-optional.astro'
+
+import '@financial-times/o3-form/css/whitelabel.css';
 
 Form components are used to collect information and guide users. Here you’ll find general rules for using them that apply to all components. Structure, sequence, and messaging are essential to creating a good user experience.
 
@@ -26,7 +29,7 @@ When placing form components on a page, there are two basic rules:
 2.  Stack components vertically rather than placing them side by side.
 
 
-<PlacementOrderGuidlines />
+<PlacementOrderGuidlines brand={props.brand} />
 
 <Tip sourcesEnabled={true}>
 	<p slot="tip-content">
@@ -50,7 +53,7 @@ When placing form components on a page, there are two basic rules:
 
 It’s best practice to only mark the optional components. No special indicator exists for required ones, thus all components are assumed to be required, unless they are explicitly marked as “Optional”.
 
---Placeholder, do's n dont's--
+<RequiredOptionalInput brand={props.brand} />
 
 <Tip>
 	<p slot="tip-content">In order to reduce cognitive load for the user, we decided to omit the “required” label. This
