@@ -7,7 +7,8 @@
     --o3-grid-columns-to-span-count: 4;
     max-width: var(--_o3-form-text-input-max-width, var(--o3-grid-columns-to-span-width));
 }
-input[class|='o3-form-text-input--short'] {
+
+.o3-form-text-input[class*="--short"] {
     box-sizing: initial;
 }
 .o3-form-text-input--short-2 {
