@@ -3,6 +3,7 @@ import links from '@financial-times/o3-figma-sb-links';
 
 import {PasswordInput as PasswordInputTsx} from '../../src/tsx/PasswordInput';
 import '../../src/css/brands/whitelabel.css';
+import {Form} from '../../src/tsx';
 
 const meta: Meta<typeof PasswordInputTsx> = {
 	title: 'Core/o3-form',

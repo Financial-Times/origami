@@ -3,5 +3,6 @@
 @import './src/css/components/feedback.css';
 @import './src/css/components/text-input.css';
 @import './src/css/components/checkbox.css';
+@import './src/css/components/radio-button.css';
 @import './src/css/components/error-summary.css';
 @import './src/css/components/password-input.css';
