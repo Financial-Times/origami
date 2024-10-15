@@ -1,5 +1,4 @@
 import {TextInputProps} from '../types/index';
-import '../../main.css';
 import {LabeledFormField} from './fieldComponents/FormField';
 
 export const TextInput = ({
@@ -26,14 +25,15 @@ export const TextInput = ({
 			label={label}
 			feedback={feedback}
 			description={description}
-			inputId={inputId}>
+			inputId={inputId}
+			optional={optional}>
 			<input
 				{...attributes}
 				id={inputId}
 				disabled={disabled}
 				className={inputClasses.join(' ')}
-				required={optional}
-				aria-required={optional}
+				required={!optional}
+				aria-required={!optional}
 				maxLength={length}
 				type="text"
 			/>
