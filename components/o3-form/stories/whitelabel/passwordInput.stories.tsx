@@ -11,6 +11,7 @@ const meta: Meta<typeof PasswordInputTsx> = {
 		Story => (
 			<div data-o3-brand="whitelabel" className="o3-grid">
 				<div
+					className="o3-form"
 					style={{
 						gridColumn: `content-start / content-end`,
 						fontFamily: 'var(--o3-font-family-metric',

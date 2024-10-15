@@ -10,7 +10,9 @@ const meta: Meta<typeof TextInputTsx> = {
 	decorators: [
 		Story => (
 			<div data-o3-brand="whitelabel" className="o3-grid">
-				<div style={{gridColumn: `content-start / content-end`}}>
+				<div
+					className="o3-form"
+					style={{gridColumn: `content-start / content-end`}}>
 					<Story />
 				</div>
 			</div>
