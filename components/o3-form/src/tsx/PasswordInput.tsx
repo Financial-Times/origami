@@ -1,10 +1,6 @@
-import {FormFieldProps} from '../types/index';
+import {PasswordInputProps} from '../types/index';
 import {LabeledFormField} from './fieldComponents/FormField';
 import {CheckBoxItem} from './CheckBox';
-
-interface PasswordInputProps extends FormFieldProps {
-	disabled?: boolean;
-}
 
 export const PasswordInput = ({
 	label,

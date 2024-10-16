@@ -14,6 +14,12 @@ export interface TextInputProps extends BaseInputProps {
 	feedback?: FeedbackProps;
 }
 
+export interface PasswordInputProps extends BaseInputProps {
+	disabled?: boolean;
+	feedback?: FeedbackProps;
+}
+
+
 export interface CheckBoxProps extends BaseInputProps {
 	inputId: string;
 	checkboxLabel: string; // Label specifically for the checkbox
