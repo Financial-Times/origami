@@ -1,7 +1,13 @@
 ---
 import tip from '../../../public/assets/images/documentation/components/tip.svg?raw';
 
-const {sourcesEnabled} = Astro.props;
+interface Props {
+	sources: {
+	 title: string;
+	 url: string;
+	}[]
+}
+const {sources} = Astro.props;
 ---
 
 <div class="not-content tip-container">
@@ -12,11 +18,16 @@ const {sourcesEnabled} = Astro.props;
 		<slot name="tip-content" />
 	</div>
 	{
-		sourcesEnabled && (
+		sources?.length > 0 && (
 			<div class="tip-sources">
 				<strong>SOURCES:</strong>
 				<div class="tip-sources-wrapper">
-					<slot name="tip-sources" />
+					{sources.map((source, index) => (
+						<>
+							<a href={source.url}>{source.title}</a>
+							{index < sources.length - 1 && ' | '}
+						</>
+					))}
 				</div>
 			</div>
 		)
@@ -55,10 +66,8 @@ const {sourcesEnabled} = Astro.props;
 		border-left: 1px solid var(--slate-white-15, #dedfe0);
 		background: #ececee;
 		.tip-sources-wrapper {
-			* {
+			& a {
 				all: unset;
-			}
-			a {
 				cursor: pointer;
 				text-decoration-line: underline;
 			}
