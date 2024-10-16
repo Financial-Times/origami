@@ -29,6 +29,8 @@
 		"@financial-times/o3-tooling-token": "^0.0.0",
 		"@financial-times/o3-tooltip": "^2.0.0",
 		"astro": "^4.0.9",
+		"autoprefixer": "^10.4.20",
+		"postcss-preset-env": "^10.0.7",
 		"prettier": "3.2.5",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
@@ -42,6 +44,6 @@
 	"devDependencies": {
 		"globby": "^14.0.1",
 		"html-minifier": "^4.0.0",
-		"jsdom": "^24.1.0"
+		"jsdom": "^25.0.0"
 	}
 }
