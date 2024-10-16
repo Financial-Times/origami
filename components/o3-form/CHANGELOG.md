@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.4.0](https://github.com/Financial-Times/origami/compare/o3-form-v0.3.3...o3-form-v0.4.0) (2024-10-16)
+
+
+### Features
+
+* add error summary component to o3-forms ([#1834](https://github.com/Financial-Times/origami/issues/1834)) ([22a9cc9](https://github.com/Financial-Times/origami/commit/22a9cc951205a3d74fca5dd5e5b1f51fb624e08f))
+* add radio buttons ([#1836](https://github.com/Financial-Times/origami/issues/1836)) ([a909f22](https://github.com/Financial-Times/origami/commit/a909f22b34d5971563f1b95398ee65bf3db151b8))
+* introduce password input component ([#1843](https://github.com/Financial-Times/origami/pull/1843)) ([1537c69](https://github.com/Financial-Times/origami/pull/1838/commits/1537c69ae8f0c08fc91fb86bb387bee2473e965b))
+* introduce o3-form use case tokens ([#1837](https://github.com/Financial-Times/origami/pull/1837)) ([80cf30f](https://github.com/Financial-Times/origami/pull/1838/commits/80cf30fbd5ef70c7df73a99ff42ea01b5e57aac9))
+
+### Bug Fixes
+
+* use use case tokens for checkboxes ([#1845](https://github.com/Financial-Times/origami/issues/1845)) ([1ecbc95](https://github.com/Financial-Times/origami/commit/1ecbc95a18234535496512c2358bf973fb252d9b))
+
 ## [0.3.3](https://github.com/Financial-Times/origami/compare/o3-form-v0.3.2...o3-form-v0.3.3) (2024-10-10)
 
 
