@@ -1,0 +1,16 @@
+---
+import Preview from '../../utils/Preview.astro'
+import FigmaSbLinks from '../../utils/FigmaSbLinks.astro';
+
+import * as InputShortJSX from '../preview/Input-short-text'
+
+const {brand} = Astro.props
+const component = InputShortJSX
+const storybookId = `${brand}-o3-form--short-text-input`
+---
+
+<div>
+	<Preview {component} />
+	<FigmaSbLinks storybook={storybookId} />
+</div>
+

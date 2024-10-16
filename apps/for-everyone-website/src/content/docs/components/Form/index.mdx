@@ -52,7 +52,7 @@ When placing form components on a page, there are two basic rules:
 			url: 'https://www.nngroup.com/articles/web-form-design/',
 		},
 	]}>
-	<p slot="tip-content">
+	<p>
 		The vertical order of form components is crucial for helping users navigate
 		efficiently. A clear top-to-bottom layout aligns with natural reading
 		patterns, ensuring a smoother experience. Avoid placing components
@@ -67,7 +67,7 @@ It’s best practice to only mark the optional components. No special indicator 
 <RequiredOptionalInput brand={props.brand} />
 
 <Tip>
-	<p slot="tip-content">
+	<p>
 		In order to reduce cognitive load for the user, we decided to omit the
 		“required” label. This makes for easier scanning when there are multiple
 		inputs with less visual disruptions.
@@ -95,7 +95,7 @@ Input-level validation happens while the user interacts with the individual comp
 <InputValidation brand={props.brand} />
 
 <Tip>
-	<ol slot="tip-content">
+	<ol>
 		<li>
 			Validation on each keystroke would create unnecessary error feedback noise
 			while the user is typing.
@@ -122,7 +122,7 @@ Some components support disabled states, but they should be used sparingly. Alwa
 <DisabledStates brand={props.brand} />
 
 <Tip>
-	<p slot="tip-content">
+	<p>
 		When used without sufficient context, disabled states can confuse users and
 		negatively impact the user experience. Disabled components can also pose
 		accessibility challenges, making it harder for users with assistive

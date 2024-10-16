@@ -1,0 +1,94 @@
+---
+title: Text Input
+description: Text inputs allow users to enter free-form text data such as filling in contact or payment information.
+---
+
+import {Aside} from '@astrojs/starlight/components';
+import {Form, TextInput} from '@financial-times/o3-form';
+
+import Tip from '../../../../components/utils/Tip.astro';
+import Example from '../../../../components/Example.astro';
+
+import {default as TextInputAnatomy} from '../../../../components/form/anatomy/Text-input.astro';
+
+import {default as InputWidthExample} from '../../../../components/form/examples/Input-width.astro';
+import {default as ShortTextEample} from '../../../../components/form/examples/Input-short-text.astro';
+
+import '@financial-times/o3-form/css/whitelabel.css';
+
+<BrandedContent brands="core,internal,professional,sustainable-views">
+	Currently we have a limited brand support for form components. We are working
+	on expanding this to all brands. For now, please refer to the [whitelabel text
+	input component](/whitelabel/components/form/text-input) for more information.
+</BrandedContent>
+
+<BrandedContent brands="whitelabel">
+Text inputs allow users to enter free-form text data such as filling in contact or payment information.
+
+<Aside>
+	{/* prettier-ignore */}
+	The <a
+		href={
+			props.brand == 'core'
+				? '/components/form'
+				: `/${props.brand}/components/form`
+		}>
+		general form component guidelines
+	</a> apply to this component. Please make sure you’re familiar with them first.
+</Aside>
+
+## Anatomy
+
+<TextInputAnatomy />
+
+1. Label: Indicates the purpose of the text input field. It should clearly communicate what kind of information is expected.
+2. Description: Provides additional context/instructions about the text input field. It helps users understand what is required or gives examples of the kind of information they should enter.
+3. Optional indicator: Indicates fields that are not mandatory.
+4. Input box: the interactive area where users can type their input
+5. Input text: The text string entered by the user. This is not placeholder text and only applies when the user has typed.
+6. Feedback message: provides users with response regarding their input. For now it’s only errors. The feedback message should be clear and specific, guiding the user on any necessary actions
+
+## Usage Guidelines
+
+### Width
+
+As layouts adapt to larger screens, flexible container dimensions are applied to form components for better readability. The default width is 4 grid columns—343px on mobile, expanding to 422px on desktop for an optimized experience.
+
+<InputWidthExample brands={props.brand} />
+
+In most cases, the input field follows the standard forms width, which adapts to the layout. However, when the expected user input is a short string of characters, it’s better to use a properly-sized input field:
+
+<ShortTextEample brands={props.brand} />
+
+## Placeholder Text
+
+The input box should never be used to display a text hint for the user
+
+<Example do title="Use description fields for additional hints">
+	<div data-o3-brand={props.brand}>
+		<Form>
+			<TextInput
+				label="Password"
+				description="Please use at least 8 characters"
+			/>
+		</Form>
+	</div>
+</Example>
+
+<Example do={false} title="Never use the input box for hints">
+	<div data-o3-brand={props.brand}>
+		<Form>
+			<TextInput label='Password' attributes={{
+				placeholder: 'Please use at least 8 characters',
+			}} />
+		</Form>
+	</div>
+</Example>
+
+<Tip>
+	<p>
+		Using placeholder text is considered a bad practice because the hint disappears once the user starts typing, with no obvious way to retrieve it and forces the user to have to rely on memory.
+	</p>
+</Tip>
+
+</BrandedContent>
