@@ -1,0 +1,141 @@
+---
+title: Introduction
+description: Form components are used to collect information and guide users. Here you’ll find general rules for using them that apply to all components. Structure, sequence, and messaging are essential to creating a good user experience.
+---
+
+import Tip from '../../../../components/utils/Tip.astro';
+import {default as PlacementOrderGuidlines} from '../../../../components/form/guidelines/Placement-order.astro';
+import {default as RequiredOptionalInput} from '../../../../components/form/guidelines/Required-optional.astro';
+import {default as LabelsGrouping} from '../../../../components/form/guidelines/Labels-grouping.astro';
+import {default as FormSubmission} from '../../../../components/form/guidelines/Form-submission.astro';
+import {default as InputValidation} from '../../../../components/form/examples/Input-validation.astro';
+import {default as ErrorSummary} from '../../../../components/form/examples/Page-level-validation.astro';
+import {default as DisabledStates} from '../../../../components/form/examples/Disabled-state.astro';
+
+import '@financial-times/o3-form/css/whitelabel.css';
+
+<BrandedContent brands="core,internal,professional,sustainable-views">
+	Currently we have a limited brand support for form components. We are working on expanding this to all brands. For now, please refer to the [whitelabel form components](/whitelabel/components/form) for more information.
+</BrandedContent>
+
+<BrandedContent brands="whitelabel">
+Form components are used to collect information and guide users. Here you’ll find general rules for using them that apply to all components. Structure, sequence, and messaging are essential to creating a good user experience.
+
+{/* ### Form Componentes
+
+<div style="display: flex; flex-direction: column">
+	<a href="text-input">Text Input</a>
+	<a href="text-input">Password Input</a>
+	<a href="text-input">Checkbox</a>
+	<a href="text-input">Radio Button</a>
+	<a href="text-input">Error summary</a>
+</div> */}
+
+
+## Placement and Order
+
+When placing form components on a page, there are two basic rules:
+
+1.  Always left-align components.
+2.  Stack components vertically rather than placing them side by side.
+
+<PlacementOrderGuidlines brand={props.brand} />
+
+<Tip
+	sources={[
+		{
+			title: 'Luke W: Web Form Design: Filling in the Blanks',
+			url: 'https://www.lukew.com/ff/entry.asp?680',
+		},
+		{
+			title: 'NN/g: Website Forms Usability: Top 10 Recommendations',
+			url: 'https://www.nngroup.com/articles/web-form-design/',
+		},
+	]}>
+	<p slot="tip-content">
+		The vertical order of form components is crucial for helping users navigate
+		efficiently. A clear top-to-bottom layout aligns with natural reading
+		patterns, ensuring a smoother experience. Avoid placing components
+		horizontally, as it can disrupt the flow and lead to confusion.
+	</p>
+</Tip>
+
+## Required & Optional Input
+
+It’s best practice to only mark the optional components. No special indicator exists for required ones, thus all components are assumed to be required, unless they are explicitly marked as “Optional”.
+
+<RequiredOptionalInput brand={props.brand} />
+
+<Tip>
+	<p slot="tip-content">
+		In order to reduce cognitive load for the user, we decided to omit the
+		“required” label. This makes for easier scanning when there are multiple
+		inputs with less visual disruptions.
+	</p>
+</Tip>
+
+## Labels and Grouping
+
+Grouping related components together helps users quickly understand the structure and flow of the form. Well-defined groupings reduce cognitive load, making the form easier to process and interact with.
+
+<LabelsGrouping brand={props.brand} />
+
+Additionally, always pair components with clear and descriptive labels to ensure users understand what is expected of them.
+
+## Form Submission
+
+All data entered through form components should be submitted via a button. If the user navigates away from the page before submitting, the input is lost. This rule does not apply to the toggle component, which takes effect immediately.
+
+<FormSubmission brand={props.brand} />
+
+## Input-level Validation
+
+Input-level validation happens while the user interacts with the individual components. All form components support this for incorrect data. Validation is performed when the user moves focus away from the component they’re interacting with. The user must enter valid input to clear the error state.
+
+<InputValidation brand={props.brand} />
+
+<Tip>
+	<ol slot="tip-content">
+		<li>
+			Validation on each keystroke would create unnecessary error feedback noise
+			while the user is typing.
+		</li>
+		<li>Presenting errors too quick is considered a hostile pattern</li>
+		<li>
+			Changing the component state as they are interacting with it might feel
+			unexpected for them. That’s why we perform validation when the user is not
+			interacting with the component anymore.
+		</li>
+	</ol>
+</Tip>
+
+## Page-level Validation
+
+Page-level validation happens once the user submits the entered input though a button. If there’s an error with the entered data, the error summary component appears on top of the page, providing an overview of errors that have occurred.
+
+<ErrorSummary brand={props.brand} />
+
+## Disabled States
+
+Some components support disabled states, but they should be used sparingly. Always provide a clear explanation of why the component is disabled and how it can be enabled. A common acceptable use case for disabled components is when a component is in a read-only state.
+
+<DisabledStates brand={props.brand} />
+
+<Tip>
+	<p slot="tip-content">
+		When used without sufficient context, disabled states can confuse users and
+		negatively impact the user experience. Disabled components can also pose
+		accessibility challenges, making it harder for users with assistive
+		technologies to understand their purpose or receive proper feedback.
+	</p>
+</Tip>
+
+## Accessibility Considerations
+
+We have made a number of considerations to ensure accessible forms ([perceivable, operable, understandable, and robust](https://www.w3.org/WAI/WCAG22/Understanding/intro#understanding-the-four-principles-of-accessibility)). These considerations are documented throughout form usage guidelines, please follow them carefully. This section highlights a few key areas of note.
+
+- We recommend against using disabled states, as they offer low contrast making them difficult to percieve, and it may not be understandable why a form field or button is disabled.
+- Form validation states are conveyed with both colour, iconography. and text. This improves perceivability for people with colour blindness, for example, who may find it difficult to distinguish colour.
+- On submit an error summary component provides keyboard users a means to quickly navigate to the form field with an error, improving operability.
+- Form inputs and their labels are connected and clickable, providing a large touch target area for people with limited dexterity, or other reasons, that make it difficult to click a small target area.
+</BrandedContent>

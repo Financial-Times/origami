@@ -1,0 +1,48 @@
+---
+import {Form, TextInput} from '@financial-times/o3-form/esm'
+import Example from '../../Example.astro';
+
+const {brand} = Astro.props
+---
+
+<Example slot="examples" do title="Always left-Align components and stack vertically">
+	<div  class="o3-form-vertical" data-o3-brand={brand}>
+		<Form>
+			<TextInput label="Country" attributes={{defaultValue: "United Kingdom"}} />
+			<TextInput label="City" attributes={{defaultValue: "London" }} />
+			<TextInput label="Address" attributes={{defaultValue: "1 Friday St"}} />
+		</Form>
+	</div>
+</Example>
+
+<Example slot="examples" do={false} title="Avoid putting components next to each other and avoid centering them">
+	<div data-o3-brand={brand}>
+		<form class="o3-form-horizontal">
+			<TextInput label="Country" attributes={{defaultValue: "United Kingdom"}} />
+			<TextInput label="City" attributes={{defaultValue: "London" }} />
+			<TextInput label="Address" attributes={{defaultValue: "1 Friday St"}} />
+		</form>
+	</div>
+</Example>
+
+
+<style>
+	div {
+		width: 100%;
+	}
+
+	.o3-form-vertical {
+		width: 50%;
+	}
+
+	.o3-form-horizontal {
+		display: flex;
+		gap: var(--o3-spacing-s);
+		width: 100%;
+		flex-wrap: wrap;
+	}
+
+	.o3-form-horizontal {
+		justify-content: center;
+	}
+</style>

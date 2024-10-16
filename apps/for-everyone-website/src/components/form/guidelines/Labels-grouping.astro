@@ -1,0 +1,25 @@
+---
+import {Form, TextInput} from '@financial-times/o3-form/esm'
+import Example from '../../Example.astro';
+
+const {brand} = Astro.props
+---
+
+<Example slot="examples" do title="Group similar inputs to ease the user">
+	<div data-o3-brand={brand}>
+		<Form>
+			<h4 class="o3-typography-h3 grouping-title">Your Details</h4>
+			<TextInput label="Email address" attributes={{defaultValue: "john.smith@ft.com" }} />
+
+			<h4 class="o3-typography-h3 grouping-title">Your address</h4>
+			<TextInput label="Country" attributes={{defaultValue: "United Kingdom" }} />
+			<TextInput label="Address" attributes={{defaultValue: "1 Friday St"}} optional={true} />
+		</form>
+	</Form>
+</Example>
+
+<style>
+	div {
+		width: 50%;
+	}
+</style>

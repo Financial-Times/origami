@@ -11,7 +11,12 @@ const meta: Meta<typeof PasswordInputTsx> = {
 	decorators: [
 		Story => (
 			<div data-o3-brand="whitelabel" className="o3-grid">
-				<div style={{gridColumn: `content-start / content-end`, fontFamily: 'var(--o3-font-family-metric'}}>
+				<div
+					className="o3-form"
+					style={{
+						gridColumn: `content-start / content-end`,
+						fontFamily: 'var(--o3-font-family-metric',
+					}}>
 					<Story />
 				</div>
 			</div>
@@ -35,13 +40,16 @@ export const PasswordInput = {
 			url: links['whitelabel-o3-form--password-input'].figma,
 		},
 	},
-	render: (args) => {
+	render: args => {
 		return (
-			<Form>
-				<PasswordInputTsx label={args.label} disabled={args.disabled} description={args.description}
-													feedback={args.feedback}
-				/>
-			</Form>);
+			<PasswordInputTsx
+				label={args.label}
+				optional={args.optional}
+				disabled={args.disabled}
+				description={args.description}
+				feedback={args.feedback}
+			/>
+		);
 	},
 };
 
@@ -49,7 +57,10 @@ export const PasswordInputErrorState = {
 	args: {
 		label: 'Password',
 		description: 'Your password must be at least 8 characters',
-		feedback: {message: 'Password must be at least 8 characters', type: 'error'},
+		feedback: {
+			message: 'Password must be at least 8 characters',
+			type: 'error',
+		},
 		disabled: false,
 	},
 	parameters: {
@@ -58,16 +69,17 @@ export const PasswordInputErrorState = {
 			url: links['whitelabel-o3-form--password-input-error-state'].figma,
 		},
 	},
-	render: (args) => {
+	render: args => {
 		return (
-			<Form>
-				<PasswordInputTsx label={args.label} disabled={args.disabled} description={args.description}
-													length={args.length}
-													feedback={args.feedback}
-				/>
-			</Form>);
+			<PasswordInputTsx
+				label={args.label}
+				disabled={args.disabled}
+				description={args.description}
+				length={args.length}
+				feedback={args.feedback}
+			/>
+		);
 	},
 };
-
 
 export default meta;

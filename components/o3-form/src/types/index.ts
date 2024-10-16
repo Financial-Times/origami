@@ -8,7 +8,7 @@ export type BaseInputProps = {
 	attributes?: JSX.IntrinsicElements['input'];
 };
 
-export interface TextInputProps extends FormFieldProps {
+export interface TextInputProps extends BaseInputProps {
 	disabled?: boolean;
 	length?: 2 | 3 | 4 | 5;
 	feedback?: FeedbackProps;
@@ -29,6 +29,7 @@ export interface FormFieldsetProps {
 	description?: string;
 	children: JSX.Element | JSX.Element[];
 	feedback?: FeedbackProps;
+	optional?: boolean;
 }
 
 export interface FormFieldProps extends BaseInputProps {

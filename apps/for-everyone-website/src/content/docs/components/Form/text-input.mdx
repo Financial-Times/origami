@@ -1,0 +1,42 @@
+---
+title: Text Input
+description: Text inputs allow users to enter free-form text data such as filling in contact or payment information.
+---
+
+import {Aside} from '@astrojs/starlight/components';
+
+import {default as TextInputAnatomy} from '../../../../components/form/anatomy/Text-input.astro';
+
+Text inputs allow users to enter free-form text data such as filling in contact or payment information.
+
+<Aside>
+	{/* prettier-ignore */}
+	The <a
+		href={
+			props.brand == 'core'
+				? '/components/form'
+				: `/${props.brand}/components/form`
+		}>
+		general form component guidelines
+	</a> apply to this component. Please make sure you’re familiar with them first.
+</Aside>
+
+## Anatomy
+
+<TextInputAnatomy />
+
+1. Label: Indicates the purpose of the text input field. It should clearly communicate what kind of information is expected.
+2. Description: Provides additional context/instructions about the text input field. It helps users understand what is required or gives examples of the kind of information they should enter.
+3. Optional indicator: Indicates fields that are not mandatory.
+4. Input box: the interactive area where users can type their input
+5. Input text: The text string entered by the user. This is not placeholder text and only applies when the user has typed.
+6. Feedback message: provides users with response regarding their input. For now it’s only errors. The feedback message should be clear and specific, guiding the user on any necessary actions
+
+## Usage Guidelines
+
+### Width
+
+As layouts adapt to larger screens, flexible container dimensions are applied to form components for better readability. The default width is 4 grid columns—343px on mobile, expanding to 422px on desktop for an optimized experience.
+
+
+In most cases, the input field follows the standard forms width, which adapts to the layout. However, when the expected user input is a short string of characters, it’s better to use a properly-sized input field:

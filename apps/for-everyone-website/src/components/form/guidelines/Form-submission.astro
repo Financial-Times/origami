@@ -1,0 +1,22 @@
+---
+import {Form, TextInput} from '@financial-times/o3-form/esm'
+import { Button } from '@financial-times/o3-button/esm';
+import Example from '../../Example.astro';
+
+const {brand} = Astro.props
+---
+
+<Example slot="examples" do title="Include a button with a clear call to action to submit data">
+	<div data-o3-brand={brand}>
+		<Form>
+			<TextInput label="City" attributes={{defaultValue: "London" }} />
+			<TextInput label="Address" attributes={{defaultValue: "1 Friday St"}} optional={true} />
+			<Button label='Save' type='primary' />
+	</Form>
+</Example>
+
+<style>
+	div {
+		width: 50%;
+	}
+</style>

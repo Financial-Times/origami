@@ -75,6 +75,12 @@
     "sb": "?path=/story/core-o3-editorial-typography--topic-tag",
     "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FVVM0PixrY3IRZq2ZUTdWfU%2F%25F0%259F%2592%25A0-Core---Origami-(o3)%3Fnode-id%3D6420-5630%26t%3D58TFgNdha3aoeQtE-4"
   },
+  "core-o3-form--check-box": {
+    "sb": "?path=/story/core-o3-form--check-box"
+  },
+  "core-o3-form--check-box-group": {
+    "sb": "?path=/story/core-o3-form--check-box-group"
+  },
   "core-o3-form--error-summary": {
     "sb": "?path=/story/core-o3-form--error-summary"
   },
@@ -86,8 +92,14 @@
     "sb": "?path=/story/core-o3-form--password-input-error-state",
     "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FGd3FgVbUqkz57FQZYIlHuN%2Fo3-input-password%3Fnode-id%3D6760-479%26t%3DxAYYryqwXxC9aYh3-4"
   },
-  "core-o3-form--radio-button": {
-    "sb": "?path=/story/core-o3-form--radio-button"
+  "core-o3-form--short-text-input": {
+    "sb": "?path=/story/core-o3-form--short-text-input"
+  },
+  "core-o3-form--text-input": {
+    "sb": "?path=/story/core-o3-form--text-input"
+  },
+  "core-o3-form--text-input-error-state": {
+    "sb": "?path=/story/core-o3-form--text-input-error-state"
   },
   "core-o3-foundation-o3-grid--grid": {
     "sb": "?path=/story/core-o3-foundation-o3-grid--grid"
@@ -231,6 +243,12 @@
     "sb": "?path=/story/core-professional-o3-editorial-typography--topic-tag",
     "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2Fqfi6fTq5V05b0mnXw3F7q5%2F%25F0%259F%2592%25A0-Professional---Origami-(o3)%3Fnode-id%3D4287-1027%26t%3DxcH8QRZUayrRLl8o-4"
   },
+  "core-professional-o3-form--check-box": {
+    "sb": "?path=/story/core-professional-o3-form--check-box"
+  },
+  "core-professional-o3-form--check-box-group": {
+    "sb": "?path=/story/core-professional-o3-form--check-box-group"
+  },
   "core-professional-o3-form--error-summary": {
     "sb": "?path=/story/core-professional-o3-form--error-summary"
   },
@@ -240,8 +258,14 @@
   "core-professional-o3-form--password-input-error-state": {
     "sb": "?path=/story/core-professional-o3-form--password-input-error-state"
   },
-  "core-professional-o3-form--radio-button": {
-    "sb": "?path=/story/core-professional-o3-form--radio-button"
+  "core-professional-o3-form--short-text-input": {
+    "sb": "?path=/story/core-professional-o3-form--short-text-input"
+  },
+  "core-professional-o3-form--text-input": {
+    "sb": "?path=/story/core-professional-o3-form--text-input"
+  },
+  "core-professional-o3-form--text-input-error-state": {
+    "sb": "?path=/story/core-professional-o3-form--text-input-error-state"
   },
   "core-professional-o3-foundation-o3-grid--grid": {
     "sb": "?path=/story/core-professional-o3-foundation-o3-grid--grid"
@@ -345,6 +369,12 @@
     "sb": "?path=/story/internal-o3-button--small-button",
     "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FH9vTWZgEzqzTtX689nwq4R%2F%25F0%259F%2592%25A0-Internal---Origami-(o3)%3Fnode-id%3D2819-133%26t%3DuSXzpLGDcxFzfDex-0"
   },
+  "internal-o3-form--check-box": {
+    "sb": "?path=/story/internal-o3-form--check-box"
+  },
+  "internal-o3-form--check-box-group": {
+    "sb": "?path=/story/internal-o3-form--check-box-group"
+  },
   "internal-o3-form--error-summary": {
     "sb": "?path=/story/internal-o3-form--error-summary"
   },
@@ -354,8 +384,14 @@
   "internal-o3-form--password-input-error-state": {
     "sb": "?path=/story/internal-o3-form--password-input-error-state"
   },
-  "internal-o3-form--radio-button": {
-    "sb": "?path=/story/internal-o3-form--radio-button"
+  "internal-o3-form--short-text-input": {
+    "sb": "?path=/story/internal-o3-form--short-text-input"
+  },
+  "internal-o3-form--text-input": {
+    "sb": "?path=/story/internal-o3-form--text-input"
+  },
+  "internal-o3-form--text-input-error-state": {
+    "sb": "?path=/story/internal-o3-form--text-input-error-state"
   },
   "internal-o3-foundation-o3-grid--grid": {
     "sb": "?path=/story/internal-o3-foundation-o3-grid--grid"
@@ -516,6 +552,12 @@
     "sb": "?path=/story/sustainable-views-o3-editorial-typography--topic-tag",
     "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FY7u0SwIJ1mCNDE0dpzgHCJ%2F%25F0%259F%2592%25A0-Sustainable-Views---Origami-(o3)%3Fnode-id%3D6418-178%26t%3Df6FGZ2XYbvorQQMT-4"
   },
+  "sustainable-views-o3-form--check-box": {
+    "sb": "?path=/story/sustainable-views-o3-form--check-box"
+  },
+  "sustainable-views-o3-form--check-box-group": {
+    "sb": "?path=/story/sustainable-views-o3-form--check-box-group"
+  },
   "sustainable-views-o3-form--error-summary": {
     "sb": "?path=/story/sustainable-views-o3-form--error-summary"
   },
@@ -525,8 +567,14 @@
   "sustainable-views-o3-form--password-input-error-state": {
     "sb": "?path=/story/sustainable-views-o3-form--password-input-error-state"
   },
-  "sustainable-views-o3-form--radio-button": {
-    "sb": "?path=/story/sustainable-views-o3-form--radio-button"
+  "sustainable-views-o3-form--short-text-input": {
+    "sb": "?path=/story/sustainable-views-o3-form--short-text-input"
+  },
+  "sustainable-views-o3-form--text-input": {
+    "sb": "?path=/story/sustainable-views-o3-form--text-input"
+  },
+  "sustainable-views-o3-form--text-input-error-state": {
+    "sb": "?path=/story/sustainable-views-o3-form--text-input-error-state"
   },
   "sustainable-views-o3-foundation-o3-grid--grid": {
     "sb": "?path=/story/sustainable-views-o3-foundation-o3-grid--grid"

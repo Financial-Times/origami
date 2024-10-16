@@ -1,0 +1,16 @@
+---
+import Preview from '../../utils/Preview.astro'
+import FigmaSbLinks from '../../utils/FigmaSbLinks.astro';
+
+import * as InputValidatio from '../preview/Input-error'
+
+const {brand} = Astro.props
+const component = InputValidatio
+const storybookId = `${brand}-o3-form--text-input-error-state`
+---
+
+<div>
+	<Preview {component} />
+	<FigmaSbLinks storybook={storybookId} />
+</div>
+
