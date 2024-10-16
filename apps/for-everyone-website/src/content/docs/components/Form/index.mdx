@@ -4,14 +4,19 @@ description: Form components are used to collect information and guide users. He
 ---
 
 import Tip from '../../../../components/utils/Tip.astro';
-import {default as PlacementOrderGuidlines} from '../../../../components/form/Guideline-placement-order.astro';
-import {default as RequiredOptionalInput} from '../../../../components/form/Guideline-required-optional.astro';
+import {default as PlacementOrderGuidlines} from '../../../../components/form/guidelines/Placement-order.astro';
+import {default as RequiredOptionalInput} from '../../../../components/form/guidelines/Required-optional.astro';
+import {default as LabelsGrouping} from '../../../../components/form/guidelines/Labels-grouping.astro';
+import {default as FormSubmission} from '../../../../components/form/guidelines/Form-submission.astro';
+import {default as InputValidation} from '../../../../components/form/examples/Input-validation.astro';
+import {default as ErrorSummary} from '../../../../components/form/examples/Page-level-validation.astro';
+import {default as DisabledStates} from '../../../../components/form/examples/Disabled-state.astro';
 
 import '@financial-times/o3-form/css/whitelabel.css';
 
 Form components are used to collect information and guide users. Here you’ll find general rules for using them that apply to all components. Structure, sequence, and messaging are essential to creating a good user experience.
 
-### Form Componentes
+{/* ### Form Componentes
 
 <div style="display: flex; flex-direction: column">
 	<a href="text-input">Text Input</a>
@@ -19,7 +24,7 @@ Form components are used to collect information and guide users. Here you’ll f
 	<a href="text-input">Checkbox</a>
 	<a href="text-input">Radio Button</a>
 	<a href="text-input">Error summary</a>
-</div>
+</div> */}
 
 ## Placement and Order
 
@@ -67,7 +72,7 @@ It’s best practice to only mark the optional components. No special indicator 
 
 Grouping related components together helps users quickly understand the structure and flow of the form. Well-defined groupings reduce cognitive load, making the form easier to process and interact with.
 
---Placeholder grouping dos n donts--
+<LabelsGrouping brand={props.brand} />
 
 Additionally, always pair components with clear and descriptive labels to ensure users understand what is expected of them.
 
@@ -75,13 +80,13 @@ Additionally, always pair components with clear and descriptive labels to ensure
 
 All data entered through form components should be submitted via a button. If the user navigates away from the page before submitting, the input is lost. This rule does not apply to the toggle component, which takes effect immediately.
 
---form submission dos n donts---
+<FormSubmission brand={props.brand} />
 
 ## Input-level Validation
 
 Input-level validation happens while the user interacts with the individual components. All form components support this for incorrect data. Validation is performed when the user moves focus away from the component they’re interacting with. The user must enter valid input to clear the error state.
 
---example error state--
+<InputValidation brand={props.brand} />
 
 <Tip>
 	<ol slot="tip-content">
@@ -102,13 +107,13 @@ Input-level validation happens while the user interacts with the individual comp
 
 Page-level validation happens once the user submits the entered input though a button. If there’s an error with the entered data, the error summary component appears on top of the page, providing an overview of errors that have occurred.
 
---placeholder page level validation demo--
+<ErrorSummary brand={props.brand} />
 
 ## Disabled States
 
 Some components support disabled states, but they should be used sparingly. Always provide a clear explanation of why the component is disabled and how it can be enabled. A common acceptable use case for disabled components is when a component is in a read-only state.
 
---placeholder disabled states--
+<DisabledStates brand={props.brand} />
 
 <Tip>
 	<p slot="tip-content">

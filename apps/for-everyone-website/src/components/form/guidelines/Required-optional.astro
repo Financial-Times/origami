@@ -1,0 +1,23 @@
+---
+import {Form, TextInput} from '@financial-times/o3-form/esm'
+import Example from '../../Example.astro';
+
+const {brand} = Astro.props
+---
+
+<Example slot="examples" do title="Mark Optional Components">
+	<div data-o3-brand={brand}>
+
+		<Form>
+			<TextInput label="City" attributes={{defaultValue: "London" }} />
+			<TextInput label="Address" attributes={{defaultValue: "1 Friday St"}} optional={true} />
+		</Form>
+	</div>
+</Example>
+
+<style>
+	div {
+		width: 50%;
+	}
+
+</style>
