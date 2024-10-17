@@ -1,0 +1,71 @@
+---
+title: Error summary
+description: The Error Summary appears on the top of a page after a user submits a form which generates an error. It presents a list of errors that have occurred and allows users to identify and correct mistakes easily.
+---
+
+import {Aside} from '@astrojs/starlight/components';
+import {Form, TextInput} from '@financial-times/o3-form';
+
+import Tip from '../../../../components/utils/Tip.astro';
+import Example from '../../../../components/Example.astro';
+
+import {default as ErrorSummaryAnatomy} from '../../../../components/form/anatomy/Error-summary.astro';
+
+import {default as InputWidthExample} from '../../../../components/form/examples/Input-width.astro';
+import {default as ShortTextEample} from '../../../../components/form/examples/Input-short-text.astro';
+
+import '@financial-times/o3-form/css/whitelabel.css';
+
+<BrandedContent brands="core,internal,professional,sustainable-views">
+	Currently we have a limited brand support for form components. We are working
+	on expanding this to all brands. For now, please refer to the [whitelabel text
+	input component](/whitelabel/components/form/error-summary) for more
+	information.
+</BrandedContent>
+
+<BrandedContent brands="whitelabel">
+The Error Summary appears on the top of a page after a user submits a form which generates an error. It presents a list of errors that have occurred and allows users to identify and correct mistakes easily.
+<Aside>
+	{/* prettier-ignore */}
+	The <a
+		href={
+			props.brand == 'core'
+				? '/components/form'
+				: `/${props.brand}/components/form`
+		}>
+		general form component guidelines
+	</a> apply to this component. Please make sure you’re familiar with them first.
+</Aside>
+
+## Anatomy
+
+<ErrorSummaryAnatomy />
+
+1. Title: A brief general feedback message summarizing the presence of errors
+2. Icon: A visual indicator of an error
+3. Details: A list of specific errors that led to the feedback message.
+4. Box: A colored area that contains the entire error summary.
+
+## Usage Guidelines
+
+### Placement
+
+The error summary should always appear on top of the page, before the form elements.
+
+<Tip>
+	<p>
+		By positioning errors on top of the page we make sure they’re the first
+		thing a user sees after the page loads. This way also helps with users on a
+		screen reader since this is the first information they’ll get.
+	</p>
+</Tip>
+
+### message
+
+The summary should provide a concise list of all errors, ideally in the order they appear on the form. Each item in the list should describe the error clearly and be clickable. Clicking on an error should take the user directly to the problematic field, ensuring that they can quickly locate and resolve the issue.
+
+### Validation
+
+Only use the error summary for actual errors that won’t let the user navigate further. Don’t use it for information, tips, etc.
+
+</BrandedContent>

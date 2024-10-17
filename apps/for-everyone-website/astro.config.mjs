@@ -25,7 +25,9 @@ export default defineConfig({
 	},
 	site: 'https://origami.ft.com/',
 	integrations: [
-		react(),
+		react({
+			experimentalReactChildren: true
+		}),
 		starlight({
 			title: 'Origami Design System',
 			defaultLocale: 'root',

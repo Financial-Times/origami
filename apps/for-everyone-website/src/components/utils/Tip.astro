@@ -15,7 +15,7 @@ const {sources} = Astro.props;
 		<div class="icon">
 			<Fragment set:html={tip} />
 		</div>
-		<slot name="tip-content" />
+		<slot />
 	</div>
 	{
 		sources?.length > 0 && (

@@ -1,0 +1,18 @@
+---
+import Preview from '../../utils/Preview.astro'
+import FigmaSbLinks from '../../utils/FigmaSbLinks.astro';
+
+import * as RadioGroupTsx from '../preview/Radio-group'
+
+const {brand} = Astro.props
+const component = RadioGroupTsx
+const storybookId = `${brand}-o3-form--radio-button`
+
+
+---
+
+<div>
+	<Preview {component} />
+	<FigmaSbLinks storybook={storybookId} />
+</div>
+
