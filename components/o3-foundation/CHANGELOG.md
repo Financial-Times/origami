@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.0](https://github.com/Financial-Times/origami/compare/o3-foundation-v2.1.1...o3-foundation-v2.2.0) (2024-10-16)
+
+
+### Features
+
+* introduce o3 form use case tokens ([#1839](https://github.com/Financial-Times/origami/issues/1839)) ([6fa8197](https://github.com/Financial-Times/origami/commit/6fa819766d1ebe1f0f2cc80367dd2f382f6a7ade))
+
 ## [2.1.1](https://github.com/Financial-Times/origami/compare/o3-foundation-v2.1.0...o3-foundation-v2.1.1) (2024-10-09)
 
 

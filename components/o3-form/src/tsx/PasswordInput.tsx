@@ -11,6 +11,14 @@ export const PasswordInput = ({
 	inputId,
 	optional,
 }: PasswordInputProps) => {
+	label,
+	feedback,
+	description,
+	disabled,
+	attributes,
+	inputId,
+	optional,
+}: PasswordInputProps) => {
 	const inputClasses = ['o3-form', 'o3-form-text-input'];
 
 	if (feedback && feedback.type === 'error') {
@@ -24,6 +32,8 @@ export const PasswordInput = ({
 				description={description}
 				inputId={inputId}
 				optional={optional}>
+				inputId={inputId}
+				optional={optional}>
 				<input
 					{...attributes}
 					id={inputId}
@@ -31,10 +41,17 @@ export const PasswordInput = ({
 					className={inputClasses.join(' ')}
 					required={!optional}
 					aria-required={!optional}
+					required={!optional}
+					aria-required={!optional}
 					type="password"
 				/>
 			</LabeledFormField>
 			<div className="o3-password-input__controls">
+				<CheckBoxItem
+					attributes={{disabled}}
+					inputId="showPassword"
+					checkboxLabel="Show Password"
+				/>
 				<CheckBoxItem
 					attributes={{disabled}}
 					inputId="showPassword"
