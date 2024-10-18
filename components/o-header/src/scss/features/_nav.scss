@@ -80,10 +80,6 @@
 	}
 
 	.o-header__nav-link--primary {
-		font-weight: 600;
-		text-transform: uppercase;
-		// sass-lint:disable no-vendor-prefixes
-		-webkit-font-smoothing: antialiased;
-		// sass-lint:enable no-vendor-prefixes
+		@include _oHeaderPrimaryLink;
 	}
 }

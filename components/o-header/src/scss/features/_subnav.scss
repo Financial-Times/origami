@@ -139,6 +139,10 @@
 		}
 	}
 
+	.o-header__subnav-link--primary {
+		@include _oHeaderPrimaryLink;
+	}
+
 	.o-header__subnav-button {
 		@include oIconsContent('arrow-left', _oHeaderGet('subnav-button-text'), $size: null);
 		background-color: _oHeaderGet('subnav-button-background');
