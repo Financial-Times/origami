@@ -15,7 +15,7 @@ export default defineConfig({
 	},
 	vite: {
 		ssr: {
-			noExternal: ['unist-util-visit'],
+			noExternal: ['unist-util-visit', '@astrojs/internal-helpers'],
 		},
 		resolve: {
 			alias: {
