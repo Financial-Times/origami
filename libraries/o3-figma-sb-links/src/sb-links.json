@@ -184,5 +184,9 @@
   "sustainable-views-o3-form--check-box": "?path=/story/sustainable-views-o3-form--check-box",
   "sustainable-views-o3-form--text-input": "?path=/story/sustainable-views-o3-form--text-input",
   "sustainable-views-o3-form--text-input-error-state": "?path=/story/sustainable-views-o3-form--text-input-error-state",
-  "sustainable-views-o3-form--short-text-input": "?path=/story/sustainable-views-o3-form--short-text-input"
+  "sustainable-views-o3-form--short-text-input": "?path=/story/sustainable-views-o3-form--short-text-input",
+  "core-professional-o3-form--radio-button": "?path=/story/core-professional-o3-form--radio-button",
+  "core-o3-form--radio-button": "?path=/story/core-o3-form--radio-button",
+  "internal-o3-form--radio-button": "?path=/story/internal-o3-form--radio-button",
+  "sustainable-views-o3-form--radio-button": "?path=/story/sustainable-views-o3-form--radio-button"
 }

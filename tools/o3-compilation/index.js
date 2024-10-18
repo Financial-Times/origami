@@ -40,6 +40,9 @@ import path from 'path';
 	}
 })();
 
+/**
+ * @type {import('tsup').Options}
+ */
 const sharedConfig = {
 	target: 'es2021',
 	splitting: true,
