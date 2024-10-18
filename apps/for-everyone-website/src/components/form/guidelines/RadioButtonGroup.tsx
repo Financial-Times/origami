@@ -26,8 +26,9 @@ export function RadioGroup() {
 				{items.map((item) => {
 					return (
 						<RadioButtonItem
+							key={item}
 							radioButtonLabel={item}
-							inputId={convertToLowercaseAndRemoveSpaces(`checkbox-${item}`)}
+							inputId={convertToLowercaseAndRemoveSpaces(`radio-button-${item}`)}
 						/>
 					);
 				})}
@@ -40,18 +41,15 @@ export function CheckboxGroup() {
 	return (
 		<Form>
 			<CheckBoxGroup label={legend} description={legendDescription}>
-				<CheckBoxItem
-					checkboxLabel={items[0]}
-					inputId={convertToLowercaseAndRemoveSpaces(`checkbox-${items[0]}`)}
-				/>
-				<CheckBoxItem
-					checkboxLabel={items[1]}
-					inputId={convertToLowercaseAndRemoveSpaces(`checkbox-${items[1]}`)}
-				/>
-				<CheckBoxItem
-					checkboxLabel={items[2]}
-					inputId={convertToLowercaseAndRemoveSpaces(`checkbox-${items[2]}`)}
-				/>
+				{items.map((item) => {
+					return (
+						<CheckBoxItem
+							key={item}
+							checkboxLabel={item}
+							inputId={convertToLowercaseAndRemoveSpaces(`checkbox-${item}`)}
+						/>
+					)
+				})}
 			</CheckBoxGroup>
 		</Form>
 	);

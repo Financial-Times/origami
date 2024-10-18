@@ -5,12 +5,17 @@ function ButtonPreview() {
 		<div style={{width: '50%'}}>
 			<meta itemProp="@preview" />
 			<Form>
-				<CheckBoxGroup label='Notification preferences' description='How would you like to be updated?'>
-					<CheckBoxItem checkboxLabel="Email notifications" inputId="email-notification-checkbox" attributes={{checked: true}} />
+				<CheckBoxGroup
+					label="Notification preferences"
+					description="How would you like to be updated?">
+					<CheckBoxItem
+						checkboxLabel="Email notifications"
+						inputId="email-notification-checkbox"
+						attributes={{defaultChecked: true}}
+					/>
 					<CheckBoxItem
 						checkboxLabel="SMS notifications"
 						inputId="sms-notification-checkbox"
-
 					/>
 					<CheckBoxItem
 						checkboxLabel="In-app notifications"

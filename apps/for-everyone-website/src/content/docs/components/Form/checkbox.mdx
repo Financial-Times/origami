@@ -4,7 +4,7 @@ description: Checkboxes allow users to select one or more items from a list or t
 ---
 
 import {Aside} from '@astrojs/starlight/components';
-import {Form, CheckBox} from '@financial-times/o3-form';
+import {Form, CheckBoxItem} from '@financial-times/o3-form';
 
 import Tip from '../../../../components/utils/Tip.astro';
 import Example from '../../../../components/Example.astro';
@@ -71,7 +71,7 @@ Provide clear and descriptive labels to aid users in understanding the purpose o
 <Example do title="Provide clear and descriptive labels">
 	<div data-o3-brand={props.brand}>
 		<Form>
-			<CheckBox checkboxLabel="Subscribe me to the newsletter" />
+			<CheckBoxItem checkboxLabel="Subscribe me to the newsletter" />
 		</Form>
 	</div>
 </Example>
@@ -79,7 +79,7 @@ Provide clear and descriptive labels to aid users in understanding the purpose o
 <Example do={false} title="Don’t use negative statements">
 	<div data-o3-brand={props.brand}>
 		<Form>
-			<CheckBox checkboxLabel="Don’t subscribe me to the newsletter" />
+			<CheckBoxItem checkboxLabel="Don’t subscribe me to the newsletter" />
 		</Form>
 	</div>
 </Example>

@@ -13,7 +13,7 @@ function ButtonPreview() {
 					<RadioButtonItem
 						radioButtonLabel="Daily"
 						inputId="radio-button-daily"
-						attributes={{checked: true}}
+						attributes={{defaultChecked: true}}
 					/>
 					<RadioButtonItem
 						radioButtonLabel="Weekly"

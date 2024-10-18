@@ -11,14 +11,6 @@ export const PasswordInput = ({
 	inputId,
 	optional,
 }: PasswordInputProps) => {
-	label,
-	feedback,
-	description,
-	disabled,
-	attributes,
-	inputId,
-	optional,
-}: PasswordInputProps) => {
 	const inputClasses = ['o3-form', 'o3-form-text-input'];
 
 	if (feedback && feedback.type === 'error') {
@@ -32,15 +24,11 @@ export const PasswordInput = ({
 				description={description}
 				inputId={inputId}
 				optional={optional}>
-				inputId={inputId}
-				optional={optional}>
 				<input
 					{...attributes}
 					id={inputId}
 					disabled={disabled}
 					className={inputClasses.join(' ')}
-					required={!optional}
-					aria-required={!optional}
 					required={!optional}
 					aria-required={!optional}
 					type="password"
