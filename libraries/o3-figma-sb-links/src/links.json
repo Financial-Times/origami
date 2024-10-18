@@ -92,6 +92,9 @@
     "sb": "?path=/story/core-o3-form--password-input-error-state",
     "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FGd3FgVbUqkz57FQZYIlHuN%2Fo3-input-password%3Fnode-id%3D6760-479%26t%3DxAYYryqwXxC9aYh3-4"
   },
+  "core-o3-form--radio-button": {
+    "sb": "?path=/story/core-o3-form--radio-button"
+  },
   "core-o3-form--short-text-input": {
     "sb": "?path=/story/core-o3-form--short-text-input"
   },
@@ -258,6 +261,9 @@
   "core-professional-o3-form--password-input-error-state": {
     "sb": "?path=/story/core-professional-o3-form--password-input-error-state"
   },
+  "core-professional-o3-form--radio-button": {
+    "sb": "?path=/story/core-professional-o3-form--radio-button"
+  },
   "core-professional-o3-form--short-text-input": {
     "sb": "?path=/story/core-professional-o3-form--short-text-input"
   },
@@ -383,6 +389,9 @@
   },
   "internal-o3-form--password-input-error-state": {
     "sb": "?path=/story/internal-o3-form--password-input-error-state"
+  },
+  "internal-o3-form--radio-button": {
+    "sb": "?path=/story/internal-o3-form--radio-button"
   },
   "internal-o3-form--short-text-input": {
     "sb": "?path=/story/internal-o3-form--short-text-input"
@@ -566,6 +575,9 @@
   },
   "sustainable-views-o3-form--password-input-error-state": {
     "sb": "?path=/story/sustainable-views-o3-form--password-input-error-state"
+  },
+  "sustainable-views-o3-form--radio-button": {
+    "sb": "?path=/story/sustainable-views-o3-form--radio-button"
   },
   "sustainable-views-o3-form--short-text-input": {
     "sb": "?path=/story/sustainable-views-o3-form--short-text-input"
