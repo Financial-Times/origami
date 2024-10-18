@@ -130,3 +130,11 @@
 		margin: -10px; // Undo in-built icon whitespace.
 	}
 }
+
+@mixin _oHeaderPrimaryLink() {
+	font-weight: 600;
+	text-transform: uppercase;
+	// sass-lint:disable no-vendor-prefixes
+	-webkit-font-smoothing: antialiased;
+	// sass-lint:enable no-vendor-prefixes
+}
