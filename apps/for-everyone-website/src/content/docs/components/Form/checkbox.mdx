@@ -41,10 +41,10 @@ Checkboxes allow users to select one or more items from a list or toggle an opti
 
 <CheckboxAnatomy />
 
-1. Label: Indicates the purpose of the checkboxes. It should clearly communicate what kind of choice has to be made.
+1. Label: Indicates the purpose of the entire group of checkboxes. It provides an instruction or context for the available options.
 2. Description: Provides additional context/instructions about the checkbox. It helps users understand what is required or gives examples of the kind of information they should enter.
 3. Checkbox container: The checkbox selection control.
-4. Checkbox label: Indicates the purpose of the checkbox(es). It should clearly communicate what kind of choice is expected.
+4. Checkbox label: Indicates the purpose of each individual checkbox(es). It should clearly communicates the choice or option represented by that specific checkbox.
 
 ## Usage Guidelines
 
@@ -58,15 +58,16 @@ or when some but not all sub-options are selected.
 ### Group Related Checkboxes
 
 <CheckboxGroup brand={props.brand} />
-When possible, group related checkboxes together and provide a clear heading or label
+- When possible, group related checkboxes together and provide a clear heading or label
 to describe the group. This helps users quickly understand what the options are related
-to. Avoid putting more than 7 checkboxes in one group.
+to.
+- Avoid putting more than 7 checkboxes in one group.
 
 ### Labels
 
 Phrase the labels clearly so that no helper text is needed to clarify what will happen when you select the respective checkbox.
 
-Provide clear and descriptive labels to aid users in understanding the purpose of each checkbox. Use positive, active rather than negative statements, i.e. when the user needs to check the checkbox for something NOT to happen, say:
+Provide clear and descriptive labels to aid users in understanding the purpose of each checkbox. Avoid using negative statements like 'check to prevent X'. Instead, use positive, active statements that clearly describe what will happen when the checkbox is selected.
 
 <Example do title="Provide clear and descriptive labels">
 	<div data-o3-brand={props.brand}>
