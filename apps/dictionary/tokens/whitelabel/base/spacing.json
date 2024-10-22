@@ -46,7 +46,7 @@
         "type": "spacing"
       },
       "4xl": {
-        "value": "200px",
+        "value": "96px",
         "type": "spacing"
       }
     }

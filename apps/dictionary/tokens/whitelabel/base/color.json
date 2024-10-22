@@ -2,10 +2,6 @@
   "o3": {
     "color": {
       "palette": {
-        "black": {
-          "type": "color",
-          "value": "#000"
-        },
         "white": {
           "value": "#fff",
           "type": "color"
@@ -56,6 +52,10 @@
         },
         "black-90": {
           "value": "#1a1a1a",
+          "type": "color"
+        },
+        "black": {
+          "value": "#000000",
           "type": "color"
         }
       }
