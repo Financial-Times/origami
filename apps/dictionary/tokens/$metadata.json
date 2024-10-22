@@ -10,6 +10,7 @@
     "core/components/o3-button",
     "core/components/o3-tooltip",
     "core/components/o3-editorial-typography",
+    "core/components/o3-form/use-case",
     "core/professional/base/color",
     "core/professional/use-case/color",
     "core/professional/use-case/typography",
