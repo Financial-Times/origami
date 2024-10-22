@@ -1,0 +1,19 @@
+---
+import Example from "../../Example.astro"
+import {RadioGroup, CheckboxGroup} from './RadioButtonGroup'
+const {brand} = Astro.props
+
+---
+
+
+<Example do title="Use checkboxes for multiple choices">
+    <div data-o3-brand={brand}>
+				<CheckboxGroup />
+    </div>
+</Example>
+
+<Example do={false} title="Don’t Use radio buttons when the choices are not mutually exclusive">
+    <div data-o3-brand={brand}>
+        <RadioGroup />
+    </div>
+</Example>

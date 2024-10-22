@@ -1,8 +1,20 @@
 ---
 import links from '@financial-times/o3-figma-sb-links';
+
+interface Props {
+	/** Storybook Id from o3-figma-sb-links package. Tries to find both storybook path and figma link */
+	storybookId?: string;
+	/** Extra parameters to modify controls in sotrybook and display preciese example for demos */
+	sbPathParams?: string;
+	/** Custom URL that will be used for storybook demo link */
+	storybook?: string;
+	/** Custom URL that will be used to link to Figma designs  */
+	figma?: string
+}
+
 const {storybook, figma} = getLinks(Astro.props);
 
-function getLinks(props) {
+function getLinks(props: Props) {
 	let {storybookId, sbPathParams, storybook, figma} = props;
 	const brandedstorybookId = storybookId?.startsWith('professional')
 	? `core-${storybookId}`
