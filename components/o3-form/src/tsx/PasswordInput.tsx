@@ -1,6 +1,9 @@
+import {uidBuilder} from '@financial-times/o-utils';
 import {PasswordInputProps} from '../types/index';
 import {LabeledFormField} from './fieldComponents/FormField';
 import {CheckBoxItem} from './CheckBox';
+
+const uniqueId = uidBuilder('o3-form-password-input');
 
 export const PasswordInput = ({
 	label,
@@ -11,6 +14,7 @@ export const PasswordInput = ({
 	inputId,
 	optional,
 }: PasswordInputProps) => {
+	const id = inputId || uniqueId('_');
 	const inputClasses = ['o3-form', 'o3-form-text-input'];
 
 	if (feedback && feedback.type === 'error') {
@@ -22,11 +26,11 @@ export const PasswordInput = ({
 				label={label}
 				feedback={feedback}
 				description={description}
-				inputId={inputId}
+				inputId={id}
 				optional={optional}>
 				<input
 					{...attributes}
-					id={inputId}
+					id={id}
 					disabled={disabled}
 					className={inputClasses.join(' ')}
 					required={!optional}
