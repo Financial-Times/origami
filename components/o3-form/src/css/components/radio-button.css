@@ -74,6 +74,21 @@
 	&.o3-form-input-error:checked + label::after {
 		background-color: var(--o3-color-use-case-error);
 	}
+
+	&:focus + label::before {
+		box-shadow: var(--o3-focus-use-case-ring-inner), var(--03-focus-use-case-ring-outer);
+		outline: 3px solid transparent; /* For Windows high contrast mode. */
+	}
+
+	@supports selector(:focus-visible) {
+		&:focus + label::before {
+			box-shadow: unset;
+		}
+		&:focus-visible + label::before {
+			box-shadow: var(--o3-focus-use-case-ring-inner), var(--o3-focus-use-case-ring-outer);
+			outline: 3px solid transparent; /* For Windows high contrast mode. */
+		}
+	}
 }
 
 .o3-form-input-radio-button__label {
