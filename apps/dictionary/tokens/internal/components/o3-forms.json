@@ -31,7 +31,7 @@
               "type": "color"
             },
             "disabled": {
-              "value": "{o3.color.palette.black-10}",
+              "value": "{o3.color.use-case.button.disabled}",
               "type": "color"
             }
           },
@@ -49,7 +49,7 @@
               "type": "color"
             },
             "disabled": {
-              "value": "{o3.color.use-case.button.disabled}",
+              "value": "{o3.color.palette.black-5}",
               "type": "color"
             }
           }

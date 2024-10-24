@@ -19,7 +19,7 @@
           },
           "border": {
             "@": {
-              "value": "{o3.color.use-case.button.default}",
+              "value": "{o3.color.palette.black-50}",
               "type": "color"
             },
             "hover": {
@@ -31,7 +31,7 @@
               "type": "color"
             },
             "disabled": {
-              "value": "{o3.color.use-case.button.disabled}",
+              "value": "{o3.color.palette.black-10}",
               "type": "color"
             }
           },

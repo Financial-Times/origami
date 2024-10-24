@@ -62,6 +62,32 @@
               "type": "color"
             }
           }
+        },
+        "button": {
+          "foreground": {
+            "value": "{o3.color.palette.white}",
+            "type": "color"
+          },
+          "foreground-disabled": {
+            "value": "#FFF7EF",
+            "type": "color"
+          },
+          "default": {
+            "value": "{o3.color.palette.slate}",
+            "type": "color"
+          },
+          "hover": {
+            "value": "#515257",
+            "type": "color"
+          },
+          "pressed": {
+            "value": "#7D7A7A",
+            "type": "color"
+          },
+          "disabled": {
+            "value": "#D4C9C1",
+            "type": "color"
+          }
         }
       }
     }
