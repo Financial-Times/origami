@@ -5,6 +5,14 @@
 		border-bottom: 1px solid _oHeaderGet('subnav-border');
 	}
 
+	.o-header__subnav--primary {
+		background-color: _oHeaderGet('header-background');
+
+		.o-header__subnav-link {
+			@include _oHeaderPrimaryLink;
+		}
+	}
+
 	.o-header__subnav-wrap-outside {
 		margin-left: -$_o-header-sub-header-focus-margin;
 		margin-right: -$_o-header-sub-header-focus-margin;

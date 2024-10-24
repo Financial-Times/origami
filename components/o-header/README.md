@@ -32,6 +32,8 @@ Some elements inside the header require specific data attributes so the JavaScri
 - data-o-header-subnav-wrapper: Applied to the inner wrapper `div` of the subnav menu so the JS can handle the scrolling
 - data-o-header-search-state: Optional, may be "open" or "close" to indicate the default visibility of the search bar.
 
+The sub navigation header can be used with a modifer class `o-header__subnav--primary` to achieve styles consistent with the main navigation where item links are bold and capitalised and the background colour is `paper`.
+
 ## JavaScript
 
 An o-header object must be constructed for every `<header>` you have on your page that uses this component.
