@@ -1,10 +1,5 @@
 {
   "tokenSetOrder": [
-    "core/professional/base/color",
-    "core/professional/use-case/color",
-    "core/professional/use-case/typography",
-    "core/professional/components/o3-button",
-    "core/professional/components/o3-tooltip",
     "core/base/color",
     "core/base/spacing",
     "core/base/typography",
@@ -16,6 +11,12 @@
     "core/components/o3-tooltip",
     "core/components/o3-editorial-typography",
     "core/components/o3-form/use-case",
+    "core/professional/components/o3-form/use-case",
+    "core/professional/components/o3-button",
+    "core/professional/components/o3-tooltip",
+    "core/professional/base/color",
+    "core/professional/use-case/color",
+    "core/professional/use-case/typography",
     "sustainable-views/base/spacing",
     "sustainable-views/base/typography",
     "sustainable-views/base/color",
