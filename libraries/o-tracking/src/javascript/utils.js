@@ -28,6 +28,26 @@ function log(...args) {
 }
 
 /**
+ * Creates a logging function that logs messages to the console with a specified namespace.
+ *
+ * @function namedLog
+ * @param {string} namespace - The namespace to be prefixed to each log message.
+ * @returns {function} A function that logs messages to the console with the given namespace if the configuration allows.
+ *
+ * @example
+ * const log = namedLog('MyNamespace');
+ * log('This is a message'); 
+ * // Output: [MyNamespace]: This is a message
+ */
+function namedLog(namespace) {
+	return function(...args) {
+		if(get('config').test && window.console) {
+			window.console.log(`%c[${namespace}]:`, 'color: teal', ...args)
+		}
+	}
+}
+
+/**
  * Tests if variable is a certain type. Defaults to check for undefined if no type specified.
  *
  * @param {*} variable - The variable to check.
@@ -389,6 +409,7 @@ function isDeepEqual(a, b) {
 
 export {
 	log,
+	namedLog,
 	is,
 	is as isUndefined,
 	merge,

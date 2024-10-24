@@ -35,6 +35,7 @@ describe('Core.Session', function () {
 			const newSession = getSession();
 			proclaim.equal(newSession.id, session.id);
 			proclaim.equal(newSession.isNew, false);
+			proclaim.equal(newSession.timestamp, session.timestamp)
 		});
 	});
 
@@ -58,6 +59,20 @@ describe('Core.Session', function () {
 				const newSession = getSession();
 				proclaim.isTrue(newSession.isNew);
 				done();
+			}, 2)
+		});
+
+		it('should generate timestamp for session', () => {
+			const currentTimestamp = new Date().getTime();
+			proclaim.equal(currentTimestamp, getSession().timestamp)
+		})
+
+		it('should generate a new timestamp if session has expired', (done) => {
+			const prevSession = initSession({expires: 1});
+			setTimeout(function() {
+				const newSession = getSession();
+				proclaim.notEqual(prevSession.timestamp, newSession.timestamp);
+				done()
 			}, 2)
 		})
 	})

@@ -1,13 +1,15 @@
-import {is, merge, isUndefined, guid} from '../utils.js';
+import {is, merge, isUndefined, guid, namedLog} from '../utils.js';
 import {Store} from './store.js';
 
 /**
  * @typedef {object} Session
  * @property {string} id - The id of the session
  * @property {boolean} isNew - Whether it is a brand new session
+ * @property {number} timestamp - The timestamp of the session generation
  */
 
 let store;
+const logger = namedLog('Core.Session')
 const defaultSessionConfig = {
 	storage: 'best',
 	name: 'session',
@@ -20,14 +22,20 @@ const defaultSessionConfig = {
  * @param {string} session - The session to be stored.
  * @returns {void}
  */
-function setSession(session) {
+function setSession(session, timestamp) {
 	const d = new Date();
 	d.setTime(d.getTime() + store.config.expires);
 
-	store.write({
+	const sessionData = {
 		value: session,
-		expiry: d.valueOf()
-	});
+		expiry: d.valueOf(),
+	}
+	if(timestamp) {
+		sessionData.timestamp = timestamp;
+	}
+	logger('Setting session', sessionData)
+
+	store.write(sessionData);
 }
 
 /**
@@ -39,16 +47,29 @@ function getSession() {
 	const s = store.read();
 	let session;
 	let isNew = false;
+	let sessionTimestamp;
 
 	if (s) {
-		const d = new Date().valueOf();
+		logger("Found session", s)
+		const currentDate = new Date();
+		const d = currentDate.valueOf();
+		const timestamp = currentDate.getTime();
 		const exp = parseInt(s.expiry, 10);
 		
 		// If current session is active.
 		if (exp >= d) {
 			session = s.value;
+			sessionTimestamp = s.timestamp;
+
+			// session is active but no generated timestamp
+			if(!sessionTimestamp) {
+				logger("Session is valid but no timestamp, generating timestamp.")
+				sessionTimestamp = timestamp;
+			}
 		} else {
-			// session has expired, generate a new one
+			// session has expired, generate a new one along with a new timestamp
+			logger("Session has expired, generating new one")
+			sessionTimestamp = timestamp;
 			session = guid();
 			isNew = true;
 		}
@@ -56,15 +77,18 @@ function getSession() {
 
 	// No active session, gen a new one.
 	if (!session) {
+		logger("No session found, generating new one")
 		session = guid();
+		sessionTimestamp = new Date().getTime();
 		isNew = true;
 	}
 
 	// Refreshes the cookie...
-	setSession(session);
+	setSession(session, sessionTimestamp);
 
 	return {
 		id: session,
+		timestamp: sessionTimestamp,
 		isNew: isNew
 	};
 }
