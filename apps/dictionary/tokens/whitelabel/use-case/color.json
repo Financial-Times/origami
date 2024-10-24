@@ -107,6 +107,32 @@
         "error-text": {
           "value": "{o3.color.palette.crimson}",
           "type": "color"
+        },
+        "button": {
+          "foreground": {
+            "value": "{o3.color.palette.white}",
+            "type": "color"
+          },
+          "foreground-disabled": {
+            "value": "{o3.color.palette.white}",
+            "type": "color"
+          },
+          "default": {
+            "value": "{o3.color.palette.black-90}",
+            "type": "color"
+          },
+          "hover": {
+            "value": "{o3.color.palette.black-80}",
+            "type": "color"
+          },
+          "pressed": {
+            "value": "{o3.color.palette.black-70}",
+            "type": "color"
+          },
+          "disabled": {
+            "value": "{o3.color.palette.black-20}",
+            "type": "color"
+          }
         }
       }
     }
