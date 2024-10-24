@@ -11,7 +11,7 @@ export const LabeledFormField = ({
 	description,
 	feedback,
 	children,
-	optional
+	optional,
 }: FormFieldProps) => {
 	const id = inputId || uniqueId('input_');
 	const descriptionId = description ? uniqueId('description_') : undefined;
@@ -21,7 +21,7 @@ export const LabeledFormField = ({
 	}
 	return (
 		<div className="o3-form-field">
-			<label className={labelClasses.join(" ")} htmlFor={id}>
+			<label className={labelClasses.join(' ')} htmlFor={id}>
 				{label}
 			</label>
 
@@ -41,7 +41,7 @@ export const TitledFormField = ({
 	description,
 	feedback,
 	children,
-	optional
+	optional,
 }: FormFieldProps) => {
 	const descriptionId = description ? uniqueId('description_') : undefined;
 	const labelId = uniqueId('label_');
@@ -51,7 +51,7 @@ export const TitledFormField = ({
 	}
 	return (
 		<div className="o3-form-field">
-			<span className={labelClasses.join(" ")} id={labelId}>
+			<span className={labelClasses.join(' ')} id={labelId}>
 				{label}
 			</span>
 			{description && (
@@ -70,7 +70,7 @@ export const FormFieldset = ({
 	description,
 	feedback,
 	children,
-	optional
+	optional,
 }: FormFieldsetProps) => {
 	const descriptionId = uniqueId('checkbox_');
 	const labelClasses = ['o3-form-field__legend'];
@@ -79,12 +79,15 @@ export const FormFieldset = ({
 	}
 	return (
 		<fieldset className="o3-form-field" aria-describedby={`${descriptionId}`}>
-			<legend className={labelClasses.join(" ")}>{label}</legend>
-			{description && (
-				<span className="o3-form-input__description" id={descriptionId}>
-					{description}
-				</span>
-			)}
+			<legend className={labelClasses.join(' ')}>
+				{label}{' '}
+				{description && (
+					<span className="o3-form-input__description" id={descriptionId}>
+						{description}
+					</span>
+				)}
+			</legend>
+
 			{children}
 			{feedback && <Feedback {...feedback} />}
 		</fieldset>
