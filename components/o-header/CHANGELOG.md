@@ -1,4 +1,11 @@
 # Changelog
+## [14.1.0](https://github.com/Financial-Times/origami/compare/o-header-v14.0.4...o-header-v14.1.0) (2024-10-24)
+
+
+### Features
+
+* o-header subnav primary styles ([#1853](https://github.com/Financial-Times/origami/issues/1853)) ([421eb30](https://github.com/Financial-Times/origami/commit/421eb3070ba1fc58a35b808f7496b72dd5c849df))
+
 ## [14.0.4](https://github.com/Financial-Times/origami/compare/o-header-v14.0.3...o-header-v14.0.4) (2024-09-24)
 
 
