@@ -15,8 +15,7 @@ import Example from '../../../../components/Example.astro';
 
 import {default as ErrorSummaryAnatomy} from '../../../../components/form/anatomy/Error-summary.astro';
 
-import {default as InputWidthExample} from '../../../../components/form/examples/Input-width.astro';
-import {default as ShortTextEample} from '../../../../components/form/examples/Input-short-text.astro';
+import {default as ErrorSummaryPreview} from '../../../../components/form/examples/Error-summary.astro';
 
 import '@financial-times/o3-form/css/whitelabel.css';
 
@@ -55,7 +54,7 @@ The Error Summary appears on the top of a page after a user submits a form which
 ### Placement
 
 The error summary should always appear on top of the page, before the form elements.
-
+<ErrorSummaryPreview  brand={props.brand} />
 <Tip>
 	<p>
 		By positioning errors on top of the page we make sure they’re the first
