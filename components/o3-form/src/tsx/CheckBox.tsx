@@ -1,8 +1,15 @@
+import {uidBuilder} from '@financial-times/o-utils';
 import {TitledFormField, FormFieldset} from './fieldComponents/FormField';
 import type {CheckBoxProps, FormFieldsetProps} from '../types/index';
 
+const uniqueId = uidBuilder('o3-form-checkbox-input');
+
 export const CheckBoxItem = (props: CheckBoxProps) => {
 	let {inputId, attributes, optional, error} = props;
+
+	if (!inputId) {
+		inputId = uniqueId('_');
+	}
 
 	const classNames = ['o3-form-input-checkbox__input', 'o3-visually-hidden'];
 
