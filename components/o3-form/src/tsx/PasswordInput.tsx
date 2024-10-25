@@ -1,10 +1,6 @@
-import {FormFieldProps} from '../types/index';
+import {PasswordInputProps} from '../types/index';
 import {LabeledFormField} from './fieldComponents/FormField';
 import {CheckBoxItem} from './CheckBox';
-
-interface PasswordInputProps extends FormFieldProps {
-	disabled?: boolean;
-}
 
 export const PasswordInput = ({
 	label,
@@ -39,6 +35,11 @@ export const PasswordInput = ({
 				/>
 			</LabeledFormField>
 			<div className="o3-password-input__controls">
+				<CheckBoxItem
+					attributes={{disabled}}
+					inputId="showPassword"
+					checkboxLabel="Show Password"
+				/>
 				<CheckBoxItem
 					attributes={{disabled}}
 					inputId="showPassword"

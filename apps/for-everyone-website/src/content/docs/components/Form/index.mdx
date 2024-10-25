@@ -21,15 +21,15 @@ import '@financial-times/o3-form/css/whitelabel.css';
 <BrandedContent brands="whitelabel">
 Form components are used to collect information and guide users. Here you’ll find general rules for using them that apply to all components. Structure, sequence, and messaging are essential to creating a good user experience.
 
-{/* ### Form Componentes
+### Form Componentes
 
 <div style="display: flex; flex-direction: column">
 	<a href="text-input">Text Input</a>
-	<a href="text-input">Password Input</a>
-	<a href="text-input">Checkbox</a>
-	<a href="text-input">Radio Button</a>
-	<a href="text-input">Error summary</a>
-</div> */}
+	<a href="password-input">Password Input</a>
+	<a href="checkbox">Checkbox</a>
+	<a href="radio-button">Radio Button</a>
+	<a href="error-summary">Error summary</a>
+</div>
 
 
 ## Placement and Order
@@ -52,7 +52,7 @@ When placing form components on a page, there are two basic rules:
 			url: 'https://www.nngroup.com/articles/web-form-design/',
 		},
 	]}>
-	<p slot="tip-content">
+	<p>
 		The vertical order of form components is crucial for helping users navigate
 		efficiently. A clear top-to-bottom layout aligns with natural reading
 		patterns, ensuring a smoother experience. Avoid placing components
@@ -67,7 +67,7 @@ It’s best practice to only mark the optional components. No special indicator 
 <RequiredOptionalInput brand={props.brand} />
 
 <Tip>
-	<p slot="tip-content">
+	<p>
 		In order to reduce cognitive load for the user, we decided to omit the
 		“required” label. This makes for easier scanning when there are multiple
 		inputs with less visual disruptions.
@@ -95,7 +95,7 @@ Input-level validation happens while the user interacts with the individual comp
 <InputValidation brand={props.brand} />
 
 <Tip>
-	<ol slot="tip-content">
+	<ol>
 		<li>
 			Validation on each keystroke would create unnecessary error feedback noise
 			while the user is typing.
@@ -122,7 +122,7 @@ Some components support disabled states, but they should be used sparingly. Alwa
 <DisabledStates brand={props.brand} />
 
 <Tip>
-	<p slot="tip-content">
+	<p>
 		When used without sufficient context, disabled states can confuse users and
 		negatively impact the user experience. Disabled components can also pose
 		accessibility challenges, making it harder for users with assistive
@@ -138,4 +138,5 @@ We have made a number of considerations to ensure accessible forms ([perceivable
 - Form validation states are conveyed with both colour, iconography. and text. This improves perceivability for people with colour blindness, for example, who may find it difficult to distinguish colour.
 - On submit an error summary component provides keyboard users a means to quickly navigate to the form field with an error, improving operability.
 - Form inputs and their labels are connected and clickable, providing a large touch target area for people with limited dexterity, or other reasons, that make it difficult to click a small target area.
+
 </BrandedContent>
