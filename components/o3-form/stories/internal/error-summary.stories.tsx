@@ -1,7 +1,7 @@
 import type {Meta} from '@storybook/react';
 import links from '@financial-times/o3-figma-sb-links';
 import {ErrorSummary as ErrorSummaryTsx} from '../../src/tsx/index';
-import '../../src/css/brands/whitelabel.css';
+import '../../src/css/brands/professional.css';
 import {ErrorSummaryStory} from '../story-template';
 
 export default {
@@ -9,7 +9,7 @@ export default {
 	component: ErrorSummaryTsx,
 	decorators: [
 		Story => (
-			<div data-o3-brand="whitelabel">
+			<div data-o3-brand="professional">
 				<Story />
 			</div>
 		),

@@ -2,7 +2,7 @@ import type {Meta} from '@storybook/react';
 import links from '@financial-times/o3-figma-sb-links';
 
 import {PasswordInput as PasswordInputTsx} from '../../src/tsx/PasswordInput';
-import '../../src/css/brands/whitelabel.css';
+import '../../src/css/brands/core.css';
 import {Form} from '../../src/tsx';
 
 const meta: Meta<typeof PasswordInputTsx> = {
@@ -10,7 +10,7 @@ const meta: Meta<typeof PasswordInputTsx> = {
 	component: PasswordInputTsx,
 	decorators: [
 		Story => (
-			<div data-o3-brand="whitelabel" className="o3-grid">
+			<div data-o3-brand="core" className="o3-grid">
 				<div
 					className="o3-form"
 					style={{

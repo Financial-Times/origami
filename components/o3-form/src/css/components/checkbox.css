@@ -11,11 +11,11 @@
 	}
 
 	&:hover + label::before {
-		border-color: var(--o3-form-color-use-case-selected-hover);
+		border-color: var(--_o3-form-color-use-case-selected-hover);
 	}
 
 	&:active + label::before {
-		border-color: var(--o3-form-color-use-case-selected-active);
+		border-color: var(--_o3-form-color-use-case-selected-active);
 	}
 
 	&:checked + label::after {
@@ -23,38 +23,38 @@
 		content: '';
 		width: var(--o3-spacing-s);
 		height: var(--o3-spacing-s);
-		background-color: var(--o3-form-color-use-case-background);
+		background-color: var(--_o3-form-color-use-case-background);
 		mask-image: var(--o3-icons-ft-icon-tick);
 		mask-repeat: no-repeat;
 		mask-size: contain;
 	}
 
 	&:checked + label::before {
-		background-color: var(--o3-form-color-use-case-selected-active);
-		border-color: var(--o3-form-color-use-case-selected-active);
+		background-color: var(--_o3-form-color-use-case-selected);
+		border-color: var(--_o3-form-color-use-case-selected);
 	}
 
 	&:checked:hover + label::before {
-		background-color: var(--o3-form-color-use-case-selected-hover);
-		border-color: var(--o3-form-color-use-case-selected-hover);
+		background-color: var(--_o3-form-color-use-case-selected-hover);
+		border-color: var(--_o3-form-color-use-case-selected-hover);
 	}
 
 	&:checked:active + label::before {
-		background-color: var(--o3-form-color-use-case-selected-active);
-		border-color: var(--o3-form-color-use-case-selected-active);
+		background-color: var(--_o3-form-color-use-case-selected-active);
+		border-color: var(--_o3-form-color-use-case-selected-active);
 	}
 
 	&:disabled + label::before {
-		border-color: var(--o3-form-color-use-case-border-disabled);
+		border-color: var(--_o3-form-color-use-case-border-disabled);
 	}
 
 	&:disabled + label {
-		color: var(--o3-form-color-use-case-border-disabled);
+		color: var(--_o3-form-color-use-case-border-disabled);
 	}
 
 	&:checked:disabled + label::before {
-		background-color: var(--o3-form-color-use-case-selected-disabled);
-		border-color: var(--o3-form-color-use-case-selected-disabled);
+		background-color: var(--_o3-form-color-use-case-selected-disabled);
+		border-color: var(--_o3-form-color-use-case-selected-disabled);
 	}
 
 	&.o3-form-input-error + label::before {
@@ -72,8 +72,8 @@
 	}
 
 	&:indeterminate + label::before {
-		border-color: var(--o3-form-color-use-case-selected-active);
-		background-color: var(--o3-form-color-use-case-selected-active);
+		border-color: var(--_o3-form-color-use-case-selected);
+		background-color: var(--_o3-form-color-use-case-selected);
 	}
 
 	&:indeterminate + label::after {
@@ -81,21 +81,21 @@
 		content: '';
 		width: var(--o3-spacing-s);
 		height: var(--o3-spacing-s);
-		background-color: var(--o3-form-color-use-case-background);
+		background-color: var(--_o3-form-color-use-case-background);
 		mask-image: var(--o3-icons-ft-icon-minus);
 		mask-repeat: no-repeat;
 		mask-size: contain;
 	}
 
 	&:indeterminate:hover + label::before {
-		border-color: var(--o3-form-color-use-case-selected-hover);
-		background-color: var(--o3-form-color-use-case-selected-hover);
+		border-color: var(--_o3-form-color-use-case-selected-hover);
+		background-color: var(--_o3-form-color-use-case-selected-hover);
 	}
 
 	&:indeterminate:active + label::before,
 	&:indeterminate:disabled + label::before {
-		border-color: var(--o3-form-color-use-case-selected-hover);
-		background-color: var(--o3-form-color-use-case-selected-hover);
+		border-color: var(--_o3-form-color-use-case-selected-hover);
+		background-color: var(--_o3-form-color-use-case-selected-hover);
 	}
 
 	&.o3-form-input-error:indeterminate + label::before {
