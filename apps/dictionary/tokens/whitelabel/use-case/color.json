@@ -65,14 +65,6 @@
             "type": "color"
           }
         },
-        "error": {
-          "value": "{o3.color.palette.crimson}",
-          "type": "color"
-        },
-        "error-background": {
-          "value": "rgba(204,0,0,0.06)",
-          "type": "color"
-        },
         "body-inverse": {
           "text": {
             "value": "{o3.color.palette.white}",
@@ -104,10 +96,6 @@
             "type": "color"
           }
         },
-        "error-text": {
-          "value": "{o3.color.palette.crimson}",
-          "type": "color"
-        },
         "button": {
           "foreground": {
             "value": "{o3.color.palette.white}",
@@ -133,6 +121,18 @@
             "value": "{o3.color.palette.black-20}",
             "type": "color"
           }
+        },
+        "error-background": {
+          "value": "rgba(204,0,0,0.06)",
+          "type": "color"
+        },
+        "error-text": {
+          "value": "{o3.color.palette.crimson}",
+          "type": "color"
+        },
+        "error": {
+          "value": "{o3.color.palette.crimson}",
+          "type": "color"
         }
       }
     }
