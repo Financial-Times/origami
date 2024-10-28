@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.0](https://github.com/Financial-Times/origami/compare/o3-form-v0.4.0...o3-form-v0.5.0) (2024-10-28)
+
+
+### Features
+
+* create o3-form tokens for all brands ([#1854](https://github.com/Financial-Times/origami/issues/1854)) ([21b811f](https://github.com/Financial-Times/origami/commit/21b811fb1b2bc54859a5d34090d2f3cd44131799))
+
 ## [0.4.0](https://github.com/Financial-Times/origami/compare/o3-form-v0.3.3...o3-form-v0.4.0) (2024-10-16)
 
 
