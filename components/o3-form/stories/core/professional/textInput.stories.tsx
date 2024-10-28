@@ -2,14 +2,14 @@ import type {Meta} from '@storybook/react';
 import links from '@financial-times/o3-figma-sb-links';
 
 import {TextInput as TextInputTsx} from '../../../src/tsx/TextInput';
-import '../../../src/css/brands/whitelabel.css';
+import '../../../src/css/brands/professional.css';
 
 const meta: Meta<typeof TextInputTsx> = {
 	title: 'Core/Professional/o3-form',
 	component: TextInputTsx,
 	decorators: [
 		Story => (
-			<div data-o3-brand="whitelabel" className="o3-grid">
+			<div data-o3-brand="professional" className="o3-grid">
 				<div
 					className="o3-form"
 					style={{gridColumn: `content-start / content-end`}}>

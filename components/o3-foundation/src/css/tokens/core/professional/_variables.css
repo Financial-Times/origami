@@ -76,6 +76,11 @@
   --o3-spacing-3xs: 12px;
   --o3-spacing-4xs: 8px;
   --o3-spacing-5xs: 4px;
+  --o3-color-use-case-error-background: rgba(204, 0, 0, 0.06);
+  --o3-color-use-case-button-disabled: #d4c9c1;
+  --o3-color-use-case-button-pressed: #7d7a7a;
+  --o3-color-use-case-button-hover: #515257;
+  --o3-color-use-case-button-foreground-disabled: #fff7ef;
   --o3-color-use-case-muted-inverse-text: #a8aaad; /* "Muted" text is less prominent, for example credits and captions. */
   --o3-color-use-case-link-inverse-text-focus: #8fb3a1;
   --o3-color-palette-mint-30: #3d4d45;
@@ -211,6 +216,10 @@
   --o3-typography-use-case-body-standard-font-size: var(--o3-font-size-metric2-0);
   --o3-typography-use-case-body-standard-font-weight: var(--o3-font-weight-regular);
   --o3-typography-use-case-body-standard-font-family: var(--o3-font-family-metric);
+  --o3-color-use-case-error: var(--o3-color-palette-crimson);
+  --o3-color-use-case-error-text: var(--o3-color-palette-crimson);
+  --o3-color-use-case-button-default: var(--o3-color-palette-slate);
+  --o3-color-use-case-button-foreground: var(--o3-color-palette-white);
   --o3-color-use-case-caption-text: var(--o3-color-palette-black-80);
   --o3-color-use-case-footer-text: var(--o3-color-palette-black-80);
   --o3-color-use-case-muted-text: var(--o3-color-palette-black-50); /* "Muted" text is less prominent, for example credits and captions. */

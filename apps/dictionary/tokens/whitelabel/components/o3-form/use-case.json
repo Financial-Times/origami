@@ -9,7 +9,7 @@
               "type": "color"
             },
             "disabled": {
-              "value": "{o3.color.palette.black-5}",
+              "value": "{o3.color.use-case.button.disabled}",
               "type": "color"
             },
             "error": {
@@ -19,37 +19,37 @@
           },
           "border": {
             "@": {
-              "value": "{o3.color.palette.black-30}",
+              "value": "{o3.color.palette.black-50}",
               "type": "color"
             },
             "hover": {
-              "value": "{o3.color.palette.black-20}",
+              "value": "{o3.color.use-case.button.hover}",
               "type": "color"
             },
             "active": {
-              "value": "{o3.color.palette.black-40}",
+              "value": "{o3.color.use-case.button.pressed}",
               "type": "color"
             },
             "disabled": {
-              "value": "{o3.color.palette.black-30}",
+              "value": "{o3.color.palette.black-10}",
               "type": "color"
             }
           },
           "selected": {
             "@": {
-              "value": "{o3.color.palette.black-50}",
+              "value": "{o3.color.use-case.button.default}",
               "type": "color"
             },
             "hover": {
-              "value": "{o3.color.palette.black-30}",
+              "value": "{o3.color.use-case.button.hover}",
               "type": "color"
             },
             "active": {
-              "value": "{o3.color.palette.black-40}",
+              "value": "{o3.color.use-case.button.pressed}",
               "type": "color"
             },
             "disabled": {
-              "value": "{o3.color.palette.black-30}",
+              "value": "{o3.color.use-case.button.disabled}",
               "type": "color"
             }
           }

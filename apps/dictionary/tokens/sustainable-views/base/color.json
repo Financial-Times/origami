@@ -103,6 +103,26 @@
         "black-50": {
           "value": "#807973ff",
           "type": "color"
+        },
+        "teal-40": {
+          "value": "#0a5e66ff",
+          "type": "color"
+        },
+        "teal-20": {
+          "value": "#052f33ff",
+          "type": "color"
+        },
+        "black-30": {
+          "value": "#b3a9a0ff",
+          "type": "color"
+        },
+        "black-10": {
+          "value": "#e6d9ceff",
+          "type": "color"
+        },
+        "crimson": {
+          "value": "#cc0000ff",
+          "type": "color"
         }
       }
     }

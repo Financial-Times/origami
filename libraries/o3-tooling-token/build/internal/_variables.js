@@ -934,6 +934,138 @@ export default {
 		"css": "--o3-color-use-case-heading-inverse-text",
 		"figma": "o3/color/use-case/heading-inverse/text"
 },
+	"o3-color-use-case-button-foreground": {
+		"shortName": "foreground",
+		"value": "#ffffff",
+		"originalValue": "{o3.color.palette.white}",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"button",
+				"foreground"
+		],
+		"css": "--o3-color-use-case-button-foreground",
+		"figma": "o3/color/use-case/button/foreground"
+},
+	"o3-color-use-case-button-foreground-disabled": {
+		"shortName": "foreground-disabled",
+		"value": "#ffffff",
+		"originalValue": "{o3.color.palette.white}",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"button",
+				"foreground-disabled"
+		],
+		"css": "--o3-color-use-case-button-foreground-disabled",
+		"figma": "o3/color/use-case/button/foreground-disabled"
+},
+	"o3-color-use-case-button-default": {
+		"shortName": "default",
+		"value": "#0d7680",
+		"originalValue": "{o3.color.palette.teal}",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"button",
+				"default"
+		],
+		"css": "--o3-color-use-case-button-default",
+		"figma": "o3/color/use-case/button/default"
+},
+	"o3-color-use-case-button-hover": {
+		"shortName": "hover",
+		"value": "#0a5e66",
+		"originalValue": "{o3.color.palette.teal-40}",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"button",
+				"hover"
+		],
+		"css": "--o3-color-use-case-button-hover",
+		"figma": "o3/color/use-case/button/hover"
+},
+	"o3-color-use-case-button-pressed": {
+		"shortName": "pressed",
+		"value": "#052f33",
+		"originalValue": "{o3.color.palette.teal-20}",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"button",
+				"pressed"
+		],
+		"css": "--o3-color-use-case-button-pressed",
+		"figma": "o3/color/use-case/button/pressed"
+},
+	"o3-color-use-case-button-disabled": {
+		"shortName": "disabled",
+		"value": "#9ec0bd",
+		"originalValue": "#9EC0BD",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"button",
+				"disabled"
+		],
+		"css": "--o3-color-use-case-button-disabled",
+		"figma": "o3/color/use-case/button/disabled"
+},
+	"o3-color-use-case-error-background": {
+		"shortName": "error-background",
+		"value": "#cc0000",
+		"originalValue": "rgba(204,0,0,0.06)",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"error-background"
+		],
+		"css": "--o3-color-use-case-error-background",
+		"figma": "o3/color/use-case/error-background"
+},
+	"o3-color-use-case-error-text": {
+		"shortName": "error-text",
+		"value": "#cc0000",
+		"originalValue": "{o3.color.palette.crimson}",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"error-text"
+		],
+		"css": "--o3-color-use-case-error-text",
+		"figma": "o3/color/use-case/error-text"
+},
+	"o3-color-use-case-error": {
+		"shortName": "error",
+		"value": "#cc0000",
+		"originalValue": "{o3.color.palette.crimson}",
+		"type": "color",
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"error"
+		],
+		"css": "--o3-color-use-case-error",
+		"figma": "o3/color/use-case/error"
+},
 	"o3-spacing-5xs": {
 		"shortName": "5xs",
 		"value": "4px",

@@ -4,11 +4,18 @@
 
 
 [data-o3-brand="sustainable-views"] {
+  --o3-color-use-case-error-background: rgba(204, 0, 0, 0.06);
+  --o3-color-use-case-button-disabled: #9ec0bd;
   --o3-color-use-case-link-inverse-underline-hover: #d4d4d6;
   --o3-color-use-case-link-inverse-underline: #ffffff;
   --o3-color-use-case-link-inverse-text-hover: #d4d4d6;
   --o3-color-use-case-link-inverse-text: #ffffff;
   --o3-color-use-case-muted-inverse-text: #a8aaad; /* "Muted" text is less prominent, for example credits and captions. */
+  --o3-color-palette-crimson: #cc0000;
+  --o3-color-palette-black-10: #e6d9ce;
+  --o3-color-palette-black-30: #b3a9a0;
+  --o3-color-palette-teal-20: #052f33;
+  --o3-color-palette-teal-40: #0a5e66;
   --o3-color-palette-black-50: #807973;
   --o3-color-palette-black-90: #1a1817;
   --o3-color-palette-claret: #990f3d;
@@ -144,6 +151,13 @@
   --o3-typography-use-case-body-standard-font-size: var(--o3-font-size-metric2-0);
   --o3-typography-use-case-body-standard-font-weight: var(--o3-font-weight-regular);
   --o3-typography-use-case-body-standard-font-family: var(--o3-font-family-metric);
+  --o3-color-use-case-error: var(--o3-color-palette-crimson);
+  --o3-color-use-case-error-text: var(--o3-color-palette-crimson);
+  --o3-color-use-case-button-pressed: var(--o3-color-palette-teal-20);
+  --o3-color-use-case-button-hover: var(--o3-color-palette-teal-40);
+  --o3-color-use-case-button-default: var(--o3-color-palette-teal);
+  --o3-color-use-case-button-foreground-disabled: var(--o3-color-palette-white);
+  --o3-color-use-case-button-foreground: var(--o3-color-palette-white);
   --o3-color-use-case-body-inverse-text: var(--o3-color-palette-white);
   --o3-color-use-case-page-inverse-background: var(--o3-color-palette-slate);
   --o3-color-use-case-muted-text: var(--o3-color-palette-black-50); /* "Muted" text is less prominent, for example credits and captions. */

@@ -1,0 +1,36 @@
+{
+  "o3": {
+    "form": {
+      "input": {
+        "border": {
+          "@": {
+            "value": {
+              "color": "{o3.color.palette.black-30}",
+              "width": "2px",
+              "style": "solid"
+            },
+            "type": "border"
+          },
+          "error": {
+            "value": {
+              "color": "{o3.color.use-case.error}",
+              "width": "2px",
+              "style": "solid"
+            },
+            "type": "border"
+          }
+        },
+        "border-radius": {
+          "value": "6px",
+          "type": "borderRadius"
+        }
+      },
+      "error-summary": {
+        "background-color": {
+          "value": "rgba(204,0,0,0.14)",
+          "type": "color"
+        }
+      }
+    }
+  }
+}

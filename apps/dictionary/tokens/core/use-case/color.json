@@ -108,6 +108,44 @@
             "value": "{o3.color.palette.black-80}",
             "type": "color"
           }
+        },
+        "button": {
+          "foreground": {
+            "value": "{o3.color.palette.white}",
+            "type": "color"
+          },
+          "foreground-disabled": {
+            "value": "{o3.color.palette.white-40}",
+            "type": "color"
+          },
+          "default": {
+            "value": "{o3.color.palette.teal}",
+            "type": "color"
+          },
+          "hover": {
+            "value": "{o3.color.palette.teal-40}",
+            "type": "color"
+          },
+          "pressed": {
+            "value": "{o3.color.palette.teal-20}",
+            "type": "color"
+          },
+          "disabled": {
+            "value": "#9EC0BD",
+            "type": "color"
+          }
+        },
+        "error-background": {
+          "value": "rgba(204,0,0,0.06)",
+          "type": "color"
+        },
+        "error-text": {
+          "value": "{o3.color.palette.crimson}",
+          "type": "color"
+        },
+        "error": {
+          "value": "{o3.color.palette.crimson}",
+          "type": "color"
         }
       }
     }

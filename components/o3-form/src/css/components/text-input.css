@@ -1,7 +1,7 @@
 .o3-form-text-input {
     border: var(--_o3-form-input-border);
     padding: var(--o3-spacing-3xs) var(--o3-spacing-2xs);
-    background-color: var(--o3-form-color-use-case-background);
+    background-color: var(--_o3-form-color-use-case-background);
 	box-sizing: border-box;
     border-radius: var(--_o3-form-input-border-radius);
     --o3-grid-columns-to-span-count: 4;
@@ -29,12 +29,12 @@
 
 .o3-form-text-input--error {
     border: var(--_o3-form-input-border-error);
-    background-color: var(--o3-form-color-use-case-background-error);
+    background-color: var(--_o3-form-color-use-case-background-error);
 }
 
 input[class*='o3-form-text-input'][type="password"]:disabled,
 input[class*='o3-form-text-input'][type="text"]:disabled {
     color: var(--o3-color-use-case-muted-text);
-    background-color: var(--o3-form-color-use-case-background-disabled);
-    border-color: var(--o3-form-color-use-case-border-disabled);
+    background-color: var(--_o3-form-color-use-case-background-disabled);
+    border-color: var(--_o3-form-color-use-case-border-disabled);
 }

@@ -11,15 +11,15 @@
 	}
 
 	&:hover + label::before {
-		border-color: var(--o3-form-color-use-case-border-hover);
+		border-color: var(--_o3-form-color-use-case-border-hover);
 	}
 
 	&:active + label::before {
-		border-color: var(--o3-form-color-use-case-border-active);
+		border-color: var(--_o3-form-color-use-case-border-active);
 	}
 
 	&:checked + label::before {
-		border-color: var(--o3-form-color-use-case-selected);
+		border-color: var(--_o3-form-color-use-case-selected);
 	}
 
 	&:checked + label::after {
@@ -27,48 +27,48 @@
 		content: '';
 		width: var(--o3-spacing-3xs);
 		height: var(--o3-spacing-3xs);
-		background-color: var(--o3-form-color-use-case-selected);
+		background-color: var(--_o3-form-color-use-case-selected);
 		/* 6px margin centers our 12px width/height circle within the checkbox outer ring, so checkbox is 24px in total  */
 		margin: 6px;
 		border-radius: 50%;
 	}
 
 	&:checked:hover + label::before {
-		border-color: var(--o3-form-color-use-case-selected-hover);
+		border-color: var(--_o3-form-color-use-case-selected-hover);
 	}
 
 	&:checked:hover + label::after {
-		background-color: var(--o3-form-color-use-case-selected-hover);
+		background-color: var(--_o3-form-color-use-case-selected-hover);
 	}
 
 	&:checked:active + label::before {
-		border-color: var(--o3-form-color-use-case-selected-active);
+		border-color: var(--_o3-form-color-use-case-selected-active);
 	}
 
 	&:checked:active + label::after {
-		background-color: var(--o3-form-color-use-case-selected-active);
+		background-color: var(--_o3-form-color-use-case-selected-active);
 	}
 
 	&:disabled + label::before {
-		border-color: var(--o3-form-color-use-case-border-disabled);
+		border-color: var(--_o3-form-color-use-case-border-disabled);
 	}
 
 	&:disabled:checked + label::after {
-		background-color: var(--o3-form-color-use-case-border-disabled);
+		background-color: var(--_o3-form-color-use-case-border-disabled);
 	}
 
 	&:disabled + label {
-		color: var(--o3-form-color-use-case-border-disabled);
+		color: var(--_o3-form-color-use-case-border-disabled);
 	}
 
 	&.o3-form-input-error + label::before {
 		border-color: var(--o3-color-use-case-error);
-		background-color: var(--o3-form-color-use-case-background-error);
+		background-color: var(--_o3-form-color-use-case-background-error);
 	}
 
 	&.o3-form-input-error:checked + label::before {
 		border-color: var(--o3-color-use-case-error);
-		background-color: var(--o3-form-color-use-case-background-error);
+		background-color: var(--_o3-form-color-use-case-background-error);
 	}
 
 	&.o3-form-input-error:checked + label::after {
