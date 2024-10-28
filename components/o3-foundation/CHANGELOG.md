@@ -5,7 +5,7 @@
 
 ### Features
 
-* create o3-form tokens for all brands ([#1854](https://github.com/Financial-Times/origami/issues/1854)) ([21b811f](https://github.com/Financial-Times/origami/commit/21b811fb1b2bc54859a5d34090d2f3cd44131799))
+* add error use-case tokens to be used by o3-form component ([#1854](https://github.com/Financial-Times/origami/issues/1854)) ([21b811f](https://github.com/Financial-Times/origami/commit/21b811fb1b2bc54859a5d34090d2f3cd44131799))
 
 ## [2.2.0](https://github.com/Financial-Times/origami/compare/o3-foundation-v2.1.1...o3-foundation-v2.2.0) (2024-10-16)
 
