@@ -1,0 +1,38 @@
+{
+  "o3": {
+    "button": {
+      "primary": {
+        "background": {
+          "value": "{o3.color.use-case.button.primary.background}",
+          "type": "color"
+        },
+        "color": {
+          "value": "{o3.color.use-case.button.primary.text}",
+          "type": "color"
+        },
+        "border": {
+          "value": "#ffffff00",
+          "type": "color"
+        },
+        "hover": {
+          "background": {
+            "value": "{o3.color.use-case.button.primary.hover.background}",
+            "type": "color"
+          }
+        },
+        "focus": {
+          "background": {
+            "value": "{o3.color.use-case.button.primary.focus.background}",
+            "type": "color"
+          }
+        },
+        "active": {
+          "background": {
+            "value": "{o3.color.use-case.button.primary.active.background}",
+            "type": "color"
+          }
+        }
+      }
+    }
+  }
+}

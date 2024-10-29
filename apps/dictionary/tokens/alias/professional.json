@@ -1,0 +1,100 @@
+{
+  "o3": {
+    "color": {
+      "use-case": {
+        "link": {
+          "text": {
+            "@": {
+              "value": "{o3.color.palette.slate}",
+              "type": "color",
+              "description": ""
+            },
+            "hover": {
+              "value": "{o3.color.palette.slate}",
+              "type": "color"
+            },
+            "focus": {
+              "value": "{o3.color.palette.slate}",
+              "type": "color"
+            }
+          },
+          "underline": {
+            "@": {
+              "value": "{o3.color.palette.mint-80}",
+              "type": "color"
+            },
+            "hover": {
+              "value": "{o3.color.palette.mint-80}",
+              "type": "color"
+            },
+            "focus": {
+              "value": "{o3.color.palette.black}",
+              "type": "color"
+            }
+          }
+        },
+        "button": {
+          "primary": {
+            "background": {
+              "value": "{o3.color.palette.slate}",
+              "type": "color"
+            },
+            "text": {
+              "value": "{o3.color.palette.white}",
+              "type": "color"
+            },
+            "border": {
+              "value": "{o3.color.pallete.transparent}",
+              "type": "color"
+            },
+            "hover": {
+              "background": {
+                "value": "{o3.color.use-case.button.primary.background}",
+                "type": "color",
+                "$extensions": {
+                  "studio.tokens": {
+                    "modify": {
+                      "type": "lighten",
+                      "value": "{o3.color.modifier.20}",
+                      "space": "hsl"
+                    }
+                  }
+                }
+              }
+            },
+            "focus": {
+              "background": {
+                "value": "{o3.color.use-case.button.primary.background}",
+                "type": "color",
+                "$extensions": {
+                  "studio.tokens": {
+                    "modify": {
+                      "type": "lighten",
+                      "value": "{o3.color.modifier.20}",
+                      "space": "hsl"
+                    }
+                  }
+                }
+              }
+            },
+            "active": {
+              "background": {
+                "value": "{o3.color.use-case.button.primary.background}",
+                "type": "color",
+                "$extensions": {
+                  "studio.tokens": {
+                    "modify": {
+                      "type": "lighten",
+                      "value": "{o3.color.modifier.40}",
+                      "space": "hsl"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,5 +1,13 @@
 {
   "tokenSetOrder": [
+    "foundation",
+    "brand/core",
+    "brand/professional",
+    "alias/core",
+    "alias/professional",
+    "theme/core-inverse",
+    "theme/professional-inverse",
+    "components/o3-button",
     "core/base/color",
     "core/base/spacing",
     "core/base/typography",

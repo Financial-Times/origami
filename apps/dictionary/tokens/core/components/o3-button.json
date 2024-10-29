@@ -173,12 +173,12 @@
       },
       "secondary": {
         "standard": {
-          "color": {
-            "value": "#0d7680",
-            "type": "color"
-          },
           "background": {
             "value": "#ffffff00",
+            "type": "color"
+          },
+          "color": {
+            "value": "#0d7680",
             "type": "color"
           },
           "border": {
