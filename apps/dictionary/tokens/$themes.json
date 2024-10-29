@@ -14,15 +14,7 @@
       "core/use-case/focus": "enabled",
       "core/components/o3-editorial-typography": "source",
       "core/components/o3-form/use-case": "source",
-      "core/components/o3-form": "source",
-      "foundation": "disabled",
-      "brand/core": "disabled",
-      "brand/professional": "disabled",
-      "alias/core": "disabled",
-      "alias/professional": "disabled",
-      "theme/core-inverse": "disabled",
-      "theme/professional-inverse": "disabled",
-      "components/o3-button": "disabled"
+      "core/components/o3-form": "source"
     },
     "$figmaStyleReferences": {
       "color-usecase.background.button.primary.active": "S:ef8234289a222e339b586d8ea3466f08d0d010f5,",
@@ -234,15 +226,7 @@
       "core/use-case/focus": "enabled",
       "core/components/o3-editorial-typography": "source",
       "core/professional/components/o3-form/use-case": "source",
-      "core/professional/components/o3-form": "source",
-      "foundation": "disabled",
-      "brand/core": "disabled",
-      "brand/professional": "disabled",
-      "alias/core": "disabled",
-      "alias/professional": "disabled",
-      "theme/core-inverse": "disabled",
-      "theme/professional-inverse": "disabled",
-      "components/o3-button": "disabled"
+      "core/professional/components/o3-form": "source"
     },
     "$figmaStyleReferences": {
       "color-usecase.background.button.primary.active": "S:55d4b73d90c40ff305a097a15d86f53de276da57,",
@@ -446,15 +430,7 @@
       "internal/use-case/typography": "enabled",
       "internal/use-case/focus": "enabled",
       "internal/components/o3-form": "source",
-      "internal/components/o3-form/use-case": "source",
-      "foundation": "disabled",
-      "brand/core": "disabled",
-      "brand/professional": "disabled",
-      "alias/core": "disabled",
-      "alias/professional": "disabled",
-      "theme/core-inverse": "disabled",
-      "theme/professional-inverse": "disabled",
-      "components/o3-button": "disabled"
+      "internal/components/o3-form/use-case": "source"
     },
     "$figmaCollectionId": "VariableCollectionId:6510:3502",
     "$figmaModeId": "6510:2",
@@ -552,15 +528,7 @@
       "whitelabel/use-case/focus": "enabled",
       "whitelabel/components/o3-editorial-typography": "source",
       "whitelabel/components/o3-form": "source",
-      "whitelabel/components/o3-form/use-case": "source",
-      "foundation": "disabled",
-      "brand/core": "disabled",
-      "brand/professional": "disabled",
-      "alias/core": "disabled",
-      "alias/professional": "disabled",
-      "theme/core-inverse": "disabled",
-      "theme/professional-inverse": "disabled",
-      "components/o3-button": "disabled"
+      "whitelabel/components/o3-form/use-case": "source"
     },
     "$figmaCollectionId": "VariableCollectionId:4842:355",
     "$figmaModeId": "4842:3",
@@ -689,15 +657,7 @@
       "sustainable-views/use-case/focus": "enabled",
       "whitelabel/components/o3-form/use-case": "source",
       "sustainable-views/components/o3-form": "source",
-      "sustainable-views/components/o3-form/use-case": "source",
-      "foundation": "disabled",
-      "brand/core": "disabled",
-      "brand/professional": "disabled",
-      "alias/core": "disabled",
-      "alias/professional": "disabled",
-      "theme/core-inverse": "disabled",
-      "theme/professional-inverse": "disabled",
-      "components/o3-button": "disabled"
+      "sustainable-views/components/o3-form/use-case": "source"
     },
     "$figmaCollectionId": "VariableCollectionId:6169:227",
     "$figmaModeId": "6169:4",
@@ -738,5 +698,34 @@
       "o3.spacing.4xl": "9842876bb417b69da6bcb6c55256f5f376f744b0"
     },
     "group": "sustainable-views"
+  },
+  {
+    "id": "5647981aaaf215577d2424ec5c8e1f5fe79908fc",
+    "name": "core",
+    "$figmaStyleReferences": {},
+    "selectedTokenSets": {
+      "foundation": "enabled",
+      "brand/core": "enabled",
+      "alias/core": "enabled",
+      "theme/core-inverse": "enabled",
+      "components/o3-button": "enabled"
+    },
+    "group": "proposed"
+  },
+  {
+    "id": "6ec89033436c7e090a4c5597a8049e6e8385e9c6",
+    "name": "professional",
+    "$figmaStyleReferences": {},
+    "selectedTokenSets": {
+      "foundation": "enabled",
+      "brand/core": "enabled",
+      "brand/professional": "enabled",
+      "alias/core": "enabled",
+      "alias/professional": "enabled",
+      "theme/core-inverse": "enabled",
+      "theme/professional-inverse": "enabled",
+      "components/o3-button": "enabled"
+    },
+    "group": "proposed"
   }
 ]
