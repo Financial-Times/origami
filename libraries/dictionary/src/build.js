@@ -2,6 +2,7 @@ import {StyleDictionaryPackageWithTransforms} from './config/styledictionary.js'
 import {getBrandSourcesAndIncludes, getBrandNames} from './utils.js';
 import {cssConfigForBrand} from './config/platforms/css.js';
 import {toolingConfigForBrand} from './config/platforms/tooling.js';
+import {sassConfigForBrand} from './config/platforms/sass.js';
 
 const brands = getBrandNames();
 for (const brand of brands) {
@@ -33,6 +34,7 @@ export async function buildForBrand(brand) {
 		platforms: {
 			css: cssConfigForBrand(brand),
 			tooling: toolingConfigForBrand(brand),
+			sass: sassConfigForBrand(brand),
 		},
 	};
 	const StyleDictionary = new StyleDictionaryPackageWithTransforms(config);

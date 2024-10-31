@@ -6,9 +6,8 @@
 	"author": "",
 	"license": "ISC",
 	"files": [
-		"cjs",
-		"esm",
 		"css",
+		"scss",
 		"js",
 		"origami.json",
 		"package.json",
