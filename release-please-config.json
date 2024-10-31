@@ -60,6 +60,7 @@
 		"components/o3-foundation": {},
 		"components/o3-social-sign-in": {},
 		"components/o3-tooltip": {},
+		"libraries/dictionary": {},
 		"libraries/ftdomdelegate": {},
 		"libraries/math": {},
 		"libraries/o-autoinit": {},

@@ -137,6 +137,8 @@ jobs:
             - 'components/o3-tooltip/**'
           components/o3-typography:
             - 'components/o3-typography/**'
+          libraries/dictionary:
+            - 'libraries/dictionary/**'
           libraries/ftdomdelegate:
             - 'libraries/ftdomdelegate/**'
           libraries/math:
@@ -155,8 +157,6 @@ jobs:
             - 'libraries/o-utils/**'
           libraries/o3-figma-sb-links:
             - 'libraries/o3-figma-sb-links/**'
-          libraries/o3-tooling-token:
-            - 'libraries/o3-tooling-token/**'
           libraries/sass-mq:
             - 'libraries/sass-mq/**'
           presets/eslint-config-origami-component:
@@ -199,8 +199,6 @@ jobs:
             - 'apps/o2-storybook/addons/markdown-tabs/**'
           apps/astro-website:
             - 'apps/astro-website/**'
-          apps/dictionary:
-            - 'apps/dictionary/**'
           apps/for-everyone-website:
             - 'apps/for-everyone-website/**'
           apps/o2-storybook:
