@@ -1,2 +1,2 @@
-@import '../tokens/internal/_variables.css';
+@import '@financial-times/origami-dictionary/css/internal/foundation.css';
 @import '../../../main.css';

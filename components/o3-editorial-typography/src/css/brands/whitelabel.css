@@ -1,5 +1,5 @@
 @import '@financial-times/o3-foundation/css/whitelabel.css';
-@import '../tokens/whitelabel/o3-editorial-typography/_variables.css';
+@import '@financial-times/origami-dictionary/css/whitelabel/o3-editorial-typography.css';
 @import '../../../main.css';
 
 /* Currently unsupported by brands,

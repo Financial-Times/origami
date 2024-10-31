@@ -1,4 +1,4 @@
 @import '@financial-times/o3-foundation/css/sustainable-views.css';
-@import '../tokens/sustainable-views/o3-editorial-typography/_variables.css';
+@import '@financial-times/origami-dictionary/css/sustainable-views/o3-editorial-typography.css';
 @import '../../../main.css';
 @import '../../../summary.css';
