@@ -1,13 +1,14 @@
 ---
 const tokens = await import(
-	`@financial-times/o3-tooling-token/${Astro.props.brand}.js`
+	`@financial-times/origami-dictionary/js/${Astro.props.brand}/tooling.js`
 );
 const spacingTokens = Object.entries(tokens.default)
-	.filter(([_key, value]) => value.type === 'spacing')
+	.filter(([_key, value]) => value.path[1] === 'spacing')
 	.map(([key, value]) => {
 		value.name = key;
 		return value;
 	});
+
 
 const spacingsHaveDescription = Boolean(
 	spacingTokens.find(
