@@ -1,10 +1,10 @@
 ---
 import {Code} from '@astrojs/starlight/components';
 
-const allTokens = await import(`@financial-times/o3-tooling-token/${Astro.props.brand}.js`);
+const allTokens = await import(`@financial-times/origami-dictionary/js/${Astro.props.brand}/tooling.js`);
 
 function isTypeScaleToken(token) {
-	if(token.type !== 'fontSizes' && token.type !== 'lineHeights') {
+	if(token.type !== 'fontSize' && token.type !== 'lineHeights') {
 		return false;
 	}
 	const scale = token.path[token.path.length - 1];
@@ -79,11 +79,11 @@ const typeScaleOrdered = Object.entries(typeScale).sort((a, b) => {
 			return (<tr>
 					<td
 						class={`token-sample ${Astro.props.scaleFamily ? `token-sample--${Astro.props.scaleFamily}` : ''}`}
-						style=`line-height: ${scale.lineHeights.value}; font-size: ${scale.fontSizes.value}px`>Make sense of it all</td>
+						style=`line-height: ${scale.lineHeights.value}; font-size: ${scale.fontSize.value}px`>Make sense of it all</td>
 					<td>{scaleKey}</td>
 					<td class="token-value">
-							{scale.fontSizes.originalValue}px / {scale.lineHeights.originalValue}px <br>
-							<Code code={`font-size: var(${scale.fontSizes.css});\nline-height: var(${scale.lineHeights.css});`} lang="css" wrap={true}/>
+							{scale.fontSize.originalValue}px / {scale.lineHeights.originalValue}px <br>
+							<Code code={`font-size: var(${scale.fontSize.css});\nline-height: var(${scale.lineHeights.css});`} lang="css" wrap={true}/>
 					</td>
 					</tr>)
 		})
