@@ -14,6 +14,7 @@
 		"package.json",
 		"README.md"
 	],
+	"private": false,
 	"scripts": {
 		"build": "node src/build.js"
 	},
