@@ -134,6 +134,8 @@ o3-tooltip:
   - components/o3-tooltip/**/*
 o3-typography:
   - components/o3-typography/**/*
+dictionary:
+  - libraries/dictionary/**/*
 ftdomdelegate:
   - libraries/ftdomdelegate/**/*
 math:
@@ -152,8 +154,6 @@ o-utils:
   - libraries/o-utils/**/*
 o3-figma-sb-links:
   - libraries/o3-figma-sb-links/**/*
-o3-tooling-token:
-  - libraries/o3-tooling-token/**/*
 sass-mq:
   - libraries/sass-mq/**/*
 eslint-config-origami-component:
@@ -196,8 +196,6 @@ markdown-tabs:
   - apps/o2-storybook/addons/markdown-tabs/**/*
 astro-website:
   - apps/astro-website/**/*
-dictionary:
-  - apps/dictionary/**/*
 for-everyone-website:
   - apps/for-everyone-website/**/*
 o2-storybook:
