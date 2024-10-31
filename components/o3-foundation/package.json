@@ -28,13 +28,16 @@
 		"README.md"
 	],
 	"scripts": {
-		"build": "node ../../apps/dictionary/scripts/build-config/build.js && bash ../../scripts/component/build-o3.bash o3-foundation"
+		"build": "bash ../../scripts/component/build-o3.bash o3-foundation"
 	},
 	"engines": {
 		"npm": ">7"
 	},
 	"devDependencies": {
 		"@financial-times/o3-figma-sb-links": "^0.0.0"
+	},
+	"peerDependencies": {
+		"@financial-times/origami-dictionary": "^0.0.0"
 	},
 	"private": false
 }
