@@ -10,16 +10,28 @@ import {init as initSession} from '../../src/javascript/core/session.js';
 import {event as trackEvent} from '../../src/javascript/events/custom.js';
 
 describe('event', function () {
-
+	let onerror;
+	let errorMessage;
 
 	before(function () {
 		initSession();
 		initSend(); // Init the sender.
+
+		// Set a custom error handler
+		onerror = window.onerror;
+		window.onerror = function errorHandler(message) {
+			errorMessage = message;
+		}
 	});
 
 	after(function () {
 		new Queue('requests').replace([]); // Empty the queue as PhantomJS doesn't always start fresh.
 		destroy('config'); // Empty settings.
+		window.onerror = onerror; // Restore the default error handler
+	});
+
+	beforeEach(function () {
+		errorMessage = undefined;
 	});
 
 	it('should track an event, adds custom component_id', function () {
@@ -86,47 +98,55 @@ describe('event', function () {
 		document.body.dispatchEvent(event);
 	});
 
-	it('should throw custom error message if the tracking event object contains circular references', function () {
-
-		const callback = sinon.spy();
-
+	it('should throw custom error message if the tracking event object contains circular references', function (done) {
 		const customTrackingData = {ohh: 'ahh'};
 		customTrackingData.circular = customTrackingData;
-		const errorMessage = `o-tracking does not support circular references in the analytics data.
-Please remove the circular references in the data.
-Here are the paths in the data which are circular:
-[
-    ".context.context.circular"
-]`;
 
-		const errorMessageOnIOS10 = `o-tracking does not support circular references in the analytics data.
-Please remove the circular references in the data.
-Here are the paths in the data which are circular:
-[
-    "[0].item.context.context.circular"
-]`;
-		try {
-			trackEvent(
-				new CustomEvent("oTracking.event", {
-					detail: {
-						category: "slideshow",
-						action: "slide_viewed",
-						slide_number: 5,
-						component_id: "123456",
-						component_name: "custom-o-tracking",
-						context: customTrackingData,
-					},
-				}),
-				callback
-			);
-			proclaim.notOk("Expected function to throw an error but it did not");
-		} catch (error) {
-			proclaim.isInstanceOf(error, Error);
-			try {
-				proclaim.equal(error.message, errorMessage);
-			} catch (testError) {
-				proclaim.equal(error.message, errorMessageOnIOS10);
-			}
-		}
+		trackEvent(
+			new CustomEvent("oTracking.event", {
+				detail: {
+					category: "slideshow",
+					action: "slide_viewed",
+					slide_number: 5,
+					component_id: "123456",
+					component_name: "custom-o-tracking",
+					context: customTrackingData,
+				},
+			}),
+		);
+
+		setTimeout(() => {
+			proclaim.include(errorMessage, 'AssertionError');
+			proclaim.include(errorMessage, '.context.context.circular');
+			done();
+		});
+	});
+
+	it('should not report a circular reference when multiple references are made to the same object', function (done) {
+		const contextPartOne = {key: 'part one'};
+		const contextPartTwo = {key: 'part two'};
+
+		const sharedReference = {shared: 'shared'};
+		contextPartOne.sharedReference = sharedReference;
+		contextPartTwo.sharedReference = sharedReference;
+
+		trackEvent(
+			new CustomEvent('oTracking.event', {
+				detail: {
+					category: 'slideshow',
+					action: 'slide_viewed',
+					slide_number: 5,
+					component_id: '123456',
+					component_name: 'custom-o-tracking',
+					contextPartOne,
+					contextPartTwo,
+				},
+			}),
+		);
+
+		setTimeout(() => {
+			proclaim.isUndefined(errorMessage, 'Expected function not to throw an error');
+			done();
+		});
 	});
 });

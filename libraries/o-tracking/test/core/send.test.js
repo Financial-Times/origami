@@ -8,7 +8,7 @@ import {
 	addAndRun
 } from '../../src/javascript/core/send.js';
 import {Queue} from "../../src/javascript/core/queue.js";
-import {unmockTransport, mockTransport} from '../setup.js';
+import {unmockTransport, mockTransport, sendSpy} from '../setup.js';
 import {set, destroy} from '../../src/javascript/core/settings.js';
 
 const request = {
@@ -38,6 +38,7 @@ const request = {
 describe('Core.Send', function () {
 	beforeEach(function() {
 		set('config', {});
+		sendSpy.resetHistory();
 	});
 
 	after(function () {
@@ -287,5 +288,47 @@ describe('Core.Send', function () {
 			}
 		}, 200);
 	});
+
+	it('should replace circular references with warning strings', function (done) {
+		const onerror = window.onerror;
+		window.onerror = sinon.spy();
+
+		init();
+
+		const customTrackingData = {ohh: 'ahh'};
+		customTrackingData.circular = customTrackingData;
+
+		const request = {
+			context: {
+				customTrackingData,
+			},
+		};
+
+		addAndRun(request);
+		setTimeout(() => {
+			try {
+				proclaim.ok(sendSpy.called);
+				const payload = JSON.parse(sendSpy.args[0][1]);
+				proclaim.deepEqual(payload.context.customTrackingData, {
+					ohh: 'ahh',
+					circular:
+						'Circular reference between `$.context.customTrackingData` AND `$.context.customTrackingData.circular`',
+				});
+
+				proclaim.ok(window.onerror.called);
+				proclaim.include(
+					window.onerror.firstCall.firstArg,
+					'o-tracking does not support circular references in the analytics data'
+				);
+
+				destroy('config');
+				window.onerror = onerror;
+				done();
+			} catch (error) {
+				done(error);
+			}
+		}, 100);
+	});
+
 
 });

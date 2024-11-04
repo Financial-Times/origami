@@ -1,4 +1,4 @@
-import {broadcast, containsCircularPaths, decode, encode, findCircularPathsIn, is} from '../utils.js';
+import {broadcast, safelyStringifyJson, decode, encode, is} from '../utils.js';
 
 /**
  * Class for storing data
@@ -172,14 +172,7 @@ Store.prototype.write = function (data) {
 	if (typeof this.data === 'string') {
 		value = this.data;
 	} else {
-		if (containsCircularPaths(this.data)) {
-			const errorMessage = "o-tracking does not support circular references in the analytics data.\n" +
-			"Please remove the circular references in the data.\n" +
-			"Here are the paths in the data which are circular:\n" +
-			JSON.stringify(findCircularPathsIn(this.data), undefined, 4);
-			throw new Error(errorMessage);
-		}
-		value = JSON.stringify(this.data);
+		value = safelyStringifyJson(this.data);
 	}
 
 	this.storage.save(this.storageKey, value);
