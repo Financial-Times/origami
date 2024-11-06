@@ -1,7 +1,7 @@
 ---
 import {Code} from '@astrojs/starlight/components';
 
-const allTokens = await import(`@financial-times/origami-dictionary/js/${Astro.props.brand}/tooling.js`);
+const allTokens = await import(`@financial-times/o3-tooling-token/${Astro.props.brand}.js`);
 
 function isTypeScaleToken(token) {
 	if(token.type !== 'fontSize' && token.type !== 'lineHeights') {
@@ -79,7 +79,7 @@ const typeScaleOrdered = Object.entries(typeScale).sort((a, b) => {
 			return (<tr>
 					<td
 						class={`token-sample ${Astro.props.scaleFamily ? `token-sample--${Astro.props.scaleFamily}` : ''}`}
-						style=`line-height: ${scale.lineHeights.value}; font-size: ${scale.fontSize.value}px`>Make sense of it all</td>
+						style=`line-height: ${scale.lineHeights.value}; font-size: ${scale.fontSize.value}`>Make sense of it all</td>
 					<td>{scaleKey}</td>
 					<td class="token-value">
 							{scale.fontSize.originalValue}px / {scale.lineHeights.originalValue}px <br>

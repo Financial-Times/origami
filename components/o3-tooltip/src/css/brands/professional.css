@@ -1,3 +1,3 @@
 @import '@financial-times/o3-foundation/css/professional.css';
-@import '@financial-times/origami-dictionary/css/professional/o3-tooltip.css';
+@import '../tokens/core/professional/o3-tooltip/_variables.css';
 @import '../../../main.css';
