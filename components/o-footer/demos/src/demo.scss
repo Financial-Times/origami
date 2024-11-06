@@ -3,7 +3,7 @@
 @include oFooter();
 @import '@financial-times/o-fonts/main';
 @include oFonts();
-@import '@financial-times/o-normalise/main';
+@import '@financial-times/o-private-foundation/o-normalise/main';
 @include oNormalise();
 
 body {

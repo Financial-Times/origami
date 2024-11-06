@@ -6,7 +6,7 @@ $o-subs-card-is-silent: false;
 @include oGrid();
 @import '@financial-times/o-colors/main';
 @include oColors();
-@import '@financial-times/o-normalise/main';
+@import '@financial-times/o-private-foundation/o-normalise/main';
 @include oNormalise();
 
 
