@@ -1,0 +1,18 @@
+@import '@financial-times/o-brand/main';
+
+@import './src/scss/variables';
+@import 'src/scss/brand';
+/// Output all oPrivateFoundation features
+/// @param {Map} $opts [()] - A map of options to configure the output
+/// @access public
+/// @example scss
+///		@include oPrivateFoundation($opts: (
+///			// your opts here
+///		))
+@mixin oPrivateFoundation ($opts: ()) {
+	// content of primary mixin
+	.o-private-foundation {
+		display: block;
+	}
+}
+
