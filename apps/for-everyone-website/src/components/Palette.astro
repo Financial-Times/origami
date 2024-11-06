@@ -1,5 +1,5 @@
 ---
-const tokens = await import(`@financial-times/origami-dictionary/js/${Astro.props.brand}/tooling.js`);
+const tokens = await import(`@financial-times/o3-tooling-token/${Astro.props.brand}.js`);
 const ColorTokens = Object.entries(tokens.default).filter(([key, value]) => value.type === 'color').map(([key, value]) => {
     value.name = key;
     return value

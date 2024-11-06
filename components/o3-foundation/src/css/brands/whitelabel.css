@@ -1,2 +1,2 @@
-@import '@financial-times/origami-dictionary/css/whitelabel/foundation.css';
+@import '../tokens/whitelabel/_variables.css';
 @import '../../../main.css';

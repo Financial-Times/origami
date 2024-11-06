@@ -1,4 +1,4 @@
-@import '@financial-times/origami-dictionary/css/icons.css';
+@import './src/css/tokens/_icons.css';
 @import './src/css/components/fonts.css';
 @import './src/css/components/normalise.css';
 @import './src/css/components/z-index.css';

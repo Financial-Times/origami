@@ -36,8 +36,5 @@
 	"devDependencies": {
 		"@financial-times/o3-figma-sb-links": "^0.0.0"
 	},
-	"peerDependencies": {
-		"@financial-times/origami-dictionary": "^0.0.0"
-	},
 	"private": false
 }
