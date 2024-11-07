@@ -1,0 +1,33 @@
+{
+  "name": "@financial-times/o-private-foundation",
+  "version": "0.0.0",
+  "description": "Foundation components for use in Origami components only.",
+  "keywords": [],
+  "homepage": "https://registry.origami.ft.com/components/o-private-foundation",
+  "bugs": {
+    "url": "https://github.com/Financial-Times/origami/issues/new?labels=o-private-foundation,components",
+    "email": "origami.support@ft.com"
+  },
+  "license": "MIT",
+  "type": "module",
+  "browser": "main.js",
+  "scripts": {
+    "build": "bash ../../scripts/component/build.bash",
+    "test": "bash ../../scripts/component/test.bash",
+    "lint": "bash ../../scripts/component/lint.bash",
+    "watch": "bash ../../scripts/component/watch.bash"
+  },
+	"peerDependencies": {
+			"@financial-times/o-brand": "^4.1.0"
+	},
+	  "devDependencies": {},
+  "engines": {
+    "npm": "^7 || ^8"
+  },
+  "volta": {
+    "node": "14.16.1",
+    "npm": "7.11.1"
+  },
+  "percy": true,
+  "private": false
+}
