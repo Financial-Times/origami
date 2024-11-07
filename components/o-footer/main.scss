@@ -1,5 +1,5 @@
+@use "@financial-times/o-private-foundation/o-normalise/src/scss/mixins";
 @import '@financial-times/math';
-@import "@financial-times/o-private-foundation/o-normalise/main";
 @import "@financial-times/o-spacing/main";
 @import "@financial-times/o-colors/main";
 @import "@financial-times/o-typography/main";
@@ -109,7 +109,7 @@
 	}
 
 	.o-footer-visually-hidden {
-		@include oNormaliseVisuallyHidden();
+		@include oPrivateNormaliseVisuallyHidden();
 	}
 }
 

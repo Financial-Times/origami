@@ -2,5 +2,5 @@
 @include oBigNumber();
 @import '@financial-times/o-fonts/main';
 @include oFonts();
-@financial-times/o-normalise/main
+@import '@financial-times/o-normalise/main';
 @include oNormalise();

@@ -1,3 +1,4 @@
+@use '@financial-times/o-private-foundation/o-normalise/src/scss/mixins' as *;
 /// @output Styles for a custom button theme `.o-buttons--[$name]`.
 /// @example - Add a new claret theme for both primary and secondary buttons.
 ///     // Outputs class .o-buttons--my-special-button
@@ -243,8 +244,8 @@
 		text-decoration: none;
 	}
 
-	@include oNormaliseFocusApply() {
-		@include oNormaliseFocusContentForElementColour(map-get($button-colors-map, 'focus-background'));
+	@include oPrivateNormaliseFocusApply() {
+		@include oPrivateNormaliseFocusContentForElementColour(map-get($button-colors-map, 'focus-background'));
 		background-color: map-get($button-colors-map, 'focus-background');
 		color: map-get($button-colors-map, 'focus-color');
 		border-color: map-get($button-colors-map, 'focus-border');

@@ -1,3 +1,5 @@
+@use '@financial-times/o-private-foundation/o-normalise/src/scss/_mixins.scss' as *;
+
 /// @access private
 /// @output styles for state animation for the box-styled radio inputs
 @mixin _oFormsState() {
@@ -16,7 +18,7 @@
 	}
 
 	.o-forms-input__state--icon-only:after {
-		@include oNormaliseVisuallyHidden;
+		@include oPrivateNormaliseVisuallyHidden;
 	}
 
 	// Hide pseudo element text for saving and saved status.

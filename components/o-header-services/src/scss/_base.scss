@@ -1,3 +1,4 @@
+@use '@financial-times/o-private-foundation/o-normalise/src/scss/mixins' as *;
 /// @access private
 /// @param {Boolean} $bleed [whether or not to make the header a bleed header. Defaults to false.]
 /// @outputs base styles for full header
@@ -24,7 +25,7 @@
 	}
 
 	.o-header-services__visually-hidden {
-		@include oNormaliseVisuallyHidden;
+		@include oPrivateNormaliseVisuallyHidden;
 	}
 
 	@if $bleed {

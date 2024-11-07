@@ -2,9 +2,9 @@
 @import '@financial-times/o-brand/main';
 @import '@financial-times/o-colors/main';
 @import '@financial-times/o-grid/main';
-@financial-times/o-normalise/main
 @import '@financial-times/o-spacing/main';
 @import '@financial-times/o-typography/main';
+@use '@financial-times/o-private-foundation/o-normalise/src/scss/_mixins.scss' as *;
 
 @import 'src/scss/variables';
 @import 'src/scss/color-use-cases';
@@ -101,7 +101,7 @@
 	// Icon text is visually hidden by default without the class
 	// `.o-share__action--labelled`.
 	.o-share__action:not(.o-share__action--labelled) .o-share__text {
-		@include oNormaliseVisuallyHidden();
+		@include oPrivateNormaliseVisuallyHidden();
 	}
 
 

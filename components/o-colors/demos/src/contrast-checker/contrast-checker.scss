@@ -5,7 +5,7 @@
 @include oTabs();
 @import '@financial-times/o-forms/main';
 @include oForms();
-@financial-times/o-normalise/main
+@import '@financial-times/o-normalise/main';
 @include oNormalise();
 @import '@financial-times/o-buttons/main';
 @include oButtons();

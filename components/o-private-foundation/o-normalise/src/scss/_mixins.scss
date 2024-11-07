@@ -1,6 +1,6 @@
 /// Visually hide an element while still
 /// allowing it to be read by a screenreader
-@include oPrivateNormaliseVisuallyHidden {
+@mixin oPrivateNormaliseVisuallyHidden {
 	position: absolute;
 	clip: rect(0 0 0 0);
 	clip-path: polygon(0 0, 0 0);

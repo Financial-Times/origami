@@ -1,7 +1,7 @@
 @import "./../../main";
 
 @include oExpander();
-@financial-times/o-normalise/main
+@import '@financial-times/o-normalise/main';
 @include oNormalise();
 
 .o-expander--initialized[data-o-expander-shrink-to="height"] .o-expander__content {

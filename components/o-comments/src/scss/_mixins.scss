@@ -1,3 +1,4 @@
+@use '@financial-times/o-private-foundation/o-normalise/src/scss/_mixins.scss' as *;
 /// Output All oComments Features
 @mixin oComments($opts: ('coral-talk-iframe': true)) {
 
@@ -45,7 +46,7 @@
 	}
 
 	.o-comments__edit-display-name-descriptive {
-		@include oNormaliseVisuallyHidden();
+		@include oPrivateNormaliseVisuallyHidden();
 	}
 
 	.o-overlay.o-comments__displayname-prompt {

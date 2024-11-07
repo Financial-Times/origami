@@ -1,10 +1,10 @@
+@use '@financial-times/o-private-foundation/o-normalise/src/scss/_mixins';
 @import '@financial-times/math';
 @import '@financial-times/o-brand/main';
 @import '@financial-times/o-colors/main';
 @import '@financial-times/o-grid/main';
 @import '@financial-times/o-icons/main';
 @import '@financial-times/o-loading/main';
-@financial-times/o-normalise/main
 @import '@financial-times/o-spacing/main';
 @import '@financial-times/o-typography/main';
 @import '@financial-times/o-visual-effects/main';
@@ -33,7 +33,7 @@
 	}
 
 	.o-autocomplete__visually-hidden {
-		@include oNormaliseVisuallyHidden;
+		@include oPrivateNormaliseVisuallyHidden;
 	}
 
 	.o-autocomplete__clear {

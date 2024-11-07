@@ -1,3 +1,5 @@
+@use '@financial-times/o-private-foundation/o-normalise/src/scss/_mixins.scss' as *;
+
 @mixin _oHeaderBase() {
 	.o-header {
 		position: relative;
@@ -11,10 +13,10 @@
 
 	.o-header__container {
 		@include oGridContainer();
-		@include oNormaliseClearfix();
+		@include oPrivateNormaliseClearfix();
 	}
 
 	.o-header__visually-hidden {
-		@include oNormaliseVisuallyHidden;
+		@include oPrivateNormaliseVisuallyHidden;
 	}
 }
