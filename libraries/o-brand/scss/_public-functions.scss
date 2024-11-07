@@ -126,11 +126,18 @@
 /// @return {boolean}
 ///
 @function oBrandIs($brand) {
-	$current-brand: if($o-brand, $o-brand, $_o-brand-default);
+	$current-brand: oBrandGetCurrent();
 
 	@if not index($_o-brand-available-brands, $current-brand) {
 		@return _oBrandError('The brand "#{$current-brand}" is not supported by o-brand. Please use one of #{$_o-brand-available-brands}.');
 	}
 
 	@return $brand == $current-brand;
+}
+
+/// Get current brand in use.
+/// @access public
+///
+@function oBrandGetCurrent() {
+	@return if($o-brand, $o-brand, $_o-brand-default);
 }
