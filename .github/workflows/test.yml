@@ -85,6 +85,8 @@ jobs:
             - 'components/o-normalise/**'
           components/o-overlay:
             - 'components/o-overlay/**'
+          components/o-private-foundation:
+            - 'components/o-private-foundation/**'
           components/o-quote:
             - 'components/o-quote/**'
           components/o-share:

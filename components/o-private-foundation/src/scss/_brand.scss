@@ -1,0 +1,10 @@
+/// Helper for `o-brand` function.
+/// @access private
+@function _oPrivateFoundationGet($variables, $from: null) {
+	@return oBrandGet($component: 'o-private-foundation', $variables: $variables, $from: $from);
+}
+/// Helper for `o-brand` function.
+/// @access private
+@function _oPrivateFoundationSupports($variant) {
+	@return oBrandSupportsVariant($component: 'o-private-foundation', $variant: $variant);
+}

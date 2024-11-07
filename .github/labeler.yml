@@ -82,6 +82,8 @@ o-normalise:
   - components/o-normalise/**/*
 o-overlay:
   - components/o-overlay/**/*
+o-private-foundation:
+  - components/o-private-foundation/**/*
 o-quote:
   - components/o-quote/**/*
 o-share:
