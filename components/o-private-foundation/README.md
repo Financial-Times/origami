@@ -1,6 +1,6 @@
 # o-private-foundation
 
-> NOTE: this package should ONLY be used in Origami components. If you are not developing a component that is part of this package, please do not use this package. 
+> :warning: NOTE: this package should ONLY be used in Origami components. If you are not developing a component that is part of Origami, please do not use this package. 
 
 A collection of Origami components for use in other Origami components.
 
