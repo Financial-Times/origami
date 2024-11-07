@@ -2,16 +2,3 @@
 	$o-brand: $o-brand
 );
 @import './src/scss/variables';
-
-.example {
-	background-color: brand.get('_o3-button-primary-standard-background');
-}
-
-@if brand.supports('professional') {
-	.example--professional {
-		background-color: brand.get(
-			'_o3-button-primary-standard-background',
-			'professional'
-		);
-	}
-}
