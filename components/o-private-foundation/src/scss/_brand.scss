@@ -6,7 +6,6 @@ $o-brand: 'not-set' !default;
 $o-private-foundation-tokens: tokens.forBrand(oBrandGetCurrent());
 
 /// Helper for `o-brand` function.
-/// @access private
 @function get($variables, $from: null) {
 	@return oBrandGet(
 		$component: 'o-private-foundation',
@@ -15,7 +14,6 @@ $o-private-foundation-tokens: tokens.forBrand(oBrandGetCurrent());
 	);
 }
 /// Helper for `o-brand` function.
-/// @access private
 @function supports($variant) {
 	@return oBrandSupportsVariant(
 		$component: 'o-private-foundation',
