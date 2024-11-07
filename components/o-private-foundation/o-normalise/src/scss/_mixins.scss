@@ -1,6 +1,6 @@
 /// Visually hide an element while still
 /// allowing it to be read by a screenreader
-@mixin oNormaliseVisuallyHidden {
+@include oPrivateNormaliseVisuallyHidden {
 	position: absolute;
 	clip: rect(0 0 0 0);
 	clip-path: polygon(0 0, 0 0);
@@ -15,7 +15,7 @@
 
 /// Clearfix helper styles
 /// Outputs clearfix styles on the current element
-@mixin oNormaliseClearfix {
+@mixin oPrivateNormaliseClearfix {
 	zoom: 1;
 
 	&:before,
@@ -30,7 +30,7 @@
 }
 
 /// Adds box sizing to current and all child elements
-@mixin oNormaliseBoxSizing {
+@mixin oPrivateNormaliseBoxSizing {
 
 	/*autoprefixer: off*/
 	-webkit-box-sizing: border-box; // stylelint-disable-line property-no-vendor-prefix
@@ -58,7 +58,7 @@
 ///				@include oNormaliseFocusContent();
 ///			};
 ///		}
-@mixin oNormaliseFocusApply {
+@mixin oPrivateNormaliseFocusApply {
 	@at-root {
 		&:focus {
 			@content;
@@ -85,7 +85,7 @@
 ///
 /// @see oNormaliseFocusContentInverse - An alternative focus style, optimised for "inverse" elements (light on dark background).
 /// @see oNormaliseFocusContentForElementColour - Dynamically apply either `oNormaliseFocusContent` or `oNormaliseFocusContentInverse` based on the background colour of the focused element.
-@mixin oNormaliseFocusContent() {
+@mixin oPrivateNormaliseFocusContent() {
 	box-shadow: $_o-normalise-focus-ring;
 }
 
@@ -93,7 +93,7 @@
 ///
 /// @see oNormaliseFocusContent - An alternative focus style, the default, optimised for dark elements on a light background.
 /// @see oNormaliseFocusContentForElementColour - Dynamically apply either `oNormaliseFocusContent` or `oNormaliseFocusContentInverse` based on the background colour of the focused element.
-@mixin oNormaliseFocusContentInverse() {
+@mixin oPrivateNormaliseFocusContentInverse() {
 	box-shadow: $_o-normalise-reverse-focus-ring;
 }
 
@@ -109,7 +109,7 @@
 /// @see oNormaliseFocusContentInverse - An alternative focus style, optimised for "inverse" elements (light on dark background).
 ///
 /// @param {String|Color} $color - The background colour of the focused element.
-@mixin oNormaliseFocusContentForElementColour($color) {
+@mixin oPrivateNormaliseFocusContentForElementColour($color) {
 	$black-contrast: oColorsGetContrastRatio($color, black);
 	$white-contrast: oColorsGetContrastRatio($color, white);
 	$shadow: if($black-contrast <= $white-contrast, $_o-normalise-focus-ring, $_o-normalise-reverse-focus-ring);
@@ -118,195 +118,7 @@
 }
 
 /// Undo a focus style applied by o-normalise.
-@mixin oNormaliseFocusUnsetContent {
+@mixin oPrivateNormaliseFocusUnsetContent {
 	outline: unset;
 	box-shadow: unset;
-}
-
-/// Adds normalising styles to general html elements
-/// effects: <html>, <body>, <main>, and :focus state
-/// @access private
-@mixin _oNormaliseBody($font-smoothing: true, $box-sizing: true, $focus: true, $reduce-motion: true) {
-	html,
-	body {
-		margin: 0;
-		text-rendering: optimizeLegibility;
-
-		-ms-text-size-adjust: 100%; // stylelint-disable-line property-no-vendor-prefix
-		-webkit-text-size-adjust: 100%; // stylelint-disable-line property-no-vendor-prefix
-
-
-		@if $font-smoothing {
-
-			-webkit-font-smoothing: antialiased;
-			-moz-osx-font-smoothing: grayscale;
-
-		}
-
-		@if $box-sizing {
-			@include oNormaliseBoxSizing;
-		}
-
-		@if $reduce-motion {
-			// Immediately jump any animation to the end point if the user has
-			// set their device to "prefers reduced motion".
-			// See https://github.com/mozdevs/cssremedy/issues/11
-			@media (prefers-reduced-motion: reduce) {
-				*,
-				*:before,
-				*:after {
-
-					animation-duration: 0.001s !important; // stylelint-disable-line declaration-no-important
-					transition-duration: 0.001s !important; // stylelint-disable-line declaration-no-important
-					animation-iteration-count: 1 !important; // stylelint-disable-line declaration-no-important
-
-				}
-			}
-		}
-	}
-
-	@if $focus {
-		@include _oNormaliseFocus();
-	}
-}
-
-/// Adds normalising styles for focused elements.
-/// @access private
-@mixin _oNormaliseFocus {
-	:focus {
-		outline: 2px solid $_o-normalise-focus-color;
-	}
-
-	input:focus,
-	button:focus,
-	textarea:focus,
-	select:focus {
-		@include oNormaliseFocusContent();
-	}
-
-	// Unset :focus styles where :focus-visible is supported.
-	// Ideally we would set `:focus-visible` by default and use
-	// `@supports not selector(:focus-visible)` to provide a
-	// `:focus` fallback, however some of our supported browsers
-	// do not understand `@supports: selector()`.
-	@supports selector(:focus-visible) {
-		input:focus,
-		button:focus,
-		textarea:focus,
-		select:focus,
-		:focus {
-			@include oNormaliseFocusUnsetContent();
-		}
-
-		:focus-visible {
-			outline: 2px solid $_o-normalise-focus-color;
-		}
-
-		input:focus-visible,
-		button:focus-visible,
-		textarea:focus-visible,
-		select:focus-visible {
-			@include oNormaliseFocusContent();
-		}
-	}
-}
-
-/// Adds normalising styles to link elements
-/// @access private
-@mixin _oNormaliseLinks {
-	// Remove the outline on focused links when they are
-	// also active or hovered in all browsers (opinionated).
-	a:active,
-	a:hover {
-		outline-width: 0;
-	}
-
-}
-
-/// Adds normalising styles to text related elements
-/// @access private
-@mixin _oNormaliseText {
-
-	// 1. Remove the bottom border in Firefox 39-.
-	// 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
-	// stylelint-disable-next-line selector-no-qualifying-type
-	abbr[title] {
-		border-bottom: 0; // [1]
-		text-decoration: underline; // [2]
-		// stylelint-disable-next-line declaration-block-no-duplicate-properties
-		text-decoration: underline dotted; // [2]
-	}
-
-	// Prevent the duplicate application of `bolder` by the next rule in Safari 6.
-	b,
-	strong {
-		font-weight: inherit;
-	}
-
-	// Add the correct font weight in Chrome, Edge, and Safari.
-	b,
-	strong {
-		font-weight: bolder;
-	}
-
-	// Add the correct font style in Android 4.3-.
-	dfn {
-		font-style: italic;
-	}
-
-	// Prevent `sub` and `sup` elements from affecting the line height in
-	// all browsers.
-	sub,
-	sup {
-		font-size: 75%;
-		line-height: 0;
-		position: relative;
-		vertical-align: baseline;
-	}
-
-	sub {
-		bottom: -0.25em;
-	}
-
-	sup {
-		top: -0.5em;
-	}
-}
-
-/// Adds normalising styles to form elements
-/// @access private
-@mixin _oNormaliseForms {
-	// Restore the font weight unset by the previous rule.
-	optgroup {
-		font-weight: bold;
-	}
-
-	// Remove the margin in Safari.
-	// 1. Remove the margin in Firefox and Safari.
-	button,
-	input,
-	select,
-	textarea { // [1]
-		margin: 0;
-	}
-
-	// Change the cursor in all browsers (opinionated).
-	button,
-	[type="button"],
-	[type="reset"],
-	[type="submit"] {
-		cursor: pointer;
-	}
-
-	// Restore the default cursor to disabled elements unset by the previous rule.
-	[disabled] {
-		cursor: default;
-	}
-
-	// Remove the inner border and padding in Firefox.
-	button::-moz-focus-inner,
-	input::-moz-focus-inner {
-		border: 0;
-		padding: 0;
-	}
 }
