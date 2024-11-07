@@ -1,17 +1,16 @@
 {
 	"origamiType": "component",
 	"origamiVersion": "2.0",
-	"brands": ["core","internal","whitelabel"],
+	"brands": ["core", "internal", "whitelabel"],
 	"support": "https://github.com/Financial-Times/origami/issues/new?labels=o-private-foundation,components",
 	"supportContact": {
-		"email":  "origami.support@ft.com",
+		"email": "origami.support@ft.com",
 		"slack": "#origami-support"
 	},
 	"supportStatus": "experimental",
 	"browserFeatures": {},
 	"demosDefaults": {
-		"sass": "demos/src/demo.scss", 
-		"js": "demos/src/demo.js", 
+		"sass": "demos/src/demo.scss",
 		"template": "demos/src/demo.mustache",
 		"documentClasses": "",
 		"dependencies": []

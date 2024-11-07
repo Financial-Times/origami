@@ -1,0 +1,15 @@
+@use 'tokens/core.scss' as coreTokens;
+@use 'tokens/professional.scss' as professionalTokens;
+@use 'tokens/internal.scss' as internalTokens;
+@use 'tokens/whitelabel.scss' as whitelabelTokens;
+
+$_by-brand: (
+	'core': coreTokens.$tokens,
+	'professional': professionalTokens.$tokens,
+	'internal': internalTokens.$tokens,
+	'whitelabel': whitelabelTokens.$tokens,
+);
+
+@function forBrand($brand) {
+	@return map-get($_by-brand, $brand);
+}
