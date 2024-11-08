@@ -1,3 +1,5 @@
+@import '@financial-times/o-colors/main';
+@import './variables';
 /// Visually hide an element while still
 /// allowing it to be read by a screenreader
 @mixin oPrivateNormaliseVisuallyHidden {
@@ -71,7 +73,7 @@
 		// do not understand `@supports: selector()`.
 		@supports selector(:focus-visible) {
 			&:focus {
-				@include oNormaliseFocusUnsetContent();
+				@include oPrivateNormaliseFocusUnsetContent();
 			}
 
 			&:focus-visible {

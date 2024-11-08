@@ -1,4 +1,4 @@
-@use '@financial-times/o-private-foundation/o-normalise/src/scss/mixins' as *;
+@use '@financial-times/o-private-foundation/o-normalise/src/scss/mixins' as normalise;
 @import '@financial-times/o-brand/main';
 @import '@financial-times/o-colors/main';
 @import '@financial-times/o-typography/main';
@@ -97,7 +97,7 @@
 		}
 
 		.o-buttons-icon__label {
-			@include oPrivateNormaliseVisuallyHidden();
+			@include normalise.oPrivateNormaliseVisuallyHidden();
 		}
 	}
 
