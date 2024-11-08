@@ -1,6 +1,7 @@
 @import '@financial-times/o-fonts/main';
-@financial-times/o-normalise/main
+@import '@financial-times/o-normalise/main';
 @import '@financial-times/o-grid/main';
+
 @include oFonts();
 @include oNormalise();
 @include oGrid();
@@ -9,22 +10,22 @@
 @include oHeader();
 
 .demo-sticky-message {
-	margin: 50px 0;
-	text-align: center;
-	font-size: 24px;
+  margin: 50px 0;
+  text-align: center;
+  font-size: 24px;
 
-	&:before,
-	&:after {
-		padding: 0 1em;
-		font-size: 75%;
-	}
+  &:before,
+  &:after {
+    padding: 0 1em;
+    font-size: 75%;
+  }
 }
 
 .demo-sticky-message--scroll {
-	margin-bottom: 1999px;
+  margin-bottom: 1999px;
 
-	&:before,
-	&:after {
-		content: '▼';
-	}
+  &:before,
+  &:after {
+    content: '▼';
+  }
 }

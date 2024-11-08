@@ -1,5 +1,6 @@
 @import '@financial-times/o-fonts/main';
-@financial-times/o-normalise/main
+@import '@financial-times/o-normalise/main';
+
 @include oFonts();
 @include oNormalise();
 
@@ -7,6 +8,6 @@
 @include oMessage();
 
 .demo-inner-message {
-	margin: auto;
-	max-width: 400px;
+  margin: auto;
+  max-width: 400px;
 }

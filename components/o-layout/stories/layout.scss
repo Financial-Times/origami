@@ -1,5 +1,5 @@
 @import '@financial-times/o-fonts/main';
-@financial-times/o-normalise/main
+@import '@financial-times/o-normalise/main';
 @import '@financial-times/o-table/main';
 @import '@financial-times/o-syntax-highlight/main';
 @import '@financial-times/o-tabs/main';
@@ -22,5 +22,5 @@
 @include oLayout();
 
 .demo-button:not(:last-of-type) {
-	margin-right: 0.5rem;
+  margin-right: 0.5rem;
 }

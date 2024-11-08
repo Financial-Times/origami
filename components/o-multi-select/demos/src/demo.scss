@@ -1,12 +1,12 @@
 @import '../../main';
-@financial-times/o-normalise/main
+@import '@financial-times/o-normalise/main';
 @import '@financial-times/o-forms/main';
 
 @include oNormalise();
 @include oForms();
 
 body {
-	background: oColorsByUsecase(page, background);
+  background: oColorsByUsecase(page, background);
 }
 
 @include oMultiSelect();

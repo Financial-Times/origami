@@ -1,4 +1,5 @@
-@financial-times/o-normalise/main
+@import '@financial-times/o-normalise/main';
+
 @include oNormalise();
 
 @import '@financial-times/o-teaser/main';

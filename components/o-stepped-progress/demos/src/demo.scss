@@ -1,21 +1,23 @@
 @import '../../main';
+
 @include oSteppedProgress();
 @import '@financial-times/o-fonts/main';
 @include oFonts();
 @import '@financial-times/o-icons/main';
 @include oIcons();
-@financial-times/o-normalise/main
+@import '@financial-times/o-normalise/main';
 @include oNormalise();
 
 body {
-	background: oColorsByUsecase('page', 'background');
-	margin: 1em;
+  background: oColorsByUsecase('page', 'background');
+  margin: 1em;
 }
 
 .demo-container {
-	margin-bottom: 2em;
-	max-width: 600px;
+  margin-bottom: 2em;
+  max-width: 600px;
 }
+
 .demo-container:last-of-type {
-	margin-bottom: 0;
+  margin-bottom: 0;
 }

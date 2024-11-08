@@ -1,7 +1,7 @@
 @import '../../main';
 
 @include oEditorialTypography();
-@financial-times/o-normalise/main
+@import '@financial-times/o-normalise/main';
 @include oNormalise();
 
 body {

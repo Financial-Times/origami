@@ -3,71 +3,72 @@
 @include oTypography();
 @import '@financial-times/o-grid/main';
 @include oGrid();
-@financial-times/o-normalise/main
+@import '@financial-times/o-normalise/main';
 @include oNormalise();
 @import '@financial-times/o-colors/main';
 
 
 body {
-	background-color: oColorsByUsecase('page', 'background');
-	overflow-y: scroll;
+  background-color: oColorsByUsecase('page', 'background');
+  overflow-y: scroll;
 }
 
 .demo {
-	// prevent images and media from expanding its container
-	img {
-		max-width: 100%;
-		height: auto;
-		display: block;
-	}
-	figure {
-		margin: 0 0 28px;
-	}
+  // prevent images and media from expanding its container
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  figure {
+    margin: 0 0 28px;
+  }
 }
 
 .demo-inverse body {
-	background-color: oColorsByUsecase('page-inverse', 'background');
+  background-color: oColorsByUsecase('page-inverse', 'background');
 }
 
 .type-scale {
-	white-space: nowrap;
-	overflow: hidden;
+  white-space: nowrap;
+  overflow: hidden;
 
-	.type-scale__label {
-		@include oTypographySans(1);
-		color: oColorsByName('black-60');
-		display: inline-block;
-		min-width: 1ch;
-		padding: 0 1em;
-	}
+  .type-scale__label {
+    @include oTypographySans(1);
+    color: oColorsByName('black-60');
+    display: inline-block;
+    min-width: 1ch;
+    padding: 0 1em;
+  }
 
-	.type-scale__example {
-		white-space: nowrap;
-		overflow: hidden;
-	}
+  .type-scale__example {
+    white-space: nowrap;
+    overflow: hidden;
+  }
 
-	@each $scale, $values in $_o-typography-font-scale {
-		.type-scale__example-#{$scale} {
-			@include oTypographyDisplay($scale);
-		}
-	}
+  @each $scale, $values in $_o-typography-font-scale {
+    .type-scale__example-#{$scale} {
+      @include oTypographyDisplay($scale);
+    }
+  }
 }
 
 .line-width-demo {
-	display: flex;
+  display: flex;
 
-	.line-width-demo__selection {
-		min-width: 100px;
-		margin: 20px;
-	}
+  .line-width-demo__selection {
+    min-width: 100px;
+    margin: 20px;
+  }
 
-	.line-width-demo__scale {
-		max-width: oTypographyMaxLineWidth();
-	}
+  .line-width-demo__scale {
+    max-width: oTypographyMaxLineWidth();
+  }
 
-	@each $scale, $values in $_o-typography-font-scale {
-		.line-width-demo__scale--#{$scale} {
-			@include oTypographySans($scale);
-		}
-	}
+  @each $scale, $values in $_o-typography-font-scale {
+    .line-width-demo__scale--#{$scale} {
+      @include oTypographySans($scale);
+    }
+  }
 }

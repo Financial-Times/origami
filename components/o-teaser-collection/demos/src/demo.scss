@@ -5,28 +5,30 @@
 @include oFonts();
 @import '@financial-times/o-grid/main';
 @include oGrid();
-@financial-times/o-normalise/main
+@import '@financial-times/o-normalise/main';
 @include oNormalise();
 
 body {
-	background-color: oColorsByUsecase('page', 'background');
-	margin: oSpacingByName('s8');
-	max-width: map-get($o-grid-layouts, 'XL');
-	.demo-paragraph {
-		@include oTypographySans();
-	}
-	.o-teaser-collection__item .demo-paragraph {
-		margin: oSpacingByName('s1') 0 oSpacingByName('s4');
-	}
+  background-color: oColorsByUsecase('page', 'background');
+  margin: oSpacingByName('s8');
+  max-width: map-get($o-grid-layouts, 'XL');
+
+  .demo-paragraph {
+    @include oTypographySans();
+  }
+
+  .o-teaser-collection__item .demo-paragraph {
+    margin: oSpacingByName('s1') 0 oSpacingByName('s4');
+  }
 }
 
 .demo-inverse body {
-	background-color: oColorsByName('slate');
+  background-color: oColorsByName('slate');
 }
 
 .demo-inverse body,
 .demo-inverse-copy body {
-	.demo-paragraph {
-		color: oColorsByName('white');
-	}
+  .demo-paragraph {
+    color: oColorsByName('white');
+  }
 }
