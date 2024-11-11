@@ -1,4 +1,4 @@
-@use '@financial-times/o-private-foundation/o-normalise/src/scss/_mixins.scss' as *;
+@use '@financial-times/o-private-foundation/o-normalise/src/scss/_mixins.scss' as normalise;
 
 @mixin _oHeaderBase() {
 	.o-header {
@@ -13,10 +13,10 @@
 
 	.o-header__container {
 		@include oGridContainer();
-		@include oPrivateNormaliseClearfix();
+		@include normalise.oPrivateNormaliseClearfix();
 	}
 
 	.o-header__visually-hidden {
-		@include oPrivateNormaliseVisuallyHidden;
+		@include normalise.oPrivateNormaliseVisuallyHidden;
 	}
 }

@@ -73,7 +73,7 @@
 		// do not understand `@supports: selector()`.
 		@supports selector(:focus-visible) {
 			&:focus {
-				@include oPrivateNormaliseFocusUnsetContent();
+				@include oNormaliseFocusUnsetContent();
 			}
 
 			&:focus-visible {
