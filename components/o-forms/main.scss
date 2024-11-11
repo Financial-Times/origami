@@ -1,10 +1,11 @@
+@use '@financial-times/o-private-foundation/o-normalise/src/scss/mixins' as normalise;
+
 @import '@financial-times/math';
 @import '@financial-times/o-spacing/main';
 @import '@financial-times/o-brand/main';
 @import '@financial-times/o-grid/main';
 @import '@financial-times/o-icons/main';
 @import '@financial-times/o-loading/main';
-@use '@financial-times/o-private-foundation/o-normalise/src/_mixins.scss' as *;
 @import '@financial-times/o-typography/main';
 
 @import 'src/scss/main';
@@ -82,8 +83,8 @@
 					}
 				}
 				.o-forms-field--#{$theme} input {
-					@include oPrivateNormaliseFocusApply() {
-						@include oPrivateNormaliseFocusContentInverse();
+					@include normalise.oPrivateNormaliseFocusApply() {
+						@include normalise.oPrivateNormaliseFocusContentInverse();
 					}
 				}
 			}

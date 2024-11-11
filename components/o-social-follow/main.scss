@@ -1,8 +1,9 @@
+@use '@financial-times/o-private-foundation/o-normalise/src/scss/mixins' as normalise;
+
 @import '@financial-times/math';
 @import '@financial-times/o-brand/main';
 @import '@financial-times/o-colors/main';
 @import '@financial-times/o-grid/main';
-@import '@financial-times/o-normalise/main';
 @import '@financial-times/o-spacing/main';
 @import '@financial-times/o-typography/main';
 
@@ -70,8 +71,8 @@
       --o-social-follow-icon-color: white;
     }
 
-    @include oNormaliseFocusApply() {
-      @include oNormaliseFocusContent();
+    @include normalise.oPrivateNormaliseFocusApply() {
+      @include normalise.oPrivateNormaliseFocusContent();
     }
   }
 
@@ -84,8 +85,8 @@
   @if index($themes, 'inverse') {
     .o-social-follow-icon--inverse {
       --o-social-follow-icon-color: white;
-      @include oNormaliseFocusApply() {
-        @include oNormaliseFocusContentInverse();
+      @include normalise.oPrivateNormaliseFocusApply() {
+        @include normalise.oPrivateNormaliseFocusContentInverse();
       }
     }
   }
@@ -112,6 +113,6 @@
   }
 
   .o-social-follow-icon__label {
-    @include oNormaliseVisuallyHidden();
+    @include normalise.oPrivateNormaliseVisuallyHidden();
   }
 }

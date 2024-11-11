@@ -1,4 +1,4 @@
-@use '@financial-times/o-private-foundation/o-normalise/src/scss/_mixins.scss' as *;
+@use '@financial-times/o-private-foundation/o-normalise/src/scss/mixins.scss' as normalise;
 
 // sass-lint:disable selector-no-qualifying-type
 /// @access private
@@ -46,9 +46,9 @@
 			}
 
 			&:focus {
-				@include oPrivateNormaliseFocusUnsetContent();
+				@include normalise.oPrivateNormaliseFocusUnsetContent();
 				& + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
-					@include oPrivateNormaliseFocusContent();
+					@include normalise.oPrivateNormaliseFocusContent();
 				}
 			}
 
@@ -59,12 +59,12 @@
 			// do not understand `@supports: selector()`.
 			@supports selector(:focus-visible) {
 				&:focus + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
-					@include oPrivateNormaliseFocusUnsetContent();
+					@include normalise.oPrivateNormaliseFocusUnsetContent();
 				}
 
 				&:focus-visible {
 					& + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
-						@include oPrivateNormaliseFocusContent();
+						@include normalise.oPrivateNormaliseFocusContent();
 					}
 				}
 			}
@@ -106,9 +106,9 @@
 	@if $theme and oColorsColorBrightness(_oFormsGet("default-text", $theme)) > 65% {
 		input[type="radio"] {// stylelint-disable-line selector-no-qualifying-type
 			&:focus {
-				@include oPrivateNormaliseFocusUnsetContent();
+				@include normalise.oPrivateNormaliseFocusUnsetContent();
 				& + .o-forms-input__label:before {// stylelint-disable-line selector-no-qualifying-type
-					@include oPrivateNormaliseFocusContentInverse();
+					@include normalise.oPrivateNormaliseFocusContentInverse();
 				}
 			}
 
@@ -119,12 +119,12 @@
 			// do not understand `@supports: selector()`.
 			@supports selector(:focus-visible) {
 				&:focus + .o-forms-input__label:before {// stylelint-disable-line selector-no-qualifying-type
-					@include oPrivateNormaliseFocusUnsetContent();
+					@include normalise.oPrivateNormaliseFocusUnsetContent();
 				}
 
 				&:focus-visible {
 					& + .o-forms-input__label:before {// stylelint-disable-line selector-no-qualifying-type
-						@include oPrivateNormaliseFocusContentInverse();
+						@include normalise.oPrivateNormaliseFocusContentInverse();
 					}
 				}
 			}

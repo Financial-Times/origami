@@ -1,3 +1,4 @@
+@use "@financial-times/o-private-foundation/o-normalise/src/scss/mixins" as normalise;
 /// Base Top story styles for all variants
 @mixin _oTeaserTopStoryBase {
 	.o-teaser__content {
@@ -23,7 +24,7 @@
 
 /// Landscape top story theme styles
 @mixin _oTeaserTopStoryLandscape {
-	@include oNormaliseClearfix;
+	@include normalise.oPrivateNormaliseClearfix;
 	background: oColorsByUsecase('o-teaser/hero', 'background');
 	padding: 12px;
 

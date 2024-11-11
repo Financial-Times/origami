@@ -1,3 +1,4 @@
+@use '@financial-times/o-private-foundation/o-normalise/src/scss/mixins' as normalise;
 /// Includes the correct mixin for elements
 /// based on the group name passed
 ///
@@ -69,7 +70,7 @@
 		@include _oTeaserStandfirst;
 	}
 	.o-teaser__visually-hidden {
-		@include oNormaliseVisuallyHidden;
+		@include normalise.oPrivateNormaliseVisuallyHidden;
 	}
 }
 

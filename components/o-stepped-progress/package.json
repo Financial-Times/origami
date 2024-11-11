@@ -35,7 +35,8 @@
   "devDependencies": {
     "@financial-times/o-fonts": "^5.2.0",
     "@financial-times/o-icons": "^7.2.0",
-    "@financial-times/o-normalise": "^3.3.0"
+    "@financial-times/o-normalise": "^3.3.0",
+    "@financial-times/o-private-foundation": "^0.0.0"
   },
   "engines": {
     "npm": ">7"

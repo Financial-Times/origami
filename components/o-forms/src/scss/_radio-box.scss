@@ -1,4 +1,4 @@
-@use '@financial-times/o-private-foundation/o-normalise/src/scss/_mixins.scss' as *;
+@use '@financial-times/o-private-foundation/o-normalise/src/scss/mixins' as normalise;
 
 // sass-lint:disable no-qualifying-elements
 /// @access private
@@ -103,13 +103,13 @@
 		}
 
 		&:focus {
-			@include oPrivateNormaliseFocusUnsetContent();
+			@include normalise.oPrivateNormaliseFocusUnsetContent();
 			& + .o-forms-input__label { // stylelint-disable-line selector-no-qualifying-type
 				$default-text: _oFormsGet("default-text", $theme);
 				@if $default-text and oColorsColorBrightness($default-text) > 65% {
-					@include oPrivateNormaliseFocusContentInverse();
+					@include normalise.oPrivateNormaliseFocusContentInverse();
 				} @else {
-					@include oPrivateNormaliseFocusContent();
+					@include normalise.oPrivateNormaliseFocusContent();
 				}
 			}
 		}
@@ -121,16 +121,16 @@
 		// do not understand `@supports: selector()`.
 		@supports selector(:focus-visible) {
 			&:focus + .o-forms-input__label { // stylelint-disable-line selector-no-qualifying-type
-				@include oPrivateNormaliseFocusUnsetContent();
+				@include normalise.oPrivateNormaliseFocusUnsetContent();
 			}
 
 			&:focus-visible {
 				& + .o-forms-input__label { // stylelint-disable-line selector-no-qualifying-type
 					$default-text: _oFormsGet("default-text", $theme);
 					@if $default-text and oColorsColorBrightness($default-text) > 65% {
-						@include oPrivateNormaliseFocusContentInverse();
+						@include normalise.oPrivateNormaliseFocusContentInverse();
 					} @else {
-						@include oPrivateNormaliseFocusContent();
+						@include normalise.oPrivateNormaliseFocusContent();
 					}
 				}
 			}

@@ -1,6 +1,7 @@
+@use '@financial-times/o-private-foundation/o-normalise/src/scss/mixins' as normalise;
+
 @import '@financial-times/o-brand/main';
 @import '@financial-times/o-spacing/main';
-@import '@financial-times/o-normalise/main';
 @import '@financial-times/o-typography/main';
 @import '@financial-times/o-icons/main';
 
@@ -21,7 +22,7 @@
   }
 
   .o-multi-select__visually-hidden {
-    @include oNormaliseVisuallyHidden;
+    @include normalise.oPrivateNormaliseVisuallyHidden;
   }
 
   .o-multi-select__selected-options {
@@ -61,18 +62,18 @@
       align-items: center;
 
       &:focus {
-        @include oNormaliseFocusUnsetContent();
+        @include normalise.oPrivateNormaliseFocusUnsetContent();
       }
 
       @supports selector(:focus-visible) {
         &:focus-visible {
-          @include oNormaliseFocusContent();
+          @include normalise.oPrivateNormaliseFocusContent();
         }
       }
     }
   }
   .o-multi-select__dropdown-menu {
-    @include oNormaliseBoxSizing();
+    @include normalise.oPrivateNormaliseBoxSizing();
     @include oTypographySans(0);
     width: 100%;
     background-color: oColorsByName('white');
@@ -119,7 +120,7 @@
     }
 
     .o-multi-select-option__current {
-      @include oNormaliseFocusContent();
+      @include normalise.oPrivateNormaliseFocusContent();
       z-index: 2;
     }
   }

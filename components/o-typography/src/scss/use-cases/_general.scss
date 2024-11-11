@@ -1,3 +1,4 @@
+@use '@financial-times/o-private-foundation/o-normalise/src/scss/mixins' as normalise;
 /// Output styles for page headings.
 /// @example Output heading level 1 styles.
 ///     h1 {
@@ -163,7 +164,7 @@
 		// https://drafts.csswg.org/css2/#visufx
 		position: relative;
 		&:after {
-			@include oNormaliseVisuallyHidden();
+			@include normalise.oPrivateNormaliseVisuallyHidden();
 			content: '(opens a new window)';
 		}
 	}
