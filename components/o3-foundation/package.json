@@ -28,7 +28,7 @@
 		"README.md"
 	],
 	"scripts": {
-		"build": "node ../../apps/dictionary/scripts/build-config/build.js && bash ../../scripts/component/build-o3.bash o3-foundation"
+		"build": "bash ../../scripts/component/build-o3.bash o3-foundation"
 	},
 	"engines": {
 		"npm": ">7"

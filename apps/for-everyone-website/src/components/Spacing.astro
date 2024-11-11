@@ -3,11 +3,12 @@ const tokens = await import(
 	`@financial-times/o3-tooling-token/${Astro.props.brand}.js`
 );
 const spacingTokens = Object.entries(tokens.default)
-	.filter(([_key, value]) => value.type === 'spacing')
+	.filter(([_key, value]) => value.path[1] === 'spacing')
 	.map(([key, value]) => {
 		value.name = key;
 		return value;
 	});
+
 
 const spacingsHaveDescription = Boolean(
 	spacingTokens.find(
@@ -39,7 +40,7 @@ const spacingsHaveDescription = Boolean(
 						</td>
 						{spacingsHaveDescription && <td>{token.description}</td>}
 						<td>
-							{token.value} ({token.originalValue})
+							{token.value}
 						</td>
 					</tr>
 				);

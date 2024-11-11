@@ -26,7 +26,6 @@
 		"origami.json"
 	],
 	"scripts": {
-		"build": "node ../../apps/dictionary/scripts/build-config/build-tool-meta.js"
 	},
 	"engines": {
 		"npm": ">7"
