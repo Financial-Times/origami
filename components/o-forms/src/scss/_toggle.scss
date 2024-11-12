@@ -1,4 +1,4 @@
-@use '@financial-times/o-private-foundation/o-normalise/src/scss/mixins' as normalise;
+@use '@financial-times/o-private-foundation/o-normalise/main' as normalise;
 // sass-lint:disable selector-no-qualifying-type
 /// @access private
 /// @param {Boolean} $disabled Whether to output disabled state styling
