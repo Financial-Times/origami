@@ -1,4 +1,4 @@
-@use '@financial-times/o-private-foundation/o-normalise/main' as normalise;
+@import '@financial-times/o-private-foundation/o-normalise/main';
 // sass-lint:disable selector-no-qualifying-type
 /// @access private
 /// @param {Boolean} $disabled Whether to output disabled state styling
@@ -67,13 +67,13 @@
 			// we style the label instead.
 			&:focus,
 			&:focus-visible {
-				@include normalise.oPrivateNormaliseFocusUnsetContent();
+				@include oPrivateNormaliseFocusUnsetContent();
 			}
 
 			&:focus {
-				@include normalise.oPrivateNormaliseFocusUnsetContent();
+				@include oPrivateNormaliseFocusUnsetContent();
 				& + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
-					@include normalise.oPrivateNormaliseFocusContent();
+					@include oPrivateNormaliseFocusContent();
 				}
 			}
 
@@ -84,12 +84,12 @@
 			// do not understand `@supports: selector()`.
 			@supports selector(:focus-visible) {
 				&:focus + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
-					@include normalise.oPrivateNormaliseFocusUnsetContent();
+					@include oPrivateNormaliseFocusUnsetContent();
 				}
 
 				&:focus-visible {
 					& + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
-						@include normalise.oPrivateNormaliseFocusContent();
+						@include oPrivateNormaliseFocusContent();
 					}
 				}
 			}

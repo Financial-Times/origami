@@ -1,4 +1,4 @@
-@use '@financial-times/o-private-foundation/o-normalise/main' as normalise;
+@import '@financial-times/o-private-foundation/o-normalise/main';
 
 @import '@financial-times/o-brand/main';
 @import '@financial-times/o-spacing/main';
@@ -22,7 +22,7 @@
   }
 
   .o-multi-select__visually-hidden {
-    @include normalise.oPrivateNormaliseVisuallyHidden;
+    @include oPrivateNormaliseVisuallyHidden;
   }
 
   .o-multi-select__selected-options {
@@ -62,18 +62,18 @@
       align-items: center;
 
       &:focus {
-        @include normalise.oPrivateNormaliseFocusUnsetContent();
+        @include oPrivateNormaliseFocusUnsetContent();
       }
 
       @supports selector(:focus-visible) {
         &:focus-visible {
-          @include normalise.oPrivateNormaliseFocusContent();
+          @include oPrivateNormaliseFocusContent();
         }
       }
     }
   }
   .o-multi-select__dropdown-menu {
-    @include normalise.oPrivateNormaliseBoxSizing();
+    @include oPrivateNormaliseBoxSizing();
     @include oTypographySans(0);
     width: 100%;
     background-color: oColorsByName('white');
@@ -120,7 +120,7 @@
     }
 
     .o-multi-select-option__current {
-      @include normalise.oPrivateNormaliseFocusContent();
+      @include oPrivateNormaliseFocusContent();
       z-index: 2;
     }
   }

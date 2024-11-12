@@ -109,7 +109,7 @@
 	}
 
 	.o-footer-visually-hidden {
-		@include normalise.oPrivateNormaliseVisuallyHidden();
+		@include oPrivateNormaliseVisuallyHidden();
 	}
 }
 

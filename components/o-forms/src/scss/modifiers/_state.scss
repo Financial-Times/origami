@@ -1,4 +1,4 @@
-@use '@financial-times/o-private-foundation/o-normalise/main' as normalise;
+@import '@financial-times/o-private-foundation/o-normalise/main';
 
 /// @access private
 /// @output styles for state animation for the box-styled radio inputs
@@ -18,7 +18,7 @@
 	}
 
 	.o-forms-input__state--icon-only:after {
-		@include normalise.oPrivateNormaliseVisuallyHidden;
+		@include oPrivateNormaliseVisuallyHidden;
 	}
 
 	// Hide pseudo element text for saving and saved status.

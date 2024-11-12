@@ -1,4 +1,4 @@
-@use '@financial-times/o-private-foundation/o-normalise/main' as normalise;
+@import '@financial-times/o-private-foundation/o-normalise/main';
 
 @import '@financial-times/math';
 @import '@financial-times/o-brand/main';
@@ -71,8 +71,8 @@
       --o-social-follow-icon-color: white;
     }
 
-    @include normalise.oPrivateNormaliseFocusApply() {
-      @include normalise.oPrivateNormaliseFocusContent();
+    @include oPrivateNormaliseFocusApply() {
+      @include oPrivateNormaliseFocusContent();
     }
   }
 
@@ -85,8 +85,8 @@
   @if index($themes, 'inverse') {
     .o-social-follow-icon--inverse {
       --o-social-follow-icon-color: white;
-      @include normalise.oPrivateNormaliseFocusApply() {
-        @include normalise.oPrivateNormaliseFocusContentInverse();
+      @include oPrivateNormaliseFocusApply() {
+        @include oPrivateNormaliseFocusContentInverse();
       }
     }
   }
@@ -113,6 +113,6 @@
   }
 
   .o-social-follow-icon__label {
-    @include normalise.oPrivateNormaliseVisuallyHidden();
+    @include oPrivateNormaliseVisuallyHidden();
   }
 }

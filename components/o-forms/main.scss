@@ -1,4 +1,4 @@
-@use '@financial-times/o-private-foundation/o-normalise/main' as normalise;
+@import '@financial-times/o-private-foundation/o-normalise/main';
 
 @import '@financial-times/math';
 @import '@financial-times/o-spacing/main';
@@ -83,8 +83,8 @@
 					}
 				}
 				.o-forms-field--#{$theme} input {
-					@include normalise.oPrivateNormaliseFocusApply() {
-						@include normalise.oPrivateNormaliseFocusContentInverse();
+					@include oPrivateNormaliseFocusApply() {
+						@include oPrivateNormaliseFocusContentInverse();
 					}
 				}
 			}

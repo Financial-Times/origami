@@ -46,7 +46,7 @@
 	}
 
 	.o-comments__edit-display-name-descriptive {
-		@include normalise.oPrivateNormaliseVisuallyHidden();
+		@include oPrivateNormaliseVisuallyHidden();
 	}
 
 	.o-overlay.o-comments__displayname-prompt {

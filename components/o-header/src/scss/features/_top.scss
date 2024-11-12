@@ -1,4 +1,4 @@
-@use '@financial-times/o-private-foundation/o-normalise/main' as normalise;
+@import '@financial-times/o-private-foundation/o-normalise/main';
 
 @mixin _oHeaderTop() {
 	.o-header__top-wrapper {
@@ -81,8 +81,8 @@
 			height: #{$_o-header-icon-size-large}px;
 		}
 
-		@include normalise.oPrivateNormaliseFocusApply() {
-			@include normalise.oPrivateNormaliseFocusContent();
+		@include oPrivateNormaliseFocusApply() {
+			@include oPrivateNormaliseFocusContent();
 		};
 	}
 
@@ -161,13 +161,13 @@
 
 		span {
 			@include oGridRespondTo($until: 'M') {
-				@include normalise.oPrivateNormaliseVisuallyHidden;
+				@include oPrivateNormaliseVisuallyHidden;
 			}
 		}
 	}
 
 	.o-header__top-link-label {
-		@include normalise.oPrivateNormaliseVisuallyHidden;
+		@include oPrivateNormaliseVisuallyHidden;
 	}
 
 	.o-header__top-logo {

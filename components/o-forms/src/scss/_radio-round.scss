@@ -46,9 +46,9 @@
 			}
 
 			&:focus {
-				@include normalise.oPrivateNormaliseFocusUnsetContent();
+				@include oPrivateNormaliseFocusUnsetContent();
 				& + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
-					@include normalise.oPrivateNormaliseFocusContent();
+					@include oPrivateNormaliseFocusContent();
 				}
 			}
 
@@ -59,12 +59,12 @@
 			// do not understand `@supports: selector()`.
 			@supports selector(:focus-visible) {
 				&:focus + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
-					@include normalise.oPrivateNormaliseFocusUnsetContent();
+					@include oPrivateNormaliseFocusUnsetContent();
 				}
 
 				&:focus-visible {
 					& + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
-						@include normalise.oPrivateNormaliseFocusContent();
+						@include oPrivateNormaliseFocusContent();
 					}
 				}
 			}
@@ -106,9 +106,9 @@
 	@if $theme and oColorsColorBrightness(_oFormsGet("default-text", $theme)) > 65% {
 		input[type="radio"] {// stylelint-disable-line selector-no-qualifying-type
 			&:focus {
-				@include normalise.oPrivateNormaliseFocusUnsetContent();
+				@include oPrivateNormaliseFocusUnsetContent();
 				& + .o-forms-input__label:before {// stylelint-disable-line selector-no-qualifying-type
-					@include normalise.oPrivateNormaliseFocusContentInverse();
+					@include oPrivateNormaliseFocusContentInverse();
 				}
 			}
 
@@ -119,12 +119,12 @@
 			// do not understand `@supports: selector()`.
 			@supports selector(:focus-visible) {
 				&:focus + .o-forms-input__label:before {// stylelint-disable-line selector-no-qualifying-type
-					@include normalise.oPrivateNormaliseFocusUnsetContent();
+					@include oPrivateNormaliseFocusUnsetContent();
 				}
 
 				&:focus-visible {
 					& + .o-forms-input__label:before {// stylelint-disable-line selector-no-qualifying-type
-						@include normalise.oPrivateNormaliseFocusContentInverse();
+						@include oPrivateNormaliseFocusContentInverse();
 					}
 				}
 			}

@@ -34,7 +34,7 @@
 	}
 
 	.o-autocomplete__visually-hidden {
-		@include normalise.oPrivateNormaliseVisuallyHidden;
+		@include oPrivateNormaliseVisuallyHidden;
 	}
 
 	.o-autocomplete__clear {

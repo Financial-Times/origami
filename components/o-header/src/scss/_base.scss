@@ -13,10 +13,10 @@
 
 	.o-header__container {
 		@include oGridContainer();
-		@include normalise.oPrivateNormaliseClearfix();
+		@include oPrivateNormaliseClearfix();
 	}
 
 	.o-header__visually-hidden {
-		@include normalise.oPrivateNormaliseVisuallyHidden;
+		@include oPrivateNormaliseVisuallyHidden;
 	}
 }

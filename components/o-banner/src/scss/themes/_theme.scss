@@ -1,4 +1,4 @@
-@use '@financial-times/o-private-foundation/o-normalise/main' as normalise;
+@import '@financial-times/o-private-foundation/o-normalise/main';
 @mixin _oBannerTheme($theme, $include-layout-styles: true) {
 
 	// Get and default the colour-based theme properties. Link, button, and rule
@@ -79,8 +79,8 @@
 	.o-banner__close {
 		@include oIconsContent('cross', $text-color, $size: $_o-banner-close-button-size);
 
-		@include normalise.oPrivateNormaliseFocusApply() {
-			@include normalise.oPrivateNormaliseFocusContentForElementColour($text-color);
+		@include oPrivateNormaliseFocusApply() {
+			@include oPrivateNormaliseFocusContentForElementColour($text-color);
 		};
 	}
 

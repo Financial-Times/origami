@@ -23,7 +23,7 @@
 		}
 
 		&__visually-hidden {
-			@include normalise.oPrivateNormaliseVisuallyHidden;
+			@include oPrivateNormaliseVisuallyHidden;
 		}
 
 		&__logo {

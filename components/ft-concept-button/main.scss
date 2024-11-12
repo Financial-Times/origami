@@ -1,4 +1,4 @@
-@use '@financial-times/o-private-foundation/o-normalise/main' as normalise;
+@import '@financial-times/o-private-foundation/o-normalise/main';
 @import '@financial-times/o-typography/main';
 @import '@financial-times/o-fonts/main';
 /// @access private
@@ -128,8 +128,8 @@ $_ftConceptButtonThemes: (
 
 @mixin _ftConceptButtonTheme($theme: standard, $with-toggle-icon: false) {
 	@include _ftConceptButtonWithTheme($theme) {
-		@include normalise.oPrivateNormaliseFocusApply() {
-			@include normalise.oPrivateNormaliseFocusContentForElementColour(
+		@include oPrivateNormaliseFocusApply() {
+			@include oPrivateNormaliseFocusContentForElementColour(
 				_ftConceptButtonGetThemeColor(background)
 			);
 		}
@@ -202,7 +202,7 @@ $_ftConceptButtonThemes: (
 	}
 
 	.ft-concept-button__announcement {
-		@include normalise.oPrivateNormaliseVisuallyHidden();
+		@include oPrivateNormaliseVisuallyHidden();
 	}
 
 	@each $theme in map-keys($_ftConceptButtonThemes) {

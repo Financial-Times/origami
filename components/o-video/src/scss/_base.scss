@@ -24,6 +24,6 @@
 	}
 
 	.o-video__live-region {
-		@include normalise.oPrivateNormaliseVisuallyHidden();
+		@include oPrivateNormaliseVisuallyHidden();
 	}
 }

@@ -72,7 +72,7 @@
 	}
 
 	.o-expander__visually-hidden {
-		@include normalise.oPrivateNormaliseVisuallyHidden;
+		@include oPrivateNormaliseVisuallyHidden;
 	}
 }
 

@@ -1,4 +1,4 @@
-@use '@financial-times/o-private-foundation/o-normalise/main' as normalise;
+@import '@financial-times/o-private-foundation/o-normalise/main';
 @import '@financial-times/math';
 @import '@financial-times/o-brand/main';
 @import '@financial-times/o-colors/main';
@@ -102,7 +102,7 @@
 	// Icon text is visually hidden by default without the class
 	// `.o-share__action--labelled`.
 	.o-share__action:not(.o-share__action--labelled) .o-share__text {
-		@include normalise.oPrivateNormaliseVisuallyHidden();
+		@include oPrivateNormaliseVisuallyHidden();
 	}
 
 

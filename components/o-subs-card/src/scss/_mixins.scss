@@ -1,11 +1,11 @@
-@use '@financial-times/o-private-foundation/o-normalise/main' as normalise;
+@import '@financial-times/o-private-foundation/o-normalise/main';
 @mixin oSubsCardBase {
 	@include oTypographySans(0);
 
 	text-align: center;
 
 	.o-subs-card-visually-hidden {
-		@include normalise.oPrivateNormaliseVisuallyHidden;
+		@include oPrivateNormaliseVisuallyHidden;
 	}
 
 	// https://github.com/philipwalton/flexbugs#flexbug-17 (for suport in ie 9/10)

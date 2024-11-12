@@ -1,4 +1,4 @@
-@use '@financial-times/o-private-foundation/o-normalise/main' as normalise;
+@import '@financial-times/o-private-foundation/o-normalise/main';
 /// Outputs all available features and styles for stepped progress.
 ///
 /// @output The output includes the `.o-stepped-progress` class definition as well as class definitions for every available theme.
@@ -100,8 +100,8 @@
 		// Sensible line length but also fixes a flex bug in IE 11
 		max-width: _oSteppedProgressGet('label-max-width');
 
-		@include normalise.oPrivateNormaliseFocusApply() {
-			@include normalise.oPrivateNormaliseFocusContent();
+		@include oPrivateNormaliseFocusApply() {
+			@include oPrivateNormaliseFocusContent();
 			text-decoration: none;
 		}
 
@@ -214,7 +214,7 @@
 	// Step status indicator (for core experience and screen readers)
 	@supports (display: flex) {
 		.o-stepped-progress__status {
-			@include normalise.oPrivateNormaliseVisuallyHidden();
+			@include oPrivateNormaliseVisuallyHidden();
 		}
 	}
 
@@ -225,7 +225,7 @@
 	// sass-lint:disable-all
 	@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
 		.o-stepped-progress__status {
-			@include normalise.oPrivateNormaliseVisuallyHidden();
+			@include oPrivateNormaliseVisuallyHidden();
 		}
 	}
 	// sass-lint:enable-all
