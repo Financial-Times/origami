@@ -1,16 +1,15 @@
-@import "./../../main";
+@import './../../main';
 @include oTable();
 @import '@financial-times/o-fonts/main';
 @include oFonts();
 
-@import "@financial-times/o-normalise/main";
+@import '@financial-times/o-normalise/main';
 @include oNormalise();
-@import "@financial-times/o-typography/main";
+@import '@financial-times/o-typography/main';
 @include oTypography();
-@import "@financial-times/o-forms/main";
+@import '@financial-times/o-forms/main';
 @include oForms();
-@import "@financial-times/o-buttons/main";
-@include oButtons();
+
 html {
 	background: oColorsByUsecase('page', 'background');
 }
