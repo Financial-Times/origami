@@ -11,8 +11,8 @@
 		color: $color;
 		border-color: $border-color;
 
-		@include oNormaliseFocusApply() {
-			@include oNormaliseFocusContentForElementColour($color);
+		@include oPrivateNormaliseFocusApply() {
+			@include oPrivateNormaliseFocusContentForElementColour($color);
 		}
 	}
 

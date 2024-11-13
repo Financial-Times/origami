@@ -23,6 +23,6 @@
 	}
 
 	.o-video__live-region {
-		@include oNormaliseVisuallyHidden();
+		@include oPrivateNormaliseVisuallyHidden();
 	}
 }

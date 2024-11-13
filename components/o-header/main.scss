@@ -4,7 +4,7 @@
 @import '@financial-times/o-colors/main';
 @import '@financial-times/o-icons/main';
 @import '@financial-times/o-grid/main';
-@import '@financial-times/o-normalise/main';
+@import "@financial-times/o-private-foundation/o-normalise/main";
 @import '@financial-times/o-private-foundation/o-spacing/main';
 @import '@financial-times/o-typography/main';
 @import '@financial-times/o-visual-effects/main';
@@ -34,90 +34,90 @@
 /// @param {Boolean} $include-base-styles [true]
 @mixin oHeader($opts: $_o-header-features, $include-base-styles: true) {
 
-	@include oGridAddLayout(
-		$layout-name: 'oHeaderL',
-		$layout-width: 1080px,
-		$gutter-width: map-get($o-grid-gutters, 'M')
-	);
+  @include oGridAddLayout(
+          $layout-name: 'oHeaderL',
+          $layout-width: 1080px,
+          $gutter-width: map-get($o-grid-gutters, 'M')
+  );
 
-	@include oForms(
-		$opts: (
-			'elements': (
-				'text'
-			),
-			'features': (
-				'suffix',
-			),
-		)
-	);
+  @include oForms(
+          $opts: (
+                  'elements': (
+                          'text'
+                  ),
+                  'features': (
+                          'suffix',
+                  ),
+          )
+  );
 
-	@if $include-base-styles == true {
-		@include _oHeaderBase;
-	}
+  @if $include-base-styles == true {
+    @include _oHeaderBase;
+  }
 
-	@each $feature in $opts {
-		// Check the feature exists.
-		@if index($_o-header-features, $feature) == null {
-			@error "There is no feature '#{$feature}' available in o-header please use one of "
+  @each $feature in $opts {
+    // Check the feature exists.
+    @if index($_o-header-features, $feature) == null {
+      @error "There is no feature '#{$feature}' available in o-header please use one of "
 				+ "the following: #{$_o-header-features}";
-		}
+    }
 
-		// Output feature.
-		@if ($feature == 'top' or $feature == 'nav' or $feature == 'drawer') and _oHeaderSupports($feature) {
-			.o-header__drawer-button,
-			.o-header__top-button,
-			.o-header__nav-button {
-				@include oButtonsContent((
-					'type': 'primary',
-					'theme': $_o-header-buttons-theme
-				));
-			}
-		}
+    // Output feature.
+    @if ($feature == 'top' or $feature == 'nav' or $feature == 'drawer') and _oHeaderSupports($feature) {
+      .o-header__drawer-button,
+      .o-header__top-button,
+      .o-header__nav-button {
+        @include oButtonsContent((
+                'type': 'primary',
+                'theme': $_o-header-buttons-theme
+        ));
+      }
+    }
 
-		@if $feature == 'top' and _oHeaderSupports($feature) {
-			@include _oHeaderTop;
-		}
+    @if $feature == 'top' and _oHeaderSupports($feature) {
+      @include _oHeaderTop;
+    }
 
-		@if $feature == 'anon' and _oHeaderSupports($feature) {
-			@include _oHeaderAnon;
-		}
+    @if $feature == 'anon' and _oHeaderSupports($feature) {
+      @include _oHeaderAnon;
+    }
 
-		@if $feature == 'subnav' and _oHeaderSupports($feature) {
-			@include _oHeaderSubnav;
-		}
+    @if $feature == 'subnav' and _oHeaderSupports($feature) {
+      @include _oHeaderSubnav;
+    }
 
-		@if $feature == 'search' and _oHeaderSupports($feature) {
-			@include _oHeaderSearch;
-		}
+    @if $feature == 'search' and _oHeaderSupports($feature) {
+      @include _oHeaderSearch;
+    }
 
-		@if $feature == 'nav' and _oHeaderSupports($feature) {
-			@include _oHeaderNav;
-		}
+    @if $feature == 'nav' and _oHeaderSupports($feature) {
+      @include _oHeaderNav;
+    }
 
-		@if $feature == 'drawer' and _oHeaderSupports($feature) {
-			@include _oHeaderDrawer;
-		}
+    @if $feature == 'drawer' and _oHeaderSupports($feature) {
+      @include _oHeaderDrawer;
+    }
 
-		@if $feature == 'megamenu' and _oHeaderSupports($feature) {
-			@include _oHeaderMegaMenu;
-		}
+    @if $feature == 'megamenu' and _oHeaderSupports($feature) {
+      @include _oHeaderMegaMenu;
+    }
 
-		@if $feature == 'sticky' and _oHeaderSupports($feature) {
-			@include _oHeaderSticky;
-		}
+    @if $feature == 'sticky' and _oHeaderSupports($feature) {
+      @include _oHeaderSticky;
+    }
 
-		@if $feature == 'simple' and _oHeaderSupports($feature) {
-			@include _oHeaderSimple;
-		}
+    @if $feature == 'simple' and _oHeaderSupports($feature) {
+      @include _oHeaderSimple;
+    }
 
-		@if $feature == 'transparent' and _oHeaderSupports($feature) {
-			@include _oHeaderTransparent;
-		}
-	}
+    @if $feature == 'transparent' and _oHeaderSupports($feature) {
+      @include _oHeaderTransparent;
+    }
+  }
 }
 
 @if $o-header-is-silent == false {
-	@include oHeader;
+  @include oHeader;
 
-	$o-header-is-silent: true !global;
+  $o-header-is-silent: true !global;
 }

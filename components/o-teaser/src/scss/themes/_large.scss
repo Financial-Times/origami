@@ -1,7 +1,7 @@
 /// Styles for large teasers.
 /// Also form the basis of styles for hero teasers
 @mixin _oTeaserLarge {
-	@include oNormaliseClearfix;
+	@include oPrivateNormaliseClearfix;
 
 	.o-teaser__content {
 		padding: oGridGutter(M);

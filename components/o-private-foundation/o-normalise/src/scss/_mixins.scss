@@ -1,0 +1,126 @@
+@import '@financial-times/o-colors/main';
+@import './variables';
+/// Visually hide an element while still
+/// allowing it to be read by a screenreader
+@mixin oPrivateNormaliseVisuallyHidden {
+	position: absolute;
+	clip: rect(0 0 0 0);
+	clip-path: polygon(0 0, 0 0);
+	margin: -1px;
+	border: 0;
+	overflow: hidden;
+	padding: 0;
+	width: 2px;
+	height: 2px;
+	white-space: nowrap;
+}
+
+/// Clearfix helper styles
+/// Outputs clearfix styles on the current element
+@mixin oPrivateNormaliseClearfix {
+	zoom: 1;
+
+	&:before,
+	&:after {
+		content: '';
+		display: table;
+		display: flex; // stylelint-disable-line declaration-block-no-duplicate-properties
+	}
+	&:after {
+		clear: both;
+	}
+}
+
+/// Adds box sizing to current and all child elements
+@mixin oPrivateNormaliseBoxSizing {
+
+	/*autoprefixer: off*/
+	-webkit-box-sizing: border-box; // stylelint-disable-line property-no-vendor-prefix
+	-moz-box-sizing: border-box; // stylelint-disable-line property-no-vendor-prefix
+	box-sizing: border-box;
+
+
+	& *,
+	& *:before,
+	& *:after {
+
+		/*autoprefixer: off*/
+		-webkit-box-sizing: inherit; // stylelint-disable-line property-no-vendor-prefix
+		-moz-box-sizing: inherit; // stylelint-disable-line property-no-vendor-prefix
+		box-sizing: inherit;
+
+	}
+}
+
+/// Apply a focus style using `:focus-visible` with `:focus` fallback.
+///
+/// @example scss - Apply a focus style to a button using `:focus-visible` with `:focus` fallback.
+///		button {
+///			@include oNormaliseFocusApply() {
+///				@include oNormaliseFocusContent();
+///			};
+///		}
+@mixin oPrivateNormaliseFocusApply {
+	@at-root {
+		&:focus {
+			@content;
+		}
+
+		// Unset :focus styles where :focus-visible is supported.
+		// Ideally we would set `:focus-visible` by default and use
+		// `@supports not selector(:focus-visible)` to provide a
+		// `:focus` fallback, however some of our supported browsers
+		// do not understand `@supports: selector()`.
+		@supports selector(:focus-visible) {
+			&:focus {
+				@include oNormaliseFocusUnsetContent();
+			}
+
+			&:focus-visible {
+				@content;
+			}
+		}
+	}
+}
+
+/// Output focus state styles to apply explicitly to a given element.
+///
+/// @see oNormaliseFocusContentInverse - An alternative focus style, optimised for "inverse" elements (light on dark background).
+/// @see oNormaliseFocusContentForElementColour - Dynamically apply either `oNormaliseFocusContent` or `oNormaliseFocusContentInverse` based on the background colour of the focused element.
+@mixin oPrivateNormaliseFocusContent() {
+	box-shadow: $_o-private-normalise-focus-ring;
+}
+
+/// Output focus state styles to apply explicitly to a given element with "inverse" theme (light on dark background).
+///
+/// @see oNormaliseFocusContent - An alternative focus style, the default, optimised for dark elements on a light background.
+/// @see oNormaliseFocusContentForElementColour - Dynamically apply either `oNormaliseFocusContent` or `oNormaliseFocusContentInverse` based on the background colour of the focused element.
+@mixin oPrivateNormaliseFocusContentInverse() {
+	box-shadow: $_o-private-normalise-reverse-focus-ring;
+}
+
+/// Output focus state styles for a block element of a given colour.
+/// Where the given colour refers to the background colour of the focused element,
+/// not the page background.
+///
+/// This is useful when dynamically creating new themes, where the colour of the
+/// element is not known in advance. Otherwise set either `oNormaliseFocusContent` or
+/// `oNormaliseFocusContentInverse` explicitly instead.
+///
+/// @see oNormaliseFocusContent - An alternative focus style, the default, optimised for dark elements on a light background.
+/// @see oNormaliseFocusContentInverse - An alternative focus style, optimised for "inverse" elements (light on dark background).
+///
+/// @param {String|Color} $color - The background colour of the focused element.
+@mixin oPrivateNormaliseFocusContentForElementColour($color) {
+	$black-contrast: oColorsGetContrastRatio($color, black);
+	$white-contrast: oColorsGetContrastRatio($color, white);
+	$shadow: if($black-contrast <= $white-contrast, $_o-private-normalise-focus-ring, $_o-private-normalise-reverse-focus-ring);
+
+	box-shadow: $shadow;
+}
+
+/// Undo a focus style applied by o-normalise.
+@mixin oPrivateNormaliseFocusUnsetContent {
+	outline: unset;
+	box-shadow: unset;
+}
