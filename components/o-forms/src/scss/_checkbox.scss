@@ -13,9 +13,9 @@
 			@include _oFormsControlsBase($disabled);
 
 			&:focus {
-				@include oNormaliseFocusUnsetContent();
+				@include oPrivateNormaliseFocusUnsetContent();
 				& + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
-					@include oNormaliseFocusContent();
+					@include oPrivateNormaliseFocusContent();
 				}
 			}
 
@@ -26,12 +26,12 @@
 			// do not understand `@supports: selector()`.
 			@supports selector(:focus-visible) {
 				&:focus + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
-					@include oNormaliseFocusUnsetContent();
+					@include oPrivateNormaliseFocusUnsetContent();
 				}
 
 				&:focus-visible {
 					& + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
-						@include oNormaliseFocusContent();
+						@include oPrivateNormaliseFocusContent();
 					}
 				}
 			}
@@ -128,9 +128,9 @@
 		@if $theme and oColorsColorBrightness(_oFormsGet("default-text", $theme)) > 65% {
 		input[type=checkbox] { // stylelint-disable-line selector-no-qualifying-type
 			&:focus {
-				@include oNormaliseFocusUnsetContent();
+				@include oPrivateNormaliseFocusUnsetContent();
 				& + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
-					@include oNormaliseFocusContentInverse();
+					@include oPrivateNormaliseFocusContentInverse();
 				}
 			}
 
@@ -141,12 +141,12 @@
 			// do not understand `@supports: selector()`.
 			@supports selector(:focus-visible) {
 				&:focus + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
-					@include oNormaliseFocusUnsetContent();
+					@include oPrivateNormaliseFocusUnsetContent();
 				}
 
 				&:focus-visible {
 					& + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
-						@include oNormaliseFocusContentInverse();
+						@include oPrivateNormaliseFocusContentInverse();
 					}
 				}
 			}
