@@ -33,6 +33,7 @@
     "@financial-times/o-colors": "^6.5.0",
     "@financial-times/o-icons": "^7.5.0",
     "@financial-times/o-normalise": "^3.3.0",
+    "@financial-times/o-private-foundation": "^0.0.0",
     "@financial-times/o-spacing": "^3.2.2",
     "@financial-times/o-typography": "^7.4.1",
     "@financial-times/o-utils": "^2.2.0"

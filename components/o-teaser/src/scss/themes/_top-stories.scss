@@ -23,7 +23,7 @@
 
 /// Landscape top story theme styles
 @mixin _oTeaserTopStoryLandscape {
-	@include oNormaliseClearfix;
+	@include oPrivateNormaliseClearfix;
 	background: oColorsByUsecase('o-teaser/hero', 'background');
 	padding: 12px;
 
