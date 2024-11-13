@@ -1,5 +1,5 @@
 @import '@financial-times/math';
-@import '@financial-times/o-spacing/main';
+@import '@financial-times/o-private-foundation/o-spacing/main';
 @import '@financial-times/o-brand/main';
 @import '@financial-times/o-buttons/main';
 @import '@financial-times/o-colors/main';
@@ -153,8 +153,8 @@
 		// Icon svgs are drawn to a 40px grid with 10px whitespace either side.
 		// This is what the size of the close alert would be without the whitespace.
 		$true-alert-icon-size: div($_o-message-alert-icon-size, 2);
-		$alert-icon-left-padding: oSpacingByName('s4');
-		$alert-icon-right-padding: oSpacingByName('s2');
+		$alert-icon-left-padding: oPrivateSpacingByName('s4');
+		$alert-icon-right-padding: oPrivateSpacingByName('s2');
 
 		.o-message--alert .o-message__container {
 			// Add padding for the icon to sit in:
@@ -181,7 +181,7 @@
 		.o-message--action {
 			.o-message__container {
 				@include oGridRespondTo(S) {
-					padding: oSpacingByName('m12') oSpacingByName('s6');
+					padding: oPrivateSpacingByName('m12') oPrivateSpacingByName('s6');
 				}
 			}
 

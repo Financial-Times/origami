@@ -1,6 +1,6 @@
 @import '@financial-times/math';
 @import "@financial-times/o-normalise/main";
-@import "@financial-times/o-spacing/main";
+@import "@financial-times/o-private-foundation/o-spacing/main";
 @import "@financial-times/o-colors/main";
 @import "@financial-times/o-typography/main";
 @import "@financial-times/o-icons/main";
@@ -62,8 +62,8 @@
 
 			&:before {
 				content: '\2022';
-				padding-left: oSpacingByName('s1');
-				padding-right: oSpacingByName('s1');
+				padding-left: oPrivateSpacingByName('s1');
+				padding-right: oPrivateSpacingByName('s1');
 			}
 			&:first-child:before {
 				content: '';
@@ -82,8 +82,8 @@
 	}
 
 	.o-footer__brand {
-		padding-top: oSpacingByName('s4');
-		padding-bottom: oSpacingByName('s4');
+		padding-top: oPrivateSpacingByName('s4');
+		padding-bottom: oPrivateSpacingByName('s4');
 	}
 
 	.o-footer__brand-logo {

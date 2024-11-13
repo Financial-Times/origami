@@ -32,7 +32,7 @@
 	background: _oBannerGet('background-color');
 	display: block;
 	padding: $_o-banner-spacing;
-	padding-top: oSpacingByIncrement(7);
+	padding-top: oPrivateSpacingByIncrement(7);
 	max-width: none;
 }
 
@@ -88,12 +88,12 @@
 }
 
 @mixin _oBannerSmallActions {
-	margin-top: oSpacingByName('s6');
+	margin-top: oPrivateSpacingByName('s6');
 
 	@include oGridRespondTo($until: M) {
 		flex-direction: column;
 		align-items: flex-start;
-		margin-top: oSpacingByName('s6');
+		margin-top: oPrivateSpacingByName('s6');
 	}
 }
 

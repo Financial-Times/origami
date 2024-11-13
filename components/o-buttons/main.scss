@@ -3,6 +3,7 @@
 @import '@financial-times/o-typography/main';
 @import '@financial-times/o-icons/main';
 @import '@financial-times/o-normalise/main';
+@import '@financial-times/o-spacing/main';
 
 @import './src/scss/brand';
 @import './src/scss/variables';
@@ -148,7 +149,7 @@
 
 			// Any child element preceded by another sibling element.
 			> * + * {
-				margin: 0 0 0 oSpacingByName('s1');
+				margin: 0 0 0 oPrivateSpacingByName('s1');
 			}
 		}
 	}

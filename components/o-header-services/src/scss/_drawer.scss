@@ -49,8 +49,8 @@
 					flex-grow: 1; // Expand the link to fill the draw, up to a drop down button if there is one.
 					// If the nav item padding has been customised, reset within the drawer.
 					@if _oHeaderServicesGet('primary-nav-item-horizontal-padding') {
-						padding-left: oSpacingByIncrement(5);
-						padding-right: oSpacingByIncrement(5);
+						padding-left: oPrivateSpacingByIncrement(5);
+						padding-right: oPrivateSpacingByIncrement(5);
 					}
 				}
 			}
@@ -60,7 +60,7 @@
 		@if $drop-down {
 			.o-header-services__drop-down-button {
 				padding: 0 0.4375rem;
-				height: oSpacingByIncrement(10);
+				height: oPrivateSpacingByIncrement(10);
 				border: 1px solid _oHeaderServicesGet('nav-border');
 				border-top-color: transparent;
 			}
@@ -88,7 +88,7 @@
 				white-space: normal;
 				a {
 					// Indent dropdown links within the drawer.
-					padding-left: oSpacingByName('s8');
+					padding-left: oPrivateSpacingByName('s8');
 				}
 				a:hover {
 					color: _oHeaderServicesGet('drawer-text-hover-color');
@@ -107,7 +107,7 @@
 			// Override related content styles to match the draw.
 			.o-header-services__related-content {
 				display: block;
-				margin: oSpacingByIncrement(5) 0 0;
+				margin: oPrivateSpacingByIncrement(5) 0 0;
 				padding: 0;
 				li {
 					background-color: inherit;
@@ -117,7 +117,7 @@
 						text-transform: none;
 						display: block;
 						margin: 0;
-						padding: $_o-header-services-padding  oSpacingByIncrement(5);
+						padding: $_o-header-services-padding  oPrivateSpacingByIncrement(5);
 					}
 					a:hover {
 						background-color: none;

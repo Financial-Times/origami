@@ -10,8 +10,8 @@
 	}
 
 	.o-subs-card__copy-title:first-child {
-		margin-bottom: oSpacingByName('s1');
-		padding-top: oSpacingByName('s6');
+		margin-bottom: oPrivateSpacingByName('s1');
+		padding-top: oPrivateSpacingByName('s6');
 		padding-right: $o-subs-card-horizontal-padding;
 		padding-left: $o-subs-card-horizontal-padding;
 	}
@@ -28,12 +28,12 @@
 
 @mixin oSubsCardDiscount {
 	.o-subs-card__copy-title {
-		margin-bottom: oSpacingByName('s4');
+		margin-bottom: oPrivateSpacingByName('s4');
 	}
 
 	.o-subs-card__copy-offer {
 		@include oTypographySans(3);
-		padding-top: oSpacingByIncrement(5);
+		padding-top: oPrivateSpacingByIncrement(5);
 		//overwrite oTypography line-height for, well, height.
 		line-height: 1;
 		color: oColorsByName('claret-80');

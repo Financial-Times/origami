@@ -1,6 +1,7 @@
 @import '@financial-times/o-typography/main';
 @import '@financial-times/o-normalise/main';
 @import '@financial-times/o-fonts/main';
+@import '@financial-times/o-private-foundation/o-spacing/main';
 
 /// @access private
 $_ftConceptButtonThemes: (
@@ -175,7 +176,7 @@ $_ftConceptButtonThemes: (
 	display: inline-block;
 	outline-offset: 2px;
 	overflow: hidden;
-	padding: oSpacingByName('s1') oSpacingByName('s2');
+	padding: oPrivateSpacingByName('s1') oPrivateSpacingByName('s2');
 	text-align: left;
 	text-overflow: ellipsis;
 	max-width: 15em;

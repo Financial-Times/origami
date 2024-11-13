@@ -6,6 +6,8 @@
 @include oButtons();
 @import '@financial-times/o-normalise/main';
 @include oNormalise();
+@import '@financial-times/o-spacing/main.scss';
+
 body {
 	padding: oSpacingByName('s3');
 	min-height: 500px;

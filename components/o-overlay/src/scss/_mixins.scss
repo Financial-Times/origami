@@ -41,8 +41,8 @@
 		color: _oOverlayGet('heading-text');
 	}
 	.o-overlay__title {
-		margin: oSpacingByName('s3');
-		margin-right: oSpacingByName('s6');
+		margin: oPrivateSpacingByName('s3');
+		margin-right: oPrivateSpacingByName('s6');
 		display: block;
 		overflow: auto;
 	}
@@ -63,7 +63,7 @@
 		position: relative;
 		box-sizing: border-box;
 		overflow: auto;
-		padding: oSpacingByName('s4');
+		padding: oPrivateSpacingByName('s4');
 
 		> *:first-child {
 			margin-top: 0;

@@ -61,7 +61,7 @@
 		background: white;
 		display: block;
 		padding: $_o-cookie-message-spacing;
-		padding-top: oSpacingByIncrement(7);
+		padding-top: oPrivateSpacingByIncrement(7);
 		max-width: none;
 		max-height: 50vh;
 		overflow-y: auto;
@@ -91,9 +91,9 @@
 			content: '';
 			display: block;
 			width: 60px;
-			margin-top: oSpacingByName('s2');
-			margin-bottom: oSpacingByName('s3');
-			border-bottom: oSpacingByIncrement(1) solid;
+			margin-top: oPrivateSpacingByName('s2');
+			margin-bottom: oPrivateSpacingByName('s3');
+			border-bottom: oPrivateSpacingByIncrement(1) solid;
 			border-color: oColorsByName('teal');
 		}
 	}
@@ -115,7 +115,7 @@
 		@include oTypographySans($scale: 2);
 		display: flex;
 		align-items: center;
-		margin-top: oSpacingByName('s6');
+		margin-top: oPrivateSpacingByName('s6');
 		justify-content: space-between;
 
 		@include oGridRespondTo($until: M) {
@@ -127,7 +127,7 @@
 
 				.o-cookie-message__button {
 					width: 100%;
-					margin-top: oSpacingByName('s6');
+					margin-top: oPrivateSpacingByName('s6');
 				}
 			}
 		}

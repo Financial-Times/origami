@@ -69,11 +69,11 @@
 		gap: 10px;
 		align-items: center;
 		margin-left: $_o-header-padding-x;
-		padding: 0px oSpacingByName('s6') 0px oSpacingByName('s4');
+		padding: 0px oPrivateSpacingByName('s6') 0px oPrivateSpacingByName('s4');
 		background-position: inherit;
 
 		@include oGridRespondTo($until: 'S') {
-			padding: 0px oSpacingByName('s4');
+			padding: 0px oPrivateSpacingByName('s4');
 		}
 	}
 

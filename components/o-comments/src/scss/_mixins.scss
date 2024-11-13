@@ -6,20 +6,20 @@
 	}
 
 	.o-comments__staging-message-container {
-		margin-bottom: oSpacingByName('s2');
+		margin-bottom: oPrivateSpacingByName('s2');
 		padding: 0;
 	}
 
 	.o-comments__staging-message-content {
-		padding-top: oSpacingByName('s1');
-		padding-bottom: oSpacingByName('s1');
+		padding-top: oPrivateSpacingByName('s1');
+		padding-bottom: oPrivateSpacingByName('s1');
 		background-color: oColorsByName('claret-80');
 	}
 
 	.o-comments__staging-message {
 		color: white;
 		font-weight: bold;
-		padding-left: oSpacingByName('s4');
+		padding-left: oPrivateSpacingByName('s4');
 	}
 
 	.o-comments__signed-in-text {
@@ -32,7 +32,7 @@
 	}
 
 	.o-comments__signed-in-container {
-		margin-bottom: oSpacingByName('s6');
+		margin-bottom: oPrivateSpacingByName('s6');
 	}
 
 	.o-comments__edit-display-name {
@@ -41,7 +41,7 @@
 			'icon': 'edit'
 		));
 
-		margin-left: oSpacingByName('s2');
+		margin-left: oPrivateSpacingByName('s2');
 	}
 
 	.o-comments__edit-display-name-descriptive {
@@ -68,7 +68,7 @@
 		}
 
 		.o-comments__displayname-container {
-			margin-top: oSpacingByName('s2');
+			margin-top: oPrivateSpacingByName('s2');
 			display: flex;
 		}
 

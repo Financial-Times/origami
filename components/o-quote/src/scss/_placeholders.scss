@@ -5,11 +5,11 @@
 		margin: 0;
 		padding-top: 0px;
 		padding-bottom: 0px;
-		padding-left: oSpacingByName('s4');
+		padding-left: oPrivateSpacingByName('s4');
 
 		p {
 			margin-top: 0;
-			margin-bottom: oSpacingByName('s4');
+			margin-bottom: oPrivateSpacingByName('s4');
 			&:last-child {
 				margin-bottom: 0;
 			}
@@ -57,13 +57,13 @@
 	%_o-quote-blockquote-standard {
 		padding-top: 0px;
 		padding-bottom: 0px;
-		padding-left: oSpacingByName('s4');
+		padding-left: oPrivateSpacingByName('s4');
 
 		p {
 			@include oTypographyBody();
 			// repeated margin as `oTypographyBody`
 			// outputs a margin property
-			margin-bottom: oSpacingByName('s4');
+			margin-bottom: oPrivateSpacingByName('s4');
 			&:last-child {
 				margin-bottom: 0;
 			}
@@ -86,7 +86,7 @@
 			position: relative;
 			left: -$icon-whitespace;
 			margin-top: -$icon-whitespace;
-			margin-bottom: calc(#{oSpacingByName('s4')} - #{$icon-whitespace * 2});
+			margin-bottom: calc(#{oPrivateSpacingByName('s4')} - #{$icon-whitespace * 2});
 		}
 
 		p {

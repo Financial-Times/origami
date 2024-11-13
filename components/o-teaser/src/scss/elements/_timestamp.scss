@@ -5,7 +5,7 @@
 	// Moves timestamp to the bottom when stretched modifier is used
 	margin-top: auto;
 	// and ensures there is always some gap above
-	padding-top: oSpacingByName('s4');
+	padding-top: oPrivateSpacingByName('s4');
 }
 
 /// Timestamp variant styles adding coloured prefixes.

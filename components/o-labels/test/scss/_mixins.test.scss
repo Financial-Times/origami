@@ -8,8 +8,8 @@
 					@include _oLabelsBaseContent;
 				}
 				@include contains() {
-					$expected-vertical-padding: calc(#{oSpacingByName('s1')} - #{1px});
-					$expected-horizontal-padding: calc(#{oSpacingByName('s2')} - #{1px});
+					$expected-vertical-padding: calc(#{oPrivateSpacingByName('s1')} - #{1px});
+					$expected-horizontal-padding: calc(#{oPrivateSpacingByName('s2')} - #{1px});
 					padding: $expected-vertical-padding $expected-horizontal-padding;
 				}
 			}
@@ -24,8 +24,8 @@
 						@include _oLabelsSize('big');
 					}
 					@include contains($selector: false) {
-						$expected-vertical-padding: calc(#{oSpacingByName('s2')} - #{1px});
-						$expected-horizontal-padding: calc(#{oSpacingByName('s2')} - #{1px});
+						$expected-vertical-padding: calc(#{oPrivateSpacingByName('s2')} - #{1px});
+						$expected-horizontal-padding: calc(#{oPrivateSpacingByName('s2')} - #{1px});
 						.o-labels--big {
 							padding: $expected-vertical-padding $expected-horizontal-padding;
 						}

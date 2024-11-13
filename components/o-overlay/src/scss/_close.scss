@@ -20,7 +20,7 @@
 	box-sizing: content-box;
 	float: right;
 	position: relative;
-	margin: oSpacingByName('s3');
+	margin: oPrivateSpacingByName('s3');
 	padding: 0.25em;
 	cursor: pointer;
 	font-size: 8px;
@@ -31,10 +31,10 @@
 	&:after {
 		position: absolute;
 		content: '';
-		top: -(oSpacingByName('s3'));
-		right: -(oSpacingByName('s3'));
-		left: -(oSpacingByName('s3'));
-		bottom: -(oSpacingByName('s3'));
+		top: -(oPrivateSpacingByName('s3'));
+		right: -(oPrivateSpacingByName('s3'));
+		left: -(oPrivateSpacingByName('s3'));
+		bottom: -(oPrivateSpacingByName('s3'));
 	}
 }
 

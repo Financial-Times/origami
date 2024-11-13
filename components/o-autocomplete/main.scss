@@ -5,7 +5,7 @@
 @import '@financial-times/o-icons/main';
 @import '@financial-times/o-loading/main';
 @import '@financial-times/o-normalise/main';
-@import '@financial-times/o-spacing/main';
+@import '@financial-times/o-private-foundation/o-spacing/main';
 @import '@financial-times/o-typography/main';
 @import '@financial-times/o-visual-effects/main';
 
@@ -69,17 +69,17 @@
 
 	.o-autocomplete__menu {
 		@include oVisualEffectsShadowContent('high');
-		top: oSpacingByName('s1');
+		top: oPrivateSpacingByName('s1');
 		background-color: oColorsByName('white');
 		border-top: 0;
 		color: oColorsByName('black');
 		margin: 0;
 		max-height: 200px; // Make this configurable as it decides how many rows to show
 		overflow-x: hidden;
-		padding-left: oSpacingByName('s2');
-		padding-right: oSpacingByName('s2');
-		padding-top: oSpacingByName('s4');
-		padding-bottom: oSpacingByName('s4');
+		padding-left: oPrivateSpacingByName('s2');
+		padding-right: oPrivateSpacingByName('s2');
+		padding-top: oPrivateSpacingByName('s4');
+		padding-bottom: oPrivateSpacingByName('s4');
 		width: 100%;
 	}
 
@@ -110,10 +110,10 @@
 		cursor: pointer;
 		display: block;
 		position: relative;
-		padding-left: oSpacingByName('s1');
-		padding-right: oSpacingByName('s1');
-		padding-top: oSpacingByName('s2');
-		padding-bottom: oSpacingByName('s2');
+		padding-left: oPrivateSpacingByName('s1');
+		padding-right: oPrivateSpacingByName('s1');
+		padding-top: oPrivateSpacingByName('s2');
+		padding-bottom: oPrivateSpacingByName('s2');
 	}
 
 	.o-autocomplete__option > * {
@@ -167,7 +167,7 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		padding: oSpacingByName('s2');
+		padding: oPrivateSpacingByName('s2');
 		box-sizing: border-box;
 		min-height: 40px;
 		background-color: oColorsByName('white');
@@ -177,7 +177,7 @@
 	.o-autocomplete__menu-loading-container,
 	.o-autocomplete__menu--overlay {
 		position: absolute;
-		top: calc(100% + #{oSpacingByName('s1')});
+		top: calc(100% + #{oPrivateSpacingByName('s1')});
 		left: 0;
 		right: 0;
 		z-index: 100;

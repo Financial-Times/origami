@@ -1,6 +1,7 @@
 @import "@financial-times/o-grid/main";
 @import "@financial-times/o-normalise/main";
 @import "@financial-times/o-overlay/main";
+@import "@financial-times/o-private-foundation/o-spacing/main";
 @import "@financial-times/o-visual-effects/main";
 @import "@financial-times/o-typography/main";
 
@@ -219,10 +220,10 @@
 		&:after {
 			position: absolute;
 			content: '';
-			top: -(oSpacingByName('s3'));
-			right: -(oSpacingByName('s3'));
-			left: -(oSpacingByName('s3'));
-			bottom: -(oSpacingByName('s3'));
+			top: -(oPrivateSpacingByName('s3'));
+			right: -(oPrivateSpacingByName('s3'));
+			left: -(oPrivateSpacingByName('s3'));
+			bottom: -(oPrivateSpacingByName('s3'));
 		}
 	}
 

@@ -24,8 +24,8 @@
 			content: "";
 			display: block;
 			width: 60px;
-			border-bottom: oSpacingByIncrement(1) solid oColorsByUsecase('o-teaser/package-basic', 'border');
-			margin-top: oSpacingByName('s1');
+			border-bottom: oPrivateSpacingByIncrement(1) solid oColorsByUsecase('o-teaser/package-basic', 'border');
+			margin-top: oPrivateSpacingByName('s1');
 		}
 	}
 

@@ -1,5 +1,5 @@
 @import '@financial-times/o-brand/main';
-@import '@financial-times/o-spacing/main';
+@import '@financial-times/o-private-foundation/o-spacing/main';
 @import '@financial-times/o-fonts/main';
 @import '@financial-times/o-colors/main';
 @import '@financial-times/o-normalise/main';
@@ -106,7 +106,7 @@
 		.sticky-sidebar-container,
 		.o-layout-sticky-sidebar-container {
 			position: sticky;
-			top: oSpacingByName('s3');
+			top: oPrivateSpacingByName('s3');
 		}
 	}
 }

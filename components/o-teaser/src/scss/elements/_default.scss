@@ -17,7 +17,7 @@
 	position: relative;
 	width: 100%;
 	text-rendering: optimizeLegibility;
-	margin-bottom: oSpacingByName('s4');
+	margin-bottom: oPrivateSpacingByName('s4');
 
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -41,7 +41,7 @@
 @mixin _oTeaserMeta {
 	@include oTypographySans(0, $include-font-family: false);
 	color: oColorsByUsecase('o-teaser/tag', 'text');
-	margin-bottom: oSpacingByName('s3');
+	margin-bottom: oPrivateSpacingByName('s3');
 }
 
 /// Tag styling.
@@ -82,7 +82,7 @@
 	margin-bottom: 0;
 
 	.o-teaser__heading + & {
-		margin-top: oSpacingByName('s2');
+		margin-top: oPrivateSpacingByName('s2');
 	}
 }
 

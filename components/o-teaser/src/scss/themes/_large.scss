@@ -17,7 +17,7 @@
 			$scale: (default: (1, 24px), L: (2, 24px)),
 			$include-font-family: false
 		);
-		margin-top: oSpacingByName('s6');
+		margin-top: oPrivateSpacingByName('s6');
 	}
 }
 

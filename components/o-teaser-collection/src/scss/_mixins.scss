@@ -38,8 +38,8 @@
 	position: relative;
 	width: 100%;
 	margin: 0;
-	padding-top: oSpacingByName('s3');
-	padding-bottom: oSpacingByIncrement(5);
+	padding-top: oPrivateSpacingByName('s3');
+	padding-bottom: oPrivateSpacingByIncrement(5);
 	-webkit-font-smoothing: antialiased;
 
 
@@ -79,7 +79,7 @@
 
 	@if($small) {
 		&--small {
-			margin-bottom: oSpacingByIncrement(5);
+			margin-bottom: oPrivateSpacingByIncrement(5);
 			border-bottom: 1px solid $_o-teaser-collection-color-bottom-border;
 
 			@if($divider) {

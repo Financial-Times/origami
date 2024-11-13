@@ -17,10 +17,10 @@
     "lint": "bash ../../scripts/component/lint.bash",
     "watch": "bash ../../scripts/component/watch.bash"
   },
-	"peerDependencies": {
-			"@financial-times/o-brand": "^4.1.0"
-	},
-	  "devDependencies": {},
+  "peerDependencies": {
+    "@financial-times/o-brand": "^4.1.0"
+  },
+  "devDependencies": {},
   "engines": {
     "npm": "^7 || ^8"
   },

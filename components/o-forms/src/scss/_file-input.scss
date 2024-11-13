@@ -7,6 +7,6 @@
 		@include oButtonsContent($opts: (
 			'type': 'primary'
 		));
-		margin-right: oSpacingByName('s1');
+		margin-right: oPrivateSpacingByName('s1');
 	}
 }
