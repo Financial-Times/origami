@@ -10,6 +10,7 @@
 	$theme: map-get($opts, 'theme');
 	$theme: if($theme, $theme, 'standard');
 	$type: map-get($opts, 'type');
+	$type: if($type, $type, 'primary');
 	$icon-only: map-get($opts, 'icon-only');
 	$size: map-get($opts, 'size');
 	$icon: map-get($opts, 'icon');
@@ -74,29 +75,41 @@
 
 	/* TYPE / THEME  */
 
-	color: brand.get('_o3-button-primary-standard-color');
-	background-color: brand.get('_o3-button-primary-standard-background');
-	border-color: brand.get('_o3-button-primary-standard-border');
+	color: brand.get('_o3-button-' + $type + '-' + $theme + '-color');
+	background-color: brand.get(
+		'_o3-button-' + $type + '-' + $theme + '-background'
+	);
+	border-color: brand.get('_o3-button-' + $type + '-' + $theme + '-border');
 
 	&:hover {
-		color: brand.get('_o3-button-primary-standard-hover-color');
-		background-color: brand.get('_o3-button-primary-standard-hover-background');
-		border-color: brand.get('_o3-button-primary-standard-hover-border');
+		color: brand.get('_o3-button-' + $type + '-' + $theme + '-hover-color');
+		background-color: brand.get(
+			'_o3-button-' + $type + '-' + $theme + '-hover-background'
+		);
+		border-color: brand.get(
+			'_o3-button-' + $type + '-' + $theme + '-hover-border'
+		);
 	}
 
 	&:focus-visible {
 		outline: 0; // Undo standard o2 focus styles
-		color: brand.get('_o3-button-primary-standard-focus-color');
-		background-color: brand.get('_o3-button-primary-standard-focus-background');
-		border-color: brand.get('_o3-button-primary-standard-focus-border');
+		color: brand.get('_o3-button-' + $type + '-' + $theme + '-focus-color');
+		background-color: brand.get(
+			'_o3-button-' + $type + '-' + $theme + '-focus-background'
+		);
+		border-color: brand.get(
+			'_o3-button-' + $type + '-' + $theme + '-focus-border'
+		);
 	}
 
 	&:is(:active, [aria-selected='true'], [aria-current], [aria-pressed='true']) {
-		color: brand.get('_o3-button-primary-standard-active-color');
+		color: brand.get('_o3-button-' + $type + '-' + $theme + '-active-color');
 		background-color: brand.get(
-			'_o3-button-primary-standard-active-background'
+			'_o3-button-' + $type + '-' + $theme + '-active-background'
 		);
-		border-color: brand.get('_o3-button-primary-standard-active-border');
+		border-color: brand.get(
+			'_o3-button-' + $type + '-' + $theme + '-active-border'
+		);
 	}
 
 	/* ICON */
