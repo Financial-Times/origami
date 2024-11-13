@@ -88,7 +88,7 @@
 /// @see oNormaliseFocusContentInverse - An alternative focus style, optimised for "inverse" elements (light on dark background).
 /// @see oNormaliseFocusContentForElementColour - Dynamically apply either `oNormaliseFocusContent` or `oNormaliseFocusContentInverse` based on the background colour of the focused element.
 @mixin oPrivateNormaliseFocusContent() {
-	box-shadow: $_o-normalise-focus-ring;
+	box-shadow: $_o-private-normalise-focus-ring;
 }
 
 /// Output focus state styles to apply explicitly to a given element with "inverse" theme (light on dark background).
@@ -96,7 +96,7 @@
 /// @see oNormaliseFocusContent - An alternative focus style, the default, optimised for dark elements on a light background.
 /// @see oNormaliseFocusContentForElementColour - Dynamically apply either `oNormaliseFocusContent` or `oNormaliseFocusContentInverse` based on the background colour of the focused element.
 @mixin oPrivateNormaliseFocusContentInverse() {
-	box-shadow: $_o-normalise-reverse-focus-ring;
+	box-shadow: $_o-private-normalise-reverse-focus-ring;
 }
 
 /// Output focus state styles for a block element of a given colour.
@@ -114,7 +114,7 @@
 @mixin oPrivateNormaliseFocusContentForElementColour($color) {
 	$black-contrast: oColorsGetContrastRatio($color, black);
 	$white-contrast: oColorsGetContrastRatio($color, white);
-	$shadow: if($black-contrast <= $white-contrast, $_o-normalise-focus-ring, $_o-normalise-reverse-focus-ring);
+	$shadow: if($black-contrast <= $white-contrast, $_o-private-normalise-focus-ring, $_o-private-normalise-reverse-focus-ring);
 
 	box-shadow: $shadow;
 }

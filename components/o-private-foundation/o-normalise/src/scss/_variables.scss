@@ -1,6 +1,6 @@
 @import "@financial-times/o-colors/main";
 
 /// @access private
-$_o-normalise-focus-color: oColorsByUsecase('focus', 'outline', $fallback: null);
-$_o-normalise-focus-ring: 0 0 0 4px oColorsByName('white'), 0 0 0 8px oColorsByName('black-70');
-$_o-normalise-reverse-focus-ring: 0 0 0 4px oColorsByName('black-70'), 0 0 0 8px oColorsByName('white');
+$_o-private-normalise-focus-color: oColorsByUsecase('focus', 'outline', $fallback: null);
+$_o-private-normalise-focus-ring: 0 0 0 4px oColorsByName('white'), 0 0 0 8px oColorsByName('black-70');
+$_o-private-normalise-reverse-focus-ring: 0 0 0 4px oColorsByName('black-70'), 0 0 0 8px oColorsByName('white');
