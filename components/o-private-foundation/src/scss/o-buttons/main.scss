@@ -57,7 +57,7 @@
 	font-size: var(--_o-pf-button-font-size);
 	line-height: var(--_o-pf-button-lineheight);
 	font-weight: var(--_o-pf-button-font-weight);
-	font-family: #{brand.get('o3-font-family-metric')} + ', sans-serif';
+	font-family: '#{brand.get('o3-font-family-metric')}', 'sans-serif';
 	border: var(--_o-pf-button-border-size) solid transparent;
 	text-align: center;
 	text-decoration: none;
@@ -119,17 +119,15 @@
 		}
 
 		/*
-        Ensure iconography is maintained when forced colours is enabled.
-        E.g. Windows High Contrast Mode
-        https://drafts.csswg.org/css-color/#valdef-color-buttontext
-     */
+        	Ensure iconography is maintained when forced colours is enabled.
+        	E.g. Windows High Contrast Mode
+        	https://drafts.csswg.org/css-color/#valdef-color-buttontext
+     	*/
 		@media (forced-colors: active) {
-			/* stylelint-disable-next-line selector-no-qualifying-type */
-			#{&}:is(button)::before {
+			&:is(button)::before {
 				background-color: ButtonText;
 			}
-			/* stylelint-disable-next-line selector-no-qualifying-type */
-			#{&}:is(a)::before {
+			&:is(a)::before {
 				background-color: LinkText;
 			}
 		}
