@@ -36,6 +36,7 @@
   },
   "devDependencies": {
     "@financial-times/o-forms": "^9.9.0",
+    "@financial-times/o-normalise": "^3.3.0",
     "@financial-times/o-overlay": "^4.2.1"
   },
   "engines": {
