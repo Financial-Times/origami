@@ -7,12 +7,6 @@
 
 * add timestamp to session generations in o-tracking ([37ed21f](https://github.com/Financial-Times/origami/commit/37ed21f8e75128e7fd9f52be86c5c744f4148479))
 
-
-### Bug Fixes
-
-* version bump ([#1873](https://github.com/Financial-Times/origami/issues/1873)) ([1976c42](https://github.com/Financial-Times/origami/commit/1976c427d1df9359b74d6287921a73426600655a))
-* version fix ([74cef45](https://github.com/Financial-Times/origami/commit/74cef456ac1025c7cd67f09de05a1df3591c0862))
-
 ## [4.5.4](https://github.com/Financial-Times/origami/compare/o-tracking-v4.5.3...o-tracking-v4.5.4) (2024-05-01)
 
 
