@@ -5,7 +5,7 @@ concurrency:
 
 on:
   pull_request:
-    branches: [ main ]
+    branches: [ main, 2025-release]
 
 jobs:
   changes:
