@@ -21,7 +21,7 @@
 	);
 	--_o-pf-button-font-weight: #{brand.get('o3-font-weight-semibold')};
 
-	/* SMALL BUTTON */
+	/* Button Sizes */
 	@if ($size == 'big') {
 		--_o-pf-button-min-width: 80px;
 		--_o-pf-button-min-height: 40px;
