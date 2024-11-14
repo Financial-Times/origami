@@ -15,113 +15,113 @@
 ///		@include oMultiSelect()
 @mixin oMultiSelect() {
   .o-multi-select__dropdown-menu {
-    display: none;
+	display: none;
   }
   .o-multi-select__enhanced {
-    position: relative;
+	position: relative;
   }
 
   .o-multi-select__visually-hidden {
-    @include oPrivateNormaliseVisuallyHidden;
+	@include oPrivateNormaliseVisuallyHidden;
   }
 
   .o-multi-select__selected-options {
-    display: none;
-    list-style-type: none;
-    padding: $_o-multi-select-padding;
-    margin: 0;
-    position: absolute;
-    z-index: 1;
+	display: none;
+	list-style-type: none;
+	padding: $_o-multi-select-padding;
+	margin: 0;
+	position: absolute;
+	z-index: 1;
 
-    li {
-      display: inline-block;
-      margin-bottom: 0;
+	li {
+	  display: inline-block;
+	  margin-bottom: 0;
 
-      .o-multi-select__selected-options-button {
-        @include _oMultiSelectButton;
-      }
-    }
+	  .o-multi-select__selected-options-button {
+		@include _oMultiSelectButton;
+	  }
+	}
   }
 
   .o-multi-select__combobox-wrapper {
-    @include oTypographySans(0);
-    position: relative;
-    background-color: oColorsByName('white');
-    border: $_o-multi-select-border;
+	@include oTypographySans(0);
+	position: relative;
+	background-color: oColorsByName('white');
+	border: $_o-multi-select-border;
 
-    .o-multi-select__combobox {
-      display: flex;
-      height: $_o-multi-select-height;
-      box-sizing: border-box;
-      padding: $_o-multi-select-padding;
-      background-image: url(https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=origami-build-service&format=svg);
-      background-repeat: no-repeat;
-      background-size: $_o-multi-select-icon-size $_o-multi-select-icon-size;
-      cursor: pointer;
-      background-position: right 8px center;
-      align-items: center;
+	.o-multi-select__combobox {
+	  display: flex;
+	  height: $_o-multi-select-height;
+	  box-sizing: border-box;
+	  padding: $_o-multi-select-padding;
+	  background-image: url(https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=origami-build-service&format=svg);
+	  background-repeat: no-repeat;
+	  background-size: $_o-multi-select-icon-size $_o-multi-select-icon-size;
+	  cursor: pointer;
+	  background-position: right 8px center;
+	  align-items: center;
 
-      &:focus {
-        @include oPrivateNormaliseFocusUnsetContent();
-      }
+	  &:focus {
+		@include oPrivateNormaliseFocusUnsetContent();
+	  }
 
-      @supports selector(:focus-visible) {
-        &:focus-visible {
-          @include oPrivateNormaliseFocusContent();
-        }
-      }
-    }
+	  @supports selector(:focus-visible) {
+		&:focus-visible {
+		  @include oPrivateNormaliseFocusContent();
+		}
+	  }
+	}
   }
   .o-multi-select__dropdown-menu {
-    @include oPrivateNormaliseBoxSizing();
-    @include oTypographySans(0);
-    width: 100%;
-    background-color: oColorsByName('white');
-    padding: $_o-multi-select-padding;
-    border: $_o-multi-select-border;
-    position: absolute;
-    left: 0;
-    max-height: 50vh;
-    overflow-y: auto;
+	@include oPrivateNormaliseBoxSizing();
+	@include oTypographySans(0);
+	width: 100%;
+	background-color: oColorsByName('white');
+	padding: $_o-multi-select-padding;
+	border: $_o-multi-select-border;
+	position: absolute;
+	left: 0;
+	max-height: 50vh;
+	overflow-y: auto;
 
-    .o-multi-select-option {
-      color: oColorsByUsecase('body', 'text');
-      cursor: pointer;
-      padding: 8px 4px;
-      position: relative;
+	.o-multi-select-option {
+	  color: oColorsByUsecase('body', 'text');
+	  cursor: pointer;
+	  padding: 8px 4px;
+	  position: relative;
 
-      &:hover {
-        background-color: oColorsMix(black, white, 25);
-        color: initial;
-      }
+	  &:hover {
+		background-color: oColorsMix(black, white, 25);
+		color: initial;
+	  }
 
-      @media (max-width: 690px) {
-        padding: 12px 4px;
-      }
-    }
+	  @media (max-width: 690px) {
+		padding: 12px 4px;
+	  }
+	}
 
-    .o-multi-select-option__selected {
-      color: initial;
-      background-color: oColorsMix(black, white, 15);
+	.o-multi-select-option__selected {
+	  color: initial;
+	  background-color: oColorsMix(black, white, 15);
 
-      span {
-        @include oIconsContent(
-                $icon-name: 'tick',
-                $color: oColorsByUsecase('body', 'text'),
-                $size: 32,
-                $include-base-styles: false
-        );
-        position: absolute;
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        vertical-align: middle;
-      }
-    }
+	  span {
+		@include oIconsContent(
+				$icon-name: 'tick',
+				$color: oColorsByUsecase('body', 'text'),
+				$size: 32,
+				$include-base-styles: false
+		);
+		position: absolute;
+		right: 0;
+		top: 50%;
+		transform: translateY(-50%);
+		vertical-align: middle;
+	  }
+	}
 
-    .o-multi-select-option__current {
-      @include oPrivateNormaliseFocusContent();
-      z-index: 2;
-    }
+	.o-multi-select-option__current {
+	  @include oPrivateNormaliseFocusContent();
+	  z-index: 2;
+	}
   }
 }
