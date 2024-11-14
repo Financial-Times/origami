@@ -4,7 +4,7 @@
 /// @outputs base styles for full header
 @mixin _oHeaderServicesBase($bleed: false) {
 	//Surface layouts for o-grid JavaScript helper https://github.com/Financial-Times/o-grid#getcurrentlayout
-	@include oGrid((
+	@include oPrivateGrid((
 		'surface': ('current-layout'),
 	));
 
