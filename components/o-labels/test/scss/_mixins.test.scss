@@ -86,7 +86,7 @@
 					}
 					@include expect() {
 						.o-example-label {
-							background-color: #008040;
+							background-color: rgb(0,127.50102, 64.16718);
 							color: white;
 						}
 					}
@@ -122,7 +122,7 @@
 					}
 					@include expect($selector: false) {
 						.o-example-label {
-							background-color: #008040;
+							background-color: rgb(0, 127.50102, 64.16718);
 							color: white;
 							font-size: 12px;
 							line-height: 1;
