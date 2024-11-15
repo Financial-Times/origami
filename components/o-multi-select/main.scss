@@ -105,10 +105,10 @@
 
 			span {
 				@include oIconsContent(
-						$icon-name: 'tick',
-						$color: oColorsByUsecase('body', 'text'),
-						$size: 32,
-						$include-base-styles: false
+					$icon-name: 'tick',
+					$color: oColorsByUsecase('body', 'text'),
+					$size: 32,
+					$include-base-styles: false
 				);
 				position: absolute;
 				right: 0;
