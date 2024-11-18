@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.6.1](https://github.com/Financial-Times/origami/compare/o-tracking-v4.6.0...o-tracking-v4.6.1) (2024-11-18)
+
+
+### Bug Fixes
+
+* correctly detect truly circular paths in JS objects, rather than objects with multiple references ([63f3c0a](https://github.com/Financial-Times/origami/commit/63f3c0a1d6e7fbd0b8734eb56df5c7ca568cb490))
+
 ## [4.6.0](https://github.com/Financial-Times/origami/compare/o-tracking-v4.5.4...o-tracking-v4.6.0) (2024-11-14)
 
 
