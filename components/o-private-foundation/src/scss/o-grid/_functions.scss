@@ -1,14 +1,14 @@
 /// Get the grid gutter at a given layout (breakpoint).
 ///
-/// @param {String|null|Boolean} $layout-name [default] - One of $o-grid-layouts breakpoints e.g. S, M, L...
+/// @param {String|null|Boolean} $layout-name [default] - One of $o-pf-grid-layouts breakpoints e.g. S, M, L...
 @function oPrivateGridGutter($layout-name: default) {
 	// This layout was assigned a gutter directly
-	@if map-get($o-grid-gutters, $layout-name) {
-		@return map-get($o-grid-gutters, $layout-name);
+	@if map-get($o-pf-grid-gutters, $layout-name) {
+		@return map-get($o-pf-grid-gutters, $layout-name);
 	}
 
 	// Checking the position of the layout in the list of layouts
-	$layout-index: index($_o-grid-layout-names, $layout-name);
+	$layout-index: index($_o-pf-grid-layout-names, $layout-name);
 
 	// The first layout (S) should get the default gutter
 	@if $layout-index == 1 {
@@ -16,7 +16,7 @@
 	}
 
 	// No gutter found for this layout, let's try again with a smaller one
-	$layout: nth($_o-grid-layout-names, $layout-index - 1);
+	$layout: nth($_o-pf-grid-layout-names, $layout-index - 1);
 	@return oPrivateGridGutter($layout);
 }
 
@@ -25,27 +25,27 @@
 /// @example
 ///  .my-large-container { width: oPrivateGridGetMaxWidthForLayout(L); }
 ///
-/// @param {String} $layout-name - one of $o-grid-layouts
-/// @param {String} $grid-mode [$o-grid-mode]
-@function oPrivateGridGetMaxWidthForLayout($layout-name, $grid-mode: $o-grid-mode) {
+/// @param {String} $layout-name - one of $o-pf-grid-layouts
+/// @param {String} $grid-mode [$_o-pf-grid-mode]
+@function oPrivateGridGetMaxWidthForLayout($layout-name, $grid-mode: $_o-pf-grid-mode) {
 	$grid-is-responsive: $grid-mode != 'fixed';
 
-	$index: index($_o-grid-layout-names, $layout-name);
+	$index: index($_o-pf-grid-layout-names, $layout-name);
 
 	// Largest layout: return its width directly
-	@if $index == length($_o-grid-layout-names) {
-		@return $_o-grid-max-width;
+	@if $index == length($_o-pf-grid-layout-names) {
+		@return $_o-pf-grid-max-width;
 	}
 
 	// Smaller layouts:
 	@if $grid-is-responsive {
 		// - The grid is responsive (fluid or snappy):
 		//   return the next larger layout width
-		$next-layout: nth($_o-grid-layout-names, $index + 1);
-		@return map-get($o-grid-layouts, $next-layout);
+		$next-layout: nth($_o-pf-grid-layout-names, $index + 1);
+		@return map-get($o-pf-grid-layouts, $next-layout);
 	} @else {
 		// - The grid is fixed, return the current layout width
-		@return map-get($o-grid-layouts, $layout-name);
+		@return map-get($o-pf-grid-layouts, $layout-name);
 	}
 }
 
@@ -59,10 +59,10 @@
 ///  .4-out-of-6 { width: oGridColspan(4, 6); }     // 66.66667%
 ///
 /// @param {Number | String} $span - Number of columns the element spans over
-/// @param {Number} $total-cols [$o-grid-columns] - Number of columns in the grid
+/// @param {Number} $total-cols [$_o-pf-grid-columns] - Number of columns in the grid
 ///
 /// @returns {Number} width of the element in the grid, in percents
-@function oPrivateGridColspan($span, $total-cols: $o-grid-columns) {
+@function oPrivateGridColspan($span, $total-cols: $_o-pf-grid-columns) {
 	// Match the HTML helper API with human-friendly numbers
 	@if $span == 'one-half' { $span: div(1, 2); }
 	@if $span == 'one-quarter' { $span: div(1, 4); }

@@ -1,6 +1,6 @@
 
 /// Apply styles at a given layout size (breakpoint) as the grid. It should be
-// passed one of $o-grid-layouts e.g. `S`, `M`, etc... depending on which layout
+// passed one of $o-pf-grid-layouts e.g. `S`, `M`, etc... depending on which layout
 // size the style should apply at.
 ///
 /// @example
@@ -23,17 +23,17 @@
 ///  	}
 ///  }
 ///
-/// @param {String} from - one of $o-grid-layouts
-/// @param {String} until - one of $o-grid-layouts
+/// @param {String} from - one of $o-pf-grid-layouts
+/// @param {String} until - one of $o-pf-grid-layouts
 @mixin oPrivateGridRespondTo($from: false, $until: false) {
 
-	$grid-is-responsive: $o-grid-mode != 'fixed';
+	$grid-is-responsive: $_o-pf-grid-mode != 'fixed';
 	@include mq(
 		$from: $from,
 		$until: $until,
 		$responsive: $grid-is-responsive,
-		$breakpoints: $o-grid-layouts,
-		$static-breakpoint: $o-grid-fixed-layout
+		$breakpoints: $o-pf-grid-layouts,
+		$static-breakpoint: $o-pf-grid-fixed-layout
 	) {
 		@content;
 	}
@@ -61,10 +61,10 @@
 		flex: 1 1 0%;
 		position: relative; // Required for push and pull
 
-		@if $o-grid-mode == 'fixed' {
-			padding-left: oPrivateGridGutter($o-grid-fixed-layout);
+		@if $_o-pf-grid-mode == 'fixed' {
+			padding-left: oPrivateGridGutter($o-pf-grid-fixed-layout);
 		} @else {
-			@each $layout-name in map-keys($o-grid-gutters) {
+			@each $layout-name in map-keys($o-pf-grid-gutters) {
 				@if $layout-name == 'default' {
 					padding-left: oPrivateGridGutter();
 				} @else {
@@ -82,15 +82,15 @@
 
 /// Grid container
 ///
-/// @param {String} $grid-mode [$o-grid-mode]
+/// @param {String} $grid-mode [$_o-pf-grid-mode]
 /// @param {Boolean} $bleed [false]
-@mixin oPrivateGridContainer($grid-mode: $o-grid-mode, $bleed: false) {
+@mixin oPrivateGridContainer($grid-mode: $_o-pf-grid-mode, $bleed: false) {
 	box-sizing: border-box;
 	margin-left: auto;
 	margin-right: auto;
-	min-width: $o-grid-min-width;
+	min-width: $_o-pf-grid-min-width;
 	// Older browsers get a fixed-width layout
-	max-width: oPrivateGridGetMaxWidthForLayout($o-grid-fixed-layout);
+	max-width: oPrivateGridGetMaxWidthForLayout($o-pf-grid-fixed-layout);
 	position: relative;
 
 	@if $bleed {
@@ -100,15 +100,15 @@
 
 	@if $grid-mode == 'fixed' {
 		// If the grid isn't fluid, we set it to a certain width
-		width: oPrivateGridGetMaxWidthForLayout($o-grid-fixed-layout, $grid-mode: 'fixed');
+		width: oPrivateGridGetMaxWidthForLayout($o-pf-grid-fixed-layout, $grid-mode: 'fixed');
 		@if not $bleed {
-			padding-left: oPrivateGridGutter($o-grid-fixed-layout);
-			padding-right: oPrivateGridGutter($o-grid-fixed-layout);
+			padding-left: oPrivateGridGutter($o-pf-grid-fixed-layout);
+			padding-right: oPrivateGridGutter($o-pf-grid-fixed-layout);
 		}
 	} @else {
-		max-width: $_o-grid-max-width;
+		max-width: $_o-pf-grid-max-width;
 
-		@each $layout-name in map-keys($o-grid-gutters) {
+		@each $layout-name in map-keys($o-pf-grid-gutters) {
 			@if $layout-name == 'default' {
 				@if not $bleed {
 					padding-left: oPrivateGridGutter();
@@ -124,17 +124,17 @@
 			}
 		}
 
-		@each $layout-name in $_o-grid-layout-names {
-			@if index($_o-grid-layout-names, $layout-name) >= index($_o-grid-layout-names, $o-grid-start-snappy-mode-at) {
+		@each $layout-name in $_o-pf-grid-layout-names {
+			@if index($_o-pf-grid-layout-names, $layout-name) >= index($_o-pf-grid-layout-names, $_o-pf-grid-start-snappy-mode-at) {
 				@include oPrivateGridRespondTo($layout-name) {
 					@if $grid-mode == 'snappy' {
-						max-width: map-get($o-grid-layouts, $layout-name);
+						max-width: map-get($o-pf-grid-layouts, $layout-name);
 					}
 					@if $grid-mode == 'fluid' {
 						// If the grid mode is fluid, then use a class to make a row or a set of rows snappy
 						.o-grid-snappy &,
 						&--snappy {
-							max-width: map-get($o-grid-layouts, $layout-name);
+							max-width: map-get($o-pf-grid-layouts, $layout-name);
 						}
 					}
 				}
@@ -153,10 +153,10 @@
 		display: inherit;
 	}
 
-	@if $o-grid-mode == 'fixed' {
-		margin-left: -1 * oPrivateGridGutter($o-grid-fixed-layout);
+	@if $_o-pf-grid-mode == 'fixed' {
+		margin-left: -1 * oPrivateGridGutter($o-pf-grid-fixed-layout);
 	} @else {
-		@each $layout-name in map-keys($o-grid-gutters) {
+		@each $layout-name in map-keys($o-pf-grid-gutters) {
 			@if $layout-name == 'default' {
 				margin-left: -1 * oPrivateGridGutter();
 			} @else {
@@ -236,7 +236,7 @@
 		content: '{ "layout": "default", "gutter": "' + oPrivateGridGutter() + '" }';
 		display: none;
 
-		@each $breakpoint in $_o-grid-layout-names {
+		@each $breakpoint in $_o-pf-grid-layout-names {
 			@include oPrivateGridRespondTo($breakpoint) {
 				content: '{ "layout": "' + $breakpoint + '", "gutter": "' + oPrivateGridGutter($breakpoint) + '" }';
 			}
@@ -266,11 +266,11 @@
 	html:before {
 		$combined: '{"layouts": {';
 
-		$keys: map-keys($o-grid-layouts);
+		$keys: map-keys($o-pf-grid-layouts);
 
 		@for $ittr from 1 through length($keys) {
 			$key: nth($keys, $ittr);
-			$value: map-get($o-grid-layouts, $key);
+			$value: map-get($o-pf-grid-layouts, $key);
 
 			$combined: $combined + _oPrivateGridQuoteString($key) + ': ' + _oPrivateGridQuoteString($value);
 
@@ -340,7 +340,7 @@
 ///
 /// @param {String} $layout-name [null]
 @mixin _oPrivateGridShuffleColumns($layout-name: null) {
-	@for $colspan from 0 through ($o-grid-columns - 1) {
+	@for $colspan from 0 through ($_o-pf-grid-columns - 1) {
 		[data-o-grid-colspan~="#{$layout-name}push#{$colspan}"] {
 			@include oPrivateGridPush($colspan);
 		}

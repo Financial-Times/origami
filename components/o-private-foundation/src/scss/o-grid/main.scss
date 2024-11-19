@@ -96,7 +96,7 @@
 		display: none;
 	}
 
-	@for $colspan from 1 through $o-grid-columns {
+	@for $colspan from 1 through $_o-pf-grid-columns {
 		[data-o-grid-colspan~="#{$colspan}"] {
 			@include oPrivateGridColspan($colspan, $width-only: true);
 		}
@@ -111,7 +111,7 @@
 	}
 
 	// Responsive columns
-	@each $layout-name in $_o-grid-layout-names {
+	@each $layout-name in $_o-pf-grid-layout-names {
 		@include oPrivateGridRespondTo($layout-name) {
 
 			@if $friendly-selectors {
@@ -126,7 +126,7 @@
 				display: none;
 			}
 
-			@for $colspan from 1 through $o-grid-columns {
+			@for $colspan from 1 through $_o-pf-grid-columns {
 				[data-o-grid-colspan~="#{$layout-name}#{$colspan}"] {
 					// Restore visibility from `display: none`
 					// if `data-o-grid-colspan` was set to `0` or `hide`
@@ -143,9 +143,9 @@
 	}
 }
 
-@if $o-grid-is-silent == false {
+@if $o-private-grid-is-silent == false {
 	@include oPrivateGrid();
 
 	// Turn silent mode back on to avoid outputting the grid twice
-	$o-grid-is-silent: true;
+	$o-private-grid-is-silent: true;
 }

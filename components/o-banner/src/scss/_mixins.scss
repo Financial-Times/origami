@@ -54,7 +54,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	max-width: map-get($o-grid-layouts, XL);
+	max-width: map-get($o-pf-grid-layouts, XL);
 	margin: 0 auto;
 	padding: $_o-banner-spacing 0;
 	padding-bottom: $_o-banner-spacing - $_o-banner-brand-border;
