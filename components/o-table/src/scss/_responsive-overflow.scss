@@ -47,7 +47,7 @@
 			@supports (pointer-events: none) {
 				position: absolute;
 				top: calc(50% - 20px);
-				transition: opacity 0.3s $o-visual-effects-timing-fade;
+				transition: opacity 0.3s $o-pf-visual-effects-timing-fade;
 			}
 			z-index: 1;
 		}
