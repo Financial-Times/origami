@@ -52,16 +52,16 @@
 
 	// Surface layouts for JS on html:after, html:before.
 	@if($current-layout) {
-		@include oGridSurfaceCurrentLayout;
+		@include oPrivateGridSurfaceCurrentLayout;
 	}
 
 	@if($layout-sizes) {
-		@include oGridSurfaceLayoutSizes;
+		@include oPrivateGridSurfaceLayoutSizes;
 	}
 
 	// Grid container
 	.o-grid-container {
-		@include oGridContainer();
+		@include oPrivateGridContainer();
 	}
 
 	@if($bleed) {
@@ -73,7 +73,7 @@
 
 	// Grid row
 	.o-grid-row {
-		@include oGridRow;
+		@include oPrivateGridRow;
 	}
 
 	// Compact, gutterless row of columns
@@ -89,7 +89,7 @@
 
 	// Grid columns
 	[data-o-grid-colspan] {
-		@include oGridColspan();
+		@include oPrivateGridColspan();
 	}
 
 	[data-o-grid-colspan~="0"] {
@@ -98,28 +98,28 @@
 
 	@for $colspan from 1 through $o-grid-columns {
 		[data-o-grid-colspan~="#{$colspan}"] {
-			@include oGridColspan($colspan, $width-only: true);
+			@include oPrivateGridColspan($colspan, $width-only: true);
 		}
 	}
 
 	@if $friendly-selectors {
-		@include _oGridHumanFriendlyColumns; // one-half, one-third, center…
+		@include _oPrivateGridHumanFriendlyColumns; // one-half, one-third, center…
 	}
 
 	@if $shuffle-selectors {
-		@include _oGridShuffleColumns; // pull, push, offset
+		@include _oPrivateGridShuffleColumns; // pull, push, offset
 	}
 
 	// Responsive columns
 	@each $layout-name in $_o-grid-layout-names {
-		@include oGridRespondTo($layout-name) {
+		@include oPrivateGridRespondTo($layout-name) {
 
 			@if $friendly-selectors {
-				@include _oGridHumanFriendlyColumns($layout-name);
+				@include _oPrivateGridHumanFriendlyColumns($layout-name);
 			}
 
 			@if $shuffle-selectors == true {
-				@include _oGridShuffleColumns($layout-name);
+				@include _oPrivateGridShuffleColumns($layout-name);
 			}
 
 			[data-o-grid-colspan~="#{$layout-name}0"] {
@@ -133,10 +133,10 @@
 					display: block;
 
 					// Apply width in %
-					@include _oGridFixSafariWrap($colspan); //stylelint-disable-line order/order
-					min-width: oGridColspan($colspan);
-					max-width: oGridColspan($colspan);
-					width: oGridColspan($colspan);
+					@include _oPrivateGridFixSafariWrap($colspan); //stylelint-disable-line order/order
+					min-width: oPrivateGridColspan($colspan);
+					max-width: oPrivateGridColspan($colspan);
+					width: oPrivateGridColspan($colspan);
 				}
 			}
 		}
@@ -144,7 +144,7 @@
 }
 
 @if $o-grid-is-silent == false {
-	@include oGrid();
+	@include oPrivateGrid();
 
 	// Turn silent mode back on to avoid outputting the grid twice
 	$o-grid-is-silent: true;

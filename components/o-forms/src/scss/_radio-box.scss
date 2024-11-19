@@ -56,7 +56,7 @@
 			}
 		}
 
-		@include oGridRespondTo(S) {
+		@include oPrivateGridRespondTo(S) {
 			&.o-forms-input--inline .o-forms-input__state {
 				position: relative;
 				margin-bottom: 0;

@@ -4,7 +4,7 @@
 /// @param {Boolean} $drop-down - Whether to include styles to support the dropdown nav.
 @mixin _oHeaderServicesDrawer($draw-breakpoint, $drop-down) {
 	.o-header-services__primary-nav {
-		@include oGridRespondTo($until: $draw-breakpoint) {
+		@include oPrivateGridRespondTo($until: $draw-breakpoint) {
 			display: none;
 		}
 	}

@@ -2,7 +2,7 @@
 
 	.o-topper__content {
 		grid-row: 2 / span 3;
-		@include oGridRespondTo($until: L) {
+		@include oPrivateGridRespondTo($until: L) {
 			padding: 20px 0;
 		}
 	}
@@ -11,7 +11,7 @@
 		grid-row: 2 / span 3;
 	}
 
-	@include oGridRespondTo($until: L) {
+	@include oPrivateGridRespondTo($until: L) {
 		// Make the background really full width
 		.o-topper__background {
 			position: absolute;
@@ -28,14 +28,14 @@
 	.o-topper__headline--no-standfirst,
 	.o-topper__standfirst {
 		padding-right: calc(#{$_o-topper-headshot-width} + #{oSpacingByName('s2')});
-		@include oGridRespondTo(M) {
+		@include oPrivateGridRespondTo(M) {
 			padding-right: calc(#{$_o-topper-headshot-width-M} + #{oSpacingByName('s2')});
 		}
 	}
 
 	.o-topper__tags,
 	.o-topper__headline {
-		@include oGridRespondTo(M) {
+		@include oPrivateGridRespondTo(M) {
 			padding-right: calc(#{$_o-topper-headshot-width-M} + #{oSpacingByName('s2')});
 		}
 	}
@@ -61,11 +61,11 @@
 	width: $_o-topper-headshot-width;
 	overflow: hidden;
 
-	@include oGridRespondTo(M) {
+	@include oPrivateGridRespondTo(M) {
 		width: $_o-topper-headshot-width-M;
 	}
 
-	@include oGridRespondTo(L) {
+	@include oPrivateGridRespondTo(L) {
 		bottom: -20px;
 	}
 }

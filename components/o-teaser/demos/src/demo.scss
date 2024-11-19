@@ -9,15 +9,15 @@ body {
 }
 
 .demo-container {
-	@include oGridColspan((default: 12, M: 6, XL: 4));
+	@include oPrivateGridColspan((default: 12, M: 6, XL: 4));
 	width: 100%;
 	padding: 20px;
 
 	&--large {
-		@include oGridColspan((default: 12, L: 4));
+		@include oPrivateGridColspan((default: 12, L: 4));
 
 		&.demo-container--top-story {
-			@include oGridColspan((default: 12, L: 12));
+			@include oPrivateGridColspan((default: 12, L: 12));
 		}
 	}
 

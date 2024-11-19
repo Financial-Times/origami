@@ -1,4 +1,4 @@
-@import "@financial-times/o-grid/main";
+@import "@financial-times/o-private-foundation/src/scss/o-grid/main";
 @import "@financial-times/o-private-foundation/o-normalise/main";
 @import "@financial-times/o-overlay/main";
 @import "@financial-times/o-visual-effects/main";
@@ -24,7 +24,7 @@
 	// Tooltip relies on the o-grid layout sizes being defined.
 	// This is still specification-compliant, as these mixins only output
 	// element selectors – nothing prefixed with o-grid
-	@include oGridSurfaceCurrentLayout();
+	@include oPrivateGridSurfaceCurrentLayout();
 
 	.o-tooltip {
 		@include oVisualEffectsShadowContent($elevation: 'high');

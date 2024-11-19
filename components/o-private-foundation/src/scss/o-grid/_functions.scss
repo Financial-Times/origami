@@ -1,7 +1,7 @@
 /// Get the grid gutter at a given layout (breakpoint).
 ///
 /// @param {String|null|Boolean} $layout-name [default] - One of $o-grid-layouts breakpoints e.g. S, M, L...
-@function oGridGutter($layout-name: default) {
+@function oPrivateGridGutter($layout-name: default) {
 	// This layout was assigned a gutter directly
 	@if map-get($o-grid-gutters, $layout-name) {
 		@return map-get($o-grid-gutters, $layout-name);
@@ -12,22 +12,22 @@
 
 	// The first layout (S) should get the default gutter
 	@if $layout-index == 1 {
-		@return oGridGutter();
+		@return oPrivateGridGutter();
 	}
 
 	// No gutter found for this layout, let's try again with a smaller one
 	$layout: nth($_o-grid-layout-names, $layout-index - 1);
-	@return oGridGutter($layout);
+	@return oPrivateGridGutter($layout);
 }
 
 /// Get the max width of a layout (breakpoint).
 ///
 /// @example
-///  .my-large-container { width: oGridGetMaxWidthForLayout(L); }
+///  .my-large-container { width: oPrivateGridGetMaxWidthForLayout(L); }
 ///
 /// @param {String} $layout-name - one of $o-grid-layouts
 /// @param {String} $grid-mode [$o-grid-mode]
-@function oGridGetMaxWidthForLayout($layout-name, $grid-mode: $o-grid-mode) {
+@function oPrivateGridGetMaxWidthForLayout($layout-name, $grid-mode: $o-grid-mode) {
 	$grid-is-responsive: $grid-mode != 'fixed';
 
 	$index: index($_o-grid-layout-names, $layout-name);
@@ -62,7 +62,7 @@
 /// @param {Number} $total-cols [$o-grid-columns] - Number of columns in the grid
 ///
 /// @returns {Number} width of the element in the grid, in percents
-@function oGridColspan($span, $total-cols: $o-grid-columns) {
+@function oPrivateGridColspan($span, $total-cols: $o-grid-columns) {
 	// Match the HTML helper API with human-friendly numbers
 	@if $span == 'one-half' { $span: div(1, 2); }
 	@if $span == 'one-quarter' { $span: div(1, 4); }
@@ -85,6 +85,6 @@
 	}
 }
 
-@function _oGridQuoteString($value) {
+@function _oPrivateGridQuoteString($value) {
 	@return '"#{$value}"';
 }

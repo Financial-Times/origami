@@ -2,20 +2,20 @@
 	width: 100%;
 	margin: 0;
 
-	@include oGridRespondTo(S) {
-		width: oGridColspan(7);
+	@include oPrivateGridRespondTo(S) {
+		width: oPrivateGridColspan(7);
 		margin: div($_o-banner-spacing, 2);
 	}
 
-	@include oGridRespondTo(M) {
-		width: oGridColspan(6);
+	@include oPrivateGridRespondTo(M) {
+		width: oPrivateGridColspan(6);
 	}
 
-	@include oGridRespondTo(L) {
-		width: oGridColspan(5);
+	@include oPrivateGridRespondTo(L) {
+		width: oPrivateGridColspan(5);
 	}
 
-	@include oGridRespondTo(XL) {
+	@include oPrivateGridRespondTo(XL) {
 		width: div(map-get($o-grid-layouts, XL), 2.5); // width is 40% grid
 		left: calc((100vw - #{map-get($o-grid-layouts, XL)}) / 2); // ((viewport - grid width) / 2)
 	}
@@ -48,7 +48,7 @@
 	ul li {
 		@include oTypographySans($scale: 0);
 	}
-	@include oGridRespondTo($until: M) {
+	@include oPrivateGridRespondTo($until: M) {
 		&,
 		h1,
 		h2,
@@ -74,7 +74,7 @@
 	h6 {
 		@include oTypographySans($scale: 3, $weight: 'semibold');
 	}
-	@include oGridRespondTo($until: M) {
+	@include oPrivateGridRespondTo($until: M) {
 		&,
 		h1,
 		h2,
