@@ -3,8 +3,8 @@
 @import "@financial-times/o-colors/main";
 @import "@financial-times/o-typography/main";
 @import "@financial-times/o-private-foundation/o-normalise/main";
+@import "@financial-times/o-private-foundation/src/scss/o-grid/main";
 @import "@financial-times/o-icons/main";
-@import "@financial-times/o-grid/main";
 
 @import "src/scss/brand";
 @import "src/scss/variables";
@@ -25,7 +25,7 @@
 	$themes: if($themes, $themes, ());
 
 	//Surface layouts for o-grid JavaScript helper https://github.com/Financial-Times/o-grid#getcurrentlayout
-	@include oGridSurfaceCurrentLayout();
+	@include oPrivateGridSurfaceCurrentLayout();
 
 	.o-footer {
 		@include oTypographySans(0);
@@ -39,7 +39,7 @@
 	}
 
 	.o-footer__container {
-		@include oGridContainer();
+		@include oPrivateGridContainer();
 		/* hack to stop the margins collapsing */
 		padding-top: 0.1px;
 	}

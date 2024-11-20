@@ -1,12 +1,12 @@
 // sass-lint:disable mixins-before-declarations
 // @deprecated - no longer used on ft.com or the app, delete in the next major version
 @mixin _oTopperThemeNewsPackage {
-	@include oGridRespondTo($until: M) {
+	@include oPrivateGridRespondTo($until: M) {
 		padding: 0;
 	}
 
 	.o-topper__content {
-		padding: oGridGutter();
+		padding: oPrivateGridGutter();
 	}
 
 	.o-topper__tags,
@@ -22,7 +22,7 @@
 		height: auto;
 	}
 
-	@include oGridRespondTo(M) {
+	@include oPrivateGridRespondTo(M) {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		grid-template-rows: 20px 1fr 20px;

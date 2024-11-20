@@ -5,7 +5,7 @@
 	margin: 0 0 20px;
 	border-left: 1px solid oColorsByName('black-20');
 
-	@include oGridRespondTo($until: M) {
+	@include oPrivateGridRespondTo($until: M) {
 		display: none;
 	}
 }

@@ -13,7 +13,7 @@
 /// @access private
 @mixin _oLayoutAreaSidebar() {
 	.o-layout__sidebar {
-		@include oGridRespondTo($until: M) {
+		@include oPrivateGridRespondTo($until: M) {
 			margin-top: $_o-layout-gutter;
 		}
 
@@ -72,7 +72,7 @@
 		text-align: left;
 		background-image: none;
 		min-height: auto;
-		@include oGridRespondTo($from: M) {
+		@include oPrivateGridRespondTo($from: M) {
 			padding-left: 0;
 			padding-right: 0;
 		}

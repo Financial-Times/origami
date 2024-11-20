@@ -2,7 +2,7 @@
 @import "@financial-times/o-colors/main";
 @import "@financial-times/o-typography/main";
 @import "@financial-times/o-icons/main";
-@import "@financial-times/o-grid/main";
+@import "@financial-times/o-private-foundation/src/scss/o-grid/main";
 
 @import "src/scss/variables";
 @import "src/scss/mixins";
@@ -168,7 +168,7 @@
 			// this adapts to fit the screen based on left o-grid-row margins
 			&:after {
 				margin-left: calc(-50vw + 5px);
-				@include oGridRespondTo(M) {
+				@include oPrivateGridRespondTo(M) {
 					margin-left: calc(-50vw + 10px);
 				}
 			}
@@ -179,7 +179,7 @@
 				border-bottom: 1px solid rgba(oColorsByName('white'), 0.2);
 				padding: 15px 0;
 
-				@include oGridRespondTo(M) {
+				@include oPrivateGridRespondTo(M) {
 					margin: 20px 0;
 					border-right: 1px solid rgba(oColorsByName('white'), 0.2);
 					border-bottom: 0;

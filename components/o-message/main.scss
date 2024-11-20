@@ -3,7 +3,7 @@
 @import '@financial-times/o-brand/main';
 @import '@financial-times/o-buttons/main';
 @import '@financial-times/o-colors/main';
-@import '@financial-times/o-grid/main';
+@import '@financial-times/o-private-foundation/src/scss/o-grid/main';
 @import '@financial-times/o-icons/main';
 @import '@financial-times/o-typography/main';
 
@@ -40,7 +40,7 @@
 		@include oTypographySans($scale: 0);
 
 		.o-message__container {
-			@include oGridContainer($bleed: true);
+			@include oPrivateGridContainer($bleed: true);
 			display: flex;
 			align-items: baseline;
 			padding: $_o-message-default-block-spacing $_o-message-default-inline-spacing;
@@ -180,13 +180,13 @@
 	@if $action {
 		.o-message--action {
 			.o-message__container {
-				@include oGridRespondTo(S) {
+				@include oPrivateGridRespondTo(S) {
 					padding: oSpacingByName('m12') oSpacingByName('s6');
 				}
 			}
 
 			.o-message__content--center-align {
-				@include oGridRespondTo(S) {
+				@include oPrivateGridRespondTo(S) {
 					width: 100%;
 					text-align: center;
 				}

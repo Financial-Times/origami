@@ -1,6 +1,6 @@
 $o-header-services-is-silent: true !default;
 
-$_o-header-services-padding: oGridGutter();
+$_o-header-services-padding: oPrivateGridGutter();
 
 $_o-header-services-top-bar-short: oSpacingByIncrement(11);
 

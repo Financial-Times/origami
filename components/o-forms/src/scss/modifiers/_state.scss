@@ -66,7 +66,7 @@
 		}
 	}
 
-	@include oGridRespondTo(S) {
+	@include oPrivateGridRespondTo(S) {
 		.o-forms-input--inline {
 			&.o-forms-input--saving,
 			&.o-forms-input--saved {

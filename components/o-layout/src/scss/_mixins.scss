@@ -106,7 +106,7 @@
 /// @access private
 @mixin _oLayoutNavigation($query-layout) {
 	.o-layout__navigation {
-		@include oGridRespondTo($from: M) {
+		@include oPrivateGridRespondTo($from: M) {
 			position: sticky;
 			top: $_o-layout-gutter;
 			max-height: 100vh;
@@ -129,7 +129,7 @@
 		text-align: left;
 		margin: 0 0 oSpacingByIncrement(7); // matches `oTypographyBody`
 
-		@include oGridRespondTo($from: M) {
+		@include oPrivateGridRespondTo($from: M) {
 			text-align: right;
 			margin-top: $_o-layout-gutter;
 		}
@@ -156,7 +156,7 @@
 				}
 				border-color: oColorsByName('teal');
 				border-left: 2px solid;
-				@include oGridRespondTo($from: M) {
+				@include oPrivateGridRespondTo($from: M) {
 					border-left: 0 solid;
 					border-right: 2px solid;
 				}
@@ -173,7 +173,7 @@
 
 			&.o-layout__navigation-title a { // stylelint-disable-line selector-no-qualifying-type
 				@include oTypographySans($weight: 'semibold', $include-font-family: false);
-				@include oGridRespondTo($from: M) {
+				@include oPrivateGridRespondTo($from: M) {
 					border: 0;
 				}
 			}

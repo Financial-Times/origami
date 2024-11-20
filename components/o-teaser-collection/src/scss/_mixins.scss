@@ -57,7 +57,7 @@
 		&:after {
 			border-top-color: oColorsByName('black');
 
-			@include oGridRespondTo(L) {
+			@include oPrivateGridRespondTo(L) {
 				width: 32.5%;
 			}
 		}
@@ -71,7 +71,7 @@
 
 	@if($divider and $half-width) {
 		&--half-width:after {
-			@include oGridRespondTo(L) {
+			@include oPrivateGridRespondTo(L) {
 				width: 49%;
 			}
 		}
@@ -178,7 +178,7 @@
 		position: absolute;
 		-webkit-font-smoothing: antialiased;
 
-		@include oGridRespondTo(L) {
+		@include oPrivateGridRespondTo(L) {
 			width: 32.5%;
 		}
 
@@ -196,10 +196,10 @@
 
 		// Modify o-teaser: remove the related teaser borders when stacked
 		.o-teaser {
-			@include oGridRespondTo(M) {
+			@include oPrivateGridRespondTo(M) {
 				border-bottom-width: 0;
 			}
-			@include oGridRespondTo(L) {
+			@include oPrivateGridRespondTo(L) {
 				border-bottom-width: 1px;
 			}
 		}

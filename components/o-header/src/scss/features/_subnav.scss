@@ -23,7 +23,7 @@
 			// This is the content height of .o-header__subnav-content
 			height: $_o-header-subnav-height-base;
 
-			@include oGridRespondTo('M') {
+			@include oPrivateGridRespondTo('M') {
 				height: $_o-header-subnav-height-medium;
 			}
 		}
@@ -72,7 +72,7 @@
 				margin-top: - $_o-header-subnav-height-base * div($_o-header-item-separator-percentage-height, 2);
 				height: $_o-header-subnav-height-base * $_o-header-item-separator-percentage-height;
 
-				@include oGridRespondTo('M') {
+				@include oPrivateGridRespondTo('M') {
 					// stylelint-disable-line max-nesting-depth
 					margin-top: - $_o-header-subnav-height-medium * div($_o-header-item-separator-percentage-height, 2);
 					height: $_o-header-subnav-height-medium * $_o-header-item-separator-percentage-height;
@@ -127,7 +127,7 @@
 		display: inline-block;
 		padding: 12px 0;
 
-		@include oGridRespondTo('M') {
+		@include oPrivateGridRespondTo('M') {
 			padding: 8px 0;
 		}
 
@@ -142,7 +142,7 @@
 		float: right;
 		display: none;
 
-		@include oGridRespondTo('M') {
+		@include oPrivateGridRespondTo('M') {
 			display: block;
 		}
 	}

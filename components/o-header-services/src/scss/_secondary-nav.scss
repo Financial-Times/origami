@@ -10,14 +10,14 @@
 		max-height: #{div(36, 16)}rem; // To hide the scroll bar.
 		// Remove border between the top and the secondary nav if their background is different.
 		@if (_oHeaderServicesGet('nav-background') != _oHeaderServicesGet('top-background')) {
-			@include oGridRespondTo($until: $draw-breakpoint) {
+			@include oPrivateGridRespondTo($until: $draw-breakpoint) {
 				border-top: 0;
 			}
 		}
 	}
 
 	.o-header-services__secondary-nav-content {
-		@include oGridContainer;
+		@include oPrivateGridContainer;
 		display: flex;
 		white-space: nowrap;
 		overflow-x: auto;

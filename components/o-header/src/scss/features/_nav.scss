@@ -6,7 +6,7 @@
 	.o-header__nav--hide-s {
 		display: none;
 
-		@include oGridRespondTo('S') {
+		@include oPrivateGridRespondTo('S') {
 			display: block;
 		}
 	}
@@ -14,7 +14,7 @@
 	.o-header__nav--mobile {
 		white-space: nowrap;
 
-		@include oGridRespondTo('oHeaderL') {
+		@include oPrivateGridRespondTo('oHeaderL') {
 			display: none;
 		}
 	}
@@ -22,7 +22,7 @@
 	.o-header__nav--desktop {
 		display: none;
 
-		@include oGridRespondTo('oHeaderL') {
+		@include oPrivateGridRespondTo('oHeaderL') {
 			display: block;
 		}
 	}
@@ -63,13 +63,13 @@
 	.o-header__nav-item--hide-s {
 		display: none;
 
-		@include oGridRespondTo('S') {
+		@include oPrivateGridRespondTo('S') {
 			display: table-cell;
 		}
 	}
 
 	.o-header__nav-item--expanded {
-		@include oGridRespondTo($until: 'M') {
+		@include oPrivateGridRespondTo($until: 'M') {
 			display: none;
 		}
 	}
