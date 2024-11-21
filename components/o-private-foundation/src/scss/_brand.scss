@@ -6,11 +6,15 @@ $o-private-foundation-tokens: tokens.forBrand(oBrandGetCurrent());
 
 /// Helper for `o-brand` function.
 @function oPrivateFoundationGet($variables, $from: null) {
-	@return oBrandGet(
+	$value: oBrandGet(
 		$component: 'o-private-foundation',
 		$variables: $variables,
-		$from: $from
+		$from: $from,
 	);
+	@if ($value == null) {
+		@error 'oPrivateFoundationGet: design token not found: #{$variables}';
+	}
+	@return $value;
 }
 
 /// Helper for `o-brand` function.
