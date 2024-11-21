@@ -1,14 +1,14 @@
-@import '@financial-times/o-spacing/main';
-@import '@financial-times/o-buttons/main';
-@import '@financial-times/o-private-foundation/o-normalise';
-@import '@financial-times/o-colors/main';
-@import '@financial-times/o-typography/main';
-@import '@financial-times/o-editorial-typography/main';
+@import "@financial-times/o-spacing/main";
+@import "@financial-times/o-private-foundations/main";
+@import "@financial-times/o-private-foundation/o-normalise";
+@import "@financial-times/o-colors/main";
+@import "@financial-times/o-typography/main";
+@import "@financial-times/o-editorial-typography/main";
 
-@import 'src/scss/variables';
-@import 'src/scss/functions';
-@import 'src/scss/mixins';
-@import 'src/scss/coral-talk-iframe/main';
+@import "src/scss/variables";
+@import "src/scss/functions";
+@import "src/scss/mixins";
+@import "src/scss/coral-talk-iframe/main";
 
 @if ($o-comments-is-silent == false) {
 	@include oComments();
