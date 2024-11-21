@@ -67,7 +67,7 @@ a Pikachu (lemon/slate) state for notice and alert messages.
 	    'background-color': 'slate', // slate message
 	    'foreground-color': 'white', // white text
 	    'highlight-color': 'lemon', // lemon highlights with `o-message__content-highlight-color` and a lemon button
-	    'button-type': 'primary', // a primary o-buttons button`o-message__content-highlight` highlight copy
+	    'button-type': 'primary', // a primary button`o-message__content-highlight` highlight copy
 	    'icon': 'user', // show a 'user' o-icons icon if used as an alert
 ), $types: ('notice', 'alert')); // this state should work with notice and alert message types
 ```
