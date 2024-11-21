@@ -1,20 +1,20 @@
 // Fetch tokens and use to configure brands
 // following the existing Origami v2 pattern.
-$o-brand: 'not-set' !default;
 @use '_tokens.scss' as tokens;
 @import '@financial-times/o-brand/main';
 $o-private-foundation-tokens: tokens.forBrand(oBrandGetCurrent());
 
 /// Helper for `o-brand` function.
-@function get($variables, $from: null) {
+@function oPrivateFoundationGet($variables, $from: null) {
 	@return oBrandGet(
 		$component: 'o-private-foundation',
 		$variables: $variables,
 		$from: $from
 	);
 }
+
 /// Helper for `o-brand` function.
-@function supports($variant) {
+@function oPrivateFoundationSupports($variant) {
 	@return oBrandSupportsVariant(
 		$component: 'o-private-foundation',
 		$variant: $variant
