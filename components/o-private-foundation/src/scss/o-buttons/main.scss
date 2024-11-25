@@ -1,3 +1,7 @@
+@import './custom-themes';
+
+/// Create a single button with a custom class.
+/// @param {Map} $opts [('type': 'null', 'theme': null, 'size': null, 'icon': null, 'icon-only': false)] - The kind of button styles to output.
 @mixin oPrivateButtonsContent(
 	$opts: (
 		'type': null,
@@ -11,6 +15,68 @@
 	$theme: if($theme, $theme, 'standard');
 	$type: map-get($opts, 'type');
 	$type: if($type, $type, 'primary');
+
+	@include _oPrivateButtonsBase($opts);
+
+	/* Type and theme specific styles */
+	@include _oPrivateButtonsTheme(
+		(
+			'color':
+				oPrivateFoundationGet('_o3-button-' + $type + '-' + $theme + '-color'),
+			'background':
+				oPrivateFoundationGet(
+					'_o3-button-' + $type + '-' + $theme + '-background'
+				),
+			'border':
+				oPrivateFoundationGet('_o3-button-' + $type + '-' + $theme + '-border'),
+			'hover-color':
+				oPrivateFoundationGet(
+					'_o3-button-' + $type + '-' + $theme + '-hover-color'
+				),
+			'hover-background':
+				oPrivateFoundationGet(
+					'_o3-button-' + $type + '-' + $theme + '-hover-background'
+				),
+			'hover-border':
+				oPrivateFoundationGet(
+					'_o3-button-' + $type + '-' + $theme + '-hover-border'
+				),
+			'focus-color':
+				oPrivateFoundationGet(
+					'_o3-button-' + $type + '-' + $theme + '-focus-color'
+				),
+			'focus-background':
+				oPrivateFoundationGet(
+					'_o3-button-' + $type + '-' + $theme + '-focus-background'
+				),
+			'focus-border':
+				oPrivateFoundationGet(
+					'_o3-button-' + $type + '-' + $theme + '-focus-border'
+				),
+			'active-color':
+				oPrivateFoundationGet(
+					'_o3-button-' + $type + '-' + $theme + '-active-color'
+				),
+			'active-background':
+				oPrivateFoundationGet(
+					'_o3-button-' + $type + '-' + $theme + '-active-background'
+				),
+			'active-border':
+				oPrivateFoundationGet(
+					'_o3-button-' + $type + '-' + $theme + '-active-border'
+				),
+		)
+	);
+}
+
+// Button styles shared across all types/theme.
+@mixin _oPrivateButtonsBase(
+	$opts: (
+		'size': null,
+		'icon': null,
+		'icon-only': false,
+	)
+) {
 	$icon-only: map-get($opts, 'icon-only');
 	$size: map-get($opts, 'size');
 	$icon: map-get($opts, 'icon');
@@ -87,64 +153,6 @@
 		cursor: default;
 	}
 
-	/* TYPE / THEME  */
-
-	color: oPrivateFoundationGet('_o3-button-' + $type + '-' + $theme + '-color');
-	background-color: oPrivateFoundationGet(
-		'_o3-button-' + $type + '-' + $theme + '-background'
-	);
-	border-color: oPrivateFoundationGet(
-		'_o3-button-' + $type + '-' + $theme + '-border'
-	);
-
-	&:hover {
-		color: oPrivateFoundationGet(
-			'_o3-button-' + $type + '-' + $theme + '-hover-color'
-		);
-		background-color: oPrivateFoundationGet(
-			'_o3-button-' + $type + '-' + $theme + '-hover-background'
-		);
-		border-color: oPrivateFoundationGet(
-			'_o3-button-' + $type + '-' + $theme + '-hover-border'
-		);
-	}
-
-	&:focus-visible {
-		outline: 0; // Undo standard o2 focus styles
-		color: oPrivateFoundationGet(
-			'_o3-button-' + $type + '-' + $theme + '-focus-color'
-		);
-		background-color: oPrivateFoundationGet(
-			'_o3-button-' + $type + '-' + $theme + '-focus-background'
-		);
-		border-color: oPrivateFoundationGet(
-			'_o3-button-' + $type + '-' + $theme + '-focus-border'
-		);
-	}
-
-	@include oPrivateNormaliseFocusApply() {
-		@include oPrivateNormaliseFocusContentForElementColour(
-			oPrivateFoundationGet(
-				'_o3-button-' + $type + '-' + $theme + '-focus-background'
-			)
-		);
-		// Ensure that the focus ring of a button is not hidden by
-		// adjacent buttons, e.g. in tabs or pagination contexts.
-		z-index: 1;
-	}
-
-	&:is(:active, [aria-selected='true'], [aria-current], [aria-pressed='true']) {
-		color: oPrivateFoundationGet(
-			'_o3-button-' + $type + '-' + $theme + '-active-color'
-		);
-		background-color: oPrivateFoundationGet(
-			'_o3-button-' + $type + '-' + $theme + '-active-background'
-		);
-		border-color: oPrivateFoundationGet(
-			'_o3-button-' + $type + '-' + $theme + '-active-border'
-		);
-	}
-
 	/* ICON */
 	@if ($icon) {
 		--_o-pf-button-inline-padding-end: #{oPrivateFoundationGet('o3-spacing-s')};
@@ -189,5 +197,40 @@
 		&::before {
 			margin-right: 0;
 		}
+	}
+}
+
+// Button styles unique to a theme.
+@mixin _oPrivateButtonsTheme($theme) {
+	color: map-get($theme, 'color');
+	background-color: map-get($theme, 'background');
+	border-color: map-get($theme, 'border');
+
+	&:hover {
+		color: map-get($theme, 'hover-color');
+		background-color: map-get($theme, 'hover-background');
+		border-color: map-get($theme, 'hover-border');
+	}
+
+	&:focus-visible {
+		outline: 0; // Undo standard o2 focus styles
+		color: map-get($theme, 'focus-color');
+		background-color: map-get($theme, 'focus-background');
+		border-color: map-get($theme, 'focus-border');
+	}
+
+	@include oPrivateNormaliseFocusApply() {
+		@include oPrivateNormaliseFocusContentForElementColour(
+			map-get($theme, 'focus-background')
+		);
+		// Ensure that the focus ring of a button is not hidden by
+		// adjacent buttons, e.g. in tabs or pagination contexts.
+		z-index: 1;
+	}
+
+	&:is(:active, [aria-selected='true'], [aria-current], [aria-pressed='true']) {
+		color: map-get($theme, 'active-color');
+		background-color: map-get($theme, 'active-background');
+		border-color: map-get($theme, 'active-border');
 	}
 }
