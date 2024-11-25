@@ -20,7 +20,12 @@
 		}
 
 		.o-forms-input__label:after {
-			@include oIconsContent('cross', $size: null, $color: _oFormsGet('toggle-inverse'), $include-base-styles: false);
+			@include oIconsContent(
+				'cross',
+				$size: null,
+				$color: _oFormsGet('toggle-inverse'),
+				$include-base-styles: false
+			);
 			border-color: _oFormsGet('toggle-inverse');
 			background-color: _oFormsGet('toggle-inverse-knob');
 		}
@@ -28,13 +33,15 @@
 		input {
 			@include oPrivateNormaliseFocusApply() {
 				@include oPrivateNormaliseFocusContentInverse();
-			};
+			}
 		}
 
-		input[type=checkbox] { // stylelint-disable-line selector-no-qualifying-type
+		input[type='checkbox'] {
+			// stylelint-disable-line selector-no-qualifying-type
 			&:focus {
 				@include oPrivateNormaliseFocusUnsetContent();
-				& + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
+				& + .o-forms-input__label:before {
+					// stylelint-disable-line selector-no-qualifying-type
 					@include oPrivateNormaliseFocusContentInverse();
 				}
 			}
@@ -45,31 +52,44 @@
 			// `:focus` fallback, however some of our supported browsers
 			// do not understand `@supports: selector()`.
 			@supports selector(:focus-visible) {
-				&:focus + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
+				&:focus + .o-forms-input__label:before {
+					// stylelint-disable-line selector-no-qualifying-type
 					@include oPrivateNormaliseFocusUnsetContent();
 				}
 
 				&:focus-visible {
-					& + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
+					& + .o-forms-input__label:before {
+						// stylelint-disable-line selector-no-qualifying-type
 						@include oPrivateNormaliseFocusContentInverse();
 					}
 				}
 			}
 		}
 
-		input[type=checkbox]:checked { // stylelint-disable-line selector-no-qualifying-type
-			+ .o-forms-input__label:before {// stylelint-disable-line selector-no-qualifying-type
+		input[type='checkbox']:checked {
+			// stylelint-disable-line selector-no-qualifying-type
+			+ .o-forms-input__label:before {
+				// stylelint-disable-line selector-no-qualifying-type
 				background-color: _oFormsGet('toggle-inverse-selected');
 			}
 
-			+ .o-forms-input__label:after {// stylelint-disable-line selector-no-qualifying-type
-				@include oIconsContent('tick', $size: null, $color: _oFormsGet('toggle-inverse-selected'), $include-base-styles: false);
+			+ .o-forms-input__label:after {
+				// stylelint-disable-line selector-no-qualifying-type
+				@include oIconsContent(
+					'tick',
+					$size: null,
+					$color: _oFormsGet('toggle-inverse-selected'),
+					$include-base-styles: false
+				);
 				border-color: _oFormsGet('toggle-inverse-selected');
 			}
 		}
 
 		.o-forms-input--invalid {
-			*:invalid:not(:disabled), input:not(:disabled), textarea:not(:disabled), select:not(:disabled) {
+			*:invalid:not(:disabled),
+			input:not(:disabled),
+			textarea:not(:disabled),
+			select:not(:disabled) {
 				color: _oFormsGet('invalid-base-color-inverse');
 				border-color: _oFormsGet('invalid-base-border-inverse');
 
@@ -94,10 +114,12 @@
 				background-color: oColorsByName('white');
 			}
 
-			.o-forms-input--radio-box input[type=radio] { // stylelint-disable-line selector-no-qualifying-type
+			.o-forms-input--radio-box input[type='radio'] {
+				// stylelint-disable-line selector-no-qualifying-type
 				&:focus {
 					@include oPrivateNormaliseFocusUnsetContent();
-					& + .o-forms-input__label { // stylelint-disable-line selector-no-qualifying-type
+					& + .o-forms-input__label {
+						// stylelint-disable-line selector-no-qualifying-type
 						@include oPrivateNormaliseFocusContentInverse();
 					}
 				}
@@ -108,12 +130,14 @@
 				// `:focus` fallback, however some of our supported browsers
 				// do not understand `@supports: selector()`.
 				@supports selector(:focus-visible) {
-					&:focus + .o-forms-input__label { // stylelint-disable-line selector-no-qualifying-type
+					&:focus + .o-forms-input__label {
+						// stylelint-disable-line selector-no-qualifying-type
 						@include oPrivateNormaliseFocusUnsetContent();
 					}
 
 					&:focus-visible {
-						& + .o-forms-input__label { // stylelint-disable-line selector-no-qualifying-type
+						& + .o-forms-input__label {
+							// stylelint-disable-line selector-no-qualifying-type
 							@include oPrivateNormaliseFocusContentInverse();
 						}
 					}
@@ -123,10 +147,12 @@
 
 		@if $file {
 			.o-forms-input--file ::file-selector-button {
-				@include oButtonsContent($opts: (
-					'type': 'primary',
-					'theme': 'inverse'
-				), $include-base-styles: false);
+				@include oPrivateButtonsContent(
+					(
+						'type': 'primary',
+						'theme': 'inverse',
+					)
+				);
 			}
 		}
 	}
@@ -157,5 +183,4 @@
 			}
 		}
 	}
-
 }
