@@ -1,46 +1,46 @@
 {
-  "name": "@financial-times/o-message",
-  "version": "5.4.4",
-  "description": "Provides message elements for alerting, informing or making calls to action.",
-  "keywords": [
-    "message",
-    "alert",
-    "notice",
-    "cta",
-    "banner"
-  ],
-  "homepage": "https://registry.origami.ft.com/components/o-message",
-  "bugs": {
-    "url": "https://github.com/Financial-Times/origami/issues/new?labels=o-message,components",
-    "email": "origami.support@ft.com"
-  },
-  "license": "MIT",
-  "type": "module",
-  "browser": "main.js",
-  "scripts": {
-    "start": "npx serve ./demos/local",
-    "build": "bash ../../scripts/component/build.bash",
-    "test": "bash ../../scripts/component/test.bash",
-    "debug:js": "bash ../../scripts/component/debug-js.bash",
-    "lint": "bash ../../scripts/component/lint.bash",
-    "watch": "bash ../../scripts/component/watch.bash"
-  },
-  "peerDependencies": {
-    "@financial-times/math": "^1.0.0",
-    "@financial-times/o-brand": "^4.1.0",
-    "@financial-times/o-buttons": "^7.8.0",
-    "@financial-times/o-colors": "^6.5.0",
-    "@financial-times/o-private-foundation": "0.0.0",
-    "@financial-times/o-icons": "^7.0.1",
-    "@financial-times/o-spacing": "^3.0.0",
-    "@financial-times/o-typography": "^7.4.1"
-  },
-  "devDependencies": {
-    "@financial-times/o-fonts": "^5",
-    "@financial-times/o-normalise": "^3.3.0"
-  },
-  "engines": {
-    "npm": ">7"
-  },
-  "private": false
+	"name": "@financial-times/o-message",
+	"version": "5.4.4",
+	"description": "Provides message elements for alerting, informing or making calls to action.",
+	"keywords": [
+		"message",
+		"alert",
+		"notice",
+		"cta",
+		"banner"
+	],
+	"homepage": "https://registry.origami.ft.com/components/o-message",
+	"bugs": {
+		"url": "https://github.com/Financial-Times/origami/issues/new?labels=o-message,components",
+		"email": "origami.support@ft.com"
+	},
+	"license": "MIT",
+	"type": "module",
+	"browser": "main.js",
+	"scripts": {
+		"start": "npx serve ./demos/local",
+		"build": "bash ../../scripts/component/build.bash",
+		"test": "bash ../../scripts/component/test.bash",
+		"debug:js": "bash ../../scripts/component/debug-js.bash",
+		"lint": "bash ../../scripts/component/lint.bash",
+		"watch": "bash ../../scripts/component/watch.bash"
+	},
+	"peerDependencies": {
+		"@financial-times/math": "^1.0.0",
+		"@financial-times/o-brand": "^4.1.0",
+		"@financial-times/o-private-foundation": "^0.0.0",
+		"@financial-times/o-colors": "^6.5.0",
+		"@financial-times/o-icons": "^7.0.1",
+		"@financial-times/o-spacing": "^3.0.0",
+		"@financial-times/o-typography": "^7.4.1"
+	},
+	"devDependencies": {
+		"@financial-times/o-fonts": "^5",
+		"@financial-times/o-normalise": "^3.3.0",
+		"@financial-times/o-buttons": "^7.8.0"
+	},
+	"engines": {
+		"npm": ">7"
+	},
+	"private": false
 }

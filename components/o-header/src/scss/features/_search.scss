@@ -18,7 +18,8 @@
 			display: block;
 		}
 	}
-	.o-header__drawer-search, .o-header__search-form {
+	.o-header__drawer-search,
+	.o-header__search-form {
 		.o-forms-input--text input::placeholder {
 			color: oColorsByName('black-60');
 		}
@@ -31,7 +32,7 @@
 	.o-header__search-term {
 		@include oTypographySans($scale: -1);
 		box-sizing: border-box;
-		height: 32px; // match overridden o-buttons height
+		height: 32px; // match overridden button height
 		vertical-align: middle;
 		// normalize
 		appearance: none;
@@ -59,7 +60,7 @@
 	}
 
 	.o-header__search-submit {
-		@include oButtonsContent(
+		@include oPrivateButtonsContent(
 			$opts: (
 				'type': 'primary',
 				'size': 'big',

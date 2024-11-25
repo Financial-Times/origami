@@ -1,25 +1,28 @@
 /// Output All oComments Features
-@mixin oComments($opts: ('coral-talk-iframe': true)) {
-
+@mixin oComments(
+	$opts: (
+		"coral-talk-iframe": true,
+	)
+) {
 	@if map-get($opts, coral-talk-iframe) {
 		@include _oCommentsTalkIframe();
 	}
 
 	.o-comments__staging-message-container {
-		margin-bottom: oSpacingByName('s2');
+		margin-bottom: oSpacingByName("s2");
 		padding: 0;
 	}
 
 	.o-comments__staging-message-content {
-		padding-top: oSpacingByName('s1');
-		padding-bottom: oSpacingByName('s1');
-		background-color: oColorsByName('claret-80');
+		padding-top: oSpacingByName("s1");
+		padding-bottom: oSpacingByName("s1");
+		background-color: oColorsByName("claret-80");
 	}
 
 	.o-comments__staging-message {
 		color: white;
 		font-weight: bold;
-		padding-left: oSpacingByName('s4');
+		padding-left: oSpacingByName("s4");
 	}
 
 	.o-comments__signed-in-text {
@@ -32,16 +35,18 @@
 	}
 
 	.o-comments__signed-in-container {
-		margin-bottom: oSpacingByName('s6');
+		margin-bottom: oSpacingByName("s6");
 	}
 
 	.o-comments__edit-display-name {
-		@include oButtonsContent($opts: (
-			'type': 'primary',
-			'icon': 'edit'
-		));
+		@include oPrivateButtonsContent(
+			$opts: (
+				"type": "primary",
+				"icon": "edit-filled",
+			)
+		);
 
-		margin-left: oSpacingByName('s2');
+		margin-left: oSpacingByName("s2");
 	}
 
 	.o-comments__edit-display-name-descriptive {
@@ -49,7 +54,7 @@
 	}
 
 	.o-overlay.o-comments__displayname-prompt {
-		background: oColorsByName('paper');
+		background: oColorsByName("paper");
 		padding: 10px;
 		width: 100%;
 		max-width: 400px;
@@ -68,7 +73,7 @@
 		}
 
 		.o-comments__displayname-container {
-			margin-top: oSpacingByName('s2');
+			margin-top: oSpacingByName("s2");
 			display: flex;
 		}
 
@@ -83,9 +88,11 @@
 		}
 
 		.o-comments__displayname-submit {
-			@include oButtonsContent($opts: (
-				'type': 'primary'
-			));
+			@include oPrivateButtonsContent(
+				$opts: (
+					"type": "primary",
+				)
+			);
 		}
 
 		.o-comments__displayname-error {
