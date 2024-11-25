@@ -6,8 +6,8 @@
 - [Message Types](#message-types)
 - [Markup](#markup)
 - [JavaScript](#javascript)
-	- [Construction](#construction)
-	- [Options](#options)
+  - [Construction](#construction)
+  - [Options](#options)
 - [Sass](#sass)
 - [Migration](#migration)
 - [Contact](#contact)
@@ -22,12 +22,12 @@ It can be initialised declaratively if markup is provided on the page, or it can
 Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-message`.
 
 ## Message Types
+
 `o-message` provides three types of messages: **alert**, **notice**, and **action**.
 
 - An **alert** message should be used as feedback to a users interaction with a product (e.g. payment declined warning). Unlike other messages, alert messages have an icon.
 - A **notice** message should be used to provide information or warnings about a product. (e.g. beta version of a product).
 - An **action** message should be used as a static call to action, usually within or below main content, that is not necessarily a response to a user's interaction with a product (e.g. requesting feedback in general).
-
 
 You can find a demo for each of the messages above in the [Origami registry](https://registry.origami.ft.com/components/o-message).
 
@@ -37,12 +37,11 @@ An 'inner' message is meant to sit within a smaller container, as it stacks info
 In addition to layout, messages can accept another variation: state.
 However, not every message accepts every state, or every layout, and not every message works for every brand. Please check the table below against the needs of your product. If you need a message that is not available to you, please [get in touch](#contact) with the Origami team.
 
-| | state support | layout support | brand support
----|:---|:---|:---
-**action message** | `inform`, `inform-inverse` | default | internal, whitelabel
-**alert message** | `success`, `neutral`, `error` | default, inner | all
-**notice message** | `inform`, `feedback`, `warning`, `warning-light` | default, inner | core: `inform` or `feedback` state only <br> internal: all states <br> whitelabel: `inform` state only
-
+|                    | state support                                    | layout support | brand support                                                                                          |
+| ------------------ | :----------------------------------------------- | :------------- | :----------------------------------------------------------------------------------------------------- |
+| **action message** | `inform`, `inform-inverse`                       | default        | internal, whitelabel                                                                                   |
+| **alert message**  | `success`, `neutral`, `error`                    | default, inner | all                                                                                                    |
+| **notice message** | `inform`, `feedback`, `warning`, `warning-light` | default, inner | core: `inform` or `feedback` state only <br> internal: all states <br> whitelabel: `inform` state only |
 
 ## Markup
 
@@ -57,11 +56,15 @@ _Note: as mentioned in the description of the [message types](#message-types), n
 This example illustrates the basic markup for a successful alert message:
 
 ```html
-<div class="o-message o-message--alert o-message--success" data-o-component="o-message">
+<div
+	class="o-message o-message--alert o-message--success"
+	data-o-component="o-message"
+>
 	<div class="o-message__container">
 		<div class="o-message__content">
 			<p class="o-message__content-main">
 				<span class="o-message__content-highlight">Oops.</span>
+			</p>
 		</div>
 	</div>
 </div>
@@ -134,12 +137,18 @@ If you have applied the `o-message--inner` modifier to your message, you can add
 ```
 
 For any message, you can highlight any portion of copy within a paragraph by using the markup like this:
+
 ```html
-<div class="o-message o-message--alert o-message--success" data-o-component="o-message">
+<div
+	class="o-message o-message--alert o-message--success"
+	data-o-component="o-message"
+>
 	<div class="o-message__container">
 		<div class="o-message__content">
 			<p class="o-message__content-main">
-				The quick brown fox did <span class="o-message__content-highlight">not</span> jump over the lazy dogs.
+				The quick brown fox did
+				<span class="o-message__content-highlight">not</span> jump over the lazy
+				dogs.
 			</p>
 		</div>
 	</div>
@@ -147,22 +156,28 @@ For any message, you can highlight any portion of copy within a paragraph by usi
 ```
 
 [Sass](#sass) users may create custom messages with a highlight colour. This is useful to highlight key words in the message. To apply the highlight colour to message copy use the class `o-message__content-highlight-color`.
+
 ```html
-<div class="o-message o-message--alert o-message--success" data-o-component="o-message">
+<div
+	class="o-message o-message--alert o-message--success"
+	data-o-component="o-message"
+>
 	<div class="o-message__container">
 		<div class="o-message__content">
-				<p class="o-message__content-main">
-					<span class="o-message__content-highlight">
-						Hurray<span class="o-message__content-highlight-color">thing</span>happened
-					</span>
-					The quick brown fox jumped over the lazy dogs!
-				</p>
+			<p class="o-message__content-main">
+				<span class="o-message__content-highlight">
+					Hurray<span class="o-message__content-highlight-color">thing</span
+					>happened
+				</span>
+				The quick brown fox jumped over the lazy dogs!
+			</p>
 		</div>
 	</div>
 </div>
 ```
 
 For **action messages only**, you can centralise the text with a specific class (`.o-message__content--center-align`):
+
 ```diff
 <div class="o-message o-message--action o-message--inform" data-o-component="o-message">
 	<div class="o-message__container">
@@ -177,10 +192,13 @@ For **action messages only**, you can centralise the text with a specific class 
 ```
 
 ## JavaScript
+
 No code will run automatically unless you are using the Build Service. You must either construct an `o-message` object or fire an o.DOMContentLoaded event, which `o-message` listens for.
 
 ### Construction
+
 If you have set up your message declaratively, use the following to initialise your message.
+
 ```js
 import Message from '@financial-times/o-message';
 Message.init();
@@ -197,15 +215,17 @@ const importantMessage = new Message(null, {
 	state: 'error',
 	content: {
 		highlight: 'Something has gone wrong.',
-		detail: 'The quick brown fox did not jump over the lazy dogs.'
-	}
+		detail: 'The quick brown fox did not jump over the lazy dogs.',
+	},
 });
 ```
 
 ### Options
+
 `o-message` allows for several configuration options that will change the type of message and its visual styling.
 
 The only required options are listed in the example _above_. These are:
+
 - `type`: String. The o-message variant. The available variants are 'action', 'alert' and 'notice'.
 - `state`: String. All messages require a state, and you must supply one that combines with the type of message you've chosen, as listed in the [message types](#message-types)
 - `content.detail`: String. The detail about the nature of a message.
@@ -215,17 +235,17 @@ The following options are not required, and all have a default value:
 - `autoOpen`: Boolean. Whether to open the message automatically, defaults to `true`.
 - `parentElement`: String. This determines the element that the message will be appended to. If none is declared, it will automatically append to the body, or an element with the data attribute `data-o-component=o-message`, defaults to `null`.
 - `content`: Object. Holds the following values for text properties:
-	- `highlight`: String. The highlighted text in a message. Defaults to `null`
-	- `additionalInfo`: String. More information about the message –  only applies to a message with an `inner` layout. Defaults to `null`
+  - `highlight`: String. The highlighted text in a message. Defaults to `null`
+  - `additionalInfo`: String. More information about the message – only applies to a message with an `inner` layout. Defaults to `null`
 - `actions`: Object. Holds the following values for text properties:
-	- `primary`:  Object. Holds the following values for button properties:
-		- `text`: String. text value of the button. Defaults to `null`
-		- `url`: String. The URL the button links to. Defaults to `null`
-		- `openInNewWindow`: Boolean. Decides if the action should open with `target="_blank`. Defaults to `false`
-	- `secondary`: Object. Holds the following values for link properties:
-		- `text`: String. text value of the link. Defaults to `null`
-		- `url`: String. The URL the link links to. Defaults to `null`
-		- `openInNewWindow`: Boolean. Decides if the action should open with `target="_blank`. Defaults to `false`
+  - `primary`: Object. Holds the following values for button properties:
+    - `text`: String. text value of the button. Defaults to `null`
+    - `url`: String. The URL the button links to. Defaults to `null`
+    - `openInNewWindow`: Boolean. Decides if the action should open with `target="_blank`. Defaults to `false`
+  - `secondary`: Object. Holds the following values for link properties:
+    - `text`: String. text value of the link. Defaults to `null`
+    - `url`: String. The URL the link links to. Defaults to `null`
+    - `openInNewWindow`: Boolean. Decides if the action should open with `target="_blank`. Defaults to `false`
 - `close`: Boolean. Whether or not to display the close button. Defaults to `true`.
 
 For example, to configure the `close` icon to not display:
@@ -247,6 +267,7 @@ const importantMessage = new Message(null, {
 ## Sass
 
 You can include all styles and variations for every message type by calling:
+
 ```scss
 @include oMessage();
 ```
@@ -254,20 +275,30 @@ You can include all styles and variations for every message type by calling:
 You can also be more specific about which message styles and variations you would like to output by using an `$opts` map:
 
 ```scss
-@include oMessage($opts: (
-	'types': ('action', 'notice'),
-	'states': ('inform', 'warning'),
-	'layouts': ('inner')
-));
+@include oMessage(
+	$opts: (
+		'types': (
+			'action',
+			'notice',
+		),
+		'states': (
+			'inform',
+			'warning',
+		),
+		'layouts': (
+			'inner',
+		),
+	)
+);
 ```
 
 Options include:
 
-| Feature             | Description                                                                                                                                 |
-|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
-| types               | The message to support (e.g. alert, notice, action) see [message types](#message-types).                                                    |
-| state               | The kinds of messages to support (e.g. 'inform', 'warning', 'error') see [message types](#message-types).                                   |
-| layouts             | By default messages should span the page, to support messages within content pass the 'inner' option. See [message types](#message-types).  |
+| Feature | Description                                                                                                                                |
+| ------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| types   | The message to support (e.g. alert, notice, action) see [message types](#message-types).                                                   |
+| state   | The kinds of messages to support (e.g. 'inform', 'warning', 'error') see [message types](#message-types).                                  |
+| layouts | By default messages should span the page, to support messages within content pass the 'inner' option. See [message types](#message-types). |
 
 ### Custom Message
 
@@ -275,36 +306,48 @@ To create a new message with a unique look call `oMessageAddSate`. The mixin acc
 
 - `name`: The name of your state. This is used for the modifier class output o-message--{name}.
 - `opts`: A map of options for your state. Note colours may be an [o-colors](https://registry.origami.ft.com/components/o-colors) colour name or a hex value:
-	- `foreground-color`: The colour used for message text, and the button where a highlight colour has not been given.
-	- `background-color`: The background colour used for the message.
-	- `icon`: The [o-icons](https://registry.origami.ft.com/components/o-icons) icon name to show in an alert message. Required only for your state to support an alert message type.
-	- `button-type` (optional): The type of [o-buttons](https://registry.origami.ft.com/components/o-buttons) button the message should have. One of `primary` or `secondary` (defaults to `secondary`).
-	- `highlight-color` (optional): The highlight colour is used for the message button. It can also be used to highlight message copy with the CSS class `o-message__content-highlight-color`.
+  - `foreground-color`: The colour used for message text, and the button where a highlight colour has not been given.
+  - `background-color`: The background colour used for the message.
+  - `icon`: The [o-icons](https://registry.origami.ft.com/components/o-icons) icon name to show in an alert message. Required only for your state to support an alert message type.
+  - `button-type` (optional): The type of button. One of `primary` or `secondary` (defaults to `secondary`).
+  - `highlight-color` (optional): The highlight colour is used for the message button. It can also be used to highlight message copy with the CSS class `o-message__content-highlight-color`.
 - `types`: A list of [message types](#message-types) your state supports, one or more of (`alert`, `notice`, `action`).
 
 ```scss
 // Outputs CSS for a custom message state called "pikachu"
 // Outputs a modifier class `o-message--pikachu`
 @include oMessageAddState(
-	$name: 'pikachu', // the custom state is named "pikachu"
-	$opts: (
-	'background-color': 'slate', // slate message
-	'foreground-color': 'white', // white text
-	'highlight-color': 'lemon', // lemon highlights with `o-message__content-highlight-color` and a lemon button
-	'button-type': 'primary', // a primary o-buttons button`o-message__content-highlight` highlight copy
-	'icon': 'user', // show a 'user' o-icons icon if used as an alert
-), $types: ('notice', 'alert')); // this state should work with notice and alert message types
+	$name: 'pikachu',
+	// the custom state is named "pikachu"
+	$opts:
+		(
+			// slate message
+			'background-color': 'slate',
+			// white text
+			'foreground-color': 'white',
+			// lemon highlights with `o-message__content-highlight-color` and a lemon button
+			'highlight-color': 'lemon',
+			// a primary button`o-message__content-highlight` highlight copy
+			'button-type': 'primary',
+			// show a 'user' o-icons icon if used as an alert
+			'icon': 'user',
+		),
+	$types: (
+		'notice',
+		'alert',
+	)
+); // this state should work with notice and alert message types
 ```
 
 ## Migration
 
-State | Major Version | Last Minor Release | Migration guide |
-:---: | :---: | :---: | :---:
-✨ active | 5 | N/A | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
-⚠ maintained | 4 | 4.2 | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
-╳ deprecated | 3 | N/A | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
-╳ deprecated  | 2 | 2.4 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
-╳ deprecated | 1 | 1.0 | N/A |
+|    State     | Major Version | Last Minor Release |                    Migration guide                    |
+| :----------: | :-----------: | :----------------: | :---------------------------------------------------: |
+|  ✨ active   |       5       |        N/A         | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+| ⚠ maintained |       4       |        4.2         | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
+| ╳ deprecated |       3       |        N/A         | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+| ╳ deprecated |       2       |        2.4         | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+| ╳ deprecated |       1       |        1.0         |                          N/A                          |
 
 ## Contact
 

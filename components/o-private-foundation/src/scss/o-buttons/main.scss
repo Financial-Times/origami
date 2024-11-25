@@ -1,3 +1,7 @@
+@import './custom-themes';
+
+/// Create a single button with a custom class.
+/// @param {Map} $opts [('type': 'null', 'theme': null, 'size': null, 'icon': null, 'icon-only': false)] - The kind of button styles to output.
 @mixin oPrivateButtonsContent(
 	$opts: (
 		'type': null,
@@ -11,6 +15,68 @@
 	$theme: if($theme, $theme, 'standard');
 	$type: map-get($opts, 'type');
 	$type: if($type, $type, 'primary');
+
+	@include _oPrivateButtonsBase($opts);
+
+	/* Type and theme specific styles */
+	@include _oPrivateButtonsTheme(
+		(
+			'color':
+				oPrivateFoundationGet('_o3-button-' + $type + '-' + $theme + '-color'),
+			'background':
+				oPrivateFoundationGet(
+					'_o3-button-' + $type + '-' + $theme + '-background'
+				),
+			'border':
+				oPrivateFoundationGet('_o3-button-' + $type + '-' + $theme + '-border'),
+			'hover-color':
+				oPrivateFoundationGet(
+					'_o3-button-' + $type + '-' + $theme + '-hover-color'
+				),
+			'hover-background':
+				oPrivateFoundationGet(
+					'_o3-button-' + $type + '-' + $theme + '-hover-background'
+				),
+			'hover-border':
+				oPrivateFoundationGet(
+					'_o3-button-' + $type + '-' + $theme + '-hover-border'
+				),
+			'focus-color':
+				oPrivateFoundationGet(
+					'_o3-button-' + $type + '-' + $theme + '-focus-color'
+				),
+			'focus-background':
+				oPrivateFoundationGet(
+					'_o3-button-' + $type + '-' + $theme + '-focus-background'
+				),
+			'focus-border':
+				oPrivateFoundationGet(
+					'_o3-button-' + $type + '-' + $theme + '-focus-border'
+				),
+			'active-color':
+				oPrivateFoundationGet(
+					'_o3-button-' + $type + '-' + $theme + '-active-color'
+				),
+			'active-background':
+				oPrivateFoundationGet(
+					'_o3-button-' + $type + '-' + $theme + '-active-background'
+				),
+			'active-border':
+				oPrivateFoundationGet(
+					'_o3-button-' + $type + '-' + $theme + '-active-border'
+				),
+		)
+	);
+}
+
+// Button styles shared across all types/theme.
+@mixin _oPrivateButtonsBase(
+	$opts: (
+		'size': null,
+		'icon': null,
+		'icon-only': false,
+	)
+) {
 	$icon-only: map-get($opts, 'icon-only');
 	$size: map-get($opts, 'size');
 	$icon: map-get($opts, 'icon');
@@ -19,31 +85,45 @@
 	--_o-pf-button-icon-size: calc(
 		var(--_o-pf-button-min-height) - (var(--_o-pf-button-block-padding) * 2)
 	);
-	--_o-pf-button-font-weight: #{brand.get('o3-font-weight-semibold')};
+	--_o-pf-button-font-weight: #{oPrivateFoundationGet('o3-font-weight-semibold')};
 
 	/* Button Sizes */
 	@if ($size == 'big') {
 		--_o-pf-button-min-width: 80px;
 		--_o-pf-button-min-height: 40px;
 
-		--_o-pf-button-inline-padding-start: #{brand.get('o3-spacing-2xs')};
-		--_o-pf-button-inline-padding-end: #{brand.get('o3-spacing-2xs')};
-		--_o-pf-button-block-padding: #{brand.get('o3-spacing-4xs')};
+		--_o-pf-button-inline-padding-start: #{oPrivateFoundationGet(
+				'o3-spacing-2xs'
+			)};
+		--_o-pf-button-inline-padding-end: #{oPrivateFoundationGet(
+				'o3-spacing-2xs'
+			)};
+		--_o-pf-button-block-padding: #{oPrivateFoundationGet('o3-spacing-4xs')};
 
-		--_o-pf-button-font-size: #{brand.get('o3-font-size-metric2-negative-1')};
-		--_o-pf-button-lineheight: #{brand.get(
+		--_o-pf-button-font-size: #{oPrivateFoundationGet(
+				'o3-font-size-metric2-negative-1'
+			)};
+		--_o-pf-button-lineheight: #{oPrivateFoundationGet(
 				'o3-font-lineheight-metric2-negative-1'
 			)};
 	} @else {
 		--_o-pf-button-min-width: 60px;
 		--_o-pf-button-min-height: 28px;
 
-		--_o-pf-button-inline-padding-start: #{brand.get('o3-spacing-4xs')};
-		--_o-pf-button-inline-padding-end: #{brand.get('o3-spacing-4xs')};
-		--_o-pf-button-block-padding: #{brand.get('o3-spacing-5xs')};
+		--_o-pf-button-inline-padding-start: #{oPrivateFoundationGet(
+				'o3-spacing-4xs'
+			)};
+		--_o-pf-button-inline-padding-end: #{oPrivateFoundationGet(
+				'o3-spacing-4xs'
+			)};
+		--_o-pf-button-block-padding: #{oPrivateFoundationGet('o3-spacing-5xs')};
 
-		--_o-pf-button-font-size: #{brand.get('o3-font-size-negative-2')};
-		--_o-pf-button-lineheight: #{brand.get('o3-font-lineheight-negative-2')};
+		--_o-pf-button-font-size: #{oPrivateFoundationGet(
+				'o3-font-size-negative-2'
+			)};
+		--_o-pf-button-lineheight: #{oPrivateFoundationGet(
+				'o3-font-lineheight-negative-2'
+			)};
 	}
 
 	min-width: var(--_o-pf-button-min-width);
@@ -58,7 +138,7 @@
 	font-size: var(--_o-pf-button-font-size);
 	line-height: var(--_o-pf-button-lineheight);
 	font-weight: var(--_o-pf-button-font-weight);
-	font-family: '#{brand.get('o3-font-family-metric')}', 'sans-serif';
+	font-family: '#{oPrivateFoundationGet('o3-font-family-metric')}', 'sans-serif';
 	border: var(--_o-pf-button-border-size) solid transparent;
 	text-align: center;
 	text-decoration: none;
@@ -73,62 +153,25 @@
 		cursor: default;
 	}
 
-	/* TYPE / THEME  */
-
-	color: brand.get('_o3-button-' + $type + '-' + $theme + '-color');
-	background-color: brand.get(
-		'_o3-button-' + $type + '-' + $theme + '-background'
-	);
-	border-color: brand.get('_o3-button-' + $type + '-' + $theme + '-border');
-
-	&:hover {
-		color: brand.get('_o3-button-' + $type + '-' + $theme + '-hover-color');
-		background-color: brand.get(
-			'_o3-button-' + $type + '-' + $theme + '-hover-background'
-		);
-		border-color: brand.get(
-			'_o3-button-' + $type + '-' + $theme + '-hover-border'
-		);
-	}
-
-	&:focus-visible {
-		outline: 0; // Undo standard o2 focus styles
-		color: brand.get('_o3-button-' + $type + '-' + $theme + '-focus-color');
-		background-color: brand.get(
-			'_o3-button-' + $type + '-' + $theme + '-focus-background'
-		);
-		border-color: brand.get(
-			'_o3-button-' + $type + '-' + $theme + '-focus-border'
-		);
-	}
-
-	&:is(:active, [aria-selected='true'], [aria-current], [aria-pressed='true']) {
-		color: brand.get('_o3-button-' + $type + '-' + $theme + '-active-color');
-		background-color: brand.get(
-			'_o3-button-' + $type + '-' + $theme + '-active-background'
-		);
-		border-color: brand.get(
-			'_o3-button-' + $type + '-' + $theme + '-active-border'
-		);
-	}
-
 	/* ICON */
 	@if ($icon) {
-		--_o-pf-button-inline-padding-end: #{brand.get('o3-spacing-s')};
+		--_o-pf-button-inline-padding-end: #{oPrivateFoundationGet('o3-spacing-s')};
 		@if ($size != 'big') {
-			--_o-pf-button-inline-padding-end: #{brand.get('o3-spacing-4xs')};
+			--_o-pf-button-inline-padding-end: #{oPrivateFoundationGet(
+					'o3-spacing-4xs'
+				)};
 		}
 
 		&::before {
 			content: '';
 			width: var(--_o-pf-button-icon-size);
 			height: var(--_o-pf-button-icon-size);
-			mask-image: #{brand.get('o3-icons-ft-icon-' + $icon)};
+			mask-image: #{oPrivateFoundationGet('o3-icons-ft-icon-' + $icon)};
 			mask-repeat: no-repeat;
 			mask-size: contain;
 			display: inline-block;
 			background-color: currentColor;
-			margin-right: #{brand.get('o3-spacing-4xs')};
+			margin-right: #{oPrivateFoundationGet('o3-spacing-4xs')};
 		}
 
 		/*
@@ -154,5 +197,40 @@
 		&::before {
 			margin-right: 0;
 		}
+	}
+}
+
+// Button styles unique to a theme.
+@mixin _oPrivateButtonsTheme($theme) {
+	color: map-get($theme, 'color');
+	background-color: map-get($theme, 'background');
+	border-color: map-get($theme, 'border');
+
+	&:hover {
+		color: map-get($theme, 'hover-color');
+		background-color: map-get($theme, 'hover-background');
+		border-color: map-get($theme, 'hover-border');
+	}
+
+	&:focus-visible {
+		outline: 0; // Undo standard o2 focus styles
+		color: map-get($theme, 'focus-color');
+		background-color: map-get($theme, 'focus-background');
+		border-color: map-get($theme, 'focus-border');
+	}
+
+	@include oPrivateNormaliseFocusApply() {
+		@include oPrivateNormaliseFocusContentForElementColour(
+			map-get($theme, 'focus-background')
+		);
+		// Ensure that the focus ring of a button is not hidden by
+		// adjacent buttons, e.g. in tabs or pagination contexts.
+		z-index: 1;
+	}
+
+	&:is(:active, [aria-selected='true'], [aria-current], [aria-pressed='true']) {
+		color: map-get($theme, 'active-color');
+		background-color: map-get($theme, 'active-background');
+		border-color: map-get($theme, 'active-border');
 	}
 }
