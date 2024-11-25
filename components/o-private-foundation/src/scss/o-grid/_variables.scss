@@ -9,12 +9,12 @@
 /// - fixed: always fixed-width with the layout defined by $o-pf-grid-fixed-layout (default: L)
 ///
 /// @type String - one of fluid (default), snappy, fixed
-$_o-pf-grid-mode: $o-grid-mode;
+$_o-pf-grid-mode: if($o-grid-mode, $o-grid-mode, 'fluid') !default;
 
 /// Layout to default to when the grid has a fixed width (not fluid)
 ///
 /// @type String - One of $o-pf-grid-layouts
-$o-pf-grid-fixed-layout: 'L' !default;
+$o-pf-grid-fixed-layout: if($o-grid-fixed-layout, $o-grid-fixed-layout, 'L') !default;
 
 /// When the grid start snapping between fixed-width layouts
 /// in the case where a row has the `o-grid-row--snappy` class
@@ -42,13 +42,12 @@ $_o-pf-grid-min-width: 240px !default;
 /// in order to base breakpoints on the structure of the grid itself
 ///
 /// @type Map
-$o-pf-grid-layouts: $o-grid-layouts;
-$o-pf-grid-layouts: (
+$o-pf-grid-layouts: if($o-grid-layouts, $o-grid-layouts,(
 	S:  490px,  // column-width: 30px, inner width: 470px
 	M:  740px,  // column-width: 40px, inner width: 700px
 	L:  980px,  // column-width: 60px, inner width: 940px
 	XL: 1220px, // column-width: 80px, inner width: 1180px
-) !default;
+)) !default;
 
 /// Layout names
 ///
@@ -59,10 +58,10 @@ $_o-pf-grid-layout-names: map-keys($o-pf-grid-layouts);
 /// Gutter sizes
 ///
 /// @type Map
-$o-pf-grid-gutters: (
+$o-pf-grid-gutters: if($o-grid-gutters, $o-grid-gutters, (
 	default: 10px,
 	M:       20px,
-) !default;
+)) !default;
 
 // If layouts have changed but gutters haven't,
 // prune non-existant layouts.
