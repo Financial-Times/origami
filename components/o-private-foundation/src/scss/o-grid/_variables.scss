@@ -2,12 +2,6 @@
 // Responsive behaviour configuration
 // ----------------------------------------------------------------------------
 
-/// Silent mode
-///
-/// @type Bool
-$o-private-grid-is-silent: true !default;
-
-
 /// Grid mode
 /// - fluid: full width up to the largest layout's width
 /// - snappy: fluid width until the layout defined in $_o-pf-grid-start-snappy-mode-at (default: M),
