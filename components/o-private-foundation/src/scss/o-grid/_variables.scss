@@ -42,6 +42,7 @@ $_o-pf-grid-min-width: 240px !default;
 /// in order to base breakpoints on the structure of the grid itself
 ///
 /// @type Map
+$o-pf-grid-layouts: $o-grid-layouts;
 $o-pf-grid-layouts: (
 	S:  490px,  // column-width: 30px, inner width: 470px
 	M:  740px,  // column-width: 40px, inner width: 700px
