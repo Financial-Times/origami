@@ -52,11 +52,11 @@
 /// % width of an element in the grid
 ///
 /// @example
-///  .one-half   { width: oGridColspan(1/2); }      // 50%
-///  .other-half { width: oGridColspan(one-half); } // 50%
-///  .sidebar    { width: oGridColspan(5); }        // 41.66667%
-///  .two-thirds { width: oGridColspan(2/3); }      // 66.66667%
-///  .4-out-of-6 { width: oGridColspan(4, 6); }     // 66.66667%
+///  .one-half   { width: oPrivateGridColspan(1/2); }      // 50%
+///  .other-half { width: oPrivateGridColspan(one-half); } // 50%
+///  .sidebar    { width: oPrivateGridColspan(5); }        // 41.66667%
+///  .two-thirds { width: oPrivateGridColspan(2/3); }      // 66.66667%
+///  .4-out-of-6 { width: oPrivateGridColspan(4, 6); }     // 66.66667%
 ///
 /// @param {Number | String} $span - Number of columns the element spans over
 /// @param {Number} $total-cols [$_o-pf-grid-columns] - Number of columns in the grid

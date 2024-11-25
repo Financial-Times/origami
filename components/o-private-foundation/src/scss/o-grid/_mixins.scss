@@ -5,20 +5,20 @@
 ///
 /// @example
 ///  // Turn the color of an element red at medium layout size and up
-///  @include oGridRespondTo(M) {
+///  @include oPrivateGridRespondTo(M) {
 ///  	element {
 ///  		color: red;
 ///  	}
 ///  }
 ///  // Turn the color of an element blue until medium layout
 ///  element {
-///  	@include oGridRespondTo($until: M) {
+///  	@include oPrivateGridRespondTo($until: M) {
 ///  		color: blue;
 ///  	}
 ///  }
 ///  // Turn the color of an element green from small layout until medium layout
 ///  element {
-///  	@include oGridRespondTo($from: S, $until: M) {
+///  	@include oPrivateGridRespondTo($from: S, $until: M) {
 ///  		color: green;
 ///  	}
 ///  }
@@ -42,16 +42,16 @@
 /// Base column styles and responsive layout width
 ///
 /// @example scss Block has column styles
-///   el { @include oGridColspan(); }
+///   el { @include oPrivateGridColspan(); }
 ///
 /// @example scss 4-column wide block
-///   el { @include oGridColspan(4); }
+///   el { @include oPrivateGridColspan(4); }
 ///
 /// @example scss Half-width block
-///   el { @include oGridColspan(1/2); }
+///   el { @include oPrivateGridColspan(1/2); }
 ///
 /// @example scss Block is full-width by default, 8-column wide on Medium layouts and hidden on Large layouts
-///   el { @include oGridColspan((default: 12, M: 8, L: hide)); }
+///   el { @include oPrivateGridColspan((default: 12, M: 8, L: hide)); }
 ///
 /// @param {Number | Map} $span [null]
 @mixin oPrivateGridColspan($span: null, $width-only: false) {
@@ -68,7 +68,7 @@
 				@if $layout-name == 'default' {
 					padding-left: oPrivateGridGutter();
 				} @else {
-					@include oGridRespondTo($layout-name) {
+					@include oPrivateGridRespondTo($layout-name) {
 						padding-left: oPrivateGridGutter($layout-name);
 					}
 				}
@@ -115,7 +115,7 @@
 					padding-right: oPrivateGridGutter();
 				}
 			} @else {
-				@include oGridRespondTo($layout-name) {
+				@include oPrivateGridRespondTo($layout-name) {
 					@if not $bleed {
 						padding-left: oPrivateGridGutter($layout-name);
 						padding-right: oPrivateGridGutter($layout-name);
@@ -160,7 +160,7 @@
 			@if $layout-name == 'default' {
 				margin-left: -1 * oPrivateGridGutter();
 			} @else {
-				@include oGridRespondTo($layout-name) {
+				@include oPrivateGridRespondTo($layout-name) {
 					margin-left: -1 * oPrivateGridGutter($layout-name);
 				}
 			}
@@ -186,13 +186,13 @@
 /// @example js
 ///  // your-app/main.js
 ///  // Return the current layout (e.g. default, S, M, L, XL)
-///  import oGrid from 'o-grid';
-///  let currentLayout = oGrid.getCurrentLayout();
+///  import oPrivateGrid from 'o-private-foundation/o-grid';
+///  let currentLayout = oPrivateGrid.getCurrentLayout();
 ///  console.log(currentLayout);
 ///
 ///  // Return the current gutter (e.g. 10px, 20px)
-///  import oGrid from 'o-grid';
-///  let currentGutter = oGrid.getCurrentGutter();
+///  import oPrivateGrid from 'o-private-foundation/o-grid';
+///  let currentGutter = oPrivateGrid.getCurrentGutter();
 ///  console.log(currentGutter);
 @mixin oPrivateGridSurfaceCurrentLayout {
 	html:after {
