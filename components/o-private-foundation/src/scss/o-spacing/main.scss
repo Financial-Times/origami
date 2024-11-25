@@ -3,9 +3,9 @@
 /// @param {String} $size-name - Get a recommended space size by name.
 /// @return {Number} - A px value (or rem value if relative units have been enabled).
 @function oPrivateSpacingByName($size-name) {
-  $value: map-get($o-private-spacing-sizes, $size-name);
+  $value: map-get($o-pf-spacing-sizes, $size-name);
   @if(type-of($value) != 'number') {
-    @error 'There is no recommended space named "#{$size-name}". Should be one of #{map-keys($o-private-spacing-sizes)}.';
+    @error 'There is no recommended space named "#{$size-name}". Should be one of #{map-keys($o-pf-spacing-sizes)}.';
   }
   @return oPrivateSpacingByIncrement($value);
 }
@@ -21,8 +21,8 @@
 
 /// @return {Number} - A px value representing our spacing baseline (or rem value if relative units have been enabled).
 @function oPrivateSpacingGetBaselineValue() {
-  @if($o-private-spacing-relative-units) {
-    @return div($o-private-spacing-baseline, 16) * 1rem;
+  @if($o-pf-spacing-relative-units) {
+    @return div($o-pf-spacing-baseline, 16) * 1rem;
   }
-  @return $o-private-spacing-baseline * 1px;
+  @return $o-pf-spacing-baseline * 1px;
 }
