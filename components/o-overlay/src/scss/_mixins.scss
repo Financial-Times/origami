@@ -8,7 +8,7 @@
 /// @access private
 @mixin _oOverlayBase {
 	.o-overlay {
-		@include oVisualEffectsShadowContent($elevation: 'high');
+		@include oPrivateVisualEffectsShadowContent($elevation: 'high');
 		@include oTypographySans($scale: 0);
 		position: fixed;
 		z-index: 11; // Must always be higher than the shadow z-index

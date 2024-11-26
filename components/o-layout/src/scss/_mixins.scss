@@ -244,7 +244,7 @@
 		&:target .o-layout__linked-heading__link {
 			animation-delay: 0;
 			animation-duration: 5s;
-			animation-timing-function: $o-visual-effects-timing-fade;
+			animation-timing-function: $o-pf-visual-effects-timing-fade;
 			animation-name: o-layout-linked-heading-fade;
 		}
 

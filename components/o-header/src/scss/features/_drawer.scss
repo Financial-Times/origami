@@ -7,7 +7,7 @@
 		transition: transform 0.5s cubic-bezier(1, 0, 0.5, 1.2);
 
 		&[data-o-header-drawer--js] {
-			@include oVisualEffectsShadowContent('low');
+			@include oPrivateVisualEffectsShadowContent('low');
 			display: none;
 			position: fixed;
 			top: 0;
@@ -18,11 +18,7 @@
 			border-right: 1px solid _oHeaderGet('drawer-border');
 			// use a 2D transform because 3D are unsupported by IE9
 			transform: translateX(-100%);
-			transform: translate3d(
-				-100%,
-				0,
-				0
-			); // stylelint-disable-line declaration-block-no-duplicate-properties
+			transform: translate3d(-100%, 0, 0); // stylelint-disable-line declaration-block-no-duplicate-properties
 
 			// this is literally the specification example for will-change
 			will-change: transform;
@@ -38,11 +34,7 @@
 			&.o-header__drawer--open {
 				// use a 2D transform because 3D are unsupported by IE9
 				transform: translateX(0);
-				transform: translate3d(
-					0,
-					0,
-					0
-				); // stylelint-disable-line declaration-block-no-duplicate-properties
+				transform: translate3d(0, 0, 0); // stylelint-disable-line declaration-block-no-duplicate-properties
 			}
 		}
 	}

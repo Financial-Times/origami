@@ -42,13 +42,13 @@
 	}
 
 	.o-cookie-message__outer {
-		@include oVisualEffectsShadowContent('high');
+		@include oPrivateVisualEffectsShadowContent('high');
 		background: oColorsByName('white');
 		color: oColorsByName('black');
 	}
 
 	.o-cookie-message__inner {
-		@include oVisualEffectsShadowContent('high');
+		@include oPrivateVisualEffectsShadowContent('high');
 		@include oTypographySans($scale: 0);
 		// sass-lint:disable no-vendor-prefixes
 		-webkit-font-smoothing: antialiased;
