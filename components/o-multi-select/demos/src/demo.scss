@@ -6,7 +6,7 @@
 @include oForms();
 
 body {
-  background: oColorsByUsecase(page, background);
+	background: oColorsByUsecase(page, background);
 }
 
 @include oMultiSelect();

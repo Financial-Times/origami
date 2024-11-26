@@ -41,7 +41,7 @@
 }
 
 @mixin _oBannerOuter {
-	@include oVisualEffectsShadowContent('high');
+	@include oPrivateVisualEffectsShadowContent('high');
 	background: _oBannerGet('background-color');
 	color: _oBannerGet('text-color');
 	border-bottom: $_o-banner-brand-border solid transparent;

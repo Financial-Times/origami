@@ -10,7 +10,7 @@
 
 	.o-header__mega {
 		@include oTypographySans(0);
-		@include oVisualEffectsShadowContent('low');
+		@include oPrivateVisualEffectsShadowContent('low');
 		display: none;
 		position: absolute;
 		top: 100%;

@@ -1,7 +1,7 @@
 @import "@financial-times/o-private-foundation/src/scss/o-grid/main";
-@import "@financial-times/o-private-foundation/o-normalise/main";
+@import '@financial-times/o-private-foundation/src/scss/o-normalise/main';
 @import "@financial-times/o-overlay/main";
-@import "@financial-times/o-visual-effects/main";
+@import "@financial-times/o-private-foundation/src/scss/o-visual-effects/main";
 @import "@financial-times/o-typography/main";
 
 @import "src/scss/variables";
@@ -27,13 +27,13 @@
 	@include oPrivateGridSurfaceCurrentLayout();
 
 	.o-tooltip {
-		@include oVisualEffectsShadowContent($elevation: 'high');
+		@include oPrivateVisualEffectsShadowContent($elevation: 'high');
 		@include _oTooltipThemeContent(); // Style for the default theme.
 		position: absolute;
 		z-index: 10;
 		box-sizing: border-box;
 		opacity: 0;
-		transition: opacity $_o-tooltip-animation-duration $o-visual-effects-timing-fade, transform $_o-tooltip-animation-duration $o-visual-effects-timing-slide;
+		transition: opacity $_o-tooltip-animation-duration $o-pf-visual-effects-timing-fade, transform $_o-tooltip-animation-duration $o-pf-visual-effects-timing-slide;
 		border: 0;
 		display: none;
 
