@@ -20,7 +20,7 @@ module.exports = {
 			{
 				type: "at-rule",
 				name: "include",
-				parameter: "^((?!oGridRespondTo|oNormaliseFocusApply).)*$",
+				parameter: "^((?!oGridRespondTo|oNormaliseFocusApply|oPrivateNormaliseFocusApply).)*$",
 			},
 			"declarations",
 		],
