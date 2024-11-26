@@ -1,12 +1,15 @@
-@import '@financial-times/o-private-foundation/src/scss/o-normalise/main';
 /// @access private
 /// @param {Boolean} $bleed [whether or not to make the header a bleed header. Defaults to false.]
 /// @outputs base styles for full header
 @mixin _oHeaderServicesBase($bleed: false) {
 	//Surface layouts for o-grid JavaScript helper https://github.com/Financial-Times/o-grid#getcurrentlayout
-	@include oGrid((
-		'surface': ('current-layout'),
-	));
+	@include oGrid(
+		(
+			'surface': (
+				'current-layout',
+			),
+		)
+	);
 
 	.o-header-services {
 		@include oTypographySans($scale: 0);
