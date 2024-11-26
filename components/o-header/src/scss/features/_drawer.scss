@@ -7,7 +7,7 @@
 		transition: transform 0.5s cubic-bezier(1, 0, 0.5, 1.2);
 
 		&[data-o-header-drawer--js] {
-			@include oVisualEffectsShadowContent('low');
+			@include oPrivateVisualEffectsShadowContent('low');
 			display: none;
 			position: fixed;
 			top: 0;

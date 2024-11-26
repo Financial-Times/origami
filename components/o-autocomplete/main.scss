@@ -9,7 +9,7 @@
 @import '@financial-times/o-private-foundation/src/scss/o-normalise/main';
 @import '@financial-times/o-spacing/main';
 @import '@financial-times/o-typography/main';
-@import '@financial-times/o-visual-effects/main';
+@import '@financial-times/o-private-foundation/src/scss/o-visual-effects/main';
 
 @import 'src/scss/variables';
 @import 'src/scss/brand';
@@ -70,7 +70,7 @@
 	}
 
 	.o-autocomplete__menu {
-		@include oVisualEffectsShadowContent('high');
+		@include oPrivateVisualEffectsShadowContent('high');
 		top: oSpacingByName('s1');
 		background-color: oColorsByName('white');
 		border-top: 0;
@@ -98,7 +98,7 @@
 	}
 
 	.o-autocomplete__menu--overlay {
-		@include oVisualEffectsShadowContent('high');
+		@include oPrivateVisualEffectsShadowContent('high');
 		box-sizing: border-box;
 	}
 
@@ -165,7 +165,7 @@
 		grid-row: 2;
 	}
 	.o-autocomplete__menu-loading-container {
-		@include oVisualEffectsShadowContent('high');
+		@include oPrivateVisualEffectsShadowContent('high');
 		display: flex;
 		justify-content: center;
 		align-items: center;
