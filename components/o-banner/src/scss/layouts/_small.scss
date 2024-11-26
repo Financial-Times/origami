@@ -27,7 +27,7 @@
 }
 
 @mixin _oBannerSmallInner {
-	@include oVisualEffectsShadowContent('high');
+	@include oPrivateVisualEffectsShadowContent('high');
 	@include oTypographySans($scale: 2);
 	background: _oBannerGet('background-color');
 	display: block;
