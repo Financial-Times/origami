@@ -220,7 +220,7 @@
 				)
 			);
 
-			// normally, these should come for free with oButtons mixin
+			// normally, these should come for free with the button mixin
 			// but we have to declare this explicitly here because
 			// Coral styles override our styles for some reason
 			color: oPrivateFoundationGet(
