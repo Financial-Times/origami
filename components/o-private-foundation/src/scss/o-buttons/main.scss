@@ -18,52 +18,81 @@
 
 	@include _oPrivateButtonsBase($opts);
 
-	/* Type and theme specific styles */
+	/*
+		Type and theme specific styles.
+		FT Professional was treated as a theme, but is now considered a brand in tokens.
+	 */
+	$sub-brand: null;
+	@if $theme == 'professional' {
+		$theme: 'standard';
+		$sub-brand: 'professional';
+	}
+
+	@if $theme == 'professional-inverse' {
+		$theme: 'inverse';
+		$sub-brand: 'professional';
+	}
 	@include _oPrivateButtonsTheme(
 		(
 			'color':
-				oPrivateFoundationGet('_o3-button-' + $type + '-' + $theme + '-color'),
+				oPrivateFoundationGet(
+					'_o3-button-' + $type + '-' + $theme + '-color',
+					$sub-brand
+				),
 			'background':
 				oPrivateFoundationGet(
-					'_o3-button-' + $type + '-' + $theme + '-background'
+					'_o3-button-' + $type + '-' + $theme + '-background',
+					$sub-brand
 				),
 			'border':
-				oPrivateFoundationGet('_o3-button-' + $type + '-' + $theme + '-border'),
+				oPrivateFoundationGet(
+					'_o3-button-' + $type + '-' + $theme + '-border',
+					$sub-brand
+				),
 			'hover-color':
 				oPrivateFoundationGet(
-					'_o3-button-' + $type + '-' + $theme + '-hover-color'
+					'_o3-button-' + $type + '-' + $theme + '-hover-color',
+					$sub-brand
 				),
 			'hover-background':
 				oPrivateFoundationGet(
-					'_o3-button-' + $type + '-' + $theme + '-hover-background'
+					'_o3-button-' + $type + '-' + $theme + '-hover-background',
+					$sub-brand
 				),
 			'hover-border':
 				oPrivateFoundationGet(
-					'_o3-button-' + $type + '-' + $theme + '-hover-border'
+					'_o3-button-' + $type + '-' + $theme + '-hover-border',
+					$sub-brand
 				),
 			'focus-color':
 				oPrivateFoundationGet(
-					'_o3-button-' + $type + '-' + $theme + '-focus-color'
+					'_o3-button-' + $type + '-' + $theme + '-focus-color',
+					$sub-brand
 				),
 			'focus-background':
 				oPrivateFoundationGet(
-					'_o3-button-' + $type + '-' + $theme + '-focus-background'
+					'_o3-button-' + $type + '-' + $theme + '-focus-background',
+					$sub-brand
 				),
 			'focus-border':
 				oPrivateFoundationGet(
-					'_o3-button-' + $type + '-' + $theme + '-focus-border'
+					'_o3-button-' + $type + '-' + $theme + '-focus-border',
+					$sub-brand
 				),
 			'active-color':
 				oPrivateFoundationGet(
-					'_o3-button-' + $type + '-' + $theme + '-active-color'
+					'_o3-button-' + $type + '-' + $theme + '-active-color',
+					$sub-brand
 				),
 			'active-background':
 				oPrivateFoundationGet(
-					'_o3-button-' + $type + '-' + $theme + '-active-background'
+					'_o3-button-' + $type + '-' + $theme + '-active-background',
+					$sub-brand
 				),
 			'active-border':
 				oPrivateFoundationGet(
-					'_o3-button-' + $type + '-' + $theme + '-active-border'
+					'_o3-button-' + $type + '-' + $theme + '-active-border',
+					$sub-brand
 				),
 		)
 	);
