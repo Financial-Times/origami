@@ -3,7 +3,7 @@
 	$link-theme: (
 		'base': 'teal',
 		'hover': 'teal',
-		'context': 'white'
+		'context': 'white',
 	);
 
 	.o-cookie-message {
@@ -29,7 +29,9 @@
 
 		@include oGridRespondTo(XL) {
 			width: div(map-get($o-grid-layouts, XL), 2.5); // width is 40% grid
-			left: calc((100vw - #{map-get($o-grid-layouts, XL)}) / 2); // ((viewport - grid width) / 2)
+			left: calc(
+				(100vw - #{map-get($o-grid-layouts, XL)}) / 2
+			); // ((viewport - grid width) / 2)
 		}
 	}
 
@@ -104,12 +106,14 @@
 	.o-cookie-message__heading h1,
 	.o-cookie-message__heading h2 {
 		@include oTypographySans(
-			$scale: ('default': 2, 'M': 3),
+			$scale: (
+				'default': 2,
+				'M': 3,
+			),
 			$weight: 'semibold'
 		);
 		margin: 0;
 	}
-
 
 	.o-cookie-message__actions {
 		@include oTypographySans($scale: 2);
@@ -145,10 +149,12 @@
 	}
 
 	.o-cookie-message__button {
-		@include oButtonsContent((
-			'size': 'big',
-			'type': 'primary'
-		));
+		@include oPrivateButtonsContent(
+			$opts: (
+				'type': 'primary',
+				'size': 'big',
+			)
+		);
 		white-space: nowrap;
 	}
 
@@ -164,15 +170,21 @@
 	$link-theme: (
 		'base': 'black',
 		'hover': 'black',
-		'context': 'white'
+		'context': 'white',
 	);
 
 	.o-cookie-message.o-cookie-message--alternative {
 		.o-cookie-message__button {
-			@include oButtonsContent((
-				'type': 'primary',
-				'theme':  ('color': oColorsMix('jade', 'black', 89), 'context': 'white')
-			), $include-base-styles: false);
+			@include oPrivateButtonsContentWithThemeOverride(
+				$opts: (
+					'type': 'primary',
+					'size': 'big',
+				),
+				$theme-override: (
+					'color': oColorsMix('jade', 'black', 89),
+					'context': 'white',
+				)
+			);
 		}
 
 		.o-cookie-message__heading:after {
