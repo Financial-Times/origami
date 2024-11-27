@@ -30,7 +30,7 @@
 		}
 
 		.o-teaser__content:after {
-			@include oGridRespondTo(S, L) {
+			@include oPrivateGridRespondTo(S, L) {
 				top: 0;
 				border: 0;
 			}
@@ -69,7 +69,7 @@
 	}
 
 	.o-teaser__content:after {
-		@include oGridRespondTo(S, L) {
+		@include oPrivateGridRespondTo(S, L) {
 			background: $opinion-background;
 		}
 	}
@@ -77,12 +77,12 @@
 
 /// Hero image theme styles - full size image with text overlay
 @mixin _oTeaserHeroImage {
-	@include oGridRespondTo($until: M) {
+	@include oPrivateGridRespondTo($until: M) {
 		@include _oTeaserHeroCentre;
 		@include _oTeaserHeroCentreImage;
 	}
 
-	@include oGridRespondTo(M) {
+	@include oPrivateGridRespondTo(M) {
 		position: relative;
 
 		.o-teaser__image-container {
@@ -138,7 +138,7 @@
 }
 
 @mixin _oTeaserHeroMidSlice {
-	@include oGridRespondTo(M, $until: L) {
+	@include oPrivateGridRespondTo(M, $until: L) {
 		.o-teaser__image-container {
 			padding: 0 30%;
 		}
@@ -250,7 +250,7 @@
 	}
 
 	.o-teaser__content:after {
-		@include oGridRespondTo(S, L) {
+		@include oPrivateGridRespondTo(S, L) {
 			background: $hero-extra-background;
 		}
 	}

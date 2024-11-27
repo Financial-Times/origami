@@ -10,7 +10,7 @@
 	}
 
 	.o-header__container {
-		@include oGridContainer();
+		@include oPrivateGridContainer();
 		@include oPrivateNormaliseClearfix();
 	}
 

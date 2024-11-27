@@ -1,6 +1,6 @@
 /// @prop {Boolean}
 /// @access public
-$o-topper-snappy: if($o-grid-mode == 'snappy' , true, false) !default;
+$o-topper-snappy: if($o-pf-grid-mode == 'snappy' , true, false) !default;
 
 /// @prop {Boolean}
 /// @access public

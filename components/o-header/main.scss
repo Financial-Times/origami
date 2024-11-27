@@ -2,7 +2,6 @@
 @import '@financial-times/o-brand/main';
 @import '@financial-times/o-colors/main';
 @import '@financial-times/o-icons/main';
-@import '@financial-times/o-grid/main';
 @import '@financial-times/o-private-foundation/main';
 @import '@financial-times/o-typography/main';
 @import '@financial-times/o-forms/main';
@@ -32,10 +31,10 @@
 @mixin oHeader($opts: $_o-header-features, $include-base-styles: true) {
 	@include oPrivateFoundation();
 
-	@include oGridAddLayout(
+	@include oPrivateGridAddLayout(
 		$layout-name: 'oHeaderL',
 		$layout-width: 1080px,
-		$gutter-width: map-get($o-grid-gutters, 'M')
+		$gutter-width: map-get($o-pf-grid-gutters, 'M')
 	);
 
 	@include oForms(

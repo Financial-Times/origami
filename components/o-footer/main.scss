@@ -32,7 +32,7 @@
 	$themes: if($themes, $themes, ());
 
 	//Surface layouts for o-grid JavaScript helper https://github.com/Financial-Times/o-grid#getcurrentlayout
-	@include oGridSurfaceCurrentLayout();
+	@include oPrivateGridSurfaceCurrentLayout();
 
 	.o-footer {
 		@include oTypographySans(0);
@@ -46,7 +46,7 @@
 	}
 
 	.o-footer__container {
-		@include oGridContainer();
+		@include oPrivateGridContainer();
 		/* hack to stop the margins collapsing */
 		padding-top: 0.1px;
 	}

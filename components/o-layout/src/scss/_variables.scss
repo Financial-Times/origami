@@ -10,6 +10,6 @@
 $o-layout-is-silent: true !default;
 
 /// Base layout measurements
-$_o-layout-gutter: oGridGutter() * 2; // grid gutter to align with o-header-services
-$_o-layout-container-max-width: oGridGetMaxWidthForLayout($o-grid-fixed-layout); // To align with o-header-services.
+$_o-layout-gutter: oPrivateGridGutter() * 2; // grid gutter to align with o-header-services
+$_o-layout-container-max-width: oPrivateGridGetMaxWidthForLayout($o-pf-grid-fixed-layout); // To align with o-header-services.
 $_o-layout-sidebar-width: 16.5rem;
