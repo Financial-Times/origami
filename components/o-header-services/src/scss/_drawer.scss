@@ -19,7 +19,8 @@
 		bottom: 0;
 		visibility: hidden;
 		display: block;
-		transition: visibility 0.01s linear, opacity 0.5s $o-pf-visual-effects-timing-fade;
+		transition: visibility 0.01s linear,
+			opacity 0.5s $o-pf-visual-effects-timing-fade;
 		// So the drawer stays on top of other elements.
 		z-index: 1;
 
@@ -68,7 +69,7 @@
 			// Override the background colour of the draw's dropdown button.
 			.o-header-services__drop-down-button,
 			a[aria-current] + .o-header-services__drop-down-button {
-				@if  _oHeaderServicesGet('drawer-button-background') { // stylelint-disable-line selector-no-qualifying-type
+				@if _oHeaderServicesGet('drawer-button-background') {
 					border: 0;
 					background-color: _oHeaderServicesGet('drawer-button-background');
 					&:hover {
@@ -78,7 +79,7 @@
 			}
 
 			// Second level nav item.
-			[data-o-header-services-level="2"] {
+			[data-o-header-services-level='2'] {
 				border-right: 0;
 				opacity: 0;
 				width: 100%;
@@ -97,8 +98,8 @@
 			}
 
 			// Expanded first level nav item.
-			li[data-o-header-services-level][dropdown-open=true] {
-				[data-o-header-services-level="2"] { // stylelint-disable-line selector-no-qualifying-type
+			li[data-o-header-services-level][dropdown-open='true'] {
+				[data-o-header-services-level='2'] {
 					position: relative;
 					opacity: 1;
 				}
@@ -117,13 +118,12 @@
 						text-transform: none;
 						display: block;
 						margin: 0;
-						padding: $_o-header-services-padding  oSpacingByIncrement(5);
+						padding: $_o-header-services-padding oSpacingByIncrement(5);
 					}
 					a:hover {
 						background-color: none;
 					}
 				}
-
 			}
 		}
 	}
@@ -148,7 +148,11 @@
 		border: 0;
 		vertical-align: middle;
 		&:after {
-			@include oIconsContent('cross', _oHeaderServicesGet('arrow-icon-color'),  1.5rem);
+			@include oIconsContent(
+				'cross',
+				_oHeaderServicesGet('arrow-icon-color'),
+				1.5rem
+			);
 			content: '';
 			vertical-align: inherit;
 		}
@@ -157,7 +161,11 @@
 			color: _oHeaderServicesGet('text-hover-color');
 			&:after {
 				@if _oHeaderServicesGet('text-hover-color') {
-					@include oIconsContent('cross', _oHeaderServicesGet('text-hover-color'), 1.5rem);
+					@include oIconsContent(
+						'cross',
+						_oHeaderServicesGet('text-hover-color'),
+						1.5rem
+					);
 					vertical-align: inherit;
 				}
 			}

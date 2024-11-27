@@ -3,11 +3,7 @@
 /// @param {Boolean} $small Whether to output small input styles
 /// @param {Boolean} $suffix Whether to output suffix styles
 /// @output Styling for text areas
-@mixin _oFormsSelect(
-	$disabled: null,
-	$small: null,
-	$suffix: null
-) {
+@mixin _oFormsSelect($disabled: null, $small: null, $suffix: null) {
 	.o-forms-input--select {
 		@if $small {
 			@include _oFormsInputSmall('select');
@@ -19,10 +15,16 @@
 
 		select {
 			@include _oFormsInputBase($disabled);
-			@include oIconsContent('arrow-down', _oFormsGet('field-standard-text'), $size: null, $include-base-styles: false);
+			@include oIconsContent(
+				'arrow-down',
+				_oFormsGet('field-standard-text'),
+				$size: null,
+				$include-base-styles: false
+			);
 			appearance: none;
 			background-repeat: no-repeat;
-			background-size: $_o-forms-checkbox-radio-width $_o-forms-checkbox-radio-width;
+			background-size: $_o-forms-checkbox-radio-width
+				$_o-forms-checkbox-radio-width;
 			border-radius: 0;
 			background-clip: padding-box;
 			color: _oFormsGet('default-text');
@@ -41,10 +43,15 @@
 			}
 
 			&:disabled {
-				@include oIconsContent('arrow-down', _oFormsGet('disabled-text'), $size: null, $include-base-styles: false);
+				@include oIconsContent(
+					'arrow-down',
+					_oFormsGet('disabled-text'),
+					$size: null,
+					$include-base-styles: false
+				);
 			}
 
-			&[multiple] { //stylelint-disable-line selector-no-qualifying-type
+			&[multiple] {
 				background-image: none;
 			}
 		}

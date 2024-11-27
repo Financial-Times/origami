@@ -44,15 +44,13 @@
 				padding: oSpacingByName('s2') 0;
 				margin: 0;
 
-				&:hover, // stylelint-disable-line selector-no-qualifying-type
+				&:hover,
 				&[aria-current] {
-					// stylelint-disable-line selector-no-qualifying-type
 					color: _oHeaderServicesGet('text-hover-color');
 				}
 
-				&:hover:before, // stylelint-disable-line selector-no-qualifying-type
+				&:hover:before,
 				&[aria-current]:before {
-					// stylelint-disable-line selector-no-qualifying-type
 					content: '';
 					position: absolute;
 					bottom: 0;
