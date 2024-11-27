@@ -3,18 +3,14 @@
 /// @param {Boolean} $right Whether to display checkbox to the right of text
 /// @param {List} $themes List of themes to output.
 /// @output Styling for text inputs
-@mixin _oFormsCheckbox(
-	$disabled: null,
-	$right: null,
-	$themes: (),
-) {
+@mixin _oFormsCheckbox($disabled: null, $right: null, $themes: ()) {
 	.o-forms-input--checkbox {
-		input[type=checkbox] { // stylelint-disable-line selector-no-qualifying-type
+		input[type='checkbox'] {
 			@include _oFormsControlsBase($disabled);
 
 			&:focus {
 				@include oPrivateNormaliseFocusUnsetContent();
-				& + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
+				& + .o-forms-input__label:before {
 					@include oPrivateNormaliseFocusContent();
 				}
 			}
@@ -25,19 +21,23 @@
 			// `:focus` fallback, however some of our supported browsers
 			// do not understand `@supports: selector()`.
 			@supports selector(:focus-visible) {
-				&:focus + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
+				&:focus + .o-forms-input__label:before {
 					@include oPrivateNormaliseFocusUnsetContent();
 				}
 
 				&:focus-visible {
-					& + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
+					& + .o-forms-input__label:before {
 						@include oPrivateNormaliseFocusContent();
 					}
 				}
 			}
 
-			&:indeterminate + .o-forms-input__label:after { // stylelint-disable-line selector-no-qualifying-type
-				@include oIconsContent('minus', _oFormsGet('controls-checked-base'), $_o-forms-checkbox-radio-width);
+			&:indeterminate + .o-forms-input__label:after {
+				@include oIconsContent(
+					'minus',
+					_oFormsGet('controls-checked-base'),
+					$_o-forms-checkbox-radio-width
+				);
 				background-color: _oFormsGet('controls-base');
 				opacity: 1;
 			}
@@ -47,10 +47,10 @@
 			.o-forms-input__right {
 				display: inline-block;
 
-				input[type=checkbox] { // stylelint-disable-line selector-no-qualifying-type
+				input[type='checkbox'] {
 					right: 0;
 				}
-				input[type=checkbox] ~ .o-forms-input__label { // stylelint-disable-line selector-no-qualifying-type
+				input[type='checkbox'] ~ .o-forms-input__label {
 					padding-left: 0;
 					padding-right: $_o-forms-spacing-controls;
 
@@ -63,7 +63,7 @@
 			}
 		}
 
-		input[type=checkbox] ~ .o-forms-input__label { // stylelint-disable-line selector-no-qualifying-type
+		input[type='checkbox'] ~ .o-forms-input__label {
 			display: inline-block;
 			padding: $_o-forms-spacing-half 0 0 $_o-forms-spacing-controls;
 			vertical-align: top;
@@ -76,7 +76,11 @@
 
 			&:after {
 				@include _oFormsControlsPseudoElements();
-				@include oIconsContent('tick', _oFormsGet('controls-checked-base'), $_o-forms-checkbox-radio-width);
+				@include oIconsContent(
+					'tick',
+					_oFormsGet('controls-checked-base'),
+					$_o-forms-checkbox-radio-width
+				);
 				background-color: _oFormsGet('controls-base');
 				opacity: 0;
 				transition: opacity 0.1s ease;
@@ -84,7 +88,7 @@
 
 			// this handles spacing between two input__label spans for the same input element,
 			// which is necessary in the case of 'additional content'
-			& + .o-forms-input__label { // stylelint-disable-line selector-no-qualifying-type
+			& + .o-forms-input__label {
 				padding-top: $_o-forms-spacing-three;
 			}
 		}
@@ -102,56 +106,65 @@
 /// Output styles required to set a checkbox theme.
 /// @param {String} $theme Theme to output
 @mixin _oFormsCheckboxThemeContent($theme) {
-
 	.o-forms-input--checkbox {
-		input[type=checkbox] {// stylelint-disable-line selector-no-qualifying-type
-			&:indeterminate + .o-forms-input__label:after {// stylelint-disable-line selector-no-qualifying-type
-				@include oIconsContent('minus', _oFormsGet('controls-checked-base', $theme), $_o-forms-checkbox-radio-width);
+		input[type='checkbox'] {
+			&:indeterminate + .o-forms-input__label:after {
+				@include oIconsContent(
+					'minus',
+					_oFormsGet('controls-checked-base', $theme),
+					$_o-forms-checkbox-radio-width
+				);
 				background-color: _oFormsGet('controls-base', $theme);
 			}
 		}
 
-		input[type=checkbox] ~ .o-forms-input__label {// stylelint-disable-line selector-no-qualifying-type
+		input[type='checkbox'] ~ .o-forms-input__label {
 			&:before {
-				border: 1px solid _oFormsGet("default-border", $theme);
+				border: 1px solid _oFormsGet('default-border', $theme);
 			}
 
 			&:after {
-				@include oIconsContent('tick', _oFormsGet('controls-checked-base', $theme), $_o-forms-checkbox-radio-width);
-				background-color: _oFormsGet("controls-base", $theme);
+				@include oIconsContent(
+					'tick',
+					_oFormsGet('controls-checked-base', $theme),
+					$_o-forms-checkbox-radio-width
+				);
+				background-color: _oFormsGet('controls-base', $theme);
 			}
-			.o-forms-input__label__prompt {// stylelint-disable-line selector-no-qualifying-type
-				color: _oFormsGet("default-text", $theme);
+			.o-forms-input__label__prompt {
+				color: _oFormsGet('default-text', $theme);
 			}
 		}
 
-		@if $theme and oColorsColorBrightness(_oFormsGet("default-text", $theme)) > 65% {
-		input[type=checkbox] { // stylelint-disable-line selector-no-qualifying-type
-			&:focus {
-				@include oPrivateNormaliseFocusUnsetContent();
-				& + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
-					@include oPrivateNormaliseFocusContentInverse();
-				}
-			}
-
-			// Unset :focus styles where :focus-visible is supported.
-			// Ideally we would set `:focus-visible` by default and use
-			// `@supports not selector(:focus-visible)` to provide a
-			// `:focus` fallback, however some of our supported browsers
-			// do not understand `@supports: selector()`.
-			@supports selector(:focus-visible) {
-				&:focus + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
+		@if $theme and
+			oColorsColorBrightness(_oFormsGet('default-text', $theme)) >
+			65%
+		{
+			input[type='checkbox'] {
+				&:focus {
 					@include oPrivateNormaliseFocusUnsetContent();
+					& + .o-forms-input__label:before {
+						@include oPrivateNormaliseFocusContentInverse();
+					}
 				}
 
-				&:focus-visible {
-					& + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
-						@include oPrivateNormaliseFocusContentInverse();
+				// Unset :focus styles where :focus-visible is supported.
+				// Ideally we would set `:focus-visible` by default and use
+				// `@supports not selector(:focus-visible)` to provide a
+				// `:focus` fallback, however some of our supported browsers
+				// do not understand `@supports: selector()`.
+				@supports selector(:focus-visible) {
+					&:focus + .o-forms-input__label:before {
+						@include oPrivateNormaliseFocusUnsetContent();
+					}
+
+					&:focus-visible {
+						& + .o-forms-input__label:before {
+							@include oPrivateNormaliseFocusContentInverse();
+						}
 					}
 				}
 			}
 		}
-		}
 	}
-
 }

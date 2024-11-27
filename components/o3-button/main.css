@@ -412,11 +412,10 @@
 	https://drafts.csswg.org/css-color/#valdef-color-buttontext
  */
 @media (forced-colors: active) {
-	/* stylelint-disable-next-line selector-no-qualifying-type */
 	button.o3-button-icon::before {
 		background-color: ButtonText;
 	}
-	/* stylelint-disable-next-line selector-no-qualifying-type */
+
 	a.o3-button-icon::before {
 		background-color: LinkText;
 	}
