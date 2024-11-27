@@ -16,22 +16,27 @@ body {
 }
 
 .demo-button {
-	@include oButtonsContent((
-		'type': 'secondary',
-		'size': 'big'
-	));
+	@include oPrivateButtonsContent(
+		(
+			'type': 'secondary',
+			'size': 'big',
+		)
+	);
 }
 
 .demo-banner-static {
 	position: static !important; // stylelint-disable-line declaration-no-important
 }
 
-@include oBannerAddTheme('pikachu', (
-	'text-color': oColorsByName('black'),
-	'background-color': oColorsByName('lemon'),
-	'heading-rule-color': oColorsByName('crimson'),
-	'button-background-color': oColorsByName('crimson')
-));
+@include oBannerAddTheme(
+	'pikachu',
+	(
+		'text-color': oColorsByName('black'),
+		'background-color': oColorsByName('lemon'),
+		'heading-rule-color': oColorsByName('crimson'),
+		'button-background-color': oColorsByName('crimson'),
+	)
+);
 
 .demo-custom-content {
 	@include oTypographySerif(1);
