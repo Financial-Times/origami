@@ -295,20 +295,20 @@
 @mixin oPrivateGridAddLayout($layout-name, $layout-width, $gutter-width: null) {
 	$temp-layouts: ();
 	$temp-gutters: (default: oGridGutter());
-	$current-max-width: map-get($o-grid-layouts, nth($_o-grid-layout-names, -1));
+	$current-max-width: map-get($o-pf-grid-layouts, nth($_o-pf-grid-layout-names, -1));
 
 	// Add the new layout in the correct position:
 	// (we want $o-grid-layouts and $o-grid-gutters to be ordered from the smallest to the largest layout)
 	@if($layout-width >= $current-max-width) {
-		$temp-layouts: map-merge($o-grid-layouts, ($layout-name: $layout-width));
-		$temp-gutters: map-merge($o-grid-gutters, ($layout-name: $gutter-width));
+		$temp-layouts: map-merge($o-pf-grid-layouts, ($layout-name: $layout-width));
+		$temp-gutters: map-merge($o-pf-grid-gutters, ($layout-name: $gutter-width));
 	} @else {
-		@for $index from 1 through length($o-grid-layouts) {
-			$previous-layout-width: if($index == 1, 0, map-get($o-grid-layouts, nth($_o-grid-layout-names, $index - 1)));
+		@for $index from 1 through length($o-pf-grid-layouts) {
+			$previous-layout-width: if($index == 1, 0, map-get($o-pf-grid-layouts, nth($_o-grid-layout-names, $index - 1)));
 			$current-layout-name: nth($_o-grid-layout-names, $index);
-			$current-layout-width: map-get($o-grid-layouts, $current-layout-name);
+			$current-layout-width: map-get($o-pf-grid-layouts, $current-layout-name);
 
-			$current-gutter-width: map-get($o-grid-gutters, $current-layout-name);
+			$current-gutter-width: map-get($o-pf-grid-gutters, $current-layout-name);
 
 			// Assumes all layouts use the same unit e.g. px or rem (as does the JavaScript)
 			@if not ($previous-layout-width > $layout-width or $current-layout-width < $layout-width) {
@@ -323,10 +323,10 @@
 			}
 		}
 	}
-	$o-grid-layouts: $temp-layouts !global;
-	$_o-grid-layout-names: map-keys($o-grid-layouts) !global;
+	$o-pf-grid-layouts: $temp-layouts !global;
+	$_o-grid-layout-names: map-keys($o-pf-grid-layouts) !global;
 
 	@if $gutter-width {
-		$o-grid-gutters: $temp-gutters !global;
+		$o-pf-grid-gutters: $temp-gutters !global;
 	}
 }
