@@ -1,4 +1,3 @@
-@use 'sass:meta';
 // ----------------------------------------------------------------------------
 // Responsive behaviour configuration
 // ----------------------------------------------------------------------------
@@ -11,7 +10,7 @@
 ///
 /// @type String - one of fluid (default), snappy, fixed
 
-@if meta.variable-exists($o-grid-mode) {
+@if variable-exists(o-grid-mode) {
 	$_o-pf-grid-mode: $o-grid-mode;
 } @else {
 	$_o-pf-grid-mode: 'fluid' !default;
@@ -20,7 +19,7 @@
 /// Layout to default to when the grid has a fixed width (not fluid)
 ///
 /// @type String - One of $o-pf-grid-layouts
-@if meta.variable-exists($o-grid-fixed-layout) {
+@if variable-exists(o-grid-fixed-layout) {
 	$o-pf-grid-fixed-layout: $o-grid-fixed-layout;
 } @else {
 	$o-pf-grid-fixed-layout: 'L' !default;
@@ -52,7 +51,7 @@ $_o-pf-grid-min-width: 240px !default;
 /// in order to base breakpoints on the structure of the grid itself
 ///
 /// @type Map
-@if meta.variable-exists($o-grid-layouts) {
+@if variable-exists(o-grid-layouts) {
 	$o-pf-grid-layouts: $o-grid-layouts;
 } @else {
 	$o-pf-grid-layouts: (
@@ -72,7 +71,7 @@ $_o-pf-grid-layout-names: map-keys($o-pf-grid-layouts);
 /// Gutter sizes
 ///
 /// @type Map
-@if meta.variable-exists($o-grid-gutters) {
+@if variable-exists(o-grid-gutters) {
 	$o-pf-grid-gutters: $o-grid-gutters;
 } @else {
 	$o-pf-grid-gutters: (
