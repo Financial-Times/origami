@@ -9,7 +9,7 @@
 /// - fixed: always fixed-width with the layout defined by $o-pf-grid-fixed-layout (default: L)
 ///
 /// @type String - one of fluid (default), snappy, fixed
-$_o-pf-grid-mode: if(global-variable-exists(o-grid-mode), $o-grid-mode, 'fluid') !default;
+$o-pf-grid-mode: if(global-variable-exists(o-grid-mode), $o-grid-mode, 'fluid') !default;
 
 
 /// Layout to default to when the grid has a fixed width (not fluid)

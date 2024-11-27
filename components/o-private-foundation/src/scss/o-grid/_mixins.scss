@@ -27,7 +27,7 @@
 /// @param {String} until - one of $o-pf-grid-layouts
 @mixin oPrivateGridRespondTo($from: false, $until: false) {
 
-	$grid-is-responsive: $_o-pf-grid-mode != 'fixed';
+	$grid-is-responsive: $o-pf-grid-mode != 'fixed';
 	@include mq(
 		$from: $from,
 		$until: $until,
@@ -61,7 +61,7 @@
 		flex: 1 1 0%;
 		position: relative; // Required for push and pull
 
-		@if $_o-pf-grid-mode == 'fixed' {
+		@if $o-pf-grid-mode == 'fixed' {
 			padding-left: oPrivateGridGutter($o-pf-grid-fixed-layout);
 		} @else {
 			@each $layout-name in map-keys($o-pf-grid-gutters) {
@@ -82,9 +82,9 @@
 
 /// Grid container
 ///
-/// @param {String} $grid-mode [$_o-pf-grid-mode]
+/// @param {String} $grid-mode [$o-pf-grid-mode]
 /// @param {Boolean} $bleed [false]
-@mixin oPrivateGridContainer($grid-mode: $_o-pf-grid-mode, $bleed: false) {
+@mixin oPrivateGridContainer($grid-mode: $o-pf-grid-mode, $bleed: false) {
 	box-sizing: border-box;
 	margin-left: auto;
 	margin-right: auto;
@@ -153,7 +153,7 @@
 		display: inherit;
 	}
 
-	@if $_o-pf-grid-mode == 'fixed' {
+	@if $o-pf-grid-mode == 'fixed' {
 		margin-left: -1 * oPrivateGridGutter($o-pf-grid-fixed-layout);
 	} @else {
 		@each $layout-name in map-keys($o-pf-grid-gutters) {

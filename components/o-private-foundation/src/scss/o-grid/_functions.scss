@@ -26,8 +26,8 @@
 ///  .my-large-container { width: oPrivateGridGetMaxWidthForLayout(L); }
 ///
 /// @param {String} $layout-name - one of $o-pf-grid-layouts
-/// @param {String} $grid-mode [$_o-pf-grid-mode]
-@function oPrivateGridGetMaxWidthForLayout($layout-name, $grid-mode: $_o-pf-grid-mode) {
+/// @param {String} $grid-mode [$o-pf-grid-mode]
+@function oPrivateGridGetMaxWidthForLayout($layout-name, $grid-mode: $o-pf-grid-mode) {
 	$grid-is-responsive: $grid-mode != 'fixed';
 
 	$index: index($_o-pf-grid-layout-names, $layout-name);
