@@ -1,4 +1,3 @@
-@import '@financial-times/o-private-foundation/src/scss/o-normalise/main';
 /// Includes the correct mixin for elements
 /// based on the group name passed
 ///
@@ -107,7 +106,7 @@
 				$include-base-styles: false,
 				$theme: (
 					'base': $_o-teaser-base-color,
-					'hover': $_o-teaser-focus-hover
+					'hover': $_o-teaser-focus-hover,
 				)
 			);
 		}

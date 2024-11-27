@@ -33,22 +33,18 @@
 
 /// Adds box sizing to current and all child elements
 @mixin oPrivateNormaliseBoxSizing {
-
 	/*autoprefixer: off*/
 	-webkit-box-sizing: border-box; // stylelint-disable-line property-no-vendor-prefix
 	-moz-box-sizing: border-box; // stylelint-disable-line property-no-vendor-prefix
 	box-sizing: border-box;
 
-
 	& *,
 	& *:before,
 	& *:after {
-
 		/*autoprefixer: off*/
 		-webkit-box-sizing: inherit; // stylelint-disable-line property-no-vendor-prefix
 		-moz-box-sizing: inherit; // stylelint-disable-line property-no-vendor-prefix
 		box-sizing: inherit;
-
 	}
 }
 
@@ -73,7 +69,7 @@
 		// do not understand `@supports: selector()`.
 		@supports selector(:focus-visible) {
 			&:focus {
-				@include oNormaliseFocusUnsetContent();
+				@include oPrivateNormaliseFocusUnsetContent();
 			}
 
 			&:focus-visible {
@@ -114,7 +110,11 @@
 @mixin oPrivateNormaliseFocusContentForElementColour($color) {
 	$black-contrast: oColorsGetContrastRatio($color, black);
 	$white-contrast: oColorsGetContrastRatio($color, white);
-	$shadow: if($black-contrast <= $white-contrast, $_o-private-normalise-focus-ring, $_o-private-normalise-reverse-focus-ring);
+	$shadow: if(
+		$black-contrast <= $white-contrast,
+		$_o-private-normalise-focus-ring,
+		$_o-private-normalise-reverse-focus-ring
+	);
 
 	box-shadow: $shadow;
 }

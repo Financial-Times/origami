@@ -44,6 +44,8 @@
 		),
 	)
 ) {
+	@include oPrivateFoundation();
+
 	$types: map-get($opts, 'types');
 	$states: map-get($opts, 'states');
 	$layouts: map-get($opts, 'layouts');

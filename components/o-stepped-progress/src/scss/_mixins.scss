@@ -10,11 +10,15 @@
 ///   	)
 ///   ));
 /// @access public
-@mixin oSteppedProgress($opts: (
-	'themes': (
-		'heavy'
+@mixin oSteppedProgress(
+	$opts: (
+		'themes': (
+			'heavy',
+		),
 	)
-)) {
+) {
+	@include oPrivateFoundation();
+
 	$themes: map_get($opts, 'themes');
 
 	// Base stepped progress styles
@@ -24,7 +28,6 @@
 	@if index($themes, 'heavy') and _oSteppedProgressSupports('heavy') {
 		@include _oSteppedProgressHeavy();
 	}
-
 }
 
 /// Base styles for stepped progress.
@@ -53,7 +56,11 @@
 		width: 100%;
 		height: _oSteppedProgressGet('bar-weight');
 		position: absolute;
-		top: calc(#{(div(_oSteppedProgressGet('step-size'), 2)) - (div(_oSteppedProgressGet('bar-weight'), 2))} + #{$_o-stepped-progress-block-padding});
+		top: calc(
+			#{(div(_oSteppedProgressGet('step-size'), 2)) - (
+					div(_oSteppedProgressGet('bar-weight'), 2)
+				)} + #{$_o-stepped-progress-block-padding}
+		);
 		background-color: _oSteppedProgressGet('default-color');
 	}
 
@@ -130,8 +137,10 @@
 			content: '';
 			display: inline-block;
 			vertical-align: middle;
-			height: _oSteppedProgressGet('step-size') - (_oSteppedProgressGet('step-border-size') * 2);
-			width: _oSteppedProgressGet('step-size') - (_oSteppedProgressGet('step-border-size') * 2);
+			height: _oSteppedProgressGet('step-size') -
+				(_oSteppedProgressGet('step-border-size') * 2);
+			width: _oSteppedProgressGet('step-size') -
+				(_oSteppedProgressGet('step-border-size') * 2);
 			margin-bottom: oSpacingByName('s1');
 			background-color: _oSteppedProgressGet('container-background');
 			background-repeat: no-repeat;
@@ -139,7 +148,8 @@
 			background-position: center;
 			background-size: 100%;
 			border-radius: 50%;
-			border: solid _oSteppedProgressGet('step-border-size') _oSteppedProgressGet('default-color');
+			border: solid _oSteppedProgressGet('step-border-size')
+				_oSteppedProgressGet('default-color');
 		}
 	}
 
@@ -156,7 +166,8 @@
 			width: 100vw;
 			height: _oSteppedProgressGet('bar-weight');
 			position: absolute;
-			top: (div(_oSteppedProgressGet('step-size'), 2)) - (div(_oSteppedProgressGet('bar-weight'), 2));
+			top: (div(_oSteppedProgressGet('step-size'), 2)) -
+				(div(_oSteppedProgressGet('bar-weight'), 2));
 			right: 50%;
 			z-index: -5;
 			background-color: _oSteppedProgressGet('interacted-color');
@@ -183,7 +194,8 @@
 		&::before {
 			background-color: _oSteppedProgressGet('interacted-color');
 			border-color: _oSteppedProgressGet('interacted-color');
-			box-shadow: inset 0px 0px 0px _oSteppedProgressGet('step-border-size') _oSteppedProgressGet('container-background');
+			box-shadow: inset 0px 0px 0px _oSteppedProgressGet('step-border-size')
+				_oSteppedProgressGet('container-background');
 		}
 	}
 
@@ -228,7 +240,6 @@
 		}
 	}
 	// sass-lint:enable-all
-
 }
 
 /// Heavy theme for the stepped progress component.
@@ -246,22 +257,29 @@
 		// Progress bars
 		&::before {
 			height: _oSteppedProgressGet('bar-weight', $variant);
-			top: calc(#{(div(_oSteppedProgressGet('step-size', $variant), 2)) - (div(_oSteppedProgressGet('bar-weight', $variant), 2))} + #{$_o-stepped-progress-block-padding});
+			top: calc(
+				#{(div(_oSteppedProgressGet('step-size', $variant), 2)) - (
+						div(_oSteppedProgressGet('bar-weight', $variant), 2)
+					)} + #{$_o-stepped-progress-block-padding}
+			);
 		}
 		.o-stepped-progress__step--complete,
 		.o-stepped-progress__step--current,
 		.o-stepped-progress__step--error {
 			&::after {
 				height: _oSteppedProgressGet('bar-weight', $variant);
-				top: (div(_oSteppedProgressGet('step-size', $variant), 2)) - (div(_oSteppedProgressGet('bar-weight', $variant), 2));
+				top: (div(_oSteppedProgressGet('step-size', $variant), 2)) -
+					(div(_oSteppedProgressGet('bar-weight', $variant), 2));
 			}
 		}
 
 		// The step type indicator
 		.o-stepped-progress__step {
 			&::before {
-				height: _oSteppedProgressGet('step-size', $variant) - (_oSteppedProgressGet('step-border-size', $variant) * 2);
-				width: _oSteppedProgressGet('step-size', $variant) - (_oSteppedProgressGet('step-border-size', $variant) * 2);
+				height: _oSteppedProgressGet('step-size', $variant) -
+					(_oSteppedProgressGet('step-border-size', $variant) * 2);
+				width: _oSteppedProgressGet('step-size', $variant) -
+					(_oSteppedProgressGet('step-border-size', $variant) * 2);
 				border-width: _oSteppedProgressGet('step-border-size', $variant);
 			}
 		}
@@ -291,7 +309,5 @@
 				box-shadow: none;
 			}
 		}
-
 	}
-
 }

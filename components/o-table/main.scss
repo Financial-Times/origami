@@ -5,7 +5,6 @@
 @import '@financial-times/o-colors/main';
 @import '@financial-times/o-icons/main';
 @import '@financial-times/o-typography/main';
-@import '@financial-times/o-private-foundation/src/scss/o-visual-effects/main';
 @import '@financial-times/o-private-foundation/main';
 
 // Branding
@@ -39,6 +38,8 @@
 		'row-headings',
 	)
 ) {
+	@include oPrivateFoundation();
+
 	$overflow-enabled: index($opts, 'responsive-overflow');
 	$flat-enabled: index($opts, 'responsive-flat');
 	$scroll-enabled: index($opts, 'responsive-scroll');

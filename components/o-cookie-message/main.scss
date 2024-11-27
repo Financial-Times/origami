@@ -1,12 +1,12 @@
+@import '@financial-times/o-private-foundation/main';
 @import '@financial-times/math';
 @import "@financial-times/o-typography/main";
 @import "@financial-times/o-spacing/main";
 @import "@financial-times/o-private-foundation/src/scss/o-grid/main";
-@import "@financial-times/o-private-foundation/src/scss/o-visual-effects/main";
 @import "@financial-times/o-buttons/main";
 
-@import "src/scss/variables";
-@import "src/scss/mixins";
+@import 'src/scss/variables';
+@import 'src/scss/mixins';
 
 /// Output `o-cookie-message` CSS.
 ///
@@ -19,7 +19,12 @@
 ///     ));
 ///
 /// @param {Map} $opts - The o-cookie-message features to output. See the [readme](https://registry.origami.ft.com/components/o-cookie-message) for a full list of options.
-@mixin oCookieMessage($opts: ('themes': $_o-cookie-message-themes)) {
+@mixin oCookieMessage(
+	$opts: (
+		'themes': $_o-cookie-message-themes,
+	)
+) {
+	@include oPrivateFoundation();
 	@include _oCookieMessageBase();
 
 	$themes: map-get($opts, 'themes');

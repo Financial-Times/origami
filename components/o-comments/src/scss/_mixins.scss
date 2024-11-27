@@ -4,6 +4,8 @@
 		"coral-talk-iframe": true,
 	)
 ) {
+	@include oPrivateFoundation();
+
 	@if map-get($opts, coral-talk-iframe) {
 		@include _oCommentsTalkIframe();
 	}

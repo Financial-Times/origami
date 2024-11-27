@@ -1,13 +1,8 @@
-@import '@financial-times/o-private-foundation/src/scss/o-normalise/main';
-
 // sass-lint:disable no-qualifying-elements
 /// @access private
 /// @param {Boolean} $disabled Whether to output disabled state styling
 /// @output Styling for box-styled radio inputs
-@mixin _oFormsRadioBox(
-	$disabled: null,
-	$themes,
-) {
+@mixin _oFormsRadioBox($disabled: null, $themes) {
 	.o-forms-input--radio-box {
 		@include _oFormsRadioBoxInputStyles();
 
@@ -38,7 +33,8 @@
 			}
 		}
 
-		input[type=radio] { // stylelint-disable-line selector-no-qualifying-type
+		input[type='radio'] {
+			// stylelint-disable-line selector-no-qualifying-type
 			position: absolute;
 			// Hide visually while remaining accessible to voice control like Dragon
 			// Dragon requires the input it is trying to click to be actually clickable
@@ -49,7 +45,8 @@
 			cursor: pointer;
 
 			@if $disabled {
-				&:disabled + .o-forms-input__label { // stylelint-disable-line selector-no-qualifying-type
+				&:disabled + .o-forms-input__label {
+					// stylelint-disable-line selector-no-qualifying-type
 					cursor: default;
 					opacity: 0.4;
 				}
@@ -93,19 +90,23 @@
 		border-color: _oFormsGet('default-border', $from: $theme);
 	}
 
-	input[type=radio] { // stylelint-disable-line selector-no-qualifying-type
-		& + .o-forms-input__label { // stylelint-disable-line selector-no-qualifying-type
+	input[type='radio'] {
+		// stylelint-disable-line selector-no-qualifying-type
+		& + .o-forms-input__label {
+			// stylelint-disable-line selector-no-qualifying-type
 			color: _oFormsGet('controls-base', $from: $theme);
 		}
 
-		&:not(:checked):not(:disabled):hover + .o-forms-input__label { // stylelint-disable-line selector-no-qualifying-type
+		&:not(:checked):not(:disabled):hover + .o-forms-input__label {
+			// stylelint-disable-line selector-no-qualifying-type
 			background-color: rgba(_oFormsGet('controls-base', $from: $theme), 0.15);
 		}
 
 		&:focus {
 			@include oPrivateNormaliseFocusUnsetContent();
-			& + .o-forms-input__label { // stylelint-disable-line selector-no-qualifying-type
-				$default-text: _oFormsGet("default-text", $theme);
+			& + .o-forms-input__label {
+				// stylelint-disable-line selector-no-qualifying-type
+				$default-text: _oFormsGet('default-text', $theme);
 				@if $default-text and oColorsColorBrightness($default-text) > 65% {
 					@include oPrivateNormaliseFocusContentInverse();
 				} @else {
@@ -126,7 +127,7 @@
 
 			&:focus-visible {
 				& + .o-forms-input__label { // stylelint-disable-line selector-no-qualifying-type
-					$default-text: _oFormsGet("default-text", $theme);
+					$default-text: _oFormsGet('default-text', $theme);
 					@if $default-text and oColorsColorBrightness($default-text) > 65% {
 						@include oPrivateNormaliseFocusContentInverse();
 					} @else {
@@ -141,7 +142,10 @@
 			color: _oFormsGet('controls-checked-base', $from: $theme);
 
 			&.o-forms-input__label--negative { // stylelint-disable-line selector-no-qualifying-type
-				background-color: _oFormsGet('controls-negative-checked-background', $from: $theme);
+				background-color: _oFormsGet(
+					'controls-negative-checked-background',
+					$from: $theme
+				);
 			}
 		}
 	}
