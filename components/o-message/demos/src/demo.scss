@@ -1,7 +1,5 @@
 @import '../../main';
 
-@import '@financial-times/o-buttons/main';
-@include oButtons();
 @include oMessage();
 @import '@financial-times/o-fonts/main';
 @include oFonts();
@@ -22,7 +20,7 @@ body {
 }
 
 .demo-button {
-	@include oButtonsContent(
+	@include oPrivateButtonsContent(
 		(
 			'type': 'secondary',
 		)
