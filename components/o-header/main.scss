@@ -35,7 +35,7 @@
 	@include oPrivateGridAddLayout(
 		$layout-name: 'oHeaderL',
 		$layout-width: 1080px,
-		$gutter-width: map-get($o-grid-gutters, 'M')
+		$gutter-width: map-get($o-pf-grid-gutters, 'M')
 	);
 
 	@include oForms(
