@@ -1,5 +1,5 @@
 import {get as getSetting} from './settings.js';
-import {broadcast, is, findCircularPathsIn, containsCircularPaths, merge, addEvent, log} from '../utils.js';
+import {broadcast, is, safelyStringifyJson, merge, addEvent, log} from '../utils.js';
 import {Queue} from './queue.js';
 import {get as getTransport} from './transports/index.js';
 
@@ -68,15 +68,7 @@ function sendRequest(request, callback) {
 	log('user_callback', user_callback);
 	log('PreSend', request);
 
-	if (containsCircularPaths(request)) {
-		const errorMessage = "o-tracking does not support circular references in the analytics data.\n" +
-		"Please remove the circular references in the data.\n" +
-		"Here are the paths in the data which are circular:\n" +
-		JSON.stringify(findCircularPathsIn(request), undefined, 4);
-		throw new Error(errorMessage);
-	}
-
-	const stringifiedData = JSON.stringify(request);
+	const stringifiedData = safelyStringifyJson(request);
 
 	transport.complete(function (error) {
 		if (is(user_callback, 'function')) {

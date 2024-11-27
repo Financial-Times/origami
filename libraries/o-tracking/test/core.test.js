@@ -78,9 +78,10 @@ describe('Core', function () {
 			proclaim.equal(sent_data.user.user_id, "userID");
 
 			// Device
-			proclaim.deepEqual(Object.keys(sent_data.device), ["spoor_session","spoor_session_is_new","spoor_id"]);
+			proclaim.deepEqual(Object.keys(sent_data.device), ["spoor_session","spoor_session_is_new","spoor_session_timestamp", "spoor_id"]);
 			proclaim.equal(sent_data.device.spoor_session, session().id);
 			proclaim.equal(sent_data.device.spoor_session_is_new, session().isNew);
+			proclaim.equal(sent_data.device.spoor_session_timestamp, session().timestamp);
 
 		});
 
