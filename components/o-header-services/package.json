@@ -33,8 +33,7 @@
 		"@financial-times/o-private-foundation": "^0.0.0",
 		"@financial-times/o-spacing": "^3.0.0",
 		"@financial-times/o-typography": "^7.4.1",
-		"@financial-times/o-utils": "^2.0.0",
-		"@financial-times/o-visual-effects": "^4.0.0"
+		"@financial-times/o-utils": "^2.0.0"
 	},
 	"devDependencies": {
 		"@financial-times/o-fonts": "^5.2.0",
