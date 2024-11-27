@@ -1,5 +1,4 @@
 @import '@financial-times/o-colors/main';
-@import '@financial-times/o-grid/main';
 @import '@financial-times/o-private-foundation/main';
 
 @import 'src/scss/variables';
@@ -16,11 +15,11 @@
 		box-sizing: content-box;
 
 		&__container {
-			@include oGridContainer($grid-mode: 'fluid');
+			@include oPrivateGridContainer($grid-mode: 'fluid');
 		}
 
 		&__row {
-			@include oGridRowCompact();
+			@include oPrivateGridRowCompact();
 		}
 
 		&__visually-hidden {

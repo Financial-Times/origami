@@ -2,7 +2,7 @@
 	.o-header__anon {
 		text-align: center;
 
-		@include oGridRespondTo('M') {
+		@include oPrivateGridRespondTo('M') {
 			display: none;
 		}
 	}

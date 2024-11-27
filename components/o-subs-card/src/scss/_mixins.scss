@@ -8,7 +8,7 @@
 	}
 
 	// https://github.com/philipwalton/flexbugs#flexbug-17 (for suport in ie 9/10)
-	@include oGridRespondTo(L) {
+	@include oPrivateGridRespondTo(L) {
 		// 12px = the combined 6px padding either side.
 		flex: 0 1 calc(25% - 12px);
 		min-width: 0;
@@ -108,7 +108,7 @@
 		padding-top: oSpacingByName("s2");
 		width: 100%;
 
-		@include oGridRespondTo(L) {
+		@include oPrivateGridRespondTo(L) {
 			display: none;
 		}
 
@@ -191,7 +191,7 @@
 	margin: 0 20px;
 	padding: 10px 0;
 
-	@include oGridRespondTo(M) {
+	@include oPrivateGridRespondTo(M) {
 		flex-direction: row;
 		flex-wrap: wrap;
 
@@ -200,7 +200,7 @@
 		}
 	}
 
-	@include oGridRespondTo(L) {
+	@include oPrivateGridRespondTo(L) {
 		flex-direction: row;
 
 		.o-subs-card {

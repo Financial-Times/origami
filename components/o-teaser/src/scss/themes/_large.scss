@@ -4,7 +4,7 @@
 	@include oPrivateNormaliseClearfix;
 
 	.o-teaser__content {
-		padding: oGridGutter(M);
+		padding: oPrivateGridGutter(M);
 		border: 1px solid oColorsByUsecase('o-teaser/base', 'border');
 	}
 
@@ -26,11 +26,11 @@
 /// in medium-large, and portrait from large up
 @mixin _oTeaserLargeWithImage {
 	.o-teaser__content {
-		@include oGridRespondTo($until: S) {
+		@include oPrivateGridRespondTo($until: S) {
 			border-bottom: 0;
 		}
 
-		@include oGridRespondTo(S, L) {
+		@include oPrivateGridRespondTo(S, L) {
 			position: relative;
 			float: left;
 			border-right: 0;
@@ -48,15 +48,15 @@
 			}
 		}
 
-		@include oGridRespondTo(S, M) {
+		@include oPrivateGridRespondTo(S, M) {
 			width: 60%;
 		}
 
-		@include oGridRespondTo(M, L) {
+		@include oPrivateGridRespondTo(M, L) {
 			width: 70%;
 		}
 
-		@include oGridRespondTo(L) {
+		@include oPrivateGridRespondTo(L) {
 			border-bottom: 0;
 		}
 	}
@@ -69,7 +69,7 @@
 		position: relative;
 		z-index: 1;
 
-		@include oGridRespondTo(M, L) {
+		@include oPrivateGridRespondTo(M, L) {
 			max-width: 220px;
 		}
 	}
@@ -93,7 +93,7 @@
 			border-bottom: 1px solid oColorsByUsecase('o-teaser/base', 'border');
 		}
 
-		@include oGridRespondTo(S, L) {
+		@include oPrivateGridRespondTo(S, L) {
 			float: right;
 			margin-top: 0;
 			padding-left: 0;
@@ -103,11 +103,11 @@
 			}
 		}
 
-		@include oGridRespondTo(S, M) {
+		@include oPrivateGridRespondTo(S, M) {
 			width: 40%;
 		}
 
-		@include oGridRespondTo(M, L) {
+		@include oPrivateGridRespondTo(M, L) {
 			width: 30%;
 		}
 	}

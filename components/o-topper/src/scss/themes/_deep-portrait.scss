@@ -11,7 +11,7 @@
 	  }
 	}
 
-	@include oGridRespondTo($until: M) {
+	@include oPrivateGridRespondTo($until: M) {
 		display:flex;
 		flex-direction: column;
 		padding: 0;
@@ -55,7 +55,7 @@
 		}
 	}
 
-	@include oGridRespondTo(M) {
+	@include oPrivateGridRespondTo(M) {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		grid-template-rows: 66vw 1fr;
@@ -83,7 +83,7 @@
 		}
 
 		.o-topper__image {
-			@include oGridRespondTo($until: M) {
+			@include oPrivateGridRespondTo($until: M) {
 				max-height: 480px;
 			}
 		}
@@ -97,7 +97,7 @@
 	@supports (object-fit: cover) {
 
 
-		@include oGridRespondTo(M) {
+		@include oPrivateGridRespondTo(M) {
 
 			.o-topper__visual {
 				.o-topper__picture {

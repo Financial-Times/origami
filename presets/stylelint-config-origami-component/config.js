@@ -21,7 +21,7 @@ module.exports = {
 				type: 'at-rule',
 				name: 'include',
 				parameter:
-					'^((?!oGridRespondTo|oNormaliseFocusApply|oPrivateNormaliseFocusApply).)*$',
+					'^((?!oGridRespondTo|oNormaliseFocusApply|oPrivateGridRespondTo|oPrivateNormaliseFocusApply).)*$',
 			},
 			'declarations',
 		],
