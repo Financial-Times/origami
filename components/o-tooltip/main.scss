@@ -1,12 +1,11 @@
-@import "@financial-times/o-grid/main";
-@import '@financial-times/o-private-foundation/src/scss/o-normalise/main';
-@import "@financial-times/o-overlay/main";
-@import "@financial-times/o-private-foundation/src/scss/o-visual-effects/main";
-@import "@financial-times/o-typography/main";
+@import '@financial-times/o-private-foundation/main';
+@import '@financial-times/o-grid/main';
+@import '@financial-times/o-overlay/main';
+@import '@financial-times/o-typography/main';
 
-@import "src/scss/variables";
-@import "src/scss/brand";
-@import "src/scss/mixins";
+@import 'src/scss/variables';
+@import 'src/scss/brand';
+@import 'src/scss/mixins';
 
 /// Outputs all available features and styles for tooltips.
 ///
@@ -16,9 +15,15 @@
 /// @example scss -  Tooltip styles without extra themes such as for ft professional
 ///   @include oTooltip($opts: ());
 /// @access public
-@mixin oTooltip($opts: (
-	'themes': ('professional')
-)) {
+@mixin oTooltip(
+	$opts: (
+		'themes': (
+			'professional',
+		),
+	)
+) {
+	@include oPrivateFoundation();
+
 	$themes: if(map-has-key($opts, 'themes'), map-get($opts, 'themes'), ());
 
 	// Tooltip relies on the o-grid layout sizes being defined.
@@ -33,7 +38,9 @@
 		z-index: 10;
 		box-sizing: border-box;
 		opacity: 0;
-		transition: opacity $_o-tooltip-animation-duration $o-pf-visual-effects-timing-fade, transform $_o-tooltip-animation-duration $o-pf-visual-effects-timing-slide;
+		transition: opacity $_o-tooltip-animation-duration
+				$o-pf-visual-effects-timing-fade,
+			transform $_o-tooltip-animation-duration $o-pf-visual-effects-timing-slide;
 		border: 0;
 		display: none;
 
@@ -42,16 +49,16 @@
 			opacity: 1;
 		}
 
-		&[data-o-tooltip-position="left"]:not(.visible) {
+		&[data-o-tooltip-position='left']:not(.visible) {
 			transform: translate(-$_o-tooltip-animation-distance, 0);
 		}
-		&[data-o-tooltip-position="right"]:not(.visible) {
+		&[data-o-tooltip-position='right']:not(.visible) {
 			transform: translate($_o-tooltip-animation-distance, 0);
 		}
-		&[data-o-tooltip-position="top"]:not(.visible) {
+		&[data-o-tooltip-position='top']:not(.visible) {
 			transform: translate(0, -$_o-tooltip-animation-distance);
 		}
-		&[data-o-tooltip-position="bottom"]:not(.visible) {
+		&[data-o-tooltip-position='bottom']:not(.visible) {
 			transform: translate(0, $_o-tooltip-animation-distance);
 		}
 	}
@@ -80,7 +87,7 @@
 	.o-tooltip--arrow-right {
 		&:before,
 		&:after {
-			content: "";
+			content: '';
 			position: absolute;
 			border: solid transparent;
 		}
@@ -95,7 +102,6 @@
 
 	.o-tooltip--arrow-left,
 	.o-tooltip--arrow-right {
-
 		&.o-tooltip-arrow--align-top:before,
 		&.o-tooltip-arrow--align-top:after {
 			top: 0;
@@ -108,7 +114,6 @@
 			bottom: 0;
 			margin-top: 0;
 		}
-
 
 		&:before,
 		&:after {

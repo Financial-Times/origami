@@ -1,11 +1,13 @@
-@import "@financial-times/o-icons/main";
-@import '@financial-times/o-private-foundation/src/scss/o-normalise/main';
+@import '@financial-times/o-icons/main';
+@import '@financial-times/o-private-foundation/main';
 @import 'src/scss/variables';
 
 /// @outputs All o-expander CSS, including the expander content area and toggle.
 @mixin oExpander() {
+	@include oPrivateFoundation();
+
 	// Hide content when aria-hidden is applied.
-	.o-expander__content[aria-hidden="true"] {
+	.o-expander__content[aria-hidden='true'] {
 		display: none;
 	}
 
@@ -53,7 +55,7 @@
 			vertical-align: middle;
 		}
 
-		&[aria-expanded="true"]:after {
+		&[aria-expanded='true']:after {
 			// Rotate the icon rather than downloading another one
 			// I call this the "Matt Hinchliffe manouvre"
 			transform: rotate(180deg);

@@ -28,6 +28,8 @@ $o-subs-card-is-silent: true !default;
 		),
 	)
 ) {
+	@include oPrivateFoundation();
+
 	$themes: map-get($opts, "themes");
 	$b2b-theme-enabled: index($themes, "b2b");
 	$discount-theme-enabled: index($themes, "discount");

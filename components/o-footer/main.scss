@@ -1,23 +1,30 @@
 @import '@financial-times/math';
-@import "@financial-times/o-spacing/main";
-@import "@financial-times/o-colors/main";
-@import "@financial-times/o-typography/main";
-@import '@financial-times/o-private-foundation/src/scss/o-normalise/main';
-@import "@financial-times/o-icons/main";
-@import "@financial-times/o-grid/main";
+@import '@financial-times/o-spacing/main';
+@import '@financial-times/o-colors/main';
+@import '@financial-times/o-typography/main';
+@import '@financial-times/o-private-foundation/main';
+@import '@financial-times/o-icons/main';
+@import '@financial-times/o-grid/main';
 
-@import "src/scss/brand";
-@import "src/scss/variables";
+@import 'src/scss/brand';
+@import 'src/scss/variables';
 @import 'src/scss/mixins';
 
 /// Output all o-footer styles including a navigation matrix, and two themes.
 ///
 /// @param {string} $opts [('themes': ('light', 'dark'), 'margin': 40px, 'matrix': true)] - a map of footer options. Keys include 'themes', a list of themes to support including "dark" and "light"; 'margin', a length to customise the footer's top margin; and 'matrix', a boolean value whether to support a complex footer with large navigation structure.
-@mixin oFooter($opts: (
-	'themes': ('light', 'dark'),
-	'margin': null,
-	'matrix': true
-)) {
+@mixin oFooter(
+	$opts: (
+		'themes': (
+			'light',
+			'dark',
+		),
+		'margin': null,
+		'matrix': true,
+	)
+) {
+	@include oPrivateFoundation();
+
 	$margin: map-get($opts, 'margin');
 	$margin: if($margin, $margin, (2 * $_o-footer-spacing-unit));
 	$matrix: map-get($opts, 'matrix');
@@ -112,7 +119,6 @@
 		@include oPrivateNormaliseVisuallyHidden();
 	}
 }
-
 
 @if $o-footer-is-silent == false {
 	@include oFooter();

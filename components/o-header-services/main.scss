@@ -5,7 +5,6 @@
 @import '@financial-times/o-icons/main';
 @import '@financial-times/o-grid/main';
 @import '@financial-times/o-typography/main';
-@import '@financial-times/o-private-foundation/src/scss/o-visual-effects/main';
 
 @import 'src/scss/brand';
 @import 'src/scss/base';
@@ -50,6 +49,8 @@
 		'drawer-breakpoint': 'M',
 	)
 ) {
+	@include oPrivateFoundation();
+
 	$types: map-get($opts, 'types');
 	$features: map-get($opts, 'features');
 	$logo: map-get($opts, 'logo');

@@ -24,6 +24,8 @@
 		),
 	)
 ) {
+	@include oPrivateFoundation();
+
 	$themes: map-get($opts, 'themes');
 	$themes: if($themes, $themes, ());
 
