@@ -3,8 +3,6 @@
 @import '@financial-times/o-colors/main';
 @import '@financial-times/o-icons/main';
 @import '@financial-times/o-grid/main';
-@import '@financial-times/o-private-foundation/src/scss/o-visual-effects/main';
-@import '@financial-times/o-private-foundation/src/scss/o-normalise/main';
 @import '@financial-times/o-private-foundation/main';
 @import '@financial-times/o-typography/main';
 @import '@financial-times/o-forms/main';
@@ -32,6 +30,8 @@
 /// @param {List} $opts [('top', 'subnav', 'search', 'nav', 'anon', 'drawer', 'megamenu', 'sticky', 'simple', 'transparent')]
 /// @param {Boolean} $include-base-styles [true]
 @mixin oHeader($opts: $_o-header-features, $include-base-styles: true) {
+	@include oPrivateFoundation();
+
 	@include oGridAddLayout(
 		$layout-name: 'oHeaderL',
 		$layout-width: 1080px,

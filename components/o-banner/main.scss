@@ -37,6 +37,8 @@
 		'themes': $_o-banner-themes,
 	)
 ) {
+	@include oPrivateFoundation();
+
 	$themes: map-get($opts, 'themes');
 	$themes: if($themes, $themes, ());
 	$layouts: map-get($opts, 'layouts');
