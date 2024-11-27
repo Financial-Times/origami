@@ -121,14 +121,12 @@
 		// `:focus` fallback, however some of our supported browsers
 		// do not understand `@supports: selector()`.
 		@supports selector(:focus-visible) {
-			&:focus + .o-forms-input__label {
-				// stylelint-disable-line selector-no-qualifying-type
+			&:focus + .o-forms-input__label { // stylelint-disable-line selector-no-qualifying-type
 				@include oPrivateNormaliseFocusUnsetContent();
 			}
 
 			&:focus-visible {
-				& + .o-forms-input__label {
-					// stylelint-disable-line selector-no-qualifying-type
+				& + .o-forms-input__label { // stylelint-disable-line selector-no-qualifying-type
 					$default-text: _oFormsGet('default-text', $theme);
 					@if $default-text and oColorsColorBrightness($default-text) > 65% {
 						@include oPrivateNormaliseFocusContentInverse();
@@ -139,13 +137,11 @@
 			}
 		}
 
-		&:checked + .o-forms-input__label {
-			// stylelint-disable-line selector-no-qualifying-type
+		&:checked + .o-forms-input__label { // stylelint-disable-line selector-no-qualifying-type
 			background-color: _oFormsGet('controls-base', $from: $theme);
 			color: _oFormsGet('controls-checked-base', $from: $theme);
 
-			&.o-forms-input__label--negative {
-				// stylelint-disable-line selector-no-qualifying-type
+			&.o-forms-input__label--negative { // stylelint-disable-line selector-no-qualifying-type
 				background-color: _oFormsGet(
 					'controls-negative-checked-background',
 					$from: $theme
