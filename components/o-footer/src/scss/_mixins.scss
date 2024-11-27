@@ -71,20 +71,20 @@
 @mixin _oFooterMatrix($themes) {
 	.o-footer__matrix,
 	.o-footer__matrix-content {
-		@include oGridRow();
+		@include oPrivateGridRow();
 	}
 
 	.o-footer__matrix-group,
 	.o-footer__matrix-column {
-		@include oGridColspan();
+		@include oPrivateGridColspan();
 	}
 
 	@each $key, $value in $_o-footer-matrix {
 		.o-footer__matrix-group--#{$key} {
-			@include oGridColspan(map-get($value, 'group'), $width-only: true);
+			@include oPrivateGridColspan(map-get($value, 'group'), $width-only: true);
 
 			.o-footer__matrix-column {
-				@include oGridColspan(map-get($value, 'columns'), $width-only: true);
+				@include oPrivateGridColspan(map-get($value, 'columns'), $width-only: true);
 			}
 		}
 	}
@@ -137,7 +137,7 @@
 		line-height: $_o-footer-spacing-unit * 2;
 
 		border-top: 1px solid;
-		@include oGridRespondTo(M) {
+		@include oPrivateGridRespondTo(M) {
 			border-top: 0;
 			line-height: initial;
 		}

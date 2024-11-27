@@ -1,8 +1,6 @@
-@import '@financial-times/o-private-foundation/src/scss/o-normalise/main';
+@import '@financial-times/o-private-foundation/main';
 @import '@financial-times/o-typography/main';
 @import '@financial-times/o-fonts/main';
-@import '@financial-times/o-private-foundation/src/scss/o-spacing/main';
-
 /// @access private
 $_ftConceptButtonThemes: (
 	link: (
@@ -10,49 +8,49 @@ $_ftConceptButtonThemes: (
 		text: oColorsByName('white'),
 		highlight: oColorsByUsecase('link-hover', 'text'),
 		pressed-highlight: rgba(oColorsByUsecase('link-hover', 'text'), 0.05),
-		disabled: rgba(oColorsByName('black'), 0.5)
+		disabled: rgba(oColorsByName('black'), 0.5),
 	),
 	standard: (
 		background: oColorsByName('claret'),
 		text: oColorsByName('white'),
 		highlight: oColorsByName('claret-50'),
 		pressed-highlight: rgba(oColorsByName('black'), 0.05),
-		disabled: rgba(oColorsByName('black'), 0.5)
+		disabled: rgba(oColorsByName('black'), 0.5),
 	),
 	inverse: (
 		background: oColorsByName('white'),
 		text: oColorsByName('claret'),
 		highlight: rgba(white, 0.8),
 		pressed-highlight: rgba(white, 0.2),
-		disabled: rgba(oColorsByName('white'), 0.5)
+		disabled: rgba(oColorsByName('white'), 0.5),
 	),
 	opinion: (
 		background: oColorsByName('oxford-40'),
 		text: oColorsByName('white'),
 		highlight: oColorsByName('oxford-30'),
 		pressed-highlight: rgba(oColorsByName('oxford-40'), 0.2),
-		disabled: rgba(oColorsByName('black'), 0.5)
+		disabled: rgba(oColorsByName('black'), 0.5),
 	),
 	monochrome: (
 		background: oColorsByName('white'),
 		text: oColorsByName('black'),
 		highlight: oColorsByName('white-80'),
 		pressed-highlight: rgba(oColorsByName('white'), 0.2),
-		disabled: rgba(oColorsByName('white'), 0.5)
+		disabled: rgba(oColorsByName('white'), 0.5),
 	),
 	inverse-monochrome: (
 		background: oColorsByName('black'),
 		text: oColorsByName('white'),
 		highlight: oColorsByName('black-80'),
 		pressed-highlight: rgba(oColorsByName('black'), 0.2),
-		disabled: rgba(oColorsByName('black'), 0.5)
+		disabled: rgba(oColorsByName('black'), 0.5),
 	),
 	professional-inverse: (
 		background: oColorsByName('mint'),
 		text: oColorsByName('black'),
 		highlight: oColorsByName('mint'),
 		pressed-highlight: rgba(oColorsByName('mint'), 0.15),
-		disabled: rgba(oColorsByName('black'), 0.5)
+		disabled: rgba(oColorsByName('black'), 0.5),
 	),
 );
 
@@ -193,6 +191,8 @@ $_ftConceptButtonThemes: (
 		'professional-inverse',
 	)
 ) {
+	@include oPrivateFoundation();
+
 	.ft-concept-button__link,
 	.ft-concept-button__button {
 		@include _ftConceptButtonBase();

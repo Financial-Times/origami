@@ -53,13 +53,13 @@
 		grid-row: 1 /span 2;
 	}
 	&.o-topper--full-bleed-image-center {
-		@include oGridRespondTo(S) {
+		@include oPrivateGridRespondTo(S) {
 			@include _oTopperAlignText(center);
 		}
 	}
 
 
-	@include oGridRespondTo( $until:S) {
+	@include oPrivateGridRespondTo( $until:S) {
 		.o-topper__content {
 			width:100%;
 		  	margin: 0 0 oPrivateSpacingByName('s6');
@@ -67,18 +67,18 @@
 		}
 	}
 
-	@include oGridRespondTo($from:S , $until:M) {
+	@include oPrivateGridRespondTo($from:S , $until:M) {
 		.o-topper__content {
 			width:75%;
 		}
 	}
-	@include oGridRespondTo($from:M , $until:L) {
+	@include oPrivateGridRespondTo($from:M , $until:L) {
 		.o-topper__content {
 			width:50%;
 		}
 	}
 
-	@include oGridRespondTo(L) {
+	@include oPrivateGridRespondTo(L) {
 		grid-template-rows: 66vw 1fr;
 
 		.o-topper__content {

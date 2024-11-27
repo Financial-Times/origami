@@ -55,6 +55,7 @@ function track(config, callback = function(){ /* empty */}) {
 		device: {
 			spoor_session: currentSession.id,
 			spoor_session_is_new: currentSession.isNew,
+			spoor_session_timestamp: currentSession.timestamp,
 			spoor_id: userID(),
 		},
 	};

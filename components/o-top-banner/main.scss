@@ -1,9 +1,7 @@
+@import '@financial-times/o-private-foundation/main';
 @import '@financial-times/o-brand/main';
-@import '@financial-times/o-grid/main';
 @import '@financial-times/o-colors/main';
-@import '@financial-times/o-private-foundation/src/scss/o-spacing/main';
 @import '@financial-times/o-typography/main';
-@import '@financial-times/o-buttons/main';
 
 @import './src/scss/variables';
 @import 'src/scss/brand';
@@ -16,9 +14,16 @@
 ///		@include oTopBanner($opts: (
 ///			'themes': ('new-world', 'professional-inverse')
 ///		))
-@mixin oTopBanner ($opts: (
-	'themes': ('new-world', 'professional-inverse')
-)) {
+@mixin oTopBanner(
+	$opts: (
+		'themes': (
+			'new-world',
+			'professional-inverse',
+		),
+	)
+) {
+	@include oPrivateFoundation();
+
 	$themes: map-get($opts, 'themes');
 	$themes: if($themes, $themes, ());
 
@@ -31,11 +36,13 @@
 	.o-top-banner__container {
 		display: inline-flex;
 		align-items: center;
-		padding: oPrivateSpacingByName('s4') oGridGutter(S) oPrivateSpacingByName('s2') oGridGutter(S);
+		padding: oPrivateSpacingByName('s4') oPrivateGridGutter(S) oPrivateSpacingByName('s2')
+			oPrivateGridGutter(S);
 		gap: oPrivateSpacingByName('s4') oPrivateSpacingByName('l24');
 		flex-wrap: wrap;
-		@include oGridRespondTo(S) {
-			padding: oPrivateSpacingByName('s8') oGridGutter(M) oPrivateSpacingByName('s6') oGridGutter(M);
+		@include oPrivateGridRespondTo(S) {
+			padding: oPrivateSpacingByName('s8') oPrivateGridGutter(M) oPrivateSpacingByName('s6')
+				oPrivateGridGutter(M);
 		}
 	}
 
@@ -52,14 +59,20 @@
 
 	.o-top-banner__heading {
 		@include oTypographySans(
-			$scale: ('default': 2, 'S': 3),
+			$scale: (
+				'default': 2,
+				'S': 3,
+			),
 			$weight: semibold
 		);
 	}
 
 	.o-top-banner__copy {
 		@include oTypographySans(
-			$scale: ('default': 0, 'S': 1),
+			$scale: (
+				'default': 0,
+				'S': 1,
+			),
 			$weight: regular
 		);
 	}
@@ -85,15 +98,18 @@
 ///   @include oTopBannerAddTheme('professional');
 /// @access public
 @mixin oTopBannerAddTheme($theme-name, $opts: null) {
-
 	// If we have a custom config, we use that instead of one of the
 	// preconfigured themes
 	$variant: if($opts, $opts, $theme-name);
 
-	@if(type-of($opts) == 'map') {
-		$required-opts: ('background-color', 'button-background-color', 'copy-color');
+	@if (type-of($opts) == 'map') {
+		$required-opts: (
+			'background-color',
+			'button-background-color',
+			'copy-color'
+		);
 		@each $required-opt in $required-opts {
-			@if(not map-has-key($opts, $required-opt)) {
+			@if (not map-has-key($opts, $required-opt)) {
 				@error 'o-top-banner: Missing required option `#{$required-opt}` for theme `#{$theme-name}`';
 			}
 		}
@@ -103,7 +119,6 @@
 		@include _oTopBannerTheme($variant);
 	}
 }
-
 
 @mixin _oTopBannerTheme($theme) {
 	$button-color: _oTopBannerGet('button-background-color', $theme);
@@ -117,25 +132,29 @@
 	color: $copy-color;
 	border-color: $brand-border-color;
 
-	@if($heading-color or $heading-font-weight) {
+	@if ($heading-color or $heading-font-weight) {
 		.o-top-banner__heading {
 			@if ($heading-color) {
 				color: $heading-color;
 			}
 			@if ($heading-font-weight) {
 				@include oTypographySans(
-					$scale: ('default': 2, 'S': 3),
+					$scale: (
+						'default': 2,
+						'S': 3,
+					),
 					$weight: $heading-font-weight
 				);
 			}
 		}
 	}
 
-	@if($brand-border-color) {
+	@if ($brand-border-color) {
 		.o-top-banner__container {
 			padding-bottom: oPrivateSpacingByIncrement(4);
-			@include oGridRespondTo(S) {
-				padding: oPrivateSpacingByIncrement(7) oGridGutter(M) oPrivateSpacingByIncrement(7) oGridGutter(M);
+			@include oPrivateGridRespondTo(S) {
+				padding: oPrivateSpacingByIncrement(7) oPrivateGridGutter(M) oPrivateSpacingByIncrement(7)
+					oPrivateGridGutter(M);
 			}
 		}
 	}
@@ -145,19 +164,45 @@
 			$button-color,
 			(
 				'color': $button-color,
-				'context': $background-color
+				'context': $background-color,
 			),
 			$theme
 		);
-		@include oButtonsContent((
-			'type': 'primary',
-			'theme': $button-theme
-		));
 
-		@include oGridRespondTo(S) {
-			@include oButtonsContent((
-				'size': 'big'
-			), $include-base-styles: false);
+		@if (type-of($button-theme) == 'map') {
+			@include oPrivateButtonsContentWithThemeOverride(
+				$opts: (
+					'type': 'primary',
+				),
+				$theme-override: $button-theme
+			);
+		} @else {
+			@include oPrivateButtonsContent(
+				$opts: (
+					'type': 'primary',
+					'theme': $button-theme,
+				)
+			);
+		}
+
+		@include oPrivateGridRespondTo(S) {
+			@if (type-of($button-theme) == 'map') {
+				@include oPrivateButtonsContentWithThemeOverride(
+					$opts: (
+						'type': 'primary',
+						'size': 'big',
+					),
+					$theme-override: $button-theme
+				);
+			} @else {
+				@include oPrivateButtonsContent(
+					$opts: (
+						'type': 'primary',
+						'size': 'big',
+						'theme': $button-theme,
+					)
+				);
+			}
 		}
 	}
 }

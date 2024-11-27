@@ -1,8 +1,6 @@
-@import '@financial-times/o-private-foundation/src/scss/o-normalise/main';
+@import '@financial-times/o-private-foundation/main';
 
 @import '@financial-times/o-brand/main';
-@import '@financial-times/o-private-foundation/o-normalise/main';
-@import '@financial-times/o-private-foundation/src/scss/o-spacing/main';
 @import '@financial-times/o-typography/main';
 @import '@financial-times/o-icons/main';
 
@@ -15,6 +13,8 @@
 /// @example scss
 ///		@include oMultiSelect()
 @mixin oMultiSelect() {
+	@include oPrivateFoundation();
+
 	.o-multi-select__dropdown-menu {
 		display: none;
 	}

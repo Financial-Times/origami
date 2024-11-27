@@ -4,7 +4,7 @@
 /// @outputs styling for title section of header
 @mixin _oHeaderServicesTop($logo, $draw-breakpoint) {
 	.o-header-services__top {
-		@include oGridContainer;
+		@include oPrivateGridContainer;
 		background-color: _oHeaderServicesGet('top-background');
 		color: _oHeaderServicesGet('top-text');
 		display: flex;
@@ -35,16 +35,16 @@
 			height: $_o-header-services-top-bar-short;
 			width: $_o-header-services-top-bar-short;
 
-			@include oGridRespondTo(M) {
+			@include oPrivateGridRespondTo(M) {
 				height: $_o-header-services-top-icon-size;
 				width: $_o-header-services-top-icon-size;
 			}
 
-			@include oGridRespondTo($draw-breakpoint) {
+			@include oPrivateGridRespondTo($draw-breakpoint) {
 				margin: oPrivateSpacingByName('s2');
 			}
 
-			@include oGridRespondTo(M) {
+			@include oPrivateGridRespondTo(M) {
 				margin-left: 0;
 			}
 		}
@@ -57,7 +57,7 @@
 	.o-header-services__hamburger {
 		height: $_o-header-services-top-bar-short;
 		width: $_o-header-services-top-bar-short;
-		@include oGridRespondTo($draw-breakpoint) {
+		@include oPrivateGridRespondTo($draw-breakpoint) {
 			display: none;
 		}
 	}
@@ -84,7 +84,7 @@
 		text-overflow: ellipsis;
 		overflow: hidden;
 		display: none;
-		@include oGridRespondTo(L) {
+		@include oPrivateGridRespondTo(L) {
 			display: inline-block;
 		}
 	}
@@ -98,7 +98,7 @@
 			padding: div(oPrivateSpacingByName('s3'), 2) $_o-header-services-padding;
 		}
 
-		@include oGridRespondTo($from: $draw-breakpoint) {
+		@include oPrivateGridRespondTo($from: $draw-breakpoint) {
 			display: flex;
 			margin: 0 0 0 auto;
 			padding: div(oPrivateSpacingByName('s3'), 2) $_o-header-services-padding;

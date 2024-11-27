@@ -69,7 +69,7 @@
 		}
 
 		.o-teaser__content:after {
-			@include oGridRespondTo(S, L) {
+			@include oPrivateGridRespondTo(S, L) {
 				color: $theme-opinion-color;
 				background: $theme-opinion-background;
 				top: 0;
@@ -112,7 +112,7 @@
 		}
 
 		.o-teaser__content:after {
-			@include oGridRespondTo(S, L) {
+			@include oPrivateGridRespondTo(S, L) {
 				color: $theme-highlight-color;
 				background: $theme-highlight-background;
 			}

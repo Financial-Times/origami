@@ -1,48 +1,46 @@
 {
-  "name": "@financial-times/o-subs-card",
-  "version": "6.2.6",
-  "description": "A card for showing different subscription packages offered by the Financial Times",
-  "keywords": [
-    "card",
-    "subscription",
-    "subs",
-    "pack",
-    "packages"
-  ],
-  "homepage": "https://registry.origami.ft.com/components/o-subs-card",
-  "bugs": {
-    "url": "https://github.com/Financial-Times/origami/issues/new?labels=o-subs-card,components",
-    "email": "conversion.tech@ft.com"
-  },
-  "license": "MIT",
-  "type": "module",
-  "browser": "main.js",
-  "scripts": {
-    "start": "npx serve ./demos/local",
-    "build": "bash ../../scripts/component/build.bash",
-    "test": "bash ../../scripts/component/test.bash",
-    "debug:js": "bash ../../scripts/component/debug-js.bash",
-    "lint": "bash ../../scripts/component/lint.bash",
-    "watch": "bash ../../scripts/component/watch.bash"
-  },
-  "peerDependencies": {
-    "@financial-times/math": "^1.0.0",
-    "@financial-times/o-buttons": "^7.8.0",
-    "@financial-times/o-colors": "^6.0.1",
-    "@financial-times/o-expander": "^6.0.0",
-    "@financial-times/o-grid": "^6.1.1",
-    "@financial-times/o-normalise": "^3.1.0",
-    "@financial-times/o-private-foundation": "0.0.0",
-    "@financial-times/o-typography": "^7.4.1"
-  },
-  "devDependencies": {
-    "@financial-times/o-colors": "^6.5.0",
-    "@financial-times/o-fonts": "^5.2.0",
-    "@financial-times/o-grid": "^6.1.1",
-    "@financial-times/o-normalise": "^3.3.0"
-  },
-  "engines": {
-    "npm": ">7"
-  },
-  "private": false
+	"name": "@financial-times/o-subs-card",
+	"version": "6.2.6",
+	"description": "A card for showing different subscription packages offered by the Financial Times",
+	"keywords": [
+		"card",
+		"subscription",
+		"subs",
+		"pack",
+		"packages"
+	],
+	"homepage": "https://registry.origami.ft.com/components/o-subs-card",
+	"bugs": {
+		"url": "https://github.com/Financial-Times/origami/issues/new?labels=o-subs-card,components",
+		"email": "conversion.tech@ft.com"
+	},
+	"license": "MIT",
+	"type": "module",
+	"browser": "main.js",
+	"scripts": {
+		"start": "npx serve ./demos/local",
+		"build": "bash ../../scripts/component/build.bash",
+		"test": "bash ../../scripts/component/test.bash",
+		"debug:js": "bash ../../scripts/component/debug-js.bash",
+		"lint": "bash ../../scripts/component/lint.bash",
+		"watch": "bash ../../scripts/component/watch.bash"
+	},
+	"peerDependencies": {
+		"@financial-times/math": "^1.0.0",
+		"@financial-times/o-colors": "^6.0.1",
+		"@financial-times/o-expander": "^6.0.0",
+		"@financial-times/o-normalise": "^3.1.0",
+		"@financial-times/o-private-foundation": "^0.0.0",
+		"@financial-times/o-typography": "^7.4.1"
+	},
+	"devDependencies": {
+		"@financial-times/o-colors": "^6.5.0",
+		"@financial-times/o-fonts": "^5.2.0",
+		"@financial-times/o-grid": "^6.1.1",
+		"@financial-times/o-normalise": "^3.3.0"
+	},
+	"engines": {
+		"npm": ">7"
+	},
+	"private": false
 }

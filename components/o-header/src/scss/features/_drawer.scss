@@ -27,7 +27,7 @@
 			border-left: 30px solid transparent;
 			margin-left: -30px;
 
-			@include oGridRespondTo('M') {
+			@include oPrivateGridRespondTo('M') {
 				width: $_o-header-drawer-width;
 			}
 
@@ -70,7 +70,7 @@
 	// Tools
 	//
 	.o-header:has(.o-header__anon) ~ .o-header__drawer .o-header__drawer-tools {
-		@include oGridRespondTo($until: 'M') {
+		@include oPrivateGridRespondTo($until: 'M') {
 			padding: ($_o-header-drawer-padding-y * 2.5) 0 0
 				$_o-header-drawer-padding-x;
 		}
@@ -148,7 +148,7 @@
 		padding: 0 $_o-header-drawer-padding-x
 			calc($_o-header-drawer-padding-y + 4px) $_o-header-drawer-padding-x;
 
-		@include oGridRespondTo('M') {
+		@include oPrivateGridRespondTo('M') {
 			display: none;
 		}
 
@@ -399,7 +399,7 @@
 		@include _oHeaderAskFtButton();
 
 		// Same as .o-header__drawer-search
-		@include oGridRespondTo('M') {
+		@include oPrivateGridRespondTo('M') {
 			display: none;
 		}
 

@@ -57,7 +57,7 @@
 @mixin _oTopperImageCaption {
 	@include oTypographySans(-1);
 	padding: 10px 11px 0px;
-	@include oGridRespondTo(L) {
+	@include oPrivateGridRespondTo(L) {
 		padding-left: 18px;
 	}
 }

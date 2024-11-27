@@ -113,4 +113,28 @@ describe('Core.Store', function () {
 			});
 		});
 	});
+
+	it('should replace circular references with warning strings', function () {
+		const store = new Store('test');
+
+		const customTrackingData = {ohh: 'ahh'};
+		customTrackingData.circular = customTrackingData;
+
+		const request = {
+			context: {
+				customTrackingData,
+			},
+		};
+
+		store.write(request);
+
+		const newStore = new Store('test');
+		const written = newStore.read();
+
+		proclaim.deepEqual(written.context.customTrackingData, {
+			ohh: 'ahh',
+			circular:
+				'Circular reference between `$.context.customTrackingData` AND `$.context.customTrackingData.circular`',
+		});
+	});
 });
