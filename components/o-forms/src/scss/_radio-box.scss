@@ -34,7 +34,6 @@
 		}
 
 		input[type='radio'] {
-			// stylelint-disable-line selector-no-qualifying-type
 			position: absolute;
 			// Hide visually while remaining accessible to voice control like Dragon
 			// Dragon requires the input it is trying to click to be actually clickable
@@ -46,7 +45,6 @@
 
 			@if $disabled {
 				&:disabled + .o-forms-input__label {
-					// stylelint-disable-line selector-no-qualifying-type
 					cursor: default;
 					opacity: 0.4;
 				}
@@ -91,21 +89,17 @@
 	}
 
 	input[type='radio'] {
-		// stylelint-disable-line selector-no-qualifying-type
 		& + .o-forms-input__label {
-			// stylelint-disable-line selector-no-qualifying-type
 			color: _oFormsGet('controls-base', $from: $theme);
 		}
 
 		&:not(:checked):not(:disabled):hover + .o-forms-input__label {
-			// stylelint-disable-line selector-no-qualifying-type
 			background-color: rgba(_oFormsGet('controls-base', $from: $theme), 0.15);
 		}
 
 		&:focus {
 			@include oPrivateNormaliseFocusUnsetContent();
 			& + .o-forms-input__label {
-				// stylelint-disable-line selector-no-qualifying-type
 				$default-text: _oFormsGet('default-text', $theme);
 				@if $default-text and oColorsColorBrightness($default-text) > 65% {
 					@include oPrivateNormaliseFocusContentInverse();
@@ -121,12 +115,12 @@
 		// `:focus` fallback, however some of our supported browsers
 		// do not understand `@supports: selector()`.
 		@supports selector(:focus-visible) {
-			&:focus + .o-forms-input__label { // stylelint-disable-line selector-no-qualifying-type
+			&:focus + .o-forms-input__label {
 				@include oPrivateNormaliseFocusUnsetContent();
 			}
 
 			&:focus-visible {
-				& + .o-forms-input__label { // stylelint-disable-line selector-no-qualifying-type
+				& + .o-forms-input__label {
 					$default-text: _oFormsGet('default-text', $theme);
 					@if $default-text and oColorsColorBrightness($default-text) > 65% {
 						@include oPrivateNormaliseFocusContentInverse();
@@ -137,11 +131,11 @@
 			}
 		}
 
-		&:checked + .o-forms-input__label { // stylelint-disable-line selector-no-qualifying-type
+		&:checked + .o-forms-input__label {
 			background-color: _oFormsGet('controls-base', $from: $theme);
 			color: _oFormsGet('controls-checked-base', $from: $theme);
 
-			&.o-forms-input__label--negative { // stylelint-disable-line selector-no-qualifying-type
+			&.o-forms-input__label--negative {
 				background-color: _oFormsGet(
 					'controls-negative-checked-background',
 					$from: $theme

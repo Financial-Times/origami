@@ -35,11 +35,10 @@
 			}
 		}
 
-		input[type='checkbox'] { // stylelint-disable-line selector-no-qualifying-type
+		input[type='checkbox'] {
 			&:focus {
 				@include oPrivateNormaliseFocusUnsetContent();
 				& + .o-forms-input__label:before {
-					// stylelint-disable-line selector-no-qualifying-type
 					@include oPrivateNormaliseFocusContentInverse();
 				}
 			}
@@ -51,13 +50,11 @@
 			// do not understand `@supports: selector()`.
 			@supports selector(:focus-visible) {
 				&:focus + .o-forms-input__label:before {
-					// stylelint-disable-line selector-no-qualifying-type
 					@include oPrivateNormaliseFocusUnsetContent();
 				}
 
 				&:focus-visible {
 					& + .o-forms-input__label:before {
-						// stylelint-disable-line selector-no-qualifying-type
 						@include oPrivateNormaliseFocusContentInverse();
 					}
 				}
@@ -65,14 +62,11 @@
 		}
 
 		input[type='checkbox']:checked {
-			// stylelint-disable-line selector-no-qualifying-type
 			+ .o-forms-input__label:before {
-				// stylelint-disable-line selector-no-qualifying-type
 				background-color: _oFormsGet('toggle-inverse-selected');
 			}
 
 			+ .o-forms-input__label:after {
-				// stylelint-disable-line selector-no-qualifying-type
 				@include oIconsContent(
 					'tick',
 					$size: null,
@@ -113,11 +107,9 @@
 			}
 
 			.o-forms-input--radio-box input[type='radio'] {
-				// stylelint-disable-line selector-no-qualifying-type
 				&:focus {
 					@include oPrivateNormaliseFocusUnsetContent();
 					& + .o-forms-input__label {
-						// stylelint-disable-line selector-no-qualifying-type
 						@include oPrivateNormaliseFocusContentInverse();
 					}
 				}
@@ -129,13 +121,11 @@
 				// do not understand `@supports: selector()`.
 				@supports selector(:focus-visible) {
 					&:focus + .o-forms-input__label {
-						// stylelint-disable-line selector-no-qualifying-type
 						@include oPrivateNormaliseFocusUnsetContent();
 					}
 
 					&:focus-visible {
 						& + .o-forms-input__label {
-							// stylelint-disable-line selector-no-qualifying-type
 							@include oPrivateNormaliseFocusContentInverse();
 						}
 					}

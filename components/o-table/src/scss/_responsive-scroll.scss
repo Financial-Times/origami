@@ -2,7 +2,6 @@
 /// @access private
 @mixin _oTableResponsiveScroll {
 	.o-table--responsive-scroll {
-
 		.o-table__duplicate-row {
 			display: none;
 		}
@@ -44,7 +43,7 @@
 			}
 
 			// Whilst scrollable, remove all hidden cells.
-			td[aria-hidden="true"] { // stylelint-disable-line selector-no-qualifying-type
+			td[aria-hidden='true'] {
 				display: none;
 			}
 			// sass-lint:enable no-qualifying-elements
