@@ -11,8 +11,8 @@
 @import 'src/scss/mixins';
 
 @if ($o-stepped-progress-is-silent == false) {
-  @include oSteppedProgress();
+	@include oSteppedProgress();
 
-  // Set to silent again to avoid being output twice
-  $o-stepped-progress-is-silent: true !global;
+	// Set to silent again to avoid being output twice
+	$o-stepped-progress-is-silent: true !global;
 }

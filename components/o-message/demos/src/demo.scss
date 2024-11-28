@@ -7,16 +7,16 @@
 @include oNormalise();
 
 body {
-  background: oColorsByUsecase('page', 'background');
+	background: oColorsByUsecase('page', 'background');
 }
 
 .o-message {
-  margin-top: 20px;
-  margin-bottom: 20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 .list-of-demo-buttons {
-  display: inline-block;
+	display: inline-block;
 }
 
 .demo-button {
@@ -30,8 +30,8 @@ body {
 
 .demo-inner,
 .demo-inner-message {
-  margin: auto;
-  max-width: 400px;
+	margin: auto;
+	max-width: 400px;
 }
 
 @if oBrandIs('core') or oBrandIs('internal') {

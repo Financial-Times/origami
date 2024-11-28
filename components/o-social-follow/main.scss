@@ -50,14 +50,14 @@
 		@error 'A global "$system-code" Sass variable must be set to a valid [Bizops system code](https://biz-ops.in.ft.com/list/Systems).';
 	}
 
-  .o-social-follow {
-    display: flex;
-    flex-wrap: wrap;
-    gap: oSpacingByName('s4');
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
+	.o-social-follow {
+		display: flex;
+		flex-wrap: wrap;
+		gap: oSpacingByName('s4');
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
 
 	.o-social-follow-icon {
 		--o-social-follow-icon-color: black;
@@ -76,21 +76,21 @@
 			background-color: var(--o-social-follow-icon-color);
 		}
 
-    &:hover,
-    &:focus {
-      --o-social-follow-icon-color: white;
-    }
+		&:hover,
+		&:focus {
+			--o-social-follow-icon-color: white;
+		}
 
 		@include oPrivateNormaliseFocusApply() {
 			@include oPrivateNormaliseFocusContent();
 		}
 	}
 
-  @if $standalone {
-    .o-social-follow-icon--standalone {
-      border-color: transparent;
-    }
-  }
+	@if $standalone {
+		.o-social-follow-icon--standalone {
+			border-color: transparent;
+		}
+	}
 
 	@if index($themes, 'inverse') {
 		.o-social-follow-icon--inverse {
@@ -114,13 +114,13 @@
 				mask-image: url($icon-image-url);
 			}
 
-      &:hover,
-      &:focus {
-        background-color: $social-brand-colour;
-        border-color: var(--o-social-follow-brand-color);
-      }
-    }
-  }
+			&:hover,
+			&:focus {
+				background-color: $social-brand-colour;
+				border-color: var(--o-social-follow-brand-color);
+			}
+		}
+	}
 
 	.o-social-follow-icon__label {
 		@include oPrivateNormaliseVisuallyHidden();
