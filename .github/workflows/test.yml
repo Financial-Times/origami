@@ -234,6 +234,14 @@ jobs:
       - name: Install node modules
         run: npm ci
   test:
+    if: ${{ needs.changes.outputs.components != '[]' && needs.changes.outputs.components != '' }}
+    needs: changes
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        component: ${{ fromJson(needs.changes.outputs.components) }}
+    steps:
       - run: npm run -w ${{ matrix.component }} lint --if-present
       - run: npm run -w ${{ matrix.component }} build --if-present
       - run: npm run -w ${{ matrix.component }} test --if-present
