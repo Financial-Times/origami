@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.1](https://github.com/Financial-Times/origami/compare/o3-button-v2.0.0...o3-button-v2.0.1) (2024-11-27)
+
+
+### Bug Fixes
+
+* Add missing tokens for the whitelabel inverse button ([#1884](https://github.com/Financial-Times/origami/issues/1884)) ([e3ff9f2](https://github.com/Financial-Times/origami/commit/e3ff9f2f4bb5a728b2a2538d74be6b3fe85f7925))
+
 ## [2.0.0](https://github.com/Financial-Times/origami/compare/o3-button-v1.1.7...o3-button-v2.0.0) (2024-09-23)
 
 
