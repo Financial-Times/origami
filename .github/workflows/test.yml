@@ -5,7 +5,7 @@ concurrency:
 
 on:
   pull_request:
-    branches: [ main, 2025-release]
+    branches: [main, 2025-release]
 
 jobs:
   changes:
@@ -15,6 +15,7 @@ jobs:
     outputs:
       components: ${{ steps.filter.outputs.changes }}
     steps:
+<<<<<<< Updated upstream
     - uses: dorny/paths-filter@v2
       id: filter
       with:
@@ -212,19 +213,212 @@ jobs:
           apps/o3-storybook:
             - 'apps/o3-storybook/**'
   test:
+=======
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            components/ft-concept-button:
+              - 'components/ft-concept-button/**'
+            components/g-audio:
+              - 'components/g-audio/**'
+            components/n-notification:
+              - 'components/n-notification/**'
+            components/o-audio:
+              - 'components/o-audio/**'
+            components/o-autocomplete:
+              - 'components/o-autocomplete/**'
+            components/o-banner:
+              - 'components/o-banner/**'
+            components/o-big-number:
+              - 'components/o-big-number/**'
+            components/o-buttons:
+              - 'components/o-buttons/**'
+            components/o-colors:
+              - 'components/o-colors/**'
+            components/o-comments:
+              - 'components/o-comments/**'
+            components/o-cookie-message:
+              - 'components/o-cookie-message/**'
+            components/o-date:
+              - 'components/o-date/**'
+            components/o-editorial-layout:
+              - 'components/o-editorial-layout/**'
+            components/o-editorial-typography:
+              - 'components/o-editorial-typography/**'
+            components/o-expander:
+              - 'components/o-expander/**'
+            components/o-fonts:
+              - 'components/o-fonts/**'
+            components/o-footer:
+              - 'components/o-footer/**'
+            components/o-footer-services:
+              - 'components/o-footer-services/**'
+            components/o-forms:
+              - 'components/o-forms/**'
+            components/o-ft-affiliate-ribbon:
+              - 'components/o-ft-affiliate-ribbon/**'
+            components/o-grid:
+              - 'components/o-grid/**'
+            components/o-header:
+              - 'components/o-header/**'
+            components/o-header-services:
+              - 'components/o-header-services/**'
+            components/o-icons:
+              - 'components/o-icons/**'
+            components/o-labels:
+              - 'components/o-labels/**'
+            components/o-layout:
+              - 'components/o-layout/**'
+            components/o-lazy-load:
+              - 'components/o-lazy-load/**'
+            components/o-loading:
+              - 'components/o-loading/**'
+            components/o-message:
+              - 'components/o-message/**'
+            components/o-meter:
+              - 'components/o-meter/**'
+            components/o-multi-select:
+              - 'components/o-multi-select/**'
+            components/o-normalise:
+              - 'components/o-normalise/**'
+            components/o-overlay:
+              - 'components/o-overlay/**'
+            components/o-quote:
+              - 'components/o-quote/**'
+            components/o-share:
+              - 'components/o-share/**'
+            components/o-social-follow:
+              - 'components/o-social-follow/**'
+            components/o-spacing:
+              - 'components/o-spacing/**'
+            components/o-stepped-progress:
+              - 'components/o-stepped-progress/**'
+            components/o-subs-card:
+              - 'components/o-subs-card/**'
+            components/o-syntax-highlight:
+              - 'components/o-syntax-highlight/**'
+            components/o-table:
+              - 'components/o-table/**'
+            components/o-tabs:
+              - 'components/o-tabs/**'
+            components/o-teaser:
+              - 'components/o-teaser/**'
+            components/o-teaser-collection:
+              - 'components/o-teaser-collection/**'
+            components/o-toggle:
+              - 'components/o-toggle/**'
+            components/o-tooltip:
+              - 'components/o-tooltip/**'
+            components/o-top-banner:
+              - 'components/o-top-banner/**'
+            components/o-topper:
+              - 'components/o-topper/**'
+            components/o-typography:
+              - 'components/o-typography/**'
+            components/o-video:
+              - 'components/o-video/**'
+            components/o-viewport:
+              - 'components/o-viewport/**'
+            components/o-visual-effects:
+              - 'components/o-visual-effects/**'
+            components/o3-button:
+              - 'components/o3-button/**'
+            components/o3-editorial-typography:
+              - 'components/o3-editorial-typography/**'
+            components/o3-form:
+              - 'components/o3-form/**'
+            components/o3-foundation:
+              - 'components/o3-foundation/**'
+            components/o3-social-sign-in:
+              - 'components/o3-social-sign-in/**'
+            components/o3-tooltip:
+              - 'components/o3-tooltip/**'
+            components/o3-typography:
+              - 'components/o3-typography/**'
+            libraries/ftdomdelegate:
+              - 'libraries/ftdomdelegate/**'
+            libraries/math:
+              - 'libraries/math/**'
+            libraries/o-autoinit:
+              - 'libraries/o-autoinit/**'
+            libraries/o-brand:
+              - 'libraries/o-brand/**'
+            libraries/o-errors:
+              - 'libraries/o-errors/**'
+            libraries/o-testing-library:
+              - 'libraries/o-testing-library/**'
+            libraries/o-tracking:
+              - 'libraries/o-tracking/**'
+            libraries/o-utils:
+              - 'libraries/o-utils/**'
+            libraries/o3-figma-sb-links:
+              - 'libraries/o3-figma-sb-links/**'
+            libraries/o3-tooling-token:
+              - 'libraries/o3-tooling-token/**'
+            libraries/sass-mq:
+              - 'libraries/sass-mq/**'
+            presets/eslint-config-origami-component:
+              - 'presets/eslint-config-origami-component/**'
+            presets/remark-preset-lint-origami-component:
+              - 'presets/remark-preset-lint-origami-component/**'
+            presets/stylelint-config-origami-component:
+              - 'presets/stylelint-config-origami-component/**'
+            tools/a11y:
+              - 'tools/a11y/**'
+            tools/create-component:
+              - 'tools/create-component/**'
+            tools/demo-build:
+              - 'tools/demo-build/**'
+            tools/o3-chrome-extension:
+              - 'tools/o3-chrome-extension/**'
+            tools/o3-compilation:
+              - 'tools/o3-compilation/**'
+            tools/origami-bower-safe-version-supervisor:
+              - 'tools/origami-bower-safe-version-supervisor/**'
+            tools/origami-tools-helpers:
+              - 'tools/origami-tools-helpers/**'
+            tools/sass-compilation:
+              - 'tools/sass-compilation/**'
+            tools/test-javascript:
+              - 'tools/test-javascript/**'
+            tools/test-sass:
+              - 'tools/test-sass/**'
+            tools/validate-component-demo-html:
+              - 'tools/validate-component-demo-html/**'
+            tools/verify-origami-json:
+              - 'tools/verify-origami-json/**'
+            tools/verify-package-json:
+              - 'tools/verify-package-json/**'
+            apps/o2-storybook/addons/background:
+              - 'apps/o2-storybook/addons/background/**'
+            apps/o2-storybook/addons/guidelines:
+              - 'apps/o2-storybook/addons/guidelines/**'
+            apps/o2-storybook/addons/markdown-tabs:
+              - 'apps/o2-storybook/addons/markdown-tabs/**'
+            apps/astro-website:
+              - 'apps/astro-website/**'
+            apps/dictionary:
+              - 'apps/dictionary/**'
+            apps/for-everyone-website:
+              - 'apps/for-everyone-website/**'
+            apps/o2-storybook:
+              - 'apps/o2-storybook/**'
+            apps/o2-storybook-composition:
+              - 'apps/o2-storybook-composition/**'
+            apps/o3-storybook:
+              - 'apps/o3-storybook/**'
+  setup:
+>>>>>>> Stashed changes
     if: ${{ needs.changes.outputs.components != '[]' && needs.changes.outputs.components != '' }}
     needs: changes
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        component: ${{ fromJson(needs.changes.outputs.components) }}
     steps:
       - uses: actions/checkout@v2
       - uses: volta-cli/action@v4
       - uses: actions/cache@v2
         with:
-          volta-version: "1.0.8"
+          volta-version: '1.0.8'
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
@@ -237,6 +431,15 @@ jobs:
           npm config set //npm.packages.ft.com/financial-times-internal-releases/:_authToken=${CLOUDSMITH_API_KEY}
       - name: Install node modules
         run: npm ci
+  test:
+    if: ${{ needs.changes.outputs.components != '[]' && needs.changes.outputs.components != '' }}
+    needs: changes
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        component: ${{ fromJson(needs.changes.outputs.components) }}
+    steps:
       - run: npm run -w ${{ matrix.component }} lint --if-present
       - run: npm run -w ${{ matrix.component }} build --if-present
       - run: npm run -w ${{ matrix.component }} test --if-present
