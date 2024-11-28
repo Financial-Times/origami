@@ -609,7 +609,7 @@ Add the `o-forms-field--optional` class to indicate that a field is optional. Fo
 
 ### Suffix
 
-To inline an element, such as a button, after an input add the class `o-forms-input--suffix` on the `o-forms-input` element. For example to inline a button with a text input using [o-buttons](https://o2.origami.ft.com/?path=/docs/o2-core_components-o-buttons-readme--docs&globals=backgrounds:!undefined):
+To inline an element, such as a button, after an input add the class `o-forms-input--suffix` on the `o-forms-input` element. For example to inline a button with a text input using a button:
 
 ```diff
 <label for="text-example" class="o-forms-field">
@@ -620,7 +620,7 @@ To inline an element, such as a button, after an input add the class `o-forms-in
 - <span class="o-forms-input o-forms-input--text">
 + <span class="o-forms-input o-forms-input--text o-forms-input--suffix">
   <input id="text-example type="text" name="text-example" value>
-+  <button class="o-buttons o-buttons--secondary o-buttons--big">Search</button>
++  <button class="[...]">Search</button>
  </span>
 </label>
 ```

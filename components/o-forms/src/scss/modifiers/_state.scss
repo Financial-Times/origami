@@ -6,7 +6,11 @@
 	.o-forms-input__state {
 		// the loading spinner and tick icons for state are mismatched in terms of size/padding,
 		// the custom line-height aligns them as closely as possible (with minimal style changes)
-		@include oTypographySans($scale: -1, $line-height: 1.75, $include-font-family: false);
+		@include oTypographySans(
+			$scale: -1,
+			$line-height: 1.75,
+			$include-font-family: false
+		);
 		color: inherit;
 		display: flex;
 		align-items: center;
@@ -33,7 +37,6 @@
 	.o-forms-input--saving {
 		display: block;
 
-
 		.o-forms-input__state {
 			padding: 0;
 
@@ -42,7 +45,12 @@
 			}
 
 			&:before {
-				@include oLoadingContent($opts: ('theme': 'dark', 'size': 'mini'));
+				@include oLoadingContent(
+					$opts: (
+						'theme': 'dark',
+						'size': 'mini',
+					)
+				);
 				margin: 0 $_o-forms-spacing-two 0 0;
 			}
 		}
@@ -61,12 +69,16 @@
 			}
 
 			&:before {
-				@include oIconsContent('tick', _oFormsGet('valid-base'), $_o-forms-spacing-seven);
+				@include oIconsContent(
+					'tick',
+					_oFormsGet('valid-base'),
+					$_o-forms-spacing-seven
+				);
 			}
 		}
 	}
 
-	@include oGridRespondTo(S) {
+	@include oPrivateGridRespondTo(S) {
 		.o-forms-input--inline {
 			&.o-forms-input--saving,
 			&.o-forms-input--saved {

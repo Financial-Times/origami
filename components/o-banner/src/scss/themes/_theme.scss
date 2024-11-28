@@ -1,6 +1,4 @@
-@import '@financial-times/o-private-foundation/o-normalise/main';
 @mixin _oBannerTheme($theme, $include-layout-styles: true) {
-
 	// Get and default the colour-based theme properties. Link, button, and rule
 	// colors default to text color, because we know this at least should be set
 	// to have a high enough contrast against the background
@@ -8,14 +6,32 @@
 	$background-color: _oBannerGet('background-color', $from: $theme);
 	$link-text-color: _oBannerGet('link-text-color', $from: $theme);
 	$link-text-color: if($link-text-color, $link-text-color, $text-color);
-	$button-background-color: _oBannerGet('button-background-color', $from: $theme);
-	$button-background-color: if($button-background-color, $button-background-color, $text-color);
-	$button-background-color: _oBannerGet('button-background-color', $from: $theme);
-	$button-background-color: if($button-background-color, $button-background-color, $text-color);
+	$button-background-color: _oBannerGet(
+		'button-background-color',
+		$from: $theme
+	);
+	$button-background-color: if(
+		$button-background-color,
+		$button-background-color,
+		$text-color
+	);
+	$button-background-color: _oBannerGet(
+		'button-background-color',
+		$from: $theme
+	);
+	$button-background-color: if(
+		$button-background-color,
+		$button-background-color,
+		$text-color
+	);
 	$button-type: _oBannerGet('button-type', $from: $theme);
 	$button-type: if($button-type, $button-type, 'primary');
 	$heading-rule-color: _oBannerGet('heading-rule-color', $from: $theme);
-	$heading-rule-color: if($heading-rule-color, $heading-rule-color, $text-color);
+	$heading-rule-color: if(
+		$heading-rule-color,
+		$heading-rule-color,
+		$text-color
+	);
 	$brand-border: _oBannerGet('brand-border', $from: $theme);
 
 	// Get and default background image theme properties
@@ -25,7 +41,11 @@
 	// existing customisations keep their image. It's also the most sensible in
 	// terms of not obstructing content.
 	$background-position: _oBannerGet('background-position', $from: $theme);
-	$background-position: if($background-position, $background-position, bottom right);
+	$background-position: if(
+		$background-position,
+		$background-position,
+		bottom right
+	);
 
 	// Background repeat defaults to no-repeat, because this matches all of
 	// the existing customisations and will not accidentally obstruct content.
@@ -44,11 +64,13 @@
 	}
 	.o-banner__content {
 		a {
-			@include oTypographyLink($theme: (
-				'base': $link-text-color,
-				'hover': $link-text-color,
-				'context': $background-color
-			));
+			@include oTypographyLink(
+				$theme: (
+					'base': $link-text-color,
+					'hover': $link-text-color,
+					'context': $background-color,
+				)
+			);
 		}
 	}
 	.o-banner__heading {
@@ -57,27 +79,39 @@
 		}
 	}
 	.o-banner__button {
-		@include oButtonsContent((
-			'size': 'big',
-			'type': $button-type,
-			'theme': (
+		@include oPrivateButtonsContentWithThemeOverride(
+			$opts: (
+				'size': 'big',
+				'type': $button-type,
+			),
+			$theme-override: (
 				'color': $button-background-color,
-				'context': $background-color
+				'context': $background-color,
 			)
-		));
+		);
 	}
 	.o-banner__link {
-		$banner-to-link-theme: ('professional-inverse': 'professional-inverse');
+		$banner-to-link-theme: (
+			'professional-inverse': 'professional-inverse',
+		);
 		$link-theme-name: map-get($banner-to-link-theme, $theme);
-		$link-theme: if($link-theme-name, $link-theme-name, (
-			'base': $link-text-color,
-			'hover': $link-text-color,
-			'context': $background-color
-		));
+		$link-theme: if(
+			$link-theme-name,
+			$link-theme-name,
+			(
+				'base': $link-text-color,
+				'hover': $link-text-color,
+				'context': $background-color,
+			)
+		);
 		@include oTypographyLink($theme: $link-theme);
 	}
 	.o-banner__close {
-		@include oIconsContent('cross', $text-color, $size: $_o-banner-close-button-size);
+		@include oIconsContent(
+			'cross',
+			$text-color,
+			$size: $_o-banner-close-button-size
+		);
 
 		@include oPrivateNormaliseFocusApply() {
 			@include oPrivateNormaliseFocusContentForElementColour($text-color);

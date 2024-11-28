@@ -7,7 +7,7 @@
 		[title] [input]
 						[input]
 	*/
-	@include oGridRespondTo(S) {
+	@include oPrivateGridRespondTo(S) {
 		.o-forms-field--inline {
 			flex-direction: row;
 			justify-content: space-between;

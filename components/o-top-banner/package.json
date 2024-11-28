@@ -1,37 +1,36 @@
 {
-  "name": "@financial-times/o-top-banner",
-  "version": "1.0.4",
-  "description": "On site messaging for marketing and enhancement messages.",
-  "keywords": [
-    "banner",
-    "message",
-    "marketing"
-  ],
-  "homepage": "https://registry.origami.ft.com/components/o-top-banner",
-  "bugs": {
-    "url": "https://github.com/Financial-Times/origami/issues/new?labels=o-top-banner,components",
-    "email": "origami.support@ft.com"
-  },
-  "license": "MIT",
-  "type": "module",
-  "scripts": {
-    "start": "npx serve ./demos/local",
-    "build": "bash ../../scripts/component/build.bash",
-    "test": "bash ../../scripts/component/test.bash",
-    "debug:js": "bash ../../scripts/component/debug-js.bash",
-    "lint": "bash ../../scripts/component/lint.bash",
-    "watch": "bash ../../scripts/component/watch.bash"
-  },
-  "peerDependencies": {
-    "@financial-times/o-brand": "^4.1.0",
-    "@financial-times/o-buttons": "^7.8.1",
-    "@financial-times/o-colors": "^6.6.1",
-    "@financial-times/o-grid": "^6.1.5",
-    "@financial-times/o-spacing": "^3.2.3",
-    "@financial-times/o-typography": "^7.4.1"
-  },
-  "engines": {
-    "npm": ">7"
-  },
-  "private": false
+	"name": "@financial-times/o-top-banner",
+	"version": "1.0.4",
+	"description": "On site messaging for marketing and enhancement messages.",
+	"keywords": [
+		"banner",
+		"message",
+		"marketing"
+	],
+	"homepage": "https://registry.origami.ft.com/components/o-top-banner",
+	"bugs": {
+		"url": "https://github.com/Financial-Times/origami/issues/new?labels=o-top-banner,components",
+		"email": "origami.support@ft.com"
+	},
+	"license": "MIT",
+	"type": "module",
+	"scripts": {
+		"start": "npx serve ./demos/local",
+		"build": "bash ../../scripts/component/build.bash",
+		"test": "bash ../../scripts/component/test.bash",
+		"debug:js": "bash ../../scripts/component/debug-js.bash",
+		"lint": "bash ../../scripts/component/lint.bash",
+		"watch": "bash ../../scripts/component/watch.bash"
+	},
+	"peerDependencies": {
+		"@financial-times/o-brand": "^4.1.0",
+		"@financial-times/o-private-foundation": "^0.0.0",
+		"@financial-times/o-colors": "^6.6.1",
+		"@financial-times/o-spacing": "^3.2.3",
+		"@financial-times/o-typography": "^7.4.1"
+	},
+	"engines": {
+		"npm": ">7"
+	},
+	"private": false
 }

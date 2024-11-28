@@ -2,12 +2,11 @@
 /// @access private
 @mixin _oTableResponsiveScroll {
 	.o-table--responsive-scroll {
-
 		.o-table__duplicate-row {
 			display: none;
 		}
 
-		@include oGridRespondTo($until: S) {
+		@include oPrivateGridRespondTo($until: S) {
 			// Remove standard border.
 			&.o-table--horizontal-lines .o-table__duplicate-row:not(:first-child) {
 				border: 0;
@@ -44,7 +43,7 @@
 			}
 
 			// Whilst scrollable, remove all hidden cells.
-			td[aria-hidden="true"] { // stylelint-disable-line selector-no-qualifying-type
+			td[aria-hidden='true'] {
 				display: none;
 			}
 			// sass-lint:enable no-qualifying-elements

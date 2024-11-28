@@ -1,11 +1,9 @@
-
 @import '@financial-times/math';
 @import '@financial-times/o-spacing/main';
 @import '@financial-times/o-brand/main';
-@import '@financial-times/o-grid/main';
 @import '@financial-times/o-icons/main';
 @import '@financial-times/o-loading/main';
-@import '@financial-times/o-private-foundation/o-normalise/main';
+@import '@financial-times/o-private-foundation/main';
 @import '@financial-times/o-typography/main';
 
 @import 'src/scss/main';
@@ -18,38 +16,43 @@
 ///			'features': ('inline')
 ///		));
 /// @output Styles for form elements.
-@mixin oForms($opts: (
-	'elements': (
-		'checkbox',
-		'date',
-		'file',
-		'password',
-		'pseudo-radio-link',
-		'radio-round',
-		'radio-box',
-		'select',
-		'textarea',
-		'text',
-		'toggle'
-	),
-	'features': (
-		'disabled',
-		'inline',
-		'inverse', // @deprecated, see 'themes' property
-		'error-summary',
-		'right',
-		'small',
-		'state',
-		'suffix'
-	),
-	'themes': (
-		'inverse',
-		'white',
-		'professional',
-		'professional-inverse',
-		'ft-live'
+@mixin oForms(
+	$opts: (
+		'elements': (
+			'checkbox',
+			'date',
+			'file',
+			'password',
+			'pseudo-radio-link',
+			'radio-round',
+			'radio-box',
+			'select',
+			'textarea',
+			'text',
+			'toggle',
+		),
+		'features': (
+			'disabled',
+			'inline',
+			'inverse',
+			// @deprecated, see 'themes' property
+			'error-summary',
+			'right',
+			'small',
+			'state',
+			'suffix',
+		),
+		'themes': (
+			'inverse',
+			'white',
+			'professional',
+			'professional-inverse',
+			'ft-live',
+		),
 	)
-)) {
+) {
+	@include oPrivateFoundation();
+
 	$elements: map-get($opts, 'elements');
 	$features: map-get($opts, 'features');
 	$themes: if(map-has-key($opts, 'themes'), map-get($opts, 'themes'), ());
@@ -74,12 +77,15 @@
 
 	@if $themes {
 		@each $theme in $themes {
-			$default-text-color: _oFormsGet("default-text", $theme);
-			@if $default-text-color and oColorsColorBrightness($default-text-color) > 65% {
+			$default-text-color: _oFormsGet('default-text', $theme);
+			@if $default-text-color and
+				oColorsColorBrightness($default-text-color) >
+				65%
+			{
 				.o-forms-field--#{$theme} .o-forms-title {
 					.o-forms-title__main:after,
 					.o-forms-title__prompt {
-						color: rgba(_oFormsGet("default-text", $theme), 0.7);
+						color: rgba(_oFormsGet('default-text', $theme), 0.7);
 					}
 				}
 				.o-forms-field--#{$theme} input {
@@ -100,9 +106,7 @@
 	}
 
 	@if index($elements, 'date') {
-		@include _oFormsDate(
-			$disabled
-		);
+		@include _oFormsDate($disabled);
 	}
 
 	@if $file {
@@ -118,11 +122,7 @@
 	}
 
 	@if index($elements, 'select') {
-		@include _oFormsSelect(
-			$disabled,
-			$small,
-			$suffix
-		);
+		@include _oFormsSelect($disabled, $small, $suffix);
 	}
 
 	@if index($elements, 'textarea') {

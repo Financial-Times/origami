@@ -12,12 +12,12 @@
 		grid-row: 1 /span 2;
 	}
 	&.o-topper--full-bleed-image-center {
-		@include oGridRespondTo(S) {
+		@include oPrivateGridRespondTo(S) {
 			@include _oTopperAlignText(center);
 		}
 	}
 
-	@include oGridRespondTo($until: M) {
+	@include oPrivateGridRespondTo($until: M) {
 		padding: 0;
 		.o-topper__content {
 			display: flex;
@@ -28,7 +28,7 @@
 		}
 	}
 
-	@include oGridRespondTo(M) {
+	@include oPrivateGridRespondTo(M) {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		grid-template-rows: minmax(auto, 480px) 1fr;
@@ -45,19 +45,19 @@
 
 		
 	}
-	@include oGridRespondTo(L) {
+	@include oPrivateGridRespondTo(L) {
 		grid-template-rows: minmax(auto, 600px) 1fr;
 	}
 
 	@supports (object-fit: cover) {
 		.o-topper__visual {
 			height: auto;
-			@include oGridRespondTo(M) {
+			@include oPrivateGridRespondTo(M) {
 				.o-topper__image {
 					height: 480px;
 				}
 			}
-			@include oGridRespondTo(L) {
+			@include oPrivateGridRespondTo(L) {
 				.o-topper__image {
 					height: 600px;
 				}

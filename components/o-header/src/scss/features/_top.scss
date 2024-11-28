@@ -1,12 +1,10 @@
-@import '@financial-times/o-private-foundation/o-normalise/main';
-
 @mixin _oHeaderTop() {
 	.o-header__top-wrapper {
 		display: grid;
 		grid-template-columns: 1fr min-content 1fr;
 		align-items: center;
 		gap: $_o-header-column-item-margin-s;
-		@include oGridRespondTo('XL') {
+		@include oPrivateGridRespondTo('XL') {
 			gap: $_o-header-column-item-margin-l;
 		}
 	}
@@ -17,7 +15,7 @@
 		align-items: center;
 		white-space: nowrap;
 		gap: $_o-header-column-item-margin-s;
-		@include oGridRespondTo('XL') {
+		@include oPrivateGridRespondTo('XL') {
 			gap: $_o-header-column-item-margin-l;
 		}
 	}
@@ -40,7 +38,7 @@
 	.o-header__top-takeover {
 		display: none;
 
-		@include oGridRespondTo('oHeaderL') {
+		@include oPrivateGridRespondTo('oHeaderL') {
 			display: block;
 
 			& ~ * {
@@ -64,12 +62,12 @@
 		margin-top: 4px;
 		margin-bottom: 4px;
 
-		@include oGridRespondTo('oHeaderL') {
+		@include oPrivateGridRespondTo('oHeaderL') {
 			margin-top: 30px;
 			margin-bottom: 30px;
 		}
 
-		@include oGridRespondTo('M') {
+		@include oPrivateGridRespondTo('M') {
 			margin-top: 24px;
 			margin-bottom: 24px;
 		}
@@ -89,7 +87,7 @@
 	.o-header__top-icon-link.o-header__top-icon-link--hide-s,
 	.o-header__top-button.o-header__top-button--hide-s,
 	.o-header__top-link.o-header__top-link--hide-s {
-		@include oGridRespondTo($until: 'S') {
+		@include oPrivateGridRespondTo($until: 'S') {
 			display: none;
 		}
 	}
@@ -97,13 +95,13 @@
 	.o-header__top-icon-link.o-header__top-icon-link--hide-m,
 	.o-header__top-button.o-header__top-button--hide-m,
 	.o-header__top-link.o-header__top-link--hide-m {
-		@include oGridRespondTo($until: 'M') {
+		@include oPrivateGridRespondTo($until: 'M') {
 			display: none;
 		}
 	}
 
 	.o-header__top-icon-link.o-header__top-icon-link--show-m {
-		@include oGridRespondTo($from: 'M') {
+		@include oPrivateGridRespondTo($from: 'M') {
 			display: none;
 		}
 	}
@@ -127,7 +125,7 @@
 
 		// when used in tandem with the menu toggle, hide this on smaller screen sizes
 		.o-header__top-icon-link--menu + & {
-			@include oGridRespondTo($until: 'M') {
+			@include oPrivateGridRespondTo($until: 'M') {
 				display: none;
 			}
 		}
@@ -160,7 +158,7 @@
 		}
 
 		span {
-			@include oGridRespondTo($until: 'M') {
+			@include oPrivateGridRespondTo($until: 'M') {
 				@include oPrivateNormaliseVisuallyHidden;
 			}
 		}
@@ -181,17 +179,17 @@
 		background-position: 50%;
 		background-repeat: no-repeat;
 
-		@include oGridRespondTo('S') {
+		@include oPrivateGridRespondTo('S') {
 			@include _oHeaderLogoSize('S');
 		}
 
-		@include oGridRespondTo('M') {
+		@include oPrivateGridRespondTo('M') {
 			@include _oHeaderLogoSize('M');
 			margin-top: 24px;
 			margin-bottom: 24px;
 		}
 
-		@include oGridRespondTo('oHeaderL') {
+		@include oPrivateGridRespondTo('oHeaderL') {
 			@include _oHeaderLogoSize('L');
 			margin-top: 30px;
 			margin-bottom: 30px;
@@ -200,7 +198,7 @@
 
 	.o-header__ask-ft-button--top {
 		@include _oHeaderAskFtButton();
-		@include oGridRespondTo($until: 'M') {
+		@include oPrivateGridRespondTo($until: 'M') {
 			display: none;
 		}
 		margin: 0 10px;

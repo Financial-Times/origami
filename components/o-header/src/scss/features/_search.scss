@@ -18,7 +18,8 @@
 			display: block;
 		}
 	}
-	.o-header__drawer-search, .o-header__search-form {
+	.o-header__drawer-search,
+	.o-header__search-form {
 		.o-forms-input--text input::placeholder {
 			color: oColorsByName('black-60');
 		}
@@ -31,7 +32,7 @@
 	.o-header__search-term {
 		@include oTypographySans($scale: -1);
 		box-sizing: border-box;
-		height: 32px; // match overridden o-buttons height
+		height: 32px; // match overridden button height
 		vertical-align: middle;
 		// normalize
 		appearance: none;
@@ -53,13 +54,13 @@
 	.o-header__search-icon {
 		@include oIconsContent($icon-name: 'search', $size: 38, $color: white);
 
-		@include oGridRespondTo($until: 'S') {
+		@include oPrivateGridRespondTo($until: 'S') {
 			display: none;
 		}
 	}
 
 	.o-header__search-submit {
-		@include oButtonsContent(
+		@include oPrivateButtonsContent(
 			$opts: (
 				'type': 'primary',
 				'size': 'big',
@@ -72,7 +73,7 @@
 		padding: 0px oSpacingByName('s6') 0px oSpacingByName('s4');
 		background-position: inherit;
 
-		@include oGridRespondTo($until: 'S') {
+		@include oPrivateGridRespondTo($until: 'S') {
 			padding: 0px oSpacingByName('s4');
 		}
 	}
@@ -85,7 +86,7 @@
 		border: 0;
 		margin-left: $_o-header-padding-x;
 
-		@include oGridRespondTo($until: 'S') {
+		@include oPrivateGridRespondTo($until: 'S') {
 			display: none;
 		}
 	}

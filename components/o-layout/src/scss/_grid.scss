@@ -102,7 +102,7 @@
 			". main ."
 			"footer footer footer";
 
-		@include oGridRespondTo($from: M) {
+		@include oPrivateGridRespondTo($from: M) {
 			$column-gap-count: 3;
 			grid-template-areas:
 				"header header header header"
@@ -119,10 +119,10 @@
 		> aside {
 			margin-bottom: oSpacingByName('s6');
 		}
-		@include oGridRespondTo($until: M) {
+		@include oPrivateGridRespondTo($until: M) {
 			margin-top: 0;
 		}
-		@include oGridRespondTo($from: L) {
+		@include oPrivateGridRespondTo($from: L) {
 			> * {
 				box-sizing: border-box;
 				max-width: calc(100% - #{$_o-layout-sidebar-width} - #{$_o-layout-gutter});
@@ -183,7 +183,7 @@
 			". aside-sidebar ."
 			"footer footer footer";
 
-		@include oGridRespondTo($from: M) {
+		@include oPrivateGridRespondTo($from: M) {
 			grid-template-rows: auto auto 1fr auto;
 			grid-template-columns: $margin-grid-size $_o-layout-sidebar-width minmax(0, 1fr) $margin-grid-size;
 			grid-template-areas:
@@ -194,7 +194,7 @@
 				"footer footer footer footer";
 		}
 
-		@include oGridRespondTo($from: L) {
+		@include oPrivateGridRespondTo($from: L) {
 			grid-template-areas:
 				"header header header header header"
 				". query-sidebar heading aside-sidebar ."
@@ -215,7 +215,7 @@
 
 		.o-layout__query-sidebar {
 			margin: 0;
-			@include oGridRespondTo($from: M) {
+			@include oPrivateGridRespondTo($from: M) {
 				border-right: 1px solid oColorsByName('slate-white-15');
 				padding-right: $_o-layout-gutter;
 				margin: $_o-layout-gutter 0 oSpacingByName('s4');
@@ -223,7 +223,7 @@
 		}
 
 		.o-layout__aside-sidebar {
-			@include oGridRespondTo($from: L) {
+			@include oPrivateGridRespondTo($from: L) {
 				width: $_o-layout-sidebar-width; // So the sidebar can be deleted, the query area fits to content width.
 				margin: $_o-layout-gutter 0;
 				padding-left: $_o-layout-gutter;

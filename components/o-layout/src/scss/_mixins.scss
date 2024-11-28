@@ -9,7 +9,7 @@
 
 /// Base styling for the layout content
 /// @access private
-@mixin _oLayoutTypography () {
+@mixin _oLayoutTypography() {
 	.o-layout-typography {
 		@include oTypographySans($scale: 1, $line-height: 1.4);
 
@@ -106,7 +106,7 @@
 /// @access private
 @mixin _oLayoutNavigation($query-layout) {
 	.o-layout__navigation {
-		@include oGridRespondTo($from: M) {
+		@include oPrivateGridRespondTo($from: M) {
 			position: sticky;
 			top: $_o-layout-gutter;
 			max-height: 100vh;
@@ -129,13 +129,13 @@
 		text-align: left;
 		margin: 0 0 oSpacingByIncrement(7); // matches `oTypographyBody`
 
-		@include oGridRespondTo($from: M) {
+		@include oPrivateGridRespondTo($from: M) {
 			text-align: right;
 			margin-top: $_o-layout-gutter;
 		}
 
 		li {
-			&:not(.o-layout__navigation-title) [aria-current="location"] {
+			&:not(.o-layout__navigation-title) [aria-current='location'] {
 				color: oColorsByName('teal-30');
 				background: oColorsMix('teal', 'white', 20);
 			}
@@ -156,7 +156,7 @@
 				}
 				border-color: oColorsByName('teal');
 				border-left: 2px solid;
-				@include oGridRespondTo($from: M) {
+				@include oPrivateGridRespondTo($from: M) {
 					border-left: 0 solid;
 					border-right: 2px solid;
 				}
@@ -171,9 +171,9 @@
 				text-decoration: none;
 			}
 
-			&.o-layout__navigation-title a { // stylelint-disable-line selector-no-qualifying-type
+			&.o-layout__navigation-title a {
 				@include oTypographySans($weight: 'semibold', $include-font-family: false);
-				@include oGridRespondTo($from: M) {
+				@include oPrivateGridRespondTo($from: M) {
 					border: 0;
 				}
 			}
@@ -211,9 +211,8 @@
 /// Linked Heading
 /// Outputs styles for the linked headings
 /// @access private
-@mixin _oLayoutLinkedHeading () {
+@mixin _oLayoutLinkedHeading() {
 	.o-layout__linked-heading:not(.o-layout__unstyled-element) {
-
 		padding-right: 1.5ch; // for the octothorpe
 
 		// Increased specificity needed to counteract
@@ -244,10 +243,9 @@
 		&:target .o-layout__linked-heading__link {
 			animation-delay: 0;
 			animation-duration: 5s;
-			animation-timing-function: $o-visual-effects-timing-fade;
+			animation-timing-function: $o-pf-visual-effects-timing-fade;
 			animation-name: o-layout-linked-heading-fade;
 		}
-
 	}
 
 	@keyframes o-layout-linked-heading-fade {

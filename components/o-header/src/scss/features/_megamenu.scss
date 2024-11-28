@@ -10,12 +10,12 @@
 
 	.o-header__mega {
 		@include oTypographySans(0);
-		@include oVisualEffectsShadowContent('low');
+		@include oPrivateVisualEffectsShadowContent('low');
 		display: none;
 		position: absolute;
 		top: 100%;
-		left: oGridGutter('L');
-		right: oGridGutter('L');
+		left: oPrivateGridGutter('L');
+		right: oPrivateGridGutter('L');
 		z-index: $_o-header-mega-z-index;
 		box-sizing: border-box;
 		padding: $_o-header-mega-padding-y 0;

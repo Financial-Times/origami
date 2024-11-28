@@ -18,7 +18,7 @@
 
 	// ...except for when the image is hidden on small teasers on narrow viewports
 	&.o-teaser--has-image.o-teaser--small .o-teaser__heading:before {
-		@include oGridRespondTo($until: 'M') {
+		@include oPrivateGridRespondTo($until: 'M') {
 			content: '';
 		}
 	}

@@ -28,6 +28,26 @@ function log(...args) {
 }
 
 /**
+ * Creates a logging function that logs messages to the console with a specified namespace.
+ *
+ * @function namedLog
+ * @param {string} namespace - The namespace to be prefixed to each log message.
+ * @returns {function} A function that logs messages to the console with the given namespace if the configuration allows.
+ *
+ * @example
+ * const log = namedLog('MyNamespace');
+ * log('This is a message'); 
+ * // Output: [MyNamespace]: This is a message
+ */
+function namedLog(namespace) {
+	return function(...args) {
+		if(get('config').test && window.console) {
+			window.console.log(`%c[${namespace}]:`, 'color: teal', ...args)
+		}
+	}
+}
+
+/**
  * Tests if variable is a certain type. Defaults to check for undefined if no type specified.
  *
  * @param {*} variable - The variable to check.
@@ -221,100 +241,131 @@ function assignIfUndefined (subject, target) {
 	}
 }
 
-/**
- * Used to find out all the paths which contain a circular reference.
- *
- * @param {*} rootObject The object we want to search within for circular references
- * @returns {string[]} Returns an array of strings, the strings are the full paths to the circular references within the rootObject
- */
-function findCircularPathsIn(rootObject) {
-	const traversedValues = new WeakSet();
-	const circularPaths = [];
-
-	function _findCircularPathsIn(currentObject, path) {
-		// If we already saw this object
-		// the rootObject contains a circular reference
-		// and we can stop looking any further into this currentObj
-		if (traversedValues.has(currentObject)) {
-			circularPaths.push(path);
-			return;
-		}
-
-		// Only Objects and things which inherit from Objects can contain circular references
-		// I.E. string/number/boolean/template literals can not contain circular references
-		if (currentObject instanceof Object) {
-			traversedValues.add(currentObject);
-
-			// Loop through all the values of the current object and search those for circular references
-			for (const [key, value] of Object.entries(currentObject)) {
-				// No need to recurse on every value because only things which inherit
-				// from Objects can contain circular references
-				if (value instanceof Object) {
-					const parentObjectIsAnArray = Array.isArray(currentObject);
-					if (parentObjectIsAnArray) {
-					// Store path in bracket notation when value is an array
-						_findCircularPathsIn(value, `${path}[${key}]`);
-					} else {
-					// Store path in dot-notation when value is an object
-						_findCircularPathsIn(value, `${path}.${key}`);
-					}
-				}
-			}
-		}
-	}
-
-	_findCircularPathsIn(rootObject, "");
-	return circularPaths;
-}
 
 /**
- * Used to find out whether an object contains a circular reference.
+ * Identify circular references in 'object', and replace them with a string representation
+ * of the reference. Returns a succesfully serialised JSON string, and a list of circular
+ * references which were removed.
+ * 
+ * Inspired by https://github.com/sindresorhus/safe-stringify and 
+ * https://github.com/sindresorhus/decircular
  *
- * @param {object} rootObject The object we want to search within for circular references
- * @returns {boolean} Returns true if a circular reference was found, otherwise returns false
+ * @param {*} object The object we want to stringify, and search within for circular references
+ * @returns {Object: {jsonString: string, warnings: array}} The stringified object, and a warnings for each circular reference which was removed
  */
-function containsCircularPaths(rootObject) {
-	// Used to keep track of all the values the rootObject contains
-	const traversedValues = new WeakSet();
+function removeCircularReferences(object) {
 
-	/**
-	 *
-	 * @param {*} currentObject The current object we want to search within for circular references
-	 * @returns {boolean|undefined} Returns true if a circular reference was found, otherwise returns undefined
-	 */
-	function _containsCircularPaths(currentObject) {
-		// If we already saw this object
-		// the rootObject contains a circular reference
-		// and we can stop looking any further
-		if (traversedValues.has(currentObject)) {
-			return true;
+	// WeakMaps release memory when all references are garbage-collected
+	const circularReferences = new WeakMap();
+	const paths = new WeakMap();
+
+	const warnings = [];
+
+	function getPathFragment(parent, key) {
+		if (!key) {
+			return '$';
 		}
 
-		// Only Objects and things which inherit from Objects can contain circular references
-		// I.E. string/number/boolean/template literals can not contain circular references
-		if (currentObject instanceof Object) {
-			traversedValues.add(currentObject);
-			// Loop through all the values of the current object and search those for circular references
-			for (const value of Object.values(currentObject)) {
-				// No need to recurse on every value because only things which inherit
-				// from Objects can contain circular references
-				if (value instanceof Object) {
-					if (_containsCircularPaths(value)) {
-						return true;
-					}
-				}
-			}
+		if (Array.isArray(parent)) {
+			return `[${key}]`;
 		}
+
+		return `.${key}`;
 	}
 
-	// _containsCircularPaths returns true or undefined.
-	// By using Boolean we convert the undefined into false.
-	return Boolean(
-		_containsCircularPaths(
-			rootObject
-		)
-	);
+	function formatCircularReferencesWarning(references) {
+		const paths = references.map(path => '`' + path.join('') + '`');
+		return 'Circular reference between ' + paths.join(' AND ');
+	}
+
+	function replacer(key, value) {
+		// Scalars don't need to be inspected as they can't contain circular references
+		if (!(value !== null && typeof value === 'object')) {
+			return value
+		}
+
+		// Record the path from the root ($) to the current object (value)
+		// in order to print helpful circular reference warnings.
+		const path = [...paths.get(this) || [], getPathFragment(this, key)];
+		paths.set(value, path);
+
+		// If a reference to the current value is already in the list, we have
+		// a circular reference. Add the current value to the list along with its path,
+		// and return a useful error string rather than the unserialisable value.
+		if (circularReferences.has(value)) {
+			const references = [...circularReferences.get(value), path];
+			circularReferences.set(value, references);
+			const warning = formatCircularReferencesWarning(references);
+			warnings.push(warning);
+			return warning;
+		}
+
+		// This is the first time we've seen the current value in this branch 
+		// of the object. Record its path from the object root.
+		circularReferences.set(value, [path]);
+
+		// Recurse into the value to proactively find circular references
+		// before encountering a loop.
+		const newValue = Array.isArray(value) ? [] : {};
+		for (const [k, v] of Object.entries(value)) {
+			newValue[k] = replacer.call(value, k, v);
+		}
+
+		// All circular references to this object will have been identified,
+		// so remove it from the list.
+		circularReferences.delete(value);
+
+		// This branch of the object can now be safely serialised to a JSON string
+		return newValue;
+	}
+
+	const jsonString = JSON.stringify(object, replacer);
+	return {jsonString, warnings};
 }
+
+
+/**
+ * Stringify an object to JSON, removing any circular references. When circular references
+ * are found, an error is thrown in a new event loop so that global error handlers can report it.
+ *
+ * @param {*} object The object we want to stringify, and search within for circular references
+ * @returns {string} The safely stringified JSON string
+ */
+function safelyStringifyJson(object) {
+
+	// JSON.stringify throws on two cases:
+	// - value contains a circular reference
+	// - A BigInt value is encountered
+	// Circular references are a real possibility in the way o-tracking is called (and saves a queue of 
+	// messages in a store), so we need to handle those gracefully.
+	// 
+	// However, for performance reasons, we always attempt to do a basic JSON.stringify() first. The 
+	// recursion involved in removeCircularReferences() makes it about 20x slower to stringify a basic payload. 
+	// This performance hit will be exacerbated on slow devices (e.g. old Android phones) with lots of queued offline events.
+	try {
+		return JSON.stringify(object);
+
+	// NB: error is discarded - we have more work to do in order to throw a useful message
+	} catch (error) {
+	
+		const {jsonString, warnings} = removeCircularReferences(object);
+	
+		if (warnings.length) {
+			// Throw in a new event loop, as we always want to return JSON so the tracking payload is sent
+			setTimeout(() => {
+				const errorMessage = "AssertionError: o-tracking does not support circular references in the analytics data.\n" +
+				"Please remove the circular references in the data.\n" +
+				"Here are the paths in the data which are circular:\n" +
+				warnings.join('\n');
+				throw new Error(errorMessage);
+			});
+		}
+	
+		return jsonString;
+	}
+
+
+};
 
 /**
  * Find out whether two objects are deeply equal to each other.
@@ -389,6 +440,7 @@ function isDeepEqual(a, b) {
 
 export {
 	log,
+	namedLog,
 	is,
 	is as isUndefined,
 	merge,
@@ -403,7 +455,7 @@ export {
 	sanitise,
 	assignIfUndefined,
 	filterProperties,
-	findCircularPathsIn,
-	containsCircularPaths,
+	removeCircularReferences,
+	safelyStringifyJson,
 	isDeepEqual
 };

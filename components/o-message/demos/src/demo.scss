@@ -20,8 +20,12 @@ body {
 }
 
 .demo-button {
-  @include oButtonsContent(('type': 'secondary'));
-  margin: 10px;
+	@include oPrivateButtonsContent(
+		(
+			'type': 'secondary',
+		)
+	);
+	margin: 10px;
 }
 
 .demo-inner,
@@ -31,11 +35,15 @@ body {
 }
 
 @if oBrandIs('core') or oBrandIs('internal') {
-  @include oMessageAddState('pikachu', (
-          'foreground-color': 'white',
-          'background-color': 'slate',
-          'highlight-color': 'lemon',
-          'button-type': 'primary',
-          'icon': 'user',
-  ), $types: ('notice', 'alert'));
+	@include oMessageAddState(
+		'pikachu',
+		(
+			'foreground-color': 'white',
+			'background-color': 'slate',
+			'highlight-color': 'lemon',
+			'button-type': 'primary',
+			'icon': 'user',
+		),
+		$types: ('notice', 'alert')
+	);
 }
