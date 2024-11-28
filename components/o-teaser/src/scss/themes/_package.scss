@@ -52,15 +52,15 @@
 	}
 
 	.o-teaser__meta {
-		color: oColorsByName('white');
+		color: oPrivateFoundationGet('o3-color-palette-white');
 
 		&:after {
-			border-color: oColorsByName('white');
+			border-color: oPrivateFoundationGet('o3-color-palette-white');
 		}
 	}
 
 	.o-teaser__heading {
-		color: oColorsByName('white');
+		color: oPrivateFoundationGet('o3-color-palette-white');
 
 		a:hover,
 		a:visited,

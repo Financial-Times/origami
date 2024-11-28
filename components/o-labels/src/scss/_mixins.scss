@@ -45,7 +45,7 @@
 ///   @include oLabelsAddState('tier-gold');
 /// @example scss - Custom standard label state
 ///   @include oLabelsAddState('citrus-fruit', (
-///       background-color: oColorsByName('lemon')
+///       background-color: oPrivateFoundationGet('o3-color-palette-lemon')
 ///   ));
 /// @access public
 @mixin oLabelsAddState($state-name, $opts: null) {
@@ -73,7 +73,7 @@
 /// 			'base': true,
 /// 			'size': 'big',
 /// 			'state': (
-/// 				'background-color': oColorsByName('lemon')
+/// 				'background-color': oPrivateFoundationGet('o3-color-palette-lemon')
 /// 			)
 /// 		));
 /// 	}

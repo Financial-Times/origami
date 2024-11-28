@@ -8,7 +8,7 @@
 
 @include oColorsSetColor(
 	'o-teaser/live-blog-in-progress',
-	oColorsByName('crimson'),
+	oPrivateFoundationGet('o3-color-palette-crimson'),
 	(
 		'deprecated': 'consider using the "crimson" color directory or contact the Origami team if you would still like to match the colour of the live indicator label which is now located in the o-labels component'
 	)
@@ -36,7 +36,7 @@
 
 @include oColorsSetColor(
 	'o-teaser/live-blog-closed',
-	oColorsByName('black-60'),
+	oPrivateFoundationGet('o3-color-palette-black-60'),
 	(
 		'deprecated': 'contact the Origami team if you would still like to match the colour of the closed indicator label which is now located in the o-labels component'
 	)

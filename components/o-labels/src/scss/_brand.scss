@@ -33,18 +33,18 @@ $_o-labels-shared-brand-config: (
 @if oBrandIs('core') {
 	@include oBrandDefine('o-labels', 'core', (
 		'variables': map-merge($_o-labels-shared-brand-config, (
-			text-color: oColorsByName('black'),
-			background-color: oColorsByName('wheat'),
+			text-color: oPrivateFoundationGet('o3-color-palette-black'),
+			background-color: oPrivateFoundationGet('o3-color-palette-wheat'),
 			'content-commercial': (
-				background-color: oColorsByName('o-labels/commercial-content')
+				background-color: oPrivateColorsByName('o-labels/commercial-content')
 			),
 			'content-premium': (
-				background-color: oColorsByName('black')
+				background-color: oPrivateFoundationGet('o3-color-palette-black')
 			),
 			'lifecycle-beta': (
-				background-color: oColorsByName('paper'),
-				border-color: oColorsByName('black-20'),
-				text-color: oColorsByName('black-80'),
+				background-color: oPrivateFoundationGet('o3-color-palette-paper'),
+				border-color: oPrivateFoundationGet('o3-color-palette-black-20'),
+				text-color: oPrivateFoundationGet('o3-color-palette-black-80'),
 				text-transform: uppercase,
 				padding-vertical: oSpacingByName('s1'),
 				padding-horizontal: oSpacingByName('s3'),
@@ -66,21 +66,21 @@ $_o-labels-shared-brand-config: (
 @if oBrandIs('internal') {
 	@include oBrandDefine('o-labels', 'internal', (
 		'variables': map-merge($_o-labels-shared-brand-config, (
-			background-color: oColorsMix('black', 'white', 10),
+			background-color: oPrivateColorsMix('black', 'white', 10),
 			'support-active': (
-				background-color: oColorsMix('jade', 'black', 70)
+				background-color: oPrivateColorsMix('jade', 'black', 70)
 			),
 			'support-dead': (
-				background-color: oColorsByName('black')
+				background-color: oPrivateFoundationGet('o3-color-palette-black')
 			),
 			'support-deprecated': (
-				background-color: oColorsByName('crimson')
+				background-color: oPrivateFoundationGet('o3-color-palette-crimson'')
 			),
 			'support-experimental': (
-				background-color: oColorsByName('lemon')
+				background-color: oPrivateFoundationGet('o3-color-palette-lemon')
 			),
 			'support-maintained': (
-				background-color: oColorsMix('jade', 'black', 70)
+				background-color: oPrivateColorsMix('jade', 'black', 70)
 			),
 			'tier-bronze': (
 				// NOTE: service tiers not in o-colors yet, will be moved if another
@@ -103,25 +103,25 @@ $_o-labels-shared-brand-config: (
 				background-color: #c0c0c0
 			),
 			'oxford': (
-				background-color: oColorsByName('oxford')
+				background-color: oPrivateFoundationGet('o3-color-palette-oxford')
 			),
 			'teal': (
-				background-color: oColorsByName('teal')
+				background-color: oPrivateFoundationGet('o3-color-palette-teal-50')
 			),
 			'lemon': (
-				background-color: oColorsByName('lemon')
+				background-color: oPrivateFoundationGet('o3-color-palette-lemon')
 			),
 			'slate': (
-				background-color: oColorsByName('slate')
+				background-color: oPrivateFoundationGet('o3-color-palette-slate')
 			),
 			'jade': (
-				background-color: oColorsByName('jade')
+				background-color: oPrivateFoundationGet('o3-color-palette-jade')
 			),
 			'crimson': (
-				background-color: oColorsByName('crimson')
+				background-color: oPrivateFoundationGet('o3-color-palette-crimson'')
 			),
 			'mandarin': (
-				background-color: oColorsByName('mandarin')
+				background-color: oPrivateFoundationGet('o3-color-palette-mandarin')
 			)
 		)),
 		'supports-variants': (
@@ -151,7 +151,7 @@ $_o-labels-shared-brand-config: (
 @if oBrandIs('whitelabel') {
 	@include oBrandDefine('o-labels', 'whitelabel', (
 		'variables': map-merge($_o-labels-shared-brand-config, (
-			background-color: oColorsMix('black', 'white', 10)
+			background-color: oPrivateColorsMix('black', 'white', 10)
 		)),
 		'supports-variants': (
 			'big',

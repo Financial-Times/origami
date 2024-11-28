@@ -1,9 +1,6 @@
 @import '@financial-times/math';
 @import '@financial-times/o-brand/main';
-@import '@financial-times/o-colors/main';
-@import '@financial-times/o-grid/main';
 @import '@financial-times/o-private-foundation/main';
-@import '@financial-times/o-spacing/main';
 @import '@financial-times/o-typography/main';
 
 @import 'src/scss/variables';
@@ -86,9 +83,9 @@
 		background-color: transparent;
 		background-repeat: no-repeat;
 		border: $o-share-border-size $o-share-border-style
-			oColorsByUsecase('o-share/default-icon', 'border');
+			oPrivateColorsByUsecase('o-share/default-icon', 'border');
 		// undo browser default anchor tag styles
-		color: oColorsByUsecase('o-share/default-icon', 'text');
+		color: oPrivateColorsByUsecase('o-share/default-icon', 'text');
 		text-decoration: none;
 		// add z-index on hover or focus so the border of the icon is
 		// always displayed over the border of the next icon

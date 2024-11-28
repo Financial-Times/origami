@@ -3,7 +3,7 @@
 ///@param {String} $side — left or right rule to be styled
 /// @access private
 @mixin _oLayoutRule($side: 'left') {
-	border-#{$side}: 2px solid oColorsByName('teal');
+	border-#{$side}: 2px solid oPrivateFoundationGet('o3-color-palette-teal-50');
 	padding-#{$side}: oSpacingByName('s3');
 }
 
@@ -136,8 +136,8 @@
 
 		li {
 			&:not(.o-layout__navigation-title) [aria-current='location'] {
-				color: oColorsByName('teal-30');
-				background: oColorsMix('teal', 'white', 20);
+				color: oPrivateFoundationGet('o3-color-palette-teal-30');
+				background: oPrivateColorsMix('teal', 'white', 20);
 			}
 
 			a {
@@ -154,7 +154,7 @@
 				@supports (overflow-wrap: anywhere) {
 					word-break: normal;
 				}
-				border-color: oColorsByName('teal');
+				border-color: oPrivateFoundationGet('o3-color-palette-teal-50');
 				border-left: 2px solid;
 				@include oPrivateGridRespondTo($from: M) {
 					border-left: 0 solid;
@@ -190,7 +190,7 @@
 	// Style sub-nav items.
 	.o-layout__navigation ul li:not(.o-layout__navigation-title) ul a,
 	.o-layout__navigation ol li:not(.o-layout__navigation-title) ol a {
-		border-color: rgba(oColorsByName('teal'), 0.4);
+		border-color: rgba(oPrivateFoundationGet('o3-color-palette-teal-50'), 0.4);
 	}
 
 	@if $query-layout {

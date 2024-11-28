@@ -21,7 +21,7 @@
 		}
 
 		a {
-			color: oColorsByName('white');
+			color: oPrivateFoundationGet('o3-color-palette-white');
 			text-decoration: none;
 		}
 
@@ -53,12 +53,12 @@
 				'hover': 'white'
 			)
 		);
-		color: oColorsByName('white');
+		color: oPrivateFoundationGet('o3-color-palette-white');
 		border-bottom: 0;
 	}
 
 	.o-video__guidance__close {
-		@include oIconsContent('cross', $color: oColorsByName('white'), $size: 20px);
+		@include oIconsContent('cross', $color: oPrivateFoundationGet('o3-color-palette-white'), $size: 20px);
 		border: 0;
 		cursor: pointer;
 

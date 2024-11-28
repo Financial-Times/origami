@@ -5,6 +5,7 @@
 @include oFonts();
 @import '@financial-times/o-normalise/main';
 @include oNormalise();
+@import "@financial-times/o-colors";
 
 body {
 	padding: 1rem;

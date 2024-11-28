@@ -1,0 +1,125 @@
+
+
+// Define universal primary palette.
+$_o-pf-colors-default-palette-colors: join((
+	('transparent', transparent),
+), $_o-pf-colors-default-palette-colors);
+
+// Core brand palette.
+@if oBrandIs('core') {
+	$_o-pf-colors-default-palette-colors: join((
+		// primary palette
+		('black', #000000),
+		('white', #ffffff),
+		('ft-pink', #fcd0b1),
+		('brand-ft-pink', #fcd0b1, ('deprecated': 'Replace "brand-ft-pink" with "ft-pink". This is so we can align our naming with our designers, including the Brand team.')),
+		('ft-grey', #333333),
+
+		//secondary palette
+		('claret', #990f3d, ('allow-tones': true)),
+		('teal', #0d7680, ('allow-tones': true)),
+		('oxford', #0f5499, ('allow-tones': true)),
+		('slate', #262a33),
+		('paper', #fff1e5),
+
+		//tertiary palette
+		('mandarin', #ff8833),
+		('light-blue', #00a0dd),
+		('crimson', #cc0000),
+		('graphics-dark-blue', #006f9b),
+		('wheat', #f2dfce, ('allow-tones': true)),
+		('candy', #ff7faa),
+		('wasabi', #96cc28),
+		('jade', #00994d),
+		('velvet', #593380),
+		('lemon', #ffec1a),
+		('sky', #cce6ff),
+
+		//professional
+		('mint', #c0efd8, ('allow-tones': true)),
+
+		//b2c palette
+		('org-b2c', #4e96eb),
+		('org-b2c-dark', #3a70af),
+		('org-b2c-light', #99c6fb),
+
+		//partner content palette
+		('matisse', #355778),
+	), $_o-pf-colors-default-palette-colors);
+}
+
+// Internal brand palette.
+@if oBrandIs('internal') {
+	$_o-pf-colors-default-palette-colors: join((
+		// primary palette
+		('black', #000000),
+		('white', #ffffff),
+		('oxford', #0f5499, ('allow-tones': true)),
+		('teal', #0d7680, ('allow-tones': true)),
+
+		//secondary palette
+		('lemon', #ffec1a),
+		('slate', #262a33),
+		('slate-white-15', #dedfe0), // oColorsMix('slate', 'white', 15)
+		('slate-white-5', #f4f4f5), // oColorsMix('slate', 'white', 5)
+
+		//tertiary palette
+		('jade', #00994d),
+		('crimson', #cc0000),
+		('mandarin', #ff8833)
+	), $_o-pf-colors-default-palette-colors);
+}
+
+// Whitelabel brand palette.
+@if oBrandIs('whitelabel') {
+	$_o-pf-colors-default-palette-colors: join((
+		// primary palette
+		('black', #000000),
+		('white', #ffffff),
+		//tertiary palette
+		('jade', #00994d),
+		('crimson', #cc0000)
+	), $_o-pf-colors-default-palette-colors);
+}
+
+// Default palette tones.
+@if oBrandIs('core') {
+	$_o-pf-colors-default-palette-tones: map-merge((
+		'claret': (30, 40, 50, 60, 70, 80, 90, 100),
+		'oxford': (30, 40, 50, 60, 70, 80, 90, 100),
+		'teal': (20, 30, 40, 50, 60, 70, 80, 90, 100),
+		'mint': (30, 40, 50, 60, 70, 80),
+		'wheat': (100)
+	), $_o-pf-colors-default-palette-tones);
+}
+
+@if oBrandIs('internal') {
+	$_o-pf-colors-default-palette-tones: map-merge((
+		'oxford': (30, 40, 50, 60, 70, 80, 90, 100),
+		'teal': (20, 30, 40, 50, 60, 70, 80, 90, 100),
+	), $_o-pf-colors-default-palette-tones);
+}
+
+@if oBrandIs('whitelabel') {
+	$_o-pf-colors-default-palette-tones: map-merge((), $_o-pf-colors-default-palette-tones);
+}
+
+// Default palette mixes.
+@if oBrandIs('core') {
+	$_o-pf-colors-default-palette-mixes: (
+		'black': (5, 10, 20, 30, 40, 50, 60, 70, 80, 90),
+		'white': (10, 20, 40, 60, 80)
+	);
+}
+
+@if oBrandIs('internal') {
+	$_o-pf-colors-default-palette-mixes: (
+		'black': (5, 10, 20, 30, 40, 50, 60, 70, 80, 90)
+	);
+}
+
+@if oBrandIs('whitelabel') {
+	$_o-pf-colors-default-palette-mixes: (
+		'black': (5, 10, 20, 30, 40, 50, 60, 70, 80, 90)
+	);
+}

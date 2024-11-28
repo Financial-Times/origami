@@ -17,13 +17,13 @@ $_o-labels-first-import: true !default;
 	// must come after %_o-labels-timestamp-typography
 	// for higher specificity
 	%_o-labels-indicator-live-color {
-		color: oColorsByName('crimson');
+		color: oPrivateFoundationGet('o3-color-palette-crimson');
 	}
 
 	// must come after %_o-labels-timestamp-typography
 	// for higher specificity
 	%_o-labels-indicator-closed-color {
-		color: oColorsByName('black-60');
+		color: oPrivateFoundationGet('o3-color-palette-black-60');
 	}
 
 	// timestamp block placeholders
@@ -36,7 +36,7 @@ $_o-labels-first-import: true !default;
 	// e.g. %_o-labels-indicator-live-color
 	// for higher specificity
 	%_o-labels-timestamp--inverse {
-		color: oColorsByName('white');
+		color: oPrivateFoundationGet('o3-color-palette-white');
 	}
 
 	// indicator block placeholders

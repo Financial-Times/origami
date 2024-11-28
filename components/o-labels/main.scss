@@ -1,8 +1,7 @@
 @import '@financial-times/math';
-@import '@financial-times/o-spacing/main';
 @import '@financial-times/o-brand/main';
-@import "@financial-times/o-colors/main";
 @import "@financial-times/o-typography/main";
+@import "@financial-times/o-private-foundation/main";
 @import "@financial-times/o-editorial-typography/main";
 
 @import "src/scss/colors";
@@ -114,14 +113,14 @@
 		.o-labels-indicator.o-labels-indicator--badge {
 			padding: oSpacingByName('s1') oSpacingByName('s2');
 			font-weight: oFontsWeight('bold');
-			color: oColorsByName('white');
+			color: oPrivateFoundationGet('o3-color-palette-white');
 			border-radius: div(2, 16) * 1rem;
 			&.o-labels-indicator--live {
-				background: oColorsByName('crimson');
+				background: oPrivateFoundationGet('o3-color-palette-crimson');
 			}
 
 			&.o-labels-indicator--closed {
-				background: oColorsByName('black-60');
+				background: oPrivateFoundationGet('o3-color-palette-black-60');
 			}
 		}
 

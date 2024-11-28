@@ -16,7 +16,7 @@
 	.o-teaser__meta,
 	.o-teaser__tag-suffix,
 	.o-teaser__heading {
-		color: oColorsByName('white');
+		color: oPrivateFoundationGet('o3-color-palette-white');
 	}
 
 	.o-teaser__standfirst,
@@ -25,7 +25,7 @@
 	}
 
 	&.o-teaser--hero .o-teaser__meta:after {
-		border-bottom-color: oColorsByName('white');
+		border-bottom-color: oPrivateFoundationGet('o3-color-palette-white');
 	}
 }
 

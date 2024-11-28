@@ -11,30 +11,30 @@
 }
 
 @if oBrandIs('core') {
-	$_o-footer-dark-link-text-color: oColorsMix('white', 'slate', 60);
-	$_o-footer-light-link-text-color: oColorsByName('black-60');
+	$_o-footer-dark-link-text-color: oPrivateColorsMix('white', 'slate', 60);
+	$_o-footer-light-link-text-color: oPrivateFoundationGet('o3-color-palette-black-60');
 
 	@include oBrandDefine('o-footer', 'core', (
 		'variables': (
-			'title': oColorsByName('white'),
+			'title': oPrivateFoundationGet('o3-color-palette-white'),
 			'dark': (
-				'text': oColorsByName('white'),
-				'background': oColorsByName('slate'),
-				'border': oColorsMix('white', 'slate', 20),
-				'title': oColorsByName('white'),
+				'text': oPrivateFoundationGet('o3-color-palette-white'),
+				'background': oPrivateFoundationGet('o3-color-palette-slate'),
+				'border': oPrivateColorsMix('white', 'slate', 20),
+				'title': oPrivateFoundationGet('o3-color-palette-white'),
 				'link': $_o-footer-dark-link-text-color,
-				'link-hover': oColorsByName('white'),
-				'brand-background': oColorsByName('black'),
+				'link-hover': oPrivateFoundationGet('o3-color-palette-white'),
+				'brand-background': oPrivateFoundationGet('o3-color-palette-black'),
 				'copyright': $_o-footer-dark-link-text-color,
 			),
 			'light': (
-				'text': oColorsByName('black-80'),
-				'background': oColorsByName('black-5'),
-				'border': oColorsByName('black-20'),
-				'title': oColorsByName('black'),
+				'text': oPrivateFoundationGet('o3-color-palette-black-80'),
+				'background': oPrivateFoundationGet('o3-color-palette-black-5'),
+				'border': oPrivateFoundationGet('o3-color-palette-black-20'),
+				'title': oPrivateFoundationGet('o3-color-palette-black'),
 				'link': $_o-footer-light-link-text-color,
-				'link-hover': oColorsByName('black'),
-				'brand-background': oColorsByName('black-20'),
+				'link-hover': oPrivateFoundationGet('o3-color-palette-black'),
+				'brand-background': oPrivateFoundationGet('o3-color-palette-black-20'),
 				'copyright': $_o-footer-light-link-text-color,
 			)
 		),

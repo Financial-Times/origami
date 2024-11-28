@@ -13,13 +13,13 @@
 @if oBrandIs('core') {
 	@include oBrandDefine('o-table', 'core', (
 		'variables': (
-			table-background: oColorsByName('paper'),
-			table-alternate-background: oColorsByName('white-60'),
-			table-border-color: oColorsByName('black-20'),
-			table-data-color: oColorsByUsecase('body', 'text'),
-			table-footnote-color: oColorsByName('black-60'),
+			table-background: oPrivateFoundationGet('o3-color-palette-paper'),
+			table-alternate-background: oPrivateFoundationGet('o3-color-palette-white-60'),
+			table-border-color: oPrivateFoundationGet('o3-color-palette-black-20'),
+			table-data-color: oPrivateColorsByUsecase('body', 'text'),
+			table-footnote-color: oPrivateFoundationGet('o3-color-palette-black-60'),
 			'flat': (
-				table-item-alternate-background: oColorsMix('wheat', 'paper', 40)
+				table-item-alternate-background: oPrivateColorsMix('wheat', 'paper', 40)
 			)
 		),
 		'supports-variants': (
@@ -32,13 +32,13 @@
 @if oBrandIs('internal') {
 	@include oBrandDefine('o-table', 'internal', (
 		'variables': (
-			table-background: oColorsByName('white'),
-			table-alternate-background: oColorsByName('slate-white-5'),
-			table-border-color: oColorsByName('black-20'),
-			table-data-color: oColorsByUsecase('body', 'text'),
-			table-footnote-color: oColorsByName('black-60'),
+			table-background: oPrivateFoundationGet('o3-color-palette-white'),
+			table-alternate-background: oPrivateFoundationGet('o3-color-palette-slate-white-5'),
+			table-border-color: oPrivateFoundationGet('o3-color-palette-black-20'),
+			table-data-color: oPrivateColorsByUsecase('body', 'text'),
+			table-footnote-color: oPrivateFoundationGet('o3-color-palette-black-60'),
 			'flat': (
-				table-item-alternate-background: oColorsByName('slate-white-5')
+				table-item-alternate-background: oPrivateFoundationGet('o3-color-palette-slate-white-5')
 			)
 		),
 		'supports-variants': (

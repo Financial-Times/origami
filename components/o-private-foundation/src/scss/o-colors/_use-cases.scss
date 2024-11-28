@@ -1,0 +1,104 @@
+// Core brand usecases.
+@if oBrandIs('core') {
+	$_o-pf-colors-default-usecases: (
+		('focus', ('outline': 'black-50')),
+		('page', ('background': 'paper')),
+		('page-inverse', ('background': 'slate')),
+		('box', ('background': 'wheat')),
+		('link', ('text': 'teal')),
+		('link-hover', ('text': 'teal-30')),
+		('link-title', ('text': 'black-80')),
+		('link-title-hover', ('text': 'black-70')),
+		('tag-link', ('text': 'claret')),
+		('tag-link-hover', ('text': 'claret-30')),
+		('opinion-tag-link', ('text': 'oxford')),
+		('opinion-tag-link-hover', ('text': 'oxford-30')),
+		('title', ('text': 'black')),
+		('body', ('text': 'black-80')),
+		('body-inverse', ('text': 'white')),
+		('muted', ('text': 'black-20')),
+		('opinion', ('background': 'sky')),
+		('hero', ('background': 'wheat')),
+		('hero-opinion', ('background': 'oxford')),
+		('hero-highlight', ('background': 'claret')),
+		('ads', ('background': #fcede0)), // oColorsMix(wheat, paper, 20);
+
+		// Section colors
+		('section-life-arts', (
+			'text': 'velvet',
+			'background': 'velvet',
+			'border': 'velvet',
+			'outline': 'velvet'
+		)),
+		('section-life-arts-alt', (
+			'text': 'candy',
+			'background': 'candy',
+			'border': 'candy',
+			'outline': 'candy'
+		)),
+		('section-magazine', (
+			'text': 'oxford',
+			'background': 'oxford',
+			'border': 'oxford',
+			'outline': 'oxford'
+		)),
+		('section-magazine-alt', (
+			'text': 'sky',
+			'background': 'sky',
+			'border': 'sky',
+			'outline': 'sky'
+		)),
+		('section-house-home', (
+			'text': 'jade',
+			'background': 'jade',
+			'border': 'jade',
+			'outline': 'jade'
+		)),
+		('section-house-home-alt', (
+			'text': 'wasabi',
+			'background': 'wasabi',
+			'border': 'wasabi',
+			'outline': 'wasabi'
+		)),
+		('section-money', (
+			'text': 'crimson',
+			'background': 'crimson',
+			'border': 'crimson',
+			'outline': 'crimson'
+		)),
+		('section-money-alt', (
+			'text': 'white',
+			'background': 'white',
+			'border': 'white',
+			'outline': 'white'
+		)),
+	);
+}
+
+// Internal brand usecases.
+@if oBrandIs('internal') {
+	$_o-pf-colors-default-usecases: (
+		('focus', ('outline': 'oxford-80')),
+		('page', ('background': 'white')),
+		('page-inverse', ('background': 'slate')),
+		('box', ('background': 'slate-white-5')),
+		('link', ('text': 'teal')),
+		('link-hover', ('text': 'teal-30')),
+		('link-title', ('text': 'slate-white-15')),
+		('link-title-hover', ('text': 'slate-white-15')),
+		('title', ('text': 'slate')),
+		('body', ('text': 'slate')),
+		('body-inverse', ('text': 'white')),
+		('muted', ('text': 'black-20')),
+	);
+}
+
+// Whitelabel brand usecases.
+@if oBrandIs('whitelabel') {
+	$_o-pf-colors-default-usecases: (
+		('page', ('background': 'white')),
+		('page-inverse', ('background': 'black')),
+		('body', ('text': 'black')),
+		('body-inverse', ('text': 'white')),
+	);
+}

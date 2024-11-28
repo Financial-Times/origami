@@ -71,12 +71,12 @@
 	}
 	.o-teaser__tag-prefix {
 		@include oTypographySans($scale: 0, $weight: 'semibold');
-		color: oColorsByName('claret');
+		color: oPrivateFoundationGet('o3-color-palette-claret-60');
 		margin-right: oSpacingByName('s1');
 	}
 	.o-teaser__tag {
 		@include oTypographySans($scale: 0, $weight: 'regular');
-		color: oColorsByName('claret');
+		color: oPrivateFoundationGet('o3-color-palette-claret-60');
 	}
 	.o-teaser__standfirst {
 		display: none;
@@ -94,7 +94,7 @@
 		display: none;
 	}
 	.o-teaser__content {
-		background: oColorsByName('wheat');
+		background: oPrivateFoundationGet('o3-color-palette-wheat');
 		padding: oSpacingByName('s3');
 		box-sizing: border-box;
 		a {
@@ -106,7 +106,7 @@
 			width: 100%;
 		}
 
-		background: oColorsByName('wheat');
+		background: oPrivateFoundationGet('o3-color-palette-wheat');
 		display: flex;
 		flex: 1 0 50%;
 		width: 100%;

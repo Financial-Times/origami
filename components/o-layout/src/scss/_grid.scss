@@ -45,8 +45,8 @@
 		position: absolute;
 		left: oSpacingByName('s2');
 		padding: oSpacingByName('s2') oSpacingByName('s4');
-		background-color: oColorsByName('oxford');
-		color: oColorsByName('white');
+		background-color: oPrivateFoundationGet('o3-color-palette-oxford');
+		color: oPrivateFoundationGet('o3-color-palette-white');
 		text-decoration: none;
 		transform: translateY(-120%);
 		@media (prefers-reduced-motion: no-preference) {
@@ -216,7 +216,7 @@
 		.o-layout__query-sidebar {
 			margin: 0;
 			@include oPrivateGridRespondTo($from: M) {
-				border-right: 1px solid oColorsByName('slate-white-15');
+				border-right: 1px solid oPrivateFoundationGet('o3-color-palette-slate-white-15');
 				padding-right: $_o-layout-gutter;
 				margin: $_o-layout-gutter 0 oSpacingByName('s4');
 			}
@@ -227,7 +227,7 @@
 				width: $_o-layout-sidebar-width; // So the sidebar can be deleted, the query area fits to content width.
 				margin: $_o-layout-gutter 0;
 				padding-left: $_o-layout-gutter;
-				border-left: 1px solid oColorsByName('slate-white-15');
+				border-left: 1px solid oPrivateFoundationGet('o3-color-palette-slate-white-15');
 			}
 		}
 	}

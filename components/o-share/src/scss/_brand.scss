@@ -16,15 +16,15 @@
 	@include oBrandDefine('o-share', 'core', (
 		'variables': (
 			'size': $o-share-icon-size,
-			'border-color': oColorsByUsecase('o-share/default-icon', 'border'),
-			'color': oColorsByUsecase('o-share/default-icon', 'text'),
+			'border-color': oPrivateColorsByUsecase('o-share/default-icon', 'border'),
+			'color': oPrivateColorsByUsecase('o-share/default-icon', 'text'),
 			'small': (
 				'size': $o-share-icon-small-size,
 				'margin': oSpacingByName('s3'),
 			),
 			'inverse': (
-				'border-color': oColorsMix('slate', 'white', 50),
-				'color': oColorsByName('white'),
+				'border-color': oPrivateColorsMix('slate', 'white', 50),
+				'color': oPrivateFoundationGet('o3-color-palette-white'),
 			)
 		),
 		'supports-variants': ()
@@ -35,15 +35,15 @@
 	@include oBrandDefine('o-share', 'internal', (
 		'variables': (
 			'size': $o-share-icon-size,
-			'border-color': oColorsByUsecase('o-share/default-icon', 'border'),
-			'color': oColorsByUsecase('o-share/default-icon', 'text'),
+			'border-color': oPrivateColorsByUsecase('o-share/default-icon', 'border'),
+			'color': oPrivateColorsByUsecase('o-share/default-icon', 'text'),
 			'small': (
 				'size': $o-share-icon-small-size,
 				'margin': oSpacingByName('s3'),
 			),
 			'inverse': (
-				'border-color': oColorsMix('slate', 'white', 50),
-				'color': oColorsByName('white'),
+				'border-color': oPrivateColorsMix('slate', 'white', 50),
+				'color': oPrivateFoundationGet('o3-color-palette-white'),
 			)
 		),
 		'supports-variants': ()

@@ -57,7 +57,7 @@
 
 		.o-header__mega-item {
 			&:before {
-				@include oIconsContent('arrow-right', oColorsByName('claret'), $size: $_o-header-icon-size-small);
+				@include oIconsContent('arrow-right', oPrivateFoundationGet('o3-color-palette-claret-60'), $size: $_o-header-icon-size-small);
 				vertical-align: text-top;
 				content: '';
 			}
