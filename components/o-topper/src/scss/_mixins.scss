@@ -331,10 +331,10 @@
 		.o-topper__tags,
 		.o-topper__topic,
 		.o-topper__columnist-name {
-			color: oColorsByName('oxford');
+			color: oPrivateFoundationGet('o3-color-palette-oxford');
 
 			&:hover {
-				color: oColorsByName('black-80');
+				color: oPrivateFoundationGet('o3-color-palette-black-80');
 			}
 		}
 	}
@@ -346,7 +346,7 @@
 			}
 		}
 		:focus-visible {
-			outline-color: oColorsByName('white');
+			outline-color: oPrivateFoundationGet('o3-color-palette-white');
 		}
 	}
 }

@@ -44,15 +44,15 @@
 @mixin _oTopperThemePackageExtra {
 	.o-topper__package-sequence-id,
 	&.o-topper--package .o-topper__headline {
-		color: oColorsByName('lemon');
+		color: oPrivateFoundationGet('o3-color-palette-lemon');
 	}
 
 	.o-topper__anchor-link {
-		color: oColorsByName('lemon');
-		border-color: oColorsByName('lemon');
+		color: oPrivateFoundationGet('o3-color-palette-lemon');
+		border-color: oPrivateFoundationGet('o3-color-palette-lemon');
 
 		&:after {
-			@include oIconsContent('arrow-down', oColorsByName('lemon'), $size: null, $include-base-styles: false);
+			@include oIconsContent('arrow-down', oPrivateFoundationGet('o3-color-palette-lemon'), $size: null, $include-base-styles: false);
 		}
 
 		&:hover {

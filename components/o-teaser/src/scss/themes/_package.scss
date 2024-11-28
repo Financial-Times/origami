@@ -88,7 +88,7 @@
 	}
 
 	.o-teaser__heading {
-		color: oColorsByName('white');
+		color: oPrivateFoundationGet('o3-color-palette-white');
 
 		a:hover,
 		&:focus {
@@ -97,7 +97,7 @@
 	}
 
 	.o-teaser__timestamp {
-		color: oColorsByName('white');
+		color: oPrivateFoundationGet('o3-color-palette-white');
 	}
 }
 
@@ -155,7 +155,7 @@
 		$package-special-report-color: oColorsByUsecase('o-teaser/package-special-report', 'text');
 		$package-special-report-background: oColorsByUsecase('o-teaser/package-special-report', 'background');
 		&__list-item a {
-			color: oColorsByName('white');
+			color: oPrivateFoundationGet('o3-color-palette-white');
 
 			&:hover {
 				color: oColorsMix($package-special-report-color, $package-special-report-background, $percentage: 78);
@@ -166,11 +166,11 @@
 			color: oColorsMix($package-special-report-color, $package-special-report-background, $percentage: 80);
 
 			&:hover {
-				color: oColorsByName('white');
+				color: oPrivateFoundationGet('o3-color-palette-white');
 			}
 
 			&:after {
-				@include oIconsContent('arrow-right', oColorsByName('white'), $size: 30);
+				@include oIconsContent('arrow-right', oPrivateFoundationGet('o3-color-palette-white'), $size: 30);
 			}
 		}
 	}
@@ -180,7 +180,7 @@
 	.package-teaser {
 		$hero-extra-highlight-color: oColorsByUsecase('o-teaser/theme-hero-extra-highlight', 'text');
 		&__list-item a {
-			color: oColorsByName('white');
+			color: oPrivateFoundationGet('o3-color-palette-white');
 
 			&:hover {
 				color: $hero-extra-highlight-color;
@@ -191,7 +191,7 @@
 			color: $hero-extra-highlight-color;
 
 			&:hover {
-				color: oColorsByName('white');
+				color: oPrivateFoundationGet('o3-color-palette-white');
 			}
 
 			&:after {
