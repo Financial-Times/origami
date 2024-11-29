@@ -233,7 +233,7 @@
 
 	.o-teaser__heading,
 	.o-teaser__standfirst {
-		color: oColorsByName('white');
+		color: oPrivateFoundationGet('o3-color-palette-white');
 		a:visited {
 			color: oColorsMix($hero-extra-color, $hero-extra-background, $percentage: 50);
 		}
