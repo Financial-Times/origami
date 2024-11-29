@@ -36,7 +36,7 @@ $_o-labels-shared-brand-config: (
 			text-color: oPrivateFoundationGet('o3-color-palette-black'),
 			background-color: oPrivateFoundationGet('o3-color-palette-wheat'),
 			'content-commercial': (
-				background-color: oPrivateColorsByName('o-labels/commercial-content')
+				background-color: oPrivateColorsMix('jade', 'black', $percentage: 83.334)
 			),
 			'content-premium': (
 				background-color: oPrivateFoundationGet('o3-color-palette-black')
