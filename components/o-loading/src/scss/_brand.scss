@@ -55,10 +55,10 @@
 	@include oBrandDefine('o-loading', 'internal', (
 		'variables': (
 			'light': (
-				default-color: oColorsByName('white')
+				default-color: oPrivateFoundationGet('o3-color-palette-white')
 			),
 			'dark': (
-				default-color: oColorsByName('slate')
+				default-color: oPrivateFoundationGet('o3-color-palette-slate')
 			)
 		),
 		'supports-variants': (
@@ -72,10 +72,10 @@
 	@include oBrandDefine('o-loading', 'whitelabel', (
 		'variables': (
 			'light': (
-				default-color: oColorsByName('white')
+				default-color: oPrivateFoundationGet('o3-color-palette-white')
 			),
 			'dark': (
-				default-color: oColorsByName('black')
+				default-color: oPrivateFoundationGet('o3-color-palette-black')
 			)
 		),
 		'supports-variants': (
