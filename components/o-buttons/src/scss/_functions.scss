@@ -199,7 +199,7 @@
 		// core brand where a slate button should be mixed with paper.
 		$light-mix: if(
 			oBrandIs('core') and
-			$default-background == oColorsByName('slate'),
+			$default-background == oPrivateFoundationGet('o3-color-palette-slate'),
 			oColorsByName('paper'),
 			'white'
 		);

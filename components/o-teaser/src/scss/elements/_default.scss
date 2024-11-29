@@ -70,7 +70,7 @@
 
 @mixin _oTeaserTagSuffix {
 	@include oTypographySans(-1, $include-font-family: false);
-	color: oColorsByName('black-60');
+	color: oPrivateFoundationGet('o3-color-palette-black-60');
 }
 
 /// Styles for standfirst element

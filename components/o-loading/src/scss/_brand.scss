@@ -38,10 +38,10 @@
 	@include oBrandDefine('o-loading', 'core', (
 		'variables': (
 			'light': (
-				default-color: oColorsByName('white')
+				default-color: oPrivateFoundationGet('o3-color-palette-white')
 			),
 			'dark': (
-				default-color: oColorsByName('black-80')
+				default-color: oPrivateFoundationGet('o3-color-palette-black-80')
 			)
 		),
 		'supports-variants': (
