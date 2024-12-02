@@ -256,6 +256,6 @@
 
 @mixin _oLabelIndicatorBadge ($color) {
 	background: oColorsByName($color);
-	padding: oSpacingByName('s1') oSpacingByName('s2');
+	padding: oPrivateSpacingByName('s1') oPrivateSpacingByName('s2');
 	font-weight: oFontsWeight('bold');
 }

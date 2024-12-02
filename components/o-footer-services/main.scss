@@ -3,6 +3,7 @@
 @import '@financial-times/o-icons/main';
 @import '@financial-times/o-grid/main';
 @import '@financial-times/o-typography/main';
+@import '@financial-times/o-private-foundation/src/scss/o-spacing/main';
 
 @import 'src/scss/brand';
 @import 'src/scss/mixins';
@@ -49,7 +50,7 @@
 
 		.o-footer-services__brand-logo {
 			height: 1.25em;
-			padding: oSpacingByName('s2');
+			padding: oPrivateSpacingByName('s2');
 			background-repeat: no-repeat;
 			background-position: right;
 		}

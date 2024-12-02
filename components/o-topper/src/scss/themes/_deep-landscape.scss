@@ -37,7 +37,7 @@
 				}
 			}
 			.o-topper__content--background-box {
-				padding: oSpacingByName('s4');
+				padding: oPrivateSpacingByName('s4');
 				background-color: if($foreground == white, rgb(18,18,18,0.67), rgb(255,255,255,0.7));
 			}
 		}
@@ -62,7 +62,7 @@
 	@include oPrivateGridRespondTo( $until:S) {
 		.o-topper__content {
 			width:100%;
-		  	margin: 0 0 oSpacingByName('s6');
+		  	margin: 0 0 oPrivateSpacingByName('s6');
 		  	padding: 20px;
 		}
 	}

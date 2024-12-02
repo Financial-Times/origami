@@ -4,7 +4,7 @@
 /// @access private
 @mixin _oLayoutRule($side: 'left') {
 	border-#{$side}: 2px solid oColorsByName('teal');
-	padding-#{$side}: oSpacingByName('s3');
+	padding-#{$side}: oPrivateSpacingByName('s3');
 }
 
 /// Base styling for the layout content
@@ -79,7 +79,7 @@
 
 		blockquote:not(.o-layout__unstyled-element) {
 			@include oQuoteStandard;
-			margin-bottom: oSpacingByIncrement(7);
+			margin-bottom: oPrivateSpacingByIncrement(7);
 			cite {
 				@include oQuoteStandardCite();
 			}
@@ -95,7 +95,7 @@
 
 		figure,
 		table {
-			margin: 0 0 oSpacingByName('s4');
+			margin: 0 0 oPrivateSpacingByName('s4');
 		}
 	}
 }
@@ -127,7 +127,7 @@
 	.o-layout__navigation > ol {
 		border: 0;
 		text-align: left;
-		margin: 0 0 oSpacingByIncrement(7); // matches `oTypographyBody`
+		margin: 0 0 oPrivateSpacingByIncrement(7); // matches `oTypographyBody`
 
 		@include oPrivateGridRespondTo($from: M) {
 			text-align: right;

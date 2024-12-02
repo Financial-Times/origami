@@ -1,7 +1,6 @@
 @import '@financial-times/o-private-foundation/main';
 @import '@financial-times/o-brand/main';
 @import '@financial-times/o-colors/main';
-@import '@financial-times/o-spacing/main';
 @import '@financial-times/o-typography/main';
 
 @import './src/scss/variables';
@@ -31,18 +30,18 @@
 	.o-top-banner {
 		display: flex;
 		justify-content: center;
-		border-bottom: oSpacingByName('s2') solid transparent;
+		border-bottom: oPrivateSpacingByName('s2') solid transparent;
 	}
 
 	.o-top-banner__container {
 		display: inline-flex;
 		align-items: center;
-		padding: oSpacingByName('s4') oPrivateGridGutter(S) oSpacingByName('s2')
+		padding: oPrivateSpacingByName('s4') oPrivateGridGutter(S) oPrivateSpacingByName('s2')
 			oPrivateGridGutter(S);
-		gap: oSpacingByName('s4') oSpacingByName('l24');
+		gap: oPrivateSpacingByName('s4') oPrivateSpacingByName('l24');
 		flex-wrap: wrap;
 		@include oPrivateGridRespondTo(S) {
-			padding: oSpacingByName('s8') oPrivateGridGutter(M) oSpacingByName('s6')
+			padding: oPrivateSpacingByName('s8') oPrivateGridGutter(M) oPrivateSpacingByName('s6')
 				oPrivateGridGutter(M);
 		}
 	}
@@ -152,9 +151,9 @@
 
 	@if ($brand-border-color) {
 		.o-top-banner__container {
-			padding-bottom: oSpacingByIncrement(4);
+			padding-bottom: oPrivateSpacingByIncrement(4);
 			@include oPrivateGridRespondTo(S) {
-				padding: oSpacingByIncrement(7) oPrivateGridGutter(M) oSpacingByIncrement(7)
+				padding: oPrivateSpacingByIncrement(7) oPrivateGridGutter(M) oPrivateSpacingByIncrement(7)
 					oPrivateGridGutter(M);
 			}
 		}

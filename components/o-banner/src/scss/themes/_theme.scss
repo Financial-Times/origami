@@ -115,7 +115,7 @@
 
 		@include oPrivateNormaliseFocusApply() {
 			@include oPrivateNormaliseFocusContentForElementColour($text-color);
-		}
+		};
 	}
 
 	// When combined with the "small" and "compact" themes

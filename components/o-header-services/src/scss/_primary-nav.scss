@@ -45,7 +45,7 @@
 				if(
 					_oHeaderServicesGet('primary-nav-item-horizontal-padding'),
 					_oHeaderServicesGet('primary-nav-item-horizontal-padding'),
-					oSpacingByIncrement(5)
+					oPrivateSpacingByIncrement(5)
 				);
 			text-transform: uppercase;
 			box-sizing: border-box;

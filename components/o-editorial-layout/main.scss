@@ -1,5 +1,5 @@
 @import '@financial-times/o-editorial-typography/main';
-@import '@financial-times/o-spacing/main';
+@import '@financial-times/o-private-foundation/src/scss/o-spacing/main';
 @import '@financial-times/o-typography/main';
 @import '@financial-times/o-quote/main';
 @import '@financial-times/o-brand/main';
@@ -122,7 +122,7 @@
 
 			> blockquote {
 				@include oQuoteEditorial();
-				margin-bottom: oSpacingByIncrement(7);
+				margin-bottom: oPrivateSpacingByIncrement(7);
 				max-width: oTypographyMaxLineWidth(75);
 
 				cite,

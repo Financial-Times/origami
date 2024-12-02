@@ -24,7 +24,7 @@
 		display: flex;
 		white-space: nowrap;
 		overflow-x: auto;
-		padding: 0 oSpacingByIncrement(5);
+		padding: 0 oPrivateSpacingByIncrement(5);
 		padding-bottom: 1rem; // To hide the scroll bar.
 	}
 
@@ -41,7 +41,7 @@
 				color: _oHeaderServicesGet('nav-text');
 				position: relative;
 				display: inline-block;
-				padding: oSpacingByName('s2') 0;
+				padding: oPrivateSpacingByName('s2') 0;
 				margin: 0;
 
 				&:hover,
@@ -56,7 +56,7 @@
 					bottom: 0;
 					left: 0;
 					width: 100%;
-					height: oSpacingByName('s1');
+					height: oPrivateSpacingByName('s1');
 					background-color: _oHeaderServicesGet('nav-underline-color');
 				}
 			}
@@ -64,7 +64,7 @@
 	}
 
 	.o-header-services__secondary-nav-list--ancestors li {
-		padding-left: oSpacingByName('s2');
+		padding-left: oPrivateSpacingByName('s2');
 
 		&:first-child {
 			padding-left: 0;
@@ -95,14 +95,14 @@
 	}
 
 	.o-header-services__secondary-nav-list--children li {
-		padding-left: oSpacingByName('s4');
+		padding-left: oPrivateSpacingByName('s4');
 
 		&:first-child {
-			margin-left: oSpacingByName('s3');
+			margin-left: oPrivateSpacingByName('s3');
 		}
 
 		&:last-child {
-			padding-right: oSpacingByName('s3');
+			padding-right: oPrivateSpacingByName('s3');
 		}
 
 		&:first-child:before {
