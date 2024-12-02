@@ -9,11 +9,11 @@
 	}
 
 	.o-teaser__content {
-		background: oColorsByUsecase('o-teaser/package-basic', 'background');
+		background: oPrivateColorsByUsecase('o-teaser/package-basic', 'background');
 	}
 
 	.o-teaser__meta {
-		color: oColorsByUsecase('o-teaser/package-basic', 'text');
+		color: oPrivateColorsByUsecase('o-teaser/package-basic', 'text');
 		padding: 15px 0 0 20px;
 		width: calc(100% - 40px);
 		position: relative;
@@ -65,8 +65,8 @@
 		a:hover,
 		a:visited,
 		&:focus {
-			$special-report-color: oColorsByUsecase('o-teaser/package-special-report', 'text');
-			$special-report-background: oColorsByUsecase('o-teaser/package-special-report', 'background');
+			$special-report-color: oPrivateColorsByUsecase('o-teaser/package-special-report', 'text');
+			$special-report-background: oPrivateColorsByUsecase('o-teaser/package-special-report', 'background');
 			color: oColorsMix($special-report-color, $special-report-background, $percentage: 78);
 		}
 	}

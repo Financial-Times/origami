@@ -12,7 +12,7 @@ $_o-teaser-elements: ('default', 'images', 'timestamp', 'promoted', 'related-ite
 /// Commonly used text colour.
 /// @type Color
 /// @access private
-$_o-teaser-base-color: oColorsByUsecase('o-teaser/base', 'text');
+$_o-teaser-base-color: oPrivateColorsByUsecase('o-teaser/base', 'text');
 
 /// Commonly used hover/focus text colour.
 /// @type Color

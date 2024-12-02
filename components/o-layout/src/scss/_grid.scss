@@ -11,7 +11,7 @@
 		// Apply to the body rather than o-layout to avoid
 		// obscuring the hero element, which makes use of a
 		// negative z-index at the time of writing.
-		background-color: oColorsByUsecase('page', 'background');
+		background-color: oPrivateColorsByUsecase('page', 'background');
 	}
 
 	.o-layout {

@@ -1,45 +1,10 @@
-/// Return the CSS color for a palette color name.
-///
-/// @param {String} $color-name - The name of the colour to get.
-@function oColorsByName($color-name) {
-	// Validate color name is a string.
-	@if(type-of($color-name) != 'string') {
-		@return _oColorsError('`$color-name` should be a string but found "#{inspect($color-name)}" of type "#{type-of($color-name)}".');
-	}
-
-	// Error when the color name is not found.
-	// Get the namespaced color name.
-	@if (not _oColorsNameExists($color-name)) {
-		@return _oColorsError('The color #{inspect($color-name)} does not exist.');
-	}
-
-	// Get color details.
-	$color-map: map-get($_o-pf-colors-palette, $color-name);
-	$color: map-get($color-map, 'value');
-	$meta: map-get($color-map, 'meta');
-
-	// Output any deprecation notice.
-	$deprecated: map-get($meta, 'deprecated');
-	$already-warned: index($_o-pf-colors-deprecation-warnings-output, $color-name) != null;
-	@if not $_o-pf-colors-mixin-output and $deprecated and not $already-warned {
-		$deprecation-message: 'The color "#{$color-name}" is deprecated for your brand\'s palette, and will be removed in the next major.';
-		// Append any custom deprecation message.
-		$deprecation-message: if(type-of($deprecated) != 'string', $deprecation-message, $deprecation-message + ' ' + $deprecated);
-		// Output warning.
-		$_o-pf-colors-deprecation-warnings-output: append($_o-pf-colors-deprecation-warnings-output, $color-name) !global;
-		@warn $deprecation-message;
-	}
-
-	@return $color;
-}
-
 /// Return the defined palette color for a use case / property combination
 ///
 /// @param {String} $usecase - The name of the usecase, e.g. 'page'.
 /// @param {String} $property - The usecase property e.g. 'text', 'background', 'border', 'outline'
 /// @param {String|Color|Null} $fallback - The fallback if the usecase is not found. Either a colour, palette colour string, or `null` (note: the default is `false` to indicate no fallback).
 /// @return {Color} - The usecase colour.
-@function oColorsByUsecase($usecase, $property, $fallback: false) {
+@function oPrivateColorsByUsecase($usecase, $property, $fallback: false) {
 	// Find the colour name of the requested usecase.
 	// Validate usecase is a string.
 	@if(type-of($usecase) != 'string') {
@@ -88,14 +53,14 @@
 	}
 	// If no usecase was found and a string was given as a fallback return the fallback color.
 	@if $color == null and type-of($fallback) == 'string' {
-		@return oColorsByName($fallback);
+		@return oPrivateFoundationGet($fallback);
 	}
 	// Error if no colour is found.
 	@if($color == null) {
 		@return _oColorsError('Could not find a colour for the "#{$usecase}" "#{$property}" usecase.');
 	}
 
-	@return if(type-of($color) == 'string', oColorsByName($color), $color);
+	@return if(type-of($color) == 'string', oPrivateFoundationGet($color), $color);
 }
 
 /// Returns a brighter or darker tone of a colour, where the hue remains
