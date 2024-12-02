@@ -1,6 +1,6 @@
 // Add social platform colours to the palette. E.g. the Twitter blue.
 @each $platform, $hex in $_o-share-colors {
-	@include oColorsSetColor('o-share/#{$platform}', $hex);
+	@include oPrivateColorsSetColor('o-share/#{$platform}', $hex);
 }
 
 // Add default colour usecases, used by icons without a state.

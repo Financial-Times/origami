@@ -4,10 +4,10 @@
 $_o-pf-colors-is-initialised: false !default;
 
 /// A map to define default palette colours:
-/// A list of arguments for `oColorsSetColor`, except the project name.
+/// A list of arguments for `oPrivateColorsSetColor`, except the project name.
 ///
 /// @see _oColorsSetDefaultPaletteColors
-/// @see oColorsSetColor
+/// @see oPrivateColorsSetColor
 /// @type List
 /// @access private
 $_o-pf-colors-default-palette-colors: () !default;
@@ -43,7 +43,7 @@ $_o-pf-colors-default-usecases: () !default;
 $_o-pf-colors-usecases: () !default;
 
 /// A map to store all set palette colours.
-/// @see oColorsSetColor
+/// @see oPrivateColorsSetColor
 /// @type Map
 /// @access private
 $_o-pf-colors-palette: () !default;

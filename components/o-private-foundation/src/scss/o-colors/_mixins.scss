@@ -1,10 +1,10 @@
 /// Define a new palette color.
 ///
 /// @example scss - Add a custom palette color
-///     @include oColorsSetColor($color-name: 'o-example/pink', $color-value: #ff69b4);
+///     @include oPrivateColorsSetColor($color-name: 'o-example/pink', $color-value: #ff69b4);
 ///
 /// @example scss - Deprecate a set colour (removing a color from the palette is considered a breaking change and requires a major release).
-///     @include oColorsSetColor (
+///     @include oPrivateColorsSetColor (
 ///     	$color-name: 'o-example/pink',
 ///     	$color-value #ff69b4,
 ///     	$opts: (
@@ -16,7 +16,7 @@
 /// @param {String} $color-name - The name of the colour e.g. 'o-example/paper'.
 /// @param {Color} $color-value - The colour to set e.g. #ff69b4.
 /// @param {Map} $opts [()] - A map of options. Accepts a `deprecated` key with a message to deprecated a set colour e.g. `$opts: (deprecated: 'your deprecation message')`.
-@mixin oColorsSetColor($color-name, $color-value, $opts: ()) {
+@mixin oPrivateColorsSetColor($color-name, $color-value, $opts: ()) {
 	// Validate color-value.
 	@if type-of($color-value) != 'color' {
 		@error 'Expected `$color-value` to be a colour, found "#{$color-value}" of type "#{type-of($color-value)}".';
@@ -48,7 +48,7 @@
 		// So only error if it's being set again with a new colour.
 		@if ($existing-current-color != $color-value) {
 			@error 'A palette colour "#{$color-name}" has already been set. ' +
-				'Only default o-colors palette colours may be overridden with `oColorsSetColor`. ' +
+				'Only default o-colors palette colours may be overridden with `oPrivateColorsSetColor`. ' +
 				'If you would like to customise "#{$namespace}" colours, check its README for ' +
 				'customisation options, or contact the Origami team to propose new customisation features.';
 		}
@@ -78,7 +78,7 @@
 ///     ));
 ///
 /// @example Setting a custom colour to a 'stripe' usecase with background.
-///     @include oColorsSetColor('o-example/my-pink', #ff69b4);
+///     @include oPrivateColorsSetColor('o-example/my-pink', #ff69b4);
 ///     @include oColorsSetUseCase('o-example/stripe', (
 ///     	'background': 'o-example/my-pink',
 ///     ));
@@ -171,7 +171,7 @@
 		@each $value in $tone-values {
 			$name: "#{$color-name}-#{$value}";
 			$tone: oColorsGetTone($color-name, $value);
-			@include oColorsSetColor('o-colors/#{$name}', $tone);
+			@include oPrivateColorsSetColor('o-colors/#{$name}', $tone);
 		}
 	}
 }
@@ -192,7 +192,7 @@
 		@each $value in $mix-values {
 			$name: "#{$color-name}-#{$value}";
 			$mix: oColorsMix($color-name, $percentage: $value);
-			@include oColorsSetColor('o-colors/#{$name}', $mix);
+			@include oPrivateColorsSetColor('o-colors/#{$name}', $mix);
 		}
 	}
 }
@@ -202,7 +202,7 @@
 @mixin _oPrivateColorsSetDefaultPaletteColors {
 	@each $color-name, $color-value, $opts in $_o-pf-colors-default-palette-colors {
 		$opts: if($opts, $opts, ());
-		@include oColorsSetColor('o-colors/#{$color-name}', $color-value, $opts);
+		@include oPrivateColorsSetColor('o-colors/#{$color-name}', $color-value, $opts);
 	}
 }
 
