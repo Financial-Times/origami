@@ -1,5 +1,4 @@
 @import '@financial-times/math';
-@import '@financial-times/o-spacing/main';
 @import '@financial-times/o-colors/main';
 @import '@financial-times/o-icons/main';
 @import '@financial-times/o-private-foundation/main';
@@ -11,8 +10,8 @@
 @import 'src/scss/mixins';
 
 @if ($o-stepped-progress-is-silent == false) {
-	@include oSteppedProgress();
+  @include oSteppedProgress();
 
-	// Set to silent again to avoid being output twice
-	$o-stepped-progress-is-silent: true !global;
+  // Set to silent again to avoid being output twice
+  $o-stepped-progress-is-silent: true !global;
 }

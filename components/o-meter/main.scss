@@ -1,6 +1,5 @@
-@import '@financial-times/o-private-foundation/main';
-@import '@financial-times/o-spacing/main';
 @import '@financial-times/o-typography/main';
+@import '@financial-times/o-private-foundation/main';
 @import 'src/scss/variables';
 @import 'src/scss/functions';
 @import 'src/scss/mixins';
@@ -38,7 +37,7 @@
 		@include oTypographySans($scale: -1, $line-height: 24px);
 		display: none; // we only display the value box for the browsers that support the meter tag
 		position: relative;
-		padding: 0 oSpacingByName('s1');
+		padding: 0 oPrivateSpacingByName('s1');
 		background: #{oPrivateFoundationGet('o3-color-palette-black')};
 		color: #{oPrivateFoundationGet('o3-color-palette-white')};
 		text-align: center;

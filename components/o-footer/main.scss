@@ -66,8 +66,8 @@
 
 			&:before {
 				content: '\2022';
-				padding-left: oSpacingByName('s1');
-				padding-right: oSpacingByName('s1');
+				padding-left: oPrivateSpacingByName('s1');
+				padding-right: oPrivateSpacingByName('s1');
 			}
 			&:first-child:before {
 				content: '';
@@ -86,8 +86,8 @@
 	}
 
 	.o-footer__brand {
-		padding-top: oSpacingByName('s4');
-		padding-bottom: oSpacingByName('s4');
+		padding-top: oPrivateSpacingByName('s4');
+		padding-bottom: oPrivateSpacingByName('s4');
 	}
 
 	.o-footer__brand-logo {

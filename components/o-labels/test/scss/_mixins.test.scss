@@ -8,8 +8,8 @@
 					@include _oLabelsBaseContent;
 				}
 				@include contains() {
-					$expected-vertical-padding: calc(#{oSpacingByName('s1')} - #{1px});
-					$expected-horizontal-padding: calc(#{oSpacingByName('s2')} - #{1px});
+					$expected-vertical-padding: calc(#{oPrivateSpacingByName('s1')} - #{1px});
+					$expected-horizontal-padding: calc(#{oPrivateSpacingByName('s2')} - #{1px});
 					padding: $expected-vertical-padding $expected-horizontal-padding;
 				}
 			}
@@ -24,8 +24,8 @@
 						@include _oLabelsSize('big');
 					}
 					@include contains($selector: false) {
-						$expected-vertical-padding: calc(#{oSpacingByName('s2')} - #{1px});
-						$expected-horizontal-padding: calc(#{oSpacingByName('s2')} - #{1px});
+						$expected-vertical-padding: calc(#{oPrivateSpacingByName('s2')} - #{1px});
+						$expected-horizontal-padding: calc(#{oPrivateSpacingByName('s2')} - #{1px});
 						.o-labels--big {
 							padding: $expected-vertical-padding $expected-horizontal-padding;
 						}
@@ -86,7 +86,7 @@
 					}
 					@include expect() {
 						.o-example-label {
-							background-color: #008040;
+							background-color: rgb(0,127.50102, 64.16718);
 							color: white;
 						}
 					}
@@ -122,7 +122,7 @@
 					}
 					@include expect($selector: false) {
 						.o-example-label {
-							background-color: #008040;
+							background-color: rgb(0, 127.50102, 64.16718);
 							color: white;
 							font-size: 12px;
 							line-height: 1;

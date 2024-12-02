@@ -2,7 +2,7 @@
 @mixin _oTeaserSyndicationIndicator {
 	.o-teaser__syndication-indicator {
 		position: relative;
-		top: oSpacingByName('s1');
+		top: oPrivateSpacingByName('s1');
 		border-radius: 50%;
 
 		span {

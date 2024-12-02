@@ -26,15 +26,15 @@
 	.o-subs-card__copy-title {
 		@include oTypographySans($scale: 3, $weight: "semibold");
 
-		margin-bottom: oSpacingByIncrement(5);
+		margin-bottom: oPrivateSpacingByIncrement(5);
 
 		&:first-child {
-			padding-top: oSpacingByName("s8");
+			padding-top: oPrivateSpacingByName("s8");
 		}
 
 		//Handle the height change when there is an offer in place
 		&:nth-child(2) {
-			margin-bottom: oSpacingByName("s2");
+			margin-bottom: oPrivateSpacingByName("s2");
 		}
 	}
 
@@ -43,25 +43,23 @@
 
 		display: inline-block;
 		text-align: center;
-		padding-bottom: oSpacingByName("s3");
+		padding-bottom: oPrivateSpacingByName("s3");
 	}
 
 	.o-subs-card__charge {
-		padding-bottom: oSpacingByName("s4");
+		padding-bottom: oPrivateSpacingByName("s4");
 	}
 
 	.o-subs-card__charge__value {
-		padding-bottom: oSpacingByName("s2");
+		padding-bottom: oPrivateSpacingByName("s2");
 	}
 
 	.o-subs-card__select-button {
-		@include oPrivateButtonsContent(
-			$opts: (
-				"type": "primary",
-				"size": "big",
-			)
-		);
-		margin-bottom: oSpacingByName("s1");
+		@include oButtonsContent($opts: (
+			'type': 'primary',
+			'size': 'big',
+		));
+		margin-bottom: oPrivateSpacingByName("s1");
 		width: 100%;
 	}
 
@@ -86,13 +84,13 @@
 
 	.o-subs-card__copy-benefits {
 		margin: 0;
-		padding: oSpacingByName("s3");
+		padding: oPrivateSpacingByName("s3");
 		padding-left: $o-subs-card-horizontal-padding;
 		padding-right: $o-subs-card-horizontal-padding;
 		list-style: none;
 
 		li {
-			padding-bottom: oSpacingByName("s3");
+			padding-bottom: oPrivateSpacingByName("s3");
 		}
 	}
 
@@ -104,8 +102,8 @@
 		color: oColorsByName("teal-50");
 		cursor: pointer;
 		display: block;
-		padding-bottom: oSpacingByName("s2");
-		padding-top: oSpacingByName("s2");
+		padding-bottom: oPrivateSpacingByName("s2");
+		padding-top: oPrivateSpacingByName("s2");
 		width: 100%;
 
 		@include oPrivateGridRespondTo(L) {
@@ -210,7 +208,7 @@
 
 	.o-subs-card {
 		// no collapsing margins in display flex
-		margin: oSpacingByName("s3") div($o-subs-card-horizontal-margin, 2);
+		margin: oPrivateSpacingByName("s3") div($o-subs-card-horizontal-margin, 2);
 	}
 
 	.o-subs-card,

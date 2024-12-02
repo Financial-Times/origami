@@ -13,9 +13,9 @@
 		content: '';
 		display: block;
 		width: 60px;
-		border-bottom: oSpacingByIncrement(1) solid oPrivateFoundationGet('o3-color-palette-claret-60');
-		margin-top: oSpacingByName('s1');
-		margin-bottom: oSpacingByName('s2');
+		border-bottom: oPrivateSpacingByIncrement(1) solid oPrivateFoundationGet('o3-color-palette-claret-60');
+		margin-top: oPrivateSpacingByName('s1');
+		margin-bottom: oPrivateSpacingByName('s2');
 	}
 }
 

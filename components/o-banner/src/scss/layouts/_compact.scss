@@ -32,7 +32,7 @@
 	background: _oBannerGet('background-color');
 	display: block;
 	padding: $_o-banner-spacing;
-	padding-top: oSpacingByIncrement(7);
+	padding-top: oPrivateSpacingByIncrement(7);
 	max-width: none;
 }
 
@@ -86,10 +86,10 @@
 		}
 	}
 	&:after {
-		margin-top: oSpacingByName('s2');
-		margin-bottom: oSpacingByName('s3');
+		margin-top: oPrivateSpacingByName('s2');
+		margin-bottom: oPrivateSpacingByName('s3');
 		width: 60px;
-		border-bottom-width: oSpacingByIncrement(1);
+		border-bottom-width: oPrivateSpacingByIncrement(1);
 	}
 }
 

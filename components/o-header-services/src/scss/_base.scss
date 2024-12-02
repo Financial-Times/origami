@@ -1,3 +1,4 @@
+@import '@financial-times/o-private-foundation/src/scss/o-normalise/main';
 /// @access private
 /// @param {Boolean} $bleed [whether or not to make the header a bleed header. Defaults to false.]
 /// @outputs base styles for full header
@@ -32,7 +33,7 @@
 			.o-header-services__secondary-nav-content {
 				@include oPrivateGridContainer($bleed: $bleed);
 				max-width: 100%;
-				padding: 0 oSpacingByIncrement(5);
+				padding: 0 oPrivateSpacingByIncrement(5);
 			}
 
 			.o-header-services__primary-nav-list {

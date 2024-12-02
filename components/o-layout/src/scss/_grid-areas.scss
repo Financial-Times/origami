@@ -31,7 +31,7 @@
 		padding: $_o-layout-gutter * 2 $_o-layout-gutter;
 		text-align: center;
 		min-height: 30vh;
-		margin: 0 0 oSpacingByName('s4');
+		margin: 0 0 oPrivateSpacingByName('s4');
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -101,7 +101,7 @@
 
 	.o-layout__overview--actions {
 		grid-gap: $_o-layout-gutter;
-		margin-bottom: oSpacingByIncrement(7); // Aligns with <p> margin set by oTypographyBody
+		margin-bottom: oPrivateSpacingByIncrement(7); // Aligns with <p> margin set by oTypographyBody
 
 		.o-layout-item {
 			/*! autoprefixer: ignore next */
@@ -136,7 +136,7 @@
 	.o-layout__listing__item {
 		@include oTypographySans($scale: 1, $line-height: 1.4);
 		color: oPrivateColorsByUsecase('body', 'text', $fallback: null);
-		margin: 0 0 oSpacingByName('s6');
+		margin: 0 0 oPrivateSpacingByName('s6');
 		max-width: 60ch;
 	}
 
@@ -146,11 +146,11 @@
 
 	.o-layout__listing__item__title {
 		@include oTypographyHeading($level: 2);
-		margin: 0 0 oSpacingByName('s2') 0;
+		margin: 0 0 oPrivateSpacingByName('s2') 0;
 	}
 
 	.o-layout__listing__item__description {
-		margin: 0 0 oSpacingByName('s1') 0;
+		margin: 0 0 oPrivateSpacingByName('s1') 0;
 	}
 
 	.o-layout__listing__item__meta {

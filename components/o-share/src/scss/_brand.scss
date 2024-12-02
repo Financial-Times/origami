@@ -20,7 +20,7 @@
 			'color': oPrivateColorsByUsecase('o-share/default-icon', 'text'),
 			'small': (
 				'size': $o-share-icon-small-size,
-				'margin': oSpacingByName('s3'),
+				'margin': oPrivateSpacingByName('s3'),
 			),
 			'inverse': (
 				'border-color': oPrivateColorsMix('slate', 'white', 50),
@@ -39,7 +39,7 @@
 			'color': oPrivateColorsByUsecase('o-share/default-icon', 'text'),
 			'small': (
 				'size': $o-share-icon-small-size,
-				'margin': oSpacingByName('s3'),
+				'margin': oPrivateSpacingByName('s3'),
 			),
 			'inverse': (
 				'border-color': oPrivateColorsMix('slate', 'white', 50),

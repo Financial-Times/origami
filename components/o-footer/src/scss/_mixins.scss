@@ -150,13 +150,13 @@
 	}
 
 	.o-footer__matrix-column {
-		margin-top: oSpacingByName('s4');
-		margin-bottom: oSpacingByName('s4');
+		margin-top: oPrivateSpacingByName('s4');
+		margin-bottom: oPrivateSpacingByName('s4');
 	}
 
 	.o-footer__matrix-link {
-		padding-top: oSpacingByName('s2');
-		padding-bottom: oSpacingByName('s2');
+		padding-top: oPrivateSpacingByName('s2');
+		padding-bottom: oPrivateSpacingByName('s2');
 		display: block;
 
 		&:first-child {

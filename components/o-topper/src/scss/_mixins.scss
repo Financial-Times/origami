@@ -158,13 +158,13 @@
 	@if index($elements, 'headline') {
 		.o-topper__headline {
 			@include oEditorialTypographyHeading($level: 1);
-			margin-bottom: oSpacingByIncrement(5);
+			margin-bottom: oPrivateSpacingByIncrement(5);
 		}
 
 		.o-topper__headline--large {
 			@include oEditorialTypographyHeadline();
 			position: relative; //so it appears above the full width background
-			margin-bottom: oSpacingByIncrement(4);
+			margin-bottom: oPrivateSpacingByIncrement(4);
 		}
 	}
 

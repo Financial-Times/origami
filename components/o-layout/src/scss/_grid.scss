@@ -43,10 +43,10 @@
 		@include oTypographySans($scale: 1);
 		z-index: 999;
 		position: absolute;
-		left: oSpacingByName('s2');
-		padding: oSpacingByName('s2') oSpacingByName('s4');
-		background-color: oPrivateFoundationGet('o3-color-palette-oxford');
-		color: oPrivateFoundationGet('o3-color-palette-white');
+		left: oPrivateSpacingByName('s2');
+		padding: oPrivateSpacingByName('s2') oPrivateSpacingByName('s4');
+		background-color: oPrivateFoundationGet('oxford');
+		color: oPrivateFoundationGet('white');
 		text-decoration: none;
 		transform: translateY(-120%);
 		@media (prefers-reduced-motion: no-preference) {
@@ -117,7 +117,7 @@
 
 	.o-layout.o-layout--docs > .o-layout__main {
 		> aside {
-			margin-bottom: oSpacingByName('s6');
+			margin-bottom: oPrivateSpacingByName('s6');
 		}
 		@include oPrivateGridRespondTo($until: M) {
 			margin-top: 0;
@@ -131,12 +131,12 @@
 			}
 			> pre {
 				width: 100%;
-				margin: 0 0 oSpacingByName('s6');
+				margin: 0 0 oPrivateSpacingByName('s6');
 			}
 			> aside {
 				box-sizing: border-box;
 				width: $_o-layout-sidebar-width;
-				margin-bottom: oSpacingByName('m12');
+				margin-bottom: oPrivateSpacingByName('m12');
 				float: right;
 				clear: right;
 				:last-child {
@@ -218,7 +218,7 @@
 			@include oPrivateGridRespondTo($from: M) {
 				border-right: 1px solid oPrivateFoundationGet('o3-color-palette-slate-white-15');
 				padding-right: $_o-layout-gutter;
-				margin: $_o-layout-gutter 0 oSpacingByName('s4');
+				margin: $_o-layout-gutter 0 oPrivateSpacingByName('s4');
 			}
 		}
 

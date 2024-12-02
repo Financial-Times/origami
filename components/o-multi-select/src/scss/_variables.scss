@@ -1,5 +1,5 @@
 $_o-multi-select-border: 1px solid oColorsByName('black-50');
 
-$_o-multi-select-padding: oSpacingByIncrement(2);
+$_o-multi-select-padding: oPrivateSpacingByIncrement(2);
 $_o-multi-select-icon-size: 20px;
-$_o-multi-select-height: oSpacingByIncrement(10); // 40px to match o-forms, o-buttons. Scale with spacing when relative spacing/type enabled.
+$_o-multi-select-height: oPrivateSpacingByIncrement(10); // 40px to match o-forms, o-buttons. Scale with spacing when relative spacing/type enabled.

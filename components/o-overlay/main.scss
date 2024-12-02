@@ -5,8 +5,6 @@
 @import '@financial-times/o-brand/main';
 @import '@financial-times/o-colors/main';
 @import '@financial-times/o-typography/main';
-@import '@financial-times/o-spacing/main';
-@import '@financial-times/o-normalise/main';
 @import '@financial-times/o-icons/main';
 @import 'src/scss/variables';
 @import 'src/scss/brand';
@@ -38,29 +36,29 @@
 
 	$variants: map-get($opts, 'variants');
 
-	// Include base styles
-	@include _oOverlayBase();
+  // Include base styles
+  @include _oOverlayBase();
 
-	// Include the shaded heading variant
-	@if index($variants, 'heading-shaded') {
-		@include _oOverlayHeadingShaded();
-	}
+  // Include the shaded heading variant
+  @if index($variants, 'heading-shaded') {
+    @include _oOverlayHeadingShaded();
+  }
 
-	// Include the compact variant
-	@if index($variants, 'compact') {
-		@include _oOverlayCompact();
-	}
+  // Include the compact variant
+  @if index($variants, 'compact') {
+    @include _oOverlayCompact();
+  }
 
-	// Include the full-screen variant
-	@if index($variants, 'full-screen') {
-		@include _oOverlayFullScreen();
-	}
+  // Include the full-screen variant
+  @if index($variants, 'full-screen') {
+    @include _oOverlayFullScreen();
+  }
 }
 
 // If silent mode is disabled, output all of the default overlay styles.
 @if ($o-overlay-is-silent == false) {
-	@include oOverlay();
+  @include oOverlay();
 
-	// Set module to silent again
-	$o-overlay-is-silent: true !global;
+  // Set module to silent again
+  $o-overlay-is-silent: true !global;
 }

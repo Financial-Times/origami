@@ -1,7 +1,7 @@
 /// Small teaser styles
 @mixin _oTeaserSmall {
 	display: flex;
-	padding-bottom: oSpacingByName('s3');
+	padding-bottom: oPrivateSpacingByName('s3');
 	border-bottom: 1px solid oPrivateColorsByUsecase('o-teaser/base', 'border');
 
 	.o-teaser__content {
@@ -45,7 +45,7 @@
 	}
 
 	.o-teaser__image-container {
-		margin-bottom: oSpacingByName('s3');
+		margin-bottom: oPrivateSpacingByName('s3');
 		width: 100%;
 		// <https://connect.microsoft.com/IE/feedbackdetail/view/891815>
 		min-height: 1px;
@@ -67,12 +67,12 @@
 @mixin _oTeaserPost {
 	border-bottom: 0;
 	.o-teaser__meta {
-		margin-bottom: oSpacingByName('s2');
+		margin-bottom: oPrivateSpacingByName('s2');
 	}
 	.o-teaser__tag-prefix {
 		@include oTypographySans($scale: 0, $weight: 'semibold');
 		color: oPrivateFoundationGet('o3-color-palette-claret-60');
-		margin-right: oSpacingByName('s1');
+		margin-right: oPrivateSpacingByName('s1');
 	}
 	.o-teaser__tag {
 		@include oTypographySans($scale: 0, $weight: 'regular');
@@ -95,7 +95,7 @@
 	}
 	.o-teaser__content {
 		background: oPrivateFoundationGet('o3-color-palette-wheat');
-		padding: oSpacingByName('s3');
+		padding: oPrivateSpacingByName('s3');
 		box-sizing: border-box;
 		a {
 			text-decoration: none;

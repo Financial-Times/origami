@@ -9,4 +9,4 @@ $o-stepped-progress-is-silent: true !default;
 /// Vertical padding above and below the stepped progress.
 /// This in-built padding ensures there is space to show a
 /// focus outline around links, as overflow is hidden.
-$_o-stepped-progress-block-padding: oSpacingByName('s2');
+$_o-stepped-progress-block-padding: oPrivateSpacingByName('s2');

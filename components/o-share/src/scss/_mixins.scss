@@ -111,8 +111,8 @@
 		}
 		// Margins between the icon and the text need setting.
 		&.o-share--vertical .o-share__action--labelled .o-share__text {
-			margin: oSpacingByName('s1');
-			margin-top: calc(-#{$icon-whitespace} + #{oSpacingByName('s1')});
+			margin: oPrivateSpacingByName('s1');
+			margin-top: calc(-#{$icon-whitespace} + #{oPrivateSpacingByName('s1')});
 		}
 		// When vertical, the width of the actions must not increase.
 		&.o-share--vertical .o-share__action {

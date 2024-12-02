@@ -65,7 +65,7 @@
 		display: block;
 		padding: $_o-banner-spacing;
 		padding-bottom: $_o-banner-spacing - $_o-banner-brand-border;
-		padding-top: oSpacingByIncrement(7);
+		padding-top: oPrivateSpacingByIncrement(7);
 	}
 }
 
@@ -86,7 +86,7 @@
 	h6 {
 		@include oTypographySans($scale: 3, $weight: 'semibold');
 		margin-top: 0;
-		margin-bottom: oSpacingByName('s1');
+		margin-bottom: oPrivateSpacingByName('s1');
 	}
 	p {
 		margin-top: 0;
@@ -98,11 +98,11 @@
 	}
 	> ul {
 		@include oTypographyList('unordered');
-		margin-top: oSpacingByName('s3');
+		margin-top: oPrivateSpacingByName('s3');
 		margin-bottom: 0;
 
 		li {
-			@include oTypographySans($scale: 2, $line-height: oSpacingByIncrement(7));
+			@include oTypographySans($scale: 2, $line-height: oPrivateSpacingByIncrement(7));
 		}
 		li:before {
 			color: inherit;
@@ -142,11 +142,11 @@
 		content: '';
 		display: block;
 		width: 100px;
-		margin-top: oSpacingByName('s2');
-		margin-bottom: oSpacingByName('s4');
+		margin-top: oPrivateSpacingByName('s2');
+		margin-bottom: oPrivateSpacingByName('s4');
 
 		// Color is set separately for easier overriding later
-		border-bottom: oSpacingByIncrement(2) solid;
+		border-bottom: oPrivateSpacingByIncrement(2) solid;
 		border-color: _oBannerGet('heading-rule-color');
 	}
 }
@@ -159,7 +159,7 @@
 	@include oPrivateGridRespondTo($until: S) {
 		flex-direction: column;
 		align-items: flex-start;
-		margin-top: oSpacingByName('s6');
+		margin-top: oPrivateSpacingByName('s6');
 	}
 }
 

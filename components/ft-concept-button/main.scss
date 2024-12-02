@@ -174,7 +174,7 @@ $_ftConceptButtonThemes: (
 	display: inline-block;
 	outline-offset: 2px;
 	overflow: hidden;
-	padding: oSpacingByName('s1') oSpacingByName('s2');
+	padding: oPrivateSpacingByName('s1') oPrivateSpacingByName('s2');
 	text-align: left;
 	text-overflow: ellipsis;
 	max-width: 15em;

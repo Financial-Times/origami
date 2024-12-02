@@ -111,7 +111,7 @@
 		}
 
 		.o-labels-indicator.o-labels-indicator--badge {
-			padding: oSpacingByName('s1') oSpacingByName('s2');
+			padding: oPrivateSpacingByName('s1') oPrivateSpacingByName('s2');
 			font-weight: oFontsWeight('bold');
 			color: oPrivateFoundationGet('o3-color-palette-white');
 			border-radius: div(2, 16) * 1rem;

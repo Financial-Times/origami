@@ -41,7 +41,7 @@
 			}
 
 			@include oPrivateGridRespondTo($draw-breakpoint) {
-				margin: oSpacingByName('s2');
+				margin: oPrivateSpacingByName('s2');
 			}
 
 			@include oPrivateGridRespondTo(M) {
@@ -95,13 +95,13 @@
 		&.o-header-services__related-content--always-visible {
 			display: flex;
 			margin: 0 0 0 auto;
-			padding: div(oSpacingByName('s3'), 2) $_o-header-services-padding;
+			padding: div(oPrivateSpacingByName('s3'), 2) $_o-header-services-padding;
 		}
 
 		@include oPrivateGridRespondTo($from: $draw-breakpoint) {
 			display: flex;
 			margin: 0 0 0 auto;
-			padding: div(oSpacingByName('s3'), 2) $_o-header-services-padding;
+			padding: div(oPrivateSpacingByName('s3'), 2) $_o-header-services-padding;
 		}
 
 		li {
@@ -111,7 +111,7 @@
 				@include oTypographySans($weight: 'semibold', $include-font-family: false);
 				color: _oHeaderServicesGet('top-text');
 				display: inline-block;
-				padding: $_o-header-services-padding oSpacingByName('s3');
+				padding: $_o-header-services-padding oPrivateSpacingByName('s3');
 				margin: 0;
 
 				&:hover {
