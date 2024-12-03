@@ -28,11 +28,11 @@
 	}
 
 	.o-comments__signed-in-text {
-		@include oTypographySans($scale: 0);
+		@include oPrivateTypographySans($scale: 0);
 	}
 
 	.o-comments__signed-in-inner-text {
-		@include oTypographySans($scale: 2);
+		@include oPrivateTypographySans($scale: 2);
 		font-weight: bold;
 	}
 
