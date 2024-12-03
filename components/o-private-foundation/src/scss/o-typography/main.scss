@@ -1,8 +1,42 @@
+/// @see _oPrivateTypographyFor
+@mixin oPrivateTypographySans(
+	$scale: null,
+	$line-height: null,
+	$weight: null,
+	$style: null
+) {
+	$font: 'metric';
+	@include _oPrivateTypographyFor($font, $scale, $line-height, $weight, $style);
+}
+
+/// @see _oPrivateTypographyFor
+@mixin oPrivateTypographySerif(
+	$scale: null,
+	$line-height: null,
+	$weight: null,
+	$style: null
+) {
+	$font: 'georgia';
+	@include _oPrivateTypographyFor($font, $scale, $line-height, $weight, $style);
+}
+
+/// @see _oPrivateTypographyFor
+@mixin oPrivateTypographyDisplay(
+	$scale: null,
+	$line-height: null,
+	$weight: null,
+	$style: null
+) {
+	$font: 'financier-display';
+	@include _oPrivateTypographyFor($font, $scale, $line-height, $weight, $style);
+}
+
 /// @param {Number} $scale [null] - a scale number to output a font-size and line-height property
 /// @param {Number} $line-height [null] - custom line-height value to use instead of the scale's default
 /// @param {Null | String} $weight [null] - output a font-weight property, e.g. 'bold', 'semibold'
 /// @param {Null | String} $style [null] - output a font-style property, e.g. 'italic'
-@mixin oPrivateTypographySans(
+@mixin _oPrivateTypographyFor(
+	$font,
 	$scale: null,
 	$line-height: null,
 	$weight: null,
