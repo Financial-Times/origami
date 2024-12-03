@@ -264,3 +264,15 @@
 		}
 	}
 }
+
+/// Returns a maximum line width based on the given scale
+///
+/// @param {Number} $optimal-characters-per-line - number of the characters per line
+/// @returns {String} maximum line width in ch
+@function oPrivateTypographyMaxLineWidth($optimal-characters-per-line: 65) {
+	// a ch unit represents the width of the glyph "0"
+	// it's a wide glyph so we'll reduce the ch value by an arbitrary amount
+	// to bring our characters per line closer to the requested number on average
+	$magic-number: 0.75;
+	@return $optimal-characters-per-line * $magic-number * 1ch;
+}
