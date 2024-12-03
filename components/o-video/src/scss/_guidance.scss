@@ -3,8 +3,12 @@
 
 @mixin _oVideoGuidance {
 	.o-video__guidance {
-		@include oTypographySans(-1);
-		background-color: oColorsMix($color: 'black', $background: 'transparent', $percentage: 75);
+		@include oPrivateTypographySans(-1);
+		background-color: oColorsMix(
+			$color: "black",
+			$background: "transparent",
+			$percentage: 75
+		);
 		padding: 10px 16px;
 		position: relative;
 		// sass-lint:disable no-vendor-prefixes
@@ -21,7 +25,7 @@
 		}
 
 		a {
-			color: oColorsByName('white');
+			color: oColorsByName("white");
 			text-decoration: none;
 		}
 
@@ -49,21 +53,29 @@
 	.o-video__guidance__link {
 		@include oTypographyLink(
 			$theme: (
-				'base': 'white',
-				'hover': 'white'
+				"base": "white",
+				"hover": "white",
 			)
 		);
-		color: oColorsByName('white');
+		color: oColorsByName("white");
 		border-bottom: 0;
 	}
 
 	.o-video__guidance__close {
-		@include oIconsContent('cross', $color: oColorsByName('white'), $size: 20px);
+		@include oIconsContent(
+			"cross",
+			$color: oColorsByName("white"),
+			$size: 20px
+		);
 		border: 0;
 		cursor: pointer;
 
 		&:hover {
-			background-color: oColorsMix($color: 'black', $background: 'white', $percentage: 75);
+			background-color: oColorsMix(
+				$color: "black",
+				$background: "white",
+				$percentage: 75
+			);
 		}
 	}
 
