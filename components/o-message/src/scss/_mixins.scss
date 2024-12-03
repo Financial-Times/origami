@@ -55,7 +55,7 @@
 
 	// Confirm minimum foreground contrast ratio.
 	@if $foreground-color {
-		$foreground-contrast: oColorsGetContrastRatio(
+		$foreground-contrast: oPrivateColorsGetContrastRatio(
 			$foreground-color,
 			$background-color
 		);
@@ -68,7 +68,7 @@
 
 	// Confirm minimum highlight contrast ratio.
 	@if $highlight-color {
-		$highlight-contrast: oColorsGetContrastRatio(
+		$highlight-contrast: oPrivateColorsGetContrastRatio(
 			$highlight-color,
 			$background-color
 		);

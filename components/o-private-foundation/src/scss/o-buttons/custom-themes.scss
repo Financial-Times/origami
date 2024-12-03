@@ -267,7 +267,7 @@
 
 	// Confirm the contrast of default state.
 	$contrast-error-message: 'Could not create an accessible primary button of colour "#{$color-arg}" for a background context "#{$context-color-arg}".';
-	$default-contrast-ratio: oColorsGetContrastRatio(
+	$default-contrast-ratio: oPrivateColorsGetContrastRatio(
 		$default-color,
 		$default-background
 	);
@@ -275,7 +275,7 @@
 		@error ($contrast-error-message + ' The default text and background colour do not pass WCAG AA contrast checks.');
 	}
 	// Confirm the focus/hover state contrast.
-	$hover-contrast-ratio: oColorsGetContrastRatio(
+	$hover-contrast-ratio: oPrivateColorsGetContrastRatio(
 		$hover-focus-color,
 		$hover-focus-background
 	);
@@ -283,7 +283,7 @@
 		@error ($contrast-error-message + ' The text and background colour of the hover and focus state do not pass WCAG AA contrast checks.');
 	}
 	// Confirm the active state contrast.
-	$active-contrast-ratio: oColorsGetContrastRatio(
+	$active-contrast-ratio: oPrivateColorsGetContrastRatio(
 		$active-color,
 		$active-background
 	);
@@ -379,7 +379,7 @@
 
 	// Confirm the contrast of default state.
 	$contrast-error-message: 'Could not create an accessible secondary button of colour "#{$color}" for a background context "#{$context-color}".';
-	$default-contrast-ratio: oColorsGetContrastRatio(
+	$default-contrast-ratio: oPrivateColorsGetContrastRatio(
 		$default-color,
 		$default-background-opaque
 	);
@@ -387,7 +387,7 @@
 		@error ($contrast-error-message + ' The default text and background colour do not pass WCAG AA contrast checks.');
 	}
 	// Confirm the focus/hover state contrast.
-	$hover-contrast-ratio: oColorsGetContrastRatio(
+	$hover-contrast-ratio: oPrivateColorsGetContrastRatio(
 		$hover-focus-color,
 		$hover-focus-background-opaque
 	);
@@ -395,7 +395,7 @@
 		@error ($contrast-error-message + ' The text and background colour of the hover and focus state do not pass WCAG AA contrast checks.');
 	}
 	// Confirm the active state contrast.
-	$active-contrast-ratio: oColorsGetContrastRatio(
+	$active-contrast-ratio: oPrivateColorsGetContrastRatio(
 		$active-color,
 		$active-background
 	);
@@ -491,7 +491,7 @@
 
 	// Confirm the contrast of default state.
 	$contrast-error-message: 'Could not create an accessible ghost button of colour "#{$color}" for a background context "#{$context-color}".';
-	$default-contrast-ratio: oColorsGetContrastRatio(
+	$default-contrast-ratio: oPrivateColorsGetContrastRatio(
 		$default-color,
 		$default-background-opaque
 	);
@@ -499,7 +499,7 @@
 		@error ($contrast-error-message + ' The default text and background colour do not pass WCAG AA contrast checks.');
 	}
 	// Confirm the focus/hover state contrast.
-	$hover-contrast-ratio: oColorsGetContrastRatio(
+	$hover-contrast-ratio: oPrivateColorsGetContrastRatio(
 		$hover-focus-color,
 		$hover-focus-background-opaque
 	);
@@ -507,7 +507,7 @@
 		@error ($contrast-error-message + ' The text and background colour of the hover and focus state do not pass WCAG AA contrast checks.');
 	}
 	// Confirm the active state contrast.
-	$active-contrast-ratio: oColorsGetContrastRatio(
+	$active-contrast-ratio: oPrivateColorsGetContrastRatio(
 		$active-color,
 		$active-background
 	);
@@ -581,7 +581,7 @@
 	$value: $preferred-mix;
 	@while $value >= $minimum-mix {
 		$mix: oPrivateColorsMix($color-a, $color-b, $value);
-		$ratio: oColorsGetContrastRatio($mix, $contrast-color);
+		$ratio: oPrivateColorsGetContrastRatio($mix, $contrast-color);
 		@if $ratio >= $contrast-aim {
 			@return $value;
 		}
@@ -619,7 +619,7 @@
 	// Return the new tint if the current decrement is of high enough contrast.
 	@while $value >= $minimum-tint-value {
 		$darker-tint: oPrivateColorsGetTone($tint-color, $value);
-		$ratio: oColorsGetContrastRatio($darker-tint, $tint);
+		$ratio: oPrivateColorsGetContrastRatio($darker-tint, $tint);
 		@if $ratio >= $contrast-aim {
 			@return $darker-tint;
 		}

@@ -254,7 +254,7 @@
 	$background: oPrivateFoundationGet($color-name);
 	$foreground: oPrivateColorsGetTextColor($background, $opacity: 100);
 	$link-text-color: oPrivateColorsByUsecase('link', 'text');
-	$link-contrasts-with-background: oColorsGetContrastRatio($background, $link-text-color) > 4.5;
+	$link-contrasts-with-background: oPrivateColorsGetContrastRatio($background, $link-text-color) > 4.5;
 	// include oTopperColor on a parent then extend this placeholder on a
 	// descendent to lend that descendent the color you specified in the mixin
 	.o-topper__background,

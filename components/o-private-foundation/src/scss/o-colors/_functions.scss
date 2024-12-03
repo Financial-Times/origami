@@ -210,7 +210,7 @@
 	// Calculate text colour for background and opacity.
 	$base-color-a: if(oPrivateColorsColorBrightness($background) < 65%, 'white', 'black');
 	$text-color-a: oPrivateColorsMix($base-color-a, $background, $opacity);
-	$contrast-ratio-a: oColorsGetContrastRatio($text-color-a, $background);
+	$contrast-ratio-a: oPrivateColorsGetContrastRatio($text-color-a, $background);
 	@if $contrast-ratio-a > $contrast-ratio-aim {
 		@return $text-color-a;
 	}
@@ -218,7 +218,7 @@
 	// Switch the base colour if the first attempt did not pass contrast checks.
 	$base-color-b: if($base-color-a == 'black', 'white', 'black');
 	$text-color-b: oPrivateColorsMix($base-color-b, $background, $opacity);
-	$contrast-ratio-b: oColorsGetContrastRatio($text-color-b, $background);
+	$contrast-ratio-b: oPrivateColorsGetContrastRatio($text-color-b, $background);
 	@if $contrast-ratio-b > $contrast-ratio-aim {
 		@return $text-color-b;
 	}
@@ -300,7 +300,7 @@
 /// @param {String|Color} $color-a - first colour to compare (either a CSS colour or o-colors palette colour name)
 /// @param {String|Color} $color-b - second colour to compare (either a CSS colour or o-colors palette colour name)
 /// Based on the JS in https://github.com/LeaVerou/contrast-ratio/blob/gh-pages/contrast-ratio.js
-@function oColorsGetContrastRatio($color-a, $color-b) {
+@function oPrivateColorsGetContrastRatio($color-a, $color-b) {
 	$l1: oPrivateColorsColorLuminance($color-a) + 0.05;
 	$l2: oPrivateColorsColorLuminance($color-b) + 0.05;
 
