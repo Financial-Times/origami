@@ -1,0 +1,41 @@
+/// @param {Number} $scale [null] - a scale number to output a font-size and line-height property
+/// @param {Number} $line-height [null] - custom line-height value to use instead of the scale's default
+/// @param {Null | String} $weight [null] - output a font-weight property, e.g. 'bold', 'semibold'
+/// @param {Null | String} $style [null] - output a font-style property, e.g. 'italic'
+@mixin oPrivateTypographySans(
+	$scale: null,
+	$line-height: null,
+	$weight: null,
+	$style: null
+) {
+	// Adjust scale down, to support migrating from
+	// Metric2 to Metric. Metric2 renders larger for the same font-size.
+	@if $scale {
+		$scale: $scale - 1;
+		$scale-key: '#{$scale}';
+		@if ($scale == -1) {
+			$scale-key: 'negative-1';
+		}
+		@if ($scale == -2) {
+			$scale-key: 'negative-2';
+		}
+		font-family: '#{oPrivateFoundationGet('o3-font-family-metric')}', sans-serif;
+		font-size: oPrivateFoundationGet('o3-font-size-metric2-#{$scale-key}');
+		line-height: oPrivateFoundationGet(
+			'o3-font-lineheight-metric2-#{$scale-key}'
+		);
+	}
+
+	font-weight: if(
+		$weight,
+		oPrivateFoundationGet('o3-font-weight-#{$weight}'),
+		null
+	);
+}
+
+@mixin oPrivateTypographyCaption {
+	@include oPrivateTypographySans($scale: -1);
+	margin-top: oPrivateFoundationGet('o3-spacing-4xs');
+	margin-bottom: 0;
+	color: oPrivateFoundationGet('o3-color-use-case-body-text');
+}

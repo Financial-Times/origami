@@ -7,6 +7,7 @@
 @import './src/scss/o-visual-effects/main';
 @import './src/scss/o-buttons/main';
 @import './src/scss/o-grid/main';
+@import './src/scss/o-typography/main';
 
 @mixin oPrivateFoundation() {
 	@font-face {
@@ -17,4 +18,6 @@
 		font-style: normal;
 		font-display: swap;
 	}
+
+	// @todo include italic font
 }
