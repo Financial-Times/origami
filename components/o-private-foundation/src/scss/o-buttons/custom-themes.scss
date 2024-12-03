@@ -194,7 +194,7 @@
 		// darker still for active states. Unless the button color has low
 		// luminance, in which case make the button lighter instead.
 		// E.g. white: 1, claret: 0.07451, slate: 0.02307
-		$color-luminance: oColorsColorLuminance($default-background);
+		$color-luminance: oPrivateColorsColorLuminance($default-background);
 		$mix-color: if($color-luminance > 0.05, $dark-mix, $light-mix);
 
 		// Mix the background colour to make the hover/focus state darker or

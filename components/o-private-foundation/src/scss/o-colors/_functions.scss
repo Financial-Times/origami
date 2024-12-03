@@ -269,7 +269,7 @@
 /// From: https://css-tricks.com/snippets/sass/luminance-color-function/
 /// @param {String|Color} $color -  The colour to return a luminance for (either a CSS colour or o-colors palette colour name)
 /// @return {Number} - a number between 0 and 1
-@function oColorsColorLuminance($color) {
+@function oPrivateColorsColorLuminance($color) {
 	$color: if(type-of($color) == 'string', oColorsByName($color), $color);
 
 	$colors: (
@@ -301,8 +301,8 @@
 /// @param {String|Color} $color-b - second colour to compare (either a CSS colour or o-colors palette colour name)
 /// Based on the JS in https://github.com/LeaVerou/contrast-ratio/blob/gh-pages/contrast-ratio.js
 @function oColorsGetContrastRatio($color-a, $color-b) {
-	$l1: oColorsColorLuminance($color-a) + 0.05;
-	$l2: oColorsColorLuminance($color-b) + 0.05;
+	$l1: oPrivateColorsColorLuminance($color-a) + 0.05;
+	$l2: oPrivateColorsColorLuminance($color-b) + 0.05;
 
 	$ratio: div($l1, $l2);
 
