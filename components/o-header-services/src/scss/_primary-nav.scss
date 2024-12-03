@@ -25,7 +25,16 @@
 		// Remove the padding from the grid container.
 		// Unless the nav items have custom padding which is smaller than the grid container's grid gap.
 		@include oPrivateGridRespondTo(S) {
-			padding: 0 if(_oHeaderServicesGet('primary-nav-item-horizontal-padding'), calc(#{map-get($o-pf-grid-gutters, 'M')} - #{_oHeaderServicesGet('primary-nav-item-horizontal-padding')}), 0);
+			padding: 0
+				if(
+					_oHeaderServicesGet('primary-nav-item-horizontal-padding'),
+					calc(
+						#{map-get($o-pf-grid-gutters, 'M')} - #{_oHeaderServicesGet(
+								'primary-nav-item-horizontal-padding'
+							)}
+					),
+					0
+				);
 		}
 
 		> li {
@@ -33,10 +42,7 @@
 		}
 
 		> li a {
-			@include oTypographySans(
-				$weight: 'semibold',
-				$include-font-family: false
-			);
+			@include oPrivateTypographySans($weight: 'semibold');
 			position: relative;
 			color: _oHeaderServicesGet('nav-text');
 			display: inline-block;

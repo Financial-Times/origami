@@ -86,10 +86,7 @@
 		}
 
 		a {
-			@include oTypographySans(
-				$weight: 'semibold',
-				$include-font-family: false
-			);
+			@include oPrivateTypographySans($weight: 'semibold');
 			text-transform: uppercase;
 		}
 	}

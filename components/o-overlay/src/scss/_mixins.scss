@@ -9,7 +9,7 @@
 @mixin _oOverlayBase {
 	.o-overlay {
 		@include oPrivateVisualEffectsShadowContent($elevation: 'high');
-		@include oTypographySans($scale: 0);
+		@include oPrivateTypographySans($scale: 0);
 		position: fixed;
 		z-index: 11; // Must always be higher than the shadow z-index
 		box-sizing: border-box;
@@ -31,7 +31,7 @@
 	}
 	.o-overlay__heading,
 	.o-overlay__title {
-		@include oTypographySans($scale: 2, $weight: 'regular');
+		@include oPrivateTypographySans($scale: 2, $weight: 'regular');
 	}
 
 	.o-overlay__heading {

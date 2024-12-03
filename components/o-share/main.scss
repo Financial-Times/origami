@@ -2,7 +2,6 @@
 @import '@financial-times/o-brand/main';
 @import '@financial-times/o-colors/main';
 @import '@financial-times/o-private-foundation/main';
-@import '@financial-times/o-typography/main';
 
 @import 'src/scss/variables';
 @import 'src/scss/color-use-cases';
@@ -104,7 +103,7 @@
 	}
 
 	.o-share__text {
-		@include oTypographySans($scale: -1);
+		@include oPrivateTypographySans($scale: -1);
 		text-align: center;
 	}
 
@@ -137,7 +136,7 @@
 			}
 			.o-share__text {
 				// Horizontal space is tight for vertical share labels.
-				@include oTypographySans($scale: -2, $include-font-family: false);
+				@include oPrivateTypographySans($scale: -2);
 				word-wrap: anywhere;
 				overflow-wrap: anywhere;
 			}

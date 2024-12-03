@@ -1,6 +1,7 @@
 @mixin _oHeaderNav() {
 	.o-header__nav {
-		@include oTypographySans($scale: -1, $line-height: 20px);
+		@include oPrivateTypographySans($scale: -1);
+		line-height: 20px;
 	}
 
 	.o-header__nav--hide-s {

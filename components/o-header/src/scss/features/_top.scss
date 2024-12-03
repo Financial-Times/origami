@@ -48,7 +48,7 @@
 	}
 	.o-header__top-link {
 		@include _oHeaderLink;
-		@include oTypographySans(-1);
+		@include oPrivateTypographySans(-1);
 		@include _oHeaderFancyLink();
 	}
 
@@ -81,7 +81,7 @@
 
 		@include oPrivateNormaliseFocusApply() {
 			@include oPrivateNormaliseFocusContent();
-		};
+		}
 	}
 
 	.o-header__top-icon-link.o-header__top-icon-link--hide-s,
@@ -114,13 +114,23 @@
 		&:before {
 			// container size (24) is only included for the fallback image.
 			// IE8 has a static stylesheet generated for the L breakpoint.
-			@include oIconsContent('hamburger', _oHeaderGet('header-icon'), $size: null, $include-base-styles: false);
+			@include oIconsContent(
+				'hamburger',
+				_oHeaderGet('header-icon'),
+				$size: null,
+				$include-base-styles: false
+			);
 		}
 	}
 
 	.o-header__top-icon-link--search {
 		&:before {
-			@include oIconsContent('search', _oHeaderGet('header-icon'), $size: null, $include-base-styles: false);
+			@include oIconsContent(
+				'search',
+				_oHeaderGet('header-icon'),
+				$size: null,
+				$include-base-styles: false
+			);
 		}
 
 		// when used in tandem with the menu toggle, hide this on smaller screen sizes
@@ -133,14 +143,19 @@
 
 	.o-header__top-myaccount {
 		@include _oHeaderLink;
-		@include oTypographySans(0);
+		@include oPrivateTypographySans(0);
 		display: flex;
 		align-items: center;
 		position: relative;
 		padding: $_o-header-padding-y 0;
 
 		&:before {
-			@include oIconsContent('user', _oHeaderGet('header-icon'), $size: 32, $include-base-styles: false);
+			@include oIconsContent(
+				'user',
+				_oHeaderGet('header-icon'),
+				$size: 32,
+				$include-base-styles: false
+			);
 			content: ' ';
 		}
 
@@ -169,7 +184,11 @@
 	}
 
 	.o-header__top-logo {
-		@include _oHeaderBrandImage('brand-ft-masthead', _oHeaderGet('header-icon'), 500);
+		@include _oHeaderBrandImage(
+			'brand-ft-masthead',
+			_oHeaderGet('header-icon'),
+			500
+		);
 		@include _oHeaderLogoSize('XS');
 
 		display: block;

@@ -16,7 +16,8 @@
 		flex-shrink: 0;
 		padding-right: oPrivateGridGutter(M);
 
-		@include oPrivateGridRespondTo($until: M) { // Mobile screens only
+		@include oPrivateGridRespondTo($until: M) {
+			// Mobile screens only
 			display: none;
 		}
 	}
@@ -25,7 +26,7 @@
 		@include _oTeaserPost;
 	}
 
-	&.o-teaser--post.o-teaser--opinion{
+	&.o-teaser--post.o-teaser--opinion {
 		@include _oTeaserPostOpinion;
 	}
 }
@@ -62,20 +63,18 @@
 	}
 }
 
-
-
 @mixin _oTeaserPost {
 	border-bottom: 0;
 	.o-teaser__meta {
 		margin-bottom: oPrivateSpacingByName('s2');
 	}
 	.o-teaser__tag-prefix {
-		@include oTypographySans($scale: 0, $weight: 'semibold');
+		@include oPrivateTypographySans($scale: 0, $weight: 'semibold');
 		color: oColorsByName('claret');
 		margin-right: oPrivateSpacingByName('s1');
 	}
 	.o-teaser__tag {
-		@include oTypographySans($scale: 0, $weight: 'regular');
+		@include oPrivateTypographySans($scale: 0, $weight: 'regular');
 		color: oColorsByName('claret');
 	}
 	.o-teaser__standfirst {
@@ -84,7 +83,7 @@
 	.o-teaser__image-placeholder {
 		width: 100%;
 		height: auto;
-		padding: 0 ;
+		padding: 0;
 		display: flex;
 		img {
 			width: 100%;
@@ -118,7 +117,7 @@
 
 	.o-teaser__heading,
 	.o-teaser__heading a {
-		@include oTypographyDisplay($scale: 2, $weight: 'medium');
+		@include oPrivateTypographyDisplay($scale: 2, $weight: 'medium');
 		color: oColorsByName('black');
 	}
 
@@ -134,7 +133,7 @@
 
 @mixin _oTeaserPostOpinion {
 	@include _oTeaserPost;
-	
+
 	.o-teaser__heading:before {
 		@include oIconsContent(
 			'speech-left',

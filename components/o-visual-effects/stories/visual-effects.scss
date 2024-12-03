@@ -63,7 +63,7 @@
 }
 
 .shadow-demo {
-	@include oTypographySans($scale: 1);
+	@include oPrivateTypographySans($scale: 1);
 	display: inline-flex;
 	background: white;
 	width: 10rem;

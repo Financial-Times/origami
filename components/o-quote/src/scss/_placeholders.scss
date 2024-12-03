@@ -25,25 +25,25 @@
 		color: oColorsByName('black');
 
 		a {
-			@include oTypographyLink;
+			@include oPrivateTypographyLink();
 		}
 	}
 
 	%_o-quote-blockquote-cite {
 		// Output weight and style to override browser defaults.
-		@include oTypographySans(
+		@include oPrivateTypographySans(
 			$scale: 1,
 			$weight: 'regular',
 			$style: 'normal'
 		);
 		a {
-			@include oTypographyLink;
+			@include oPrivateTypographyLink();
 		}
 	}
 
 	%_o-quote-blockquote-author {
 		// Output weight and style to override browser defaults.
-		@include oTypographySans(
+		@include oPrivateTypographySans(
 			$scale: 0,
 			$weight: 'semibold',
 			$style: 'normal'
@@ -60,9 +60,7 @@
 		padding-left: oPrivateSpacingByName('s4');
 
 		p {
-			@include oTypographyBody();
-			// repeated margin as `oTypographyBody`
-			// outputs a margin property
+			@include oPrivateTypographyBody();
 			margin-bottom: oPrivateSpacingByName('s4');
 			&:last-child {
 				margin-bottom: 0;
@@ -86,7 +84,9 @@
 			position: relative;
 			left: -$icon-whitespace;
 			margin-top: -$icon-whitespace;
-			margin-bottom: calc(#{oPrivateSpacingByName('s4')} - #{$icon-whitespace * 2});
+			margin-bottom: calc(
+				#{oPrivateSpacingByName('s4')} - #{$icon-whitespace * 2}
+			);
 		}
 
 		p {
@@ -95,7 +95,7 @@
 			// inherited depending on the context of the editorial blockquote.
 			// E.g. At the time of writing the font size of stories differed
 			// on article pages and live blogs by design.
-			@include oTypographySerif();
+			font-family: '#{oPrivateFoundationGet('o3-font-family-georgia')}', serif;
 		}
 	}
 }

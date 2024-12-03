@@ -38,7 +38,7 @@
 /// @access private
 @mixin _oSteppedProgressBase() {
 	.o-stepped-progress {
-		@include oTypographySans(_oSteppedProgressGet('font-scale'));
+		@include oPrivateTypographySans(_oSteppedProgressGet('font-scale'));
 		display: block;
 		position: relative;
 
@@ -252,7 +252,9 @@
 	$variant: 'heavy';
 
 	.o-stepped-progress--heavy {
-		@include oTypographySans(_oSteppedProgressGet('font-scale', $variant));
+		@include oPrivateTypographySans(
+			_oSteppedProgressGet('font-scale', $variant)
+		);
 
 		// Progress bars
 		&::before {

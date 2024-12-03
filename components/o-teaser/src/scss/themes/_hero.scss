@@ -60,7 +60,11 @@
 	}
 
 	.o-teaser__timestamp-prefix:before {
-		background-color: oColorsMix(oColorsByName('white'), $opinion-background, 80);
+		background-color: oColorsMix(
+			oColorsByName('white'),
+			$opinion-background,
+			80
+		);
 	}
 
 	.o-teaser__content,
@@ -104,7 +108,11 @@
 			width: 100%;
 			min-height: 30%;
 			background-color: transparent;
-			background-image: linear-gradient(to bottom, rgba(oColorsByName('black'), 0.75), transparent);
+			background-image: linear-gradient(
+				to bottom,
+				rgba(oColorsByName('black'), 0.75),
+				transparent
+			);
 			pointer-events: none;
 		}
 
@@ -127,7 +135,6 @@
 		.o-teaser__meta:after {
 			border-bottom-color: oColorsByName('white');
 		}
-
 
 		.o-teaser__tag:hover,
 		.o-teaser__tag:focus {
@@ -172,7 +179,7 @@
 	}
 
 	.o-teaser__heading {
-		@include oTypographyDisplay($scale: 4);
+		@include oPrivateTypographyDisplay($scale: 4);
 	}
 
 	.o-teaser__meta:after {
@@ -191,7 +198,7 @@
 /// Hero standalone theme styles
 @mixin _oTeaserHeroStandalone {
 	.o-teaser__heading {
-		@include oTypographySans(4, $include-font-family: false);
+		@include oPrivateTypographySans(4);
 	}
 
 	.o-teaser__image-container {
@@ -207,10 +214,19 @@
 // Hero Package theme — extra
 @mixin _oTeaserHeroExtra {
 	$hero-extra-color: oColorsByUsecase('o-teaser/theme-hero-extra', 'text');
-	$hero-extra-background: oColorsByUsecase('o-teaser/theme-hero-extra', 'background');
+	$hero-extra-background: oColorsByUsecase(
+		'o-teaser/theme-hero-extra',
+		'background'
+	);
 	// highlight colours
-	$hero-extra-highlight-border: oColorsByUsecase('o-teaser/theme-hero-extra-highlight', 'border');
-	$hero-extra-highlight-color: oColorsByUsecase('o-teaser/theme-hero-extra-highlight', 'text');
+	$hero-extra-highlight-border: oColorsByUsecase(
+		'o-teaser/theme-hero-extra-highlight',
+		'border'
+	);
+	$hero-extra-highlight-color: oColorsByUsecase(
+		'o-teaser/theme-hero-extra-highlight',
+		'text'
+	);
 	.o-teaser__heading a:hover,
 	.o-teaser__heading a:focus,
 	.o-teaser__standfirst a:hover,
@@ -235,13 +251,21 @@
 	.o-teaser__standfirst {
 		color: oColorsByName('white');
 		a:visited {
-			color: oColorsMix($hero-extra-color, $hero-extra-background, $percentage: 50);
+			color: oColorsMix(
+				$hero-extra-color,
+				$hero-extra-background,
+				$percentage: 50
+			);
 		}
 	}
 
 	.o-teaser__standfirst,
 	.o-teaser__timestamp {
-		color: oColorsMix($hero-extra-color, $hero-extra-background, $percentage: 80);
+		color: oColorsMix(
+			$hero-extra-color,
+			$hero-extra-background,
+			$percentage: 80
+		);
 	}
 
 	.o-teaser__image-container:after,

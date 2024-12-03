@@ -46,17 +46,28 @@
 	// Metric2 to Metric. Metric2 renders larger for the same font-size.
 	@if $scale {
 		$scale: $scale - 1;
-		$scale-key: '#{$scale}';
+
+		// The font scale to use. o3 includes multiple scales.
+		$scale-key: '-'; // Default scale
+		@if ($font == 'metric') {
+			$scale-key: '-metric2-'; // Metric2 scale
+		}
+
+		// The font scale number as a key.
+		$scale-item-key: '#{$scale}';
 		@if ($scale == -1) {
-			$scale-key: 'negative-1';
+			$scale-item-key: 'negative-1';
 		}
 		@if ($scale == -2) {
-			$scale-key: 'negative-2';
+			$scale-item-key: 'negative-2';
 		}
-		font-family: '#{oPrivateFoundationGet('o3-font-family-metric')}', sans-serif;
-		font-size: oPrivateFoundationGet('o3-font-size-metric2-#{$scale-key}');
+		font-family: '#{oPrivateFoundationGet('o3-font-family-#{$font}')}',
+			sans-serif;
+		font-size: oPrivateFoundationGet(
+			'o3-font-size#{$scale-key}#{$scale-item-key}'
+		);
 		line-height: oPrivateFoundationGet(
-			'o3-font-lineheight-metric2-#{$scale-key}'
+			'o3-font-lineheight#{$scale-key}#{$scale-item-key}'
 		);
 	}
 
@@ -309,4 +320,78 @@
 	// to bring our characters per line closer to the requested number on average
 	$magic-number: 0.75;
 	@return $optimal-characters-per-line * $magic-number * 1ch;
+}
+
+/// Body text styles
+@mixin oPrivateTypographyBody() {
+	@include oPrivateTypographySans(1);
+	margin: 0 0 oPrivateSpacingByName('s6');
+	color: oPrivateFoundationGet('o3-color-use-case-body-text');
+}
+
+/// Output styles for page headings.
+/// @example Output heading level 1 styles.
+///     h1 {
+///     	@include oPrivateTypographyHeading($level: 1);
+///     }
+/// @example Output heading level 5 styles.
+///     h5 {
+///     	@include oPrivateTypographyHeading($level: 5);
+///     }
+/// @param {Number} $level - The heading level 1-5.
+@mixin oPrivateTypographyHeading($level) {
+	$headings: (
+		'heading-level-one',
+		'heading-level-two',
+		'heading-level-three',
+		'heading-level-four',
+		'heading-level-five',
+		'heading-level-six'
+	);
+
+	@if (type-of($level) != 'number' or $level < 1 or $level > 6) {
+		@error 'Heading level must be a Number 1-6. Found #{inspect($level)}.';
+	}
+
+	$heading-key: nth($headings, $level);
+
+	// Get heading styles from brand config (see _brand.scss)
+	// If weight is not given default to regular, to override browser defaults.
+	$weight: _oTypographyGet('weight', $from);
+	$weight: if($weight, $weight, 'regular');
+
+	$heading-levels-with-attributes: (
+		'heading-level-one': (
+			'scale': 5,
+			'weight': 'semibold',
+		),
+		'heading-level-two': (
+			'scale': 4,
+			'weight': 'semibold',
+		),
+		'heading-level-three': (
+			'scale': 3,
+			'weight': 'semibold',
+		),
+		'heading-level-four': (
+			'scale': 2,
+			'weight': 'semibold',
+		),
+		'heading-level-five': (
+			'scale': 1,
+			'weight': 'semibold',
+		),
+		'heading-level-six': (
+			'scale': 0,
+			'weight': 'semibold',
+		),
+	);
+
+	$heading-attributes: map-get($heading-level-attributes, $heading-key);
+	@include oTypographySans(
+		$scale: map-get($heading-attributes, 'scale'),
+		$weight: map-get($heading-attributes, 'weight')
+	);
+	color: oPrivateFoundationGet('o3-color-use-case-body-text');
+	margin: 0 0 oPrivateSpacingByName('s4');
 }
