@@ -1,52 +1,51 @@
 {
-  "name": "@financial-times/o-autocomplete",
-  "version": "1.10.0",
-  "description": "An origami component for autocomplete inputs",
-  "keywords": [
-    "autocomplete",
-    "typeahead"
-  ],
-  "homepage": "https://registry.origami.ft.com/components/o-autocomplete",
-  "bugs": {
-    "url": "https://github.com/Financial-Times/origami/issues/new?labels=o-autocomplete,components",
-    "email": "origami.support@ft.com",
-    "slack": "#origami-support"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Financial-Times/o-autocomplete.git"
-  },
-  "license": "MIT",
-  "type": "module",
-  "browser": "main.js",
-  "scripts": {
-    "build": "bash ../../scripts/component/build.bash",
-    "test": "bash ../../scripts/component/test.bash",
-    "debug:js": "bash ../../scripts/component/debug-js.bash",
-    "lint": "bash ../../scripts/component/lint.bash",
-    "watch": "bash ../../scripts/component/watch.bash"
-  },
-  "engines": {
-    "npm": ">7"
-  },
-  "peerDependencies": {
-    "@financial-times/math": "^1.0.0",
-    "@financial-times/o-brand": "^4.1.0",
-    "@financial-times/o-colors": "^6.5.0",
-    "@financial-times/o-grid": "^6.0.0",
-    "@financial-times/o-icons": "^7.0.1",
-    "@financial-times/o-loading": "^5.0.0",
-    "@financial-times/o-normalise": "^3.3.0",
-    "@financial-times/o-typography": "^7.4.1",
-    "@financial-times/o-private-foundation": "0.0.0"
-  },
-  "devDependencies": {
-    "@financial-times/o-forms": "^9.9.0",
-    "@financial-times/o-normalise": "^3.3.0",
-    "@financial-times/o-utils": "^2.1.0"
-  },
-  "dependencies": {
-    "@financial-times/accessible-autocomplete": "^3.1.0"
-  },
-  "private": false
+	"name": "@financial-times/o-autocomplete",
+	"version": "1.10.0",
+	"description": "An origami component for autocomplete inputs",
+	"keywords": [
+		"autocomplete",
+		"typeahead"
+	],
+	"homepage": "https://registry.origami.ft.com/components/o-autocomplete",
+	"bugs": {
+		"url": "https://github.com/Financial-Times/origami/issues/new?labels=o-autocomplete,components",
+		"email": "origami.support@ft.com",
+		"slack": "#origami-support"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Financial-Times/o-autocomplete.git"
+	},
+	"license": "MIT",
+	"type": "module",
+	"browser": "main.js",
+	"scripts": {
+		"build": "bash ../../scripts/component/build.bash",
+		"test": "bash ../../scripts/component/test.bash",
+		"debug:js": "bash ../../scripts/component/debug-js.bash",
+		"lint": "bash ../../scripts/component/lint.bash",
+		"watch": "bash ../../scripts/component/watch.bash"
+	},
+	"engines": {
+		"npm": ">7"
+	},
+	"peerDependencies": {
+		"@financial-times/math": "^1.0.0",
+		"@financial-times/o-brand": "^4.1.0",
+		"@financial-times/o-colors": "^6.5.0",
+		"@financial-times/o-grid": "^6.0.0",
+		"@financial-times/o-icons": "^7.0.1",
+		"@financial-times/o-loading": "^5.0.0",
+		"@financial-times/o-normalise": "^3.3.0",
+		"@financial-times/o-private-foundation": "0.0.0"
+	},
+	"devDependencies": {
+		"@financial-times/o-forms": "^9.9.0",
+		"@financial-times/o-normalise": "^3.3.0",
+		"@financial-times/o-utils": "^2.1.0"
+	},
+	"dependencies": {
+		"@financial-times/accessible-autocomplete": "^3.1.0"
+	},
+	"private": false
 }
