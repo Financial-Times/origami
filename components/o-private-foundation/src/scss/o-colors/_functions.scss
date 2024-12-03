@@ -108,7 +108,7 @@
 	$hsb-saturation: map-get($hsb, 's');
 	// Update the colours brightness with the given brightness value,
 	// using the HSB colour space.
-	@return _oColorsHsbToHex($hsb-hue, $hsb-saturation, $brightness);
+	@return _oPrivateColorsHsbToHex($hsb-hue, $hsb-saturation, $brightness);
 }
 
 /// Figure out if a given colour is a tone. If it is a tone return the original
@@ -369,7 +369,7 @@
 /// @param {Number} $brigthness - number between 0-100
 ///
 /// @return {Colour} - the hex representation of given hsb values
-@function _oColorsHsbToHex($hue, $saturation, $brightness) {
+@function _oPrivateColorsHsbToHex($hue, $saturation, $brightness) {
 	@if $brightness == 0 {
 		@return hsl(0, 0%, 0%);
 	}
