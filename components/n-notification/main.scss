@@ -1,9 +1,9 @@
-@import "@financial-times/o-colors/main";
-@import "@financial-times/o-typography/main";
+@import '@financial-times/o-colors/main';
+@import '@financial-times/o-private-foundation/main';
 
 $n-notification-is-silent: true !default;
 
-@mixin nNotification {	
+@mixin nNotification {
 	@keyframes load-notice {
 		0% {
 			max-height: 0;
@@ -43,20 +43,20 @@ $n-notification-is-silent: true !default;
 	}
 
 	.n-notification__title {
-		@include oTypographySans($scale: 2, $weight: "semibold");
+		@include oPrivateTypographySans($scale: 2, $weight: 'semibold');
 		display: inline-block;
 		padding-right: 10px;
 		margin: 0;
 	}
 
 	.n-notification__content {
-		@include oTypographySans($scale: 2);
+		@include oPrivateTypographySans($scale: 2);
 		display: inline-block;
 		margin: 0;
 
 		b,
 		strong {
-			@include oTypographySans($scale: 2, $weight: "semibold");
+			@include oPrivateTypographySans($scale: 2, $weight: 'semibold');
 		}
 
 		a {
@@ -72,7 +72,12 @@ $n-notification-is-silent: true !default;
 			color: oColorsByName('white');
 		}
 		.n-notification__close {
-			@include oIconsContent('cross', oColorsMix('black', 'crimson', $percentage: 12.5), 40, $include-base-styles: false);
+			@include oIconsContent(
+				'cross',
+				oColorsMix('black', 'crimson', $percentage: 12.5),
+				40,
+				$include-base-styles: false
+			);
 		}
 	}
 
@@ -83,7 +88,12 @@ $n-notification-is-silent: true !default;
 			color: oColorsMix('black', 'jade', $percentage: 43);
 		}
 		.n-notification__close {
-			@include oIconsContent('cross', oColorsMix('black', 'jade', $percentage: 43), 40, $include-base-styles: false);
+			@include oIconsContent(
+				'cross',
+				oColorsMix('black', 'jade', $percentage: 43),
+				40,
+				$include-base-styles: false
+			);
 			position: absolute;
 			right: 0;
 			top: 0;
@@ -97,7 +107,7 @@ $n-notification-is-silent: true !default;
 			text-indent: -999em;
 		}
 	}
-	
+
 	.n-notification__close {
 		@include oIconsContent('cross', oColorsByName('black-80'), 40);
 		position: absolute;
