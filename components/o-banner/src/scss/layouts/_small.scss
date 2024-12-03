@@ -17,7 +17,9 @@
 
 	@include oPrivateGridRespondTo(XL) {
 		width: div(map-get($o-pf-grid-layouts, XL), 2); // width is 50% grid
-		left: calc((100vw - #{map-get($o-pf-grid-layouts, XL)}) / 2); // ((viewport - grid width) / 2)
+		left: calc(
+			(100vw - #{map-get($o-pf-grid-layouts, XL)}) / 2
+		); // ((viewport - grid width) / 2)
 	}
 }
 
@@ -28,7 +30,7 @@
 
 @mixin _oBannerSmallInner {
 	@include oPrivateVisualEffectsShadowContent('high');
-	@include oTypographySans($scale: 2);
+	@include oPrivateTypographySans($scale: 2);
 	background: _oBannerGet('background-color');
 	display: block;
 	padding: $_o-banner-spacing;
@@ -46,7 +48,7 @@
 	h5,
 	h6,
 	ul li {
-		@include oTypographySans($scale: 2);
+		@include oPrivateTypographySans($scale: 2);
 	}
 	@include oPrivateGridRespondTo($until: M) {
 		&,
@@ -57,13 +59,13 @@
 		h5,
 		h6,
 		ul li {
-			@include oTypographySans($scale: 0);
+			@include oPrivateTypographySans($scale: 0);
 		}
 	}
 }
 
 @mixin _oBannerSmallHeading {
-	@include oTypographySans($scale: 4);
+	@include oPrivateTypographySans($scale: 4);
 	padding-right: $_o-banner-spacing;
 
 	h1,
@@ -72,7 +74,7 @@
 	h4,
 	h5,
 	h6 {
-		@include oTypographySans($scale: 4, $weight: 'semibold');
+		@include oPrivateTypographySans($scale: 4, $weight: 'semibold');
 	}
 	@include oPrivateGridRespondTo($until: M) {
 		&,
@@ -82,7 +84,7 @@
 		h4,
 		h5,
 		h6 {
-			@include oTypographySans($scale: 3);
+			@include oPrivateTypographySans($scale: 3);
 		}
 	}
 }

@@ -48,7 +48,7 @@
 }
 
 @mixin _oBannerInner {
-	@include oTypographySans($scale: 2);
+	@include oPrivateTypographySans($scale: 2);
 	-webkit-font-smoothing: antialiased;
 	position: relative;
 	display: flex;
@@ -61,7 +61,7 @@
 	box-sizing: border-box;
 
 	@include oPrivateGridRespondTo($until: S) {
-		@include oTypographySans($scale: 0);
+		@include oPrivateTypographySans($scale: 0);
 		display: block;
 		padding: $_o-banner-spacing;
 		padding-bottom: $_o-banner-spacing - $_o-banner-brand-border;
@@ -84,7 +84,7 @@
 	h4,
 	h5,
 	h6 {
-		@include oTypographySans($scale: 3, $weight: 'semibold');
+		@include oPrivateTypographySans($scale: 3, $weight: 'semibold');
 		margin-top: 0;
 		margin-bottom: oPrivateSpacingByName('s1');
 	}
@@ -94,22 +94,23 @@
 	}
 	b,
 	strong {
-		@include oTypographySans($weight: 'semibold', $include-font-family: false);
+		@include oPrivateTypographySans($weight: 'semibold');
 	}
 	> ul {
-		@include oTypographyList('unordered');
+		@include oPrivateTypographyList('unordered');
 		margin-top: oPrivateSpacingByName('s3');
 		margin-bottom: 0;
 
 		li {
-			@include oTypographySans($scale: 2, $line-height: oPrivateSpacingByIncrement(7));
+			@include oPrivateTypographySans($scale: 2);
+			line-height: oPrivateSpacingByIncrement(7);
 		}
 		li:before {
 			color: inherit;
 		}
 	}
 	a {
-		@include oTypographyLink();
+		@include oPrivateTypographyLink();
 	}
 
 	@include oPrivateGridRespondTo($until: S) {
@@ -152,7 +153,7 @@
 }
 
 @mixin _oBannerActions {
-	@include oTypographySans($scale: 2);
+	@include oPrivateTypographySans($scale: 2);
 	display: flex;
 	align-items: center;
 
@@ -192,8 +193,8 @@
 }
 
 @mixin _oBannerLink {
-	@include oTypographyLink();
-	@include oTypographySans($scale: 0);
+	@include oPrivateTypographyLink();
+	@include oPrivateTypographySans($scale: 0);
 	white-space: nowrap;
 	&:focus,
 	&:focus-visible {
