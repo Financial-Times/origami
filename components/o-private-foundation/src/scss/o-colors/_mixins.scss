@@ -25,7 +25,7 @@
 	@if type-of($color-name) != 'string' {
 		@error 'Expected `$color-name` to be a string, found "#{$color-name}" of type "#{type-of($color-name)}".';
 	}
-	$namespace: _oColorsGetNameSpace($color-name);
+	$namespace: _oPrivateColorsGetNameSpace($color-name);
 	@if not $namespace {
 		@error 'The `$color-name` "#{inspect($color-name)}" has no namespace. ' +
 			'Prepend your color name with a namespace for your project e.g. for a component "o-example": ' +
@@ -101,7 +101,7 @@
 /// @param {Map} $colors - A map of properties ('text', 'background', 'border', or 'outline') to a color.
 /// @param {Map} $opts [()] - A map of options. Accepts a `deprecated` key with a deprecation message for the usecase e.g. `$opts: (deprecated: 'your deprecation message')`, or a map to deprecate a specific property e.g. `(deprecated: (background: 'your deprecation message'))`.
 @mixin oColorsSetUseCase($usecase, $colors, $opts: ()) {
-	$namespace: _oColorsGetNameSpace($usecase);
+	$namespace: _oPrivateColorsGetNameSpace($usecase);
 	@if not $namespace {
 		@error 'The `$usecase` "#{inspect($usecase)}" has no namespace. ' +
 			'Prepend your usecase with a namespace for your project e.g. for a component "o-example": ' +

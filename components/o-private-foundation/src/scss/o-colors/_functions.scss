@@ -335,10 +335,10 @@
 /// Get a namespace from a colour name.
 /// Returns null if there is no namespace.
 /// @example
-///    $namespace: _oColorsGetNameSpace('o-example/paper'); // o-example
-///    $namespace: _oColorsGetNameSpace('o-colors/paper'); // o-colors
-///    $namespace: _oColorsGetNameSpace('paper'); // null
-@function _oColorsGetNameSpace($color-name) {
+///    $namespace: _oPrivateColorsGetNameSpace('o-example/paper'); // o-example
+///    $namespace: _oPrivateColorsGetNameSpace('o-colors/paper'); // o-colors
+///    $namespace: _oPrivateColorsGetNameSpace('paper'); // null
+@function _oPrivateColorsGetNameSpace($color-name) {
 	$slash-index: str-index($color-name, '/');
 	@return if($slash-index, str-slice($color-name, 0, $slash-index - 1), null);
 }
@@ -349,7 +349,7 @@
 ///    $namespace: _oColorsRemoveDefaultNamespace('o-colors/paper'); // paper
 ///    $namespace: _oColorsRemoveDefaultNamespace('paper'); // paper
 @function _oColorsRemoveDefaultNamespace($color-name) {
-	$namespace: _oColorsGetNameSpace($color-name);
+	$namespace: _oPrivateColorsGetNameSpace($color-name);
 	$slash-index: str-index($color-name, '/');
 	$color-part: if($namespace, str-slice($color-name, $slash-index + 1, -1), $color-name);
 	@return if($namespace == 'o-colors', $color-part, $color-name);
