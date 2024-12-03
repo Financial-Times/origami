@@ -72,9 +72,9 @@
 ///
 /// @param {String} $color-name - the name of the color to be shaded
 /// @param {Number} $brightness - the brightness value of the new color, 0-100
-@function oColorsGetTone($color-name, $brightness) {
+@function oPrivateColorsGetTone($color-name, $brightness) {
 	// Find palette colour information.
-	$color: oColorsByName($color-name);
+	$color: oPrivateFoundationGet($color-name);
 	$color-map: map-get($_o-pf-colors-palette, $color-name);
 	$color-meta: map-get($color-map, 'meta');
 
@@ -87,7 +87,7 @@
 	@if (hue($color) == 0 and saturation($color) == 0) {
 		@return _oColorsError('"#{$color-name}" does not support tones. ' +
 		'Use a mix instead: ' +
-		'`oColorsMix(\'#{$color-name}\', $percentage: #{$brightness})`');
+		'`oPrivateColorsMix(\'#{$color-name}\', $percentage: #{$brightness})`');
 	}
 
 	// Error for any palette colour which hasn't been configured to allow tones.
@@ -128,7 +128,7 @@
 		// Check the given colour against the tone to find the tone brightness.
 		$brightness: 0;
 		@while $brightness <= 100 {
-			@if(inspect(oColorsGetTone($tone-color, $brightness)) == inspect($color)) {
+			@if(inspect(oPrivateColorsGetTone($tone-color, $brightness)) == inspect($color)) {
 				@return (
 					'color-name': $tone-color,
 					'brightness': $brightness

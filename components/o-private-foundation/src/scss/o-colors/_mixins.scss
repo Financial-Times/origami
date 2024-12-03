@@ -170,7 +170,7 @@
 	@each $color-name, $tone-values in $_o-pf-colors-default-palette-tones {
 		@each $value in $tone-values {
 			$name: "#{$color-name}-#{$value}";
-			$tone: oColorsGetTone($color-name, $value);
+			$tone: oPrivateColorsGetTone($color-name, $value);
 			@include oPrivateColorsSetColor('o-colors/#{$name}', $tone);
 		}
 	}
