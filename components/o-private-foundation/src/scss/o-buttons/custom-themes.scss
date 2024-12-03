@@ -152,7 +152,7 @@
 	$active-background: null;
 
 	// If the background color may be tinted use tints, otherwise use a mix.
-	$is-tint: oColorsGetToneDetails($default-background);
+	$is-tint: oPrivateColorsGetToneDetails($default-background);
 	@if ($is-tint) {
 		// The hover/focus background tint should be lower than the default
 		// button background. Preferably with a contrast ratio of at least 1.5,
@@ -603,7 +603,7 @@
 	$minimum-tint-value
 ) {
 	// Current tint.
-	$tint-details: oColorsGetToneDetails($tint);
+	$tint-details: oPrivateColorsGetToneDetails($tint);
 	$tint-color: map-get($tint-details, 'color-name');
 	$tint-brightness: map-get($tint-details, 'brightness');
 	// Lower the tint value.
@@ -618,7 +618,7 @@
 	);
 	// Return the new tint if the current decrement is of high enough contrast.
 	@while $value >= $minimum-tint-value {
-		$darker-tint: oColorsGetTone($tint-color, $value);
+		$darker-tint: oPrivateColorsGetTone($tint-color, $value);
 		$ratio: oColorsGetContrastRatio($darker-tint, $tint);
 		@if $ratio >= $contrast-aim {
 			@return $darker-tint;
@@ -627,5 +627,5 @@
 	}
 	// No tint of a high enough contrast could be produced.
 	// Return the darkest tint we'll allow.
-	@return oColorsGetTone($tint-color, $minimum-tint-value);
+	@return oPrivateColorsGetTone($tint-color, $minimum-tint-value);
 }
