@@ -38,10 +38,4 @@ when inheriting typographic styles from a parent element.
 
 ### o-editorial-layout-load-fonts
 
-If true, include fonts from o-fonts.
-
-Defaults to the value of `$o-editorial-typography-load-fonts`. If you are
-using o-typography or o-editorial-typography and have already indicated not
-to load fonts, preferring to load fonts manually, this variable does not
-need to be set. If you are not using `o-typography`, set this to false to
-load fonts manually.
+Deprecated. Previously: If true, include fonts from o-fonts. Fonts are now always included.
