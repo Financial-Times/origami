@@ -51,7 +51,7 @@
 	}
 
 	.o-video__guidance__link {
-		@include oTypographyLink(
+		@include oPrivateTypographyLink(
 			$theme: (
 				"base": "white",
 				"hover": "white",
