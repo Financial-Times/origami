@@ -345,10 +345,10 @@
 
 /// Add the default o-colors namespace if a namespace isn't given.
 /// @example
-///    $namespace: _oColorsRemoveDefaultNamespace('o-example/paper'); // o-example/paper
-///    $namespace: _oColorsRemoveDefaultNamespace('o-colors/paper'); // paper
-///    $namespace: _oColorsRemoveDefaultNamespace('paper'); // paper
-@function _oColorsRemoveDefaultNamespace($color-name) {
+///    $namespace: _oPrivateColorsRemoveDefaultNamespace('o-example/paper'); // o-example/paper
+///    $namespace: _oPrivateColorsRemoveDefaultNamespace('o-colors/paper'); // paper
+///    $namespace: _oPrivateColorsRemoveDefaultNamespace('paper'); // paper
+@function _oPrivateColorsRemoveDefaultNamespace($color-name) {
 	$namespace: _oPrivateColorsGetNameSpace($color-name);
 	$slash-index: str-index($color-name, '/');
 	$color-part: if($namespace, str-slice($color-name, $slash-index + 1, -1), $color-name);

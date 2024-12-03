@@ -56,7 +56,7 @@
 	// Set the new colour to the colour palette.
 	// Set colours without the default o-colors namespace so consumers
 	// do not have to check returned colour names with the namespace.
-	$color-name: _oColorsRemoveDefaultNamespace($color-name);
+	$color-name: _oPrivateColorsRemoveDefaultNamespace($color-name);
 	$new-color: ($color-name: (
 		'value': $color-value,
 		'name': $color-name,
@@ -135,7 +135,7 @@
 
 	// Remove the default o-colors namespace so returned color names
 	// do not include it.
-	$usecase: _oColorsRemoveDefaultNamespace($usecase);
+	$usecase: _oPrivateColorsRemoveDefaultNamespace($usecase);
 
 	// Default o-colors usecases may be customised by users.
 	@if ($namespace == 'o-colors' and map-has-key($_o-pf-colors-usecases, $usecase)) {
