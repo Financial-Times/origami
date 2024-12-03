@@ -41,7 +41,7 @@
 	// Default o-colors palette colours may be customised by users but
 	// existing project/component colors may not. Customisation of non-default
 	// colours usually happens at a component level.
-	$color-exists: _oColorsNameExists($color-name);
+	$color-exists: _oPrivateColorsNameExists($color-name);
 	@if ($namespace != 'o-colors' and $color-exists) {
 		$existing-current-color: oColorsByName($color-name);
 		// The colour may be set twice by the same component if it's included twice.
@@ -126,7 +126,7 @@
 				'cannot be set to "#{inspect($color)}". A usecase property may ' +
 				'only be set to an o-colors colour or colour name such as "paper".';
 		}
-		@if(type-of($color) == 'string' and not _oColorsNameExists($color)) {
+		@if(type-of($color) == 'string' and not _oPrivateColorsNameExists($color)) {
 			@error 'The "#{$usecase}" usecase property "#{inspect($property)}" ' +
 				'cannot be set to "#{inspect($color)}". The colour "#{inspect($color)}" ' +
 				'does not exist.';

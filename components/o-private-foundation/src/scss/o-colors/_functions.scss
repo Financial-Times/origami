@@ -154,8 +154,8 @@
 	// oPrivateColorsMix('o3-color-palette-paper', 'o3-color-palette-wheat', 30);
 	// oPrivateColorsMix(o3-color-palette-paper, o3-color-palette-wheat, 30);
 	// https://www.w3.org/wiki/CSS/Properties/color/keywords
-	$base: if(_oColorsNameExists(#{$background}), oColorsByName(#{$background}), $background);
-	$mixer: if(_oColorsNameExists(#{$color}), oColorsByName(#{$color}), $color);
+	$base: if(_oPrivateColorsNameExists(#{$background}), oColorsByName(#{$background}), $background);
+	$mixer: if(_oPrivateColorsNameExists(#{$color}), oColorsByName(#{$color}), $color);
 
 	@if type-of($base) != color {
 		@return _oPrivateColorsError("'#{inspect($background)}' is not a valid base color.");
@@ -356,7 +356,7 @@
 }
 
 /// Check if a colour name exists in the palette.
-@function _oColorsNameExists($color-name) {
+@function _oPrivateColorsNameExists($color-name) {
 	@return map-has-key($_o-pf-colors-palette, $color-name);
 }
 
