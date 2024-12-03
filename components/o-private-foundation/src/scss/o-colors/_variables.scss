@@ -6,7 +6,7 @@ $_o-pf-colors-is-initialised: false !default;
 /// A map to define default palette colours:
 /// A list of arguments for `oPrivateColorsSetColor`, except the project name.
 ///
-/// @see _oColorsSetDefaultPaletteColors
+/// @see _oPrivateColorsSetDefaultPaletteColors
 /// @see oPrivateColorsSetColor
 /// @type List
 /// @access private
@@ -16,28 +16,28 @@ $_o-pf-colors-default-palette-colors: () !default;
 /// This is also used to decide which colours are
 /// allowed to have tones, when users request a
 /// non-default tone.
-/// @see _oColorsSetPaletteTones
+/// @see _oPrivateColorsSetPaletteTones
 /// @type Map
 /// @access private
 $_o-pf-colors-default-palette-tones: ();
 
 /// A map to define default mixes in the palette.
-/// @see _oColorsSetPaletteMixes
+/// @see _oPrivateColorsSetPaletteTones
 /// @type Map
 /// @access private
 $_o-pf-colors-default-palette-mixes: ();
 
 /// A map to define default colour usecases:
-/// A list of arguments for `oColorsSetUseCase`, except the project name.
+/// A list of arguments for `oPrivateColorsSetUseCase`, except the project name.
 ///
-/// @see _oColorsSetDefaultUsecases
-/// @see oColorsSetUseCase
+/// @see _oPrivateColorsSetDefaultPaletteColors
+/// @see oPrivateColorsSetUseCase
 /// @type List
 /// @access private
 $_o-pf-colors-default-usecases: () !default;
 
 /// A map to store all set colour usecases.
-/// @see oColorsSetUseCase
+/// @see oPrivateColorsSetUseCase
 /// @type Map
 /// @access private
 $_o-pf-colors-usecases: () !default;
