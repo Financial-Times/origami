@@ -252,8 +252,8 @@
 // uses topper background colour to set background and pick contrasting text color
 @mixin _oTopperColor($color-name) {
 	$background: oPrivateFoundationGet($color-name);
-	$foreground: oColorsGetTextColor($background, $opacity: 100);
-	$link-text-color: oPrivateColorsByUseCase('link', 'text');
+	$foreground: oPrivateColorsGetTextColor($background, $opacity: 100);
+	$link-text-color: oPrivateColorsByUsecase('link', 'text');
 	$link-contrasts-with-background: oColorsGetContrastRatio($background, $link-text-color) > 4.5;
 	// include oTopperColor on a parent then extend this placeholder on a
 	// descendent to lend that descendent the color you specified in the mixin
@@ -319,10 +319,10 @@
 		.o-topper__opinion-genre,
 		.o-topper__topic,
 		.o-topper__columnist-name {
-			color: oPrivateColorsByUseCase('tag-link', 'text');
+			color: oPrivateColorsByUsecase('tag-link', 'text');
 
 			&:hover {
-				color: oPrivateColorsByUseCase('tag-link-hover', 'text');
+				color: oPrivateColorsByUsecase('tag-link-hover', 'text');
 			}
 		}
 	}
@@ -342,7 +342,7 @@
 	@if $color-name == 'matisse' {
 		.o-topper__columnist-name {			
 			&:hover {
-				color: oColorsMix($foreground, $color-name, 73);
+				color: oPrivateColorsMix($foreground, $color-name, 73);
 			}
 		}
 		:focus-visible {

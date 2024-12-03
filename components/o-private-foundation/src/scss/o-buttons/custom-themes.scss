@@ -128,7 +128,7 @@
 	// If a different context has been given the text colour matches if possible,
 	// or is mixed to be darker/lighter for higher contrast.
 	// o-buttons does custom contrast checks
-	$default-base-color: oColorsGetTextColor(
+	$default-base-color: oPrivateColorsGetTextColor(
 		$color,
 		100,
 		$minimum-contrast: null
@@ -225,7 +225,7 @@
 	// The text colour is black/white on the default page background.
 	// If a different context has been given the text colour matches if possible,
 	// or is mixed to be darker/lighter for higher contrast.
-	$hover-focus-base-color: oColorsGetTextColor(
+	$hover-focus-base-color: oPrivateColorsGetTextColor(
 		$hover-focus-background,
 		100,
 		$minimum-contrast: null
@@ -247,7 +247,7 @@
 	// The text colour is black/white on the default page background.
 	// If a different context has been given the text colour matches if possible,
 	// or is mixed to be darker/lighter for higher contrast.
-	$active-base-color: oColorsGetTextColor(
+	$active-base-color: oPrivateColorsGetTextColor(
 		$active-background,
 		100,
 		$minimum-contrast: null
@@ -366,7 +366,7 @@
 	// the button foreground colour until it does.
 	$hover-focus-color: _oPrivateButtonsGetMixColor(
 		$color-a: $color,
-		$color-b: oColorsGetTextColor($hover-focus-background-opaque, 100),
+		$color-b: oPrivateColorsGetTextColor($hover-focus-background-opaque, 100),
 		$contrast-color: $hover-focus-background-opaque,
 		$contrast-aim: 4.5,
 		$preferred-mix: 100,
@@ -375,7 +375,7 @@
 
 	// Get active colours.
 	$active-background: $default-color;
-	$active-color: oColorsGetTextColor($active-background, 100);
+	$active-color: oPrivateColorsGetTextColor($active-background, 100);
 
 	// Confirm the contrast of default state.
 	$contrast-error-message: 'Could not create an accessible secondary button of colour "#{$color}" for a background context "#{$context-color}".';
@@ -478,7 +478,7 @@
 	// the button foreground colour until it does.
 	$hover-focus-color: _oPrivateButtonsGetMixColor(
 		$color-a: $color,
-		$color-b: oColorsGetTextColor($hover-focus-background-opaque, 100),
+		$color-b: oPrivateColorsGetTextColor($hover-focus-background-opaque, 100),
 		$contrast-color: $hover-focus-background-opaque,
 		$contrast-aim: 4.5,
 		$preferred-mix: 100,
@@ -487,7 +487,7 @@
 
 	// Get active colours.
 	$active-background: $default-color;
-	$active-color: oColorsGetTextColor($active-background, 100);
+	$active-color: oPrivateColorsGetTextColor($active-background, 100);
 
 	// Confirm the contrast of default state.
 	$contrast-error-message: 'Could not create an accessible ghost button of colour "#{$color}" for a background context "#{$context-color}".';

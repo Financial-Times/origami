@@ -122,7 +122,7 @@
 		}
 
 		&__list-item a {
-			color: oColorsMix($_o-teaser-base-color, $percentage: 80);
+			color: oPrivateColorsMix($_o-teaser-base-color, $percentage: 80);
 
 			&:hover {
 				color: $_o-teaser-focus-hover;

@@ -178,10 +178,10 @@
 /// @param {Color|String} $background - the color or palette color name of the background the text will appear on
 /// @param {Number} $opacity [100] - the opacity percentage the text color should appear at
 /// @param {String|Null} $minimum-contrast ['aa-normal'] - the minimum contrast ratio standard between the background and the returned text color, one of: aa-normal, aa-large, aaa-normal, aaa-large. See [WCAG 2.1 guidelines](https://www.w3.org/TR/WCAG21/#contrast-minimum). If the contrast ratio is too low to meet the selected guideline an error is thrown. Set to `null` to remove contrast checking and never throw an error.
-@function oColorsGetTextColor($background, $opacity: 90, $minimum-contrast: 'aa-normal') {
+@function oPrivateColorsGetTextColor($background, $opacity: 90, $minimum-contrast: 'aa-normal') {
 	$background-name: $background;
 	// Get background color if palette colour name has been given.
-	$background: if(type-of($background) == 'string', oColorsByName($background), $background);
+	$background: if(type-of($background) == 'string', oPrivateFoundationGet($background), $background);
 
 	// Contrast values. See https://www.w3.org/TR/WCAG21/#contrast-minimum
 	$contrast-levels: (

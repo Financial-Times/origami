@@ -37,7 +37,7 @@
 			&.o-topper--color-#{$color-name} {
 				.o-topper__image-caption {
 					$background: oPrivateFoundationGet($color-name);
-					$foreground: oColorsGetTextColor($background, $opacity: 100);
+					$foreground: oPrivateColorsGetTextColor($background, $opacity: 100);
 					color: oPrivateColorsMix($foreground, $color-name, 73);
 					background-color: $background;
 				}

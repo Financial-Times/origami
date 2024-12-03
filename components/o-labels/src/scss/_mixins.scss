@@ -190,7 +190,7 @@
 	@if _oLabelsGet('text-color', $variant) {
 		color: _oLabelsGet('text-color', $variant);
 	} @else {
-		color: oColorsGetTextColor(_oLabelsGet('background-color', $variant), 100);
+		color: oPrivateColorsGetTextColor(_oLabelsGet('background-color', $variant), 100);
 	}
 
 	// Set the spacing

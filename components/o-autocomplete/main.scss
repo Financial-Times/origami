@@ -144,7 +144,7 @@
 
 	.o-autocomplete__option--no-results {
 		background-color: oPrivateColorsMix('o3-color-palett3-white', 'o3-color-palette-black', 98); // #fafafa
-		color: oColorsGetTextColor(
+		color: oPrivateColorsGetTextColor(
 			oPrivateColorsMix('o3-color-palette-white', 'o3-color-palette-black', 98),
 			$minimum-contrast: 'aa-normal'
 		);
