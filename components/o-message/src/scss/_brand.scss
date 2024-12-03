@@ -14,13 +14,13 @@
 /// @access private
 $_o-message-shared-brand-variables: (
 	'success': (
-		'foreground-color': oColorsMix('black', 'jade', $percentage: 43),
-		'background-color': oColorsMix('jade', $percentage: 20),
+		'foreground-color': oPrivateColorsMix('o3-color-palette-black', 'o3-color-palette-jade', $percentage: 43),
+		'background-color': oPrivateColorsMix('o3-color-palette-jade', $percentage: 20),
 		'icon': 'tick'
 	),
 	'error': (
-		'foreground-color': oColorsMix('black', 'crimson', $percentage: 12.5),
-		'background-color': oColorsMix('crimson', $percentage: 10),
+		'foreground-color': oPrivateColorsMix('o3-color-palette-black', 'o3-color-palette-crimson', $percentage: 12.5),
+		'background-color': oPrivateColorsMix('o3-color-palette-crimson', $percentage: 10),
 		'icon': 'warning-alt'
 	)
 );
@@ -86,7 +86,7 @@ $_o-message-shared-brand-variables: (
 			),
 			'warning-light': (
 				'foreground-color': 'black',
-				'background-color': oColorsMix('lemon', 'white', $percentage: 60)
+				'background-color': oPrivateColorsMix('o3-color-palette-lemon', 'o3-color-palette-white', $percentage: 60)
 			)
 		)),
 		'supports-variants': (

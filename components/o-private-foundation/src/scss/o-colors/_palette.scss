@@ -60,8 +60,8 @@ $_o-pf-colors-default-palette-colors: join((
 		//secondary palette
 		('lemon', #ffec1a),
 		('slate', #262a33),
-		('slate-white-15', #dedfe0), // oColorsMix('slate', 'white', 15)
-		('slate-white-5', #f4f4f5), // oColorsMix('slate', 'white', 5)
+		('slate-white-15', #dedfe0), // oPrivateColorsMix('o3-color-palette-slate', 'o3-color-palette-white', 15)
+		('slate-white-5', #f4f4f5), // oPrivateColorsMix('o3-color-palette-slate', 'o3-color-palette-white', 5)
 
 		//tertiary palette
 		('jade', #00994d),

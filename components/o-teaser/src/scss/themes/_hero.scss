@@ -50,17 +50,17 @@
 	.o-teaser__standfirst a:visited,
 	.o-teaser__tag:hover,
 	.o-teaser__tag:focus {
-		color: oColorsMix($opinion-color, $opinion-background, $percentage: 73);
+		color: oPrivateColorsMix($opinion-color, $opinion-background, $percentage: 73);
 	}
 
 	.o-teaser__standfirst,
 	.o-teaser__timestamp,
 	.o-teaser__timestamp-prefix:before {
-		color: oColorsMix($opinion-color, $opinion-background, $percentage: 80);
+		color: oPrivateColorsMix($opinion-color, $opinion-background, $percentage: 80);
 	}
 
 	.o-teaser__timestamp-prefix:before {
-		background-color: oColorsMix(oColorsByName('white'), $opinion-background, 80);
+		background-color: oPrivateColorsMix(oPrivateFoundationGet('o3-color-palette-white'), $opinion-background, 80);
 	}
 
 	.o-teaser__content,
@@ -235,13 +235,13 @@
 	.o-teaser__standfirst {
 		color: oPrivateFoundationGet('o3-color-palette-white');
 		a:visited {
-			color: oColorsMix($hero-extra-color, $hero-extra-background, $percentage: 50);
+			color: oPrivateColorsMix($hero-extra-color, $hero-extra-background, $percentage: 50);
 		}
 	}
 
 	.o-teaser__standfirst,
 	.o-teaser__timestamp {
-		color: oColorsMix($hero-extra-color, $hero-extra-background, $percentage: 80);
+		color: oPrivateColorsMix($hero-extra-color, $hero-extra-background, $percentage: 80);
 	}
 
 	.o-teaser__image-container:after,

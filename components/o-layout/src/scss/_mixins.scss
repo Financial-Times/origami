@@ -250,7 +250,7 @@
 
 	@keyframes o-layout-linked-heading-fade {
 		0% {
-			background-color: oColorsMix('teal', 'white', 15);
+			background-color: oPrivateColorsMix('o3-color-palette-teal', 'o3-color-palette-white', 15);
 		}
 		100% {
 			background-color: transparent;

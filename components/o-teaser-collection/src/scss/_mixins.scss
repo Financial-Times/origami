@@ -106,7 +106,7 @@
 	padding: 1px 0px 3px; // Magic numbers to make the focus style the same height for the text and > icon
 
 	&:hover {
-		color: oColorsMix('black', $percentage: 55);
+		color: oPrivateColorsMix('o3-color-palette-black', $percentage: 55);
 	}
 
 	&:after {

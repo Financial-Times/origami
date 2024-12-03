@@ -4,7 +4,7 @@
 @mixin _oVideoGuidance {
 	.o-video__guidance {
 		@include oTypographySans(-1);
-		background-color: oColorsMix($color: 'black', $background: 'transparent', $percentage: 75);
+		background-color: oPrivateColorsMix($color: 'o3-color-palette-black', $background: 'transparent', $percentage: 75);
 		padding: 10px 16px;
 		position: relative;
 		// sass-lint:disable no-vendor-prefixes
@@ -63,7 +63,7 @@
 		cursor: pointer;
 
 		&:hover {
-			background-color: oColorsMix($color: 'black', $background: 'white', $percentage: 75);
+			background-color: oPrivateColorsMix($color: 'black', $background: 'white', $percentage: 75);
 		}
 	}
 

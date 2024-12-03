@@ -251,8 +251,8 @@
 				@include oButtonsAddTheme(
 					$name: 'test-mixed-theme-colors',
 					$opts: (
-						'color': oColorsMix('black', 'jade', $percentage: 43),
-						'context': oColorsMix('jade', $percentage: 20)
+						'color': oPrivateColorsMix('o3-color-palette-black', 'o3-color-palette-jade', $percentage: 43),
+						'context': oPrivateColorsMix('o3-color-palette-jade', $percentage: 20)
 					),
 					$types: ('primary', 'secondary'),
 					$icons: null

@@ -352,12 +352,12 @@
 	// Use transparency so the button may be used on a different background
 	// context, and trust the user to test accessibility in their app.
 	// But use an opaque mix to test contrast with the known context.
-	$hover-focus-background: oColorsMix(
+	$hover-focus-background: oPrivateColorsMix(
 		$color,
 		transparent,
 		$hover-focus-background-mix
 	);
-	$hover-focus-background-opaque: oColorsMix(
+	$hover-focus-background-opaque: oPrivateColorsMix(
 		$color,
 		$context-color,
 		$hover-focus-background-mix
@@ -464,12 +464,12 @@
 	// Use transparency so the button may be used on a different background
 	// context, and trust the user to test accessibility in their app.
 	// But use an opaque mix to test contrast with the known context.
-	$hover-focus-background: oColorsMix(
+	$hover-focus-background: oPrivateColorsMix(
 		$color,
 		transparent,
 		$hover-focus-background-mix
 	);
-	$hover-focus-background-opaque: oColorsMix(
+	$hover-focus-background-opaque: oPrivateColorsMix(
 		$color,
 		$context-color,
 		$hover-focus-background-mix
@@ -556,7 +556,7 @@
 		$preferred-mix,
 		$minimum-mix
 	);
-	@return oColorsMix($color-a, $color-b, $mix);
+	@return oPrivateColorsMix($color-a, $color-b, $mix);
 }
 
 /// The mix percentage used by `_oPrivateButtonsGetMixColor`.
@@ -580,7 +580,7 @@
 	$decrement: 5;
 	$value: $preferred-mix;
 	@while $value >= $minimum-mix {
-		$mix: oColorsMix($color-a, $color-b, $value);
+		$mix: oPrivateColorsMix($color-a, $color-b, $value);
 		$ratio: oColorsGetContrastRatio($mix, $contrast-color);
 		@if $ratio >= $contrast-aim {
 			@return $value;

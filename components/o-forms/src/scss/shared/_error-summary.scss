@@ -1,9 +1,9 @@
-$_o-forms-error-summary-foreground-color: oColorsMix(
-	'black',
+$_o-forms-error-summary-foreground-color: oPrivateColorsMix(
+	'o3-color-palette-black',
 	_oFormsGet('invalid-base'),
 	$percentage: 12.5
 );
-$_o-forms-error-summary-background-color: oColorsMix(
+$_o-forms-error-summary-background-color: oPrivateColorsMix(
 	_oFormsGet('invalid-base'),
 	$percentage: 10
 );

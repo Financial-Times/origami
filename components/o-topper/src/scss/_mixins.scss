@@ -307,12 +307,12 @@
 		color: $foreground;
 
 		&:hover {
-			color: oColorsMix($foreground, $color-name, 73);
+			color: oPrivateColorsMix($foreground, $color-name, 73);
 		}
 	}
 	
 	.o-topper__image-caption {
-		color: oColorsMix($foreground, $color-name, 73);
+		color: oPrivateColorsMix($foreground, $color-name, 73);
 	}
 
 	@if $color-name == 'paper' or $color-name == 'wheat' {

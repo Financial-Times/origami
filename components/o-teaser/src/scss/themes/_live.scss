@@ -28,7 +28,7 @@
 			&:focus,
 			&:hover,
 			&:visited {
-				color: oColorsMix(white, crimson, 90);
+				color: oPrivateColorsMix('o3-color-palette-white', 'o3-color-palette-crimson', 90);
 				outline-color: currentColor;
 			}
 		}

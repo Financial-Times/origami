@@ -1,4 +1,4 @@
-@import "@financial-times/o-colors/main";
+@import "@financial-times/o-private-foundation/main";
 @import "@financial-times/o-typography/main";
 
 $n-notification-is-silent: true !default;
@@ -66,24 +66,24 @@ $n-notification-is-silent: true !default;
 	}
 
 	.n-notification--error {
-		background-color: oColorsMix('crimson', $percentage: 10);
-		color: oColorsMix('black', 'crimson', $percentage: 12.5);
+		background-color: oPrivateColorsMix('o3-color-palette-crimson', $percentage: 10);
+		color: oPrivateColorsMix('o3-color-palette-black', 'o3-color-palette-crimson', $percentage: 12.5);
 		.n-notification__content a {
-			color: oColorsByName('white');
+			color: oPrivateFoundationGet('o3-color-palette-white');
 		}
 		.n-notification__close {
-			@include oIconsContent('cross', oColorsMix('black', 'crimson', $percentage: 12.5), 40, $include-base-styles: false);
+			@include oIconsContent('cross', oPrivateColorsMix('o3-color-palette-black', 'o3-color-palette-crimson', $percentage: 12.5), 40, $include-base-styles: false);
 		}
 	}
 
 	.n-notification--success {
-		background-color: oColorsMix('jade', $percentage: 20);
-		color: oColorsMix('black', 'jade', $percentage: 43);
+		background-color: oPrivateColorsMix('o3-color-palette-jade', $percentage: 20);
+		color: oPrivateColorsMix('o3-color-palette-black', 'o3-coolor-palette-jade', $percentage: 43);
 		.n-notification__content a {
-			color: oColorsMix('black', 'jade', $percentage: 43);
+			color: oPrivateColorsMix('o3-color-palette-black', 'o3-color-palette-jade', $percentage: 43);
 		}
 		.n-notification__close {
-			@include oIconsContent('cross', oColorsMix('black', 'jade', $percentage: 43), 40, $include-base-styles: false);
+			@include oIconsContent('cross', oPrivateColorsMix('o3-color-palette-black', 'o3-color-palette-jade', $percentage: 43), 40, $include-base-styles: false);
 			position: absolute;
 			right: 0;
 			top: 0;
@@ -99,7 +99,7 @@ $n-notification-is-silent: true !default;
 	}
 	
 	.n-notification__close {
-		@include oIconsContent('cross', oColorsByName('black-80'), 40);
+		@include oIconsContent('cross', oPrivateFoundationGet('o3-color-palette-black-80'), 40);
 		position: absolute;
 		right: 0;
 		top: 0;

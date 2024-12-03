@@ -149,7 +149,7 @@
 	$context-color-arg: $context-color;
 	$default-background: if(type-of($color) == 'string', oColorsByName($color), $color);
 	$context-color: if(type-of($context-color) == 'string', oColorsByName($context-color), $context-color);
-	$default-context: $context-color == oColorsByUsecase('page', 'background');
+	$default-context: $context-color == oPrivateColorsByUseCase('page', 'background');
 
 	// The default button text colour is black/white on the default page background.
 	// If a different context has been given the text colour matches if possible,
@@ -353,8 +353,8 @@
 	// Use transparency so the button may be used on a different background
 	// context, and trust the user to test accessibility in their app.
 	// But use an opaque mix to test contrast with the known context.
-	$hover-focus-background: oColorsMix($color, transparent, $hover-focus-background-mix);
-	$hover-focus-background-opaque: oColorsMix($color, $context-color, $hover-focus-background-mix);
+	$hover-focus-background: oPrivateColorsMix($color, transparent, $hover-focus-background-mix);
+	$hover-focus-background-opaque: oPrivateColorsMix($color, $context-color, $hover-focus-background-mix);
 	// If the hover/focus state doesn't have high enough contrast darken/lighten
 	// the button foreground colour until it does.
 	$hover-focus-color: _oButtonsGetMixColor(
@@ -440,8 +440,8 @@
 	// Use transparency so the button may be used on a different background
 	// context, and trust the user to test accessibility in their app.
 	// But use an opaque mix to test contrast with the known context.
-	$hover-focus-background: oColorsMix($color, transparent, $hover-focus-background-mix);
-	$hover-focus-background-opaque: oColorsMix($color, $context-color, $hover-focus-background-mix);
+	$hover-focus-background: oPrivateColorsMix($color, transparent, $hover-focus-background-mix);
+	$hover-focus-background-opaque: oPrivateColorsMix($color, $context-color, $hover-focus-background-mix);
 	// If the hover/focus state doesn't have high enough contrast darken/lighten
 	// the button foreground colour until it does.
 	$hover-focus-color: _oButtonsGetMixColor(
@@ -501,7 +501,7 @@
 /// @param {Color} - A mix of colours a and b.
 @function _oButtonsGetMixColor($color-a, $color-b, $contrast-color, $contrast-aim, $preferred-mix, $minimum-mix) {
 	$mix: _oButtonsGetMix($color-a, $color-b, $contrast-color, $contrast-aim, $preferred-mix, $minimum-mix);
-	@return oColorsMix($color-a, $color-b, $mix);
+	@return oPrivateColorsMix($color-a, $color-b, $mix);
 }
 
 /// The mix percentage used by `_oButtonsGetMixColor`.
@@ -518,7 +518,7 @@
 	$decrement: 5;
 	$value: $preferred-mix;
 	@while $value >= $minimum-mix {
-		$mix: oColorsMix($color-a, $color-b, $value);
+		$mix: oPrivateColorsMix($color-a, $color-b, $value);
 		$ratio: oColorsGetContrastRatio($mix, $contrast-color);
 		@if $ratio >= $contrast-aim {
 			@return $value;

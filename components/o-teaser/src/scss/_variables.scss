@@ -17,12 +17,12 @@ $_o-teaser-base-color: oPrivateColorsByUsecase('o-teaser/base', 'text');
 /// Commonly used hover/focus text colour.
 /// @type Color
 /// @access private
-$_o-teaser-focus-hover: oColorsMix($_o-teaser-base-color, $percentage: 55);
+$_o-teaser-focus-hover: oPrivateColorsMix($_o-teaser-base-color, $percentage: 55);
 
 /// Commonly used text colour for muted copy, including visited text.
 /// @type Color
 /// @access private
-$_o-teaser-muted: oColorsMix($_o-teaser-base-color, $percentage: 60);
+$_o-teaser-muted: oPrivateColorsMix($_o-teaser-base-color, $percentage: 60);
 
 /// @type Color
 /// @deprecated

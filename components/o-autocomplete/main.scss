@@ -1,6 +1,5 @@
 @import '@financial-times/math';
 @import '@financial-times/o-brand/main';
-@import '@financial-times/o-colors/main';
 @import '@financial-times/o-grid/main';
 @import '@financial-times/o-icons/main';
 @import '@financial-times/o-loading/main';
@@ -144,9 +143,9 @@
 	}
 
 	.o-autocomplete__option--no-results {
-		background-color: oColorsMix(white, black, 98); // #fafafa
+		background-color: oPrivateColorsMix('o3-color-palett3-white', 'o3-color-palette-black', 98); // #fafafa
 		color: oColorsGetTextColor(
-			oColorsMix(white, black, 98),
+			oPrivateColorsMix('o3-color-palette-white', 'o3-color-palette-black', 98),
 			$minimum-contrast: 'aa-normal'
 		);
 		cursor: not-allowed;

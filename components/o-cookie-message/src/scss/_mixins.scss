@@ -181,7 +181,7 @@
 					'size': 'big',
 				),
 				$theme-override: (
-					'color': oColorsMix('jade', 'black', 89),
+					'color': oPrivateColorsMix('o3-color-palette-jade', 'o3-color-palette-black', 89),
 					'context': 'white',
 				)
 			);

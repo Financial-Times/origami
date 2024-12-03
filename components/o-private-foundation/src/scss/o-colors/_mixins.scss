@@ -191,7 +191,7 @@
 	@each $color-name, $mix-values in $_o-pf-colors-default-palette-mixes {
 		@each $value in $mix-values {
 			$name: "#{$color-name}-#{$value}";
-			$mix: oColorsMix($color-name, $percentage: $value);
+			$mix: oPrivateColorsMix($color-name, $percentage: $value);
 			@include oPrivateColorsSetColor('o-colors/#{$name}', $mix);
 		}
 	}
