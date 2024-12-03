@@ -8,14 +8,14 @@
 	// Find the colour name of the requested usecase.
 	// Validate usecase is a string.
 	@if(type-of($usecase) != 'string') {
-		@return _oColorsError('`$usecase` should be a string but found ' +
+		@return _oPrivateColorsError('`$usecase` should be a string but found ' +
 		'"#{inspect($usecase)}" of type "#{type-of($usecase)}".');
 	}
 
 	// Validate property is allowed.
 	$valid-properties: ('text', 'background', 'border', 'outline');
 	@if(not index($valid-properties, $property)) {
-		@return _oColorsError('`$property` should be one of ' +
+		@return _oPrivateColorsError('`$property` should be one of ' +
 		'"#{inspect($valid-properties)}" but found "#{inspect($property)}".');
 	}
 
@@ -57,7 +57,7 @@
 	}
 	// Error if no colour is found.
 	@if($color == null) {
-		@return _oColorsError('Could not find a colour for the "#{$usecase}" "#{$property}" usecase.');
+		@return _oPrivateColorsError('Could not find a colour for the "#{$usecase}" "#{$property}" usecase.');
 	}
 
 	@return if(type-of($color) == 'string', oPrivateFoundationGet($color), $color);
@@ -80,12 +80,12 @@
 
 	// Validate brightness.
 	@if(type-of($brightness) != 'number' or $brightness > 100 or $brightness < 0) {
-		@return _oColorsError('"$brightness" must be a number between 0 and 100.');
+		@return _oPrivateColorsError('"$brightness" must be a number between 0 and 100.');
 	}
 
 	// Error for colours which have no hue, such as white and black, which we do not allow tones of.
 	@if (hue($color) == 0 and saturation($color) == 0) {
-		@return _oColorsError('"#{$color-name}" does not support tones. ' +
+		@return _oPrivateColorsError('"#{$color-name}" does not support tones. ' +
 		'Use a mix instead: ' +
 		'`oPrivateColorsMix(\'#{$color-name}\', $percentage: #{$brightness})`');
 	}
@@ -93,7 +93,7 @@
 	// Error for any palette colour which hasn't been configured to allow tones.
 	$allows-tones: map-get($color-meta, 'allow-tones');
 	@if (not $allows-tones) {
-		@return _oColorsError('"#{$color-name}" does not allow tones. ' +
+		@return _oPrivateColorsError('"#{$color-name}" does not allow tones. ' +
 		'We only allow tones for some colours, to reduce the number ' +
 		'of different colours used across sites. ' +
 		'For custom colours, set the `allow-tones` option ' +
@@ -158,11 +158,11 @@
 	$mixer: if(_oColorsNameExists(#{$color}), oColorsByName(#{$color}), $color);
 
 	@if type-of($base) != color {
-		@return _oColorsError("'#{inspect($background)}' is not a valid base color.");
+		@return _oPrivateColorsError("'#{inspect($background)}' is not a valid base color.");
 	}
 
 	@if type-of($mixer) != color {
-		@return _oColorsError("'#{inspect($color)}' is not a valid mixing color.");
+		@return _oPrivateColorsError("'#{inspect($color)}' is not a valid mixing color.");
 	}
 
 	@if (unitless($percentage)) {
@@ -193,16 +193,16 @@
 
 	// Validate arguments.
 	@if($minimum-contrast != null and not map-has-key($contrast-levels, $minimum-contrast)) {
-		@return _oColorsError('The minimum contrast must by one of "#{map-keys($contrast-levels)}" '+
+		@return _oPrivateColorsError('The minimum contrast must by one of "#{map-keys($contrast-levels)}" '+
 		'or `null`. Found "#{inspect($minimum-contrast)}".');
 	}
 
 	@if type-of($background) != color {
-		@return _oColorsError("'#{inspect($background)}' is not a valid color. To get a text color, please supply a valid color or palette color name for the background color'");
+		@return _oPrivateColorsError("'#{inspect($background)}' is not a valid color. To get a text color, please supply a valid color or palette color name for the background color'");
 	}
 
 	@if type-of($opacity) != 'number' {
-		@return _oColorsError("'#{inspect($opacity)}' is not a valid opacity, set to a number.'");
+		@return _oPrivateColorsError("'#{inspect($opacity)}' is not a valid opacity, set to a number.'");
 	}
 
 	$contrast-ratio-aim: map-get($contrast-levels, if($minimum-contrast, $minimum-contrast, 'aa-normal'));
@@ -226,7 +226,7 @@
 	// Error if neither base colour produced a text colour of high enough contrast.
 	@if $minimum-contrast != null {
 		$best-contrast-ratio: if($contrast-ratio-a > $contrast-ratio-b, $contrast-ratio-a, $contrast-ratio-b);
-		@return _oColorsError(
+		@return _oPrivateColorsError(
 			'The text colour generated for #{inspect($background-name)} at ' +
 			'#{inspect($opacity)}% opacity has a contrast ratio of ' +
 			'"#{inspect($best-contrast-ratio)}" and does not pass the WCAG 2.1 ' +
@@ -324,7 +324,7 @@
 /// Allows for errors to be tested in dev environments
 /// Code from: https://github.com/oddbird/true/issues/92
 /// @access private
-@function _oColorsError($message, $capture: $_o-pf-colors-test-environment) {
+@function _oPrivateColorsError($message, $capture: $_o-pf-colors-test-environment) {
 	@if $capture {
 		@return 'ERROR: #{$message}';
 	}
