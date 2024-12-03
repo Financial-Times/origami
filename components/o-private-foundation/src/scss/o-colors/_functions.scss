@@ -310,13 +310,13 @@
 		$ratio: div(1, $ratio);
 	}
 
-	$ratio: _oColorsPreciseFloor($ratio);
+	$ratio: _oPrivateColorsPreciseFloor($ratio);
 
 	@return $ratio;
 }
 
 /// @access private
-@function _oColorsPreciseFloor($number, $decimals: 2) {
+@function _oPrivateColorsPreciseFloor($number, $decimals: 2) {
 	$multiplier: pow(10, $decimals);
 	@return div(floor($number * $multiplier), $multiplier);
 }
