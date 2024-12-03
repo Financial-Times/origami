@@ -68,7 +68,7 @@
 ///
 /// Not all our colours allow tones. If a colour cannot be toned an error is
 /// thrown. You may however mix the colour with another supported colour.
-/// @see oColorsMix
+/// @see oPrivateColorsMix
 ///
 /// @param {String} $color-name - the name of the color to be shaded
 /// @param {Number} $brightness - the brightness value of the new color, 0-100
@@ -98,7 +98,7 @@
 		'of different colours used across sites. ' +
 		'For custom colours, set the `allow-tones` option ' +
 		'of `oPrivateColorsSetColor` to enable tones. ' +
-		'If using a default o-colors colour consider using the `oColorsMix` ' +
+		'If using a default o-colors colour consider using the `oPrivateColorsMix` ' +
 		'function to mix with black to darken or white to lighten.');
 	}
 
