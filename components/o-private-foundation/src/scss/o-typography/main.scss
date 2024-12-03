@@ -39,3 +39,228 @@
 	margin-bottom: 0;
 	color: oPrivateFoundationGet('o3-color-use-case-body-text');
 }
+
+/// Output link styles.
+///
+/// @example Output the styles for a standard link.
+///     .my-link {
+///     	@include oPrivateTypographyLink();
+///     }
+///
+/// @example Output a Origami supported theme.
+///     .my-inverse-link {
+///     	@include oPrivateTypographyLink($theme: 'inverse');
+///     }
+///
+/// @param {String|Null} $theme [null] - An Origami theme to change the look of a link.
+@mixin oPrivateTypographyLink($theme: null) {
+	$underline-size: 0.25ex; // 2px for 18px MetricWeb
+
+	&[target='_blank'] {
+		// Visually hidden content is positioned absolutely. Position relative on the anchor means the hidden
+		// content is positioned relative to the anchor element. This ensures it is clipped by the overflow
+		// property of an ancestor; otherwise the pseudo element which contains the hidden content will not
+		// be clipped by the overflow of any ancestor between it and its containing block.
+		// https://drafts.csswg.org/css2/#visufx
+		position: relative;
+		&:after {
+			@include oPrivateNormaliseVisuallyHidden();
+			content: '(opens a new window)';
+		}
+	}
+
+	// Output base styles shared by all links.
+	text-decoration: none;
+	cursor: pointer;
+	border-bottom: $underline-size solid;
+
+	@supports (text-decoration-thickness: $underline-size) {
+		border-bottom: 0;
+		text-decoration-thickness: $underline-size; //sass-lint:disable-line no-misspelled-properties
+		text-decoration-line: underline;
+	}
+
+	// Colours for theme
+	// Professional is a theme in o2 and a brand in o3.
+	// Map "professional" themes to a brand to fetch tokens.
+	$sub-brand: null;
+	@if ($theme == 'professional' or $theme == 'professional-inverse') {
+		$sub-brand: 'professional';
+	}
+
+	// Standard link colours.
+	$base-color: oPrivateFoundationGet('o3-color-use-case-link-text', $sub-brand);
+	$hover-color: oPrivateFoundationGet(
+		'o3-color-use-case-link-text-hover',
+		$sub-brand
+	);
+	$decoration-color: oPrivateFoundationGet(
+		'o3-color-use-case-link-underline',
+		$sub-brand
+	);
+	$hover-decoration-color: oPrivateFoundationGet(
+		'o3-color-use-case-link-underline-hover',
+		$sub-brand
+	);
+
+	@include _oPrivateTypographyLinkTheme(
+		$base-color,
+		$decoration-color,
+		$hover-color,
+		$hover-decoration-color
+	);
+}
+
+/// Output link styles.
+///
+/// @example Output a custom, claret coloured link to go on the default background colour (paper for the core brand, white otherwise).
+///     .my-claret-link {
+///     	@include oPrivateTypographyLink();
+///     	@include oPrivateTypographyLinkThemeOverride($theme: (
+///     		'base': 'claret',
+///     		'hover': 'claret-30',
+///     	));
+///     }
+///
+/// @example Output a custom, lemon coloured link to go on a slate background.
+///     .my-inverse-link {
+///      	@include oPrivateTypographyLink();
+///     	@include oPrivateTypographyLinkThemeOverride($theme: (
+///     		'base': 'lemon',
+///     		'hover': 'lemon-30',
+///     		'context': 'slate',
+///     	));
+///     }
+///
+/// @param {Map} $theme - A custom theme to change the look of a link, with colours for properties `base` (the main link colour), `hover` (the links over colour), and optional `context` key. Context is the colour the link will be placed on, it defaults to the page background (paper for the core brand, white otherwise).
+@mixin oPrivateTypographyLinkThemeOverride($theme) {
+	$base-color: map-get($theme, 'base');
+	$hover-color: map-get($theme, 'hover');
+	$context-color: map-get($theme, 'context');
+	$decoration-color: map-get($theme, 'base-decoration');
+	$hover-decoration-color: map-get($theme, 'hover-decoration');
+	@if (not $context-color) {
+		$context-color: oPrivateFoundationGet('o3-color-use-case-page-background');
+	}
+
+	// Validate required theme colours.
+	@if (type-of($base-color) != 'color') {
+		@error 'A custom link theme must have a `base` property with a colour or palette colour name e.g. `claret`. But found #{$theme-base}.';
+	}
+	@if (type-of($hover-color) != 'color') {
+		@error 'A custom link theme must have a `hover` property with a color or palette colour name e.g. `claret`. But found #{$theme-hover}.';
+	}
+	@if (type-of($context-color) != 'color') {
+		@error 'A custom link theme may optionally have a `context` property with a color or palette colour name, to indicate the colour of the page behind the link, e.g. `null` or `paper`. But found #{$theme-context}.';
+	}
+
+	// Generate optional theme colours.
+	@if (not $decoration-color) {
+		// TODO: replace oColorsMix
+		$decoration-color: oColorsMix($base-color, $context-color, $percentage: 20);
+	}
+
+	@if (not $hover-decoration-color) {
+		// TODO: replace oColorsMix
+		$hover-decoration-color: oColorsMix(
+			$base-color,
+			$context-color,
+			$percentage: 40
+		);
+	}
+
+	// Output theme colours.
+	@include _oPrivateTypographyLinkTheme(
+		$base-color,
+		$decoration-color,
+		$hover-color,
+		$hover-decoration-color
+	);
+}
+
+/// Apply theme colours to a link.
+/// @param {Color} $base-color - The main link colour.
+/// @param {Color} $decoration-color - The colour of the underline.
+/// @param {Color} $hover-color - The link colour on hover.
+/// @param {Color} $hover-decoration-color - The colour of the underline on hover.
+@mixin _oPrivateTypographyLinkTheme(
+	$base-color,
+	$decoration-color,
+	$hover-color,
+	$hover-decoration-color
+) {
+	color: $base-color;
+
+	border-bottom: 0;
+	text-decoration-color: $decoration-color;
+
+	&:hover {
+		color: $hover-color;
+		text-decoration-color: $hover-decoration-color;
+	}
+
+	&:focus {
+		color: $hover-color;
+		text-decoration-color: transparent;
+	}
+}
+
+/// Output styles for lists.
+/// Styles child `li` elements. Apply to a
+/// containing list element such as `ul` or `ol`.
+/// Does not output font styles, these are
+/// inherited.
+///
+/// @example Output the styles for an unordered list.
+///     .my-unordered-list {
+///     	@include oPrivateTypographyList('unordered');
+///     }
+///
+/// @param {String|Null} $type [null] - "ordered", "unordered", or null for just the base styles shared by all lists
+@mixin oPrivateTypographyList($type: null) {
+	// Undo browser defaults.
+	margin: 0 0 oPrivateFoundationGet('o3-spacing-s');
+	padding: 0;
+	list-style: none;
+
+	// Reset number counter for new ordered list.
+	@if ($type == 'ordered') {
+		counter-reset: item;
+	}
+	> li {
+		position: relative;
+		// Undo browser default.
+		margin: 0;
+		// Allow space for 2-3 numbers for both ordered and unordered lists,
+		// so content aligns between both list types.
+		padding-left: calc(2ch + #{oPrivateFoundationGet('o3-spacing-5xs')});
+
+		&:before {
+			@include oPrivateTypographySans();
+			display: inline-block;
+			position: absolute;
+			left: 0;
+			transform-origin: center left;
+
+			@if ($type == 'unordered') {
+				content: '\2022'; // dot character
+				color: inherit;
+				// 28px marker given a parent font-size of 18px
+				transform: scale(#{div(28, 18)});
+				// magic number to center marker
+				margin-top: #{div(28, 18) * -0.16ch};
+			}
+
+			@if ($type == 'ordered') {
+				@include oPrivateTypographySans($weight: 'semibold');
+				content: counter(item);
+				counter-increment: item;
+				font-feature-settings: 'tnum';
+				// 16px marker given a parent font-size of 18px
+				transform: scale(#{div(16, 18)});
+				// magic number to make marker flush to the left
+				margin-left: #{div(16, 18) * -0.16ch};
+			}
+		}
+	}
+}
