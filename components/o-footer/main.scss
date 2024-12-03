@@ -1,6 +1,5 @@
 @import '@financial-times/math';
 @import '@financial-times/o-colors/main';
-@import '@financial-times/o-typography/main';
 @import '@financial-times/o-private-foundation/main';
 @import '@financial-times/o-icons/main';
 
@@ -33,7 +32,7 @@
 	@include oPrivateGridSurfaceCurrentLayout();
 
 	.o-footer {
-		@include oTypographySans(0);
+		@include oPrivateTypographySans(0);
 		margin-top: $margin;
 		line-height: $_o-footer-spacing-unit;
 
@@ -61,7 +60,7 @@
 		}
 
 		li {
-			@include oTypographySans(-1, $include-font-family: false);
+			@include oPrivateTypographySans(-1);
 			list-style: none;
 			display: inline-block;
 
