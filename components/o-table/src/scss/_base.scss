@@ -13,7 +13,7 @@
 
 		th,
 		td {
-			@include oTypographySans(1);
+			@include oPrivateTypographySans(1);
 			padding: 10px;
 			text-align: left;
 			vertical-align: top;
@@ -23,10 +23,7 @@
 		}
 
 		th {
-			@include oTypographySans(
-				$weight: 'semibold',
-				$include-font-family: false
-			);
+			@include oPrivateTypographySans($weight: 'semibold');
 			background-color: _oTableGet('header-background');
 			&:not([scope='row']) {
 				vertical-align: bottom;
@@ -56,7 +53,7 @@
 		}
 
 		.o-table__cell--content-secondary {
-			@include oTypographySans(0, $include-font-family: false);
+			@include oPrivateTypographySans(0);
 			font-weight: normal;
 		}
 
@@ -67,7 +64,7 @@
 
 	.o-table .o-table-footnote,
 	.o-table-footnote {
-		@include oTypographyCaption();
+		@include oPrivateTypographyCaption();
 	}
 
 	.o-table-container > .o-table-footnote {
