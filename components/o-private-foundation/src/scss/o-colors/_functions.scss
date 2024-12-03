@@ -208,7 +208,7 @@
 	$contrast-ratio-aim: map-get($contrast-levels, if($minimum-contrast, $minimum-contrast, 'aa-normal'));
 
 	// Calculate text colour for background and opacity.
-	$base-color-a: if(oColorsColorBrightness($background) < 65%, 'white', 'black');
+	$base-color-a: if(oPrivateColorsColorBrightness($background) < 65%, 'white', 'black');
 	$text-color-a: oPrivateColorsMix($base-color-a, $background, $opacity);
 	$contrast-ratio-a: oColorsGetContrastRatio($text-color-a, $background);
 	@if $contrast-ratio-a > $contrast-ratio-aim {
@@ -243,8 +243,8 @@
 /// From: https://gist.github.com/jlong/f06f5843104ee10006fe
 ///
 /// @param {Color} $color - color value to get brightness from (either a CSS colour or o-colors palette colour name)
-@function oColorsColorBrightness($color) {
-	$color: if(type-of($color) == 'string', oColorsByName($color), $color);
+@function oPrivateColorsColorBrightness($color) {
+	$color: if(type-of($color) == 'string', oPrivateFoundationGet($color), $color);
 
 	$red-magic-number: 241;
 	$green-magic-number: 691;
