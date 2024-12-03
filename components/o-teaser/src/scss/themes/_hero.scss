@@ -153,7 +153,7 @@
 		padding-left: 30%;
 
 		&:after {
-			background: oColorsByUsecase('o-teaser/hero', 'background');
+			background: oPrivateColorsByUsecase('o-teaser/hero', 'background');
 			display: block;
 			top: 50%;
 			border: 0;

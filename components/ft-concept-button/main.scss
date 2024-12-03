@@ -4,10 +4,10 @@
 /// @access private
 $_ftConceptButtonThemes: (
 	link: (
-		background: oColorsByUsecase('link', 'text'),
+		background: oPrivateColorsByUseCase('link', 'text'),
 		text: oColorsByName('white'),
-		highlight: oColorsByUsecase('link-hover', 'text'),
-		pressed-highlight: rgba(oColorsByUsecase('link-hover', 'text'), 0.05),
+		highlight: oPrivateColorsByUseCase('link-hover', 'text'),
+		pressed-highlight: rgba(oPrivateColorsByUseCase('link-hover', 'text'), 0.05),
 		disabled: rgba(oColorsByName('black'), 0.5),
 	),
 	standard: (

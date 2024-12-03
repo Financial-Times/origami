@@ -24,7 +24,7 @@
 			content: "";
 			display: block;
 			width: 60px;
-			border-bottom: oPrivateSpacingByIncrement(1) solid oColorsByUsecase('o-teaser/package-basic', 'border');
+			border-bottom: oPrivateSpacingByIncrement(1) solid oPrivateColorsByUsecase('o-teaser/package-basic', 'border');
 			margin-top: oPrivateSpacingByName('s1');
 		}
 	}
@@ -48,7 +48,7 @@
 	@include _oTeaserSpecialReportPackageList;
 
 	.o-teaser__content {
-		background: oColorsByUsecase('o-teaser/package-special-report', 'background');
+		background: oPrivateColorsByUsecase('o-teaser/package-special-report', 'background');
 	}
 
 	.o-teaser__meta {

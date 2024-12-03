@@ -253,7 +253,7 @@
 @mixin _oTopperColor($color-name) {
 	$background: oPrivateFoundationGet($color-name);
 	$foreground: oColorsGetTextColor($background, $opacity: 100);
-	$link-text-color: oColorsByUsecase('link', 'text');
+	$link-text-color: oPrivateColorsByUseCase('link', 'text');
 	$link-contrasts-with-background: oColorsGetContrastRatio($background, $link-text-color) > 4.5;
 	// include oTopperColor on a parent then extend this placeholder on a
 	// descendent to lend that descendent the color you specified in the mixin
@@ -319,10 +319,10 @@
 		.o-topper__opinion-genre,
 		.o-topper__topic,
 		.o-topper__columnist-name {
-			color: oColorsByUsecase('tag-link', 'text');
+			color: oPrivateColorsByUseCase('tag-link', 'text');
 
 			&:hover {
-				color: oColorsByUsecase('tag-link-hover', 'text');
+				color: oPrivateColorsByUseCase('tag-link-hover', 'text');
 			}
 		}
 	}

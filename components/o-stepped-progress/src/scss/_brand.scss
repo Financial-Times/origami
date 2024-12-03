@@ -18,7 +18,7 @@ $_o-stepped-progress-shared-brand-config: (
 	step-border-size: 2px,
 	label-max-width: 10em,
 	bar-weight: 2px,
-	container-background: oColorsByUsecase('page', 'background'),
+	container-background: oPrivateColorsByUseCase('page', 'background'),
 	default-color: oColorsByName('black-40'),
 	error-color: oColorsMix('crimson', $percentage: 90)
 );

@@ -30,6 +30,7 @@
   },
   "devDependencies": {
     "@financial-times/o-fonts": "^5.2.0",
+    "@financial-times/o-colors": "^6.7.0",
     "@financial-times/o-normalise": "^3.3.0",
     "@financial-times/o-typography": "^7.4.1"
   },

@@ -30,7 +30,6 @@
   },
   "peerDependencies": {
     "@financial-times/o-brand": "^4.1.0",
-    "@financial-times/o-colors": "^6.5.0",
     "@financial-times/o-icons": "^7.5.0",
     "@financial-times/o-normalise": "^3.3.0",
     "@financial-times/o-private-foundation": "^0.0.0",
@@ -43,6 +42,7 @@
   "private": false,
   "devDependencies": {
     "@financial-times/o-forms": "^9.9.0",
+    "@financial-times/o-colors": "^6.5.0",
     "@financial-times/o-normalise": "^3.3.0"
   }
 }

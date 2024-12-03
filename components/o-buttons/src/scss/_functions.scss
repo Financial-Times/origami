@@ -92,7 +92,7 @@
 	$context-color: _oButtonsGet('context', $theme);
 
 	// Get button context, which is the background colour the button is placed on.
-	$page-background-usecase: oColorsByUsecase('page', 'background');
+	$page-background-usecase: oPrivateColorsByUseCase('page', 'background');
 	$context-color: if($context-color, $context-color, $page-background-usecase);
 
 	// Get button colours depending on button type.

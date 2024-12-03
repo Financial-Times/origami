@@ -51,7 +51,7 @@
 	$context-color: map-get($theme, 'context');
 
 	// Get button context, which is the background colour the button is placed on.
-	$page-background-usecase: oColorsByUsecase('page', 'background');
+	$page-background-usecase: oPrivateColorsByUseCase('page', 'background');
 	$context-color: if($context-color, $context-color, $page-background-usecase);
 
 	// Get button colours depending on button type.
@@ -122,7 +122,7 @@
 		oColorsByName($context-color),
 		$context-color
 	);
-	$default-context: $context-color == oColorsByUsecase('page', 'background');
+	$default-context: $context-color == oPrivateColorsByUseCase('page', 'background');
 
 	// The default button text colour is black/white on the default page background.
 	// If a different context has been given the text colour matches if possible,
