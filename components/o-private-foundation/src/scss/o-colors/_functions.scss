@@ -103,7 +103,7 @@
 	}
 
 	// Convert the given colour to the HSB colour space.
-	$hsb: _oColorsHexToHsbValues($color);
+	$hsb: _oPrivateColorsHexToHsbValues($color);
 	$hsb-hue: map-get($hsb, 'h');
 	$hsb-saturation: map-get($hsb, 's');
 	// Update the colours brightness with the given brightness value,
@@ -390,7 +390,7 @@
 ///
 /// @param {Color} $hex - The hex colour value to find hsb values for.
 /// @return {Map} - map of `h`, `s`, `b` colour values.
-@function _oColorsHexToHsbValues($hex) {
+@function _oPrivateColorsHexToHsbValues($hex) {
 	$redValue: red($hex);
 	$greenValue: green($hex);
 	$blueValue: blue($hex);
