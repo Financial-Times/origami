@@ -315,21 +315,6 @@
 	@return $ratio;
 }
 
-/// Get a list of palette colour details, including the colour name.
-/// @return {List} - A list of maps with palette color details e.g. `(('name': 'paper'), ('name': 'o-example/storm')`
-@function oColorsGetPaletteDetails() {
-	$public-palette-details: ();
-
-	@each $name, $color-map in $_o-pf-colors-palette {
-		$details: (
-			'name': map-get($color-map, 'name')
-		);
-		$public-palette-details: append($public-palette-details, $details);
-	}
-
-	@return $public-palette-details;
-}
-
 /// @access private
 @function _oColorsPreciseFloor($number, $decimals: 2) {
 	$multiplier: pow(10, $decimals);
