@@ -9,11 +9,11 @@
 	}
 
 	.o-teaser__content {
-		background: oPrivateColorsByUsecase('o-teaser/package-basic', 'background');
+		background: oPrivateColorsByUseCase('o-teaser/package-basic', 'background');
 	}
 
 	.o-teaser__meta {
-		color: oPrivateColorsByUsecase('o-teaser/package-basic', 'text');
+		color: oPrivateColorsByUseCase('o-teaser/package-basic', 'text');
 		padding: 15px 0 0 20px;
 		width: calc(100% - 40px);
 		position: relative;
@@ -24,7 +24,7 @@
 			content: "";
 			display: block;
 			width: 60px;
-			border-bottom: oPrivateSpacingByIncrement(1) solid oPrivateColorsByUsecase('o-teaser/package-basic', 'border');
+			border-bottom: oPrivateSpacingByIncrement(1) solid oPrivateColorsByUseCase('o-teaser/package-basic', 'border');
 			margin-top: oPrivateSpacingByName('s1');
 		}
 	}
@@ -48,7 +48,7 @@
 	@include _oTeaserSpecialReportPackageList;
 
 	.o-teaser__content {
-		background: oPrivateColorsByUsecase('o-teaser/package-special-report', 'background');
+		background: oPrivateColorsByUseCase('o-teaser/package-special-report', 'background');
 	}
 
 	.o-teaser__meta {
@@ -65,8 +65,8 @@
 		a:hover,
 		a:visited,
 		&:focus {
-			$special-report-color: oPrivateColorsByUsecase('o-teaser/package-special-report', 'text');
-			$special-report-background: oPrivateColorsByUsecase('o-teaser/package-special-report', 'background');
+			$special-report-color: oPrivateColorsByUseCase('o-teaser/package-special-report', 'text');
+			$special-report-background: oPrivateColorsByUseCase('o-teaser/package-special-report', 'background');
 			color: oPrivateColorsMix($special-report-color, $special-report-background, $percentage: 78);
 		}
 	}

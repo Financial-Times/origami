@@ -4,7 +4,7 @@
 /// @param {String} $property - The usecase property e.g. 'text', 'background', 'border', 'outline'
 /// @param {String|Color|Null} $fallback - The fallback if the usecase is not found. Either a colour, palette colour string, or `null` (note: the default is `false` to indicate no fallback).
 /// @return {Color} - The usecase colour.
-@function oPrivateColorsByUsecase($usecase, $property, $fallback: false) {
+@function oPrivateColorsByUseCase($usecase, $property, $fallback: false) {
 	// Find the colour name of the requested usecase.
 	// Validate usecase is a string.
 	@if(type-of($usecase) != 'string') {
@@ -147,7 +147,7 @@
 /// @param {String|Color} $color [black] - palette name of color
 /// @param {String|Color} $background [paper] - palette name of background color
 /// @param {Number} $percentage [60] - percentage opacity of the foreground color over the background
-@function oPrivateColorsMix($color: 'o3-color-palette-black', $background: oPrivateColorsByUsecase('page', 'background'), $percentage: 80) {
+@function oPrivateColorsMix($color: 'o3-color-palette-black', $background: oPrivateColorsByUseCase('page', 'background'), $percentage: 80) {
 	// Cast colour arguments to string before checking if they exist in our pallet.
 	// If colour names are passed without quotes they will be of type `color`.
 	// We want both of these to be equivalent:

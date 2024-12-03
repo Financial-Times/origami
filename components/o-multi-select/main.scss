@@ -86,7 +86,7 @@
 		overflow-y: auto;
 
 		.o-multi-select-option {
-			color: oPrivateColorsByUsecase('body', 'text');
+			color: oPrivateColorsByUseCase('body', 'text');
 			cursor: pointer;
 			padding: 8px 4px;
 			position: relative;
@@ -108,7 +108,7 @@
 			span {
 				@include oIconsContent(
 					$icon-name: 'tick',
-					$color: oPrivateColorsByUsecase('body', 'text'),
+					$color: oPrivateColorsByUseCase('body', 'text'),
 					$size: 32,
 					$include-base-styles: false
 				);

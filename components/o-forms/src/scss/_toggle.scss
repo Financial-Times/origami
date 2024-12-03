@@ -37,11 +37,11 @@
 					$color: _oFormsGet('default-text'),
 					$size: null
 				);
-				background-color: oPrivateColorsByUsecase(page, background);
+				background-color: oPrivateColorsByUseCase(page, background);
 				//stylelint-disable-next-line declaration-block-no-duplicate-properties
 				background-color: var(
 					--o-forms-toggle-handle-color,
-					#{oPrivateColorsByUsecase(page, background)}
+					#{oPrivateColorsByUseCase(page, background)}
 				);
 				border: $_o-forms-spacing-half solid _oFormsGet('default-text');
 				border-radius: 50%;

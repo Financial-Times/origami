@@ -30,9 +30,9 @@
 			// whether the icon is a social icon with brand colour, i.e.
 			// Twitter blue, or an fticon.
 			$usecase: if($is-ft-icon, 'o-share/ft-icon', 'o-share/#{$icon-name}-icon');
-			border-color: oPrivateColorsByUsecase($usecase, 'border');
-			background-color: oPrivateColorsByUsecase($usecase, 'background');
-			color: oPrivateColorsByUsecase($usecase, 'text');
+			border-color: oPrivateColorsByUseCase($usecase, 'border');
+			background-color: oPrivateColorsByUseCase($usecase, 'background');
+			color: oPrivateColorsByUseCase($usecase, 'text');
 		}
 	}
 }

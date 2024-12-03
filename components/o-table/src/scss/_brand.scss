@@ -16,7 +16,7 @@
 			table-background: oPrivateFoundationGet('o3-color-palette-paper'),
 			table-alternate-background: oPrivateFoundationGet('o3-color-palette-white-60'),
 			table-border-color: oPrivateFoundationGet('o3-color-palette-black-20'),
-			table-data-color: oPrivateColorsByUsecase('body', 'text'),
+			table-data-color: oPrivateColorsByUseCase('body', 'text'),
 			table-footnote-color: oPrivateFoundationGet('o3-color-palette-black-60'),
 			'flat': (
 				table-item-alternate-background: oPrivateColorsMix('wheat', 'paper', 40)
@@ -35,7 +35,7 @@
 			table-background: oPrivateFoundationGet('o3-color-palette-white'),
 			table-alternate-background: oPrivateFoundationGet('o3-color-palette-slate-white-5'),
 			table-border-color: oPrivateFoundationGet('o3-color-palette-black-20'),
-			table-data-color: oPrivateColorsByUsecase('body', 'text'),
+			table-data-color: oPrivateColorsByUseCase('body', 'text'),
 			table-footnote-color: oPrivateFoundationGet('o3-color-palette-black-60'),
 			'flat': (
 				table-item-alternate-background: oPrivateFoundationGet('o3-color-palette-slate-white-5')

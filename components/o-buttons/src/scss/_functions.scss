@@ -149,7 +149,7 @@
 	$context-color-arg: $context-color;
 	$default-background: if(type-of($color) == 'string', oColorsByName($color), $color);
 	$context-color: if(type-of($context-color) == 'string', oColorsByName($context-color), $context-color);
-	$default-context: $context-color == oPrivateColorsByUsecase('page', 'background');
+	$default-context: $context-color == oPrivateColorsByUseCase('page', 'background');
 
 	// The default button text colour is black/white on the default page background.
 	// If a different context has been given the text colour matches if possible,
