@@ -251,8 +251,8 @@
 				@include oButtonsAddTheme(
 					$name: 'test-mixed-theme-colors',
 					$opts: (
-						'color': oPrivateColorsMix('o3-color-palette-black', 'o3-color-palette-jade', $percentage: 43),
-						'context': oPrivateColorsMix('o3-color-palette-jade', $percentage: 20)
+						'color': oColorsMix('o3-color-palette-black', 'o3-color-palette-jade', $percentage: 43),
+						'context': oColorsMix('o3-color-palette-jade', $percentage: 20)
 					),
 					$types: ('primary', 'secondary'),
 					$icons: null
@@ -275,8 +275,8 @@
 				@include oButtonsAddTheme(
 					$name: 'test-hex-theme-colors',
 					$opts: (
-						'color': oPrivateFoundationGet('o3-color-palette-teal-90'),
-						'context': oPrivateFoundationGet('o3-color-palette-slate')
+						'color': oColorsByName('eal-90'),
+						'context': oPrivateFoundationGet('slate')
 					),
 					$types: ('primary', 'secondary'),
 					$icons: null
