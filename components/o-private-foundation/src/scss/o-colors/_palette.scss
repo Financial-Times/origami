@@ -9,42 +9,42 @@ $_o-pf-colors-default-palette-colors: join((
 @if oBrandIs('core') {
 	$_o-pf-colors-default-palette-colors: join((
 		// primary palette
-		('black', #000000),
-		('white', #ffffff),
-		('ft-pink', #fcd0b1),
-		('brand-ft-pink', #fcd0b1, ('deprecated': 'Replace "brand-ft-pink" with "ft-pink". This is so we can align our naming with our designers, including the Brand team.')),
-		('ft-grey', #333333),
+		('o3-color-palette-black', #000000),
+		('o3-color-palette-white', #ffffff),
+		('o3-color-palette-ft-pink', #fcd0b1),
+		('o3-color-palette-brand-ft-pink', #fcd0b1, ('deprecated': 'Replace "brand-ft-pink" with "ft-pink". This is so we can align our naming with our designers, including the Brand team.')),
+		('o3-color-palette-ft-grey', #333333),
 
 		//secondary palette
-		('claret', #990f3d, ('allow-tones': true)),
-		('teal', #0d7680, ('allow-tones': true)),
-		('oxford', #0f5499, ('allow-tones': true)),
-		('slate', #262a33),
-		('paper', #fff1e5),
+		('o3-color-palette-claret', #990f3d, ('allow-tones': true)),
+		('o3-color-palette-teal', #0d7680, ('allow-tones': true)),
+		('o3-color-palette-oxford', #0f5499, ('allow-tones': true)),
+		('o3-color-palette-slate', #262a33),
+		('o3-color-palette-paper', #fff1e5),
 
 		//tertiary palette
-		('mandarin', #ff8833),
-		('light-blue', #00a0dd),
-		('crimson', #cc0000),
-		('graphics-dark-blue', #006f9b),
-		('wheat', #f2dfce, ('allow-tones': true)),
-		('candy', #ff7faa),
-		('wasabi', #96cc28),
-		('jade', #00994d),
-		('velvet', #593380),
-		('lemon', #ffec1a),
-		('sky', #cce6ff),
+		('o3-color-palette-mandarin', #ff8833),
+		('o3-color-palette-light-blue', #00a0dd),
+		('o3-color-palette-crimson', #cc0000),
+		('o3-color-palette-graphics-dark-blue', #006f9b),
+		('o3-color-palette-wheat', #f2dfce, ('allow-tones': true)),
+		('o3-color-palette-candy', #ff7faa),
+		('o3-color-palette-wasabi', #96cc28),
+		('o3-color-palette-jade', #00994d),
+		('o3-color-palette-velvet', #593380),
+		('o3-color-palette-lemon', #ffec1a),
+		('o3-color-palette-sky', #cce6ff),
 
 		//professional
-		('mint', #c0efd8, ('allow-tones': true)),
+		('o3-color-palette-mint', #c0efd8, ('allow-tones': true)),
 
 		//b2c palette
-		('org-b2c', #4e96eb),
-		('org-b2c-dark', #3a70af),
-		('org-b2c-light', #99c6fb),
+		('o3-color-palette-org-b2c', #4e96eb),
+		('o3-color-palette-org-b2c-dark', #3a70af),
+		('o3-color-palette-org-b2c-light', #99c6fb),
 
 		//partner content palette
-		('matisse', #355778),
+		('o3-color-palette-matisse', #355778),
 	), $_o-pf-colors-default-palette-colors);
 }
 
@@ -52,21 +52,21 @@ $_o-pf-colors-default-palette-colors: join((
 @if oBrandIs('internal') {
 	$_o-pf-colors-default-palette-colors: join((
 		// primary palette
-		('black', #000000),
-		('white', #ffffff),
-		('oxford', #0f5499, ('allow-tones': true)),
-		('teal', #0d7680, ('allow-tones': true)),
+		('o3-color-palette-black', #000000),
+		('o3-color-palette-white', #ffffff),
+		('o3-color-palette-oxford', #0f5499, ('allow-tones': true)),
+		('o3-color-palette-teal', #0d7680, ('allow-tones': true)),
 
 		//secondary palette
-		('lemon', #ffec1a),
-		('slate', #262a33),
-		('slate-white-15', #dedfe0), // oPrivateColorsMix('o3-color-palette-slate', 'o3-color-palette-white', 15)
-		('slate-white-5', #f4f4f5), // oPrivateColorsMix('o3-color-palette-slate', 'o3-color-palette-white', 5)
+		('o3-color-palette-lemon', #ffec1a),
+		('o3-color-palette-slate', #262a33),
+		('o3-color-palette-slate-white-15', #dedfe0), // oPrivateColorsMix('o3-color-palette-slate', 'o3-color-palette-white', 15)
+		('o3-color-palette-slate-white-5', #f4f4f5), // oPrivateColorsMix('o3-color-palette-slate', 'o3-color-palette-white', 5)
 
 		//tertiary palette
-		('jade', #00994d),
-		('crimson', #cc0000),
-		('mandarin', #ff8833)
+		('o3-color-palette-jade', #00994d),
+		('o3-color-palette-crimson', #cc0000),
+		('o3-color-palette-mandarin', #ff8833)
 	), $_o-pf-colors-default-palette-colors);
 }
 
@@ -74,29 +74,29 @@ $_o-pf-colors-default-palette-colors: join((
 @if oBrandIs('whitelabel') {
 	$_o-pf-colors-default-palette-colors: join((
 		// primary palette
-		('black', #000000),
-		('white', #ffffff),
+		('o3-color-palette-black', #000000),
+		('o3-color-palette-white', #ffffff),
 		//tertiary palette
-		('jade', #00994d),
-		('crimson', #cc0000)
+		('o3-color-palette-jade', #00994d),
+		('o3-color-palette-crimson', #cc0000)
 	), $_o-pf-colors-default-palette-colors);
 }
 
 // Default palette tones.
 @if oBrandIs('core') {
 	$_o-pf-colors-default-palette-tones: map-merge((
-		'claret': (30, 40, 50, 60, 70, 80, 90, 100),
-		'oxford': (30, 40, 50, 60, 70, 80, 90, 100),
-		'teal': (20, 30, 40, 50, 60, 70, 80, 90, 100),
-		'mint': (30, 40, 50, 60, 70, 80),
-		'wheat': (100)
+		'o3-color-palette-claret': (30, 40, 50, 60, 70, 80, 90, 100),
+		'o3-color-palette-oxford': (30, 40, 50, 60, 70, 80, 90, 100),
+		'o3-color-palette-teal': (20, 30, 40, 50, 60, 70, 80, 90, 100),
+		'o3-color-palette-mint': (30, 40, 50, 60, 70, 80),
+		'o3-color-palette-wheat': (100)
 	), $_o-pf-colors-default-palette-tones);
 }
 
 @if oBrandIs('internal') {
 	$_o-pf-colors-default-palette-tones: map-merge((
-		'oxford': (30, 40, 50, 60, 70, 80, 90, 100),
-		'teal': (20, 30, 40, 50, 60, 70, 80, 90, 100),
+		'o3-color-palette-oxford': (30, 40, 50, 60, 70, 80, 90, 100),
+		'o3-color-palette-teal': (20, 30, 40, 50, 60, 70, 80, 90, 100),
 	), $_o-pf-colors-default-palette-tones);
 }
 
@@ -107,19 +107,19 @@ $_o-pf-colors-default-palette-colors: join((
 // Default palette mixes.
 @if oBrandIs('core') {
 	$_o-pf-colors-default-palette-mixes: (
-		'black': (5, 10, 20, 30, 40, 50, 60, 70, 80, 90),
-		'white': (10, 20, 40, 60, 80)
+		'o3-color-palette-black': (5, 10, 20, 30, 40, 50, 60, 70, 80, 90),
+		'o3-color-palette-white': (10, 20, 40, 60, 80)
 	);
 }
 
 @if oBrandIs('internal') {
 	$_o-pf-colors-default-palette-mixes: (
-		'black': (5, 10, 20, 30, 40, 50, 60, 70, 80, 90)
+		'o3-color-palette-black': (5, 10, 20, 30, 40, 50, 60, 70, 80, 90)
 	);
 }
 
 @if oBrandIs('whitelabel') {
 	$_o-pf-colors-default-palette-mixes: (
-		'black': (5, 10, 20, 30, 40, 50, 60, 70, 80, 90)
+		'o3-color-palette-black': (5, 10, 20, 30, 40, 50, 60, 70, 80, 90)
 	);
 }

@@ -78,7 +78,7 @@ $n-notification-is-silent: true !default;
 
 	.n-notification--success {
 		background-color: oPrivateColorsMix('o3-color-palette-jade', $percentage: 20);
-		color: oPrivateColorsMix('o3-color-palette-black', 'o3-coolor-palette-jade', $percentage: 43);
+		color: oPrivateColorsMix('o3-color-palette-black', 'o3-color-palette-jade', $percentage: 43);
 		.n-notification__content a {
 			color: oPrivateColorsMix('o3-color-palette-black', 'o3-color-palette-jade', $percentage: 43);
 		}
