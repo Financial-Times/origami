@@ -19,7 +19,7 @@
 			table-data-color: oPrivateColorsByUseCase('body', 'text'),
 			table-footnote-color: oPrivateFoundationGet('o3-color-palette-black-60'),
 			'flat': (
-				table-item-alternate-background: oPrivateColorsMix('wheat', 'paper', 40)
+				table-item-alternate-background: oPrivateColorsMix('o3-color-palette-wheat', 'o3-color-palette-paper', 40)
 			)
 		),
 		'supports-variants': (
