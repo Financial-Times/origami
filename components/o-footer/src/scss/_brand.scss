@@ -11,7 +11,7 @@
 }
 
 @if oBrandIs('core') {
-	$_o-footer-dark-link-text-color: oPrivateColorsMix('white', 'slate', 60);
+	$_o-footer-dark-link-text-color: oPrivateColorsMix('o3-color-palette-white', 'o3-color-palette-slate', 60);
 	$_o-footer-light-link-text-color: oPrivateFoundationGet('o3-color-palette-black-60');
 
 	@include oBrandDefine('o-footer', 'core', (
@@ -20,7 +20,7 @@
 			'dark': (
 				'text': oPrivateFoundationGet('o3-color-palette-white'),
 				'background': oPrivateFoundationGet('o3-color-palette-slate'),
-				'border': oPrivateColorsMix('white', 'slate', 20),
+				'border': oPrivateColorsMix('o3-color-palette-white', 'o3-color-palette-slate', 20),
 				'title': oPrivateFoundationGet('o3-color-palette-white'),
 				'link': $_o-footer-dark-link-text-color,
 				'link-hover': oPrivateFoundationGet('o3-color-palette-white'),
