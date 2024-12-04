@@ -208,7 +208,7 @@
 	$contrast-ratio-aim: map-get($contrast-levels, if($minimum-contrast, $minimum-contrast, 'aa-normal'));
 
 	// Calculate text colour for background and opacity.
-	$base-color-a: if(oPrivateColorsColorBrightness($background) < 65%, 'white', 'black');
+	$base-color-a: if(oPrivateColorsColorBrightness($background) < 65%, 'o3-color-palette-white', 'o3-color-palette-black');
 	$text-color-a: oPrivateColorsMix($base-color-a, $background, $opacity);
 	$contrast-ratio-a: oPrivateColorsGetContrastRatio($text-color-a, $background);
 	@if $contrast-ratio-a > $contrast-ratio-aim {
@@ -216,7 +216,7 @@
 	}
 
 	// Switch the base colour if the first attempt did not pass contrast checks.
-	$base-color-b: if($base-color-a == 'black', 'white', 'black');
+	$base-color-b: if($base-color-a == 'o3-color-palette-black', 'o3-color-palette-white', 'bo3-color-palette-black');
 	$text-color-b: oPrivateColorsMix($base-color-b, $background, $opacity);
 	$contrast-ratio-b: oPrivateColorsGetContrastRatio($text-color-b, $background);
 	@if $contrast-ratio-b > $contrast-ratio-aim {

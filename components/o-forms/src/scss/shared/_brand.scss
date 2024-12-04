@@ -20,7 +20,7 @@ $_o-forms-shared-brand-config: (
 	disabled-base: oPrivateFoundationGet('o3-color-palette-black-10'),
 	controls-checked-base: oPrivateFoundationGet('o3-color-palette-white'),
 	toggle: oPrivateFoundationGet('o3-color-palette-black'),
-	toggle-knob: oPrivateColorsMix('black', 'white', 10),
+	toggle-knob: oPrivateColorsMix('o3-color-palette-black', 'o3-color-palette-white', 10),
 	toggle-knob-selected: oPrivateFoundationGet('o3-color-palette-white'),
 	toggle-disabled: oPrivateFoundationGet('o3-color-palette-black-20'),
 	toggle-knob-disabled: oPrivateFoundationGet('o3-color-palette-black-40'),
@@ -36,7 +36,7 @@ $_o-forms-shared-brand-config: (
 		invalid-base: oPrivateFoundationGet('o3-color-palette-crimson'),
 		invalid-base-inverse: oPrivateFoundationGet('o3-color-palette-white'),
 		invalid-base-color-inverse: oPrivateFoundationGet('o3-color-palette-black'),
-		valid-base: oPrivateColorsMix('jade', 'black', 80),
+		valid-base: oPrivateColorsMix('o3-color-palette-jade', 'o3-color-palette-black', 80),
 		toggle-inverse-knob: oPrivateFoundationGet('o3-color-palette-slate'),
 	)) !global;
 }
@@ -99,7 +99,7 @@ $_o-forms-shared-brand-config: (
 			invalid-base-inverse: oPrivateFoundationGet('o3-color-palette-white'),
 			invalid-base-color-inverse: oPrivateFoundationGet('o3-color-palette-black'),
 			invalid-base-border-inverse: oPrivateFoundationGet('o3-color-palette-crimson'),
-			valid-base: oPrivateColorsMix('jade', 'black', 80),
+			valid-base: oPrivateColorsMix('o3-color-palette-jade', 'o3-color-palette-black', 80),
 			error-summary-background-inverse: rgba(oPrivateFoundationGet('o3-color-palette-crimson'), 0.11),
 			error-summary-border-inverse: oPrivateFoundationGet('o3-color-palette-crimson'),
 		)),
