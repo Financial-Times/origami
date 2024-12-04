@@ -114,12 +114,12 @@
 	$context-color-arg: $context-color;
 	$default-background: if(
 		type-of($color) == 'string',
-		oColorsByName($color),
+		oPrivateFoundationGet($color),
 		$color
 	);
 	$context-color: if(
 		type-of($context-color) == 'string',
-		oColorsByName($context-color),
+		oPrivateFoundationGet($context-color),
 		$context-color
 	);
 	$default-context: $context-color == oPrivateColorsByUseCase('page', 'background');
@@ -174,9 +174,9 @@
 		// When lightening buttons with a mix use white. Except for the
 		// core brand where a slate button should be mixed with paper.
 		$light-mix: if(
-			oBrandIs('core') and $default-background == oColorsByName('slate'),
-			oColorsByName('paper'),
-			'white'
+			oBrandIs('core') and $default-background == oPrivateFoundationGet('o3-color-palette-slate'),
+				oPrivateFoundationGet('o3-color-palette-paper'),
+			'o3-color-palette-white'
 		);
 
 		// When darkening buttons with a mix use black. Except for the
@@ -185,9 +185,9 @@
 		$dark-mix: if(
 			(oBrandIs('core') or oBrandIs('internal')) and
 				$context-color ==
-				oColorsByName('slate'),
-			oColorsByName('slate'),
-			'black'
+				oPrivateFoundationGet('o3-color-palette-slate'),
+			oPrivateFoundationGet('o3-color-palette-slate'),
+			'o3-color-palette-black'
 		);
 
 		// Make the button darker for hover/focus states, and
@@ -327,13 +327,13 @@
 @function _oPrivateButtonsGetSecondaryButtonColors($color, $context-color) {
 	$default-color: if(
 		type-of($color) == 'string',
-		oColorsByName($color),
+		oPrivateFoundationGet($color),
 		$color
 	);
 	$default-background: transparent;
 	$default-background-opaque: if(
 		type-of($context-color) == 'string',
-		oColorsByName($context-color),
+		oPrivateFoundationGet($context-color),
 		$context-color
 	);
 
@@ -439,13 +439,13 @@
 @function _oPrivateButtonsGetGhostButtonColors($color, $context-color) {
 	$default-color: if(
 		type-of($color) == 'string',
-		oColorsByName($color),
+		oPrivateFoundationGet($color),
 		$color
 	);
 	$default-background: transparent;
 	$default-background-opaque: if(
 		type-of($context-color) == 'string',
-		oColorsByName($context-color),
+		oPrivateFoundationGet($context-color),
 		$context-color
 	);
 
