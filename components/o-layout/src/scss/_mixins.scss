@@ -137,7 +137,7 @@
 		li {
 			&:not(.o-layout__navigation-title) [aria-current='location'] {
 				color: oPrivateFoundationGet('o3-color-palette-teal-30');
-				background: oPrivateColorsMix('teal', 'white', 20);
+				background: oPrivateColorsMix('o3-color-palette-teal', 'o3-color-palette-white', 20);
 			}
 
 			a {
@@ -226,7 +226,7 @@
 		}
 
 		.o-layout__linked-heading__label {
-			color: oColorsGetColorFor(link, text);
+			color: oPrivateColorsByUseCase(link, text);
 			display: none;
 			user-select: none;
 			font-weight: normal;
