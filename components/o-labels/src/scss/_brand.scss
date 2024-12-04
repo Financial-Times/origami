@@ -36,7 +36,7 @@ $_o-labels-shared-brand-config: (
 			text-color: oPrivateFoundationGet('o3-color-palette-black'),
 			background-color: oPrivateFoundationGet('o3-color-palette-wheat'),
 			'content-commercial': (
-				background-color: oPrivateColorsMix('jade', 'black', $percentage: 83.334)
+				background-color: oPrivateColorsMix('o3-color-palette-jade', 'o3-color-palette-black', $percentage: 83.334)
 			),
 			'content-premium': (
 				background-color: oPrivateFoundationGet('o3-color-palette-black')
@@ -66,21 +66,21 @@ $_o-labels-shared-brand-config: (
 @if oBrandIs('internal') {
 	@include oBrandDefine('o-labels', 'internal', (
 		'variables': map-merge($_o-labels-shared-brand-config, (
-			background-color: oPrivateColorsMix('black', 'white', 10),
+			background-color: oPrivateColorsMix('o3-color-palette-black', 'o3-color-palette-white', 10),
 			'support-active': (
-				background-color: oPrivateColorsMix('jade', 'black', 70)
+				background-color: oPrivateColorsMix('o3-color-palette-jade', 'o3-color-palette-black', 70)
 			),
 			'support-dead': (
 				background-color: oPrivateFoundationGet('o3-color-palette-black')
 			),
 			'support-deprecated': (
-				background-color: oPrivateFoundationGet('o3-color-palette-crimson'')
+				background-color: oPrivateFoundationGet('o3-color-palette-crimson')
 			),
 			'support-experimental': (
 				background-color: oPrivateFoundationGet('o3-color-palette-lemon')
 			),
 			'support-maintained': (
-				background-color: oPrivateColorsMix('jade', 'black', 70)
+				background-color: oPrivateColorsMix('o3-color-palette-jade', 'o3-color-palette-black', 70)
 			),
 			'tier-bronze': (
 				// NOTE: service tiers not in o-colors yet, will be moved if another
@@ -118,7 +118,7 @@ $_o-labels-shared-brand-config: (
 				background-color: oPrivateFoundationGet('o3-color-palette-jade')
 			),
 			'crimson': (
-				background-color: oPrivateFoundationGet('o3-color-palette-crimson'')
+				background-color: oPrivateFoundationGet('o3-color-palette-crimson')
 			),
 			'mandarin': (
 				background-color: oPrivateFoundationGet('o3-color-palette-mandarin')
@@ -151,7 +151,7 @@ $_o-labels-shared-brand-config: (
 @if oBrandIs('whitelabel') {
 	@include oBrandDefine('o-labels', 'whitelabel', (
 		'variables': map-merge($_o-labels-shared-brand-config, (
-			background-color: oPrivateColorsMix('black', 'white', 10)
+			background-color: oPrivateColorsMix('o3-color-palette-black', 'o3-color-palette-white', 10)
 		)),
 		'supports-variants': (
 			'big',

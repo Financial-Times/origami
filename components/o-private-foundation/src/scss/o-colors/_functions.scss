@@ -216,7 +216,7 @@
 	}
 
 	// Switch the base colour if the first attempt did not pass contrast checks.
-	$base-color-b: if($base-color-a == 'o3-color-palette-black', 'o3-color-palette-white', 'bo3-color-palette-black');
+	$base-color-b: if($base-color-a == 'o3-color-palette-black', 'o3-color-palette-white', 'o3-color-palette-black');
 	$text-color-b: oPrivateColorsMix($base-color-b, $background, $opacity);
 	$contrast-ratio-b: oPrivateColorsGetContrastRatio($text-color-b, $background);
 	@if $contrast-ratio-b > $contrast-ratio-aim {
