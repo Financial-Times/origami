@@ -6,6 +6,8 @@
 
 /// Output all styles for the big number component.
 @mixin oBigNumber {
+	@include oPrivateFoundation();
+
 	.o-big-number__title {
 		@include oBigNumberTitle;
 	}

@@ -26,6 +26,8 @@
 	),
 	$include-base-styles: true
 ) {
+	@include oPrivateFoundation();
+
 	$logo: map-get($opts, 'logo');
 	$icons: map-get($opts, 'icons');
 	$themes: map-get($opts, 'themes');

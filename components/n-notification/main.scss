@@ -5,6 +5,8 @@
 $n-notification-is-silent: true !default;
 
 @mixin nNotification {
+	@include oPrivateFoundation();
+
 	@keyframes load-notice {
 		0% {
 			max-height: 0;

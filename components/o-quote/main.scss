@@ -32,6 +32,8 @@ $_o-quote-first-import: true !default;
 		'editorial': true,
 	)
 ) {
+	@include oPrivateFoundation();
+
 	// Enabled if the option is given and the current brand supports the feature.
 	$standard-enabled: map-get($opts, 'standard') and _oQuoteSupports('standard');
 	$editorial-enabled: map-get($opts, 'editorial') and

@@ -29,6 +29,8 @@
 	),
 	$include-base-styles: true
 ) {
+	@include oPrivateFoundation();
+
 	// Get topper themes to include.
 	$themes: map-get($opts, 'themes');
 	$themes: if($themes, $themes, ());
