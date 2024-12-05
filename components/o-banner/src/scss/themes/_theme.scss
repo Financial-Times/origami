@@ -62,9 +62,11 @@
 		color: $text-color;
 		border-bottom-color: $brand-border;
 	}
+
 	.o-banner__content {
 		a {
-			@include oTypographyLink(
+			@include oPrivateTypographyLink();
+			@include oPrivateTypographyLinkThemeOverride(
 				$theme: (
 					'base': $link-text-color,
 					'hover': $link-text-color,
@@ -104,7 +106,12 @@
 				'context': $background-color,
 			)
 		);
-		@include oTypographyLink($theme: $link-theme);
+		@if (type-of($link-theme) != 'map') {
+			@include oPrivateTypographyLink($link-theme);
+		} @else {
+			@include oPrivateTypographyLink();
+			@include oPrivateTypographyLinkThemeOverride($link-theme);
+		}
 	}
 	.o-banner__close {
 		@include oIconsContent(
@@ -115,7 +122,7 @@
 
 		@include oPrivateNormaliseFocusApply() {
 			@include oPrivateNormaliseFocusContentForElementColour($text-color);
-		};
+		}
 	}
 
 	// When combined with the "small" and "compact" themes

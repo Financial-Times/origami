@@ -11,8 +11,8 @@
 	}
 
 	.o-video__placeholder {
-		background: oPrivateFoundationGet('o3-color-palette-slate');
-		color: oPrivateFoundationGet('o3-color-palette-white');
+		background: oPrivateFoundationGet("o3-color-palette-slate");
+		color: oPrivateFoundationGet("o3-color-palette-white");
 		// sass-lint:disable no-vendor-prefixes
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
@@ -54,12 +54,12 @@
 	}
 
 	.o-video__play-button-icon {
-		@include oIconsContent('play', oPrivateFoundationGet('o3-color-palette-white'), $size: null);
-		color: oPrivateFoundationGet('o3-color-palette-white');
-		background-color: oPrivateFoundationGet('o3-color-palette-black');
+		@include oIconsContent('play', oPrivateFoundationGet("o3-color-palette-white"), $size: null);
+		color: oPrivateFoundationGet("o3-color-palette-white");
+		background-color: oPrivateFoundationGet("o3-color-palette-black");
 		:hover > &,
 		:focus > & {
-			background-color: oPrivateFoundationGet('o3-color-palette-claret-60');
+			background-color: oPrivateFoundationGet("o3-color-palette-claret-60");
 		}
 	}
 
@@ -79,7 +79,7 @@
 			bottom: 10px;
 			left: 10px;
 			.o-video__play-button-icon {
-				@include oTypographySans(-1, $weight: 'semibold');
+				@include oPrivateTypographySans(-1, $weight: "semibold");
 				padding: 10px 16px 10px 36px;
 				background-position: left;
 			}

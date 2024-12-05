@@ -1,6 +1,5 @@
 @import '@financial-times/o-private-foundation/main';
-@import '@financial-times/o-typography/main';
-@import '@financial-times/o-fonts/main';
+@import '@financial-times/o-icons/main';
 /// @access private
 $_ftConceptButtonThemes: (
 	link: (
@@ -168,7 +167,7 @@ $_ftConceptButtonThemes: (
 }
 
 @mixin _ftConceptButtonBase() {
-	@include oTypographySans($weight: 'semibold', $scale: -1);
+	@include oPrivateTypographySans($weight: 'semibold', $scale: -1);
 	border-radius: 100px;
 	box-sizing: content-box;
 	display: inline-block;

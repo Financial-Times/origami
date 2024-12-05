@@ -167,7 +167,7 @@
 	font-size: var(--_o-pf-button-font-size);
 	line-height: var(--_o-pf-button-lineheight);
 	font-weight: var(--_o-pf-button-font-weight);
-	font-family: '#{oPrivateFoundationGet('o3-font-family-metric')}', 'sans-serif';
+	font-family: '#{oPrivateFoundationGet('o3-font-family-metric')}', sans-serif;
 	border: var(--_o-pf-button-border-size) solid transparent;
 	text-align: center;
 	text-decoration: none;

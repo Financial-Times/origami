@@ -3,8 +3,12 @@
 
 @mixin _oVideoGuidance {
 	.o-video__guidance {
-		@include oTypographySans(-1);
-		background-color: oPrivateColorsMix($color: 'o3-color-palette-black', $background: 'transparent', $percentage: 75);
+		@include oPrivateTypographySans(-1);
+		background-color: oColorsMix(
+			$color: "o3-color-palette-black",
+			$background: "transparent",
+			$percentage: 75
+		);
 		padding: 10px 16px;
 		position: relative;
 		// sass-lint:disable no-vendor-prefixes
@@ -21,7 +25,7 @@
 		}
 
 		a {
-			color: oPrivateFoundationGet('o3-color-palette-white');
+			color: oPrivateFoundationGet("o3-color-palette-white");
 			text-decoration: none;
 		}
 
@@ -49,21 +53,29 @@
 	.o-video__guidance__link {
 		@include oTypographyLink(
 			$theme: (
-				'base': 'white',
-				'hover': 'white'
+				"base": "white",
+				"hover": "white",
 			)
 		);
-		color: oPrivateFoundationGet('o3-color-palette-white');
+		color: oPrivateFoundationGet("o3-color-palette-white");
 		border-bottom: 0;
 	}
 
 	.o-video__guidance__close {
-		@include oIconsContent('cross', $color: oPrivateFoundationGet('o3-color-palette-white'), $size: 20px);
+		@include oIconsContent(
+			"cross",
+			$color: oPrivateFoundationGet("o3-color-palette-white"),
+			$size: 20px
+		);
 		border: 0;
 		cursor: pointer;
 
 		&:hover {
-			background-color: oPrivateColorsMix($color: 'black', $background: 'white', $percentage: 75);
+			background-color: oPrivateColorsMix(
+				$color: "o3-color-palette-black",
+				$background: "o3-color-palette-white",
+				$percentage: 75
+			);
 		}
 	}
 
