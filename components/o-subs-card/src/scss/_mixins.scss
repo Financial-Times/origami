@@ -55,7 +55,7 @@
 	}
 
 	.o-subs-card__select-button {
-		@include oButtonsContent(
+		@include oPrivateButtonsContent(
 			$opts: (
 				"type": "primary",
 				"size": "big",
