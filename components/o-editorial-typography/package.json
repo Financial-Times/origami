@@ -20,7 +20,6 @@
 	},
 	"peerDependencies": {
 		"@financial-times/o-colors": "^6.5.0",
-		"@financial-times/o-spacing": "^3.0.0",
 		"@financial-times/o-private-foundation": "^0.0.0"
 	},
 	"devDependencies": {
