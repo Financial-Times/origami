@@ -1,7 +1,7 @@
 /// Small teaser styles
 @mixin _oTeaserSmall {
 	display: flex;
-	padding-bottom: oSpacingByName('s3');
+	padding-bottom: oPrivateSpacingByName('s3');
 	border-bottom: 1px solid oColorsByUsecase('o-teaser/base', 'border');
 
 	.o-teaser__content {
@@ -14,9 +14,10 @@
 		width: 30%;
 		// because flex items are allowed to shrink implicitly
 		flex-shrink: 0;
-		padding-right: oGridGutter(M);
+		padding-right: oPrivateGridGutter(M);
 
-		@include oGridRespondTo($until: M) { // Mobile screens only
+		@include oPrivateGridRespondTo($until: M) {
+			// Mobile screens only
 			display: none;
 		}
 	}
@@ -25,7 +26,7 @@
 		@include _oTeaserPost;
 	}
 
-	&.o-teaser--post.o-teaser--opinion{
+	&.o-teaser--post.o-teaser--opinion {
 		@include _oTeaserPostOpinion;
 	}
 }
@@ -39,13 +40,13 @@
 		flex-basis: auto; // must override original .o-teaser__content flex-basis
 	}
 
-	@include oGridRespondTo(M) {
+	@include oPrivateGridRespondTo(M) {
 		border-bottom: 0;
 		padding-bottom: 0;
 	}
 
 	.o-teaser__image-container {
-		margin-bottom: oSpacingByName('s3');
+		margin-bottom: oPrivateSpacingByName('s3');
 		width: 100%;
 		// <https://connect.microsoft.com/IE/feedbackdetail/view/891815>
 		min-height: 1px;
@@ -57,25 +58,23 @@
 @mixin _oTeaserSmallImagePositionRight {
 	&.o-teaser--has-image .o-teaser__image-container {
 		order: 2;
-		padding-left: oGridGutter(M);
+		padding-left: oPrivateGridGutter(M);
 		padding-right: inherit;
 	}
 }
 
-
-
 @mixin _oTeaserPost {
 	border-bottom: 0;
 	.o-teaser__meta {
-		margin-bottom: oSpacingByName('s2');
+		margin-bottom: oPrivateSpacingByName('s2');
 	}
 	.o-teaser__tag-prefix {
-		@include oTypographySans($scale: 0, $weight: 'semibold');
+		@include oPrivateTypographySans($scale: 0, $weight: 'semibold');
 		color: oColorsByName('claret');
-		margin-right: oSpacingByName('s1');
+		margin-right: oPrivateSpacingByName('s1');
 	}
 	.o-teaser__tag {
-		@include oTypographySans($scale: 0, $weight: 'regular');
+		@include oPrivateTypographySans($scale: 0, $weight: 'regular');
 		color: oColorsByName('claret');
 	}
 	.o-teaser__standfirst {
@@ -84,7 +83,7 @@
 	.o-teaser__image-placeholder {
 		width: 100%;
 		height: auto;
-		padding: 0 ;
+		padding: 0;
 		display: flex;
 		img {
 			width: 100%;
@@ -95,7 +94,7 @@
 	}
 	.o-teaser__content {
 		background: oColorsByName('wheat');
-		padding: oSpacingByName('s3');
+		padding: oPrivateSpacingByName('s3');
 		box-sizing: border-box;
 		a {
 			text-decoration: none;
@@ -118,11 +117,11 @@
 
 	.o-teaser__heading,
 	.o-teaser__heading a {
-		@include oTypographyDisplay($scale: 2, $weight: 'medium');
+		@include oPrivateTypographyDisplay($scale: 2, $weight: 'medium');
 		color: oColorsByName('black');
 	}
 
-	@include oGridRespondTo($until: S) {
+	@include oPrivateGridRespondTo($until: S) {
 		flex-direction: column;
 		.o-teaser__image-container {
 			display: block;
@@ -134,7 +133,7 @@
 
 @mixin _oTeaserPostOpinion {
 	@include _oTeaserPost;
-	
+
 	.o-teaser__heading:before {
 		@include oIconsContent(
 			'speech-left',
@@ -155,7 +154,7 @@
 		color: oColorsByName('oxford');
 	}
 
-	@include oGridRespondTo($until: S) {
+	@include oPrivateGridRespondTo($until: S) {
 		flex-direction: column;
 		.o-teaser__image-container {
 			display: block;

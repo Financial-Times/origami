@@ -1,21 +1,25 @@
 @mixin _oTopperAnchorLink {
-	@include oTypographySans(0);
+	@include oPrivateTypographySans(0);
 	display: inline-block;
 	width: 110px;
 	padding: 5px 0 0 10px;
-	margin-top: oSpacingByName('s8');
+	margin-top: oPrivateSpacingByName('s8');
 	border-top: 1px solid oColorsByUsecase('link', 'text');
 	border-left: 1px solid oColorsByUsecase('link', 'text');
 	border-bottom-width: 0;
 	white-space: nowrap;
 	overflow: visible;
 
-	@include oGridRespondTo(S) {
+	@include oPrivateGridRespondTo(S) {
 		width: 140px;
 	}
 
 	&:after {
-		@include oIconsContent('arrow-down', oColorsByUsecase('link', 'text'), $size: 20);
+		@include oIconsContent(
+			'arrow-down',
+			oColorsByUsecase('link', 'text'),
+			$size: 20
+		);
 		content: '';
 		display: block;
 		position: relative;
@@ -26,11 +30,11 @@
 }
 
 @mixin _oTopperThemePackage {
-	margin-bottom: oSpacingByIncrement(10);
+	margin-bottom: oPrivateSpacingByIncrement(10);
 
 	%_o-topper__tag,
 	.o-topper__headline {
-		@include oTypographySans(6);
+		@include oPrivateTypographySans(6);
 		font-weight: 400;
 	}
 
@@ -52,7 +56,12 @@
 		border-color: oColorsByName('lemon');
 
 		&:after {
-			@include oIconsContent('arrow-down', oColorsByName('lemon'), $size: null, $include-base-styles: false);
+			@include oIconsContent(
+				'arrow-down',
+				oColorsByName('lemon'),
+				$size: null,
+				$include-base-styles: false
+			);
 		}
 
 		&:hover {
@@ -71,7 +80,12 @@
 		color: oColorsByName('white');
 
 		&:after {
-			@include oIconsContent('arrow-down', oColorsByName('lemon'), $size: null, $include-base-styles: false);
+			@include oIconsContent(
+				'arrow-down',
+				oColorsByName('lemon'),
+				$size: null,
+				$include-base-styles: false
+			);
 		}
 
 		&:hover {

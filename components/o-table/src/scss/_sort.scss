@@ -3,7 +3,9 @@
 @mixin _oTableSort {
 	$_o-table-sort-icon-size: 1.25rem;
 
-	.o-table:not([data-o-table-sortable="false"]) thead th:not([data-o-table-heading-disable-sort]) {
+	.o-table:not([data-o-table-sortable='false'])
+		thead
+		th:not([data-o-table-heading-disable-sort]) {
 		padding-right: $_o-table-sort-icon-size;
 		min-width: 60px;
 	}
@@ -38,9 +40,13 @@
 	// Show descending icon in sort button with DSC sort applied,
 	// or on hover if no sort has been applied and a descending sort
 	// is the preferred sort.
-	// stylelint-disable-next-line selector-no-qualifying-type
-	[data-o-table-preferred-sort-order='descending'] th[aria-sort='none'] .o-table__sort:hover, // stylelint-disable-line selector-no-qualifying-type
-	[data-o-table-preferred-sort-order='descending'] th:not([aria-sort]) .o-table__sort:hover, // stylelint-disable-line selector-no-qualifying-type
+
+	[data-o-table-preferred-sort-order='descending']
+		th[aria-sort='none']
+		.o-table__sort:hover,
+	[data-o-table-preferred-sort-order='descending']
+		th:not([aria-sort])
+		.o-table__sort:hover,
 	[aria-sort='descending'] .o-table__sort {
 		&:after {
 			@include oIconsContent('arrow-down', $size: $_o-table-sort-icon-size);
@@ -49,9 +55,9 @@
 	}
 
 	// Show ascending icon in sort button with ascending sort applied or on hover with no sort.
-	// stylelint-disable-next-line selector-no-qualifying-type
-	th[aria-sort='none'] .o-table__sort:hover, // stylelint-disable-line selector-no-qualifying-type
-	th:not([aria-sort]) .o-table__sort:hover, // stylelint-disable-line selector-no-qualifying-type
+
+	th[aria-sort='none'] .o-table__sort:hover,
+	th:not([aria-sort]) .o-table__sort:hover,
 	[aria-sort='ascending'] .o-table__sort {
 		&:after {
 			@include oIconsContent('arrow-up', $size: 1.25rem);

@@ -1,7 +1,5 @@
 @import '../../main';
 @include oHeaderServices();
-@import '@financial-times/o-fonts/main';
-@include oFonts();
 @import '@financial-times/o-normalise/main';
 @include oNormalise();
 
@@ -10,10 +8,12 @@ body {
 }
 
 .dummy-text {
-	@include oTypographySans(1);
+	@include oPrivateTypographySans(1);
 	max-width: 800px;
 	margin: auto;
 	padding: 0 20px;
 
-	a { @include oTypographyLink();}
+	a {
+		@include oPrivateTypographyLink();
+	}
 }

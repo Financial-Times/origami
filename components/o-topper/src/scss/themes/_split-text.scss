@@ -6,12 +6,12 @@
 	}
 
 	&.o-topper--split-text-center {
-		@include oGridRespondTo(S) {
+		@include oPrivateGridRespondTo(S) {
 			@include _oTopperAlignText(center);
 		}
 	}
 
-	@include oGridRespondTo($until: M) {
+	@include oPrivateGridRespondTo($until: M) {
 		padding: 0;
 
 		.o-topper__content {
@@ -33,7 +33,7 @@
 		}
 	}
 
-	@include oGridRespondTo(M) {
+	@include oPrivateGridRespondTo(M) {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		grid-template-rows: minmax(0, 480px) 1fr;
@@ -63,13 +63,13 @@
 		}
 
 		.o-topper__image {
-			@include oGridRespondTo($until: M) {
+			@include oPrivateGridRespondTo($until: M) {
 				max-height: 480px;
 			}
 		}
 	}
 
-	@include oGridRespondTo(L) {
+	@include oPrivateGridRespondTo(L) {
 		grid-template-rows: minmax(0, 600px) 1fr;
 	}
 
@@ -79,13 +79,13 @@
 		}
 
 		.o-topper__visual {
-			@include oGridRespondTo(M) {
+			@include oPrivateGridRespondTo(M) {
 				.o-topper__picture {
 					height: 480px;
 				}
 			}
 
-			@include oGridRespondTo(L) {
+			@include oPrivateGridRespondTo(L) {
 				.o-topper__picture {
 					height: 600px;
 				}
@@ -94,10 +94,10 @@
 	}
 	.o-topper__image-credit {
 		top: 350px;
-		@include oGridRespondTo(M) {
+		@include oPrivateGridRespondTo(M) {
 			top: 480px;
 		}
-		@include oGridRespondTo(L) {
+		@include oPrivateGridRespondTo(L) {
 			top: 600px;
 		}
 	}

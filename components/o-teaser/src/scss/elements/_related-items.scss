@@ -5,17 +5,19 @@
 	margin: 0 0 20px;
 	border-left: 1px solid oColorsByName('black-20');
 
-	@include oGridRespondTo($until: M) {
+	@include oPrivateGridRespondTo($until: M) {
 		display: none;
 	}
 }
 
 /// Single related content item styles
 @mixin _oTeaserRelatedItem {
-	@include oTypographySans(
-		$scale: (default: (-1, 22px), L: (0, 24px)),
-		$include-font-family: false
-	);
+	@include oPrivateTypographySans(-1);
+	line-height: 22px;
+	@include oPrivateGridRespondTo('L') {
+		@include oPrivateTypographySans(0);
+		line-height: 24px;
+	}
 	color: $_o-teaser-muted;
 
 	&:hover,

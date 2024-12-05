@@ -85,6 +85,8 @@ jobs:
             - 'components/o-normalise/**'
           components/o-overlay:
             - 'components/o-overlay/**'
+          components/o-private-foundation:
+            - 'components/o-private-foundation/**'
           components/o-quote:
             - 'components/o-quote/**'
           components/o-share:
@@ -214,6 +216,7 @@ jobs:
     needs: changes
     runs-on: ubuntu-latest
     strategy:
+      max-parallel: 4
       fail-fast: false
       matrix:
         component: ${{ fromJson(needs.changes.outputs.components) }}

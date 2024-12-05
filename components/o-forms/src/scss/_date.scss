@@ -3,11 +3,8 @@
 /// @param {Boolean} $invalid Whether to output invalid state styling
 /// @param {Boolean} $valid Whether to output valid state styling
 /// @output Styling for date inputs
-@mixin _oFormsDate (
-	$disabled: null,
-) {
+@mixin _oFormsDate($disabled: null) {
 	.o-forms-input--date {
-
 		label {
 			display: flex;
 			float: left;
@@ -15,7 +12,7 @@
 			margin-bottom: 0;
 		}
 
-		input[type=text] { // stylelint-disable-line selector-no-qualifying-type
+		input[type='text'] {
 			@include _oFormsInputBase($disabled);
 			display: block;
 			margin: $_o-forms-spacing-one $_o-forms-spacing-three 0 0;

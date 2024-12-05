@@ -14,13 +14,13 @@
 // Define shared brand configurations
 $_o-labels-shared-brand-config: (
 	font-scale: -1,
-	padding-vertical: oSpacingByName('s1'),
-	padding-horizontal: oSpacingByName('s2'),
+	padding-vertical: oPrivateSpacingByName('s1'),
+	padding-horizontal: oPrivateSpacingByName('s2'),
 	border-width: 1px,
 	'big': (
 		font-scale: 0,
-		padding-vertical: oSpacingByName('s2'),
-		padding-horizontal: oSpacingByName('s2')
+		padding-vertical: oPrivateSpacingByName('s2'),
+		padding-horizontal: oPrivateSpacingByName('s2')
 	),
 	'small': (
 		font-scale: -2,
@@ -46,8 +46,8 @@ $_o-labels-shared-brand-config: (
 				border-color: oColorsByName('black-20'),
 				text-color: oColorsByName('black-80'),
 				text-transform: uppercase,
-				padding-vertical: oSpacingByName('s1'),
-				padding-horizontal: oSpacingByName('s3'),
+				padding-vertical: oPrivateSpacingByName('s1'),
+				padding-horizontal: oPrivateSpacingByName('s3'),
 			)
 		)),
 		'supports-variants': (

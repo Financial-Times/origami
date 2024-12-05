@@ -26,20 +26,21 @@ The _tabpanel_ elements must have a `o-tabs__tabpanel` class added to them.
 This is an example of an HTML structure that **o-tabs** will accept:
 
 ```html
-<div data-o-component="o-tabs" class="o-tabs o-tabs--buttontabs  o-tabs--secondary" role="tablist">
-	<a role="tab" aria-controls="tabContent1" href="#tabContent1" >Tab 1</a>
+<div
+	data-o-component="o-tabs"
+	class="o-tabs o-tabs--buttontabs  o-tabs--secondary"
+	role="tablist"
+>
+	<a role="tab" aria-controls="tabContent1" href="#tabContent1">Tab 1</a>
 	<a role="tab" aria-controls="tabContent2" href="#tabContent2">Tab 2</a>
 	<a role="tab" aria-controls="tabContent3" href="#tabContent3">Tab 3</a>
 </div>
-<div id="tabContent1" class="o-tabs__tabpanel">
-	Tab content 1
-</div>
-<div id="tabContent2" class="o-tabs__tabpanel">
-	Tab content 2
-</div>
+<div id="tabContent1" class="o-tabs__tabpanel">Tab content 1</div>
+<div id="tabContent2" class="o-tabs__tabpanel">Tab content 2</div>
 <div id="tabContent3" class="o-tabs__tabpanel">
 	<div>
-		Note: first elements of each tab will get focused when it is selected. In this case, this div will receive focus.
+		Note: first elements of each tab will get focused when it is selected. In
+		this case, this div will receive focus.
 	</div>
 	Tab content 3
 </div>
@@ -62,8 +63,12 @@ Without the accompanying JavaScript, the _tabs_ will receive no styling, and all
 A product may choose to hide the tabs like this:
 
 ```css
-.o-tabs { display: none; }
-.o-tabs--js { display: block; }
+.o-tabs {
+	display: none;
+}
+.o-tabs--js {
+	display: block;
+}
 ```
 
 ### ARIA
@@ -79,7 +84,6 @@ ARIA attributes will be set on elements as follows:
 
 These state attributes are used by the **o-tabs** CSS.
 
-
 ## JavaScript
 
 ### Declarative
@@ -87,7 +91,7 @@ These state attributes are used by the **o-tabs** CSS.
 A `o.DOMContentLoaded` event can be dispatched on the `document` to auto-construct a **o-tabs** object for each element with a `data-o-component="o-tabs"` attribute:
 
 ```javascript
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener('DOMContentLoaded', function () {
 	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
 });
 ```
@@ -109,8 +113,7 @@ An array of any constructed Tabs objects will be returned.
 
 ```javascript
 import Tabs from '@financial-times/o-tabs';
-const myTabs = new Tabs(document.getElementById('myTabsRootElement'), {
-});
+const myTabs = new Tabs(document.getElementById('myTabsRootElement'), {});
 ```
 
 ### Events
@@ -118,11 +121,11 @@ const myTabs = new Tabs(document.getElementById('myTabsRootElement'), {
 The following events will be dispatched on the Tabs' root DOM element:
 
 - `oTabs.ready`: The Tabs object has initialised. Event detail:
-	- `tabs`: The **o-tabs** object.
+  - `tabs`: The **o-tabs** object.
 - `oTabs.tabSelect`: A tab has been selected. Event detail:
-	- `tabs`: The **o-tabs** object.
-	- `selected`: The index of the selected tab.
-	- `lastSelected`: The index of the last selected tab.
+  - `tabs`: The **o-tabs** object.
+  - `selected`: The index of the selected tab.
+  - `lastSelected`: The index of the last selected tab.
 
 ### API
 
@@ -136,15 +139,19 @@ The following API methods are provided:
 
 ## Sass
 
-**o-tabs** comes with either _base styling_, which should be used as a base for you to add your own styling. Or _full styling_ called **buttontabs**; based on the buttons from [o-buttons](https://github.com/Financial-Times/o-buttons)).
+**o-tabs** comes with either _base styling_, which should be used as a base for you to add your own styling. Or _full styling_ called **buttontabs**; based on standard buttons.
 
 To apply the **buttontabs** styling, add a `o-tabs--buttontabs` class to the root element:
 
 ```html
-<ul data-o-component="o-tabs" class="o-tabs o-tabs--buttontabs" role="tablist">
+<ul
+	data-o-component="o-tabs"
+	class="o-tabs o-tabs--buttontabs"
+	role="tablist"
+></ul>
 ```
 
-The **buttontabs** style comes in two sizes that conform to the `o-buttons` sizes: medium and big. Medium is the default size and big can be applied by adding the class `o-tabs--big`.
+The **buttontabs** style comes in two sizes that conform to standard button sizes. Apply the "big" style by default `o-tabs--big`.
 
 ### Options
 
@@ -158,69 +165,78 @@ Output all default `oTabs` styles using `oTabs`.
 @include oTabs();
 ```
 
-Set `oTabs` options to output more [sizes](#sizes) and variations of button tabs ([types](#types) and [themes](#themes) of buttons from [o-buttons](https://registry.origami.ft.com/components/o-buttons/readme)).
+Set `oTabs` options to output more [sizes](#sizes) and variations of button tabs ([types](#types) and [themes](#themes) of buttons.
 
 ```scss
-@include oTabs($opts: (
-	'sizes': ('big'), //.o-tabs--big
-	'button-tabs': (
-		('type': 'primary'), //.o-tabs--primary
-		('type': 'secondary'), //.o-tabs--secondary
-		('type': 'secondary', 'theme': 'inverse'), //.o-tabs--secondary.o-tabs--inverse
+@include oTabs(
+	$opts: (
+		'sizes': (
+			'big',
+		),
+		//.o-tabs--big
+		'button-tabs':
+			(
+				('type': 'primary'),
+				//.o-tabs--primary
+				('type': 'secondary'),
+				//.o-tabs--secondary
+				('type': 'secondary', 'theme': 'inverse'),
+				//.o-tabs--secondary.o-tabs--inverse
+			),
 	)
-));
+);
 ```
 
 ### Sizes
 
 This table outlines all of the possible sizes you can request in the [`oTabs` mixin](#mixin-otabs):
 
-| Size | Notes               | Brand support                |
-|------|---------------------|------------------------------|
+| Size | Notes               | Brand support              |
+| ---- | ------------------- | -------------------------- |
 | big  | Included by default | core, internal, whitelabel |
 
 ### Types
 
-This table outlines the button types you can request in the [`oTabs` mixin](#mixin-otabs). All of these are [types from o-buttons](https://registry.origami.ft.com/components/o-buttons/readme):
+This table outlines the button types you can request in the [`oTabs` mixin](#mixin-otabs):
 
-| Type      | Notes                                    | Brand support                |
-|-----------|------------------------------------------|------------------------------|
-| secondary | Included by default                      | core, internal, whitelabel |
-| primary   | Included by default                      | core, internal, whitelabel |
+| Type      | Notes               | Brand support              |
+| --------- | ------------------- | -------------------------- |
+| secondary | Included by default | core, internal, whitelabel |
+| primary   | Included by default | core, internal, whitelabel |
 
 ### Themes
 
-This table outlines some of the possible button themes you can request in the [`oTabs` mixin](#mixin-otabs) along with [button types](#types). All of these are [themes from o-buttons](https://registry.origami.ft.com/components/o-buttons/readme):
+This table outlines some of the possible button themes you can request in the [`oTabs` mixin](#mixin-otabs) along with [button types](#types):
 
-| Theme     | Notes                                    | Brand support                |
-|-----------|------------------------------------------|------------------------------|
-| inverse   | Included by default                      | core, internal             |
-| mono      | Not included by default                  | core, internal             |
-| b2c       | Not included by default                  | core                       |
+| Theme                | Notes                   | Brand support  |
+| -------------------- | ----------------------- | -------------- |
+| inverse              | Included by default     | core, internal |
+| mono                 | Not included by default | core, internal |
+| professional         | Not included by default | core           |
+| professional-inverse | Not included by default | core           |
 
 ## Keyboard Support
 
 ### When focus is within the tab list
 
-Key|Function
----|---
-Tab | When focus moves into the tab list, places focus on the active tab element. When the tab list already contains the focus, moves focus to the next element in the page tab sequence outside the tablist.
-Left Arrow | Moves focus to the previous tab. If focus is on the first tab, moves focus to the last tab. Activates the tabpanel which is associated with the newly focused tab.
-Right Arrow | Moves focus to the next tab. If focus is on the last tab element, moves focus to the first tab. Activates the tabpanel which is associated with the newly focused tab.
-Space or Enter | Activates the tabpanel which is associated with the focused tab if it was not already activated.
-
+| Key            | Function                                                                                                                                                                                                |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Tab            | When focus moves into the tab list, places focus on the active tab element. When the tab list already contains the focus, moves focus to the next element in the page tab sequence outside the tablist. |
+| Left Arrow     | Moves focus to the previous tab. If focus is on the first tab, moves focus to the last tab. Activates the tabpanel which is associated with the newly focused tab.                                      |
+| Right Arrow    | Moves focus to the next tab. If focus is on the last tab element, moves focus to the first tab. Activates the tabpanel which is associated with the newly focused tab.                                  |
+| Space or Enter | Activates the tabpanel which is associated with the focused tab if it was not already activated.                                                                                                        |
 
 ## Migration Guide
 
-| State | Major Version | Last Minor Release | Migration guide |
-| :---: | :---: | :---: | :---: |
-| ✨ active | 6 | N/A | [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7) |
-| ⚠ maintained | 6 | 6.2 | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
-| ⚠ maintained | 5 | 5.0 | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
-| ⚠ maintained | 4 | 4.3 | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
-| ╳ deprecated | 3 | 3.0 | N/A |
-| ╳ deprecated | 2 | 2.2 | N/A |
-| ╳ deprecated | 1 | 1.0 | N/A |
+|    State     | Major Version | Last Minor Release |                    Migration guide                    |
+| :----------: | :-----------: | :----------------: | :---------------------------------------------------: |
+|  ✨ active   |       6       |        N/A         | [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7) |
+| ⚠ maintained |       6       |        6.2         | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
+| ⚠ maintained |       5       |        5.0         | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+| ⚠ maintained |       4       |        4.3         | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
+| ╳ deprecated |       3       |        3.0         |                          N/A                          |
+| ╳ deprecated |       2       |        2.2         |                          N/A                          |
+| ╳ deprecated |       1       |        1.0         |                          N/A                          |
 
 ## Contact
 
