@@ -2,13 +2,13 @@
 	color: oColorsByName('black');
 
 	.o-teaser__meta {
-		@include oTypographySans($scale: -1, $weight: 'semibold');
+		@include oPrivateTypographySans($scale: -1, $weight: 'semibold');
 		color: $_o-teaser-muted;
 		margin-bottom: oPrivateSpacingByName('s3');
 	}
 
 	.o-teaser__promoted-prefix {
-		@include oTypographySans($scale: 0, $include-font-family: false);
+		@include oPrivateTypographySans($scale: 0);
 		text-transform: uppercase;
 		color: oColorsByName('matisse');
 		display: block;

@@ -1,4 +1,3 @@
-
 /// Base styles for labels.
 ///
 /// @output The output includes all styles for a basic label.
@@ -6,17 +5,20 @@
 ///   @include _oLabelsBaseContent();
 /// @access private
 @mixin _oLabelsBaseContent() {
-	@include oTypographySans(
+	@include oPrivateTypographySans(
 		$scale: _oLabelsGet('font-scale'),
-		$weight: 'semibold',
-		$line-height: 1em
+		$weight: 'semibold'
 	);
+	line-height: 1em;
 	text-align: center;
 	display: inline-block;
 	box-sizing: border-box;
 	margin: 0;
 	text-decoration: none;
-	padding: calc(#{_oLabelsGet('padding-vertical')} - #{_oLabelsGet('border-width')}) calc(#{_oLabelsGet('padding-horizontal')} - #{_oLabelsGet('border-width')});
+	padding: calc(
+			#{_oLabelsGet('padding-vertical')} - #{_oLabelsGet('border-width')}
+		)
+		calc(#{_oLabelsGet('padding-horizontal')} - #{_oLabelsGet('border-width')});
 	color: _oLabelsGet('text-color');
 	background-color: _oLabelsGet('background-color');
 	border: solid _oLabelsGet('border-width') transparent;
@@ -49,7 +51,6 @@
 ///   ));
 /// @access public
 @mixin oLabelsAddState($state-name, $opts: null) {
-
 	// If we have a custom config, we use that instead of one of the
 	// preconfigured states
 	$variant: if($opts, $opts, $state-name);
@@ -95,7 +96,6 @@
 		@include _oLabelsSizeContent($size);
 	}
 }
-
 
 /// Styles for a timestamp label i.e. .o-labels-timestamp.
 /// This mixin is not recommend. Instead the the `oLabels` primary mixin and
@@ -173,9 +173,17 @@
 @mixin _oLabelsSizeContent($size) {
 	$scale: _oLabelsGet('font-scale', $size);
 	@if $scale {
-		@include oTypographySans($scale, $line-height: 1, $include-font-family: false);
+		@include oPrivateTypographySans($scale);
+		line-height: 1;
 	}
-	padding: calc(#{_oLabelsGet('padding-vertical', $size)} - #{_oLabelsGet('border-width')}) calc(#{_oLabelsGet('padding-horizontal', $size)} - #{_oLabelsGet('border-width')});
+	padding: calc(
+			#{_oLabelsGet('padding-vertical', $size)} - #{_oLabelsGet('border-width')}
+		)
+		calc(
+			#{_oLabelsGet('padding-horizontal', $size)} - #{_oLabelsGet(
+					'border-width'
+				)}
+		);
 }
 
 /// Styles for a state.
@@ -194,8 +202,17 @@
 	}
 
 	// Set the spacing
-	@if _oLabelsGet('padding-vertical', $variant) and _oLabelsGet('padding-horizontal', $variant) {
-		padding: calc(#{_oLabelsGet('padding-vertical', $variant)} - #{_oLabelsGet('border-width')}) calc(#{_oLabelsGet('padding-horizontal', $variant)} - #{_oLabelsGet('border-width')});
+	@if _oLabelsGet('padding-vertical', $variant) and
+		_oLabelsGet('padding-horizontal', $variant)
+	{
+		padding: calc(
+				#{_oLabelsGet('padding-vertical', $variant)} -
+					#{_oLabelsGet('border-width')}
+			)
+			calc(
+				#{_oLabelsGet('padding-horizontal', $variant)} -
+					#{_oLabelsGet('border-width')}
+			);
 	}
 }
 
@@ -218,7 +235,7 @@
 	}
 	@extend %_o-labels-timestamp-typography;
 
-	@if($status == 'live') {
+	@if ($status == 'live') {
 		& > %_o-labels-indicator__status:before {
 			animation: _o-labels-live-pulse 1.2s ease-in-out infinite;
 			// Prevent animation of the live label if the reader has indicated
@@ -233,7 +250,7 @@
 		}
 
 		// output keyframes once when live status is output
-		@if($status == 'live' and $_o-labels-indicator-live-pulse-output: false) {
+		@if ($status == 'live' and $_o-labels-indicator-live-pulse-output: false) {
 			$_o-labels-indicator-live-pulse-output: true !global;
 			@keyframes _o-labels-live-pulse {
 				0% {
@@ -253,8 +270,7 @@
 	}
 }
 
-
-@mixin _oLabelIndicatorBadge ($color) {
+@mixin _oLabelIndicatorBadge($color) {
 	background: oColorsByName($color);
 	padding: oPrivateSpacingByName('s1') oPrivateSpacingByName('s2');
 	font-weight: oFontsWeight('bold');

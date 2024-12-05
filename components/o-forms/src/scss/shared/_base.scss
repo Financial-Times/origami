@@ -6,7 +6,7 @@
 	.o-forms-field,
 	.o-forms-title,
 	.o-forms-input {
-		@include oTypographySans(0);
+		@include oPrivateTypographySans(0);
 	}
 
 	.o-forms-field {
@@ -27,7 +27,7 @@
 	}
 
 	.o-forms-field--optional .o-forms-title__main:after {
-		@include oTypographySans($scale: -1, $include-font-family: false);
+		@include oPrivateTypographySans($scale: -1);
 		content: '(optional)';
 		color: _oFormsGet('default-prompt-text');
 		font-weight: 400;
@@ -35,19 +35,18 @@
 	}
 
 	.o-forms-title__main {
-		@include oTypographySans($weight: 'semibold', $include-font-family: false);
+		@include oPrivateTypographySans($weight: 'semibold');
 		display: block;
 	}
 
-
 	.o-forms-input__label__main {
-		@include oTypographySans($weight: 'regular', $include-font-family: false);
+		@include oPrivateTypographySans($weight: 'regular');
 		display: block;
 	}
 
 	.o-forms-input__label__prompt,
 	.o-forms-title__prompt {
-		@include oTypographySans($scale: -1, $include-font-family: false);
+		@include oPrivateTypographySans($scale: -1);
 		color: _oFormsGet('default-prompt-text');
 		display: block;
 	}

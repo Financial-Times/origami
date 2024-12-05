@@ -1,5 +1,5 @@
 @mixin oSubsCardBase {
-	@include oTypographySans(0);
+	@include oPrivateTypographySans(0);
 
 	text-align: center;
 
@@ -24,7 +24,7 @@
 	}
 
 	.o-subs-card__copy-title {
-		@include oTypographySans($scale: 3, $weight: "semibold");
+		@include oPrivateTypographySans($scale: 3, $weight: "semibold");
 
 		margin-bottom: oPrivateSpacingByIncrement(5);
 
@@ -39,7 +39,7 @@
 	}
 
 	.o-subs-card__copy-pitch {
-		@include oTypographySans(0);
+		@include oPrivateTypographySans(0);
 
 		display: inline-block;
 		text-align: center;
@@ -55,10 +55,12 @@
 	}
 
 	.o-subs-card__select-button {
-		@include oButtonsContent($opts: (
-			'type': 'primary',
-			'size': 'big',
-		));
+		@include oPrivateButtonsContent(
+			$opts: (
+				"type": "primary",
+				"size": "big",
+			)
+		);
 		margin-bottom: oPrivateSpacingByName("s1");
 		width: 100%;
 	}
@@ -95,7 +97,7 @@
 	}
 
 	.o-subs-card__read-more {
-		@include oTypographySans($scale: -1, $weight: "semibold");
+		@include oPrivateTypographySans($scale: -1, $weight: "semibold");
 
 		background-color: oColorsByName("wheat");
 		border-width: 0;

@@ -1,6 +1,5 @@
+@import '@financial-times/o-private-foundation/main';
 @import '@financial-times/o-editorial-typography/main';
-@import '@financial-times/o-private-foundation/src/scss/o-spacing/main';
-@import '@financial-times/o-typography/main';
 @import '@financial-times/o-quote/main';
 @import '@financial-times/o-brand/main';
 
@@ -10,27 +9,28 @@
 @import 'src/scss/placeholders';
 
 /// Output All oEditorialLayout Features
-@mixin oEditorialLayout($opts: (
-	'headings': (1, 2, 3, 4, 5),
-	'body': true,
-	'wrapper': true,
-)) {
+@mixin oEditorialLayout(
+	$opts: (
+		'headings': (
+			1,
+			2,
+			3,
+			4,
+			5,
+		),
+		'body': true,
+		'wrapper': true,
+	)
+) {
+	@include oPrivateFoundation();
+
 	$headings: map-get($opts, 'headings');
 	$headings: if($headings, $headings, ());
 	$body: map-get($opts, 'body');
 	$wrapper: map-get($opts, 'wrapper');
 
-	@if($headings and type-of($headings) != 'list') {
+	@if ($headings and type-of($headings) != 'list') {
 		@error ('The "headings" option must be a list of heading levels to include e.g. `(1, 2, 3, 4, 5)`.');
-	}
-
-	// Load fonts within the primary mixin in-case silent mode is on.
-	// Don't load fonts if o-typography has output them already since
-	// `$o-editorial-layout-load-fonts` was set.
-	@if $o-editorial-layout-load-fonts == true and $o-typography-load-fonts == true {
-		@include oFonts();
-		// Set to false so fonts are not output twice by o-editorial-typography.
-		$o-editorial-layout-load-fonts: false !global;
 	}
 
 	@if index($headings, 1) {
@@ -104,15 +104,23 @@
 			}
 
 			> ol {
-				@include oEditorialTypographyList('ordered', $include-base-styles: false);
+				@include oEditorialTypographyList(
+					'ordered',
+					$include-base-styles: false
+				);
 			}
 
 			> ul {
-				@include oEditorialTypographyList('unordered', $include-base-styles: false);
+				@include oEditorialTypographyList(
+					'unordered',
+					$include-base-styles: false
+				);
 			}
 
 			> footer {
-				@include oTypographyFooter;
+				@include oPrivateTypographySans($scale: 1);
+				line-height: 24px;
+				color: oPrivateFoundationGet('o3-color-use-case-body-text');
 			}
 
 			> figure > figcaption,
@@ -123,7 +131,7 @@
 			> blockquote {
 				@include oQuoteEditorial();
 				margin-bottom: oPrivateSpacingByIncrement(7);
-				max-width: oTypographyMaxLineWidth(75);
+				max-width: oPrivateTypographyMaxLineWidth(75);
 
 				cite,
 				footer {
@@ -138,15 +146,12 @@
 
 		.o-editorial-layout-wrapper > p a,
 		.o-editorial-layout-wrapper > a {
-			@include oTypographyLink;
+			@include oPrivateTypographyLink;
 		}
 
 		.o-editorial-layout-wrapper > p strong,
 		.o-editorial-layout-wrapper > strong {
-			@include oTypographySerif(
-				$weight: 'bold',
-				$include-font-family: false
-			);
+			@include oPrivateTypographySerif($weight: 'bold');
 		}
 
 		.o-editorial-layout-wrapper > p em,
@@ -156,13 +161,26 @@
 			font-style: italic;
 		}
 
+		.o-editorial-layout-wrapper > p sub,
 		.o-editorial-layout-wrapper > p sup {
-			@include oTypographySuper();
+			// make superscript smaller and sans-serif
+			// 12px given 18px copy
+			@include oPrivateTypographySans();
+			font-size: 0.666em;
+			// override o-normalise default
+			position: static;
+			line-height: 0;
+			// prevent super increasing line-height
+			display: inline-block;
+			margin-top: -1em;
 		}
 
+		.o-editorial-layout-wrapper > p sup {
+			vertical-align: super;
+		}
 
 		.o-editorial-layout-wrapper > p sub {
-			@include oTypographySub();
+			vertical-align: sub;
 		}
 	}
 }

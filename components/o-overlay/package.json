@@ -1,54 +1,52 @@
 {
-  "name": "@financial-times/o-overlay",
-  "version": "4.2.13",
-  "description": "Configurable custom overlay box that can be used to show overlay windows. The overlays can also be switched to display differently on small screens",
-  "keywords": [
-    "overlay",
-    "modal",
-    "interstitial",
-    "messaging",
-    "popover",
-    "notification",
-    "hover"
-  ],
-  "homepage": "https://registry.origami.ft.com/components/o-overlay",
-  "bugs": {
-    "url": "https://github.com/Financial-Times/origami/issues/new?labels=o-overlay,components",
-    "email": "origami.support@ft.com"
-  },
-  "license": "MIT",
-  "type": "module",
-  "browser": "main.js",
-  "scripts": {
-    "start": "npx serve ./demos/local",
-    "build": "bash ../../scripts/component/build.bash",
-    "test": "bash ../../scripts/component/test.bash",
-    "debug:js": "bash ../../scripts/component/debug-js.bash",
-    "lint": "bash ../../scripts/component/lint.bash",
-    "watch": "bash ../../scripts/component/watch.bash"
-  },
-  "dependencies": {
-    "focusable": "^2.3.0",
-    "ftdomdelegate": "^4.0.0"
-  },
-  "peerDependencies": {
-    "@financial-times/o-brand": "^4.1.0",
-    "@financial-times/o-colors": "^6.5.0",
-    "@financial-times/o-icons": "^7.0.0",
-    "@financial-times/o-normalise": "^3.3.0",
-    "@financial-times/o-private-foundation": "0.0.0",
-    "@financial-times/o-typography": "^7.4.1",
-    "@financial-times/o-viewport": "^5.0.0",
-    "@financial-times/o-private-foundation": "0.0.0"
-  },
-  "devDependencies": {
-    "@financial-times/o-buttons": "^7.8.0",
-    "@financial-times/o-fonts": "^5.2.0",
-    "@financial-times/o-spacing": "^3.0.0",
-    "@financial-times/o-normalise": "^3.3.0"
-  },
-  "engines": {
-    "npm": ">7"
-  },
-  "private": false
+	"name": "@financial-times/o-overlay",
+	"version": "4.2.13",
+	"description": "Configurable custom overlay box that can be used to show overlay windows. The overlays can also be switched to display differently on small screens",
+	"keywords": [
+		"overlay",
+		"modal",
+		"interstitial",
+		"messaging",
+		"popover",
+		"notification",
+		"hover"
+	],
+	"homepage": "https://registry.origami.ft.com/components/o-overlay",
+	"bugs": {
+		"url": "https://github.com/Financial-Times/origami/issues/new?labels=o-overlay,components",
+		"email": "origami.support@ft.com"
+	},
+	"license": "MIT",
+	"type": "module",
+	"browser": "main.js",
+	"scripts": {
+		"start": "npx serve ./demos/local",
+		"build": "bash ../../scripts/component/build.bash",
+		"test": "bash ../../scripts/component/test.bash",
+		"debug:js": "bash ../../scripts/component/debug-js.bash",
+		"lint": "bash ../../scripts/component/lint.bash",
+		"watch": "bash ../../scripts/component/watch.bash"
+	},
+	"dependencies": {
+		"focusable": "^2.3.0",
+		"ftdomdelegate": "^4.0.0"
+	},
+	"peerDependencies": {
+		"@financial-times/o-brand": "^4.1.0",
+		"@financial-times/o-colors": "^6.5.0",
+		"@financial-times/o-icons": "^7.0.0",
+		"@financial-times/o-normalise": "^3.3.0",
+		"@financial-times/o-viewport": "^5.0.0",
+		"@financial-times/o-private-foundation": "0.0.0"
+	},
+	"devDependencies": {
+		"@financial-times/o-buttons": "^7.8.0",
+		"@financial-times/o-fonts": "^5.2.0",
+		"@financial-times/o-spacing": "^3.0.0",
+		"@financial-times/o-normalise": "^3.3.0"
+	},
+	"engines": {
+		"npm": ">7"
+	},
+	"private": false
 }

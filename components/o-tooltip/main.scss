@@ -1,6 +1,5 @@
 @import '@financial-times/o-private-foundation/main';
 @import '@financial-times/o-overlay/main';
-@import '@financial-times/o-typography/main';
 
 @import 'src/scss/variables';
 @import 'src/scss/brand';
@@ -63,7 +62,7 @@
 	}
 
 	.o-tooltip-content {
-		@include oTypographySans();
+		font-family: '#{oPrivateFoundationGet('o3-font-family-metric')}', sans-serif;
 		position: relative;
 		box-sizing: border-box;
 		overflow: auto;

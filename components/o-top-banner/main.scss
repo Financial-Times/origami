@@ -1,7 +1,6 @@
 @import '@financial-times/o-private-foundation/main';
 @import '@financial-times/o-brand/main';
 @import '@financial-times/o-colors/main';
-@import '@financial-times/o-typography/main';
 
 @import './src/scss/variables';
 @import 'src/scss/brand';
@@ -36,19 +35,21 @@
 	.o-top-banner__container {
 		display: inline-flex;
 		align-items: center;
-		padding: oPrivateSpacingByName('s4') oPrivateGridGutter(S) oPrivateSpacingByName('s2')
-			oPrivateGridGutter(S);
+		padding: oPrivateSpacingByName('s4') oPrivateGridGutter(S)
+			oPrivateSpacingByName('s2') oPrivateGridGutter(S);
 		gap: oPrivateSpacingByName('s4') oPrivateSpacingByName('l24');
 		flex-wrap: wrap;
 		@include oPrivateGridRespondTo(S) {
-			padding: oPrivateSpacingByName('s8') oPrivateGridGutter(M) oPrivateSpacingByName('s6')
-				oPrivateGridGutter(M);
+			padding: oPrivateSpacingByName('s8') oPrivateGridGutter(M)
+				oPrivateSpacingByName('s6') oPrivateGridGutter(M);
 		}
 	}
 
 	.o-top-banner__content {
 		flex-grow: 1;
-		max-width: oTypographyMaxLineWidth($optimal-characters-per-line: 100);
+		max-width: oPrivateTypographyMaxLineWidth(
+			$optimal-characters-per-line: 100
+		);
 	}
 
 	.o-top-banner__heading,
@@ -58,23 +59,17 @@
 	}
 
 	.o-top-banner__heading {
-		@include oTypographySans(
-			$scale: (
-				'default': 2,
-				'S': 3,
-			),
-			$weight: semibold
-		);
+		@include oPrivateTypographySans($scale: 2, $weight: semibold);
+		@include oPrivateGridRespondTo('S') {
+			@include oPrivateTypographySans($scale: 3, $weight: semibold);
+		}
 	}
 
 	.o-top-banner__copy {
-		@include oTypographySans(
-			$scale: (
-				'default': 0,
-				'S': 1,
-			),
-			$weight: regular
-		);
+		@include oPrivateTypographySans($scale: 0, $weight: regular);
+		@include oPrivateGridRespondTo('S') {
+			@include oPrivateTypographySans($scale: 1, $weight: regular);
+		}
 	}
 
 	@each $theme in $themes {
@@ -138,13 +133,16 @@
 				color: $heading-color;
 			}
 			@if ($heading-font-weight) {
-				@include oTypographySans(
-					$scale: (
-						'default': 2,
-						'S': 3,
-					),
+				@include oPrivateTypographySans(
+					$scale: 2,
 					$weight: $heading-font-weight
 				);
+				@include oPrivateGridRespondTo('S') {
+					@include oPrivateTypographySans(
+						$scale: 3,
+						$weight: $heading-font-weight
+					);
+				}
 			}
 		}
 	}
@@ -153,8 +151,8 @@
 		.o-top-banner__container {
 			padding-bottom: oPrivateSpacingByIncrement(4);
 			@include oPrivateGridRespondTo(S) {
-				padding: oPrivateSpacingByIncrement(7) oPrivateGridGutter(M) oPrivateSpacingByIncrement(7)
-					oPrivateGridGutter(M);
+				padding: oPrivateSpacingByIncrement(7) oPrivateGridGutter(M)
+					oPrivateSpacingByIncrement(7) oPrivateGridGutter(M);
 			}
 		}
 	}

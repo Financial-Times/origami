@@ -11,7 +11,8 @@
 /// @access private
 @mixin _oLayoutTypography() {
 	.o-layout-typography {
-		@include oTypographySans($scale: 1, $line-height: 1.4);
+		@include oPrivateTypographySans($scale: 1);
+		line-height: 1.4;
 
 		p:not(.o-layout__unstyled-element),
 		a:not(.o-layout__unstyled-element),
@@ -27,36 +28,37 @@
 		}
 
 		p:not(.o-layout__unstyled-element) {
-			@include oTypographyBody;
-			@include oTypographySans($scale: 1, $line-height: 1.4);
+			@include oPrivateTypographyBody();
+			@include oPrivateTypographySans($scale: 1);
+			line-height: 1.4;
 		}
 
 		a:not(.o-layout__unstyled-element) {
-			@include oTypographyLink();
+			@include oPrivateTypographyLink();
 		}
 
 		h1:not(.o-layout__unstyled-element) {
-			@include oTypographyHeading($level: 1);
+			@include oPrivateTypographyHeading($level: 1);
 		}
 
 		h2:not(.o-layout__unstyled-element) {
-			@include oTypographyHeading($level: 2);
+			@include oPrivateTypographyHeading($level: 2);
 		}
 
 		h3:not(.o-layout__unstyled-element) {
-			@include oTypographyHeading($level: 3);
+			@include oPrivateTypographyHeading($level: 3);
 		}
 
 		h4:not(.o-layout__unstyled-element) {
-			@include oTypographyHeading($level: 4);
+			@include oPrivateTypographyHeading($level: 4);
 		}
 
 		h5:not(.o-layout__unstyled-element) {
-			@include oTypographyHeading($level: 5);
+			@include oPrivateTypographyHeading($level: 5);
 		}
 
 		h6:not(.o-layout__unstyled-element) {
-			@include oTypographyHeading($level: 6);
+			@include oPrivateTypographyHeading($level: 6);
 		}
 
 		aside:not(.o-layout__unstyled-element) {
@@ -64,17 +66,12 @@
 			align-self: flex-start;
 		}
 
-		ol:not(.o-layout__unstyled-element),
 		ul:not(.o-layout__unstyled-element) {
-			@include oTypographyList();
-		}
-
-		ul:not(.o-layout__unstyled-element) {
-			@include oTypographyList($type: 'unordered', $include-base-styles: false);
+			@include oPrivateTypographyList($type: 'unordered');
 		}
 
 		ol:not(.o-layout__unstyled-element) {
-			@include oTypographyList($type: 'ordered', $include-base-styles: false);
+			@include oPrivateTypographyList($type: 'ordered');
 		}
 
 		blockquote:not(.o-layout__unstyled-element) {
@@ -90,7 +87,10 @@
 		}
 
 		figcaption:not(.o-layout__unstyled-element) {
-			@include oTypographyCaption();
+			@include oPrivateTypographySans($scale: -1);
+			margin-top: oPrivateSpacingByName('s2');
+			margin-bottom: 0;
+			color: oPrivateFoundationGet('o3-color-use-case-body-text');
 		}
 
 		figure,
@@ -127,7 +127,7 @@
 	.o-layout__navigation > ol {
 		border: 0;
 		text-align: left;
-		margin: 0 0 oPrivateSpacingByIncrement(7); // matches `oTypographyBody`
+		margin: 0 0 oPrivateSpacingByIncrement(7); // matches typography body
 
 		@include oPrivateGridRespondTo($from: M) {
 			text-align: right;
@@ -141,8 +141,8 @@
 			}
 
 			a {
-				@include oTypographySans(1);
-				@include oTypographyLink();
+				@include oPrivateTypographySans(1);
+				@include oPrivateTypographyLink();
 				display: inline-block;
 				padding: 0.4em 1em;
 				// Where supported `overflow-wrap: anywhere` is better than
@@ -164,15 +164,14 @@
 
 			// Remove standard Origami link decoration styles.
 			// This is in its own declaration to ensure correct
-			// source order after compilation because `oTypographyLink`
-			// uses `@supports`
+			// source order.
 			a {
 				border-bottom: inherit;
 				text-decoration: none;
 			}
 
 			&.o-layout__navigation-title a {
-				@include oTypographySans($weight: 'semibold', $include-font-family: false);
+				@include oPrivateTypographySans($weight: 'semibold');
 				@include oPrivateGridRespondTo($from: M) {
 					border: 0;
 				}
@@ -180,7 +179,7 @@
 
 			// For sub-nav headings, where there is no parent anchor.
 			span {
-				@include oTypographySans(1);
+				@include oPrivateTypographySans(1);
 				display: inline-block;
 				padding: 0.4em 1em;
 			}

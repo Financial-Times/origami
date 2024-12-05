@@ -53,7 +53,7 @@
 
 	// Drop down list.
 	.o-header-services__primary-nav ul[data-o-header-services-level='2'] {
-		@include oTypographySans(-1);
+		@include oPrivateTypographySans(-1);
 		background: _oHeaderServicesGet('nav-background');
 		border: 1px solid _oHeaderServicesGet('nav-border');
 		left: -1px;

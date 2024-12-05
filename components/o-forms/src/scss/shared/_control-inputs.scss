@@ -54,12 +54,8 @@
 /// @access private
 /// @output Shared styles for box-style containers
 @mixin _oFormsControlsBoxContainer {
-	@include oTypographySans(
-		$scale: -1,
-		$line-height: unset,
-		$weight: 'semibold',
-		$include-font-family: false
-	);
+	@include oPrivateTypographySans($scale: -1, $weight: 'semibold');
+	line-height: unset;
 	box-sizing: border-box;
 	border: $_o-forms-border;
 	display: inline-flex;

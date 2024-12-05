@@ -2,8 +2,7 @@
 @import '@financial-times/o-colors/main';
 @import '@financial-times/o-icons/main';
 @import '@financial-times/o-grid/main';
-@import '@financial-times/o-typography/main';
-@import '@financial-times/o-private-foundation/src/scss/o-spacing/main';
+@import '@financial-times/o-private-foundation/main';
 
 @import 'src/scss/brand';
 @import 'src/scss/mixins';
@@ -13,12 +12,22 @@
 /// @param {map} $opts [('logo': 'ftlogo-v1:origami', 'icons': ('slack', 'github'), 'brand-strip': true)] - A map of optional footer features to output, including the footer logo, list of social icon links, and "a Nikkei company" brand strip.
 /// @param {bool} $include-base-styles [true] - Whether to output fundamental o-footer-services styles required by the optional features.
 /// @access public
-@mixin oFooterServices($opts: (
-	'logo': false,
-	'icons': ('slack', 'github'),
-	'brand-strip': true,
-	'themes': ('dark')
-), $include-base-styles: true) {
+@mixin oFooterServices(
+	$opts: (
+		'logo': false,
+		'icons': (
+			'slack',
+			'github',
+		),
+		'brand-strip': true,
+		'themes': (
+			'dark',
+		),
+	),
+	$include-base-styles: true
+) {
+	@include oPrivateFoundation();
+
 	$logo: map-get($opts, 'logo');
 	$icons: map-get($opts, 'icons');
 	$themes: map-get($opts, 'themes');
@@ -26,22 +35,31 @@
 
 	// Error if the global $system-code variable is not set.
 	// This is required for image service requests.
-	@if(global-variable-exists('system-code') == false or type-of($system-code) != 'string') {
+	@if (
+		global-variable-exists('system-code') ==
+			false or
+			type-of($system-code) !=
+			'string'
+	) {
 		@error 'A global "$system-code" Sass variable must be set to a valid [Bizops system code](https://biz-ops.in.ft.com/list/Systems).';
 	}
 
 	// Output fundamental o-footer-services styles required by all users.
-	@if($include-base-styles) {
+	@if ($include-base-styles) {
 		.o-footer-services {
 			@include _oFooterServicesBase();
 			// include default theme with base styles
-			@include _oFooterServicesTheme($theme-name: null, $icons: $icons, $brand-strip: $include-brand-strip);
+			@include _oFooterServicesTheme(
+				$theme-name: null,
+				$icons: $icons,
+				$brand-strip: $include-brand-strip
+			);
 		}
 	}
 
 	// Include structural styles for the brand strip,
 	// background and logo colours are applied by the theme.
-	@if($include-brand-strip) {
+	@if ($include-brand-strip) {
 		.o-footer-services__container--brand {
 			&:before {
 				content: initial;
@@ -57,17 +75,17 @@
 	}
 
 	// Output classes for a logo in the footer.
-	@if($logo) {
+	@if ($logo) {
 		.o-footer-services__logo {
 			@include _oFooterServicesLogo($logo);
 		}
 	}
 
 	// Output classes for footer icons.
-	@if($icons) {
+	@if ($icons) {
 		.o-footer-services__icon-link {
-			@include oTypographySans($weight: 'semibold', $include-font-family: false);
-			@include oTypographyLink();
+			@include oPrivateTypographySans($weight: 'semibold');
+			@include oPrivateTypographyLink();
 			// Remove link underline.
 			border-bottom: 0;
 			@supports (text-decoration-thickness: 0.25ex) {
@@ -96,9 +114,13 @@
 		}
 	}
 
-	@if(index($themes, 'dark') and _oFooterServicesSupports('dark')) {
+	@if (index($themes, 'dark') and _oFooterServicesSupports('dark')) {
 		.o-footer-services--dark {
-			@include _oFooterServicesTheme($theme-name: 'dark', $icons: $icons, $brand-strip: $include-brand-strip);
+			@include _oFooterServicesTheme(
+				$theme-name: 'dark',
+				$icons: $icons,
+				$brand-strip: $include-brand-strip
+			);
 		}
 	}
 }
