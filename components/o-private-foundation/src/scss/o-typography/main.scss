@@ -42,24 +42,20 @@
 	$weight: null,
 	$style: null
 ) {
-	// Adjust scale down, to support migrating from
-	// Metric2 to Metric. Metric2 renders larger for the same font-size.
 	@if $scale {
-		$scale: $scale - 1;
-
 		// The font scale to use. o3 includes multiple scales.
+		// Adjust scale down, to support migrating from
+		// Metric2 to Metric. Metric2 renders larger for the same font-size.
 		$scale-key: '-'; // Default scale
 		@if ($font == 'metric') {
 			$scale-key: '-metric2-'; // Metric2 scale
+			$scale: $scale - 1;
 		}
 
 		// The font scale number as a key.
 		$scale-item-key: '#{$scale}';
-		@if ($scale == -1) {
-			$scale-item-key: 'negative-1';
-		}
-		@if ($scale == -2) {
-			$scale-item-key: 'negative-2';
+		@if ($scale < 0) {
+			$scale-item-key: 'negative#{$scale}';
 		}
 		font-family: '#{oPrivateFoundationGet('o3-font-family-#{$font}')}',
 			sans-serif;
@@ -180,23 +176,34 @@
 /// @param {Map} $theme - A custom theme to change the look of a link, with colours for properties `base` (the main link colour), `hover` (the links over colour), and optional `context` key. Context is the colour the link will be placed on, it defaults to the page background (paper for the core brand, white otherwise).
 @mixin oPrivateTypographyLinkThemeOverride($theme) {
 	$base-color: map-get($theme, 'base');
+	$base-color: _oPrivateTypographyGetColourFrom($base-color);
+
 	$hover-color: map-get($theme, 'hover');
+	$hover-color: _oPrivateTypographyGetColourFrom($hover-color);
+
 	$context-color: map-get($theme, 'context');
-	$decoration-color: map-get($theme, 'base-decoration');
-	$hover-decoration-color: map-get($theme, 'hover-decoration');
+	$context-color: _oPrivateTypographyGetColourFrom($context-color);
 	@if (not $context-color) {
 		$context-color: oPrivateFoundationGet('o3-color-use-case-page-background');
 	}
 
+	$decoration-color: map-get($theme, 'base-decoration');
+	$decoration-color: _oPrivateTypographyGetColourFrom($decoration-color);
+
+	$hover-decoration-color: map-get($theme, 'hover-decoration');
+	$hover-decoration-color: _oPrivateTypographyGetColourFrom(
+		$hover-decoration-color
+	);
+
 	// Validate required theme colours.
 	@if (type-of($base-color) != 'color') {
-		@error 'A custom link theme must have a `base` property with a colour or palette colour name e.g. `claret`. But found #{$theme-base}.';
+		@error 'A custom link theme must have a `base` property with a colour or palette colour name e.g. `claret`. But found #{$base-color}.';
 	}
 	@if (type-of($hover-color) != 'color') {
-		@error 'A custom link theme must have a `hover` property with a color or palette colour name e.g. `claret`. But found #{$theme-hover}.';
+		@error 'A custom link theme must have a `hover` property with a color or palette colour name e.g. `claret`. But found #{$hover-color}.';
 	}
 	@if (type-of($context-color) != 'color') {
-		@error 'A custom link theme may optionally have a `context` property with a color or palette colour name, to indicate the colour of the page behind the link, e.g. `null` or `paper`. But found #{$theme-context}.';
+		@error 'A custom link theme may optionally have a `context` property with a color or palette colour name, to indicate the colour of the page behind the link, e.g. `null` or `paper`. But found #{$context-color}.';
 	}
 
 	// Generate optional theme colours.
@@ -355,11 +362,6 @@
 
 	$heading-key: nth($headings, $level);
 
-	// Get heading styles from brand config (see _brand.scss)
-	// If weight is not given default to regular, to override browser defaults.
-	$weight: _oTypographyGet('weight', $from);
-	$weight: if($weight, $weight, 'regular');
-
 	$heading-levels-with-attributes: (
 		'heading-level-one': (
 			'scale': 5,
@@ -387,11 +389,27 @@
 		),
 	);
 
-	$heading-attributes: map-get($heading-level-attributes, $heading-key);
+	$heading-attributes: map-get($heading-levels-with-attributes, $heading-key);
 	@include oTypographySans(
 		$scale: map-get($heading-attributes, 'scale'),
 		$weight: map-get($heading-attributes, 'weight')
 	);
 	color: oPrivateFoundationGet('o3-color-use-case-body-text');
 	margin: 0 0 oPrivateSpacingByName('s4');
+}
+
+/// A string representation of a hex value should be treated as a colour.
+/// @param {String|Color|Null} $theme-value - A colour or palette colour name.
+/// @return {Color|Null} - A colour, or pass through null.
+@function _oPrivateTypographyGetColourFrom($theme-value) {
+	@if (type-of($theme-value) == 'string') {
+		$theme-value: unquote($theme-value);
+	}
+	// If we still have a string, assume it's a palette colour name.
+	$theme-value: if(
+		type-of($theme-value) == 'string',
+		oPrivateFoundationGet('o3-color-palette-#{$theme-value}'),
+		$theme-value
+	);
+	@return $theme-value;
 }
