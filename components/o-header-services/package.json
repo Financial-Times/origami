@@ -32,7 +32,6 @@
 		"@financial-times/o-utils": "^2.0.0"
 	},
 	"devDependencies": {
-		"@financial-times/o-fonts": "^5.2.0",
 		"@financial-times/o-normalise": "^3.3.0"
 	},
 	"engines": {
