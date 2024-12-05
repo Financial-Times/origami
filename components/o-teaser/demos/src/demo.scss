@@ -1,7 +1,7 @@
+@import '@financial-times/o-normalise/main';
 @import '../../main';
 
 @include oNormalise();
-@include oFonts();
 @include oTeaser();
 
 body {
@@ -9,15 +9,31 @@ body {
 }
 
 .demo-container {
-	@include oPrivateGridColspan((default: 12, M: 6, XL: 4));
+	@include oPrivateGridColspan(
+		(
+			default: 12,
+			M: 6,
+			XL: 4,
+		)
+	);
 	width: 100%;
 	padding: 20px;
 
 	&--large {
-		@include oPrivateGridColspan((default: 12, L: 4));
+		@include oPrivateGridColspan(
+			(
+				default: 12,
+				L: 4,
+			)
+		);
 
 		&.demo-container--top-story {
-			@include oPrivateGridColspan((default: 12, L: 12));
+			@include oPrivateGridColspan(
+				(
+					default: 12,
+					L: 12,
+				)
+			);
 		}
 	}
 
