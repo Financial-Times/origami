@@ -78,7 +78,7 @@
 			@include oIconsContent(
 				'arrow-right',
 				_oHeaderServicesGet('arrow-icon-color'),
-				oSpacingByName('s4')
+				oPrivateSpacingByName('s4')
 			);
 			content: '';
 			position: relative;
