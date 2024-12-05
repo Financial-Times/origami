@@ -16,14 +16,14 @@
 	@include oBrandDefine('o-share', 'core', (
 		'variables': (
 			'size': $o-share-icon-size,
-			'border-color': oPrivateFoundationGet($o-share-default-icon-border-color),
-			'color': oPrivateFoundationGet($o-share-default-icon-text-color),
+			'border-color': oPrivateColorsByUseCase('o-share/default-icon', 'border'),
+			'color': oPrivateColorsByUseCase('o-share/default-icon', 'text'),
 			'small': (
 				'size': $o-share-icon-small-size,
 				'margin': oPrivateSpacingByName('s3'),
 			),
 			'inverse': (
-				'border-color': oPrivateColorsMix('slate', 'white', 50),
+				'border-color': oPrivateColorsMix('o3-color-palette-slate', 'o3-color-palette-white', 50),
 				'color': oPrivateFoundationGet('o3-color-palette-white'),
 			)
 		),
@@ -42,7 +42,7 @@
 				'margin': oPrivateSpacingByName('s3'),
 			),
 			'inverse': (
-				'border-color': oPrivateColorsMix('slate', 'white', 50),
+				'border-color': oPrivateColorsMix('o3-color-palette-slate', 'o3-color-palette-white', 50),
 				'color': oPrivateFoundationGet('o3-color-palette-white'),
 			)
 		),
