@@ -1,5 +1,5 @@
 @mixin _oTopperAnchorLink {
-	@include oTypographySans(0);
+	@include oPrivateTypographySans(0);
 	display: inline-block;
 	width: 110px;
 	padding: 5px 0 0 10px;
@@ -15,7 +15,11 @@
 	}
 
 	&:after {
-		@include oIconsContent('arrow-down', oPrivateColorsByUseCase('link', 'text'), $size: 20);
+		@include oIconsContent(
+			'arrow-down',
+			oPrivateColorsByUseCase('link', 'text'),
+			$size: 20
+		);
 		content: '';
 		display: block;
 		position: relative;
@@ -30,7 +34,7 @@
 
 	%_o-topper__tag,
 	.o-topper__headline {
-		@include oTypographySans(6);
+		@include oPrivateTypographySans(6);
 		font-weight: 400;
 	}
 
@@ -52,7 +56,11 @@
 		border-color: oPrivateFoundationGet('o3-color-palette-lemon');
 
 		&:after {
-			@include oIconsContent('arrow-down', oPrivateFoundationGet('o3-color-palette-lemon'), $size: null, $include-base-styles: false);
+			@include oIconsContent('arrow-down',
+				oPrivateFoundationGet('o3-color-palette-lemon'),
+				$size: null,
+				$include-base-styles: false
+			);
 		}
 
 		&:hover {
@@ -71,7 +79,12 @@
 		color: oColorsByName('white');
 
 		&:after {
-			@include oIconsContent('arrow-down', oColorsByName('lemon'), $size: null, $include-base-styles: false);
+			@include oIconsContent(
+				'arrow-down',
+				oColorsByName('lemon'),
+				$size: null,
+				$include-base-styles: false
+			);
 		}
 
 		&:hover {

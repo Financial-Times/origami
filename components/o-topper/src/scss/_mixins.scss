@@ -18,7 +18,7 @@
 	}
 }
 
-@mixin _oTopperThemes($themes,$colors) {
+@mixin _oTopperThemes($themes, $colors) {
 	@include _oTopperThemeElements($themes);
 
 	@if index($themes, 'basic') {
@@ -78,7 +78,9 @@
 		}
 	}
 
-	@if index($themes, 'full-bleed-image-center') or index($themes, 'full-bleed-image-left') {
+	@if index($themes, 'full-bleed-image-center') or
+		index($themes, 'full-bleed-image-left')
+	{
 		.o-topper--full-bleed-image-center,
 		.o-topper--full-bleed-image-left {
 			@include _oTopperThemeFullBleedImage;
@@ -111,9 +113,7 @@
 	// in use on ft.com / app already:
 	// https://financialtimes.atlassian.net/browse/CI-944
 	@if index($themes, 'news-package') {
-		.o-topper--news-package {
-			@include _oTopperThemeNewsPackage;
-		}
+		@error 'The news package topper theme no longer exists. Please speak to Origami if your project depends on this.';
 	}
 
 	@if index($themes, 'centered') {
@@ -121,7 +121,7 @@
 			@include _oTopperCentered;
 		}
 	}
-	
+
 	@if index($themes, 'deep-portrait') {
 		.o-topper--deep-portrait {
 			@include _oTopperThemeSplitTextPortraitLeft($colors);
@@ -254,7 +254,11 @@
 	$background: oPrivateFoundationGet($color-name);
 	$foreground: oPrivateColorsGetTextColor($background, $opacity: 100);
 	$link-text-color: oPrivateColorsByUseCase('link', 'text');
-	$link-contrasts-with-background: oPrivateColorsGetContrastRatio($background, $link-text-color) > 4.5;
+	$link-contrasts-with-background: oPrivateColorsGetContrastRatio(
+	$background,
+	$link-text-color
+	)
+	> 4.5;
 	// include oTopperColor on a parent then extend this placeholder on a
 	// descendent to lend that descendent the color you specified in the mixin
 	.o-topper__background,
@@ -262,12 +266,11 @@
 		background-color: $background;
 	}
 
-
 	.o-topper__standfirst,
 	.o-topper__summary {
 		@if $link-contrasts-with-background {
 			a {
-				@include oTypographyLink();
+				@include oPrivateTypographyLink();
 			}
 		} @else {
 			a {
@@ -310,7 +313,7 @@
 			color: oPrivateColorsMix($foreground, $color-name, 73);
 		}
 	}
-	
+
 	.o-topper__image-caption {
 		color: oPrivateColorsMix($foreground, $color-name, 73);
 	}
@@ -340,7 +343,7 @@
 	}
 
 	@if $color-name == 'matisse' {
-		.o-topper__columnist-name {			
+		.o-topper__columnist-name {
 			&:hover {
 				color: oPrivateColorsMix($foreground, $color-name, 73);
 			}
@@ -352,9 +355,21 @@
 }
 
 @mixin _oTopperAlignText($position) {
-	$mleft: ('left': 0, 'center': auto, 'right': auto);
-	$mright: ('left': auto, 'center': auto, 'right': 0);
-	$value: ('left': flex-start, 'center': center, 'right': flex-end);
+	$mleft: (
+		'left': 0,
+		'center': auto,
+		'right': auto,
+	);
+	$mright: (
+		'left': auto,
+		'center': auto,
+		'right': 0,
+	);
+	$value: (
+		'left': flex-start,
+		'center': center,
+		'right': flex-end,
+	);
 
 	.o-topper__headline--large {
 		&:after {
@@ -376,8 +391,11 @@
 @mixin _oTopperDefineOnce($label) {
 	@if not map-has-key($_o-topper-defined, $label) {
 		@content;
-		$_o-topper-defined: map-merge($_o-topper-defined, (
-			$label: true
-		)) !global;
+		$_o-topper-defined: map-merge(
+			$_o-topper-defined,
+			(
+				$label: true,
+			)
+		) !global;
 	}
 }

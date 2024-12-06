@@ -4,7 +4,6 @@
 @import '@financial-times/o-icons/main';
 @import '@financial-times/o-loading/main';
 @import '@financial-times/o-private-foundation/main';
-@import '@financial-times/o-typography/main';
 
 @import 'src/scss/variables';
 @import 'src/scss/brand';
@@ -25,7 +24,7 @@
 	}
 
 	.o-autocomplete__listbox-container {
-		@include oTypographySans($scale: 0);
+		@include oPrivateTypographySans($scale: 0);
 		grid-row: 1;
 		grid-column: 1;
 	}

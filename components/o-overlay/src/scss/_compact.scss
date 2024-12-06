@@ -11,15 +11,18 @@
 			padding: oPrivateSpacingByName('s3');
 		}
 		.o-overlay__heading {
-			@include oTypographySans($scale: 0, $include-font-family: false);
+			@include oPrivateTypographySans($scale: 0);
 		}
 		.o-overlay__title {
-			margin-top: oPrivateSpacingByName('s2'); // Actually 10px - line-height adds some space too
+			margin-top: oPrivateSpacingByName(
+				's2'
+			); // Actually 10px - line-height adds some space too
 			margin-bottom: oPrivateSpacingByName('s1');
 			margin-left: oPrivateSpacingByName('s3');
 		}
 		.o-overlay__close {
-			margin: oPrivateSpacingByName('s2') oPrivateSpacingByName('s2') oPrivateSpacingByName('s2') oPrivateSpacingByName('s3');
+			margin: oPrivateSpacingByName('s2') oPrivateSpacingByName('s2')
+				oPrivateSpacingByName('s2') oPrivateSpacingByName('s3');
 		}
 	}
 }

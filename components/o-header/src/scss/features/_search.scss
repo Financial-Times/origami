@@ -30,7 +30,7 @@
 	}
 
 	.o-header__search-term {
-		@include oTypographySans($scale: -1);
+		@include oPrivateTypographySans($scale: -1);
 		box-sizing: border-box;
 		height: 32px; // match overridden button height
 		vertical-align: middle;
@@ -79,7 +79,7 @@
 	}
 
 	.o-header__search-close {
-		@include oTypographySans($scale: 1);
+		@include oPrivateTypographySans($scale: 1);
 		text-decoration: underline;
 		background: none;
 		padding: 0;

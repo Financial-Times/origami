@@ -12,10 +12,12 @@
 
 /// Single related content item styles
 @mixin _oTeaserRelatedItem {
-	@include oTypographySans(
-		$scale: (default: (-1, 22px), L: (0, 24px)),
-		$include-font-family: false
-	);
+	@include oPrivateTypographySans(-1);
+	line-height: 22px;
+	@include oPrivateGridRespondTo('L') {
+		@include oPrivateTypographySans(0);
+		line-height: 24px;
+	}
 	color: $_o-teaser-muted;
 
 	&:hover,

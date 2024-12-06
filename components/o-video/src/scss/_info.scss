@@ -58,7 +58,7 @@
 	}
 
 	.o-video__info-brand {
-		@include oTypographyLink;
+		@include oPrivateTypographyLink;
 		line-height: 15px;
 		display: inline-block;
 		padding: 2px 10px 3px;

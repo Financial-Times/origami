@@ -35,7 +35,7 @@
 			}
 
 			a {
-				@include oTypographyLink(
+				@include oPrivateTypographyLink(
 					$theme: (
 						"base": "teal-40",
 						"hover": "teal-30",
@@ -62,8 +62,12 @@
 		}
 	}
 	#coral {
-		--font-family-primary: #{inspect(oTypographyGetFontFamily("sans"))};
-		--font-family-secondary: #{inspect(oTypographyGetFontFamily("sans"))};
+		--font-family-primary: #{inspect(
+				oPrivateFoundationGet("o3-font-family-metric")
+			)};
+		--font-family-secondary: #{inspect(
+				oPrivateFoundationGet("o3-font-family-metric")
+			)};
 		--font-weight-primary-bold: 600;
 		--font-weight-primary-semiBold: 500;
 		--font-weight-primary-regular: 400;
@@ -132,7 +136,7 @@
 		}
 
 		.coral-guidelines a {
-			@include oTypographyLink(
+			@include oPrivateTypographyLink(
 				$theme: (
 					"base": "teal-40",
 					"hover": "teal-30",
@@ -544,7 +548,7 @@
 		.coral-myComment-viewConversationButton,
 		.coral-myComments-viewConversationButton,
 		.coral-featuredComment-goToConversationButton {
-			@include oTypographyLink;
+			@include oPrivateTypographyLink;
 
 			color: oPrivateColorsByUseCase(link, text) !important;
 

@@ -53,7 +53,7 @@
 
 	.o-cookie-message__inner {
 		@include oPrivateVisualEffectsShadowContent('high');
-		@include oTypographySans($scale: 0);
+		@include oPrivateTypographySans($scale: 0);
 		// sass-lint:disable no-vendor-prefixes
 		-webkit-font-smoothing: antialiased;
 		// sass-lint:enable no-vendor-prefixes
@@ -84,7 +84,7 @@
 		// have chosen to use custom markup.
 		// @breaking - remove `.o-cookie-message__content h1` styles
 		h1 {
-			@include oTypographySans($scale: 0);
+			@include oPrivateTypographySans($scale: 0);
 		}
 	}
 
@@ -107,18 +107,15 @@
 	.o-cookie-message__heading,
 	.o-cookie-message__heading h1,
 	.o-cookie-message__heading h2 {
-		@include oTypographySans(
-			$scale: (
-				'default': 2,
-				'M': 3,
-			),
-			$weight: 'semibold'
-		);
+		@include oPrivateTypographySans($scale: 2, $weight: 'semibold');
+		@include oPrivateGridRespondTo($until: M) {
+			@include oPrivateTypographySans($scale: 3, $weight: 'semibold');
+		}
 		margin: 0;
 	}
 
 	.o-cookie-message__actions {
-		@include oTypographySans($scale: 2);
+		@include oPrivateTypographySans($scale: 2);
 		display: flex;
 		align-items: center;
 		margin-top: oPrivateSpacingByName('s6');
@@ -161,8 +158,9 @@
 	}
 
 	.o-cookie-message__link {
-		@include oTypographySans($scale: 0);
-		@include oTypographyLink($theme: $link-theme);
+		@include oPrivateTypographySans($scale: 0);
+		@include oPrivateTypographyLink();
+		@include oPrivateTypographyLinkThemeOverride($theme: $link-theme);
 		white-space: nowrap;
 	}
 }
@@ -194,7 +192,8 @@
 		}
 
 		.o-cookie-message__link {
-			@include oTypographyLink($theme: $link-theme);
+			@include oPrivateTypographyLink();
+			@include oPrivateTypographyLinkThemeOverride($theme: $link-theme);
 		}
 	}
 }

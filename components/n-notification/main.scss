@@ -1,9 +1,11 @@
 @import "@financial-times/o-private-foundation/main";
-@import "@financial-times/o-typography/main";
+@import '@financial-times/o-icons/main';
 
 $n-notification-is-silent: true !default;
 
-@mixin nNotification {	
+@mixin nNotification {
+	@include oPrivateFoundation();
+
 	@keyframes load-notice {
 		0% {
 			max-height: 0;
@@ -43,20 +45,20 @@ $n-notification-is-silent: true !default;
 	}
 
 	.n-notification__title {
-		@include oTypographySans($scale: 2, $weight: "semibold");
+		@include oPrivateTypographySans($scale: 2, $weight: 'semibold');
 		display: inline-block;
 		padding-right: 10px;
 		margin: 0;
 	}
 
 	.n-notification__content {
-		@include oTypographySans($scale: 2);
+		@include oPrivateTypographySans($scale: 2);
 		display: inline-block;
 		margin: 0;
 
 		b,
 		strong {
-			@include oTypographySans($scale: 2, $weight: "semibold");
+			@include oPrivateTypographySans($scale: 2, $weight: 'semibold');
 		}
 
 		a {
@@ -68,22 +70,36 @@ $n-notification-is-silent: true !default;
 	.n-notification--error {
 		background-color: oPrivateColorsMix('o3-color-palette-crimson', $percentage: 10);
 		color: oPrivateColorsMix('o3-color-palette-black', 'o3-color-palette-crimson', $percentage: 12.5);
+
 		.n-notification__content a {
 			color: oPrivateFoundationGet('o3-color-palette-white');
 		}
+
 		.n-notification__close {
-			@include oIconsContent('cross', oPrivateColorsMix('o3-color-palette-black', 'o3-color-palette-crimson', $percentage: 12.5), 40, $include-base-styles: false);
+			@include oIconsContent(
+					'cross',
+					oPrivateColorsMix('o3-color-palette-black', 'o3-color-palette-crimson', $percentage: 12.5),
+					40,
+				$include-base-styles: false
+			);
 		}
 	}
 
 	.n-notification--success {
 		background-color: oPrivateColorsMix('o3-color-palette-jade', $percentage: 20);
 		color: oPrivateColorsMix('o3-color-palette-black', 'o3-color-palette-jade', $percentage: 43);
+
 		.n-notification__content a {
 			color: oPrivateColorsMix('o3-color-palette-black', 'o3-color-palette-jade', $percentage: 43);
 		}
+
 		.n-notification__close {
-			@include oIconsContent('cross', oPrivateColorsMix('o3-color-palette-black', 'o3-color-palette-jade', $percentage: 43), 40, $include-base-styles: false);
+			@include oIconsContent(
+					'cross',
+					oPrivateColorsMix('o3-color-palette-black', 'o3-color-palette-jade', $percentage: 43),
+					40,
+					$include-base-styles: false
+			);
 			position: absolute;
 			right: 0;
 			top: 0;
@@ -97,7 +113,7 @@ $n-notification-is-silent: true !default;
 			text-indent: -999em;
 		}
 	}
-	
+
 	.n-notification__close {
 		@include oIconsContent('cross', oPrivateFoundationGet('o3-color-palette-black-80'), 40);
 		position: absolute;

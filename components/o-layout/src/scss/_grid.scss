@@ -23,16 +23,21 @@
 		// make the main area have a max width equal to the o-layout container
 		// size, accounting for grid gaps
 		/*! autoprefixer: ignore next */
-		grid-template-columns: minmax(0, 1fr) minmax(0, calc(#{$_o-layout-container-max-width} - #{$column-gap-count * $_o-layout-gutter})) minmax(0, 1fr);
+		grid-template-columns: minmax(0, 1fr) minmax(
+				0,
+				calc(
+					#{$_o-layout-container-max-width} - #{$column-gap-count * $_o-layout-gutter}
+				)
+			) minmax(0, 1fr);
 		/*! autoprefixer: ignore next */
 		grid-template-rows: auto 1fr auto;
 		/*! autoprefixer: ignore next */
 		grid-column-gap: $_o-layout-gutter;
 		/*! autoprefixer: ignore next */
 		grid-template-areas:
-			"header header header"
-			". main ."
-			"footer footer footer";
+			'header header header'
+			'. main .'
+			'footer footer footer';
 		box-sizing: border-box;
 		min-height: 100vh;
 		// create a break if an entire word cannot be placed on its own line without overflowing
@@ -40,7 +45,7 @@
 	}
 
 	.o-layout-skip-link {
-		@include oTypographySans($scale: 1);
+		@include oPrivateTypographySans($scale: 1);
 		z-index: 999;
 		position: absolute;
 		left: oPrivateSpacingByName('s2');
@@ -65,13 +70,12 @@
 	.o-layout--bleed {
 		max-width: none;
 		grid-template-areas:
-			"header"
-			"main"
-			"footer";
+			'header'
+			'main'
+			'footer';
 		grid-template-columns: minmax(0, 1fr);
 	}
 }
-
 
 /// Grid for a landing page layout (e.g. homepage).
 /// @access private
@@ -79,14 +83,19 @@
 	.o-layout.o-layout--landing {
 		$column-gap-count: 2;
 		grid-template-areas:
-			"header header header"
-			". hero ."
-			". main ."
-			"footer footer footer";
+			'header header header'
+			'. hero .'
+			'. main .'
+			'footer footer footer';
 		grid-template-rows: auto auto 1fr auto;
 		// make the main area have a max width equal to the o-layout container
 		// size, accounting for grid gaps
-		grid-template-columns: minmax(0, 1fr)  minmax(0, calc(#{$_o-layout-container-max-width} - #{$column-gap-count * $_o-layout-gutter})) minmax(0, 1fr);
+		grid-template-columns: minmax(0, 1fr) minmax(
+				0,
+				calc(
+					#{$_o-layout-container-max-width} - #{$column-gap-count * $_o-layout-gutter}
+				)
+			) minmax(0, 1fr);
 	}
 }
 
@@ -97,20 +106,26 @@
 		grid-template-rows: auto auto 1fr auto;
 		grid-template-columns: 0 minmax(0, 1fr) 0; // create a grid gap the header and footer can span
 		grid-template-areas:
-			"header header header"
-			". sidebar ."
-			". main ."
-			"footer footer footer";
+			'header header header'
+			'. sidebar .'
+			'. main .'
+			'footer footer footer';
 
 		@include oPrivateGridRespondTo($from: M) {
 			$column-gap-count: 3;
 			grid-template-areas:
-				"header header header header"
-				". sidebar main ."
-				"footer footer footer footer";
+				'header header header header'
+				'. sidebar main .'
+				'footer footer footer footer';
 			// make the main and sidebar area have a max width equal to the
 			// o-layout container size, accounting for grid gaps
-			grid-template-columns: minmax(0, 1fr) $_o-layout-sidebar-width minmax(0, calc(#{$_o-layout-container-max-width} - #{$_o-layout-sidebar-width} - #{$column-gap-count * $_o-layout-gutter})) minmax(0, 1fr);
+			grid-template-columns: minmax(0, 1fr) $_o-layout-sidebar-width minmax(
+					0,
+					calc(
+						#{$_o-layout-container-max-width} - #{$_o-layout-sidebar-width} - #{$column-gap-count *
+							$_o-layout-gutter}
+					)
+				) minmax(0, 1fr);
 			grid-template-rows: auto 1fr auto;
 		}
 	}
@@ -125,7 +140,9 @@
 		@include oPrivateGridRespondTo($from: L) {
 			> * {
 				box-sizing: border-box;
-				max-width: calc(100% - #{$_o-layout-sidebar-width} - #{$_o-layout-gutter});
+				max-width: calc(
+					100% - #{$_o-layout-sidebar-width} - #{$_o-layout-gutter}
+				);
 				float: left;
 				clear: left;
 			}
@@ -176,33 +193,39 @@
 		grid-template-rows: auto auto auto 1fr auto auto;
 		grid-template-columns: $margin-grid-size minmax(0, 1fr) $margin-grid-size;
 		grid-template-areas:
-			"header header header"
-			". heading ."
-			". query-sidebar ."
-			". main ."
-			". aside-sidebar ."
-			"footer footer footer";
+			'header header header'
+			'. heading .'
+			'. query-sidebar .'
+			'. main .'
+			'. aside-sidebar .'
+			'footer footer footer';
 
 		@include oPrivateGridRespondTo($from: M) {
 			grid-template-rows: auto auto 1fr auto;
-			grid-template-columns: $margin-grid-size $_o-layout-sidebar-width minmax(0, 1fr) $margin-grid-size;
+			grid-template-columns: $margin-grid-size $_o-layout-sidebar-width minmax(
+					0,
+					1fr
+				) $margin-grid-size;
 			grid-template-areas:
-				"header header header header"
-				". query-sidebar heading ."
-				". query-sidebar main ."
-				". query-sidebar aside-sidebar ."
-				"footer footer footer footer";
+				'header header header header'
+				'. query-sidebar heading .'
+				'. query-sidebar main .'
+				'. query-sidebar aside-sidebar .'
+				'footer footer footer footer';
 		}
 
 		@include oPrivateGridRespondTo($from: L) {
 			grid-template-areas:
-				"header header header header header"
-				". query-sidebar heading aside-sidebar ."
-				". query-sidebar main aside-sidebar ."
-				"footer footer footer footer footer";
+				'header header header header header'
+				'. query-sidebar heading aside-sidebar .'
+				'. query-sidebar main aside-sidebar .'
+				'footer footer footer footer footer';
 			grid-template-rows: auto auto 1fr auto;
 			// fit-content makes the aside collapse with no content, so the aside bar can be optional
-			grid-template-columns: $margin-grid-size $_o-layout-sidebar-width minmax(0, 1fr) fit-content($_o-layout-sidebar-width) $margin-grid-size;
+			grid-template-columns: $margin-grid-size $_o-layout-sidebar-width minmax(
+					0,
+					1fr
+				) fit-content($_o-layout-sidebar-width) $margin-grid-size;
 		}
 
 		.o-layout__main {

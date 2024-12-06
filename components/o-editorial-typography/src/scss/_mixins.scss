@@ -4,13 +4,22 @@
 ///     	@include oEditorialTypographyBody();
 ///     }
 /// @param {map} $opts [('margin-reset': true)] - Options. Set `margin-reset` to false to avoid outputting a margin.
-@mixin oEditorialTypographyBody($opts: (
-	'margin-reset': true
-)) {
-	@include oTypographySerif($scale: (default: 1, XL: 2), $line-height: 1.6);
-	color: var(--_o-editorial-typography-body-color, #{oPrivateColorsByUseCase('body', 'text')});
+@mixin oEditorialTypographyBody(
+	$opts: (
+		'margin-reset': true,
+	)
+) {
+	@include oPrivateTypographySerif(1);
+	@include oPrivateGridRespondTo('XL') {
+		@include oPrivateTypographySerif(2);
+	}
+	line-height: 1.6;
+	color: var(
+		--_o-editorial-typography-body-color,
+		#{oPrivateColorsByUseCase('body', 'text')}
+	);
 	// undo browser defaults
-	@if(map-get($opts,'margin-reset')) {
+	@if (map-get($opts, 'margin-reset')) {
 		margin: 0;
 	}
 }
@@ -20,9 +29,6 @@
 /// containing list element such as `ul` or `ol`.
 /// Does not output font styles, these are
 /// inherited (@see oEditorialTypographyBody).
-///
-/// Wraps an o-typography mixin so the two may diverge
-/// (@see oTypographyList)
 ///
 /// @example Output the styles for an unordered list.
 ///     .my-unordered-list {
@@ -45,7 +51,7 @@
 /// @param {String|Null} $type [null] - "ordered", "unordered", or null for just the base styles shared by all lists
 /// @param {Boolean} $include-base-styles [true] - set to false to exclude base styles which are shared by all list types
 @mixin oEditorialTypographyList($type: null, $include-base-styles: true) {
-	@include oTypographyList($type, $include-base-styles);
+	@include oPrivateTypographyList($type);
 	@if $include-base-styles {
 		margin: 0; // Do not assume the context the list is used.
 	}
@@ -54,7 +60,7 @@
 /// Output styles for captions,
 /// e.g. for photo or video credit/caption.
 @mixin oEditorialTypographyCaption() {
-	@include oTypographySans($scale: -1);
+	@include oPrivateTypographySans($scale: -1);
 	color: oPrivateColorsByUseCase('body', 'text');
 }
 
@@ -66,49 +72,61 @@
 /// @see oEditorialTypographyHeading
 @mixin oEditorialTypographyHeadline() {
 	@include oEditorialTypographyDecorated();
-	@include oTypographyDisplay(
-		$scale: (default: 5, S: 6, L: 7),
-		$weight: 'bold'
-	);
+
+	@include oPrivateTypographyDisplay(5, $weight: 'bold');
+
+	@include oPrivateGridRespondTo('S') {
+		@include oPrivateTypographyDisplay(6, $weight: 'bold');
+	}
+
+	@include oPrivateGridRespondTo('L') {
+		@include oPrivateTypographyDisplay(7, $weight: 'bold');
+	}
 	margin: 0; // remove browser default margin from headings
 }
 
 /// Output styles for editorial page heading copy.
 /// @param {number} $level - The heading level 1-5.
 /// @param {map} $opts [('margin-reset': true)] - Options. Set `margin-reset` to false to avoid outputting a margin.
-@mixin oEditorialTypographyHeading($level, $opts: (
-	'margin-reset': true
-)) {
+@mixin oEditorialTypographyHeading($level, $opts: ('margin-reset': true)) {
 	@if type-of($level) != 'number' or $level < 1 or $level > 5 {
 		@error 'Heading levels must be a number between 1 and 5.';
 	}
 
 	// undo browser defaults
-	@if(map-get($opts, 'margin-reset')) {
+	@if (map-get($opts, 'margin-reset')) {
 		margin: 0;
 	}
 
 	// set color
 	color: oPrivateColorsByUseCase('body', 'text');
 
-	@if($level == 1) {
-		@include oTypographyDisplay($scale: (default: 4, S: 5, L: 6), $weight: 'regular');
+	@if ($level == 1) {
+		@include oPrivateTypographyDisplay(4, $weight: 'regular');
+
+		@include oPrivateGridRespondTo('S') {
+			@include oPrivateTypographyDisplay(5, $weight: 'regular');
+		}
+
+		@include oPrivateGridRespondTo('L') {
+			@include oPrivateTypographyDisplay(6, $weight: 'regular');
+		}
 	}
 
-	@if($level == 2) {
-		@include oTypographySans($scale: 4, $weight: 'semibold');
+	@if ($level == 2) {
+		@include oPrivateTypographySans($scale: 4, $weight: 'semibold');
 	}
 
-	@if($level == 3) {
-		@include oTypographySans($scale: 4, $weight: 'regular');
+	@if ($level == 3) {
+		@include oPrivateTypographySans($scale: 4, $weight: 'regular');
 	}
 
-	@if($level == 4) {
-		@include oTypographySans($scale: 3, $weight: 'regular');
+	@if ($level == 4) {
+		@include oPrivateTypographySans($scale: 3, $weight: 'regular');
 	}
 
-	@if($level == 5) {
-		@include oTypographySans($scale: 0, $weight: 'regular');
+	@if ($level == 5) {
+		@include oPrivateTypographySans($scale: 0, $weight: 'regular');
 		text-transform: uppercase;
 		letter-spacing: 0.5px;
 	}
@@ -116,13 +134,13 @@
 
 /// Output styles for editorial standfirst.
 @mixin oEditorialTypographyStandfirst() {
-	@include oTypographySans($scale: 2);
+	@include oPrivateTypographySans($scale: 2);
 	color: oColorsByName('black-80');
 }
 
 /// Output styles for the editorial byline.
 @mixin oEditorialTypographyByline() {
-	@include oTypographySans($scale: 0);
+	@include oPrivateTypographySans($scale: 0);
 }
 
 /// Output styles for a timestamp.
@@ -163,8 +181,8 @@
 	// the tags to be bold we must set the font family
 	// rather than assume it, as our sans and serif fonts
 	// use different font weights.
-	@if($type == 'author' or $type == 'topic') {
-		@include oTypographySans($weight: 'semibold');
+	@if ($type == 'author' or $type == 'topic') {
+		@include oPrivateTypographySans($weight: 'semibold');
 	}
 
 	// Apply tag link styles only to anchor elements.
@@ -173,7 +191,7 @@
 	// But author tags are the same colour as body copy until hover.
 	$tag-link-selector: selector-unify('a', '#{&}');
 	@at-root #{$tag-link-selector} {
-		@if($type != 'author') {
+		@if ($type != 'author') {
 			color: oPrivateColorsByUseCase('tag-link', text);
 		}
 
@@ -210,12 +228,15 @@
 ///     }
 /// @param {String} $align ['left'] - either 'left' or 'center'
 /// @param {Boolean} $include-base-styles [true] - set to false to only output styles to modify standard decorator alignment
-@mixin oEditorialTypographyDecorated($align: 'left', $include-base-styles: true) {
-	@if($align != 'left' and $align != 'center') {
+@mixin oEditorialTypographyDecorated(
+	$align: 'left',
+	$include-base-styles: true
+) {
+	@if ($align != 'left' and $align != 'center') {
 		@error 'Align must be "left" or "center", found "#{inspect($align)}".';
 	}
 
-	@if($include-base-styles) {
+	@if ($include-base-styles) {
 		&:after {
 			content: '';
 			display: block;
@@ -228,13 +249,13 @@
 			max-width: 100%;
 			// 20px assuming a 48px font size
 			padding-top: 0.416em;
-			@if($align == 'center') {
+			@if ($align == 'center') {
 				margin: auto;
 			}
 		}
 	}
 
-	@if($align == 'center') {
+	@if ($align == 'center') {
 		&:after {
 			margin: auto;
 		}

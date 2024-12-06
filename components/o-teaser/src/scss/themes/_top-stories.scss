@@ -6,11 +6,15 @@
 	}
 
 	.o-teaser__heading {
-		@include oTypographyDisplay($scale: (default: (5, 1), L: (7)));
+		@include oPrivateTypographyDisplay(5);
+		line-height: 1;
+		@include oPrivateGridRespondTo('L') {
+			@include oPrivateTypographyDisplay(7);
+		}
 	}
 
 	.o-teaser__standfirst {
-		@include oTypographySans(2, $include-font-family: false);
+		@include oPrivateTypographySans(2);
 	}
 }
 

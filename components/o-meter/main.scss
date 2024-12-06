@@ -1,4 +1,3 @@
-@import '@financial-times/o-typography/main';
 @import '@financial-times/o-private-foundation/main';
 @import 'src/scss/variables';
 @import 'src/scss/functions';
@@ -6,6 +5,7 @@
 
 /// Output All oMeter Features
 @mixin oMeter() {
+	@include oPrivateFoundation();
 
 	:root {
 		--o-meter-width: 100%; // we need width to synch .o-meter-container with .o-meter-value to display the value label in the right position
@@ -34,7 +34,8 @@
 	}
 
 	.o-meter-value {
-		@include oTypographySans($scale: -1, $line-height: 24px);
+		@include oPrivateTypographySans($scale: -1);
+		line-height: 24px;
 		display: none; // we only display the value box for the browsers that support the meter tag
 		position: relative;
 		padding: 0 oPrivateSpacingByName('s1');
@@ -73,7 +74,6 @@
 		// Chrome 83 added a display grid which we want to override
 		display: inline-block;
 	}
-
 
 	/* for Firefox */
 	.o-meter-value,

@@ -2,7 +2,6 @@
 @import '@financial-times/o-brand/main';
 @import '@financial-times/o-private-foundation/main';
 @import '@financial-times/o-icons/main';
-@import '@financial-times/o-typography/main';
 
 @import './src/scss/brand';
 @import './src/scss/variables';
@@ -53,7 +52,7 @@
 	$inner: index($layouts, 'inner');
 
 	.o-message {
-		@include oTypographySans($scale: 0);
+		@include oPrivateTypographySans($scale: 0);
 
 		.o-message__container {
 			@include oPrivateGridContainer($bleed: true);
@@ -82,15 +81,12 @@
 		}
 
 		.o-message__content-highlight {
-			@include oTypographySans(
-				$weight: 'semibold',
-				$include-font-family: false
-			);
+			@include oPrivateTypographySans($weight: 'semibold');
 		}
 
 		.o-message__content-main a,
 		.o-message__content-additional a {
-			@include oTypographyLink();
+			@include oPrivateTypographyLink();
 			border-width: 1px;
 			text-decoration-thickness: 1px;
 		}
@@ -109,7 +105,7 @@
 		}
 
 		.o-message__actions__secondary {
-			@include oTypographyLink();
+			@include oPrivateTypographyLink();
 			white-space: nowrap;
 		}
 	}
@@ -129,7 +125,7 @@
 	// Inner Variant
 	@if $inner {
 		.o-message--inner .o-message__content {
-			max-width: oTypographyMaxLineWidth();
+			max-width: oPrivateTypographyMaxLineWidth();
 		}
 	}
 

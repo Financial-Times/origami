@@ -7,12 +7,12 @@
 @include oHeaderServices();
 
 .dummy-text {
-	@include oTypographySans(1);
+	@include oPrivateTypographySans(1);
 	max-width: 800px;
 	margin: auto;
 	padding: 0 20px;
 
 	a {
-		@include oTypographyLink();
+		@include oPrivateTypographyLink();
 	}
 }

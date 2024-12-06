@@ -74,12 +74,15 @@
 	}
 
 	.o-header-services__product-name {
-		@include oTypographySans($scale: (default: 2, M: 4), $weight: 'semibold');
+		@include oPrivateTypographySans(2, $weight: 'semibold');
+		@include oPrivateGridRespondTo('M') {
+			@include oPrivateTypographySans(4, $weight: 'semibold');
+		}
 		text-overflow: ellipsis;
 	}
 
 	.o-header-services__product-tagline {
-		@include oTypographySans($scale: 3);
+		@include oPrivateTypographySans($scale: 3);
 		margin-left: $_o-header-services-padding;
 		text-overflow: ellipsis;
 		overflow: hidden;
@@ -108,7 +111,7 @@
 			background-color: _oHeaderServicesGet('top-background');
 
 			a {
-				@include oTypographySans($weight: 'semibold', $include-font-family: false);
+				@include oPrivateTypographySans($weight: 'semibold');
 				color: _oHeaderServicesGet('top-text');
 				display: inline-block;
 				padding: $_o-header-services-padding oPrivateSpacingByName('s3');

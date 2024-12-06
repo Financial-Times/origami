@@ -6,7 +6,7 @@
 @include oNormalise();
 
 body {
-	@include oTypographySans();
+	@include oPrivateTypographySans(1);
 	min-height: 350px;
 	background-color: oColorsByUsecase('page', 'background');
 }
@@ -39,6 +39,6 @@ body {
 );
 
 .demo-custom-content {
-	@include oTypographySerif(1);
+	@include oPrivateTypographySerif(1);
 	text-align: center;
 }

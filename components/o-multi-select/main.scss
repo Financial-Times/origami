@@ -1,7 +1,6 @@
 @import '@financial-times/o-private-foundation/main';
 
 @import '@financial-times/o-brand/main';
-@import '@financial-times/o-typography/main';
 @import '@financial-times/o-icons/main';
 
 @import './src/scss/variables';
@@ -45,7 +44,7 @@
 	}
 
 	.o-multi-select__combobox-wrapper {
-		@include oTypographySans(0);
+		@include oPrivateTypographySans(0);
 		position: relative;
 		background-color: oColorsByName('white');
 		border: $_o-multi-select-border;
@@ -75,7 +74,7 @@
 	}
 	.o-multi-select__dropdown-menu {
 		@include oPrivateNormaliseBoxSizing();
-		@include oTypographySans(0);
+		@include oPrivateTypographySans(0);
 		width: 100%;
 		background-color: oColorsByName('white');
 		padding: $_o-multi-select-padding;

@@ -21,7 +21,7 @@
 		background: inherit;
 
 		&:after {
-			content: "";
+			content: '';
 			display: block;
 			width: 60px;
 			border-bottom: oPrivateSpacingByIncrement(1) solid oPrivateColorsByUseCase('o-teaser/package-basic', 'border');
@@ -30,7 +30,7 @@
 	}
 
 	.o-teaser__heading {
-		@include oTypographyDisplay($scale: 4);
+		@include oPrivateTypographyDisplay($scale: 4);
 		color: $_o-teaser-base-color;
 		background: inherit;
 		padding: 20px;
@@ -48,7 +48,10 @@
 	@include _oTeaserSpecialReportPackageList;
 
 	.o-teaser__content {
-		background: oPrivateColorsByUseCase('o-teaser/package-special-report', 'background');
+		background: oPrivateColorsByUseCase(
+				'o-teaser/package-special-report',
+				'background'
+		);
 	}
 
 	.o-teaser__meta {
@@ -65,9 +68,19 @@
 		a:hover,
 		a:visited,
 		&:focus {
-			$special-report-color: oPrivateColorsByUseCase('o-teaser/package-special-report', 'text');
-			$special-report-background: oPrivateColorsByUseCase('o-teaser/package-special-report', 'background');
-			color: oPrivateColorsMix($special-report-color, $special-report-background, $percentage: 78);
+			$special-report-color: oPrivateColorsByUseCase(
+					'o-teaser/package-special-report',
+					'text'
+			);
+			$special-report-background: oPrivateColorsByUseCase(
+					'o-teaser/package-special-report',
+					'background'
+			);
+			color: oPrivateColorsMix(
+					$special-report-color,
+					$special-report-background,
+				$percentage: 78
+			);
 		}
 	}
 }
@@ -83,7 +96,10 @@
 		color: oColorsByUsecase('o-teaser/theme-hero-extra-highlight', 'text');
 
 		&:after {
-			border-color: oColorsByUsecase('o-teaser/theme-hero-extra-highlight', 'border');
+			border-color: oColorsByUsecase(
+					'o-teaser/theme-hero-extra-highlight',
+					'border'
+			);
 		}
 	}
 
@@ -112,7 +128,8 @@
 
 		&__list-item,
 		&__landing-link {
-			@include oTypographySans(0, 20px);
+			@include oPrivateTypographySans(0);
+			line-height: 20px;
 			padding: 12px 0;
 
 			> a {
@@ -135,13 +152,27 @@
 			&:hover,
 			&:visited,
 			&:focus {
-				$special-report-color: oColorsByUsecase('o-teaser/package-special-report', 'text');
-				$special-report-background: oColorsByUsecase('o-teaser/package-special-report', 'background');
-				color: oPrivateColorsMix($special-report-color, $special-report-background, $percentage: 78);
+				$special-report-color: oPrivateColorsByUseCase(
+						'o-teaser/package-special-report',
+						'text'
+				);
+				$special-report-background: oPrivateColorsByUseCase(
+						'o-teaser/package-special-report',
+						'background'
+				);
+				color: oPrivateColorsMix(
+						$special-report-color,
+						$special-report-background,
+					$percentage: 78
+				);
 			}
 
 			&:after {
-				@include oIconsContent('arrow-right', oColorsByUsecase('o-teaser/package-basic', 'text'), $size: 30);
+				@include oIconsContent(
+						'arrow-right',
+						oColorsByUsecase('o-teaser/package-basic', 'text'),
+					$size: 30
+				);
 				content: '';
 				position: absolute;
 				bottom: 18px;
@@ -152,25 +183,45 @@
 
 @mixin _oTeaserSpecialReportPackageList {
 	.package-teaser {
-		$package-special-report-color: oColorsByUsecase('o-teaser/package-special-report', 'text');
-		$package-special-report-background: oColorsByUsecase('o-teaser/package-special-report', 'background');
+		$package-special-report-color: oColorsByUsecase(
+				'o-teaser/package-special-report',
+				'text'
+		);
+		$package-special-report-background: oColorsByUsecase(
+				'o-teaser/package-special-report',
+				'background'
+		);
+
 		&__list-item a {
 			color: oPrivateFoundationGet('o3-color-palette-white');
 
 			&:hover {
+				color: oPrivateColorsMix(
+						$package-special-report-color,
+						$package-special-report-background,
+					$percentage: 78
+				);
 				color: oPrivateColorsMix($package-special-report-color, $package-special-report-background, $percentage: 78);
 			}
 		}
 
 		&__landing-link a {
-			color: oPrivateColorsMix($package-special-report-color, $package-special-report-background, $percentage: 80);
+			color: oPrivateColorsMix(
+					$package-special-report-color,
+					$package-special-report-background,
+				$percentage: 80
+			);
 
 			&:hover {
 				color: oPrivateFoundationGet('o3-color-palette-white');
 			}
 
 			&:after {
-				@include oIconsContent('arrow-right', oPrivateFoundationGet('o3-color-palette-white'), $size: 30);
+				@include oIconsContent(
+					'arrow-right',
+					oPrivateFoundationGet('o3-color-palette-white'),
+					$size: 30
+				);
 			}
 		}
 	}
@@ -178,7 +229,11 @@
 
 @mixin _oTeaserExtraPackageList {
 	.package-teaser {
-		$hero-extra-highlight-color: oColorsByUsecase('o-teaser/theme-hero-extra-highlight', 'text');
+		$hero-extra-highlight-color: oColorsByUsecase(
+				'o-teaser/theme-hero-extra-highlight',
+				'text'
+		);
+
 		&__list-item a {
 			color: oPrivateFoundationGet('o3-color-palette-white');
 
@@ -195,7 +250,11 @@
 			}
 
 			&:after {
-				@include oIconsContent('arrow-right', $hero-extra-highlight-color, $size: 30);
+				@include oIconsContent(
+						'arrow-right',
+						$hero-extra-highlight-color,
+					$size: 30
+				);
 			}
 		}
 	}
