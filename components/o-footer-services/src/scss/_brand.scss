@@ -46,10 +46,10 @@ $_o-footer-services-shared-brand-config: (
 			'dark': (
 				text-color: oColorsByName('white'),
 				background-color: oColorsByName('slate'),
-				border-color: oColorsMix('white', 'slate', 20),
+				border-color: oPrivateColorsMix('o3-color-palette-white', 'o3-color-palette-slate', 20),
 				link-color: oColorsByName('white'),
 				link-hover-color: oColorsByName('white'),
-				legal-text-color: oColorsMix('white', 'slate', 60),
+				legal-text-color: oPrivateColorsMix('o3-color-palette-white', 'o3-color-palette-slate', 60),
 				brand-background-color: oColorsByName('black')
 			)
 		)),

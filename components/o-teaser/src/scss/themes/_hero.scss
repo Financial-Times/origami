@@ -4,7 +4,7 @@
 	flex-flow: column nowrap;
 
 	.o-teaser__content {
-		background: oColorsByUsecase('o-teaser/hero', 'background');
+		background: oPrivateColorsByUseCase('o-teaser/hero', 'background');
 		border: 0;
 		word-break: break-word;
 	}
@@ -13,7 +13,7 @@
 		content: '';
 		display: block;
 		width: 60px;
-		border-bottom: oPrivateSpacingByIncrement(1) solid oColorsByName('claret');
+		border-bottom: oPrivateSpacingByIncrement(1) solid oPrivateFoundationGet('o3-color-palette-claret-60');
 		margin-top: oPrivateSpacingByName('s1');
 		margin-bottom: oPrivateSpacingByName('s2');
 	}
@@ -40,8 +40,8 @@
 
 /// Hero opinion theme - blue background white based text
 @mixin _oTeaserHeroOpinion {
-	$opinion-color: oColorsByUsecase('o-teaser/hero-opinion', 'text');
-	$opinion-background: oColorsByUsecase('o-teaser/hero-opinion', 'background');
+	$opinion-color: oPrivateColorsByUseCase('o-teaser/hero-opinion', 'text');
+	$opinion-background: oPrivateColorsByUseCase('o-teaser/hero-opinion', 'background');
 	.o-teaser__heading a:hover,
 	.o-teaser__heading a:focus,
 	.o-teaser__heading a:visited,
@@ -50,20 +50,20 @@
 	.o-teaser__standfirst a:visited,
 	.o-teaser__tag:hover,
 	.o-teaser__tag:focus {
-		color: oColorsMix($opinion-color, $opinion-background, $percentage: 73);
+		color: oPrivateColorsMix($opinion-color, $opinion-background, $percentage: 73);
 	}
 
 	.o-teaser__standfirst,
 	.o-teaser__timestamp,
 	.o-teaser__timestamp-prefix:before {
-		color: oColorsMix($opinion-color, $opinion-background, $percentage: 80);
+		color: oPrivateColorsMix($opinion-color, $opinion-background, $percentage: 80);
 	}
 
 	.o-teaser__timestamp-prefix:before {
-		background-color: oColorsMix(
-			oColorsByName('white'),
-			$opinion-background,
-			80
+		background-color: oPrivateColorsMix(
+				oPrivateFoundationGet('o3-color-palette-white'),
+				$opinion-background,
+				80
 		);
 	}
 
@@ -110,7 +110,7 @@
 			background-color: transparent;
 			background-image: linear-gradient(
 				to bottom,
-				rgba(oColorsByName('black'), 0.75),
+				rgba(oPrivateFoundationGet("black"), 0.75),
 				transparent
 			);
 			pointer-events: none;
@@ -124,7 +124,7 @@
 		.o-teaser__standfirst a,
 		.o-teaser__standfirst a:visited,
 		.o-teaser__timestamp {
-			color: oColorsByName('white');
+			color: oPrivateFoundationGet('o3-color-palette-white');
 			pointer-events: auto;
 		}
 
@@ -133,7 +133,7 @@
 		}
 
 		.o-teaser__meta:after {
-			border-bottom-color: oColorsByName('white');
+			border-bottom-color: oPrivateFoundationGet('o3-color-palette-white');
 		}
 
 		.o-teaser__tag:hover,
@@ -160,7 +160,7 @@
 		padding-left: 30%;
 
 		&:after {
-			background: oColorsByUsecase('o-teaser/hero', 'background');
+			background: oPrivateColorsByUseCase('o-teaser/hero', 'background');
 			display: block;
 			top: 50%;
 			border: 0;
@@ -213,18 +213,14 @@
 
 // Hero Package theme — extra
 @mixin _oTeaserHeroExtra {
-	$hero-extra-color: oColorsByUsecase('o-teaser/theme-hero-extra', 'text');
-	$hero-extra-background: oColorsByUsecase(
-		'o-teaser/theme-hero-extra',
-		'background'
-	);
+	$hero-extra-color: oPrivateColorsByUseCase('o-teaser/theme-hero-extra', 'text');
+	$hero-extra-background: oPrivateColorsByUseCase('o-teaser/theme-hero-extra',
+		'background');
 	// highlight colours
-	$hero-extra-highlight-border: oColorsByUsecase(
-		'o-teaser/theme-hero-extra-highlight',
+	$hero-extra-highlight-border: oPrivateColorsByUseCase('o-teaser/theme-hero-extra-highlight',
 		'border'
 	);
-	$hero-extra-highlight-color: oColorsByUsecase(
-		'o-teaser/theme-hero-extra-highlight',
+	$hero-extra-highlight-color: oPrivateColorsByUseCase('o-teaser/theme-hero-extra-highlight',
 		'text'
 	);
 	.o-teaser__heading a:hover,
@@ -236,7 +232,7 @@
 
 	.o-teaser__tag:hover,
 	.o-teaser__tag:focus {
-		color: oColorsMix(oColorsByName('white'), $hero-extra-highlight-color, 73);
+		color: oPrivateColorsMix(oPrivateFoundationGet('o3-color-palette-white'), $hero-extra-highlight-color, 73);
 	}
 
 	.o-teaser__meta {
@@ -249,9 +245,9 @@
 
 	.o-teaser__heading,
 	.o-teaser__standfirst {
-		color: oColorsByName('white');
+		color: oPrivateFoundationGet('o3-color-palette-white');
 		a:visited {
-			color: oColorsMix(
+			color: oPrivateColorsMix(
 				$hero-extra-color,
 				$hero-extra-background,
 				$percentage: 50
@@ -261,7 +257,7 @@
 
 	.o-teaser__standfirst,
 	.o-teaser__timestamp {
-		color: oColorsMix(
+		color: oPrivateColorsMix(
 			$hero-extra-color,
 			$hero-extra-background,
 			$percentage: 80

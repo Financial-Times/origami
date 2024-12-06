@@ -10,16 +10,16 @@ $o-topper-is-silent: true !default;
 /// @prop {List} - colours available to editorial in methode for the background
 /// @access private
 $_o-topper-colors: (
-	'white',
-	'black',
-	'claret',
-	'oxford',
-	'paper',
-	'slate',
-	'wheat',
-	'crimson',
-	'sky',
-	'matisse'
+	'o3-color-palette-white',
+	'o3-color-palette-black',
+	'o3-color-palette-claret',
+	'o3-color-palette-oxford',
+	'o3-color-palette-paper',
+	'o3-color-palette-slate',
+	'o3-color-palette-wheat',
+	'o3-color-palette-crimson',
+	'o3-color-palette-sky',
+	'o3-color-palette-matisse'
 );
 
 /// When adding a new theme update the README

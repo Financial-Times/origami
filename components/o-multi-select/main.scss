@@ -85,13 +85,13 @@
 		overflow-y: auto;
 
 		.o-multi-select-option {
-			color: oColorsByUsecase('body', 'text');
+			color: oPrivateColorsByUseCase('body', 'text');
 			cursor: pointer;
 			padding: 8px 4px;
 			position: relative;
 
 			&:hover {
-				background-color: oColorsMix(black, white, 25);
+				background-color: oPrivateColorsMix('o3-color-palette-black', 'o3-color-palette-white', 25);
 				color: initial;
 			}
 
@@ -102,12 +102,12 @@
 
 		.o-multi-select-option__selected {
 			color: initial;
-			background-color: oColorsMix(black, white, 15);
+			background-color: oPrivateColorsMix('o3-color-palette-black', 'o3-color-palette-white', 15);
 
 			span {
 				@include oIconsContent(
 					$icon-name: 'tick',
-					$color: oColorsByUsecase('body', 'text'),
+					$color: oPrivateColorsByUseCase('body', 'text'),
 					$size: 32,
 					$include-base-styles: false
 				);
