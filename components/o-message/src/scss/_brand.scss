@@ -30,19 +30,19 @@ $_o-message-shared-brand-variables: (
 		'variables': map-merge($_o-message-shared-brand-variables, (
 			'feedback': (
 				'foreground-color': oPrivateColorsByUseCase('body', 'text'),
-				'highlight-color': oColorsByName('teal'),
+				'highlight-color': oPrivateFoundationGet('o3-color-palette-teal'),
 				'button-type': 'primary',
-				'background-color': oColorsByName('white'),
+				'background-color': oPrivateFoundationGet('o3-color-palette-white'),
 				'align': center
 			),
 			'neutral': (
-				'foreground-color': 'black',
-				'background-color': 'white-60',
+				'foreground-color': 'o3-color-palette-black',
+				'background-color': 'o3-color-palette-white-60',
 				'icon': 'info'
 			),
 			'inform': (
-				'foreground-color': 'black',
-				'background-color': 'wheat',
+				'foreground-color': 'o3-color-palette-black',
+				'background-color': 'o3-color-palette-wheat',
 			),
 		)),
 		'supports-variants': (
@@ -62,30 +62,30 @@ $_o-message-shared-brand-variables: (
 		'variables': map-merge($_o-message-shared-brand-variables, (
 			'feedback': (
 				'foreground-color': oPrivateColorsByUseCase('body', 'text'),
-				'highlight-color': oColorsByName('teal'),
+				'highlight-color': oPrivateFoundationGet('o3-color-palette-teal'),
 				'button-type': 'primary',
-				'background-color': oColorsByName('white'),
+				'background-color': oPrivateFoundationGet('o3-color-palette-white'),
 				'align': center
 			),
 			'neutral': (
-				'foreground-color': 'black',
-				'background-color': 'slate-white-15',
+				'foreground-color': 'o3-color-palette-black',
+				'background-color': 'o3-color-palette-slate-white-15',
 				'icon': 'info'
 			),
 			'inform': (
-				'foreground-color': 'black',
-				'background-color': 'slate-white-15',
+				'foreground-color': 'o3-color-palette-black',
+				'background-color': 'o3-color-palette-slate-white-15',
 			),
 			'inform-inverse': (
-				'foreground-color': 'white',
-				'background-color': 'slate'
+				'foreground-color': 'o3-color-palette-white',
+				'background-color': 'o3-color-palette-slate'
 			),
 			'warning': (
-				'foreground-color': 'black',
-				'background-color': 'lemon'
+				'foreground-color': 'o3-color-palette-black',
+				'background-color': 'o3-color-palette-lemon'
 			),
 			'warning-light': (
-				'foreground-color': 'black',
+				'foreground-color': 'o3-color-palette-black',
 				'background-color': oPrivateColorsMix('o3-color-palette-lemon', 'o3-color-palette-white', $percentage: 60)
 			)
 		)),
@@ -109,13 +109,13 @@ $_o-message-shared-brand-variables: (
 	@include oBrandDefine('o-message', 'whitelabel', (
 		'variables': map-merge($_o-message-shared-brand-variables, (
 			'neutral': (
-				'foreground-color': 'black',
-				'background-color': 'white',
+				'foreground-color': 'o3-color-palette-black',
+				'background-color': 'o3-color-palette-white',
 				'icon': 'info'
 			),
 			'inform': (
-				'foreground-color': 'black',
-				'background-color': 'white',
+				'foreground-color': 'o3-color-palette-black',
+				'background-color': 'o3-color-palette-white',
 			)
 		)),
 		'supports-variants': (
