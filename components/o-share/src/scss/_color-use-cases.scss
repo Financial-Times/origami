@@ -4,17 +4,17 @@
 }
 
 // Add default colour usecases, used by icons without a state.
-@include oColorsSetUseCase('o-share/default-icon', (
+@include oPrivateColorsSetUseCase('o-share/default-icon', (
 	'background': 'transparent',
-	'border': 'black-50',
-	'text': 'black'
+	'border': 'o3-color-palette-black-50',
+	'text': 'o3-color-palette-black'
 ));
 
 // Add colour usecases to highlight FT icon social buttons like email.
-@include oColorsSetUseCase('o-share/ft-icon', (
-	'background': 'teal-40',
-	'border': 'teal-40',
-	'text': 'white'
+@include oPrivateColorsSetUseCase('o-share/ft-icon', (
+	'background': 'o3-color-palette-teal-40',
+	'border': 'o3-color-palette-teal-40',
+	'text': 'o3-color-palette-white'
 ));
 
 // Add colour usecases to highlight social buttons with a brand, like Twitter.
