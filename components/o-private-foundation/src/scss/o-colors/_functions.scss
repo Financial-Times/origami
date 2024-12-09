@@ -327,7 +327,7 @@
 /// Allows for errors to be tested in dev environments
 /// Code from: https://github.com/oddbird/true/issues/92
 /// @access private
-@function _oPrivateColorsError($message, $capture: $_o-pf-colors-test-environment) {
+@function _oPrivateColorsError($message, $capture) {
 	@if $capture {
 		@return 'ERROR: #{$message}';
 	}
