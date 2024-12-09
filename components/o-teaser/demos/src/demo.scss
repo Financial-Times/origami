@@ -1,5 +1,6 @@
 @import '@financial-times/o-normalise/main';
 @import '../../main';
+@import '@financial-times/o-colors/main';
 
 @include oNormalise();
 @include oTeaser();

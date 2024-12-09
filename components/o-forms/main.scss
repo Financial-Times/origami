@@ -77,7 +77,7 @@
 		@each $theme in $themes {
 			$default-text-color: _oFormsGet('default-text', $theme);
 			@if $default-text-color and
-				oColorsColorBrightness($default-text-color) >
+				oPrivateColorsColorBrightness($default-text-color) >
 				65%
 			{
 				.o-forms-field--#{$theme} .o-forms-title {
@@ -154,7 +154,7 @@
 
 	@if $white-theme {
 		.o-forms-field--white {
-			--o-forms-toggle-handle-color: #{oColorsByName('white')};
+			--o-forms-toggle-handle-color: #{oPrivateFoundationGet('o3-color-palette-white')};
 		}
 	}
 

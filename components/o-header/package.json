@@ -26,7 +26,6 @@
 	"peerDependencies": {
 		"@financial-times/math": "^1.0.0",
 		"@financial-times/o-brand": "^4.1.0",
-		"@financial-times/o-colors": "^6.5.0",
 		"@financial-times/o-icons": "^7.0.1",
 		"@financial-times/o-normalise": "^3.3.0",
 		"@financial-times/o-toggle": "^3.0.0",
