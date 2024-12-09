@@ -4,9 +4,9 @@
 @mixin _oVideoGuidance {
 	.o-video__guidance {
 		@include oPrivateTypographySans(-1);
-		background-color: oColorsMix(
+		background-color: oPrivateColorsMix(
 			$color: "o3-color-palette-black",
-			$background: "transparent",
+			$background: transparent,
 			$percentage: 75
 		);
 		padding: 10px 16px;
