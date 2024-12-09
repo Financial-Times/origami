@@ -1,68 +1,68 @@
-@include oColorsSetUseCase('o-teaser/base', (
-	'background': 'paper',
-	'text': oColorsGetTextColor('paper', 100),
-	'border': 'black-20',
+@include oPrivateColorsSetUseCase('o-teaser/base', (
+	'background': 'o3-color-palette-paper',
+	'text': oPrivateFoundationGet('o3-color-palette-paper'),
+	'border': 'o3-color-palette-black-20',
 ));
-@include oColorsSetUseCase('o-teaser/hero', (
-	'background': 'wheat',
-	'text': oColorsGetTextColor('wheat', 100)
+@include oPrivateColorsSetUseCase('o-teaser/hero', (
+	'background': 'o3-color-palette-wheat',
+	'text': oPrivateFoundationGet('o3-color-palette-wheat')
 ));
-@include oColorsSetUseCase('o-teaser/hero-highlight', (
-	'background': 'claret',
-	'text': oColorsGetTextColor('claret', 100)
+@include oPrivateColorsSetUseCase('o-teaser/hero-highlight', (
+	'background': 'o3-color-palette-claret',
+	'text': oPrivateFoundationGet('o3-color-palette-claret')
 ));
-@include oColorsSetUseCase('o-teaser/hero-opinion', (
-	'background': 'oxford',
-	'text': oColorsGetTextColor('oxford', 100)
+@include oPrivateColorsSetUseCase('o-teaser/hero-opinion', (
+	'background': 'o3-color-palette-oxford',
+	'text': oPrivateFoundationGet('o3-color-palette-oxford')
 ));
-@include oColorsSetUseCase('o-teaser/inverse', (
-	'background': 'black',
-	'text': oColorsGetTextColor('black', 100)
+@include oPrivateColorsSetUseCase('o-teaser/inverse', (
+	'background': 'o3-color-palette-black',
+	'text': oPrivateFoundationGet('o3-color-palette-black')
 ));
-@include oColorsSetUseCase('o-teaser/o-teaser-video-icon', (
-	'background': 'slate',
-	'text': 'white'
+@include oPrivateColorsSetUseCase('o-teaser/o-teaser-video-icon', (
+	'background': 'o3-color-palette-slate',
+	'text': 'o3-color-palette-white'
 ));
 
 // Tags
-@include oColorsSetUseCase('o-teaser/tag', (
-	'text': 'claret'
+@include oPrivateColorsSetUseCase('o-teaser/tag', (
+	'text': 'o3-color-palette-claret'
 ));
-@include oColorsSetUseCase('o-teaser/opinion-tag', (
-	'text': 'oxford'
+@include oPrivateColorsSetUseCase('o-teaser/opinion-tag', (
+	'text': 'o3-color-palette-oxford'
 ));
-@include oColorsSetUseCase('o-teaser/promoted-by', (
-	'text': 'black'
+@include oPrivateColorsSetUseCase('o-teaser/promoted-by', (
+	'text': 'o3-color-palette-black'
 ));
 
 // Themes
-@include oColorsSetUseCase('o-teaser/theme-opinion', (
-	'background': 'sky',
-	'text': oColorsGetTextColor('sky', 100)
+@include oPrivateColorsSetUseCase('o-teaser/theme-opinion', (
+	'background': 'o3-color-palette-sky',
+	'text': oPrivateFoundationGet('o3-color-palette-sky')
 ));
-@include oColorsSetUseCase('o-teaser/theme-hero', (
-	'background': 'claret',
-	'text': oColorsGetTextColor('claret', 100)
+@include oPrivateColorsSetUseCase('o-teaser/theme-hero', (
+	'background': 'o3-color-palette-claret',
+	'text': oPrivateFoundationGet('o3-color-palette-claret')
 ));
-@include oColorsSetUseCase('o-teaser/theme-hero-extra', (
-	'background': 'slate',
-	'text': oColorsGetTextColor('slate', 100)
+@include oPrivateColorsSetUseCase('o-teaser/theme-hero-extra', (
+	'background': 'o3-color-palette-slate',
+	'text': oPrivateFoundationGet('o3-color-palette-slate')
 ));
-@include oColorsSetUseCase('o-teaser/theme-hero-extra-highlight', (
-	'border': 'lemon',
-	'text': 'lemon'
+@include oPrivateColorsSetUseCase('o-teaser/theme-hero-extra-highlight', (
+	'border': 'o3-color-palette-lemon',
+	'text': 'o3-color-palette-lemon'
 ));
 
 // Package teasers
-@include oColorsSetUseCase('o-teaser/package-basic', (
-	'background': 'wheat',
-	'text': 'claret-70',
-	'border': 'claret-70'
+@include oPrivateColorsSetUseCase('o-teaser/package-basic', (
+	'background': 'o3-color-palette-wheat',
+	'text': 'o3-color-palette-claret-70',
+	'border': 'o3-color-palette-claret-70'
 ));
-@include oColorsSetUseCase('o-teaser/package-basic-hover', (
-	'text': 'claret-30'
+@include oPrivateColorsSetUseCase('o-teaser/package-basic-hover', (
+	'text': 'o3-color-palette-claret-30'
 ));
-@include oColorsSetUseCase('o-teaser/package-special-report', (
-	'background': 'claret-70',
-	'text': oColorsGetTextColor('claret-70', 100)
+@include oPrivateColorsSetUseCase('o-teaser/package-special-report', (
+	'background': 'o3-color-palette-claret-70',
+	'text': oPrivateFoundationGet('o3-color-palette-claret-70')
 ));

@@ -89,14 +89,14 @@
 	@include _oTeaserExtraPackageList;
 
 	.o-teaser__content {
-		background: oColorsByUsecase('o-teaser/theme-hero-extra', 'background');
+		background: oPrivateColorsByUseCase('o-teaser/theme-hero-extra', 'background');
 	}
 
 	.o-teaser__meta {
-		color: oColorsByUsecase('o-teaser/theme-hero-extra-highlight', 'text');
+		color: oPrivateColorsByUseCase('o-teaser/theme-hero-extra-highlight', 'text');
 
 		&:after {
-			border-color: oColorsByUsecase(
+			border-color: oPrivateColorsByUseCase(
 					'o-teaser/theme-hero-extra-highlight',
 					'border'
 			);
@@ -108,7 +108,7 @@
 
 		a:hover,
 		&:focus {
-			color: oColorsByUsecase('o-teaser/theme-hero-extra-highlight', 'text');
+			color: oPrivateColorsByUseCase('o-teaser/theme-hero-extra-highlight', 'text');
 		}
 	}
 
@@ -147,7 +147,7 @@
 		}
 
 		&__landing-link a {
-			color: oColorsByUsecase('o-teaser/package-basic', 'text');
+			color: oPrivateColorsByUseCase('o-teaser/package-basic', 'text');
 
 			&:hover,
 			&:visited,
@@ -170,7 +170,7 @@
 			&:after {
 				@include oIconsContent(
 						'arrow-right',
-						oColorsByUsecase('o-teaser/package-basic', 'text'),
+						oPrivateColorsByUseCase('o-teaser/package-basic', 'text'),
 					$size: 30
 				);
 				content: '';
@@ -183,11 +183,11 @@
 
 @mixin _oTeaserSpecialReportPackageList {
 	.package-teaser {
-		$package-special-report-color: oColorsByUsecase(
+		$package-special-report-color: oPrivateColorsByUseCase(
 				'o-teaser/package-special-report',
 				'text'
 		);
-		$package-special-report-background: oColorsByUsecase(
+		$package-special-report-background: oPrivateColorsByUseCase(
 				'o-teaser/package-special-report',
 				'background'
 		);
@@ -228,7 +228,7 @@
 
 @mixin _oTeaserExtraPackageList {
 	.package-teaser {
-		$hero-extra-highlight-color: oColorsByUsecase(
+		$hero-extra-highlight-color: oPrivateColorsByUseCase(
 				'o-teaser/theme-hero-extra-highlight',
 				'text'
 		);
