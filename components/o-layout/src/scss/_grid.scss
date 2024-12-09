@@ -51,7 +51,7 @@
 		left: oPrivateSpacingByName('s2');
 		padding: oPrivateSpacingByName('s2') oPrivateSpacingByName('s4');
 		background-color: oPrivateFoundationGet('o3-color-palette-oxford');
-		color: oPrivateFoundationGet('white');
+		color: oPrivateFoundationGet('o3-color-palette-white');
 		text-decoration: none;
 		transform: translateY(-120%);
 		@media (prefers-reduced-motion: no-preference) {
