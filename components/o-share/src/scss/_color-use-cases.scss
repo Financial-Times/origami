@@ -5,7 +5,7 @@
 
 // Add default colour usecases, used by icons without a state.
 @include oPrivateColorsSetUseCase('o-share/default-icon', (
-	'background': 'transparent',
+	'background': transparent,
 	'border': 'o3-color-palette-black-50',
 	'text': 'o3-color-palette-black'
 ));
