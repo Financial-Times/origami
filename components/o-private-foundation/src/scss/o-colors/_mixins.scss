@@ -126,7 +126,7 @@
 				'cannot be set to "#{inspect($color)}". A usecase property may ' +
 				'only be set to an o-colors colour or colour name such as "paper".';
 		}
-		@if(type-of($color) == 'string' and not _oPrivateColorsNameExists($color)) {
+		@if(type-of($color) == 'string' and not oPrivateFoundationGet($color)) {
 			@error 'The "#{$usecase}" usecase property "#{inspect($property)}" ' +
 				'cannot be set to "#{inspect($color)}". The colour "#{inspect($color)}" ' +
 				'does not exist.';

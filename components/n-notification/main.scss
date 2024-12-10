@@ -72,7 +72,7 @@ $n-notification-is-silent: true !default;
 		color: oPrivateColorsMix('o3-color-palette-black', 'o3-color-palette-crimson', $percentage: 12.5);
 
 		.n-notification__content a {
-			color: oPrivateFoundationGet('o3-color-palette-o3-color-palette-white');
+			color: oPrivateFoundationGet('o3-color-palette-white');
 		}
 
 		.n-notification__close {
@@ -115,7 +115,7 @@ $n-notification-is-silent: true !default;
 	}
 
 	.n-notification__close {
-		@include oIconsContent('cross', oPrivateFoundationGet('o3-color-palette-o3-color-palette-black-80'), 40);
+		@include oIconsContent('cross', oPrivateFoundationGet('o3-color-palette-black-80'), 40);
 		position: absolute;
 		right: 0;
 		top: 0;

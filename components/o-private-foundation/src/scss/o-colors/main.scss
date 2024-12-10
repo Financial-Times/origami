@@ -6,3 +6,12 @@
 @import 'use-cases';
 @import 'functions';
 @import 'mixins';
+
+// Set the palette colors programatically
+// NOTE: Only do this once as this partial will be included by many other components
+// and the multiple nested loops can have a huge effect on compilation performance.
+@if ($_o-pf-colors-is-initialised == false) {
+	@include _oPrivateColorsSetDefaultUsecases();
+
+	$_o-pf-colors-is-initialised: true !global;
+}

@@ -157,9 +157,6 @@
 	$base: if(type-of($background) == color, $background, oPrivateFoundationGet(#{$background}));
 	$mixer: if(type-of($color) == "color", $color, oPrivateFoundationGet(#{$color}));
 
-	@debug "#{$base}";
-	@debug "#{$mixer}";
-
 	@if type-of($base) != color {
 		@return _oPrivateColorsError("'#{inspect($background)}' is not a valid base color.");
 	}
