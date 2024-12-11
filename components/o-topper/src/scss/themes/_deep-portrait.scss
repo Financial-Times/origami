@@ -90,7 +90,7 @@
 
 		.o-topper__image-caption {
 			margin-bottom: 0;
-			color: oColorsByName("black-70");
+			color: oPrivateFoundationGet("o3-color-palette-black-70");
 		}
 	}
 

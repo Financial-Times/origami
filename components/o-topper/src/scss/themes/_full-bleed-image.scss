@@ -67,7 +67,7 @@
 
 	.o-topper__image-caption {
 		background-color: transparent;
-		color: oColorsByName("black-70");
+		color: oPrivateFoundationGet("o3-color-palette-black-70");
 		margin-bottom: -20px;
 	}
 }

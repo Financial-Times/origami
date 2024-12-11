@@ -64,7 +64,7 @@
 		}
 
 		&:hover {
-			color: darken(oColorsByName('lemon'), 20%);
+			color: darken(oPrivateFoundationGet('o3-color-palette-lemon'), 20%);
 		}
 	}
 }
@@ -75,20 +75,20 @@
 	}
 
 	.o-topper__anchor-link {
-		border-color: oColorsByName('white');
-		color: oColorsByName('white');
+		border-color: oPrivateFoundationGet('o3-color-palette-white');
+		color: oPrivateFoundationGet('o3-color-palette-white');
 
 		&:after {
 			@include oIconsContent(
 				'arrow-down',
-				oColorsByName('lemon'),
+				oPrivateFoundationGet('o3-color-palette-lemon'),
 				$size: null,
 				$include-base-styles: false
 			);
 		}
 
 		&:hover {
-			color: darken(oColorsByName('white'), 20%);
+			color: darken(oPrivateFoundationGet('o3-color-palette-white'), 20%);
 		}
 	}
 }
