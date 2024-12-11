@@ -114,7 +114,7 @@
 		}
 	}
 	.o-banner__close {
-		@include oIconsContent(
+		@include oPrivateIconsContent(
 			'cross',
 			$text-color,
 			$size: $_o-banner-close-button-size

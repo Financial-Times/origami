@@ -77,7 +77,7 @@
 	}
 
 	.o-tooltip-close {
-		@include oIconsContent(
+		@include oPrivateIconsContent(
 			'cross',
 			$close-foreground-color,
 			$size: 20px,

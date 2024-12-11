@@ -1,5 +1,4 @@
 @import '@financial-times/o-colors/main';
-@import '@financial-times/o-icons/main';
 @import '@financial-times/o-private-foundation/main';
 
 $n-notification-is-silent: true !default;
@@ -75,7 +74,7 @@ $n-notification-is-silent: true !default;
 			color: oColorsByName('white');
 		}
 		.n-notification__close {
-			@include oIconsContent(
+			@include oPrivateIconsContent(
 				'cross',
 				oColorsMix('black', 'crimson', $percentage: 12.5),
 				40,
@@ -91,7 +90,7 @@ $n-notification-is-silent: true !default;
 			color: oColorsMix('black', 'jade', $percentage: 43);
 		}
 		.n-notification__close {
-			@include oIconsContent(
+			@include oPrivateIconsContent(
 				'cross',
 				oColorsMix('black', 'jade', $percentage: 43),
 				40,
@@ -112,7 +111,7 @@ $n-notification-is-silent: true !default;
 	}
 
 	.n-notification__close {
-		@include oIconsContent('cross', oColorsByName('black-80'), 40);
+		@include oPrivateIconsContent('cross', oColorsByName('black-80'), 40);
 		position: absolute;
 		right: 0;
 		top: 0;

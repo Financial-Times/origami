@@ -117,7 +117,7 @@
 
 	.o-header__drawer-tools-close {
 		// dividing by 1px removes the unit
-		@include oIconsContent(
+		@include oPrivateIconsContent(
 			'cross',
 			_oHeaderGet('drawer-tools-close'),
 			$size: $_o-header-icon-size-large
@@ -328,7 +328,7 @@
 		background: rgba(_oHeaderGet('drawer-selected-toggle-background'), 0.25);
 
 		&:before {
-			@include oIconsContent(
+			@include oPrivateIconsContent(
 				'arrow-down',
 				_oHeaderGet('drawer-selected-toggle-text'),
 				$size: $_o-header-icon-size
@@ -340,7 +340,7 @@
 		background: rgba(_oHeaderGet('drawer-unselected-toggle-background'), 0.85);
 
 		&:before {
-			@include oIconsContent(
+			@include oPrivateIconsContent(
 				'arrow-down',
 				_oHeaderGet('drawer-unselected-toggle-text'),
 				$size: $_o-header-icon-size

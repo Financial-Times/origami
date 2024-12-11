@@ -196,7 +196,7 @@
 	}
 
 	.o-tooltip-close {
-		@include oIconsContent(
+		@include oPrivateIconsContent(
 			'cross',
 			_oTooltipGet('close-foreground-color'),
 			$size: 20px

@@ -63,7 +63,7 @@
 	}
 
 	.o-header-services__hamburger-icon {
-		@include oIconsContent(
+		@include oPrivateIconsContent(
 			$icon-name: 'hamburger',
 			$color: _oHeaderServicesGet('top-text'),
 			$size: $_o-header-services-top-icon-size

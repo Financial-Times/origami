@@ -15,7 +15,7 @@
 	}
 
 	&:after {
-		@include oIconsContent(
+		@include oPrivateIconsContent(
 			'arrow-down',
 			oColorsByUsecase('link', 'text'),
 			$size: 20
@@ -56,7 +56,7 @@
 		border-color: oColorsByName('lemon');
 
 		&:after {
-			@include oIconsContent(
+			@include oPrivateIconsContent(
 				'arrow-down',
 				oColorsByName('lemon'),
 				$size: null,
@@ -80,7 +80,7 @@
 		color: oColorsByName('white');
 
 		&:after {
-			@include oIconsContent(
+			@include oPrivateIconsContent(
 				'arrow-down',
 				oColorsByName('lemon'),
 				$size: null,

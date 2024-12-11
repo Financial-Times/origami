@@ -32,7 +32,7 @@
 			}
 
 			&:after {
-				@include oIconsContent(
+				@include oPrivateIconsContent(
 					'cross',
 					$color: _oFormsGet('default-text'),
 					$size: null
@@ -58,7 +58,7 @@
 					background-color: _oFormsGet('toggle-selected');
 				}
 				&:after {
-					@include oIconsContent(
+					@include oPrivateIconsContent(
 						'tick',
 						$size: null,
 						$color: _oFormsGet('toggle-selected'),
@@ -110,7 +110,7 @@
 				color: _oFormsGet('disabled-text');
 
 				&:after {
-					@include oIconsContent(
+					@include oPrivateIconsContent(
 						'cross',
 						$size: null,
 						$color: black,
@@ -126,7 +126,7 @@
 			}
 			input[type='checkbox']:disabled:checked + .o-forms-input__label {
 				&:after {
-					@include oIconsContent(
+					@include oPrivateIconsContent(
 						'tick',
 						$size: null,
 						$color: black,
