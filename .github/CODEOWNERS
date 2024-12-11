@@ -6,8 +6,8 @@ components/o-audio/ @Financial-Times/storytelling
 components/o-comments/ @Financial-Times/storytelling
 components/o-video/ @Financial-Times/storytelling
 
-# Acquisition components
-components/o-subs-card/ @Financial-Times/acquisition
+# Customer Lifecycle components
+components/o-subs-card/ @Financial-Times/cp-customer-lifecycle
 
 # Disco components
 components/n-notification/ @Financial-Times/content-discovery
