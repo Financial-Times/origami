@@ -4,7 +4,7 @@
 	flex-flow: column nowrap;
 
 	.o-teaser__content {
-		background: oPrivateColorsByUseCase('o-teaser/hero', 'background');
+		background: oPrivateFoundationGet('o3-color-palette-wheat');
 		border: 0;
 		word-break: break-word;
 	}
@@ -40,8 +40,8 @@
 
 /// Hero opinion theme - blue background white based text
 @mixin _oTeaserHeroOpinion {
-	$opinion-color: oPrivateColorsByUseCase('o-teaser/hero-opinion', 'text');
-	$opinion-background: oPrivateColorsByUseCase('o-teaser/hero-opinion', 'background');
+	$opinion-color: oPrivateFoundationGet('o3-color-palette-oxford');
+	$opinion-background: oPrivateFoundationGet('o3-color-palette-oxford');
 	.o-teaser__heading a:hover,
 	.o-teaser__heading a:focus,
 	.o-teaser__heading a:visited,
@@ -160,7 +160,7 @@
 		padding-left: 30%;
 
 		&:after {
-			background: oPrivateColorsByUseCase('o-teaser/hero', 'background');
+			background: oPrivateFoundationGet('o3-color-palette-wheat');
 			display: block;
 			top: 50%;
 			border: 0;
@@ -213,16 +213,11 @@
 
 // Hero Package theme — extra
 @mixin _oTeaserHeroExtra {
-	$hero-extra-color: oPrivateColorsByUseCase('o-teaser/theme-hero-extra', 'text');
-	$hero-extra-background: oPrivateColorsByUseCase('o-teaser/theme-hero-extra',
-		'background');
+	$hero-extra-color: oPrivateFoundationGet('o3-color-palette-slate');
+	$hero-extra-background: oPrivateFoundationGet('o3-color-palette-slate');
 	// highlight colours
-	$hero-extra-highlight-border: oPrivateColorsByUseCase('o-teaser/theme-hero-extra-highlight',
-		'border'
-	);
-	$hero-extra-highlight-color: oPrivateColorsByUseCase('o-teaser/theme-hero-extra-highlight',
-		'text'
-	);
+	$hero-extra-highlight-border: oPrivateFoundationGet('o3-color-palette-lemon');
+	$hero-extra-highlight-color: oPrivateFoundationGet('o3-color-palette-lemon');
 	.o-teaser__heading a:hover,
 	.o-teaser__heading a:focus,
 	.o-teaser__standfirst a:hover,

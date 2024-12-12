@@ -9,11 +9,11 @@
 	}
 
 	.o-teaser__content {
-		background: oPrivateColorsByUseCase('o-teaser/package-basic', 'background');
+		background: oPrivateFoundationGet('o3-color-palette-wheat');
 	}
 
 	.o-teaser__meta {
-		color: oPrivateColorsByUseCase('o-teaser/package-basic', 'text');
+		color: oPrivateFoundationGet('o3-color-palette-claret-70');
 		padding: 15px 0 0 20px;
 		width: calc(100% - 40px);
 		position: relative;
@@ -24,7 +24,7 @@
 			content: '';
 			display: block;
 			width: 60px;
-			border-bottom: oPrivateSpacingByIncrement(1) solid oPrivateColorsByUseCase('o-teaser/package-basic', 'border');
+			border-bottom: oPrivateSpacingByIncrement(1) solid oPrivateFoundationGet('o3-color-palette-claret-70');
 			margin-top: oPrivateSpacingByName('s1');
 		}
 	}
@@ -48,10 +48,7 @@
 	@include _oTeaserSpecialReportPackageList;
 
 	.o-teaser__content {
-		background: oPrivateColorsByUseCase(
-				'o-teaser/package-special-report',
-				'background'
-		);
+		background: oPrivateFoundationGet('o3-color-palette-claret-70');
 	}
 
 	.o-teaser__meta {
@@ -68,14 +65,8 @@
 		a:hover,
 		a:visited,
 		&:focus {
-			$special-report-color: oPrivateColorsByUseCase(
-					'o-teaser/package-special-report',
-					'text'
-			);
-			$special-report-background: oPrivateColorsByUseCase(
-					'o-teaser/package-special-report',
-					'background'
-			);
+			$special-report-color: oPrivateFoundationGet('o3-color-palette-claret-70');
+			$special-report-background: oPrivateFoundationGet('o3-color-palette-claret-70');
 			color: oPrivateColorsMix(
 					$special-report-color,
 					$special-report-background,
@@ -89,17 +80,14 @@
 	@include _oTeaserExtraPackageList;
 
 	.o-teaser__content {
-		background: oPrivateColorsByUseCase('o-teaser/theme-hero-extra', 'background');
+		background: oPrivateFoundationGet('o3-color-palette-slate');
 	}
 
 	.o-teaser__meta {
-		color: oPrivateColorsByUseCase('o-teaser/theme-hero-extra-highlight', 'text');
+		color: oPrivateFoundationGet('o3-color-palette-lemon');
 
 		&:after {
-			border-color: oPrivateColorsByUseCase(
-					'o-teaser/theme-hero-extra-highlight',
-					'border'
-			);
+			border-color: oPrivateFoundationGet('o3-color-palette-lemon');
 		}
 	}
 
@@ -108,7 +96,7 @@
 
 		a:hover,
 		&:focus {
-			color: oPrivateColorsByUseCase('o-teaser/theme-hero-extra-highlight', 'text');
+			color: oPrivateFoundationGet('o3-color-palette-lemon');
 		}
 	}
 
@@ -147,19 +135,13 @@
 		}
 
 		&__landing-link a {
-			color: oPrivateColorsByUseCase('o-teaser/package-basic', 'text');
+			color: oPrivateFoundationGet('o3-color-palette-claret-70');
 
 			&:hover,
 			&:visited,
 			&:focus {
-				$special-report-color: oPrivateColorsByUseCase(
-						'o-teaser/package-special-report',
-						'text'
-				);
-				$special-report-background: oPrivateColorsByUseCase(
-						'o-teaser/package-special-report',
-						'background'
-				);
+				$special-report-color: oPrivateFoundationGet('o3-color-palette-claret-70');
+				$special-report-background: oPrivateFoundationGet('o3-color-palette-claret-70');
 				color: oPrivateColorsMix(
 						$special-report-color,
 						$special-report-background,
@@ -170,7 +152,7 @@
 			&:after {
 				@include oIconsContent(
 						'arrow-right',
-						oPrivateColorsByUseCase('o-teaser/package-basic', 'text'),
+						oPrivateFoundationGet('o3-color-palette-claret-70'),
 					$size: 30
 				);
 				content: '';
@@ -183,14 +165,8 @@
 
 @mixin _oTeaserSpecialReportPackageList {
 	.package-teaser {
-		$package-special-report-color: oPrivateColorsByUseCase(
-				'o-teaser/package-special-report',
-				'text'
-		);
-		$package-special-report-background: oPrivateColorsByUseCase(
-				'o-teaser/package-special-report',
-				'background'
-		);
+		$package-special-report-color: oPrivateFoundationGet('o3-color-palette-claret-70');
+		$package-special-report-background: oPrivateFoundationGet('o3-color-palette-claret-70');
 
 		&__list-item a {
 			color: oPrivateFoundationGet('o3-color-palette-white');
@@ -228,10 +204,7 @@
 
 @mixin _oTeaserExtraPackageList {
 	.package-teaser {
-		$hero-extra-highlight-color: oPrivateColorsByUseCase(
-				'o-teaser/theme-hero-extra-highlight',
-				'text'
-		);
+		$hero-extra-highlight-color: oPrivateFoundationGet('o3-color-palette-lemon');
 
 		&__list-item a {
 			color: oPrivateFoundationGet('o3-color-palette-white');

@@ -1,7 +1,8 @@
 /// Inverse theme styles - base all text content on white
 @mixin _oTeaserInverse {
-	$inverse-color: oPrivateColorsByUseCase('o-teaser/inverse', 'text');
-	$inverse-background: oPrivateColorsByUseCase('o-teaser/inverse', 'background');
+	$inverse-color: oPrivateFoundationGet('o3-color-palette-black');
+	$inverse-background: oPrivateFoundationGet('o3-color-palette-black');
+
 	.o-teaser__heading a:hover,
 	.o-teaser__heading a:focus,
 	.o-teaser__heading a:visited,
@@ -47,14 +48,14 @@
 /// General opinion theme teaser - turns tag content blue
 @mixin _oTeaserOpinion {
 	.o-teaser__meta {
-		color: oPrivateColorsByUseCase('o-teaser/opinion-tag', 'text');
+		color: oPrivateFoundationGet('o3-color-palette-oxford');
 	}
 }
 
 /// Opinion background theme - colours background blue and adjust text
 @mixin _oTeaserOpinionBackground {
-	$theme-opinion-color: oPrivateColorsByUseCase('o-teaser/theme-opinion', 'text');
-	$theme-opinion-background: oPrivateColorsByUseCase('o-teaser/theme-opinion', 'background');
+	$theme-opinion-color: oPrivateFoundationGet('o3-color-palette-sky');
+	$theme-opinion-background: oPrivateFoundationGet('o3-color-palette-sky');
 	.o-teaser__standfirst,
 	.o-teaser__timestamp {
 		color: oPrivateColorsMix($theme-opinion-color, $theme-opinion-background, $percentage: 60);
@@ -81,8 +82,8 @@
 
 /// Highlight theme - colours background claret and adjust text colours
 @mixin _oTeaserHighlight {
-	$theme-highlight-color: oPrivateColorsByUseCase('o-teaser/hero-highlight', 'text');
-	$theme-highlight-background: oPrivateColorsByUseCase('o-teaser/hero-highlight', 'background');
+	$theme-highlight-color: oPrivateFoundationGet('o3-color-palette-claret');
+	$theme-highlight-background: oPrivateFoundationGet('o3-color-palette-claret');
 	.o-teaser__heading a:hover,
 	.o-teaser__heading a:focus,
 	.o-teaser__heading a:visited,

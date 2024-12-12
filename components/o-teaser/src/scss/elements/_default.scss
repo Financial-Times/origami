@@ -40,7 +40,7 @@
 /// Meta area and colouring styles
 @mixin _oTeaserMeta {
 	@include oPrivateTypographySans(0);
-	color: oPrivateColorsByUseCase('o-teaser/tag', 'text');
+	color: oPrivateFoundationGet('o3-color-palette-claret');
 	margin-bottom: oPrivateSpacingByName('s3');
 }
 

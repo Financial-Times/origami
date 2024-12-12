@@ -48,6 +48,12 @@ $_o-pf-colors-usecases: () !default;
 /// @access private
 $_o-pf-colors-palette: () !default;
 
+/// Function errors may return a string rather than error
+/// when in test mode, so automated tests may assert errors.
+/// @access private
+/// @type Bool
+$_o-pf-colors-test-environment: false !default;
+
 /// Is the current execution context the oColors primary mixin?
 /// This can be helpful to know internally to provide alternate
 /// behaviour, e.g. reduce warning noise if a user is outputting

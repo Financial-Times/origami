@@ -28,7 +28,7 @@
 /// Landscape top story theme styles
 @mixin _oTeaserTopStoryLandscape {
 	@include oPrivateNormaliseClearfix;
-	background: oPrivateColorsByUseCase('o-teaser/hero', 'background');
+	background: oPrivateFoundationGet('o3-color-palette-wheat');
 	padding: 12px;
 
 	@include oPrivateGridRespondTo(M) {
