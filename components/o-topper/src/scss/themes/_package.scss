@@ -4,8 +4,8 @@
 	width: 110px;
 	padding: 5px 0 0 10px;
 	margin-top: oPrivateSpacingByName('s8');
-	border-top: 1px solid oPrivateColorsByUseCase('link', 'text');
-	border-left: 1px solid oPrivateColorsByUseCase('link', 'text');
+	border-top: 1px solid oPrivateFoundationGet('o3-color-use-case-link-text');
+	border-left: 1px solid oPrivateFoundationGet('o3-color-use-case-link-text');
 	border-bottom-width: 0;
 	white-space: nowrap;
 	overflow: visible;
@@ -17,7 +17,7 @@
 	&:after {
 		@include oIconsContent(
 			'arrow-down',
-			oPrivateColorsByUseCase('link', 'text'),
+			oPrivateFoundationGet('o3-color-use-case-link-text'),
 			$size: 20
 		);
 		content: '';

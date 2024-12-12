@@ -1,4 +1,3 @@
 /// @access private
-$_o-private-normalise-focus-color: oPrivateColorsByUseCase('focus', 'outline', $fallback: null);
-$_o-private-normalise-focus-ring: 0 0 0 4px oPrivateFoundationGet('o3-color-palette-white'), 0 0 0 8px oPrivateFoundationGet('o3-color-palette-black-70');
-$_o-private-normalise-reverse-focus-ring: 0 0 0 4px oPrivateFoundationGet('o3-color-palette-black-70'), 0 0 0 8px oPrivateFoundationGet('o3-color-palette-white');
+$_o-private-normalise-focus-ring: oPrivateFoundationGet('o3-focus-use-case-ring-inverse-outer'), oPrivateFoundationGet('o3-focus-use-case-ring-inverse-inner');
+$_o-private-normalise-reverse-focus-ring: oPrivateFoundationGet('o3-focus-use-case-ring-inverse-inner'), oPrivateFoundationGet('o3-focus-use-case-ring-inverse-outer');

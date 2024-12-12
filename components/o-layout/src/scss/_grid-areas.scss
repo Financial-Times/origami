@@ -141,7 +141,7 @@
 	.o-layout__listing__item {
 		@include oPrivateTypographySans($scale: 1);
 		line-height: 1.4;
-		color: oPrivateColorsByUseCase('body', 'text', $fallback: null);
+		color: oPrivateFoundationGet('o3-color-use-case-body-text');
 		margin: 0 0 oPrivateSpacingByName('s6');
 		max-width: 60ch;
 	}

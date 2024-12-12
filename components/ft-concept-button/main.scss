@@ -3,10 +3,10 @@
 /// @access private
 $_ftConceptButtonThemes: (
 	link: (
-		background: oPrivateColorsByUseCase('link', 'text'),
+		background: oPrivateFoundationGet('o3-color-use-case-link-text'),
 		text: oColorsByName('white'),
-		highlight: oPrivateColorsByUseCase('link-hover', 'text'),
-		pressed-highlight: rgba(oPrivateColorsByUseCase('link-hover', 'text'), 0.05),
+		highlight: oPrivateFoundationGet('o3-color-use-case-link-text-hover'),
+		pressed-highlight: rgba(oPrivateFoundationGet('o3-color-use-case-link-text-hover'), 0.05),
 		disabled: rgba(oColorsByName('black'), 0.5),
 	),
 	standard: (

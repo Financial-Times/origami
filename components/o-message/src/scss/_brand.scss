@@ -29,7 +29,7 @@ $_o-message-shared-brand-variables: (
 	@include oBrandDefine('o-message', 'core', (
 		'variables': map-merge($_o-message-shared-brand-variables, (
 			'feedback': (
-				'foreground-color': oPrivateColorsByUseCase('body', 'text'),
+				'foreground-color': oPrivateFoundationGet('o3-color-use-case-body-text'),
 				'highlight-color': oPrivateFoundationGet('o3-color-palette-teal'),
 				'button-type': 'primary',
 				'background-color': oPrivateFoundationGet('o3-color-palette-white'),
@@ -61,7 +61,7 @@ $_o-message-shared-brand-variables: (
 	@include oBrandDefine('o-message', 'internal', (
 		'variables': map-merge($_o-message-shared-brand-variables, (
 			'feedback': (
-				'foreground-color': oPrivateColorsByUseCase('body', 'text'),
+				'foreground-color': oPrivateFoundationGet('o3-color-use-case-body-text'),
 				'highlight-color': oPrivateFoundationGet('o3-color-palette-teal'),
 				'button-type': 'primary',
 				'background-color': oPrivateFoundationGet('o3-color-palette-white'),

@@ -147,7 +147,7 @@
 /// @param {String|Color} $color [black] - palette name of color
 /// @param {String|Color} $background [paper] - palette name of background color
 /// @param {Number} $percentage [60] - percentage opacity of the foreground color over the background
-@function oPrivateColorsMix($color: 'o3-color-palette-black', $background: oPrivateColorsByUseCase('page', 'background'), $percentage: 80) {
+@function oPrivateColorsMix($color: 'o3-color-palette-black', $background: oPrivateFoundationGet('o3-color-use-case-page-background'), $percentage: 80) {
 	// Cast colour arguments to string before checking if they exist in our pallet.
 	// If colour names are passed without quotes they will be of type `color`.
 	// We want both of these to be equivalent:

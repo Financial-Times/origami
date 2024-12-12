@@ -16,7 +16,7 @@
 	line-height: 1.6;
 	color: var(
 		--_o-editorial-typography-body-color,
-		#{oPrivateColorsByUseCase('body', 'text')}
+		#{oPrivateFoundationGet('o3-color-use-case-body-text')}
 	);
 	// undo browser defaults
 	@if (map-get($opts, 'margin-reset')) {
@@ -61,7 +61,7 @@
 /// e.g. for photo or video credit/caption.
 @mixin oEditorialTypographyCaption() {
 	@include oPrivateTypographySans($scale: -1);
-	color: oPrivateColorsByUseCase('body', 'text');
+	color: oPrivateFoundationGet('o3-color-use-case-body-text');
 }
 
 /// Output styles for large headline text.
@@ -99,7 +99,7 @@
 	}
 
 	// set color
-	color: oPrivateColorsByUseCase('body', 'text');
+	color: oPrivateFoundationGet('o3-color-use-case-body-text');
 
 	@if ($level == 1) {
 		@include oPrivateTypographyDisplay(4, $weight: 'regular');
@@ -173,7 +173,7 @@
 @mixin oEditorialTypographyTag($type) {
 	// Non-linked tags and author tags are the same colour as the body copy.
 	@if not is-superselector('a', '#{&}') {
-		color: oPrivateColorsByUseCase('body', 'text');
+		color: oPrivateFoundationGet('o3-color-use-case-body-text');
 	}
 
 	// Author and topic tags are bold.
@@ -192,15 +192,15 @@
 	$tag-link-selector: selector-unify('a', '#{&}');
 	@at-root #{$tag-link-selector} {
 		@if ($type != 'author') {
-			color: oPrivateColorsByUseCase('tag-link', text);
+			color: oPrivateFoundationGet('_o3-editorial-typography-topic-tag-color');
 		}
 
 		text-decoration: none;
 		border-bottom: 0;
 
 		&:hover {
-			$hover-color: if($type != 'author', 'tag-link-hover', 'tag-link');
-			color: oPrivateColorsByUseCase($hover-color, text);
+			$hover-color: if($type != 'author', '_o3-editorial-typography-topic-tag-hover-color', '_o3-editorial-typography-topic-tag-color');
+			color: oPrivateFoundationGet($hover-color);
 		}
 	}
 }
