@@ -18,11 +18,7 @@
 			border-right: 1px solid _oHeaderGet('drawer-border');
 			// use a 2D transform because 3D are unsupported by IE9
 			transform: translateX(-100%);
-			transform: translate3d(
-				-100%,
-				0,
-				0
-			); // stylelint-disable-line declaration-block-no-duplicate-properties
+			transform: translate3d(-100%, 0, 0); // stylelint-disable-line declaration-block-no-duplicate-properties
 
 			// this is literally the specification example for will-change
 			will-change: transform;
@@ -38,11 +34,7 @@
 			&.o-header__drawer--open {
 				// use a 2D transform because 3D are unsupported by IE9
 				transform: translateX(0);
-				transform: translate3d(
-					0,
-					0,
-					0
-				); // stylelint-disable-line declaration-block-no-duplicate-properties
+				transform: translate3d(0, 0, 0); // stylelint-disable-line declaration-block-no-duplicate-properties
 			}
 		}
 	}
@@ -117,7 +109,7 @@
 
 	.o-header__drawer-tools-close {
 		// dividing by 1px removes the unit
-		@include oIconsContent(
+		@include oPrivateIconsContent(
 			'cross',
 			_oHeaderGet('drawer-tools-close'),
 			$size: $_o-header-icon-size-large
@@ -328,7 +320,7 @@
 		background: rgba(_oHeaderGet('drawer-selected-toggle-background'), 0.25);
 
 		&:before {
-			@include oIconsContent(
+			@include oPrivateIconsContent(
 				'arrow-down',
 				_oHeaderGet('drawer-selected-toggle-text'),
 				$size: $_o-header-icon-size
@@ -340,7 +332,7 @@
 		background: rgba(_oHeaderGet('drawer-unselected-toggle-background'), 0.85);
 
 		&:before {
-			@include oIconsContent(
+			@include oPrivateIconsContent(
 				'arrow-down',
 				_oHeaderGet('drawer-unselected-toggle-text'),
 				$size: $_o-header-icon-size

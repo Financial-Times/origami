@@ -1,5 +1,4 @@
 @import '@financial-times/o-private-foundation/main';
-@import '@financial-times/o-icons/main';
 /// @access private
 $_ftConceptButtonThemes: (
 	link: (
@@ -71,7 +70,7 @@ $_ftConceptButtonThemes: (
 }
 
 @mixin _ftConceptButtonGetIcon($name, $color) {
-	@include oIconsContent(
+	@include oPrivateIconsContent(
 		$icon-name: $name,
 		$size: 10,
 		$color: $color,

@@ -114,7 +114,7 @@
 
 		//doesn't use oExpanderToggle mixin, because that mixin has a fixed font-size/icon size
 		&:after {
-			@include oIconsContent("arrow-down", oColorsByName("teal-50"), $size: 16);
+			@include oPrivateIconsContent("arrow-down", oColorsByName("teal-50"), $size: 16);
 			content: "";
 			position: relative;
 			vertical-align: middle;

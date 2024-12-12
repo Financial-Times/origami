@@ -6,11 +6,11 @@
 	font-size: inherit;
 	padding: div(oPrivateSpacingByIncrement(1), 2) oPrivateSpacingByIncrement(2);
 	span {
-		@include oIconsContent(
+		@include oPrivateIconsContent(
 			$icon-name: 'cross',
 			$color: _oMultiSelectGet('button-text-color'),
 			$size: $_o-multi-select-icon-size
 		);
-		vertical-align: middle; // override default style from oIconsContent mixin
+		vertical-align: middle; // override default style from oPrivateIconsContent mixin
 	}
 }

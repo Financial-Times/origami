@@ -89,7 +89,7 @@
 		}
 
 		&:before {
-			@include oIconsContent(
+			@include oPrivateIconsContent(
 				$icon-name: $icon,
 				$color: _oFormsGet('controls-base', $from: $theme),
 				$size: $_o-forms-checkbox-radio-width,
@@ -98,7 +98,7 @@
 		}
 
 		&:after {
-			@include oIconsContent(
+			@include oPrivateIconsContent(
 				$icon-name: $icon,
 				$color: _oFormsGet('controls-checked-base', $from: $theme),
 				$size: $_o-forms-checkbox-radio-width,

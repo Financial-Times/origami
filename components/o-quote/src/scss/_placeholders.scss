@@ -74,7 +74,7 @@
 	%_o-quote-blockquote-editorial {
 		&:before {
 			$icon-size: 36px;
-			@include oIconsContent(
+			@include oPrivateIconsContent(
 				$icon-name: 'speech-left',
 				$color: oColorsByName('black-90'),
 				$size: $icon-size

@@ -36,7 +36,7 @@
 	}
 
 	&.o-teaser__related-item--video a:after {
-		@include oIconsContent('play', oColorsByName('white'), $size: 13);
+		@include oPrivateIconsContent('play', oColorsByName('white'), $size: 13);
 		content: '';
 		position: relative;
 		top: 1px;

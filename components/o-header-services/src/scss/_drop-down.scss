@@ -11,7 +11,7 @@
 		padding: 0 0.25rem;
 
 		&:after {
-			@include oIconsContent(
+			@include oPrivateIconsContent(
 				'arrow-down',
 				_oHeaderServicesGet('arrow-icon-color'),
 				1.5rem
@@ -25,7 +25,7 @@
 
 			&:after {
 				@if _oHeaderServicesGet('arrow-icon-hover-color') {
-					@include oIconsContent(
+					@include oPrivateIconsContent(
 						'arrow-down',
 						_oHeaderServicesGet('arrow-icon-hover-color'),
 						1.5rem

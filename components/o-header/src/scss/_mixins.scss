@@ -132,7 +132,7 @@
 	white-space: nowrap;
 
 	&::before {
-		@include oIconsContent(
+		@include oPrivateIconsContent(
 			$icon-name: 'sparkles',
 			$color: _oHeaderGet('header-ask-ft-button-icon'),
 			$size: 40

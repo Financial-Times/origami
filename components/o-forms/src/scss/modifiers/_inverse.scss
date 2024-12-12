@@ -19,7 +19,7 @@
 		}
 
 		.o-forms-input__label:after {
-			@include oIconsContent(
+			@include oPrivateIconsContent(
 				'cross',
 				$size: null,
 				$color: _oFormsGet('toggle-inverse'),
@@ -67,7 +67,7 @@
 			}
 
 			+ .o-forms-input__label:after {
-				@include oIconsContent(
+				@include oPrivateIconsContent(
 					'tick',
 					$size: null,
 					$color: _oFormsGet('toggle-inverse-selected'),

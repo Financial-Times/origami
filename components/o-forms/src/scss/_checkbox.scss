@@ -33,7 +33,7 @@
 			}
 
 			&:indeterminate + .o-forms-input__label:after {
-				@include oIconsContent(
+				@include oPrivateIconsContent(
 					'minus',
 					_oFormsGet('controls-checked-base'),
 					$_o-forms-checkbox-radio-width
@@ -76,7 +76,7 @@
 
 			&:after {
 				@include _oFormsControlsPseudoElements();
-				@include oIconsContent(
+				@include oPrivateIconsContent(
 					'tick',
 					_oFormsGet('controls-checked-base'),
 					$_o-forms-checkbox-radio-width
@@ -109,7 +109,7 @@
 	.o-forms-input--checkbox {
 		input[type='checkbox'] {
 			&:indeterminate + .o-forms-input__label:after {
-				@include oIconsContent(
+				@include oPrivateIconsContent(
 					'minus',
 					_oFormsGet('controls-checked-base', $theme),
 					$_o-forms-checkbox-radio-width
@@ -124,7 +124,7 @@
 			}
 
 			&:after {
-				@include oIconsContent(
+				@include oPrivateIconsContent(
 					'tick',
 					_oFormsGet('controls-checked-base', $theme),
 					$_o-forms-checkbox-radio-width

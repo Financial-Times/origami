@@ -203,7 +203,7 @@
 }
 
 @mixin _oBannerCloseButton {
-	@include oIconsContent(
+	@include oPrivateIconsContent(
 		'cross',
 		_oBannerGet('text-color'),
 		$size: $_o-banner-close-button-size

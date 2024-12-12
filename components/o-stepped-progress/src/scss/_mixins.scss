@@ -177,7 +177,7 @@
 	// Completed step modifier
 	.o-stepped-progress__step--complete {
 		&::before {
-			@include oIconsContent(
+			@include oPrivateIconsContent(
 				$icon-name: 'tick',
 				$color: _oSteppedProgressGet('container-background'),
 				$size: null,
@@ -202,7 +202,7 @@
 	// Errored step modifier
 	.o-stepped-progress__step--error {
 		&::before {
-			@include oIconsContent(
+			@include oPrivateIconsContent(
 				$icon-name: 'warning',
 				$color: _oSteppedProgressGet('container-background'),
 				$size: null,
@@ -289,7 +289,7 @@
 		// Completed step modifier
 		.o-stepped-progress__step--complete {
 			&::before {
-				@include oIconsContent(
+				@include oPrivateIconsContent(
 					$icon-name: 'tick',
 					$color: _oSteppedProgressGet('interacted-color'),
 					$size: null,

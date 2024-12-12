@@ -9,7 +9,7 @@
 		}
 
 		.o-header__top-icon-link--menu:before {
-			@include oIconsContent(
+			@include oPrivateIconsContent(
 				'hamburger',
 				_oHeaderGet('header-icon', $from: 'transparent'),
 				$size: null,
@@ -18,7 +18,7 @@
 		}
 
 		.o-header__top-link--search:before {
-			@include oIconsContent(
+			@include oPrivateIconsContent(
 				'search',
 				_oHeaderGet('header-icon', $from: 'transparent'),
 				$size: null,

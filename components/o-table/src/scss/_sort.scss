@@ -29,7 +29,7 @@
 		padding: 0;
 		padding-right: $_o-table-sort-icon-size;
 		&:after {
-			@include oIconsContent('arrows-up-down', $size: $_o-table-sort-icon-size);
+			@include oPrivateIconsContent('arrows-up-down', $size: $_o-table-sort-icon-size);
 			content: '';
 			vertical-align: middle;
 			margin: -(div($_o-table-sort-icon-size, 2)) 0;
@@ -49,7 +49,7 @@
 		.o-table__sort:hover,
 	[aria-sort='descending'] .o-table__sort {
 		&:after {
-			@include oIconsContent('arrow-down', $size: $_o-table-sort-icon-size);
+			@include oPrivateIconsContent('arrow-down', $size: $_o-table-sort-icon-size);
 			vertical-align: middle;
 		}
 	}
@@ -60,7 +60,7 @@
 	th:not([aria-sort]) .o-table__sort:hover,
 	[aria-sort='ascending'] .o-table__sort {
 		&:after {
-			@include oIconsContent('arrow-up', $size: 1.25rem);
+			@include oPrivateIconsContent('arrow-up', $size: 1.25rem);
 			vertical-align: middle;
 		}
 	}

@@ -33,7 +33,7 @@
 		td {
 			scroll-snap-align: none center;
 			&:empty:before {
-				@include oIconsContent('minus', $size: 15);
+				@include oPrivateIconsContent('minus', $size: 15);
 				content: '';
 				vertical-align: middle;
 			}

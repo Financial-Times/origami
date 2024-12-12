@@ -1,4 +1,3 @@
-@import '@financial-times/o-icons/main';
 @import '@financial-times/o-private-foundation/main';
 @import 'src/scss/variables';
 
@@ -49,7 +48,7 @@
 		}
 
 		&:after {
-			@include oIconsContent('arrow-down', $icon-color, $size: 15);
+			@include oPrivateIconsContent('arrow-down', $icon-color, $size: 15);
 			content: '';
 			padding: 0 3px;
 			vertical-align: middle;

@@ -169,7 +169,7 @@
 			}
 
 			&:after {
-				@include oIconsContent(
+				@include oPrivateIconsContent(
 					'arrow-right',
 					oColorsByUsecase('o-teaser/package-basic', 'text'),
 					$size: 30
@@ -216,7 +216,7 @@
 			}
 
 			&:after {
-				@include oIconsContent(
+				@include oPrivateIconsContent(
 					'arrow-right',
 					oColorsByName('white'),
 					$size: 30
@@ -248,7 +248,7 @@
 			}
 
 			&:after {
-				@include oIconsContent(
+				@include oPrivateIconsContent(
 					'arrow-right',
 					$hero-extra-highlight-color,
 					$size: 30
