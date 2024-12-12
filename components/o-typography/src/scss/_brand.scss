@@ -115,10 +115,10 @@ $_o-typography-font-scale: (
 			'author-color': oPrivateFoundationGet('o3-color-use-case-body-text'),
 			'author-hover-color': oColorsByName('claret'),
 			'body': (
-				'color': oPrivateColorsByUseCase('body', 'text', $fallback: null),
+				'color': oColorsByUseCase('body', 'text', $fallback: null),
 			),
 			'body-inverse': (
-				'color': oPrivateColorsByUseCase('body-inverse', 'text', $fallback: null),
+				'color': oColorsByUseCase('body-inverse', 'text', $fallback: null),
 			),
 			'link': (
 				'base': oPrivateFoundationGet('o3-color-use-case-link-text'),

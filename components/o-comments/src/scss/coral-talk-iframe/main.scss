@@ -515,7 +515,7 @@
 			font-size: 14px;
 
 			&:hover {
-				color: oPrivateColorsByUseCase("body", "text");
+				color: oPrivateFoundationGet('o3-color-use-case-body-text');
 			}
 		}
 
@@ -550,10 +550,10 @@
 		.coral-featuredComment-goToConversationButton {
 			@include oPrivateTypographyLink;
 
-			color: oPrivateColorsByUseCase(link, text) !important;
+			color: oPrivateFoundationGet('o3-color-use-case-link-text') !important;
 
 			&:hover {
-				color: oPrivateColorsByUseCase(link-hover, text) !important;
+				color: oPrivateFoundationGet('o3-color-use-case-link-text-hover') !important;
 			}
 		}
 

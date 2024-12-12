@@ -225,7 +225,7 @@
 		}
 
 		.o-layout__linked-heading__label {
-			color: oPrivateColorsByUseCase(link, text);
+			color: oPrivateFoundationGet('o3-color-use-case-link-text');
 			display: none;
 			user-select: none;
 			font-weight: normal;
