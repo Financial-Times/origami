@@ -114,7 +114,7 @@
 	}
 
 	&:after {
-		@include oIconsContent('arrow-right', oPrivateFoundationGet('o3-color-palette-black'), $size: 30);
+		@include oPrivateIconsContent('arrow-right', oPrivateFoundationGet('o3-color-palette-black'), $size: 30);
 		content: '';
 		display: inline-block;
 		position: relative;

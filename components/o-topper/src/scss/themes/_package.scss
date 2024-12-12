@@ -15,7 +15,7 @@
 	}
 
 	&:after {
-		@include oIconsContent(
+		@include oPrivateIconsContent(
 			'arrow-down',
 			oPrivateFoundationGet('o3-color-use-case-link-text'),
 			$size: 20
@@ -56,7 +56,8 @@
 		border-color: oPrivateFoundationGet('o3-color-palette-lemon');
 
 		&:after {
-			@include oIconsContent('arrow-down',
+			@include oPrivateIconsContent(
+				'arrow-down',
 				oPrivateFoundationGet('o3-color-palette-lemon'),
 				$size: null,
 				$include-base-styles: false
@@ -79,7 +80,7 @@
 		color: oPrivateFoundationGet('o3-color-palette-white');
 
 		&:after {
-			@include oIconsContent(
+			@include oPrivateIconsContent(
 				'arrow-down',
 				oPrivateFoundationGet('o3-color-palette-lemon'),
 				$size: null,

@@ -36,7 +36,7 @@
 	}
 
 	&.o-teaser__related-item--video a:after {
-		@include oIconsContent('play', oPrivateFoundationGet('o3-color-palette-white'), $size: 13);
+		@include oPrivateIconsContent('play', oPrivateFoundationGet('o3-color-palette-white'), $size: 13);
 		content: '';
 		position: relative;
 		top: 1px;

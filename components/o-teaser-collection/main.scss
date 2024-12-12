@@ -1,5 +1,4 @@
 @import '@financial-times/o-private-foundation/main';
-@import '@financial-times/o-icons/main';
 
 @import 'src/scss/variables';
 @import 'src/scss/mixins';
@@ -80,7 +79,7 @@
 				border: 0;
 			}
 			a:after {
-				@include oIconsContent(
+				@include oPrivateIconsContent(
 					'arrow-right',
 					$_o-teaser-collection-color-assassination-heading,
 					$size: 30

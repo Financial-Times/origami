@@ -1,6 +1,6 @@
 @mixin _oTeaserVideo {
 	.o-teaser__heading:before {
-		@include oIconsContent('play', oPrivateFoundationGet('o3-color-palette-white'), $size: null);
+		@include oPrivateIconsContent('play', oPrivateFoundationGet('o3-color-palette-white'), $size: null);
 		content: '';
 		width: 0.7em;
 		height: 0.7em;
@@ -28,7 +28,7 @@
 		position: relative;
 
 		&:after {
-			@include oIconsContent('play', oPrivateFoundationGet('o3-color-palette-white'), $size: null);
+			@include oPrivateIconsContent('play', oPrivateFoundationGet('o3-color-palette-white'), $size: null);
 			pointer-events: none;
 			content: '';
 			position: absolute;

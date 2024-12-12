@@ -150,7 +150,7 @@
 			}
 
 			&:after {
-				@include oIconsContent(
+				@include oPrivateIconsContent(
 						'arrow-right',
 						oPrivateFoundationGet('o3-color-palette-claret-70'),
 					$size: 30
@@ -192,7 +192,7 @@
 			}
 
 			&:after {
-				@include oIconsContent(
+				@include oPrivateIconsContent(
 					'arrow-right',
 					oPrivateFoundationGet('o3-color-palette-white'),
 					$size: 30
@@ -222,9 +222,9 @@
 			}
 
 			&:after {
-				@include oIconsContent(
-						'arrow-right',
-						$hero-extra-highlight-color,
+				@include oPrivateIconsContent(
+					'arrow-right',
+					$hero-extra-highlight-color,
 					$size: 30
 				);
 			}

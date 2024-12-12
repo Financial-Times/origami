@@ -32,7 +32,7 @@ $_o-forms-alert-icon-right-padding: $_o-forms-spacing-two;
 		);
 
 		&:before {
-			@include oIconsContent(
+			@include oPrivateIconsContent(
 				$icon-name: 'warning-alt',
 				$color: $_o-forms-error-summary-foreground-color,
 				$size: $_o-forms-alert-icon-size

@@ -62,7 +62,7 @@
 	}
 
 	.o-video__guidance__close {
-		@include oIconsContent(
+		@include oPrivateIconsContent(
 			"cross",
 			$color: oPrivateFoundationGet("o3-color-palette-white"),
 			$size: 20px

@@ -135,7 +135,7 @@
 	@include _oTeaserPost;
 
 	.o-teaser__heading:before {
-		@include oIconsContent(
+		@include oPrivateIconsContent(
 			'speech-left',
 			oPrivateFoundationGet('o3-color-palette-oxford'),
 			30,

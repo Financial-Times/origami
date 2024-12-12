@@ -105,7 +105,7 @@
 			background-color: oPrivateColorsMix('o3-color-palette-black', 'o3-color-palette-white', 15);
 
 			span {
-				@include oIconsContent(
+				@include oPrivateIconsContent(
 					$icon-name: 'tick',
 					$color: oPrivateFoundationGet('o3-color-use-case-body-text'),
 					$size: 32,

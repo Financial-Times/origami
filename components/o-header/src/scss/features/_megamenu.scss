@@ -56,7 +56,7 @@
 	.o-header__mega-column--articles {
 		.o-header__mega-item {
 			&:before {
-				@include oIconsContent(
+				@include oPrivateIconsContent(
 					'arrow-right',
 						oPrivateFoundationGet('o3-color-palette-claret-60'),
 					$size: $_o-header-icon-size-small
