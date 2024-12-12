@@ -13,6 +13,7 @@
 	"scripts": {
 		"build": "bash ../../scripts/component/build.bash",
 		"test": "bash ../../scripts/component/test.bash",
+		"lint": "bash ../../scripts/component/lint.bash",
 		"watch": "bash ../../scripts/component/watch.bash"
 	},
 	"peerDependencies": {
