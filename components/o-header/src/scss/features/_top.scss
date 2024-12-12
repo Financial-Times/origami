@@ -73,7 +73,7 @@
 		}
 
 		&:before {
-			@include oIconsContentBaseStyles();
+			@include oPrivateIconsContentBaseStyles();
 			content: ' ';
 			width: #{$_o-header-icon-size-large}px;
 			height: #{$_o-header-icon-size-large}px;
@@ -114,7 +114,7 @@
 		&:before {
 			// container size (24) is only included for the fallback image.
 			// IE8 has a static stylesheet generated for the L breakpoint.
-			@include oIconsContent(
+			@include oPrivateIconsContent(
 				'hamburger',
 				_oHeaderGet('header-icon'),
 				$size: null,
@@ -125,7 +125,7 @@
 
 	.o-header__top-icon-link--search {
 		&:before {
-			@include oIconsContent(
+			@include oPrivateIconsContent(
 				'search',
 				_oHeaderGet('header-icon'),
 				$size: null,
@@ -150,7 +150,7 @@
 		padding: $_o-header-padding-y 0;
 
 		&:before {
-			@include oIconsContent(
+			@include oPrivateIconsContent(
 				'user',
 				_oHeaderGet('header-icon'),
 				$size: 32,

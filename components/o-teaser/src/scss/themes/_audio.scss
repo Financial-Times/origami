@@ -1,6 +1,6 @@
 @mixin _oTeaserAudio {
 	.o-teaser__heading:before {
-		@include oIconsContent('audio', oColorsByName('white'), $size: null);
+		@include oPrivateIconsContent('audio', oColorsByName('white'), $size: null);
 		content: '';
 		width: 0.7em;
 		height: 0.7em;
@@ -28,7 +28,7 @@
 		position: relative;
 
 		&:after {
-			@include oIconsContent('audio', oColorsByName('white'), $size: null);
+			@include oPrivateIconsContent('audio', oColorsByName('white'), $size: null);
 			pointer-events: none;
 			content: '';
 			position: absolute;

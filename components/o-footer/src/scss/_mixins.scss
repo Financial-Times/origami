@@ -29,7 +29,7 @@
 		}
 
 		.o-footer__matrix-link--more:after {
-			@include oIconsContent(
+			@include oPrivateIconsContent(
 				$icon-name: 'arrow-right',
 				$size: $_o-footer-icon-size,
 				$color: _oFooterGet('text', $from: $theme),
@@ -116,7 +116,7 @@
 
 				@each $theme in $themes {
 					.o-footer--theme-#{$theme} & {
-						@include oIconsContent('arrow-down', _oFooterGet('title', $theme), $size: $_o-footer-icon-size);
+						@include oPrivateIconsContent('arrow-down', _oFooterGet('title', $theme), $size: $_o-footer-icon-size);
 					}
 				}
 			}
@@ -171,7 +171,7 @@
 			white-space: normal;
 		}
 		&:after {
-			@include oIconsContent(
+			@include oPrivateIconsContent(
 				$icon-name: 'arrow-right',
 				$size: $_o-footer-icon-size,
 				$color: _oFooterGet('text'),

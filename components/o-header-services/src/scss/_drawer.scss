@@ -148,7 +148,7 @@
 		border: 0;
 		vertical-align: middle;
 		&:after {
-			@include oIconsContent(
+			@include oPrivateIconsContent(
 				'cross',
 				_oHeaderServicesGet('arrow-icon-color'),
 				1.5rem
@@ -161,7 +161,7 @@
 			color: _oHeaderServicesGet('text-hover-color');
 			&:after {
 				@if _oHeaderServicesGet('text-hover-color') {
-					@include oIconsContent(
+					@include oPrivateIconsContent(
 						'cross',
 						_oHeaderServicesGet('text-hover-color'),
 						1.5rem
