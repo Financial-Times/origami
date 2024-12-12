@@ -112,17 +112,17 @@ $_o-typography-font-scale: (
 
 	@include oBrandDefine('o-typography', 'core', (
 		'variables': (
-			'author-color': oColorsByUsecase('body', 'text'),
+			'author-color': oPrivateColorsByUseCase('body', 'text'),
 			'author-hover-color': oColorsByName('claret'),
 			'body': (
-				'color': oColorsByUsecase('body', 'text', $fallback: null),
+				'color': oPrivateColorsByUseCase('body', 'text', $fallback: null),
 			),
 			'body-inverse': (
-				'color': oColorsByUsecase('body-inverse', 'text', $fallback: null),
+				'color': oPrivateColorsByUseCase('body-inverse', 'text', $fallback: null),
 			),
 			'link': (
-				'base': oColorsByUsecase('link', 'text'),
-				'hover': oColorsByUsecase('link-hover', 'text'),
+				'base': oPrivateColorsByUseCase('link', 'text'),
+				'hover': oPrivateColorsByUseCase('link-hover', 'text'),
 			),
 			'link-inverse': (
 				'base': oColorsByName('white'),
@@ -188,8 +188,8 @@ $_o-typography-font-scale: (
 	@include oBrandDefine('o-typography', 'internal', (
 		'variables': (
 			'link': (
-				'base': oColorsByUsecase('link', 'text'),
-				'hover': oColorsByUsecase('link-hover', 'text'),
+				'base': oPrivateColorsByUseCase('link', 'text'),
+				'hover': oPrivateColorsByUseCase('link-hover', 'text'),
 			),
 			'heading-level-one': (
 				'scale': 5,

@@ -3,6 +3,7 @@
 @include oLabels();
 @import '@financial-times/o-normalise/main';
 @include oNormalise();
+@import "@financial-times/o-colors/main";
 
 body {
 	padding: 1rem;

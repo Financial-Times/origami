@@ -38,9 +38,9 @@ body {
 	@include oMessageAddState(
 		'pikachu',
 		(
-			'foreground-color': 'white',
-			'background-color': 'slate',
-			'highlight-color': 'lemon',
+			'foreground-color': 'o3-color-palette-white',
+			'background-color': 'o3-color-palette-slate',
+			'highlight-color': 'o3-color-palette-lemon',
 			'button-type': 'primary',
 			'icon': 'user',
 		),

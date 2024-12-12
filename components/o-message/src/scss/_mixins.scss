@@ -35,27 +35,27 @@
 	$foreground-color-arg: _oMessageGet('foreground-color', $from: $opts);
 	$foreground-color: if(
 		type-of($foreground-color-arg) == 'string',
-		oColorsByName($foreground-color-arg),
+		oPrivateFoundationGet($foreground-color-arg),
 		$foreground-color-arg
 	);
 	// get highlight colour
 	$highlight-color-arg: _oMessageGet('highlight-color', $from: $opts);
 	$highlight-color: if(
 		type-of($highlight-color-arg) == 'string',
-		oColorsByName($highlight-color-arg),
+		oPrivateFoundationGet($highlight-color-arg),
 		$highlight-color-arg
 	);
 	// get background colour
 	$background-color-arg: _oMessageGet('background-color', $from: $opts);
 	$background-color: if(
 		type-of($background-color-arg) == 'string',
-		oColorsByName($background-color-arg),
+		oPrivateFoundationGet($background-color-arg),
 		$background-color-arg
 	);
 
 	// Confirm minimum foreground contrast ratio.
 	@if $foreground-color {
-		$foreground-contrast: oColorsGetContrastRatio(
+		$foreground-contrast: oPrivateColorsGetContrastRatio(
 			$foreground-color,
 			$background-color
 		);
@@ -68,7 +68,7 @@
 
 	// Confirm minimum highlight contrast ratio.
 	@if $highlight-color {
-		$highlight-contrast: oColorsGetContrastRatio(
+		$highlight-contrast: oPrivateColorsGetContrastRatio(
 			$highlight-color,
 			$background-color
 		);

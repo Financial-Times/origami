@@ -1,5 +1,5 @@
 @mixin _oTeaserPartnerContent {
-	color: oColorsByName('black');
+	color: oPrivateFoundationGet('o3-color-palette-black');
 
 	.o-teaser__meta {
 		@include oPrivateTypographySans($scale: -1, $weight: 'semibold');
@@ -10,7 +10,7 @@
 	.o-teaser__promoted-prefix {
 		@include oPrivateTypographySans($scale: 0);
 		text-transform: uppercase;
-		color: oColorsByName('matisse');
+		color: oPrivateFoundationGet('o3-color-palette-matisse-blue');
 		display: block;
 	}
 

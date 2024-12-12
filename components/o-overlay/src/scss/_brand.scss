@@ -10,19 +10,19 @@
 @if oBrandIs('core') {
 	@include oBrandDefine('o-overlay', 'core', (
 		'variables': (
-			default-background: oColorsByName('white'),
-			default-border: oColorsByName('black-20'),
-			heading-background: oColorsByName('transparent'),
-			heading-text: oColorsByName('black-80'),
-			shaded-heading-background: oColorsByName('black-80'),
-			shaded-heading-border: oColorsByName('black-80'),
-			shaded-heading-text: oColorsByName('white'),
-			default-close-background: oColorsByName('white'),
-			default-close-text: oColorsByName('black-60'),
-			default-close-border: oColorsByName('black-50'),
-			shaded-close-background: oColorsByName('black-50'),
-			shaded-close-text: oColorsByName('white'),
-			shaded-close-border: oColorsByName('white')
+			default-background: oPrivateFoundationGet('o3-color-palette-white'),
+			default-border: oPrivateFoundationGet('o3-color-palette-black-20'),
+			heading-background: transparent,
+			heading-text: oPrivateFoundationGet('o3-color-palette-black-80'),
+			shaded-heading-background: oPrivateFoundationGet('o3-color-palette-black-80'),
+			shaded-heading-border: oPrivateFoundationGet('o3-color-palette-black-80'),
+			shaded-heading-text: oPrivateFoundationGet('o3-color-palette-white'),
+			default-close-background: oPrivateFoundationGet('o3-color-palette-white'),
+			default-close-text: oPrivateFoundationGet('o3-color-palette-black-60'),
+			default-close-border: oPrivateFoundationGet('o3-color-palette-black-50'),
+			shaded-close-background: oPrivateFoundationGet('o3-color-palette-black-50'),
+			shaded-close-text: oPrivateFoundationGet('o3-color-palette-white'),
+			shaded-close-border: oPrivateFoundationGet('o3-color-palette-white')
 		),
 		'supports-variants': ()
 	));
@@ -31,19 +31,19 @@
 @if oBrandIs('internal') {
 	@include oBrandDefine('o-overlay', 'internal', (
 		'variables': (
-			default-background: oColorsByName('white'),
-			default-border: oColorsByName('transparent'),
-			heading-background: oColorsByName('transparent'),
-			heading-text: oColorsByName('black-80'),
-			shaded-heading-background: oColorsByName('slate'),
-			shaded-heading-border: oColorsByName('slate'),
-			shaded-heading-text: oColorsByName('white'),
-			default-close-background: oColorsByName('white'),
-			default-close-text: oColorsByName('black-60'),
-			default-close-border: oColorsByName('slate-white-5'),
-			shaded-close-background: oColorsByName('slate'),
-			shaded-close-text: oColorsByName('white'),
-			shaded-close-border: oColorsByName('white')
+			default-background: oPrivateFoundationGet('o3-color-palette-white'),
+			default-border: oPrivateFoundationGet('o3-color-palette-transparent'),
+			heading-background: oPrivateFoundationGet('o3-color-palette-transparent'),
+			heading-text: oPrivateFoundationGet('o3-color-palette-black-80'),
+			shaded-heading-background: oPrivateFoundationGet('o3-color-palette-slate'),
+			shaded-heading-border: oPrivateFoundationGet('o3-color-palette-slate'),
+			shaded-heading-text: oPrivateFoundationGet('o3-color-palette-white'),
+			default-close-background: oPrivateFoundationGet('o3-color-palette-white'),
+			default-close-text: oPrivateFoundationGet('o3-color-palette-black-60'),
+			default-close-border: oPrivateFoundationGet('o3-color-palette-slate-white-5'),
+			shaded-close-background: oPrivateFoundationGet('o3-color-palette-slate'),
+			shaded-close-text: oPrivateFoundationGet('o3-color-palette-white'),
+			shaded-close-border: oPrivateFoundationGet('o3-color-palette-white')
 		),
 		'supports-variants': ()
 	));
@@ -52,19 +52,19 @@
 @if oBrandIs('whitelabel') {
 	@include oBrandDefine('o-overlay', 'whitelabel', (
 		'variables': (
-			default-background: oColorsByName('white'),
-			default-border: oColorsByName('transparent'),
-			heading-background: oColorsByName('transparent'),
-			heading-text: oColorsByName('black-80'),
-			shaded-heading-background: oColorsByName('black'),
-			shaded-heading-border: oColorsByName('black'),
-			shaded-heading-text: oColorsByName('white'),
-			default-close-background: oColorsByName('white'),
-			default-close-text: oColorsByName('black'),
-			default-close-border: oColorsByName('black'),
-			shaded-close-background: oColorsByName('black'),
-			shaded-close-text: oColorsByName('white'),
-			shaded-close-border: oColorsByName('white')
+			default-background: oPrivateFoundationGet('o3-color-palette-white'),
+			default-border: transparent,
+			heading-background: transparent,
+			heading-text: oPrivateFoundationGet('o3-color-palette-black-80'),
+			shaded-heading-background: oPrivateFoundationGet('o3-color-palette-black'),
+			shaded-heading-border: oPrivateFoundationGet('o3-color-palette-black'),
+			shaded-heading-text: oPrivateFoundationGet('o3-color-palette-white'),
+			default-close-background: oPrivateFoundationGet('o3-color-palette-white'),
+			default-close-text: oPrivateFoundationGet('o3-color-palette-black'),
+			default-close-border: oPrivateFoundationGet('o3-color-palette-black'),
+			shaded-close-background: oPrivateFoundationGet('o3-color-palette-black'),
+			shaded-close-text: oPrivateFoundationGet('o3-color-palette-white'),
+			shaded-close-border: oPrivateFoundationGet('o3-color-palette-white')
 		),
 		'supports-variants': ()
 	));

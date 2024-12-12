@@ -9,15 +9,15 @@
 
 	// Get given base and border colour.
 	$base: map-get($theme, 'controls-base');
-	$base: if(type-of($base) == 'string', oColorsByName($base), $base);
+	$base: if(type-of($base) == 'string', oPrivateFoundationGet($base), $base);
 	$border: map-get($theme, 'controls-border');
-	$border: if(type-of($border) == 'string', oColorsByName($border), $border);
+	$border: if(type-of($border) == 'string', oPrivateFoundationGet($border), $border);
 
 	// Get given checked base colour.
 	$checked-base: map-get($theme, 'controls-checked-base');
 	$checked-base: if(
 		type-of($checked-base) == 'string',
-		oColorsByName($checked-base),
+		oPrivateFoundationGet($checked-base),
 		$checked-base
 	);
 
@@ -25,7 +25,7 @@
 	$negative-background: map-get($theme, 'controls-negative-checked-background');
 	$negative-background: if(
 		type-of($negative-background) == 'string',
-		oColorsByName($negative-background),
+		oPrivateFoundationGet($negative-background),
 		$negative-background
 	);
 

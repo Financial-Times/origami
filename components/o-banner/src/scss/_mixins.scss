@@ -235,8 +235,8 @@
 ///   @include oBannerAddTheme('marketing');
 /// @example scss - Custom banner theme
 ///   @include oBannerAddTheme('bubblegum', (
-///       background-color: oColorsMix('candy', 'white', 75),
-///       text-color: oColorsByName('oxford-90')
+///       background-color: oPrivateColorsMix('candy', 'white', 75),
+///       text-color: oPrivateFoundationGet('o3-color-palette-oxford-90')
 ///   ));
 /// @access public
 @mixin oBannerAddTheme($theme-name, $opts: null) {

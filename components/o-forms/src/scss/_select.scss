@@ -38,7 +38,7 @@
 
 			// Hide stock browser arrow in IE 10+
 			&::-ms-expand {
-				color: oColorsByName('white');
+				color: oPrivateFoundationGet('o3-color-palette-white');
 				display: none;
 			}
 

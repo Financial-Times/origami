@@ -1,5 +1,7 @@
 // Base cookie message styles
 @mixin _oCookieMessageBase() {
+	// These are passed into oTypography which hasn't been migrated as it will be part of o-private-foundation soon.
+	// Make sure to update these colours to new ones when it is.
 	$link-theme: (
 		'base': 'teal',
 		'hover': 'teal',
@@ -45,8 +47,8 @@
 
 	.o-cookie-message__outer {
 		@include oPrivateVisualEffectsShadowContent('high');
-		background: oColorsByName('white');
-		color: oColorsByName('black');
+		background: oPrivateFoundationGet('o3-color-palette-white');
+		color: oPrivateFoundationGet('o3-color-palette-black');
 	}
 
 	.o-cookie-message__inner {
@@ -96,7 +98,7 @@
 			margin-top: oPrivateSpacingByName('s2');
 			margin-bottom: oPrivateSpacingByName('s3');
 			border-bottom: oPrivateSpacingByIncrement(1) solid;
-			border-color: oColorsByName('teal');
+			border-color: oPrivateFoundationGet('o3-color-palette-teal');
 		}
 	}
 
@@ -179,14 +181,14 @@
 					'size': 'big',
 				),
 				$theme-override: (
-					'color': oColorsMix('jade', 'black', 89),
-					'context': 'white',
+					'color': oPrivateColorsMix('o3-color-palette-jade', 'o3-color-palette-black', 89),
+					'context': 'o3-color-palette-white',
 				)
 			);
 		}
 
 		.o-cookie-message__heading:after {
-			border-color: oColorsByName('jade');
+			border-color: oPrivateFoundationGet('o3-color-palette-jade');
 		}
 
 		.o-cookie-message__link {
