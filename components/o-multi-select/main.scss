@@ -46,7 +46,7 @@
 	.o-multi-select__combobox-wrapper {
 		@include oPrivateTypographySans(0);
 		position: relative;
-		background-color: oColorsByName('white');
+		background-color: oPrivateFoundationGet('o3-color-palette-white');
 		border: $_o-multi-select-border;
 
 		.o-multi-select__combobox {
@@ -76,7 +76,7 @@
 		@include oPrivateNormaliseBoxSizing();
 		@include oPrivateTypographySans(0);
 		width: 100%;
-		background-color: oColorsByName('white');
+		background-color: oPrivateFoundationGet('o3-color-palette-white');
 		padding: $_o-multi-select-padding;
 		border: $_o-multi-select-border;
 		position: absolute;

@@ -135,7 +135,7 @@
 /// Output styles for editorial standfirst.
 @mixin oEditorialTypographyStandfirst() {
 	@include oPrivateTypographySans($scale: 2);
-	color: oColorsByName('black-80');
+	color: oPrivateFoundationGet('o3-color-palette-black-80');
 }
 
 /// Output styles for the editorial byline.
@@ -150,7 +150,7 @@
 /// a comment section or a byline.
 @mixin oEditorialTypographyTimestamp() {
 	text-transform: uppercase;
-	color: oColorsByName('black-60');
+	color: oPrivateFoundationGet('o3-color-palette-black-60');
 }
 
 /// Output specific tag styles, such as author and

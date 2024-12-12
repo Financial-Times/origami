@@ -78,7 +78,7 @@
 			@include oEditorialTypographyBody();
 		}
 		.o-editorial-typography-body--inverse {
-			--_o-editorial-typography-body-color: #{oColorsByName('white')};
+			--_o-editorial-typography-body-color: #{oPrivateFoundationGet('o3-color-palette-white')};
 		}
 	}
 

@@ -23,8 +23,8 @@
 			font-family: var(--font-family-primary);
 			font-size: var(--font-size-3);
 			font-weight: var(--font-weight-primary-regular);
-			background-color: oColorsByName("wheat");
-			border-color: oColorsByName("wheat");
+			background-color: oPrivateFoundationGet("o3-color-palette-wheat");
+			border-color: oPrivateFoundationGet("o3-color-palette-wheat");
 			border-radius: 0;
 			padding: var(--spacing-4);
 
@@ -73,21 +73,21 @@
 		--font-weight-primary-regular: 400;
 		--font-weight-secondary-regular: 400;
 
-		--palette-background-body: #{inspect(oColorsByName("paper"))};
-		--palette-text-500: #{inspect(oColorsByName("black-80"))};
-		--palette-error-400: #{inspect(oColorsByName("claret-80"))};
-		--palette-error-800: #{inspect(oColorsByName("claret-70"))};
-		--palette-error-900: #{inspect(oColorsByName("claret-70"))};
-		--palette-error-500: #{inspect(oColorsByName("claret-70"))};
-		--palette-success-500: #{inspect(oColorsByName("teal-50"))};
-		--palette-success-400: #{inspect(oColorsByName("teal-60"))};
-		--palette-grey-100: #{inspect(oColorsByName("paper"))};
-		--palette-grey-200: #{inspect(oColorsByName("paper"))};
+		--palette-background-body: #{inspect(oPrivateFoundationGet("o3-color-palette-paper"))};
+		--palette-text-500: #{inspect(oPrivateFoundationGet("o3-color-palette-black-80"))};
+		--palette-error-400: #{inspect(oPrivateFoundationGet("o3-color-palette-claret-80"))};
+		--palette-error-800: #{inspect(oPrivateFoundationGet("o3-color-palette-claret-70"))};
+		--palette-error-900: #{inspect(oPrivateFoundationGet("o3-color-palette-claret-70"))};
+		--palette-error-500: #{inspect(oPrivateFoundationGet("o3-color-palette-claret-70"))};
+		--palette-success-500: #{inspect(oPrivateFoundationGet("o3-color-palette-teal-50"))};
+		--palette-success-400: #{inspect(oPrivateFoundationGet("o3-color-palette-teal-60"))};
+		--palette-grey-100: #{inspect(oPrivateFoundationGet("o3-color-palette-paper"))};
+		--palette-grey-200: #{inspect(oPrivateFoundationGet("o3-color-palette-paper"))};
 
-		--palette-primary-400: #{inspect(oColorsByName("teal-50"))};
-		--palette-primary-500: #{inspect(oColorsByName("teal-50"))};
-		--palette-primary-600: #{inspect(oColorsByName("teal-50"))};
-		--palette-primary-700: #{inspect(oColorsByName("teal-50"))};
+		--palette-primary-400: #{inspect(oPrivateFoundationGet("o3-color-palette-teal-50"))};
+		--palette-primary-500: #{inspect(oPrivateFoundationGet("o3-color-palette-teal-50"))};
+		--palette-primary-600: #{inspect(oPrivateFoundationGet("o3-color-palette-teal-50"))};
+		--palette-primary-700: #{inspect(oPrivateFoundationGet("o3-color-palette-teal-50"))};
 
 		--font-size-1: calc(0.75rem * var(--ft-magnify));
 		--font-size-2: calc(0.875rem * var(--ft-magnify));
@@ -125,13 +125,13 @@
 		}
 
 		.coral-tabBarSecondary {
-			border-bottom-color: oColorsByName("teal-50");
+			border-bottom-color: oPrivateFoundationGet("o3-color-palette-teal-50");
 		}
 
 		// community guidelines box
 		.coral-guidelines {
-			background-color: oColorsByName("wheat");
-			border-color: oColorsByName("wheat");
+			background-color: oPrivateFoundationGet("o3-color-palette-wheat");
+			border-color: oPrivateFoundationGet("o3-color-palette-wheat");
 			border-radius: 0;
 		}
 
@@ -298,7 +298,7 @@
 			font-size: 14px;
 
 			&:hover {
-				color: oColorsByName("black");
+				color: oPrivateFoundationGet("o3-color-palette-black");
 			}
 		}
 
@@ -319,12 +319,12 @@
 			}
 			span,
 			i {
-				color: oColorsByName("teal-50");
+				color: oPrivateFoundationGet("o3-color-palette-teal-50");
 			}
 		}
 
 		.coral-featuredComment-replies div {
-			color: oColorsByName("teal-50");
+			color: oPrivateFoundationGet("o3-color-palette-teal-50");
 		}
 
 		.coral-comment-replyButton,
@@ -392,19 +392,19 @@
 			@include oEditorialTypographyTimestamp;
 			font-size: 12px;
 			margin-bottom: 0;
-			color: oColorsByName("black-80");
+			color: oPrivateFoundationGet("o3-color-palette-black-80");
 		}
 
 		// "staff" tag
 		.coral-comment-userTag {
-			background-color: oColorsByName("claret-70");
-			color: oColorsByName("white");
+			background-color: oPrivateFoundationGet("o3-color-palette-claret-70");
+			color: oPrivateFoundationGet("o3-color-palette-white");
 		}
 
 		// "featured comment" tag
 		.coral-comment-commentTag {
-			background-color: oColorsByName("black") !important;
-			color: oColorsByName("white") !important;
+			background-color: oPrivateFoundationGet("o3-color-palette-black") !important;
+			color: oPrivateFoundationGet("o3-color-palette-white") !important;
 			border-radius: 0;
 			border: 0 !important;
 		}
@@ -413,7 +413,7 @@
 		.coral-rte-content blockquote,
 		.coral-comment-content blockquote,
 		.coral-myComment-content blockquote {
-			background-color: oColorsByName("wheat");
+			background-color: oPrivateFoundationGet("o3-color-palette-wheat");
 			font-size: 14px !important;
 		}
 
@@ -441,8 +441,8 @@
 
 		// featured comments
 		.coral-featuredComment {
-			border-color: oColorsByName("wheat");
-			background-color: oColorsByName("wheat");
+			border-color: oPrivateFoundationGet("o3-color-palette-wheat");
+			background-color: oPrivateFoundationGet("o3-color-palette-wheat");
 		}
 
 		// edit button
@@ -522,7 +522,7 @@
 		// In reply to <<author>>
 		.coral-comment-inReplyToUsername {
 			&:hover {
-				color: oColorsByName("black-50");
+				color: oPrivateFoundationGet("o3-color-palette-black-50");
 			}
 		}
 
@@ -537,8 +537,8 @@
 
 		// verify email - message sent
 		.coral-verifyEmail-resentMessage {
-			background-color: oColorsByName("wheat");
-			border-color: oColorsByName("wheat");
+			background-color: oPrivateFoundationGet("o3-color-palette-wheat");
+			border-color: oPrivateFoundationGet("o3-color-palette-wheat");
 		}
 
 		// my comment - view conversation
@@ -575,7 +575,7 @@
 		}
 
 		.coral-selectField {
-			background: oColorsByName("paper");
+			background: oPrivateFoundationGet("o3-color-palette-paper");
 			border-radius: 0;
 		}
 
@@ -597,7 +597,7 @@
 		}
 
 		.coral-createReplyComment-replyTo {
-			background-color: oColorsByName("paper");
+			background-color: oPrivateFoundationGet("o3-color-palette-paper");
 		}
 
 		.coral-createReplyComment-replyTo {
