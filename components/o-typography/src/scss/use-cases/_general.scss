@@ -39,7 +39,7 @@
 		),
 		$weight: $weight
 	);
-	color: oColorsByUseCase('body', 'text', $fallback: null);
+	color:  oColorsByUsecase('body', 'text', $fallback: null);
 	margin: 0 0 oSpacingByName('s4');
 }
 
@@ -114,9 +114,9 @@
 	// Default link colours.
 	// These may be `null` if the usecase is not set, i.e. for the whitelabel brand.
 	$theme: if($theme, $theme, 'link');
-	$base-color: oColorsByUseCase(link, text, $fallback: null);
-	$hover-color: oColorsByUseCase(link-hover, text, $fallback: null);
-	$context-color: oColorsByUseCase(page, background);
+	$base-color: oColorsByUsecase(link, text, $fallback: null);
+	$hover-color: oColorsByUsecase(link-hover, text, $fallback: null);
+	$context-color: oColorsByUsecase(page, background);
 	$underline-size: 0.25ex; // 2px for 18px MetricWeb
 
 	// Map themes to less friendly o-brand variant
@@ -305,7 +305,7 @@
 /// Style for <footer> tags
 @mixin oTypographyFooter {
 	@include oTypographySans($scale: 1, $line-height: 24px);
-	color: oColorsByUseCase('body', 'text', $fallback: null);
+	color: oColorsByUsecase('body', 'text', $fallback: null);
 }
 
 /// Styles for photo or video credit/caption
@@ -313,5 +313,6 @@
 	@include oTypographySans($scale: -1);
 	margin-top: oSpacingByName('s2');
 	margin-bottom: 0;
-	color: oColorsByUseCase('body', 'text', $fallback: null);
+	color: oColorsByUsecase('body', 'text', $fallback: null);
+	color: oColorsByUsecase('body', 'text', $fallback: null);
 }
