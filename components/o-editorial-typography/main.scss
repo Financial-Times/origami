@@ -90,7 +90,7 @@
 
 	@if $body and $links-enabled {
 		.o-editorial-typography-body--inverse .o-editorial-typography-link {
-			@include oPrivateTypographyLink(
+			@include oPrivateTypographyLinkThemeOverride(
 				$theme: (
 					'base': _oEditorialTypographyGet('base', 'link-inverse'),
 					'base-decoration':
