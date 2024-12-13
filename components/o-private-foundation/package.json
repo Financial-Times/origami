@@ -22,7 +22,7 @@
 	},
 	"devDependencies": {},
 	"engines": {
-		"npm": "^7 || ^8"
+		"npm": ">7"
 	},
 	"volta": {
 		"node": "14.16.1",
