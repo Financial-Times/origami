@@ -32,8 +32,8 @@
 	@include oBrandDefine('o-overlay', 'internal', (
 		'variables': (
 			default-background: oPrivateFoundationGet('o3-color-palette-white'),
-			default-border: oPrivateFoundationGet('o3-color-palette-transparent'),
-			heading-background: oPrivateFoundationGet('o3-color-palette-transparent'),
+			default-border: transparent,
+			heading-background: transparent,
 			heading-text: oPrivateFoundationGet('o3-color-palette-black-80'),
 			shaded-heading-background: oPrivateFoundationGet('o3-color-palette-slate'),
 			shaded-heading-border: oPrivateFoundationGet('o3-color-palette-slate'),
