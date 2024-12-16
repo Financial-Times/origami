@@ -275,7 +275,7 @@
 				@include oButtonsAddTheme(
 					$name: 'test-hex-theme-colors',
 					$opts: (
-						'color': oColorsByName('eal-90'),
+						'color': oColorsByName('teal-90'),
 						'context': oPrivateFoundationGet('slate')
 					),
 					$types: ('primary', 'secondary'),
