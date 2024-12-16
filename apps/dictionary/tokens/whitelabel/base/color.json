@@ -42,6 +42,11 @@
           "value": "#808080",
           "type": "color"
         },
+        "black-54": {
+          "value": "#757575",
+          "type": "color",
+          "description": "WCAG AA compatible black tone for thin texts on a #FFF background"
+        },
         "black-60": {
           "value": "#666",
           "type": "color"

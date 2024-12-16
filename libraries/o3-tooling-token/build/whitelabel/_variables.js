@@ -163,6 +163,25 @@ export default {
 		"css": "--o3-color-palette-black-50",
 		"figma": "o3/color/palette/black-50"
 },
+	"o3-color-palette-black-54": {
+		"shortName": "black-54",
+		"value": "#757575",
+		"originalValue": "#757575",
+		"type": "color",
+		"description": "WCAG AA compatible black tone for thin texts on a #FFF background",
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"black-54"
+		],
+		"origamiTint": {
+				"base": "black",
+				"value": "54"
+		},
+		"css": "--o3-color-palette-black-54",
+		"figma": "o3/color/palette/black-54"
+},
 	"o3-color-palette-black-60": {
 		"shortName": "black-60",
 		"value": "#666666",
@@ -237,8 +256,8 @@ export default {
 },
 	"o3-color-use-case-link-text": {
 		"shortName": "@",
-		"value": "#808080",
-		"originalValue": "{o3.color.palette.black-50}",
+		"value": "#757575",
+		"originalValue": "{o3.color.palette.black-54}",
 		"type": "color",
 		"description": "",
 		"path": [
@@ -426,8 +445,8 @@ export default {
 },
 	"o3-color-use-case-muted-text": {
 		"shortName": "text",
-		"value": "#808080",
-		"originalValue": "{o3.color.palette.black-50}",
+		"value": "#757575",
+		"originalValue": "{o3.color.palette.black-54}",
 		"type": "color",
 		"description": "\"Muted\" text is less prominent, for example credits and captions.",
 		"path": [
