@@ -32,11 +32,11 @@
 				'button-background-color': oPrivateFoundationGet('o3-color-palette-white')
 			),
 			'professional-inverse': (
-				'background-color': oPrivateFoundationGet('o3-color-palette-slate'),
-				'text-color': oPrivateFoundationGet('o3-color-palette-white'),
-				'heading-rule-color': oPrivateFoundationGet('o3-color-palette-mint'),
-				'brand-border': oPrivateFoundationGet('o3-color-palette-mint'),
-				'button-background-color': oPrivateFoundationGet('o3-color-palette-mint')
+				'background-color': oPrivateFoundationGet('o3-color-palette-slate', 'professional'),
+				'text-color': oPrivateFoundationGet('o3-color-palette-white', 'professional'),
+				'heading-rule-color': oPrivateFoundationGet('o3-color-palette-mint', 'professional'),
+				'brand-border': oPrivateFoundationGet('o3-color-palette-mint', 'professional'),
+				'button-background-color': oPrivateFoundationGet('o3-color-palette-mint', 'professional')
 			)
 		),
 		'supports-variants': (
