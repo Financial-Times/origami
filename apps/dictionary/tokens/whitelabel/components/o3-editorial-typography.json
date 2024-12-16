@@ -1,16 +1,20 @@
 {
   "o3": {
+    "typography": {
+      "use-case": {
+        "display-lg": {
+          "value": {
+            "fontFamily": "{o3.font.family.financier-display}",
+            "fontWeight": "{o3.font.weight.bold}",
+            "fontSize": "{o3.font.size.7}",
+            "lineHeight": "{o3.font.lineheight.7}"
+          },
+          "type": "typography",
+          "description": "Previous name - Heading large"
+        }
+      }
+    },
     "editorial-typography": {
-      "headline-large-l": {
-        "value": {
-          "fontFamily": "{o3.font.family.financier-display}",
-          "fontWeight": "{o3.font.weight.bold}",
-          "fontSize": "{o3.font.size.7}",
-          "lineHeight": "{o3.font.lineheight.7}"
-        },
-        "type": "typography",
-        "description": "Previous name - Heading large"
-      },
       "headline-large-m": {
         "value": {
           "fontFamily": "{o3.font.family.financier-display}",
