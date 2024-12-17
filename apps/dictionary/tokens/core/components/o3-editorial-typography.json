@@ -1,16 +1,6 @@
 {
   "o3": {
     "editorial-typography": {
-      "chapter": {
-        "value": {
-          "fontFamily": "{o3.font.family.metric}",
-          "fontWeight": "{o3.font.weight.semibold}",
-          "fontSize": "{o3.font.size-metric2.3}",
-          "lineHeight": "{o3.font.lineheight.3}"
-        },
-        "type": "typography",
-        "description": "Previous name - H2"
-      },
       "topic-tag": {
         "color": {
           "value": "{o3.color.palette.claret}",
@@ -32,15 +22,6 @@
         }
       },
       "caption": {
-        "@": {
-          "value": {
-            "fontFamily": "{o3.font.family.metric}",
-            "fontWeight": "{o3.font.weight.regular}",
-            "fontSize": "{o3.font.size.negative-2}",
-            "lineHeight": "{o3.font.lineheight.negative-2}"
-          },
-          "type": "typography"
-        },
         "color": {
           "value": "{o3.color.palette.black-70}",
           "type": "color"
