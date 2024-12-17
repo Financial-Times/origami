@@ -155,9 +155,9 @@
         },
         "body-content-base": {
           "value": {
-            "fontFamily": "{o3.font.family.georgia}",
-            "fontWeight": "{o3.font.weight.regular}",
-            "fontSize": "{o3.font.size.2}",
+            "fontFamily": "{o3.font.family.financier-text}",
+            "fontWeight": "1",
+            "fontSize": "22",
             "lineHeight": "{o3.font.lineheight.4}"
           },
           "type": "typography",
@@ -165,9 +165,9 @@
         },
         "body-content-highlight": {
           "value": {
-            "fontFamily": "{o3.font.family.georgia}",
-            "fontWeight": "{o3.font.weight.bold}",
-            "fontSize": "{o3.font.size.2}",
+            "fontFamily": "{o3.font.family.financier-text}",
+            "fontWeight": "1",
+            "fontSize": "22",
             "lineHeight": "{o3.font.lineheight.4}"
           },
           "type": "typography",
@@ -175,9 +175,9 @@
         },
         "body-content-emphasis": {
           "value": {
-            "fontFamily": "{o3.font.family.georgia}",
-            "fontWeight": "{o3.font.weight.regular}",
-            "fontSize": "{o3.font.size.2}",
+            "fontFamily": "{o3.font.family.financier-text}",
+            "fontWeight": "1",
+            "fontSize": "22",
             "lineHeight": "{o3.font.lineheight.4}"
           },
           "type": "typography",
@@ -185,9 +185,9 @@
         },
         "body-content-link": {
           "value": {
-            "fontFamily": "{o3.font.family.georgia}",
-            "fontWeight": "{o3.font.weight.regular}",
-            "fontSize": "{o3.font.size.2}",
+            "fontFamily": "{o3.font.family.financier-text}",
+            "fontWeight": "1",
+            "fontSize": "22",
             "lineHeight": "{o3.font.lineheight.4}"
           },
           "type": "typography",
