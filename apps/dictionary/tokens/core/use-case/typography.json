@@ -157,8 +157,8 @@
           "value": {
             "fontFamily": "{o3.font.family.georgia}",
             "fontWeight": "{o3.font.weight.regular}",
-            "fontSize": "{o3.font.size.2}",
-            "lineHeight": "{o3.font.lineheight.4}"
+            "fontSize": "{o3.font.size-metric2.2}",
+            "lineHeight": "{o3.font.lineheight-metric2.3}"
           },
           "type": "typography",
           "description": "Use this style only for the body copy of content pages, such as articles, live news and other content experience page."
@@ -167,8 +167,8 @@
           "value": {
             "fontFamily": "{o3.font.family.georgia}",
             "fontWeight": "{o3.font.weight.bold}",
-            "fontSize": "{o3.font.size.2}",
-            "lineHeight": "{o3.font.lineheight.4}"
+            "fontSize": "{o3.font.size-metric2.2}",
+            "lineHeight": "{o3.font.lineheight-metric2.3}"
           },
           "type": "typography",
           "description": "Use this style only for the body copy of content pages, such as articles, live news and other content experience page."
@@ -177,8 +177,8 @@
           "value": {
             "fontFamily": "{o3.font.family.georgia}",
             "fontWeight": "{o3.font.weight.regular}",
-            "fontSize": "{o3.font.size.2}",
-            "lineHeight": "{o3.font.lineheight.4}"
+            "fontSize": "{o3.font.size-metric2.2}",
+            "lineHeight": "{o3.font.lineheight-metric2.3}"
           },
           "type": "typography",
           "description": "Use this style only for the body copy of content pages, such as articles, live news and other content experience page."
@@ -187,8 +187,8 @@
           "value": {
             "fontFamily": "{o3.font.family.georgia}",
             "fontWeight": "{o3.font.weight.regular}",
-            "fontSize": "{o3.font.size.2}",
-            "lineHeight": "{o3.font.lineheight.4}"
+            "fontSize": "{o3.font.size-metric2.2}",
+            "lineHeight": "{o3.font.lineheight-metric2.3}"
           },
           "type": "typography",
           "description": "Use this style only for the body copy of content pages, such as articles, live news and other content experience page."
