@@ -14,7 +14,6 @@
     "core/components/o3-form/use-case",
     "core/professional/base/color",
     "core/professional/use-case/color",
-    "core/professional/use-case/typography",
     "core/professional/components/o3-form",
     "core/professional/components/o3-form/use-case",
     "core/professional/components/o3-button",
