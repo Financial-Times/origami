@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.2](https://github.com/Financial-Times/origami/compare/o3-button-v2.0.1...o3-button-v2.0.2) (2024-12-17)
+
+
+### Bug Fixes
+
+* use WCAG AA compatible grey in whitelabel ([#1900](https://github.com/Financial-Times/origami/issues/1900)) ([729fb25](https://github.com/Financial-Times/origami/commit/729fb25d84ab6acaff421911ff21af4e2c14a77b))
+
 ## [2.0.1](https://github.com/Financial-Times/origami/compare/o3-button-v2.0.0...o3-button-v2.0.1) (2024-11-27)
 
 
