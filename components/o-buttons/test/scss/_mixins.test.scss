@@ -276,7 +276,7 @@
 					$name: 'test-hex-theme-colors',
 					$opts: (
 						'color': oColorsByName('teal-90'),
-						'context': oPrivateFoundationGet('slate')
+						'context': oColorsByName('slate')
 					),
 					$types: ('primary', 'secondary'),
 					$icons: null
