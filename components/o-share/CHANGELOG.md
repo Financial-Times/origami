@@ -1,5 +1,12 @@
 # Changelog
 
+## [10.0.3](https://github.com/Financial-Times/origami/compare/o-share-v10.0.2...o-share-v10.0.3) (2024-12-13)
+
+
+### Bug Fixes
+
+* Use latest icon suite where icons are embedded in markup, and do not come from the Origami Image Service. This requires a markup change to adopt the new icons, but is not considered major/breaking change as both continue to work and may be adopted over time. ([7bebaf2](https://github.com/Financial-Times/origami/commit/7bebaf2b14d969345aac36e706743f4c33c6f531))
+
 ## [10.0.2](https://github.com/Financial-Times/origami/compare/o-share-v10.0.1...o-share-v10.0.2) (2024-04-11)
 
 
