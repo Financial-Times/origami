@@ -2,117 +2,6 @@
   "o3": {
     "typography": {
       "use-case": {
-        "body-content-base": {
-          "value": {
-            "fontFamily": "{o3.font.family.georgia}",
-            "fontWeight": "{o3.font.weight.regular}",
-            "fontSize": "{o3.font.size.2}",
-            "lineHeight": "{o3.font.lineheight.4}"
-          },
-          "type": "typography",
-          "description": "Use this style only for the body copy of content pages, such as articles, live news and other content experience page."
-        },
-        "body-content-highlight": {
-          "value": {
-            "fontFamily": "{o3.font.family.georgia}",
-            "fontWeight": "{o3.font.weight.bold}",
-            "fontSize": "{o3.font.size.2}",
-            "lineHeight": "{o3.font.lineheight.4}"
-          },
-          "type": "typography",
-          "description": "Use this style only for the body copy of content pages, such as articles, live news and other content experience page."
-        },
-        "body-content-emphasis": {
-          "value": {
-            "fontFamily": "{o3.font.family.georgia}",
-            "fontWeight": "{o3.font.weight.regular}",
-            "fontSize": "{o3.font.size.2}",
-            "lineHeight": "{o3.font.lineheight.4}"
-          },
-          "type": "typography",
-          "description": "Use this style only for the body copy of content pages, such as articles, live news and other content experience page."
-        },
-        "body-content-link": {
-          "value": {
-            "fontFamily": "{o3.font.family.georgia}",
-            "fontWeight": "{o3.font.weight.regular}",
-            "fontSize": "{o3.font.size.2}",
-            "lineHeight": "{o3.font.lineheight.4}"
-          },
-          "type": "typography",
-          "description": "Use this style only for the body copy of content pages, such as articles, live news and other content experience page."
-        },
-        "body-base": {
-          "value": {
-            "fontFamily": "{o3.font.family.metric}",
-            "fontWeight": "{o3.font.weight.regular}",
-            "fontSize": "{o3.font.size-metric2.0}",
-            "lineHeight": "{o3.font.lineheight-metric2.0}"
-          },
-          "type": "typography",
-          "description": "Use this style for the stand-first in teasers and as the default body copy style across components such as location in the byline."
-        },
-        "body-link": {
-          "value": {
-            "fontFamily": "{o3.font.family.metric}",
-            "fontWeight": "{o3.font.weight.regular}",
-            "fontSize": "{o3.font.size-metric2.0}",
-            "lineHeight": "{o3.font.lineheight-metric2.0}"
-          },
-          "type": "typography",
-          "description": "Use this style primarily for links in paragraph or as stand alone link."
-        },
-        "body-highlight": {
-          "value": {
-            "fontFamily": "{o3.font.family.metric}",
-            "fontWeight": "{o3.font.weight.semibold}",
-            "fontSize": "{o3.font.size-metric2.0}",
-            "lineHeight": "{o3.font.lineheight-metric2.0}"
-          },
-          "type": "typography",
-          "description": "Use this style for bold formatting in body copy or for small interactive elements, such as Topic tags and Author names."
-        },
-        "body-lg": {
-          "value": {
-            "fontFamily": "{o3.font.family.metric}",
-            "fontWeight": "{o3.font.weight.regular}",
-            "fontSize": "{o3.font.size-metric2.1}",
-            "lineHeight": "{o3.font.lineheight-metric2.1}"
-          },
-          "type": "typography",
-          "description": "Use primarily for the stand-first (introductory summary or highlight) in topper component, as larger body text in components, or section description."
-        },
-        "detail": {
-          "value": {
-            "fontFamily": "{o3.font.family.metric}",
-            "fontWeight": "{o3.font.weight.regular}",
-            "fontSize": "{o3.font.size-metric2.negative-1}",
-            "lineHeight": "{o3.font.lineheight-metric2.negative-1}"
-          },
-          "type": "typography",
-          "description": "Use this style for caption in visual assets such as image and video and for small text elements, such as secondary metadata, caveats, or footnotes."
-        },
-        "body-content-dropcap": {
-          "value": {
-            "fontFamily": "{o3.font.family.metric}",
-            "fontWeight": "{o3.font.weight.light}",
-            "fontSize": "108",
-            "lineHeight": "108"
-          },
-          "type": "typography",
-          "description": "Use for emphasis on the first letter of an article."
-        },
-        "label": {
-          "value": {
-            "fontFamily": "{o3.font.family.metric}",
-            "fontWeight": "{o3.font.weight.regular}",
-            "fontSize": "{o3.font.size-metric2.negative-1}",
-            "lineHeight": "{o3.font.lineheight-metric2.negative-1}",
-            "textCase": "uppercase"
-          },
-          "type": "typography",
-          "description": "Use this style for labels such as badges and metadata in teasers and toppers (e.g., \"Live,\" \"Premium,\" or the main timestamp). Avoid using full sentences."
-        },
         "display-lg": {
           "value": {
             "fontFamily": "{o3.font.family.financier-display}",
@@ -202,6 +91,117 @@
           },
           "type": "typography",
           "description": "Use H6 for subtitles within the content body to break up paragraphs, and H2 for subheadings on stream pages or as subtitles for components such as forms, tables, and cards across all breakpoints."
+        },
+        "body-lg": {
+          "value": {
+            "fontFamily": "{o3.font.family.metric}",
+            "fontWeight": "{o3.font.weight.regular}",
+            "fontSize": "{o3.font.size-metric2.1}",
+            "lineHeight": "{o3.font.lineheight-metric2.1}"
+          },
+          "type": "typography",
+          "description": "Use primarily for the stand-first (introductory summary or highlight) in topper component, as larger body text in components, or section description."
+        },
+        "body-base": {
+          "value": {
+            "fontFamily": "{o3.font.family.metric}",
+            "fontWeight": "{o3.font.weight.regular}",
+            "fontSize": "{o3.font.size-metric2.0}",
+            "lineHeight": "{o3.font.lineheight-metric2.0}"
+          },
+          "type": "typography",
+          "description": "Use this style for the stand-first in teasers and as the default body copy style across components such as location in the byline."
+        },
+        "body-highlight": {
+          "value": {
+            "fontFamily": "{o3.font.family.metric}",
+            "fontWeight": "{o3.font.weight.semibold}",
+            "fontSize": "{o3.font.size-metric2.0}",
+            "lineHeight": "{o3.font.lineheight-metric2.0}"
+          },
+          "type": "typography",
+          "description": "Use this style for bold formatting in body copy or for small interactive elements, such as Topic tags and Author names."
+        },
+        "body-link": {
+          "value": {
+            "fontFamily": "{o3.font.family.metric}",
+            "fontWeight": "{o3.font.weight.regular}",
+            "fontSize": "{o3.font.size-metric2.0}",
+            "lineHeight": "{o3.font.lineheight-metric2.0}"
+          },
+          "type": "typography",
+          "description": "Use this style primarily for links in paragraph or as stand alone link."
+        },
+        "detail": {
+          "value": {
+            "fontFamily": "{o3.font.family.metric}",
+            "fontWeight": "{o3.font.weight.regular}",
+            "fontSize": "{o3.font.size-metric2.negative-1}",
+            "lineHeight": "{o3.font.lineheight-metric2.negative-1}"
+          },
+          "type": "typography",
+          "description": "Use this style for caption in visual assets such as image and video and for small text elements, such as secondary metadata, caveats, or footnotes."
+        },
+        "label": {
+          "value": {
+            "fontFamily": "{o3.font.family.metric}",
+            "fontWeight": "{o3.font.weight.regular}",
+            "fontSize": "{o3.font.size-metric2.negative-1}",
+            "lineHeight": "{o3.font.lineheight-metric2.negative-1}",
+            "textCase": "uppercase"
+          },
+          "type": "typography",
+          "description": "Use this style for labels such as badges and metadata in teasers and toppers (e.g., \"Live,\" \"Premium,\" or the main timestamp). Avoid using full sentences."
+        },
+        "body-content-base": {
+          "value": {
+            "fontFamily": "{o3.font.family.georgia}",
+            "fontWeight": "{o3.font.weight.regular}",
+            "fontSize": "{o3.font.size.2}",
+            "lineHeight": "{o3.font.lineheight.4}"
+          },
+          "type": "typography",
+          "description": "Use this style only for the body copy of content pages, such as articles, live news and other content experience page."
+        },
+        "body-content-highlight": {
+          "value": {
+            "fontFamily": "{o3.font.family.georgia}",
+            "fontWeight": "{o3.font.weight.bold}",
+            "fontSize": "{o3.font.size.2}",
+            "lineHeight": "{o3.font.lineheight.4}"
+          },
+          "type": "typography",
+          "description": "Use this style only for the body copy of content pages, such as articles, live news and other content experience page."
+        },
+        "body-content-emphasis": {
+          "value": {
+            "fontFamily": "{o3.font.family.georgia}",
+            "fontWeight": "{o3.font.weight.regular}",
+            "fontSize": "{o3.font.size.2}",
+            "lineHeight": "{o3.font.lineheight.4}"
+          },
+          "type": "typography",
+          "description": "Use this style only for the body copy of content pages, such as articles, live news and other content experience page."
+        },
+        "body-content-link": {
+          "value": {
+            "fontFamily": "{o3.font.family.georgia}",
+            "fontWeight": "{o3.font.weight.regular}",
+            "fontSize": "{o3.font.size.2}",
+            "lineHeight": "{o3.font.lineheight.4}"
+          },
+          "type": "typography",
+          "description": "Use this style only for the body copy of content pages, such as articles, live news and other content experience page."
+        },
+        "body-content-dropcap": {
+          "value": {
+            "fontFamily": "{o3.font.family.metric}",
+            "fontWeight": "{o3.font.weight.light}",
+            "fontSize": "108",
+            "lineHeight": "108"
+          },
+          "type": "typography",
+          "description": "Use for stylistic emphasis on the first letter of an article."
         }
       }
     }
