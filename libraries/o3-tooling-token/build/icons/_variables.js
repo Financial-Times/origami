@@ -293,6 +293,34 @@ export default {
 		"css": "--o3-icons-ft-icon-download",
 		"figma": "o3/icons/ft-icon/download"
 },
+	"o3-icons-ft-icon-edit-filled": {
+		"shortName": "edit-filled",
+		"value": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n  <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M4 18V13.7716L15.1 2.67157L19.3284 6.9L8.22843 18H4ZM21 19H3V21H21V19Z\" fill=\"black\"/>\n</svg>",
+		"originalValue": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n  <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M4 18V13.7716L15.1 2.67157L19.3284 6.9L8.22843 18H4ZM21 19H3V21H21V19Z\" fill=\"black\"/>\n</svg>",
+		"type": "asset",
+		"path": [
+				"o3",
+				"icons",
+				"ft-icon",
+				"edit-filled"
+		],
+		"css": "--o3-icons-ft-icon-edit-filled",
+		"figma": "o3/icons/ft-icon/edit-filled"
+},
+	"o3-icons-ft-icon-edit-outlined": {
+		"shortName": "edit-outlined",
+		"value": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n  <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M4 16V18H6H7.46667H8.29509L8.88088 17.4142L18.4142 7.88088L19.8284 6.46667L18.4142 5.05245L16.9475 3.58579L15.5333 2.17157L14.1191 3.58579L4.58579 13.1191L4 13.7049V14.5333V16ZM7.46667 16L8 15.4667L15.5858 7.88088L17 6.46667L16.9475 6.41421L15.5858 5.05245L15.5333 5L14.1191 6.41421L6.53333 14L6 14.5333V16H7.46667ZM21 19H3V21H21V19Z\" fill=\"black\"/>\n</svg>",
+		"originalValue": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n  <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M4 16V18H6H7.46667H8.29509L8.88088 17.4142L18.4142 7.88088L19.8284 6.46667L18.4142 5.05245L16.9475 3.58579L15.5333 2.17157L14.1191 3.58579L4.58579 13.1191L4 13.7049V14.5333V16ZM7.46667 16L8 15.4667L15.5858 7.88088L17 6.46667L16.9475 6.41421L15.5858 5.05245L15.5333 5L14.1191 6.41421L6.53333 14L6 14.5333V16H7.46667ZM21 19H3V21H21V19Z\" fill=\"black\"/>\n</svg>",
+		"type": "asset",
+		"path": [
+				"o3",
+				"icons",
+				"ft-icon",
+				"edit-outlined"
+		],
+		"css": "--o3-icons-ft-icon-edit-outlined",
+		"figma": "o3/icons/ft-icon/edit-outlined"
+},
 	"o3-icons-ft-icon-edit": {
 		"shortName": "edit",
 		"value": "<svg viewBox=\"0 0 1024 1024\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M175.226 589.854C172.538 592.538 170.615 595.891 169.656 599.567L94.5208 887.574C90.4069 903.343 104.779 917.715 120.548 913.602L408.531 838.477C412.201 837.519 415.549 835.601 418.231 832.919L907.445 343.703C915.759 335.389 915.779 321.916 907.489 313.577L695.658 100.494C687.339 92.1259 673.807 92.1003 665.457 100.437L175.226 589.854ZM374.274 756.197C371.592 758.879 368.243 760.797 364.573 761.755L204.65 803.473L246.368 643.561C247.327 639.886 249.25 636.533 251.938 633.849L561.567 324.734L683.65 446.819L374.274 756.197ZM743.989 386.479L801.984 328.485L680.358 206.14L621.957 264.445L743.989 386.479Z\" fill=\"black\"/></svg>",
@@ -1090,6 +1118,90 @@ export default {
 		],
 		"css": "--o3-icons-ft-icon-upload",
 		"figma": "o3/icons/ft-icon/upload"
+},
+	"o3-icons-ft-icon-signout": {
+		"shortName": "signout",
+		"value": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n  <path d=\"M14 4H3V20H14V18H5V6H14V4Z\" fill=\"black\"/>\n  <path d=\"M22.4142 12L17.2071 6.79289L15.7929 8.20711L18.5858 11H9V13H18.5858L15.7929 15.7929L17.2071 17.2071L22.4142 12Z\" fill=\"black\"/>\n</svg>",
+		"originalValue": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n  <path d=\"M14 4H3V20H14V18H5V6H14V4Z\" fill=\"black\"/>\n  <path d=\"M22.4142 12L17.2071 6.79289L15.7929 8.20711L18.5858 11H9V13H18.5858L15.7929 15.7929L17.2071 17.2071L22.4142 12Z\" fill=\"black\"/>\n</svg>",
+		"type": "asset",
+		"path": [
+				"o3",
+				"icons",
+				"ft-icon",
+				"signout"
+		],
+		"css": "--o3-icons-ft-icon-signout",
+		"figma": "o3/icons/ft-icon/signout"
+},
+	"o3-icons-ft-icon-speaker": {
+		"shortName": "speaker",
+		"value": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n  <path d=\"M3 15V9H7L14 4V20L7 15H3Z\" fill=\"black\"/>\n  <path d=\"M19.853 8.74719C19.4258 7.71592 18.7997 6.77889 18.0104 5.98959L19.0711 4.92893C19.9997 5.85752 20.7362 6.95991 21.2388 8.17317C21.7413 9.38642 22 10.6868 22 12C22 13.3132 21.7413 14.6136 21.2388 15.8268C20.7362 17.0401 19.9997 18.1425 19.0711 19.0711L18.0104 18.0104C18.7997 17.2211 19.4258 16.2841 19.853 15.2528C20.2801 14.2215 20.5 13.1162 20.5 12C20.5 10.8838 20.2801 9.77846 19.853 8.74719Z\" fill=\"black\"/>\n  <path d=\"M15.8891 8.11091C16.3998 8.62163 16.8049 9.22795 17.0813 9.89524C17.3577 10.5625 17.5 11.2777 17.5 12C17.5 12.7223 17.3577 13.4375 17.0813 14.1048C16.8049 14.772 16.3998 15.3784 15.8891 15.8891L16.9498 16.9497C17.5998 16.2997 18.1154 15.5281 18.4672 14.6788C18.819 13.8295 19 12.9193 19 12C19 11.0807 18.819 10.1705 18.4672 9.32122C18.1154 8.47194 17.5998 7.70026 16.9498 7.05025L15.8891 8.11091Z\" fill=\"black\"/>\n</svg>",
+		"originalValue": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n  <path d=\"M3 15V9H7L14 4V20L7 15H3Z\" fill=\"black\"/>\n  <path d=\"M19.853 8.74719C19.4258 7.71592 18.7997 6.77889 18.0104 5.98959L19.0711 4.92893C19.9997 5.85752 20.7362 6.95991 21.2388 8.17317C21.7413 9.38642 22 10.6868 22 12C22 13.3132 21.7413 14.6136 21.2388 15.8268C20.7362 17.0401 19.9997 18.1425 19.0711 19.0711L18.0104 18.0104C18.7997 17.2211 19.4258 16.2841 19.853 15.2528C20.2801 14.2215 20.5 13.1162 20.5 12C20.5 10.8838 20.2801 9.77846 19.853 8.74719Z\" fill=\"black\"/>\n  <path d=\"M15.8891 8.11091C16.3998 8.62163 16.8049 9.22795 17.0813 9.89524C17.3577 10.5625 17.5 11.2777 17.5 12C17.5 12.7223 17.3577 13.4375 17.0813 14.1048C16.8049 14.772 16.3998 15.3784 15.8891 15.8891L16.9498 16.9497C17.5998 16.2997 18.1154 15.5281 18.4672 14.6788C18.819 13.8295 19 12.9193 19 12C19 11.0807 18.819 10.1705 18.4672 9.32122C18.1154 8.47194 17.5998 7.70026 16.9498 7.05025L15.8891 8.11091Z\" fill=\"black\"/>\n</svg>",
+		"type": "asset",
+		"path": [
+				"o3",
+				"icons",
+				"ft-icon",
+				"speaker"
+		],
+		"css": "--o3-icons-ft-icon-speaker",
+		"figma": "o3/icons/ft-icon/speaker"
+},
+	"o3-icons-ft-icon-user-filled": {
+		"shortName": "user-filled",
+		"value": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n  <path d=\"M12 12C14.2091 12 16 10.2091 16 8C16 5.79086 14.2091 4 12 4C9.79086 4 8 5.79086 8 8C8 10.2091 9.79086 12 12 12Z\" fill=\"black\"/>\n  <path d=\"M5 18C5 16.1194 7 13 12 13C17 13 19 16.1194 19 18V21H5V18Z\" fill=\"black\"/>\n</svg>",
+		"originalValue": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n  <path d=\"M12 12C14.2091 12 16 10.2091 16 8C16 5.79086 14.2091 4 12 4C9.79086 4 8 5.79086 8 8C8 10.2091 9.79086 12 12 12Z\" fill=\"black\"/>\n  <path d=\"M5 18C5 16.1194 7 13 12 13C17 13 19 16.1194 19 18V21H5V18Z\" fill=\"black\"/>\n</svg>",
+		"type": "asset",
+		"path": [
+				"o3",
+				"icons",
+				"ft-icon",
+				"user-filled"
+		],
+		"css": "--o3-icons-ft-icon-user-filled",
+		"figma": "o3/icons/ft-icon/user-filled"
+},
+	"o3-icons-ft-icon-user-outlined": {
+		"shortName": "user-outlined",
+		"value": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n  <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M16 8C16 10.2091 14.2091 12 12 12C9.79086 12 8 10.2091 8 8C8 5.79086 9.79086 4 12 4C14.2091 4 16 5.79086 16 8ZM14 8C14 9.10457 13.1046 10 12 10C10.8954 10 10 9.10457 10 8C10 6.89543 10.8954 6 12 6C13.1046 6 14 6.89543 14 8Z\" fill=\"black\"/>\n  <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M12 13C17 13 19 16.1194 19 18V21H5V18C5 16.1194 7 13 12 13ZM7 18C7 17.4127 7.90585 15 12 15C16.0941 15 17 17.4127 17 18V19H7V18Z\" fill=\"black\"/>\n</svg>",
+		"originalValue": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n  <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M16 8C16 10.2091 14.2091 12 12 12C9.79086 12 8 10.2091 8 8C8 5.79086 9.79086 4 12 4C14.2091 4 16 5.79086 16 8ZM14 8C14 9.10457 13.1046 10 12 10C10.8954 10 10 9.10457 10 8C10 6.89543 10.8954 6 12 6C13.1046 6 14 6.89543 14 8Z\" fill=\"black\"/>\n  <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M12 13C17 13 19 16.1194 19 18V21H5V18C5 16.1194 7 13 12 13ZM7 18C7 17.4127 7.90585 15 12 15C16.0941 15 17 17.4127 17 18V19H7V18Z\" fill=\"black\"/>\n</svg>",
+		"type": "asset",
+		"path": [
+				"o3",
+				"icons",
+				"ft-icon",
+				"user-outlined"
+		],
+		"css": "--o3-icons-ft-icon-user-outlined",
+		"figma": "o3/icons/ft-icon/user-outlined"
+},
+	"o3-icons-ft-icon-error": {
+		"shortName": "error",
+		"value": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" fill=\"none\">\n  <path d=\"M15.4528 11.25V8.75H4.54718V11.25H15.4528Z\" fill=\"black\"/>\n  <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M20 10C20 15.5228 15.5228 20 10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10ZM18 10C18 14.4183 14.4183 18 10 18C5.58172 18 2 14.4183 2 10C2 5.58172 5.58172 2 10 2C14.4183 2 18 5.58172 18 10Z\" fill=\"black\"/>\n</svg>",
+		"originalValue": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" fill=\"none\">\n  <path d=\"M15.4528 11.25V8.75H4.54718V11.25H15.4528Z\" fill=\"black\"/>\n  <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M20 10C20 15.5228 15.5228 20 10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10ZM18 10C18 14.4183 14.4183 18 10 18C5.58172 18 2 14.4183 2 10C2 5.58172 5.58172 2 10 2C14.4183 2 18 5.58172 18 10Z\" fill=\"black\"/>\n</svg>",
+		"type": "asset",
+		"path": [
+				"o3",
+				"icons",
+				"ft-icon",
+				"error"
+		],
+		"css": "--o3-icons-ft-icon-error",
+		"figma": "o3/icons/ft-icon/error"
+},
+	"o3-icons-ft-icon-success": {
+		"shortName": "success",
+		"value": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n  <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M18 5H6C5.44772 5 5 5.44772 5 6V18C5 18.5523 5.44772 19 6 19H18C18.5523 19 19 18.5523 19 18V6C19 5.44772 18.5523 5 18 5ZM6 3C4.34315 3 3 4.34315 3 6V18C3 19.6569 4.34315 21 6 21H18C19.6569 21 21 19.6569 21 18V6C21 4.34315 19.6569 3 18 3H6Z\" fill=\"black\"/>\n  <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M17.2584 9.4923L10.1217 16.629L6.74162 13.2489L8.15584 11.8347L10.1217 13.8006L15.8442 8.07809L17.2584 9.4923Z\" fill=\"black\"/>\n</svg>",
+		"originalValue": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n  <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M18 5H6C5.44772 5 5 5.44772 5 6V18C5 18.5523 5.44772 19 6 19H18C18.5523 19 19 18.5523 19 18V6C19 5.44772 18.5523 5 18 5ZM6 3C4.34315 3 3 4.34315 3 6V18C3 19.6569 4.34315 21 6 21H18C19.6569 21 21 19.6569 21 18V6C21 4.34315 19.6569 3 18 3H6Z\" fill=\"black\"/>\n  <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M17.2584 9.4923L10.1217 16.629L6.74162 13.2489L8.15584 11.8347L10.1217 13.8006L15.8442 8.07809L17.2584 9.4923Z\" fill=\"black\"/>\n</svg>",
+		"type": "asset",
+		"path": [
+				"o3",
+				"icons",
+				"ft-icon",
+				"success"
+		],
+		"css": "--o3-icons-ft-icon-success",
+		"figma": "o3/icons/ft-icon/success"
 },
 	"o3-icons-ft-icon-user": {
 		"shortName": "user",
