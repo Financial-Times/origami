@@ -1,5 +1,22 @@
 # Changelog
 
+## [2.4.0](https://github.com/Financial-Times/origami/compare/o3-foundation-v2.3.1...o3-foundation-v2.4.0) (2024-12-18)
+
+
+### Features
+
+* remove old icons ([ed120ae](https://github.com/Financial-Times/origami/commit/ed120ae14b786ff43b22a6463657f8a1fcfd8fda))
+* rename icons ([87b352c](https://github.com/Financial-Times/origami/commit/87b352c3b8d865be343782d2b354edbdefb6ffbd))
+* update o3 icons ([05bd6a7](https://github.com/Financial-Times/origami/commit/05bd6a7501e376d2bf68152a9c501ef4ff3d3371))
+
+
+### Bug Fixes
+
+* correct final tokens ([6b15860](https://github.com/Financial-Times/origami/commit/6b15860363fab9dad9e59ee345f729eb6158dd8b))
+* remove link-at ([340620d](https://github.com/Financial-Times/origami/commit/340620d86550e51ef3fc4cee49cc6e45473d435e))
+* remove unecessary icons ([f110c19](https://github.com/Financial-Times/origami/commit/f110c19b6bb0fd3be88d06849a230b179b34cdee))
+* rename mute-notifications ([964e9dd](https://github.com/Financial-Times/origami/commit/964e9dd469c03846c33a774409fbc1d4bab82f8f))
+
 ## [2.3.1](https://github.com/Financial-Times/origami/compare/o3-foundation-v2.3.0...o3-foundation-v2.3.1) (2024-12-17)
 
 
