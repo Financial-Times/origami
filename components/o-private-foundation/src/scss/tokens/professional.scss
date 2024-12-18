@@ -128,142 +128,174 @@ $tokens: (
   'o3-spacing-2xl': 64px,
   'o3-spacing-3xl': 80px,
   'o3-spacing-4xl': 96px,
-  'o3-typography-use-case-body-standard-font-family': 'metric 2 VF',
-  'o3-typography-use-case-body-standard-font-weight': 400,
-  'o3-typography-use-case-body-standard-font-size': 16px,
-  'o3-typography-use-case-body-standard-line-height': 24px,
-  'o3-typography-use-case-body-big-font-family': 'metric 2 VF',
-  'o3-typography-use-case-body-big-font-weight': 400,
-  'o3-typography-use-case-body-big-font-size': 18px,
-  'o3-typography-use-case-body-big-line-height': 24px,
-  'o3-typography-use-case-body-small-font-family': 'metric 2 VF',
-  'o3-typography-use-case-body-small-font-weight': 400,
-  'o3-typography-use-case-body-small-font-size': 14px,
-  'o3-typography-use-case-body-small-line-height': 20px,
-  'o3-typography-use-case-body-small-caps-font-family': 'metric 2 VF',
-  'o3-typography-use-case-body-small-caps-font-weight': 400,
-  'o3-typography-use-case-body-small-caps-font-size': 14px,
-  'o3-typography-use-case-body-small-caps-line-height': 20px,
-  'o3-typography-use-case-body-small-bold-font-family': 'metric 2 VF',
-  'o3-typography-use-case-body-small-bold-font-weight': 700,
-  'o3-typography-use-case-body-small-bold-font-size': 14px,
-  'o3-typography-use-case-body-small-bold-line-height': 20px,
-  'o3-typography-use-case-footer-font-family': 'metric 2 VF',
-  'o3-typography-use-case-footer-font-weight': 400,
-  'o3-typography-use-case-footer-font-size': 16px,
-  'o3-typography-use-case-footer-line-height': 24px,
-  'o3-typography-use-case-caption-font-family': 'metric 2 VF',
-  'o3-typography-use-case-caption-font-weight': 400,
-  'o3-typography-use-case-caption-font-size': 12px,
-  'o3-typography-use-case-caption-line-height': 16px,
-  'o3-typography-use-case-heading1-font-family': 'metric 2 VF',
-  'o3-typography-use-case-heading1-font-weight': 700,
-  'o3-typography-use-case-heading1-font-size': 28px,
-  'o3-typography-use-case-heading1-line-height': 32px,
-  'o3-typography-use-case-heading2-font-family': 'metric 2 VF',
-  'o3-typography-use-case-heading2-font-weight': 700,
-  'o3-typography-use-case-heading2-font-size': 24px,
-  'o3-typography-use-case-heading2-line-height': 32px,
-  'o3-typography-use-case-heading3-font-family': 'metric 2 VF',
-  'o3-typography-use-case-heading3-font-weight': 700,
-  'o3-typography-use-case-heading3-font-size': 20px,
-  'o3-typography-use-case-heading3-line-height': 28px,
-  'o3-typography-use-case-heading4-font-family': 'metric 2 VF',
-  'o3-typography-use-case-heading4-font-weight': 700,
-  'o3-typography-use-case-heading4-font-size': 18px,
-  'o3-typography-use-case-heading4-line-height': 24px,
-  'o3-typography-use-case-heading5-font-family': 'metric 2 VF',
-  'o3-typography-use-case-heading5-font-weight': 700,
-  'o3-typography-use-case-heading5-font-size': 16px,
-  'o3-typography-use-case-heading5-line-height': 24px,
-  // Previous name - Heading large
-  '_o3-editorial-typography-headline-large-l-font-family': 'financier display VF',
-  // Previous name - Heading large
-  '_o3-editorial-typography-headline-large-l-font-weight': 800,
-  // Previous name - Heading large
-  '_o3-editorial-typography-headline-large-l-font-size': 48px,
-  // Previous name - Heading large
-  '_o3-editorial-typography-headline-large-l-line-height': 48px,
-  // Previous name - Heading large
-  '_o3-editorial-typography-headline-large-m-font-family': 'financier display VF',
-  // Previous name - Heading large
-  '_o3-editorial-typography-headline-large-m-font-weight': 800,
-  // Previous name - Heading large
-  '_o3-editorial-typography-headline-large-m-font-size': 40px,
-  // Previous name - Heading large
-  '_o3-editorial-typography-headline-large-m-line-height': 40px,
-  // Previous name - Heading large
-  '_o3-editorial-typography-headline-large-s-font-family': 'financier display VF',
-  // Previous name - Heading large
-  '_o3-editorial-typography-headline-large-s-font-weight': 800,
-  // Previous name - Heading large
-  '_o3-editorial-typography-headline-large-s-font-size': 32px,
-  // Previous name - Heading large
-  '_o3-editorial-typography-headline-large-s-line-height': 32px,
-  // Previous name - H1
-  '_o3-editorial-typography-headline-l-font-family': 'financier display VF',
-  // Previous name - H1
-  '_o3-editorial-typography-headline-l-font-weight': 300,
-  // Previous name - H1
-  '_o3-editorial-typography-headline-l-font-size': 40px,
-  // Previous name - H1
-  '_o3-editorial-typography-headline-l-line-height': 40px,
-  // Previous name - H1
-  '_o3-editorial-typography-headline-m-font-family': 'financier display VF',
-  // Previous name - H1
-  '_o3-editorial-typography-headline-m-font-weight': 300,
-  // Previous name - H1
-  '_o3-editorial-typography-headline-m-font-size': 32px,
-  // Previous name - H1
-  '_o3-editorial-typography-headline-m-line-height': 32px,
-  // Previous name - H1
-  '_o3-editorial-typography-headline-s-font-family': 'financier display VF',
-  // Previous name - H1
-  '_o3-editorial-typography-headline-s-font-weight': 300,
-  // Previous name - H1
-  '_o3-editorial-typography-headline-s-font-size': 28px,
-  // Previous name - H1
-  '_o3-editorial-typography-headline-s-line-height': 32px,
-  // Previous name - H2
-  '_o3-editorial-typography-chapter-font-family': 'metric 2 VF',
-  // Previous name - H2
-  '_o3-editorial-typography-chapter-font-weight': 700,
-  // Previous name - H2
-  '_o3-editorial-typography-chapter-font-size': 24px,
-  // Previous name - H2
-  '_o3-editorial-typography-chapter-line-height': 28px,
-  // Previous name - H3
-  '_o3-editorial-typography-subheading-font-family': 'metric 2 VF',
-  // Previous name - H3
-  '_o3-editorial-typography-subheading-font-weight': 400,
-  // Previous name - H3
-  '_o3-editorial-typography-subheading-font-size': 24px,
-  // Previous name - H3
-  '_o3-editorial-typography-subheading-line-height': 28px,
-  // Previous name - H5
-  '_o3-editorial-typography-label-font-family': 'metric 2 VF',
-  // Previous name - H5
-  '_o3-editorial-typography-label-font-weight': 400,
-  // Previous name - H5
-  '_o3-editorial-typography-label-font-size': 14px,
-  // Previous name - H5
-  '_o3-editorial-typography-label-line-height': 16px,
-  '_o3-editorial-typography-article-body-l-font-family': georgia,
-  '_o3-editorial-typography-article-body-l-font-weight': 400,
-  '_o3-editorial-typography-article-body-l-font-size': 20px,
-  '_o3-editorial-typography-article-body-l-line-height': 32px,
-  '_o3-editorial-typography-article-body-s-font-family': georgia,
-  '_o3-editorial-typography-article-body-s-font-weight': 400,
-  '_o3-editorial-typography-article-body-s-font-size': 18px,
-  '_o3-editorial-typography-article-body-s-line-height': 28px,
+  // Use this style for large screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.
+  'o3-typography-use-case-display-lg-font-family': 'financier display VF',
+  // Use this style for large screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.
+  'o3-typography-use-case-display-lg-font-weight': 800,
+  // Use this style for large screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.
+  'o3-typography-use-case-display-lg-font-size': 48px,
+  // Use this style for large screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.
+  'o3-typography-use-case-display-lg-line-height': 48px,
+  // Use this style for medium screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.
+  'o3-typography-use-case-display-md-font-family': 'financier display VF',
+  // Use this style for medium screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.
+  'o3-typography-use-case-display-md-font-weight': 800,
+  // Use this style for medium screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.
+  'o3-typography-use-case-display-md-font-size': 40px,
+  // Use this style for medium screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.
+  'o3-typography-use-case-display-md-line-height': 40px,
+  // Use this style for small screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.
+  'o3-typography-use-case-display-sm-font-family': 'financier display VF',
+  // Use this style for small screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.
+  'o3-typography-use-case-display-sm-font-weight': 800,
+  // Use this style for small screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.
+  'o3-typography-use-case-display-sm-font-size': 32px,
+  // Use this style for small screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.
+  'o3-typography-use-case-display-sm-line-height': 32px,
+  // Use this style for large screens headlines in standard-sized teasers and text only toppers (eg. Opinion and News).
+  'o3-typography-use-case-headline-lg-font-family': 'financier display VF',
+  // Use this style for large screens headlines in standard-sized teasers and text only toppers (eg. Opinion and News).
+  'o3-typography-use-case-headline-lg-font-weight': 300,
+  // Use this style for large screens headlines in standard-sized teasers and text only toppers (eg. Opinion and News).
+  'o3-typography-use-case-headline-lg-font-size': 40px,
+  // Use this style for large screens headlines in standard-sized teasers and text only toppers (eg. Opinion and News).
+  'o3-typography-use-case-headline-lg-line-height': 40px,
+  // Use this style for medium screens headlines in smaller teasers and text only toppers (eg. Opinion and News).
+  'o3-typography-use-case-headline-md-font-family': 'financier display VF',
+  // Use this style for medium screens headlines in smaller teasers and text only toppers (eg. Opinion and News).
+  'o3-typography-use-case-headline-md-font-weight': 300,
+  // Use this style for medium screens headlines in smaller teasers and text only toppers (eg. Opinion and News).
+  'o3-typography-use-case-headline-md-font-size': 32px,
+  // Use this style for medium screens headlines in smaller teasers and text only toppers (eg. Opinion and News).
+  'o3-typography-use-case-headline-md-line-height': 32px,
+  // Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News).
+  'o3-typography-use-case-headline-sm-font-family': 'financier display VF',
+  // Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News).
+  'o3-typography-use-case-headline-sm-font-weight': 300,
+  // Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News).
+  'o3-typography-use-case-headline-sm-font-size': 28px,
+  // Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News).
+  'o3-typography-use-case-headline-sm-line-height': 32px,
+  // Use for the main page title H1 in functional pages such as account and settings. Use across all breakpoints.
+  'o3-typography-use-case-title-lg-font-family': 'metric 2 VF',
+  // Use for the main page title H1 in functional pages such as account and settings. Use across all breakpoints.
+  'o3-typography-use-case-title-lg-font-weight': 700,
+  // Use for the main page title H1 in functional pages such as account and settings. Use across all breakpoints.
+  'o3-typography-use-case-title-lg-font-size': 28px,
+  // Use for the main page title H1 in functional pages such as account and settings. Use across all breakpoints.
+  'o3-typography-use-case-title-lg-line-height': 32px,
+  // Use this style as H3 or subtitles within the content body to break paragraphs, or for titles of components like forms, tables and cards across all breakpoints.
+  'o3-typography-use-case-title-md-font-family': 'metric 2 VF',
+  // Use this style as H3 or subtitles within the content body to break paragraphs, or for titles of components like forms, tables and cards across all breakpoints.
+  'o3-typography-use-case-title-md-font-weight': 400,
+  // Use this style as H3 or subtitles within the content body to break paragraphs, or for titles of components like forms, tables and cards across all breakpoints.
+  'o3-typography-use-case-title-md-font-size': 24px,
+  // Use this style as H3 or subtitles within the content body to break paragraphs, or for titles of components like forms, tables and cards across all breakpoints.
+  'o3-typography-use-case-title-md-line-height': 32px,
+  // Use H6 for subtitles within the content body to break up paragraphs, and H2 for subheadings on stream pages or as subtitles for components such as forms, tables, and cards across all breakpoints.
+  'o3-typography-use-case-title-sm-font-family': 'metric 2 VF',
+  // Use H6 for subtitles within the content body to break up paragraphs, and H2 for subheadings on stream pages or as subtitles for components such as forms, tables, and cards across all breakpoints.
+  'o3-typography-use-case-title-sm-font-weight': 400,
+  // Use H6 for subtitles within the content body to break up paragraphs, and H2 for subheadings on stream pages or as subtitles for components such as forms, tables, and cards across all breakpoints.
+  'o3-typography-use-case-title-sm-line-height': 28px,
+  // Use H6 for subtitles within the content body to break up paragraphs, and H2 for subheadings on stream pages or as subtitles for components such as forms, tables, and cards across all breakpoints.
+  'o3-typography-use-case-title-sm-font-size': 20px,
+  // Use primarily for the stand-first (introductory summary or highlight) in topper component, as larger body text in components, or section description.
+  'o3-typography-use-case-body-lg-font-family': 'metric 2 VF',
+  // Use primarily for the stand-first (introductory summary or highlight) in topper component, as larger body text in components, or section description.
+  'o3-typography-use-case-body-lg-font-weight': 400,
+  // Use primarily for the stand-first (introductory summary or highlight) in topper component, as larger body text in components, or section description.
+  'o3-typography-use-case-body-lg-font-size': 18px,
+  // Use primarily for the stand-first (introductory summary or highlight) in topper component, as larger body text in components, or section description.
+  'o3-typography-use-case-body-lg-line-height': 24px,
+  // Use this style for the stand-first in teasers and as the default body copy style across components such as location in the byline.
+  'o3-typography-use-case-body-base-font-family': 'metric 2 VF',
+  // Use this style for the stand-first in teasers and as the default body copy style across components such as location in the byline.
+  'o3-typography-use-case-body-base-font-weight': 400,
+  // Use this style for the stand-first in teasers and as the default body copy style across components such as location in the byline.
+  'o3-typography-use-case-body-base-font-size': 16px,
+  // Use this style for the stand-first in teasers and as the default body copy style across components such as location in the byline.
+  'o3-typography-use-case-body-base-line-height': 24px,
+  // Use this style for bold formatting in body copy or for small interactive elements, such as Topic tags and Author names.
+  'o3-typography-use-case-body-highlight-font-family': 'metric 2 VF',
+  // Use this style for bold formatting in body copy or for small interactive elements, such as Topic tags and Author names.
+  'o3-typography-use-case-body-highlight-font-weight': 700,
+  // Use this style for bold formatting in body copy or for small interactive elements, such as Topic tags and Author names.
+  'o3-typography-use-case-body-highlight-font-size': 16px,
+  // Use this style for bold formatting in body copy or for small interactive elements, such as Topic tags and Author names.
+  'o3-typography-use-case-body-highlight-line-height': 24px,
+  // Use this style primarily for links in paragraph or as stand alone link.
+  'o3-typography-use-case-body-link-font-family': 'metric 2 VF',
+  // Use this style primarily for links in paragraph or as stand alone link.
+  'o3-typography-use-case-body-link-font-weight': 400,
+  // Use this style primarily for links in paragraph or as stand alone link.
+  'o3-typography-use-case-body-link-font-size': 16px,
+  // Use this style primarily for links in paragraph or as stand alone link.
+  'o3-typography-use-case-body-link-line-height': 24px,
+  // Use this style for caption in visual assets such as image and video and for small text elements, such as secondary metadata, caveats, or footnotes.
+  'o3-typography-use-case-detail-font-family': 'metric 2 VF',
+  // Use this style for caption in visual assets such as image and video and for small text elements, such as secondary metadata, caveats, or footnotes.
+  'o3-typography-use-case-detail-font-weight': 400,
+  // Use this style for caption in visual assets such as image and video and for small text elements, such as secondary metadata, caveats, or footnotes.
+  'o3-typography-use-case-detail-font-size': 14px,
+  // Use this style for caption in visual assets such as image and video and for small text elements, such as secondary metadata, caveats, or footnotes.
+  'o3-typography-use-case-detail-line-height': 20px,
+  // Use this style for labels such as badges and metadata in teasers and toppers (e.g., "Live," "Premium," or the main timestamp). Avoid using full sentences.
+  'o3-typography-use-case-label-font-family': 'metric 2 VF',
+  // Use this style for labels such as badges and metadata in teasers and toppers (e.g., "Live," "Premium," or the main timestamp). Avoid using full sentences.
+  'o3-typography-use-case-label-font-weight': 400,
+  // Use this style for labels such as badges and metadata in teasers and toppers (e.g., "Live," "Premium," or the main timestamp). Avoid using full sentences.
+  'o3-typography-use-case-label-font-size': 14px,
+  // Use this style for labels such as badges and metadata in teasers and toppers (e.g., "Live," "Premium," or the main timestamp). Avoid using full sentences.
+  'o3-typography-use-case-label-line-height': 20px,
+  // Use this style for labels such as badges and metadata in teasers and toppers (e.g., "Live," "Premium," or the main timestamp). Avoid using full sentences.
+  'o3-typography-use-case-label-text-case': uppercase,
+  // Use this style only for the body copy of content pages, such as articles, live news and other content experience page.
+  'o3-typography-use-case-body-content-base-font-family': Georgia,
+  // Use this style only for the body copy of content pages, such as articles, live news and other content experience page.
+  'o3-typography-use-case-body-content-base-font-weight': Regular,
+  // Use this style only for the body copy of content pages, such as articles, live news and other content experience page.
+  'o3-typography-use-case-body-content-base-font-size': 20px,
+  // Use this style only for the body copy of content pages, such as articles, live news and other content experience page.
+  'o3-typography-use-case-body-content-base-line-height': 32px,
+  // Use this style only for the body copy of content pages, such as articles, live news and other content experience page.
+  'o3-typography-use-case-body-content-highlight-font-family': Georgia,
+  // Use this style only for the body copy of content pages, such as articles, live news and other content experience page.
+  'o3-typography-use-case-body-content-highlight-font-weight': Bold,
+  // Use this style only for the body copy of content pages, such as articles, live news and other content experience page.
+  'o3-typography-use-case-body-content-highlight-font-size': 20px,
+  // Use this style only for the body copy of content pages, such as articles, live news and other content experience page.
+  'o3-typography-use-case-body-content-highlight-line-height': 32px,
+  // Use this style only for the body copy of content pages, such as articles, live news and other content experience page.
+  'o3-typography-use-case-body-content-emphasis-font-family': Georgia,
+  // Use this style only for the body copy of content pages, such as articles, live news and other content experience page.
+  'o3-typography-use-case-body-content-emphasis-font-weight': Regular,
+  // Use this style only for the body copy of content pages, such as articles, live news and other content experience page.
+  'o3-typography-use-case-body-content-emphasis-font-size': 20px,
+  // Use this style only for the body copy of content pages, such as articles, live news and other content experience page.
+  'o3-typography-use-case-body-content-emphasis-line-height': 32px,
+  // Use this style only for the body copy of content pages, such as articles, live news and other content experience page.
+  'o3-typography-use-case-body-content-emphasis-font-style': italic,
+  // Use this style only for the body copy of content pages, such as articles, live news and other content experience page.
+  'o3-typography-use-case-body-content-link-font-family': Georgia,
+  // Use this style only for the body copy of content pages, such as articles, live news and other content experience page.
+  'o3-typography-use-case-body-content-link-font-weight': Regular,
+  // Use this style only for the body copy of content pages, such as articles, live news and other content experience page.
+  'o3-typography-use-case-body-content-link-font-size': 20px,
+  // Use this style only for the body copy of content pages, such as articles, live news and other content experience page.
+  'o3-typography-use-case-body-content-link-line-height': 32px,
+  // Use for stylistic emphasis on the first letter of an article.
+  'o3-typography-use-case-body-content-dropcap-font-family': 'metric 2 VF',
+  // Use for stylistic emphasis on the first letter of an article.
+  'o3-typography-use-case-body-content-dropcap-font-weight': 300,
+  // Use for stylistic emphasis on the first letter of an article.
+  'o3-typography-use-case-body-content-dropcap-font-size': 108px,
+  // Use for stylistic emphasis on the first letter of an article.
+  'o3-typography-use-case-body-content-dropcap-line-height': 108,
   '_o3-editorial-typography-topic-tag-color': #990f3d,
   '_o3-editorial-typography-topic-tag-inverse-color': #ffffff,
   '_o3-editorial-typography-topic-tag-hover-color': #4d081f,
   '_o3-editorial-typography-topic-tag-hover-inverse-color': #8fb3a1,
-  '_o3-editorial-typography-caption-font-family': 'metric 2 VF',
-  '_o3-editorial-typography-caption-font-weight': 400,
-  '_o3-editorial-typography-caption-font-size': 12px,
-  '_o3-editorial-typography-caption-line-height': 16px,
   '_o3-editorial-typography-caption-color': #4d4845,
   '_o3-editorial-typography-caption-inverse-color': #a8aaad,
   '_o3-editorial-typography-byline-author-color': #990f3d,
@@ -280,66 +312,66 @@ $tokens: (
   '_o3-editorial-typography-big-number-title-font-weight': 700,
   '_o3-editorial-typography-big-number-title-font-size': 48px,
   '_o3-editorial-typography-big-number-title-line-height': 56px,
-  'o3-font-family-metric': 'metric 2 VF',
-  'o3-font-family-financier-display': 'financier display VF',
-  'o3-font-family-georgia': georgia,
-  'o3-font-weight-light': 300,
-  'o3-font-weight-regular': 400,
-  'o3-font-weight-medium': 500,
-  'o3-font-weight-semibold': 700,
-  'o3-font-weight-bold': 800,
-  'o3-font-lineheight-0': 20px,
-  'o3-font-lineheight-1': 20px,
-  'o3-font-lineheight-2': 24px,
-  'o3-font-lineheight-3': 28px,
-  'o3-font-lineheight-4': 32px,
-  'o3-font-lineheight-5': 32px,
-  'o3-font-lineheight-6': 40px,
-  'o3-font-lineheight-7': 48px,
-  'o3-font-lineheight-8': 56px,
-  'o3-font-lineheight-9': 72px,
-  'o3-font-lineheight-10': 84px,
-  'o3-font-lineheight-negative-2': 16px,
-  'o3-font-lineheight-negative-1': 16px,
-  'o3-font-size-0': 16px,
-  'o3-font-size-1': 18px,
-  'o3-font-size-2': 20px,
-  'o3-font-size-3': 24px,
-  'o3-font-size-4': 28px,
-  'o3-font-size-5': 32px,
-  'o3-font-size-6': 40px,
-  'o3-font-size-7': 48px,
-  'o3-font-size-8': 56px,
-  'o3-font-size-9': 72px,
-  'o3-font-size-10': 84px,
-  'o3-font-size-negative-2': 12px,
-  'o3-font-size-negative-1': 14px,
-  'o3-font-lineheight-metric2-0': 24px,
-  'o3-font-lineheight-metric2-1': 24px,
-  'o3-font-lineheight-metric2-2': 28px,
-  'o3-font-lineheight-metric2-3': 32px,
-  'o3-font-lineheight-metric2-4': 32px,
-  'o3-font-lineheight-metric2-5': 40px,
-  'o3-font-lineheight-metric2-6': 48px,
-  'o3-font-lineheight-metric2-7': 56px,
-  'o3-font-lineheight-metric2-8': 72px,
-  'o3-font-lineheight-metric2-9': 84px,
-  'o3-font-lineheight-metric2-negative-3': 16px,
-  'o3-font-lineheight-metric2-negative-2': 16px,
-  'o3-font-lineheight-metric2-negative-1': 20px,
-  'o3-font-size-metric2-0': 16px,
-  'o3-font-size-metric2-1': 18px,
-  'o3-font-size-metric2-2': 20px,
-  'o3-font-size-metric2-3': 24px,
-  'o3-font-size-metric2-4': 28px,
-  'o3-font-size-metric2-5': 32px,
-  'o3-font-size-metric2-6': 40px,
-  'o3-font-size-metric2-7': 48px,
-  'o3-font-size-metric2-8': 64px,
-  'o3-font-size-metric2-9': 72px,
-  'o3-font-size-metric2-negative-3': 10px,
-  'o3-font-size-metric2-negative-2': 12px,
-  'o3-font-size-metric2-negative-1': 14px,
+  '_o3-font-family-metric': 'metric 2 VF',
+  '_o3-font-family-financier-display': 'financier display VF',
+  '_o3-font-family-georgia': georgia,
+  '_o3-font-weight-light': 300,
+  '_o3-font-weight-regular': 400,
+  '_o3-font-weight-medium': 500,
+  '_o3-font-weight-semibold': 700,
+  '_o3-font-weight-bold': 800,
+  '_o3-font-lineheight-0': 20px,
+  '_o3-font-lineheight-1': 20px,
+  '_o3-font-lineheight-2': 24px,
+  '_o3-font-lineheight-3': 28px,
+  '_o3-font-lineheight-4': 32px,
+  '_o3-font-lineheight-5': 32px,
+  '_o3-font-lineheight-6': 40px,
+  '_o3-font-lineheight-7': 48px,
+  '_o3-font-lineheight-8': 56px,
+  '_o3-font-lineheight-9': 72px,
+  '_o3-font-lineheight-10': 84px,
+  '_o3-font-lineheight-negative-2': 16px,
+  '_o3-font-lineheight-negative-1': 16px,
+  '_o3-font-size-0': 16px,
+  '_o3-font-size-1': 18px,
+  '_o3-font-size-2': 20px,
+  '_o3-font-size-3': 24px,
+  '_o3-font-size-4': 28px,
+  '_o3-font-size-5': 32px,
+  '_o3-font-size-6': 40px,
+  '_o3-font-size-7': 48px,
+  '_o3-font-size-8': 56px,
+  '_o3-font-size-9': 72px,
+  '_o3-font-size-10': 84px,
+  '_o3-font-size-negative-2': 12px,
+  '_o3-font-size-negative-1': 14px,
+  '_o3-font-lineheight-metric2-0': 24px,
+  '_o3-font-lineheight-metric2-1': 24px,
+  '_o3-font-lineheight-metric2-2': 28px,
+  '_o3-font-lineheight-metric2-3': 32px,
+  '_o3-font-lineheight-metric2-4': 32px,
+  '_o3-font-lineheight-metric2-5': 40px,
+  '_o3-font-lineheight-metric2-6': 48px,
+  '_o3-font-lineheight-metric2-7': 56px,
+  '_o3-font-lineheight-metric2-8': 72px,
+  '_o3-font-lineheight-metric2-9': 84px,
+  '_o3-font-lineheight-metric2-negative-3': 16px,
+  '_o3-font-lineheight-metric2-negative-2': 16px,
+  '_o3-font-lineheight-metric2-negative-1': 20px,
+  '_o3-font-size-metric2-0': 16px,
+  '_o3-font-size-metric2-1': 18px,
+  '_o3-font-size-metric2-2': 20px,
+  '_o3-font-size-metric2-3': 24px,
+  '_o3-font-size-metric2-4': 28px,
+  '_o3-font-size-metric2-5': 32px,
+  '_o3-font-size-metric2-6': 40px,
+  '_o3-font-size-metric2-7': 48px,
+  '_o3-font-size-metric2-8': 64px,
+  '_o3-font-size-metric2-9': 72px,
+  '_o3-font-size-metric2-negative-3': 10px,
+  '_o3-font-size-metric2-negative-2': 12px,
+  '_o3-font-size-metric2-negative-1': 14px,
   'o3-focus-use-case-ring-inner': 0px 0px 0px 4px #ffffff,
   'o3-focus-use-case-ring-outer': 0px 0px 0px 8px #4d4845,
   'o3-focus-use-case-ring-inverse-inner': 0px 0px 0px 4px #4d4845,

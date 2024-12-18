@@ -4,57 +4,9 @@
 
 
 [data-o3-brand="professional"] {
-  --_o3-editorial-typography-headline-large-l-font-family: var(--o3-font-family-financier-display); /* Previous name - Heading large */
-  --_o3-editorial-typography-headline-large-l-font-weight: var(--o3-font-weight-bold); /* Previous name - Heading large */
-  --_o3-editorial-typography-headline-large-l-font-size: var(--o3-font-size-7); /* Previous name - Heading large */
-  --_o3-editorial-typography-headline-large-l-line-height: var(--o3-font-lineheight-7); /* Previous name - Heading large */
-  --_o3-editorial-typography-headline-large-m-font-family: var(--o3-font-family-financier-display); /* Previous name - Heading large */
-  --_o3-editorial-typography-headline-large-m-font-weight: var(--o3-font-weight-bold); /* Previous name - Heading large */
-  --_o3-editorial-typography-headline-large-m-font-size: var(--o3-font-size-6); /* Previous name - Heading large */
-  --_o3-editorial-typography-headline-large-m-line-height: var(--o3-font-lineheight-6); /* Previous name - Heading large */
-  --_o3-editorial-typography-headline-large-s-font-family: var(--o3-font-family-financier-display); /* Previous name - Heading large */
-  --_o3-editorial-typography-headline-large-s-font-weight: var(--o3-font-weight-bold); /* Previous name - Heading large */
-  --_o3-editorial-typography-headline-large-s-font-size: var(--o3-font-size-5); /* Previous name - Heading large */
-  --_o3-editorial-typography-headline-large-s-line-height: var(--o3-font-lineheight-5); /* Previous name - Heading large */
-  --_o3-editorial-typography-headline-l-font-family: var(--o3-font-family-financier-display); /* Previous name - H1 */
-  --_o3-editorial-typography-headline-l-font-weight: var(--o3-font-weight-light); /* Previous name - H1 */
-  --_o3-editorial-typography-headline-l-font-size: var(--o3-font-size-6); /* Previous name - H1 */
-  --_o3-editorial-typography-headline-l-line-height: var(--o3-font-lineheight-6); /* Previous name - H1 */
-  --_o3-editorial-typography-headline-m-font-family: var(--o3-font-family-financier-display); /* Previous name - H1 */
-  --_o3-editorial-typography-headline-m-font-weight: var(--o3-font-weight-light); /* Previous name - H1 */
-  --_o3-editorial-typography-headline-m-font-size: var(--o3-font-size-5); /* Previous name - H1 */
-  --_o3-editorial-typography-headline-m-line-height: var(--o3-font-lineheight-5); /* Previous name - H1 */
-  --_o3-editorial-typography-headline-s-font-family: var(--o3-font-family-financier-display); /* Previous name - H1 */
-  --_o3-editorial-typography-headline-s-font-weight: var(--o3-font-weight-light); /* Previous name - H1 */
-  --_o3-editorial-typography-headline-s-font-size: var(--o3-font-size-4); /* Previous name - H1 */
-  --_o3-editorial-typography-headline-s-line-height: var(--o3-font-lineheight-4); /* Previous name - H1 */
-  --_o3-editorial-typography-chapter-font-family: var(--o3-font-family-metric); /* Previous name - H2 */
-  --_o3-editorial-typography-chapter-font-weight: var(--o3-font-weight-semibold); /* Previous name - H2 */
-  --_o3-editorial-typography-chapter-font-size: var(--o3-font-size-metric2-3); /* Previous name - H2 */
-  --_o3-editorial-typography-chapter-line-height: var(--o3-font-lineheight-3); /* Previous name - H2 */
-  --_o3-editorial-typography-subheading-font-family: var(--o3-font-family-metric); /* Previous name - H3 */
-  --_o3-editorial-typography-subheading-font-weight: var(--o3-font-weight-regular); /* Previous name - H3 */
-  --_o3-editorial-typography-subheading-font-size: var(--o3-font-size-metric2-3); /* Previous name - H3 */
-  --_o3-editorial-typography-subheading-line-height: var(--o3-font-lineheight-3); /* Previous name - H3 */
-  --_o3-editorial-typography-label-font-family: var(--o3-font-family-metric); /* Previous name - H5 */
-  --_o3-editorial-typography-label-font-weight: var(--o3-font-weight-regular); /* Previous name - H5 */
-  --_o3-editorial-typography-label-font-size: var(--o3-font-size-metric2-negative-1); /* Previous name - H5 */
-  --_o3-editorial-typography-label-line-height: var(--o3-font-lineheight-negative-1); /* Previous name - H5 */
-  --_o3-editorial-typography-article-body-l-font-family: var(--o3-font-family-georgia);
-  --_o3-editorial-typography-article-body-l-font-weight: var(--o3-font-weight-regular);
-  --_o3-editorial-typography-article-body-l-font-size: var(--o3-font-size-2);
-  --_o3-editorial-typography-article-body-l-line-height: var(--o3-font-lineheight-4);
-  --_o3-editorial-typography-article-body-s-font-family: var(--o3-font-family-georgia);
-  --_o3-editorial-typography-article-body-s-font-weight: var(--o3-font-weight-regular);
-  --_o3-editorial-typography-article-body-s-font-size: var(--o3-font-size-1);
-  --_o3-editorial-typography-article-body-s-line-height: var(--o3-font-lineheight-3);
   --_o3-editorial-typography-topic-tag-color: var(--o3-color-palette-claret);
   --_o3-editorial-typography-topic-tag-inverse-color: var(--o3-color-palette-white);
   --_o3-editorial-typography-topic-tag-hover-color: var(--o3-color-palette-claret-30);
-  --_o3-editorial-typography-caption-font-family: var(--o3-font-family-metric);
-  --_o3-editorial-typography-caption-font-weight: var(--o3-font-weight-regular);
-  --_o3-editorial-typography-caption-font-size: var(--o3-font-size-negative-2);
-  --_o3-editorial-typography-caption-line-height: var(--o3-font-lineheight-negative-2);
   --_o3-editorial-typography-caption-color: var(--o3-color-palette-black-70);
   --_o3-editorial-typography-caption-inverse-color: var(--o3-color-use-case-muted-inverse-text);
   --_o3-editorial-typography-byline-author-color: var(--o3-color-palette-claret);
@@ -62,14 +14,14 @@
   --_o3-editorial-typography-byline-author-hover-color: var(--o3-color-palette-claret-30);
   --_o3-editorial-typography-byline-timestamp-color: var(--o3-color-palette-black-60);
   --_o3-editorial-typography-byline-timestamp-inverse-color: var(--o3-color-use-case-muted-inverse-text);
-  --_o3-editorial-typography-pullquote-content-font-family: var(--o3-font-family-metric);
-  --_o3-editorial-typography-pullquote-content-font-weight: var(--o3-font-weight-semibold);
-  --_o3-editorial-typography-pullquote-content-font-size: var(--o3-font-size-metric2-2);
-  --_o3-editorial-typography-pullquote-content-line-height: var(--o3-font-lineheight-metric2-2);
-  --_o3-editorial-typography-big-number-title-font-family: var(--o3-font-family-metric);
-  --_o3-editorial-typography-big-number-title-font-weight: var(--o3-font-weight-semibold);
-  --_o3-editorial-typography-big-number-title-font-size: var(--o3-font-size-metric2-7);
-  --_o3-editorial-typography-big-number-title-line-height: var(--o3-font-lineheight-metric2-7);
+  --_o3-editorial-typography-pullquote-content-font-family: var(--_o3-font-family-metric);
+  --_o3-editorial-typography-pullquote-content-font-weight: var(--_o3-font-weight-semibold);
+  --_o3-editorial-typography-pullquote-content-font-size: var(--_o3-font-size-metric2-2);
+  --_o3-editorial-typography-pullquote-content-line-height: var(--_o3-font-lineheight-metric2-2);
+  --_o3-editorial-typography-big-number-title-font-family: var(--_o3-font-family-metric);
+  --_o3-editorial-typography-big-number-title-font-weight: var(--_o3-font-weight-semibold);
+  --_o3-editorial-typography-big-number-title-font-size: var(--_o3-font-size-metric2-7);
+  --_o3-editorial-typography-big-number-title-line-height: var(--_o3-font-lineheight-metric2-7);
   --_o3-editorial-typography-topic-tag-hover-inverse-color: var(--o3-color-use-case-link-inverse-text-hover);
   --_o3-editorial-typography-byline-author-hover-inverse-color: var(--o3-color-use-case-link-inverse-text-hover);
 }
