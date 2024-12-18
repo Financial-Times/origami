@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-loading",
-  "version": "5.2.3",
+  "version": "2.2.6",
   "description": "A visual loading indicator, available in two colours and four sizes",
   "keywords": [
     "loading",

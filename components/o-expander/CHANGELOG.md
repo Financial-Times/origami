@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.6](https://github.com/Financial-Times/origami/compare/o-expander-v6.3.1...o-expander-v2.2.6) (2024-12-18)
+
+
+### Miscellaneous Chores
+
+* release o-multi-select ([#1636](https://github.com/Financial-Times/origami/issues/1636)) ([6941f6a](https://github.com/Financial-Times/origami/commit/6941f6a832d6e35f099a679659c3acbc49e54999))
+
 ## [6.3.1](https://github.com/Financial-Times/origami/compare/o-expander-v6.3.0...o-expander-v6.3.1) (2024-04-16)
 
 

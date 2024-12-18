@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.6](https://github.com/Financial-Times/origami/compare/o-errors-v5.2.3...o-errors-v2.2.6) (2024-12-18)
+
+
+### Miscellaneous Chores
+
+* release o-multi-select ([#1636](https://github.com/Financial-Times/origami/issues/1636)) ([6941f6a](https://github.com/Financial-Times/origami/commit/6941f6a832d6e35f099a679659c3acbc49e54999))
+
 ## [5.2.3](https://github.com/Financial-Times/origami/compare/o-errors-v5.2.2...o-errors-v5.2.3) (2023-10-27)
 
 

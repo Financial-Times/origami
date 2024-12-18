@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.6](https://github.com/Financial-Times/origami/compare/o-overlay-v4.2.13...o-overlay-v2.2.6) (2024-12-18)
+
+
+### Miscellaneous Chores
+
+* release o-multi-select ([#1636](https://github.com/Financial-Times/origami/issues/1636)) ([6941f6a](https://github.com/Financial-Times/origami/commit/6941f6a832d6e35f099a679659c3acbc49e54999))
+
 ## [4.2.13](https://github.com/Financial-Times/origami/compare/o-overlay-v4.2.12...o-overlay-v4.2.13) (2024-04-16)
 
 
