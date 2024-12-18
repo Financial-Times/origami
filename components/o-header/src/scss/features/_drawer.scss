@@ -18,7 +18,11 @@
 			border-right: 1px solid _oHeaderGet('drawer-border');
 			// use a 2D transform because 3D are unsupported by IE9
 			transform: translateX(-100%);
-			transform: translate3d(-100%, 0, 0); // stylelint-disable-line declaration-block-no-duplicate-properties
+			transform: translate3d(
+				-100%,
+				0,
+				0
+			); // stylelint-disable-line declaration-block-no-duplicate-properties
 
 			// this is literally the specification example for will-change
 			will-change: transform;
@@ -34,7 +38,11 @@
 			&.o-header__drawer--open {
 				// use a 2D transform because 3D are unsupported by IE9
 				transform: translateX(0);
-				transform: translate3d(0, 0, 0); // stylelint-disable-line declaration-block-no-duplicate-properties
+				transform: translate3d(
+					0,
+					0,
+					0
+				); // stylelint-disable-line declaration-block-no-duplicate-properties
 			}
 		}
 	}
@@ -48,7 +56,8 @@
 			// working draft
 			scroll-behavior: smooth;
 
-			scrollbar-color: oPrivateFoundationGet('o3-color-palette-black-30') transparent;
+			scrollbar-color: oPrivateFoundationGet('o3-color-palette-black-30')
+				transparent;
 
 			// (╯°□°）╯︵ ┻━┻
 			&::-webkit-scrollbar {
@@ -91,7 +100,9 @@
 			.o-header__drawer-menu-link {
 				padding-left: 12px;
 				text-decoration: underline;
-				text-decoration-color: oPrivateFoundationGet('o3-color-palette-black-80');
+				text-decoration-color: oPrivateFoundationGet(
+					'o3-color-palette-black-80'
+				);
 			}
 
 			.o-header__drawer-current-edition {
@@ -256,7 +267,11 @@
 		margin-top: 16px;
 		width: 1px;
 		height: 16px;
-		background-color: oPrivateColorsMix('black', 'paper', 60);
+		background-color: oPrivateColorsMix(
+			'o3-color-palette-black',
+			'o3-color-palette-paper',
+			60
+		);
 		display: inline-block;
 	}
 
