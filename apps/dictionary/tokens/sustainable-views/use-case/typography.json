@@ -157,7 +157,7 @@
           "value": {
             "fontFamily": "{o3.font.family.financier-text}",
             "fontWeight": "1",
-            "fontSize": "22",
+            "fontSize": "{o3.font.size.3}",
             "lineHeight": "{o3.font.lineheight.4}"
           },
           "type": "typography",
@@ -166,9 +166,9 @@
         "body-content-highlight": {
           "value": {
             "fontFamily": "{o3.font.family.financier-text}",
-            "fontWeight": "1",
-            "fontSize": "22",
-            "lineHeight": "{o3.font.lineheight.4}"
+            "fontSize": "{o3.font.size.3}",
+            "lineHeight": "{o3.font.lineheight.4}",
+            "fontWeight": "600"
           },
           "type": "typography",
           "description": "Use this style only for the body copy of content pages, such as articles, live news and other content experience page."
@@ -177,7 +177,7 @@
           "value": {
             "fontFamily": "{o3.font.family.financier-text}",
             "fontWeight": "1",
-            "fontSize": "22",
+            "fontSize": "{o3.font.size.3}",
             "lineHeight": "{o3.font.lineheight.4}"
           },
           "type": "typography",
@@ -187,7 +187,7 @@
           "value": {
             "fontFamily": "{o3.font.family.financier-text}",
             "fontWeight": "1",
-            "fontSize": "22",
+            "fontSize": "{o3.font.size.3}",
             "lineHeight": "{o3.font.lineheight.4}"
           },
           "type": "typography",
