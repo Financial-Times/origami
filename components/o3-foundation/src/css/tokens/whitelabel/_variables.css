@@ -18,6 +18,8 @@
   --o3-color-palette-black-70: #4d4d4d;
   --o3-color-palette-black-80: #333333;
   --o3-color-palette-black-90: #1a1a1a;
+  --o3-color-use-case-link-text: #757575;
+  --o3-color-use-case-muted-text: #757575; /* "Muted" text is less prominent, for example credits and captions. */
   --o3-color-use-case-error-background: rgba(204, 0, 0, 0.06);
   --o3-spacing-5xs: 4px;
   --o3-spacing-4xs: 8px;
@@ -65,7 +67,7 @@
   --o3-font-size-10: 84px;
   --o3-font-size-negative-2: 12px;
   --o3-font-size-negative-1: 14px;
-  --o3-font-lineheight-metric2-0: 24px;
+  --o3-font-lineheight-metric2-0: 20px;
   --o3-font-lineheight-metric2-1: 24px;
   --o3-font-lineheight-metric2-2: 28px;
   --o3-font-lineheight-metric2-3: 32px;
@@ -91,7 +93,6 @@
   --o3-font-size-metric2-negative-3: 10px;
   --o3-font-size-metric2-negative-2: 12px;
   --o3-font-size-metric2-negative-1: 14px;
-  --o3-color-use-case-link-text: var(--o3-color-palette-black-50);
   --o3-color-use-case-link-text-hover: var(--o3-color-palette-black-60);
   --o3-color-use-case-link-underline: var(--o3-color-palette-black-30);
   --o3-color-use-case-link-underline-hover: var(--o3-color-palette-black-70);
@@ -103,7 +104,6 @@
   --o3-color-use-case-page-inverse-background: var(--o3-color-palette-black-80);
   --o3-color-use-case-body-text: var(--o3-color-palette-black-80);
   --o3-color-use-case-body-inverse-text: var(--o3-color-palette-white);
-  --o3-color-use-case-muted-text: var(--o3-color-palette-black-50); /* "Muted" text is less prominent, for example credits and captions. */
   --o3-color-use-case-muted-inverse-text: var(--o3-color-palette-black-20);
   --o3-color-use-case-heading-text: var(--o3-color-palette-black-90);
   --o3-color-use-case-heading-inverse-text: var(--o3-color-palette-white);

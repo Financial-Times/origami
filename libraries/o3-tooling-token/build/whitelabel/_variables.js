@@ -237,8 +237,8 @@ export default {
 },
 	"o3-color-use-case-link-text": {
 		"shortName": "@",
-		"value": "#808080",
-		"originalValue": "{o3.color.palette.black-50}",
+		"value": "#757575",
+		"originalValue": "#757575",
 		"type": "color",
 		"description": "",
 		"path": [
@@ -426,8 +426,8 @@ export default {
 },
 	"o3-color-use-case-muted-text": {
 		"shortName": "text",
-		"value": "#808080",
-		"originalValue": "{o3.color.palette.black-50}",
+		"value": "#757575",
+		"originalValue": "#757575",
 		"type": "color",
 		"description": "\"Muted\" text is less prominent, for example credits and captions.",
 		"path": [

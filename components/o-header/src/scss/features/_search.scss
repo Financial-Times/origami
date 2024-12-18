@@ -52,7 +52,7 @@
 	}
 
 	.o-header__search-icon {
-		@include oIconsContent($icon-name: 'search', $size: 38, $color: white);
+		@include oPrivateIconsContent($icon-name: 'search', $size: 38, $color: white);
 
 		@include oPrivateGridRespondTo($until: 'S') {
 			display: none;

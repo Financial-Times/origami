@@ -54,7 +54,7 @@
 	}
 
 	.o-video__play-button-icon {
-		@include oIconsContent("play", oColorsByName("white"), $size: null);
+		@include oPrivateIconsContent("play", oColorsByName("white"), $size: null);
 		color: oColorsByName("white");
 		background-color: oColorsByName("black");
 		:hover > &,

@@ -44,5 +44,5 @@
 /// @output The output does not include a class definition, and should be wrapped in a selector.
 /// @access private
 @mixin _oOverlayContentCloseIcon($color) {
-	@include oIconsContent('cross', $color, $size: 20px);
+	@include oPrivateIconsContent('cross', $color, $size: 20px);
 }
