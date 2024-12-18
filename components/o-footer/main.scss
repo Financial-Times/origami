@@ -1,23 +1,25 @@
 @import '@financial-times/math';
-@import "@financial-times/o-normalise/main";
-@import "@financial-times/o-spacing/main";
-@import "@financial-times/o-colors/main";
-@import "@financial-times/o-typography/main";
-@import "@financial-times/o-icons/main";
-@import "@financial-times/o-grid/main";
+@import '@financial-times/o-private-foundation/main';
 
-@import "src/scss/brand";
-@import "src/scss/variables";
+@import 'src/scss/brand';
+@import 'src/scss/variables';
 @import 'src/scss/mixins';
 
 /// Output all o-footer styles including a navigation matrix, and two themes.
 ///
 /// @param {string} $opts [('themes': ('light', 'dark'), 'margin': 40px, 'matrix': true)] - a map of footer options. Keys include 'themes', a list of themes to support including "dark" and "light"; 'margin', a length to customise the footer's top margin; and 'matrix', a boolean value whether to support a complex footer with large navigation structure.
-@mixin oFooter($opts: (
-	'themes': ('light', 'dark'),
-	'margin': null,
-	'matrix': true
-)) {
+@mixin oFooter(
+	$opts: (
+		'themes': (
+			'light',
+			'dark',
+		),
+		'margin': null,
+		'matrix': true,
+	)
+) {
+	@include oPrivateFoundation();
+
 	$margin: map-get($opts, 'margin');
 	$margin: if($margin, $margin, (2 * $_o-footer-spacing-unit));
 	$matrix: map-get($opts, 'matrix');
@@ -25,10 +27,10 @@
 	$themes: if($themes, $themes, ());
 
 	//Surface layouts for o-grid JavaScript helper https://github.com/Financial-Times/o-grid#getcurrentlayout
-	@include oGridSurfaceCurrentLayout();
+	@include oPrivateGridSurfaceCurrentLayout();
 
 	.o-footer {
-		@include oTypographySans(0);
+		@include oPrivateTypographySans(0);
 		margin-top: $margin;
 		line-height: $_o-footer-spacing-unit;
 
@@ -39,7 +41,7 @@
 	}
 
 	.o-footer__container {
-		@include oGridContainer();
+		@include oPrivateGridContainer();
 		/* hack to stop the margins collapsing */
 		padding-top: 0.1px;
 	}
@@ -56,14 +58,14 @@
 		}
 
 		li {
-			@include oTypographySans(-1, $include-font-family: false);
+			@include oPrivateTypographySans(-1);
 			list-style: none;
 			display: inline-block;
 
 			&:before {
 				content: '\2022';
-				padding-left: oSpacingByName('s1');
-				padding-right: oSpacingByName('s1');
+				padding-left: oPrivateSpacingByName('s1');
+				padding-right: oPrivateSpacingByName('s1');
 			}
 			&:first-child:before {
 				content: '';
@@ -82,8 +84,8 @@
 	}
 
 	.o-footer__brand {
-		padding-top: oSpacingByName('s4');
-		padding-bottom: oSpacingByName('s4');
+		padding-top: oPrivateSpacingByName('s4');
+		padding-bottom: oPrivateSpacingByName('s4');
 	}
 
 	.o-footer__brand-logo {
@@ -109,10 +111,9 @@
 	}
 
 	.o-footer-visually-hidden {
-		@include oNormaliseVisuallyHidden();
+		@include oPrivateNormaliseVisuallyHidden();
 	}
 }
-
 
 @if $o-footer-is-silent == false {
 	@include oFooter();

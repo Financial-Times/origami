@@ -1,11 +1,7 @@
 {
 	"origamiType": "component",
 	"origamiVersion": "2.0",
-	"brands": [
-		"core",
-		"internal",
-		"whitelabel"
-	],
+	"brands": ["core", "internal", "whitelabel"],
 	"support": "https://github.com/Financial-Times/origami/issues/new?labels=o-message,components",
 	"supportContact": {
 		"email": "origami.support@ft.com",
@@ -172,9 +168,7 @@
 				"state": "warning-light",
 				"content": "There are lazy dogs, maybe in a field, maybe not. It's important that you are informed of this fact."
 			},
-			"brands": [
-				"internal"
-			]
+			"brands": ["internal"]
 		},
 		{
 			"title": "Notice Inner: Warning Light",
@@ -191,9 +185,7 @@
 				},
 				"noCloseButton": true
 			},
-			"brands": [
-				"internal"
-			]
+			"brands": ["internal"]
 		},
 		{
 			"title": "Notice: Warning",
@@ -204,9 +196,7 @@
 				"state": "warning",
 				"content": "There are lazy dogs, maybe in a field, maybe not. It's important that you are informed of this fact."
 			},
-			"brands": [
-				"internal"
-			]
+			"brands": ["internal"]
 		},
 		{
 			"title": "Notice Inner: Warning",
@@ -218,9 +208,7 @@
 				"state": "warning",
 				"content": "There are lazy dogs, maybe in a field, maybe not. It's important that you are informed of this fact. There may also be a fox. This is unconfirmed."
 			},
-			"brands": [
-				"internal"
-			]
+			"brands": ["internal"]
 		},
 		{
 			"title": "Notice: Feedback",
@@ -234,10 +222,7 @@
 					"button": true
 				}
 			},
-			"brands": [
-				"core",
-				"internal"
-			]
+			"brands": ["core", "internal"]
 		},
 		{
 			"title": "Notice Inner: Feedback",
@@ -252,10 +237,7 @@
 					"button": true
 				}
 			},
-			"brands": [
-				"core",
-				"internal"
-			]
+			"brands": ["core", "internal"]
 		},
 		{
 			"title": "Action: Inform Inverse",
@@ -271,9 +253,7 @@
 				},
 				"noCloseButton": true
 			},
-			"brands": [
-				"internal"
-			]
+			"brands": ["internal"]
 		},
 		{
 			"title": "Alert: Custom",
@@ -303,10 +283,7 @@
 				}
 			},
 			"display_html": false,
-			"brands": [
-				"core",
-				"internal"
-			]
+			"brands": ["core", "internal"]
 		},
 		{
 			"title": "Notice: Custom",
@@ -336,10 +313,7 @@
 				}
 			},
 			"display_html": false,
-			"brands": [
-				"core",
-				"internal"
-			]
+			"brands": ["core", "internal"]
 		},
 		{
 			"title": "Action: Custom",
@@ -370,9 +344,7 @@
 				"noCloseButton": true
 			},
 			"display_html": false,
-			"brands": [
-				"internal"
-			]
+			"brands": ["internal"]
 		},
 		{
 			"title": "Imperative",
@@ -381,13 +353,6 @@
 			"template": "demos/src/imperative.mustache",
 			"description": "Examples of all messages, built into the DOM on click",
 			"hidden": true
-		},
-		{
-			"title": "Pa11y",
-			"name": "pa11y",
-			"template": "demos/src/pa11y.mustache",
-			"hidden": true,
-			"description": "Highlight accesibility errors"
 		}
 	]
 }

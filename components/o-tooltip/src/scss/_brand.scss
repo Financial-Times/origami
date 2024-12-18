@@ -13,13 +13,13 @@
 @if oBrandIs('core') {
 	@include oBrandDefine('o-tooltip', 'core', (
 		'variables': (
-			'background-color': oColorsByName('white'),
+			'background-color': oPrivateFoundationGet('o3-color-palette-white'),
 			'foreground-color': null, // inherit by default
-			'close-foreground-color': oColorsByName('black-60'),
+			'close-foreground-color': oPrivateFoundationGet('o3-color-palette-black-60'),
 			'professional': (
-				'background-color': oColorsByName('slate'),
-				'foreground-color': oColorsByName('white'),
-				'close-foreground-color': oColorsByName('white')
+				'background-color': oPrivateFoundationGet('o3-color-palette-slate'),
+				'foreground-color': oPrivateFoundationGet('o3-color-palette-white'),
+				'close-foreground-color': oPrivateFoundationGet('o3-color-palette-white')
 			)
 		),
 		'supports-variants': (
@@ -31,9 +31,9 @@
 @if oBrandIs('internal') {
 	@include oBrandDefine('o-tooltip', 'internal', (
 		'variables': (
-			'background-color': oColorsByName('white'),
+			'background-color': oPrivateFoundationGet('o3-color-palette-white'),
 			'foreground-color': null, // inherit by default
-			'close-foreground-color': oColorsByName('black-60')
+			'close-foreground-color': oPrivateFoundationGet('o3-color-palette-black-60')
 		),
 		'supports-variants': ()
 	));
@@ -42,9 +42,9 @@
 @if oBrandIs('whitelabel') {
 	@include oBrandDefine('o-tooltip', 'whitelabel', (
 		'variables': (
-			'background-color': oColorsByName('white'),
+			'background-color': oPrivateFoundationGet('o3-color-palette-white'),
 			'foreground-color': null, // inherit by default,
-			'close-foreground-color': oColorsByName('black')
+			'close-foreground-color': oPrivateFoundationGet('o3-color-palette-black')
 		),
 		'supports-variants': ()
 	));

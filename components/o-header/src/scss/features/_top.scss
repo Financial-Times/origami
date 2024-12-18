@@ -4,7 +4,7 @@
 		grid-template-columns: 1fr min-content 1fr;
 		align-items: center;
 		gap: $_o-header-column-item-margin-s;
-		@include oGridRespondTo('XL') {
+		@include oPrivateGridRespondTo('XL') {
 			gap: $_o-header-column-item-margin-l;
 		}
 	}
@@ -15,7 +15,7 @@
 		align-items: center;
 		white-space: nowrap;
 		gap: $_o-header-column-item-margin-s;
-		@include oGridRespondTo('XL') {
+		@include oPrivateGridRespondTo('XL') {
 			gap: $_o-header-column-item-margin-l;
 		}
 	}
@@ -38,7 +38,7 @@
 	.o-header__top-takeover {
 		display: none;
 
-		@include oGridRespondTo('oHeaderL') {
+		@include oPrivateGridRespondTo('oHeaderL') {
 			display: block;
 
 			& ~ * {
@@ -48,7 +48,7 @@
 	}
 	.o-header__top-link {
 		@include _oHeaderLink;
-		@include oTypographySans(-1);
+		@include oPrivateTypographySans(-1);
 		@include _oHeaderFancyLink();
 	}
 
@@ -62,32 +62,32 @@
 		margin-top: 4px;
 		margin-bottom: 4px;
 
-		@include oGridRespondTo('oHeaderL') {
+		@include oPrivateGridRespondTo('oHeaderL') {
 			margin-top: 30px;
 			margin-bottom: 30px;
 		}
 
-		@include oGridRespondTo('M') {
+		@include oPrivateGridRespondTo('M') {
 			margin-top: 24px;
 			margin-bottom: 24px;
 		}
 
 		&:before {
-			@include oIconsContentBaseStyles();
+			@include oPrivateIconsContentBaseStyles();
 			content: ' ';
 			width: #{$_o-header-icon-size-large}px;
 			height: #{$_o-header-icon-size-large}px;
 		}
 
-		@include oNormaliseFocusApply() {
-			@include oNormaliseFocusContent();
-		};
+		@include oPrivateNormaliseFocusApply() {
+			@include oPrivateNormaliseFocusContent();
+		}
 	}
 
 	.o-header__top-icon-link.o-header__top-icon-link--hide-s,
 	.o-header__top-button.o-header__top-button--hide-s,
 	.o-header__top-link.o-header__top-link--hide-s {
-		@include oGridRespondTo($until: 'S') {
+		@include oPrivateGridRespondTo($until: 'S') {
 			display: none;
 		}
 	}
@@ -95,13 +95,13 @@
 	.o-header__top-icon-link.o-header__top-icon-link--hide-m,
 	.o-header__top-button.o-header__top-button--hide-m,
 	.o-header__top-link.o-header__top-link--hide-m {
-		@include oGridRespondTo($until: 'M') {
+		@include oPrivateGridRespondTo($until: 'M') {
 			display: none;
 		}
 	}
 
 	.o-header__top-icon-link.o-header__top-icon-link--show-m {
-		@include oGridRespondTo($from: 'M') {
+		@include oPrivateGridRespondTo($from: 'M') {
 			display: none;
 		}
 	}
@@ -114,18 +114,28 @@
 		&:before {
 			// container size (24) is only included for the fallback image.
 			// IE8 has a static stylesheet generated for the L breakpoint.
-			@include oIconsContent('hamburger', _oHeaderGet('header-icon'), $size: null, $include-base-styles: false);
+			@include oPrivateIconsContent(
+				'hamburger',
+				_oHeaderGet('header-icon'),
+				$size: null,
+				$include-base-styles: false
+			);
 		}
 	}
 
 	.o-header__top-icon-link--search {
 		&:before {
-			@include oIconsContent('search', _oHeaderGet('header-icon'), $size: null, $include-base-styles: false);
+			@include oPrivateIconsContent(
+				'search',
+				_oHeaderGet('header-icon'),
+				$size: null,
+				$include-base-styles: false
+			);
 		}
 
 		// when used in tandem with the menu toggle, hide this on smaller screen sizes
 		.o-header__top-icon-link--menu + & {
-			@include oGridRespondTo($until: 'M') {
+			@include oPrivateGridRespondTo($until: 'M') {
 				display: none;
 			}
 		}
@@ -133,14 +143,19 @@
 
 	.o-header__top-myaccount {
 		@include _oHeaderLink;
-		@include oTypographySans(0);
+		@include oPrivateTypographySans(0);
 		display: flex;
 		align-items: center;
 		position: relative;
 		padding: $_o-header-padding-y 0;
 
 		&:before {
-			@include oIconsContent('user', _oHeaderGet('header-icon'), $size: 32, $include-base-styles: false);
+			@include oPrivateIconsContent(
+				'user',
+				_oHeaderGet('header-icon'),
+				$size: 32,
+				$include-base-styles: false
+			);
 			content: ' ';
 		}
 
@@ -158,18 +173,22 @@
 		}
 
 		span {
-			@include oGridRespondTo($until: 'M') {
-				@include oNormaliseVisuallyHidden;
+			@include oPrivateGridRespondTo($until: 'M') {
+				@include oPrivateNormaliseVisuallyHidden;
 			}
 		}
 	}
 
 	.o-header__top-link-label {
-		@include oNormaliseVisuallyHidden;
+		@include oPrivateNormaliseVisuallyHidden;
 	}
 
 	.o-header__top-logo {
-		@include _oHeaderBrandImage('brand-ft-masthead', _oHeaderGet('header-icon'), 500);
+		@include _oHeaderBrandImage(
+			'brand-ft-masthead',
+			_oHeaderGet('header-icon'),
+			500
+		);
 		@include _oHeaderLogoSize('XS');
 
 		display: block;
@@ -179,17 +198,17 @@
 		background-position: 50%;
 		background-repeat: no-repeat;
 
-		@include oGridRespondTo('S') {
+		@include oPrivateGridRespondTo('S') {
 			@include _oHeaderLogoSize('S');
 		}
 
-		@include oGridRespondTo('M') {
+		@include oPrivateGridRespondTo('M') {
 			@include _oHeaderLogoSize('M');
 			margin-top: 24px;
 			margin-bottom: 24px;
 		}
 
-		@include oGridRespondTo('oHeaderL') {
+		@include oPrivateGridRespondTo('oHeaderL') {
 			@include _oHeaderLogoSize('L');
 			margin-top: 30px;
 			margin-bottom: 30px;
@@ -198,7 +217,7 @@
 
 	.o-header__ask-ft-button--top {
 		@include _oHeaderAskFtButton();
-		@include oGridRespondTo($until: 'M') {
+		@include oPrivateGridRespondTo($until: 'M') {
 			display: none;
 		}
 		margin: 0 10px;

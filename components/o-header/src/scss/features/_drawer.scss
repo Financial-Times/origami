@@ -1,13 +1,13 @@
 @mixin _oHeaderDrawer() {
 	// added to the document element, see n-ui/layout
 	.o-header__drawer {
-		@include oTypographySans();
+		font-family: '#{oPrivateFoundationGet('o3-font-family-metric')}', sans-serif;
 		background-color: _oHeaderGet('drawer-background');
 		box-sizing: content-box;
 		transition: transform 0.5s cubic-bezier(1, 0, 0.5, 1.2);
 
 		&[data-o-header-drawer--js] {
-			@include oVisualEffectsShadowContent('low');
+			@include oPrivateVisualEffectsShadowContent('low');
 			display: none;
 			position: fixed;
 			top: 0;
@@ -18,7 +18,11 @@
 			border-right: 1px solid _oHeaderGet('drawer-border');
 			// use a 2D transform because 3D are unsupported by IE9
 			transform: translateX(-100%);
-			transform: translate3d(-100%, 0, 0); // stylelint-disable-line declaration-block-no-duplicate-properties
+			transform: translate3d(
+				-100%,
+				0,
+				0
+			); // stylelint-disable-line declaration-block-no-duplicate-properties
 
 			// this is literally the specification example for will-change
 			will-change: transform;
@@ -27,19 +31,21 @@
 			border-left: 30px solid transparent;
 			margin-left: -30px;
 
-			@include oGridRespondTo('M') {
+			@include oPrivateGridRespondTo('M') {
 				width: $_o-header-drawer-width;
 			}
-
 
 			&.o-header__drawer--open {
 				// use a 2D transform because 3D are unsupported by IE9
 				transform: translateX(0);
-				transform: translate3d(0, 0, 0); // stylelint-disable-line declaration-block-no-duplicate-properties
+				transform: translate3d(
+					0,
+					0,
+					0
+				); // stylelint-disable-line declaration-block-no-duplicate-properties
 			}
 		}
 	}
-
 
 	.o-header__drawer-inner {
 		[data-o-header-drawer--js] & {
@@ -50,7 +56,8 @@
 			// working draft
 			scroll-behavior: smooth;
 
-			scrollbar-color: oColorsByName('black-30') transparent;
+			scrollbar-color: oPrivateFoundationGet('o3-color-palette-black-30')
+				transparent;
 
 			// (╯°□°）╯︵ ┻━┻
 			&::-webkit-scrollbar {
@@ -58,7 +65,7 @@
 			}
 
 			&::-webkit-scrollbar-thumb {
-				background: oColorsByName('black-30');
+				background: oPrivateFoundationGet('o3-color-palette-black-30');
 				// you can't set the dimensions so use a border as a margin...
 				background-clip: content-box;
 				border: 4px solid transparent;
@@ -72,8 +79,9 @@
 	// Tools
 	//
 	.o-header:has(.o-header__anon) ~ .o-header__drawer .o-header__drawer-tools {
-		@include oGridRespondTo($until: 'M') {
-			padding: ($_o-header-drawer-padding-y * 2.5) 0 0 $_o-header-drawer-padding-x;
+		@include oPrivateGridRespondTo($until: 'M') {
+			padding: ($_o-header-drawer-padding-y * 2.5) 0 0
+				$_o-header-drawer-padding-x;
 		}
 	}
 	.o-header__drawer-tools {
@@ -92,12 +100,14 @@
 			.o-header__drawer-menu-link {
 				padding-left: 12px;
 				text-decoration: underline;
-				text-decoration-color: oColorsByName('black-80');
+				text-decoration-color: oPrivateFoundationGet(
+					'o3-color-palette-black-80'
+				);
 			}
 
 			.o-header__drawer-current-edition {
 				font-weight: 600;
-				color: oColorsByName('black-60');
+				color: oPrivateFoundationGet('o3-color-palette-black-60');
 			}
 
 			.o-header__drawer-menu-item {
@@ -110,7 +120,11 @@
 
 	.o-header__drawer-tools-close {
 		// dividing by 1px removes the unit
-		@include oIconsContent('cross', _oHeaderGet('drawer-tools-close'), $size: $_o-header-icon-size-large);
+		@include oPrivateIconsContent(
+			'cross',
+			_oHeaderGet('drawer-tools-close'),
+			$size: $_o-header-icon-size-large
+		);
 		box-sizing: border-box;
 		border: 0;
 		opacity: 0.75;
@@ -130,7 +144,8 @@
 	// Actions
 	//
 	.o-header__drawer-actions {
-		padding: 0 $_o-header-drawer-padding-x calc($_o-header-drawer-padding-y + 4px) $_o-header-drawer-padding-x;
+		padding: 0 $_o-header-drawer-padding-x
+			calc($_o-header-drawer-padding-y + 4px) $_o-header-drawer-padding-x;
 	}
 
 	.o-header__drawer-button {
@@ -141,9 +156,10 @@
 	// Search
 	//
 	.o-header__drawer-search {
-		padding: 0 $_o-header-drawer-padding-x calc($_o-header-drawer-padding-y + 4px) $_o-header-drawer-padding-x;
+		padding: 0 $_o-header-drawer-padding-x
+			calc($_o-header-drawer-padding-y + 4px) $_o-header-drawer-padding-x;
 
-		@include oGridRespondTo('M') {
+		@include oPrivateGridRespondTo('M') {
 			display: none;
 		}
 
@@ -174,21 +190,24 @@
 		border-radius: 0;
 		// margin copied from o-forms since introducing a new dependency would
 		// be a breaking change, this colour could go in o-colors as a usecase
-		border: 1px solid oColorsByName('black-50');
-		margin-right: oSpacingByName('s2');
+		border: 1px solid oPrivateFoundationGet('o3-color-palette-black-50');
+		margin-right: oPrivateSpacingByName('s2');
 
-		&:focus { //currently overriden by o-normalise
+		&:focus {
+			//currently overriden by o-normalise
 			border-color: _oHeaderGet('drawer-search-term-highlight-border');
 		}
 	}
 
 	.o-header__drawer-search-submit {
-		@include oButtonsContent($opts: (
-			'type': 'primary',
-			'icon-only': true,
-			'icon': 'search',
-			'size': 'big'
-		));
+		@include oPrivateButtonsContent(
+			(
+				'type': 'primary',
+				'icon-only': true,
+				'icon': 'search',
+				'size': 'big',
+			)
+		);
 	}
 
 	//
@@ -228,14 +247,15 @@
 			visibility: hidden;
 			transition: max-height 0.25s ease-out;
 
-			&[aria-hidden="false"] {
+			&[aria-hidden='false'] {
 				background-color: _oHeaderGet('drawer-menu-list-background');
 				// magic number... you can't transition between 0 and unknown
 				// but as long as this is larger than the content it will do
 				max-height: 600px;
 				visibility: visible;
 				// a border would create some flickery layout
-				box-shadow: inset 0 -1px 0 _oHeaderGet('drawer-menu-border'), inset 0 1px 0 _oHeaderGet('drawer-menu-border');
+				box-shadow: inset 0 -1px 0 _oHeaderGet('drawer-menu-border'),
+					inset 0 1px 0 _oHeaderGet('drawer-menu-border');
 			}
 		}
 	}
@@ -247,10 +267,13 @@
 		margin-top: 16px;
 		width: 1px;
 		height: 16px;
-		background-color: oColorsMix('black', 'paper', 60);
+		background-color: oPrivateColorsMix(
+			'o3-color-palette-black',
+			'o3-color-palette-paper',
+			60
+		);
 		display: inline-block;
 	}
-
 
 	.o-header__drawer-menu-item--heading {
 		margin-bottom: 0px;
@@ -286,7 +309,7 @@
 			margin-left: 9px; // magic number to vertically align icon in box
 		}
 
-		&[aria-expanded="true"] {
+		&[aria-expanded='true'] {
 			&:before {
 				// don't download another icon...
 				transform: rotate(180deg);
@@ -312,7 +335,11 @@
 		background: rgba(_oHeaderGet('drawer-selected-toggle-background'), 0.25);
 
 		&:before {
-			@include oIconsContent('arrow-down', _oHeaderGet('drawer-selected-toggle-text'), $size: $_o-header-icon-size);
+			@include oPrivateIconsContent(
+				'arrow-down',
+				_oHeaderGet('drawer-selected-toggle-text'),
+				$size: $_o-header-icon-size
+			);
 		}
 	}
 
@@ -320,7 +347,11 @@
 		background: rgba(_oHeaderGet('drawer-unselected-toggle-background'), 0.85);
 
 		&:before {
-			@include oIconsContent('arrow-down', _oHeaderGet('drawer-unselected-toggle-text'), $size: $_o-header-icon-size);
+			@include oPrivateIconsContent(
+				'arrow-down',
+				_oHeaderGet('drawer-unselected-toggle-text'),
+				$size: $_o-header-icon-size
+			);
 		}
 	}
 
@@ -343,7 +374,7 @@
 			color: _oHeaderGet('drawer-menu-link-hover-text');
 		}
 
-		[aria-expanded="true"] + & {
+		[aria-expanded='true'] + & {
 			background-color: _oHeaderGet('drawer-menu-link-background');
 		}
 	}
@@ -359,7 +390,7 @@
 			outline-color: _oHeaderGet('drawer-menu-text');
 		}
 
-		[aria-expanded="true"] + & {
+		[aria-expanded='true'] + & {
 			// specificity
 			background-color: _oHeaderGet('drawer-menu-selected-link-background');
 		}
@@ -383,7 +414,7 @@
 		@include _oHeaderAskFtButton();
 
 		// Same as .o-header__drawer-search
-		@include oGridRespondTo('M') {
+		@include oPrivateGridRespondTo('M') {
 			display: none;
 		}
 
@@ -391,6 +422,6 @@
 	}
 
 	.o-header__ask-ft-button--drawer + .o-header__drawer-menu {
-		margin-top: $_o-header-drawer-padding-y
+		margin-top: $_o-header-drawer-padding-y;
 	}
 }

@@ -1,7 +1,8 @@
-@import "@financial-times/o-fonts/main";
-@import "@financial-times/o-normalise/main";
+@import '@financial-times/o-fonts/main';
+@import '@financial-times/o-normalise/main';
 @include oFonts();
 @include oNormalise();
 
-@import "@financial-times/o-quote/main";
+@import '@financial-times/o-quote/main';
+@import '@financial-times/o-typography/main';
 @include oTypography();
