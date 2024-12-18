@@ -14,7 +14,11 @@
       "core/use-case/focus": "enabled",
       "core/components/o3-editorial-typography": "source",
       "core/components/o3-form/use-case": "source",
-      "core/components/o3-form": "source"
+      "core/components/o3-form": "source",
+      "core/base/border-radius": "source",
+      "professional/base/border-radius": "disabled",
+      "internal/base/border-radius": "disabled",
+      "sustainable-views/base/border-radius": "disabled"
     },
     "$figmaStyleReferences": {
       "color-usecase.background.button.primary.active": "S:ef8234289a222e339b586d8ea3466f08d0d010f5,",
@@ -226,7 +230,10 @@
       "core/use-case/focus": "enabled",
       "core/components/o3-editorial-typography": "source",
       "core/professional/components/o3-form/use-case": "source",
-      "core/professional/components/o3-form": "source"
+      "core/professional/components/o3-form": "source",
+      "professional/base/border-radius": "source",
+      "internal/base/border-radius": "disabled",
+      "sustainable-views/base/border-radius": "disabled"
     },
     "$figmaStyleReferences": {
       "color-usecase.background.button.primary.active": "S:55d4b73d90c40ff305a097a15d86f53de276da57,",
@@ -430,7 +437,9 @@
       "internal/use-case/typography": "enabled",
       "internal/use-case/focus": "enabled",
       "internal/components/o3-form": "source",
-      "internal/components/o3-form/use-case": "source"
+      "internal/components/o3-form/use-case": "source",
+      "internal/base/border-radius": "source",
+      "sustainable-views/base/border-radius": "disabled"
     },
     "$figmaCollectionId": "VariableCollectionId:6510:3502",
     "$figmaModeId": "6510:2",
@@ -528,7 +537,10 @@
       "whitelabel/use-case/focus": "enabled",
       "whitelabel/components/o3-editorial-typography": "source",
       "whitelabel/components/o3-form": "source",
-      "whitelabel/components/o3-form/use-case": "source"
+      "whitelabel/components/o3-form/use-case": "source",
+      "professional/base/border-radius": "disabled",
+      "internal/base/border-radius": "disabled",
+      "sustainable-views/base/border-radius": "disabled"
     },
     "$figmaCollectionId": "VariableCollectionId:4842:355",
     "$figmaModeId": "4842:3",
@@ -657,7 +669,10 @@
       "sustainable-views/use-case/focus": "enabled",
       "whitelabel/components/o3-form/use-case": "source",
       "sustainable-views/components/o3-form": "source",
-      "sustainable-views/components/o3-form/use-case": "source"
+      "sustainable-views/components/o3-form/use-case": "source",
+      "professional/base/border-radius": "disabled",
+      "internal/base/border-radius": "disabled",
+      "sustainable-views/base/border-radius": "disabled"
     },
     "$figmaCollectionId": "VariableCollectionId:6169:227",
     "$figmaModeId": "6169:4",
