@@ -41,9 +41,9 @@
 
 @mixin _oTopperImageCredit {
 	@include oPrivateTypographySans(-2);
-	color: oColorsByName('white');
+	color: oPrivateFoundationGet('o3-color-palette-white');
 	position: absolute;
-	text-shadow: 1px 1px 1px oColorsByName('slate');
+	text-shadow: 1px 1px 1px oPrivateFoundationGet('o3-color-palette-slate');
 	text-align: right;
 	width: 100vw;
 	margin-left: 50%;

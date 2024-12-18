@@ -11,61 +11,61 @@
 }
 
 $_o-forms-shared-brand-config: (
-	default-text: oColorsByName('black-80'),
-	default-prompt-text: oColorsByName('black-60'),
-	default-border: oColorsByName('black-50'),
-	default-background: oColorsByName('white'),
+	default-text: oPrivateFoundationGet('o3-color-palette-black-80'),
+	default-prompt-text: oPrivateFoundationGet('o3-color-palette-black-60'),
+	default-border: oPrivateFoundationGet('o3-color-palette-black-50'),
+	default-background: oPrivateFoundationGet('o3-color-palette-white'),
 	radio-background: transparent,
-	disabled-text: oColorsByName('black-60'),
-	disabled-base: oColorsByName('black-10'),
-	controls-checked-base: oColorsByName('white'),
-	toggle: oColorsByName('black'),
-	toggle-knob: oColorsMix('black', 'white', 10),
-	toggle-knob-selected: oColorsByName('white'),
-	toggle-disabled: oColorsByName('black-20'),
-	toggle-knob-disabled: oColorsByName('black-40'),
-	toggle-inverse: oColorsByName('white'),
+	disabled-text: oPrivateFoundationGet('o3-color-palette-black-60'),
+	disabled-base: oPrivateFoundationGet('o3-color-palette-black-10'),
+	controls-checked-base: oPrivateFoundationGet('o3-color-palette-white'),
+	toggle: oPrivateFoundationGet('o3-color-palette-black'),
+	toggle-knob: oPrivateColorsMix('o3-color-palette-black', 'o3-color-palette-white', 10),
+	toggle-knob-selected: oPrivateFoundationGet('o3-color-palette-white'),
+	toggle-disabled: oPrivateFoundationGet('o3-color-palette-black-20'),
+	toggle-knob-disabled: oPrivateFoundationGet('o3-color-palette-black-40'),
+	toggle-inverse: oPrivateFoundationGet('o3-color-palette-white'),
 );
 
 @if oBrandIs('core') or oBrandIs('internal') {
 	$_o-forms-shared-brand-config: map-merge($_o-forms-shared-brand-config, (
-		toggle-selected: oColorsByName('teal'),
-		controls-base: oColorsByName('teal'),
-		controls-negative-checked-background: oColorsByName('teal-30'),
-		toggle-inverse-selected: oColorsByName('teal-100'),
-		invalid-base: oColorsByName('crimson'),
-		invalid-base-inverse: oColorsByName('white'),
-		invalid-base-color-inverse: oColorsByName('black'),
-		valid-base: oColorsMix('jade', 'black', 80),
-		toggle-inverse-knob: oColorsByName('slate'),
+		toggle-selected: oPrivateFoundationGet('o3-color-palette-teal-50'),
+		controls-base: oPrivateFoundationGet('o3-color-palette-teal-50'),
+		controls-negative-checked-background: oPrivateFoundationGet('o3-color-palette-teal-30'),
+		toggle-inverse-selected: oPrivateFoundationGet('o3-color-palette-teal-100'),
+		invalid-base: oPrivateFoundationGet('o3-color-palette-crimson'),
+		invalid-base-inverse: oPrivateFoundationGet('o3-color-palette-white'),
+		invalid-base-color-inverse: oPrivateFoundationGet('o3-color-palette-black'),
+		valid-base: oPrivateColorsMix('o3-color-palette-jade', 'o3-color-palette-black', 80),
+		toggle-inverse-knob: oPrivateFoundationGet('o3-color-palette-slate'),
 	)) !global;
 }
 
 @if oBrandIs('core') {
 	@include oBrandDefine('o-forms', 'core', (
 		'variables': map-merge($_o-forms-shared-brand-config, (
-			invalid-base-border-inverse: oColorsByName('claret-100'),
-			error-summary-background-inverse: rgba(oColorsByName('claret-100'), 0.11),
-			error-summary-border-inverse: oColorsByName('claret-100'),
+			invalid-base-border-inverse: oPrivateFoundationGet('o3-color-palette-claret-100'),
+			error-summary-background-inverse: rgba(oPrivateFoundationGet('o3-color-palette-claret-100'), 0.11),
+			error-summary-border-inverse: oPrivateFoundationGet('o3-color-palette-claret-100'),
 			'professional': (
-				default-text: oColorsByName('black-80'),
-				controls-base: oColorsByName('slate'),
-				controls-negative-checked-background: oColorsByName('slate'),
-				radio-background: oColorsByName('slate'),
-				default-border: oColorsByName('black-50'),
-				controls-checked-base: oColorsByName('white'),
+				default-text: oPrivateFoundationGet('o3-color-palette-black-80'),
+				controls-base: oPrivateFoundationGet('o3-color-palette-slate'),
+				controls-negative-checked-background: oPrivateFoundationGet('o3-color-palette-slate'),
+				radio-background: oPrivateFoundationGet('o3-color-palette-slate'),
+				default-border: oPrivateFoundationGet('o3-color-palette-black-50'),
+				controls-checked-base: oPrivateFoundationGet('o3-color-palette-white'),
 			),
 			'professional-inverse': (
-				default-text: oColorsByName('white'),
-				controls-base: oColorsByName('mint'),
-				default-border: oColorsByName('mint'),
-				controls-checked-base: oColorsByName('slate'),
+				default-text: oPrivateFoundationGet('o3-color-palette-white'),
+				controls-base: oPrivateFoundationGet('o3-color-palette-mint'),
+				default-border: oPrivateFoundationGet('o3-color-palette-mint'),
+				controls-checked-base: oPrivateFoundationGet('o3-color-palette-slate'),
 			),
 			'ft-live': (
-				default-text: oColorsByName('white'),
-				controls-base: oColorsByName('ft-pink'),
-				default-border: oColorsByName('ft-pink'),
-				controls-checked-base: oColorsByName('slate')
+				default-text: oPrivateFoundationGet('o3-color-palette-white'),
+				controls-base: oPrivateFoundationGet('o3-color-palette-ft-pink'),
+				default-border: oPrivateFoundationGet('o3-color-palette-ft-pink'),
+				controls-checked-base: oPrivateFoundationGet('o3-color-palette-slate')
 			),
 		)),
 		'supports-variants': (
@@ -79,10 +79,10 @@ $_o-forms-shared-brand-config: (
 @if oBrandIs('internal') {
 	@include oBrandDefine('o-forms', 'internal', (
 		'variables': map-merge($_o-forms-shared-brand-config, (
-			invalid-base-border-inverse: oColorsByName('crimson'),
-			error-summary-background-inverse: rgba(oColorsByName('crimson'), 0.11),
-			error-summary-border-inverse: oColorsByName('crimson'),
-			radio-background:  oColorsByName('white')
+			invalid-base-border-inverse: oPrivateFoundationGet('o3-color-palette-crimson'),
+			error-summary-background-inverse: rgba(oPrivateFoundationGet('o3-color-palette-crimson'), 0.11),
+			error-summary-border-inverse: oPrivateFoundationGet('o3-color-palette-crimson'),
+			radio-background:  oPrivateFoundationGet('o3-color-palette-white')
 		)),
 		'supports-variants': ()
 	));
@@ -91,17 +91,17 @@ $_o-forms-shared-brand-config: (
 @if oBrandIs('whitelabel') {
 	@include oBrandDefine('o-forms', 'whitelabel', (
 		'variables': map-merge($_o-forms-shared-brand-config, (
-			controls-base: oColorsByName('black'),
-			controls-negative-checked-background: oColorsByName('black'),
-			toggle-inverse-selected: oColorsByName('white'),
-			toggle-inverse-knob: oColorsByName('black'),
-			invalid-base: oColorsByName('crimson'),
-			invalid-base-inverse: oColorsByName('white'),
-			invalid-base-color-inverse: oColorsByName('black'),
-			invalid-base-border-inverse: oColorsByName('crimson'),
-			valid-base: oColorsMix('jade', 'black', 80),
-			error-summary-background-inverse: rgba(oColorsByName('crimson'), 0.11),
-			error-summary-border-inverse: oColorsByName('crimson'),
+			controls-base: oPrivateFoundationGet('o3-color-palette-black'),
+			controls-negative-checked-background: oPrivateFoundationGet('o3-color-palette-black'),
+			toggle-inverse-selected: oPrivateFoundationGet('o3-color-palette-white'),
+			toggle-inverse-knob: oPrivateFoundationGet('o3-color-palette-black'),
+			invalid-base: oPrivateFoundationGet('o3-color-palette-crimson'),
+			invalid-base-inverse: oPrivateFoundationGet('o3-color-palette-white'),
+			invalid-base-color-inverse: oPrivateFoundationGet('o3-color-palette-black'),
+			invalid-base-border-inverse: oPrivateFoundationGet('o3-color-palette-crimson'),
+			valid-base: oPrivateColorsMix('o3-color-palette-jade', 'o3-color-palette-black', 80),
+			error-summary-background-inverse: rgba(oPrivateFoundationGet('o3-color-palette-crimson'), 0.11),
+			error-summary-border-inverse: oPrivateFoundationGet('o3-color-palette-crimson'),
 		)),
 		'supports-variants': ()
 	));

@@ -102,7 +102,7 @@
 		}
 	}
 	.o-topper__image-caption {
-		color: oColorsByName("black-70");
+		color: oPrivateFoundationGet("o3-color-palette-black-70");
 		position: relative;
 		width: 100%;
 		float: right;

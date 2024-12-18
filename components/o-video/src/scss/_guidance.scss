@@ -4,9 +4,9 @@
 @mixin _oVideoGuidance {
 	.o-video__guidance {
 		@include oPrivateTypographySans(-1);
-		background-color: oColorsMix(
-			$color: "black",
-			$background: "transparent",
+		background-color: oPrivateColorsMix(
+			$color: "o3-color-palette-black",
+			$background: transparent,
 			$percentage: 75
 		);
 		padding: 10px 16px;
@@ -25,7 +25,7 @@
 		}
 
 		a {
-			color: oColorsByName("white");
+			color: oPrivateFoundationGet("o3-color-palette-white");
 			text-decoration: none;
 		}
 
@@ -57,23 +57,23 @@
 				"hover": "white",
 			)
 		);
-		color: oColorsByName("white");
+		color: oPrivateFoundationGet("o3-color-palette-white");
 		border-bottom: 0;
 	}
 
 	.o-video__guidance__close {
 		@include oPrivateIconsContent(
 			"cross",
-			$color: oColorsByName("white"),
+			$color: oPrivateFoundationGet("o3-color-palette-white"),
 			$size: 20px
 		);
 		border: 0;
 		cursor: pointer;
 
 		&:hover {
-			background-color: oColorsMix(
-				$color: "black",
-				$background: "white",
+			background-color: oPrivateColorsMix(
+				$color: "o3-color-palette-black",
+				$background: "o3-color-palette-white",
 				$percentage: 75
 			);
 		}

@@ -12,17 +12,17 @@ $_o-teaser-elements: ('default', 'images', 'timestamp', 'promoted', 'related-ite
 /// Commonly used text colour.
 /// @type Color
 /// @access private
-$_o-teaser-base-color: oColorsByUsecase('o-teaser/base', 'text');
+$_o-teaser-base-color: oPrivateFoundationGet('o3-color-palette-black');
 
 /// Commonly used hover/focus text colour.
 /// @type Color
 /// @access private
-$_o-teaser-focus-hover: oColorsMix($_o-teaser-base-color, $percentage: 55);
+$_o-teaser-focus-hover: oPrivateColorsMix($_o-teaser-base-color, $percentage: 55);
 
 /// Commonly used text colour for muted copy, including visited text.
 /// @type Color
 /// @access private
-$_o-teaser-muted: oColorsMix($_o-teaser-base-color, $percentage: 60);
+$_o-teaser-muted: oPrivateColorsMix($_o-teaser-base-color, $percentage: 60);
 
 /// @type Color
 /// @deprecated

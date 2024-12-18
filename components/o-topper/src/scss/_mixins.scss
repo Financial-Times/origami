@@ -251,14 +251,14 @@
 
 // uses topper background colour to set background and pick contrasting text color
 @mixin _oTopperColor($color-name) {
-	$background: oColorsByName($color-name);
-	$foreground: oColorsGetTextColor($background, $opacity: 100);
-	$link-text-color: oColorsByUsecase('link', 'text');
-	$link-contrasts-with-background: oColorsGetContrastRatio(
-			$background,
-			$link-text-color
-		)
-		> 4.5;
+	$background: oPrivateFoundationGet($color-name);
+	$foreground: oPrivateColorsGetTextColor($background, $opacity: 100);
+	$link-text-color: oPrivateFoundationGet('o3-color-use-case-link-text');
+	$link-contrasts-with-background: oPrivateColorsGetContrastRatio(
+	$background,
+	$link-text-color
+	)
+	> 4.5;
 	// include oTopperColor on a parent then extend this placeholder on a
 	// descendent to lend that descendent the color you specified in the mixin
 	.o-topper__background,
@@ -310,22 +310,22 @@
 		color: $foreground;
 
 		&:hover {
-			color: oColorsMix($foreground, $color-name, 73);
+			color: oPrivateColorsMix($foreground, $color-name, 73);
 		}
 	}
 
 	.o-topper__image-caption {
-		color: oColorsMix($foreground, $color-name, 73);
+		color: oPrivateColorsMix($foreground, $color-name, 73);
 	}
 
 	@if $color-name == 'paper' or $color-name == 'wheat' {
 		.o-topper__opinion-genre,
 		.o-topper__topic,
 		.o-topper__columnist-name {
-			color: oColorsByUsecase('tag-link', 'text');
+			color: oPrivateFoundationGet('_o3-editorial-typography-topic-tag-color');
 
 			&:hover {
-				color: oColorsByUsecase('tag-link-hover', 'text');
+				color: oPrivateFoundationGet('_o3-editorial-typography-topic-tag-hover-color');
 			}
 		}
 	}
@@ -334,10 +334,10 @@
 		.o-topper__tags,
 		.o-topper__topic,
 		.o-topper__columnist-name {
-			color: oColorsByName('oxford');
+			color: oPrivateFoundationGet('o3-color-palette-oxford');
 
 			&:hover {
-				color: oColorsByName('black-80');
+				color: oPrivateFoundationGet('o3-color-palette-black-80');
 			}
 		}
 	}
@@ -345,11 +345,11 @@
 	@if $color-name == 'matisse' {
 		.o-topper__columnist-name {
 			&:hover {
-				color: oColorsMix($foreground, $color-name, 73);
+				color: oPrivateColorsMix($foreground, $color-name, 73);
 			}
 		}
 		:focus-visible {
-			outline-color: oColorsByName('white');
+			outline-color: oPrivateFoundationGet('o3-color-palette-white');
 		}
 	}
 }

@@ -22,35 +22,35 @@
 ///     	'link-color': rgb(156, 4, 85),
 ///     	'link-hover-color': rgb(156, 4, 85),
 ///     	'legal-text-color': rgb(214, 73, 148),
-///     	'brand-background-color': oColorsByName('black'),
-///     	'brand-foreground-color': oColorsByName('white'),
+///     	'brand-background-color': oPrivateFoundationGet('o3-color-palette-black'),
+///     	'brand-foreground-color': oPrivateFoundationGet('o3-color-palette-white'),
 ///     ));
 @mixin oFooterServicesCustomize($variables) {
 	@include oBrandCustomize('o-footer-services', $variables);
 }
 
 $_o-footer-services-shared-brand-config: (
-	text-color: oColorsByName('black'),
-	background-color: oColorsByName('black-5'),
-	border-color: oColorsByName('black-20'),
-	link-color: oColorsByName('black-80'),
-	link-hover-color: oColorsByName('black-60'),
-	legal-text-color: oColorsByName('black-60'),
-	brand-background-color: oColorsByName('black'),
+	text-color: oPrivateFoundationGet('o3-color-palette-black'),
+	background-color: oPrivateFoundationGet('o3-color-palette-black-5'),
+	border-color: oPrivateFoundationGet('o3-color-palette-black-20'),
+	link-color: oPrivateFoundationGet('o3-color-palette-black-80'),
+	link-hover-color: oPrivateFoundationGet('o3-color-palette-black-60'),
+	legal-text-color: oPrivateFoundationGet('o3-color-palette-black-60'),
+	brand-background-color: oPrivateFoundationGet('o3-color-palette-black'),
 );
 
 @if oBrandIs('core') {
 	@include oBrandDefine('o-footer-services', 'core', (
 		'variables': map-merge($_o-footer-services-shared-brand-config, (
-			brand-background-color: oColorsByName('black-20'),
+			brand-background-color: oPrivateFoundationGet('o3-color-palette-black-20'),
 			'dark': (
-				text-color: oColorsByName('white'),
-				background-color: oColorsByName('slate'),
-				border-color: oColorsMix('white', 'slate', 20),
-				link-color: oColorsByName('white'),
-				link-hover-color: oColorsByName('white'),
-				legal-text-color: oColorsMix('white', 'slate', 60),
-				brand-background-color: oColorsByName('black')
+				text-color: oPrivateFoundationGet('o3-color-palette-white'),
+				background-color: oPrivateFoundationGet('o3-color-palette-slate'),
+				border-color: oPrivateColorsMix('o3-color-palette-white', 'o3-color-palette-slate', 20),
+				link-color: oPrivateFoundationGet('o3-color-palette-white'),
+				link-hover-color: oPrivateFoundationGet('o3-color-palette-white'),
+				legal-text-color: oPrivateColorsMix('o3-color-palette-white', 'o3-color-palette-slate', 60),
+				brand-background-color: oPrivateFoundationGet('o3-color-palette-black')
 			)
 		)),
 		'supports-variants': (
@@ -62,9 +62,9 @@ $_o-footer-services-shared-brand-config: (
 @if oBrandIs('internal') {
 	@include oBrandDefine('o-footer-services', 'internal', (
 		'variables': map-merge($_o-footer-services-shared-brand-config, (
-			'background-color': oColorsByName('slate-white-5'),
-			'border-color': oColorsByName('slate-white-15'),
-			'brand-background-color': oColorsByName('slate')
+			'background-color': oPrivateFoundationGet('o3-color-palette-slate-white-5'),
+			'border-color': oPrivateFoundationGet('o3-color-palette-slate-white-15'),
+			'brand-background-color': oPrivateFoundationGet('o3-color-palette-slate')
 		)),
 		'supports-variants': ()
 	));

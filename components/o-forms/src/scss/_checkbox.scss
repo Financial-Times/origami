@@ -137,7 +137,7 @@
 		}
 
 		@if $theme and
-			oColorsColorBrightness(_oFormsGet('default-text', $theme)) >
+			oPrivateColorsColorBrightness(_oFormsGet('default-text', $theme)) >
 			65%
 		{
 			input[type='checkbox'] {

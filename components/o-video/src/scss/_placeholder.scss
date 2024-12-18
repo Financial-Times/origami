@@ -11,8 +11,8 @@
 	}
 
 	.o-video__placeholder {
-		background: oColorsByName("slate");
-		color: oColorsByName("white");
+		background: oPrivateFoundationGet("o3-color-palette-slate");
+		color: oPrivateFoundationGet("o3-color-palette-white");
 		// sass-lint:disable no-vendor-prefixes
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
@@ -54,12 +54,12 @@
 	}
 
 	.o-video__play-button-icon {
-		@include oPrivateIconsContent("play", oColorsByName("white"), $size: null);
-		color: oColorsByName("white");
-		background-color: oColorsByName("black");
+		@include oPrivateIconsContent('play', oPrivateFoundationGet("o3-color-palette-white"), $size: null);
+		color: oPrivateFoundationGet("o3-color-palette-white");
+		background-color: oPrivateFoundationGet("o3-color-palette-black");
 		:hover > &,
 		:focus > & {
-			background-color: oColorsByName("claret");
+			background-color: oPrivateFoundationGet("o3-color-palette-claret-60");
 		}
 	}
 

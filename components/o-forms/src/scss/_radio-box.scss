@@ -101,7 +101,7 @@
 			@include oPrivateNormaliseFocusUnsetContent();
 			& + .o-forms-input__label {
 				$default-text: _oFormsGet('default-text', $theme);
-				@if $default-text and oColorsColorBrightness($default-text) > 65% {
+				@if $default-text and oPrivateColorsColorBrightness($default-text) > 65% {
 					@include oPrivateNormaliseFocusContentInverse();
 				} @else {
 					@include oPrivateNormaliseFocusContent();
@@ -122,7 +122,7 @@
 			&:focus-visible {
 				& + .o-forms-input__label {
 					$default-text: _oFormsGet('default-text', $theme);
-					@if $default-text and oColorsColorBrightness($default-text) > 65% {
+					@if $default-text and oPrivateColorsColorBrightness($default-text) > 65% {
 						@include oPrivateNormaliseFocusContentInverse();
 					} @else {
 						@include oPrivateNormaliseFocusContent();

@@ -10,4 +10,4 @@ $o-pf-visual-effects-timing-fade: cubic-bezier(0.165, 0.84, 0.44, 1) !default;
 /// The base dropdown shadow colour.
 /// Used with opacity for shadows of different levels.
 /// @type Color
-$_o-pf-visual-effects-shadow-color: oColorsByName('black-70');
+$_o-pf-visual-effects-shadow-color: oPrivateFoundationGet('o3-color-palette-black-70');
