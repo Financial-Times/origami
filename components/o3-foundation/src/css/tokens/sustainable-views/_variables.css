@@ -41,8 +41,6 @@
   --o3-typography-use-case-body-content-highlight-font-weight: 600; /* Use this style only for the body copy of content pages, such as articles, live news and other content experience page. */
   --o3-typography-use-case-body-content-emphasis-font-weight: 1; /* Use this style only for the body copy of content pages, such as articles, live news and other content experience page. */
   --o3-typography-use-case-body-content-link-font-weight: 1; /* Use this style only for the body copy of content pages, such as articles, live news and other content experience page. */
-  --o3-typography-use-case-body-content-dropcap-font-size: 108px; /* Use for stylistic emphasis on the first letter of an article. */
-  --o3-typography-use-case-body-content-dropcap-line-height: 108; /* Use for stylistic emphasis on the first letter of an article. */
   --_o3-font-family-metric: 'metric 2 VF';
   --_o3-font-family-financier-display: 'financier display VF';
   --_o3-font-family-financier-text: 'financier text VF';
@@ -192,8 +190,6 @@
   --o3-typography-use-case-body-content-link-font-family: var(--_o3-font-family-financier-text); /* Use this style only for the body copy of content pages, such as articles, live news and other content experience page. */
   --o3-typography-use-case-body-content-link-font-size: var(--_o3-font-size-3); /* Use this style only for the body copy of content pages, such as articles, live news and other content experience page. */
   --o3-typography-use-case-body-content-link-line-height: var(--_o3-font-lineheight-4); /* Use this style only for the body copy of content pages, such as articles, live news and other content experience page. */
-  --o3-typography-use-case-body-content-dropcap-font-family: var(--_o3-font-family-metric); /* Use for stylistic emphasis on the first letter of an article. */
-  --o3-typography-use-case-body-content-dropcap-font-weight: var(--_o3-font-weight-light); /* Use for stylistic emphasis on the first letter of an article. */
   --o3-focus-use-case-ring-inner: 0px 0px 0px 4px var(--o3-color-palette-white);
   --o3-focus-use-case-ring-outer: 0px 0px 0px 8px var(--o3-color-palette-black);
   --o3-focus-use-case-ring-inverse-inner: 0px 0px 0px 4px var(--o3-color-palette-black);
