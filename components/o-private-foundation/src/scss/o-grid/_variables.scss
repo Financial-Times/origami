@@ -9,13 +9,20 @@
 /// - fixed: always fixed-width with the layout defined by $o-pf-grid-fixed-layout (default: L)
 ///
 /// @type String - one of fluid (default), snappy, fixed
-$o-pf-grid-mode: if(global-variable-exists(o-grid-mode), $o-grid-mode, 'fluid') !default;
-
+$o-pf-grid-mode: if(
+	global-variable-exists(o-grid-mode),
+	$o-grid-mode,
+	'fluid'
+) !default;
 
 /// Layout to default to when the grid has a fixed width (not fluid)
 ///
 /// @type String - One of $o-pf-grid-layouts
-$o-pf-grid-fixed-layout: if(global-variable-exists(o-grid-fixed-layout), $o-grid-fixed-layout, 'L') !default;
+$o-pf-grid-fixed-layout: if(
+	global-variable-exists(o-grid-fixed-layout),
+	$o-grid-fixed-layout,
+	'L'
+) !default;
 
 /// When the grid start snapping between fixed-width layouts
 /// in the case where a row has the `o-grid-row--snappy` class
@@ -43,13 +50,20 @@ $_o-pf-grid-min-width: 240px !default;
 /// in order to base breakpoints on the structure of the grid itself
 ///
 /// @type Map
-$o-pf-grid-layouts: if(global-variable-exists(o-grid-layouts), $o-grid-layouts, (
-	S: 490px, // column-width: 30px, inner width: 470px
-	M: 740px, // column-width: 40px, inner width: 700px
-	L: 980px, // column-width: 60px, inner width: 940px
-	XL: 1220px, // column-width: 80px, inner width: 1180px
-)) !default;
-
+$o-pf-grid-layouts: if(
+	global-variable-exists(o-grid-layouts),
+	$o-grid-layouts,
+	(
+		S: 490px,
+		// column-width: 30px, inner width: 470px
+		M: 740px,
+		// column-width: 40px, inner width: 700px
+		L: 980px,
+		// column-width: 60px, inner width: 940px
+		XL: 1220px,
+		// column-width: 80px, inner width: 1180px
+	)
+) !default;
 
 /// Layout names
 ///
@@ -61,16 +75,21 @@ $_o-pf-grid-layout-names: map-keys($o-pf-grid-layouts);
 ///
 /// @type Map
 
-$o-pf-grid-gutters: if(global-variable-exists(o-grid-gutters), $o-grid-gutters, (
-	default: 10px,
-	M: 20px,
-)) !default;
-
+$o-pf-grid-gutters: if(
+	global-variable-exists(o-grid-gutters),
+	$o-grid-gutters,
+	(
+		default: 10px,
+		M: 20px,
+	)
+) !default;
 
 // If layouts have changed but gutters haven't,
 // prune non-existant layouts.
 @each $layout-name, $gutter-size in $o-pf-grid-gutters {
-	@if ($layout-name != 'default') and (not map-has-key($o-pf-grid-layouts, $layout-name)) {
+	@if ($layout-name != 'default') and
+		(not map-has-key($o-pf-grid-layouts, $layout-name))
+	{
 		$o-pf-grid-gutters: map-remove($o-pf-grid-gutters, $layout-name);
 	}
 }
@@ -80,5 +99,7 @@ $o-pf-grid-gutters: if(global-variable-exists(o-grid-gutters), $o-grid-gutters, 
 ///
 /// @access private
 /// @type Number
-$_o-pf-grid-max-width: map-get($o-pf-grid-layouts, nth($_o-pf-grid-layout-names, -1));
-
+$_o-pf-grid-max-width: map-get(
+	$o-pf-grid-layouts,
+	nth($_o-pf-grid-layout-names, -1)
+);

@@ -51,7 +51,7 @@
 	@if ($divider) {
 		&:before,
 		&:after {
-			border-top: 8px solid rgba(oColorsByName('black'), 0.05);
+			border-top: 8px solid rgba(oPrivateFoundationGet('o3-color-palette-black'), 0.05);
 			content: '';
 			left: 0;
 			top: 0;
@@ -60,7 +60,7 @@
 		}
 
 		&:after {
-			border-top-color: oColorsByName('black');
+			border-top-color: oPrivateFoundationGet('o3-color-palette-black');
 
 			@include oPrivateGridRespondTo(L) {
 				width: 32.5%;
@@ -110,11 +110,11 @@
 	padding: 1px 0px 3px; // Magic numbers to make the focus style the same height for the text and > icon
 
 	&:hover {
-		color: oColorsMix('black', $percentage: 55);
+		color: oPrivateColorsMix('o3-color-palette-black', $percentage: 55);
 	}
 
 	&:after {
-		@include oPrivateIconsContent('arrow-right', oColorsByName('black'), $size: 30);
+		@include oPrivateIconsContent('arrow-right', oPrivateFoundationGet('o3-color-palette-black'), $size: 30);
 		content: '';
 		display: inline-block;
 		position: relative;

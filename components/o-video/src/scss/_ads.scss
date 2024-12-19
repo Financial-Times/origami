@@ -33,9 +33,9 @@
 	.o-video__loading-state {
 		display: block;
 		height: 100%;
-		background: oColorsByName('black');
+		background: oPrivateFoundationGet('o3-color-palette-black');
 		// HACK: to avoid stray half pixels peeking out when the viewport is resized
-		outline: 2px solid oColorsByName('black');
+		outline: 2px solid oPrivateFoundationGet('o3-color-palette-black');
 
 		&:after {
 			@include oLoadingContent($opts: ('theme': 'light', 'size': 'small'));

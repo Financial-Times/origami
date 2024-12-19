@@ -58,7 +58,7 @@
 			&:before {
 				@include oPrivateIconsContent(
 					'arrow-right',
-					oColorsByName('claret'),
+						oPrivateFoundationGet('o3-color-palette-claret-60'),
 					$size: $_o-header-icon-size-small
 				);
 				vertical-align: text-top;

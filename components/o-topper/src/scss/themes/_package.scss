@@ -4,8 +4,8 @@
 	width: 110px;
 	padding: 5px 0 0 10px;
 	margin-top: oPrivateSpacingByName('s8');
-	border-top: 1px solid oColorsByUsecase('link', 'text');
-	border-left: 1px solid oColorsByUsecase('link', 'text');
+	border-top: 1px solid oPrivateFoundationGet('o3-color-use-case-link-text');
+	border-left: 1px solid oPrivateFoundationGet('o3-color-use-case-link-text');
 	border-bottom-width: 0;
 	white-space: nowrap;
 	overflow: visible;
@@ -17,7 +17,7 @@
 	&:after {
 		@include oPrivateIconsContent(
 			'arrow-down',
-			oColorsByUsecase('link', 'text'),
+			oPrivateFoundationGet('o3-color-use-case-link-text'),
 			$size: 20
 		);
 		content: '';
@@ -48,24 +48,24 @@
 @mixin _oTopperThemePackageExtra {
 	.o-topper__package-sequence-id,
 	&.o-topper--package .o-topper__headline {
-		color: oColorsByName('lemon');
+		color: oPrivateFoundationGet('o3-color-palette-lemon');
 	}
 
 	.o-topper__anchor-link {
-		color: oColorsByName('lemon');
-		border-color: oColorsByName('lemon');
+		color: oPrivateFoundationGet('o3-color-palette-lemon');
+		border-color: oPrivateFoundationGet('o3-color-palette-lemon');
 
 		&:after {
 			@include oPrivateIconsContent(
 				'arrow-down',
-				oColorsByName('lemon'),
+				oPrivateFoundationGet('o3-color-palette-lemon'),
 				$size: null,
 				$include-base-styles: false
 			);
 		}
 
 		&:hover {
-			color: darken(oColorsByName('lemon'), 20%);
+			color: darken(oPrivateFoundationGet('o3-color-palette-lemon'), 20%);
 		}
 	}
 }
@@ -76,20 +76,20 @@
 	}
 
 	.o-topper__anchor-link {
-		border-color: oColorsByName('white');
-		color: oColorsByName('white');
+		border-color: oPrivateFoundationGet('o3-color-palette-white');
+		color: oPrivateFoundationGet('o3-color-palette-white');
 
 		&:after {
 			@include oPrivateIconsContent(
 				'arrow-down',
-				oColorsByName('lemon'),
+				oPrivateFoundationGet('o3-color-palette-lemon'),
 				$size: null,
 				$include-base-styles: false
 			);
 		}
 
 		&:hover {
-			color: darken(oColorsByName('white'), 20%);
+			color: darken(oPrivateFoundationGet('o3-color-palette-white'), 20%);
 		}
 	}
 }

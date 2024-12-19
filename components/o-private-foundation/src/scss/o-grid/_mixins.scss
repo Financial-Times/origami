@@ -1,4 +1,3 @@
-
 /// Apply styles at a given layout size (breakpoint) as the grid. It should be
 // passed one of $o-pf-grid-layouts e.g. `S`, `M`, etc... depending on which layout
 // size the style should apply at.
@@ -26,7 +25,6 @@
 /// @param {String} from - one of $o-pf-grid-layouts
 /// @param {String} until - one of $o-pf-grid-layouts
 @mixin oPrivateGridRespondTo($from: false, $until: false) {
-
 	$grid-is-responsive: $o-pf-grid-mode != 'fixed';
 	@include mq(
 		$from: $from,
@@ -100,7 +98,10 @@
 
 	@if $grid-mode == 'fixed' {
 		// If the grid isn't fluid, we set it to a certain width
-		width: oPrivateGridGetMaxWidthForLayout($o-pf-grid-fixed-layout, $grid-mode: 'fixed');
+		width: oPrivateGridGetMaxWidthForLayout(
+			$o-pf-grid-fixed-layout,
+			$grid-mode: 'fixed'
+		);
 		@if not $bleed {
 			padding-left: oPrivateGridGutter($o-pf-grid-fixed-layout);
 			padding-right: oPrivateGridGutter($o-pf-grid-fixed-layout);
@@ -125,7 +126,9 @@
 		}
 
 		@each $layout-name in $_o-pf-grid-layout-names {
-			@if index($_o-pf-grid-layout-names, $layout-name) >= index($_o-pf-grid-layout-names, $_o-pf-grid-start-snappy-mode-at) {
+			@if index($_o-pf-grid-layout-names, $layout-name) >=
+				index($_o-pf-grid-layout-names, $_o-pf-grid-start-snappy-mode-at)
+			{
 				@include oPrivateGridRespondTo($layout-name) {
 					@if $grid-mode == 'snappy' {
 						max-width: map-get($o-pf-grid-layouts, $layout-name);
@@ -201,7 +204,8 @@
 
 		@each $breakpoint in $_o-pf-grid-layout-names {
 			@include oPrivateGridRespondTo($breakpoint) {
-				content: '{ "layout": "' + $breakpoint + '", "gutter": "' + oPrivateGridGutter($breakpoint) + '" }';
+				content: '{ "layout": "' + $breakpoint + '", "gutter": "' +
+					oPrivateGridGutter($breakpoint) + '" }';
 			}
 		}
 	}
@@ -233,13 +237,14 @@
 	} @else {
 		// $span is a number or a keyword, so we're outputting the default width for that column
 		@if type-of($span) == number or type-of($span) == string {
-
 			// Restore visibility from `display: none`
 			// if `data-o-grid-colspan` was set to `0` or `hide`
 			display: block;
 
 			// Define width in %
-			@include _oPrivateGridFixSafariWrap($span); //stylelint-disable-line order/order
+			@include _oPrivateGridFixSafariWrap(
+				$span
+			); //stylelint-disable-line order/order
 			min-width: oPrivateGridColspan($span);
 			max-width: oPrivateGridColspan($span);
 		}
@@ -261,7 +266,9 @@
 						// if `data-o-grid-colspan` was set to `0` or `hide`
 						display: block;
 						// Define width in %
-						@include _oPrivateGridFixSafariWrap($layout-span); // stylelint-disable-line order/order
+						@include _oPrivateGridFixSafariWrap(
+							$layout-span
+						); // stylelint-disable-line order/order
 						min-width: oPrivateGridColspan($layout-span);
 						max-width: oPrivateGridColspan($layout-span);
 					}
@@ -274,7 +281,7 @@
 /// Remove gutters from columns in a row
 ///
 /// @param {string} $column-selector ["[o-grid-colspan]"] - CSS selector for row element
-@mixin oPrivateGridRowCompact($column-selector: "[o-grid-colspan]") {
+@mixin oPrivateGridRowCompact($column-selector: '[o-grid-colspan]') {
 	margin-left: 0;
 
 	> #{unquote($column-selector)} {
@@ -294,37 +301,82 @@
 /// @param {Number} $gutter-width [null] - Gutter width in px
 @mixin oPrivateGridAddLayout($layout-name, $layout-width, $gutter-width: null) {
 	$temp-layouts: ();
-	$temp-gutters: (default: oGridGutter());
-	$current-max-width: map-get($o-pf-grid-layouts, nth($_o-pf-grid-layout-names, -1));
+	$temp-gutters: (
+		default: oGridGutter(),
+	);
+	$current-max-width: map-get(
+		$o-pf-grid-layouts,
+		nth($_o-pf-grid-layout-names, -1)
+	);
 
 	// Add the new layout in the correct position:
 	// (we want $o-grid-layouts and $o-grid-gutters to be ordered from the smallest to the largest layout)
-	@if($layout-width >= $current-max-width) {
-		$temp-layouts: map-merge($o-pf-grid-layouts, ($layout-name: $layout-width));
-		$temp-gutters: map-merge($o-pf-grid-gutters, ($layout-name: $gutter-width));
+	@if ($layout-width >= $current-max-width) {
+		$temp-layouts: map-merge(
+			$o-pf-grid-layouts,
+			(
+				$layout-name: $layout-width,
+			)
+		);
+		$temp-gutters: map-merge(
+			$o-pf-grid-gutters,
+			(
+				$layout-name: $gutter-width,
+			)
+		);
 	} @else {
 		@for $index from 1 through length($o-pf-grid-layouts) {
-			$previous-layout-width: if($index == 1, 0, map-get($o-pf-grid-layouts, nth($_o-grid-layout-names, $index - 1)));
-			$current-layout-name: nth($_o-grid-layout-names, $index);
+			$previous-layout-width: if(
+				$index == 1,
+				0,
+				map-get($o-pf-grid-layouts, nth($_o-pf-grid-layout-names, $index - 1))
+			);
+			$current-layout-name: nth($_o-pf-grid-layout-names, $index);
 			$current-layout-width: map-get($o-pf-grid-layouts, $current-layout-name);
 
 			$current-gutter-width: map-get($o-pf-grid-gutters, $current-layout-name);
 
 			// Assumes all layouts use the same unit e.g. px or rem (as does the JavaScript)
-			@if not ($previous-layout-width > $layout-width or $current-layout-width < $layout-width) {
-				$temp-layouts: map-merge($temp-layouts, ($layout-name: $layout-width));
-				$temp-gutters: map-merge($temp-gutters, ($layout-name: $gutter-width));
+			@if not(
+				$previous-layout-width >
+					$layout-width or
+					$current-layout-width <
+					$layout-width
+			)
+			{
+				$temp-layouts: map-merge(
+					$temp-layouts,
+					(
+						$layout-name: $layout-width,
+					)
+				);
+				$temp-gutters: map-merge(
+					$temp-gutters,
+					(
+						$layout-name: $gutter-width,
+					)
+				);
 			}
 
-			$temp-layouts: map-merge($temp-layouts, ($current-layout-name: $current-layout-width));
+			$temp-layouts: map-merge(
+				$temp-layouts,
+				(
+					$current-layout-name: $current-layout-width,
+				)
+			);
 
 			@if $current-gutter-width {
-				$temp-gutters: map-merge($temp-gutters, ($current-layout-name: $current-gutter-width));
+				$temp-gutters: map-merge(
+					$temp-gutters,
+					(
+						$current-layout-name: $current-gutter-width,
+					)
+				);
 			}
 		}
 	}
 	$o-pf-grid-layouts: $temp-layouts !global;
-	$_o-grid-layout-names: map-keys($o-pf-grid-layouts) !global;
+	$_o-pf-grid-layout-names: map-keys($o-pf-grid-layouts) !global;
 
 	@if $gutter-width {
 		$o-pf-grid-gutters: $temp-gutters !global;

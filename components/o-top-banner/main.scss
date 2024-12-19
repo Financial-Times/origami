@@ -84,10 +84,10 @@
 /// @output The output includes the `.o-top-banner--THEME` modifier class definition, which includes all overrides.
 /// @example scss - A fully customised top banner theme
 ///   @include oTopBannerAddTheme('my-theme-name', (
-///       'background-color': oColorsByName('slate'),
-///       'button-background-color': oColorsByName('ft-pink'),
-///       'heading-color': oColorsByName('ft-pink'),
-///       'copy-color': oColorsByName('white')
+///       'background-color': oPrivateFoundationGet('o3-color-palette-slate'),
+///       'button-background-color': oPrivateFoundationGet('o3-color-palette-ft-pink'),
+///       'heading-color': oPrivateFoundationGet('o3-color-palette-ft-pink'),
+///       'copy-color': oPrivateFoundationGet('o3-color-palette-white')
 ///   ));
 /// @example scss - Existing banner theme
 ///   @include oTopBannerAddTheme('professional');

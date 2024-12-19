@@ -46,7 +46,7 @@
 	.o-multi-select__combobox-wrapper {
 		@include oPrivateTypographySans(0);
 		position: relative;
-		background-color: oColorsByName('white');
+		background-color: oPrivateFoundationGet('o3-color-palette-white');
 		border: $_o-multi-select-border;
 
 		.o-multi-select__combobox {
@@ -76,7 +76,7 @@
 		@include oPrivateNormaliseBoxSizing();
 		@include oPrivateTypographySans(0);
 		width: 100%;
-		background-color: oColorsByName('white');
+		background-color: oPrivateFoundationGet('o3-color-palette-white');
 		padding: $_o-multi-select-padding;
 		border: $_o-multi-select-border;
 		position: absolute;
@@ -85,13 +85,13 @@
 		overflow-y: auto;
 
 		.o-multi-select-option {
-			color: oColorsByUsecase('body', 'text');
+			color: oPrivateFoundationGet('o3-color-use-case-body-text');
 			cursor: pointer;
 			padding: 8px 4px;
 			position: relative;
 
 			&:hover {
-				background-color: oColorsMix(black, white, 25);
+				background-color: oPrivateColorsMix('o3-color-palette-black', 'o3-color-palette-white', 25);
 				color: initial;
 			}
 
@@ -102,12 +102,12 @@
 
 		.o-multi-select-option__selected {
 			color: initial;
-			background-color: oColorsMix(black, white, 15);
+			background-color: oPrivateColorsMix('o3-color-palette-black', 'o3-color-palette-white', 15);
 
 			span {
 				@include oPrivateIconsContent(
 					$icon-name: 'tick',
-					$color: oColorsByUsecase('body', 'text'),
+					$color: oPrivateFoundationGet('o3-color-use-case-body-text'),
 					$size: 32,
 					$include-base-styles: false
 				);

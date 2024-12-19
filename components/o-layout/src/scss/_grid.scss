@@ -11,7 +11,7 @@
 		// Apply to the body rather than o-layout to avoid
 		// obscuring the hero element, which makes use of a
 		// negative z-index at the time of writing.
-		background-color: oColorsByUsecase('page', 'background');
+		background-color: oPrivateFoundationGet('o3-color-use-case-page-background');
 	}
 
 	.o-layout {
@@ -50,8 +50,8 @@
 		position: absolute;
 		left: oPrivateSpacingByName('s2');
 		padding: oPrivateSpacingByName('s2') oPrivateSpacingByName('s4');
-		background-color: oColorsByName('oxford');
-		color: oColorsByName('white');
+		background-color: oPrivateFoundationGet('o3-color-palette-oxford');
+		color: oPrivateFoundationGet('o3-color-palette-white');
 		text-decoration: none;
 		transform: translateY(-120%);
 		@media (prefers-reduced-motion: no-preference) {
@@ -239,7 +239,7 @@
 		.o-layout__query-sidebar {
 			margin: 0;
 			@include oPrivateGridRespondTo($from: M) {
-				border-right: 1px solid oColorsByName('slate-white-15');
+				border-right: 1px solid oPrivateFoundationGet('o3-color-palette-slate-white-15');
 				padding-right: $_o-layout-gutter;
 				margin: $_o-layout-gutter 0 oPrivateSpacingByName('s4');
 			}
@@ -250,7 +250,7 @@
 				width: $_o-layout-sidebar-width; // So the sidebar can be deleted, the query area fits to content width.
 				margin: $_o-layout-gutter 0;
 				padding-left: $_o-layout-gutter;
-				border-left: 1px solid oColorsByName('slate-white-15');
+				border-left: 1px solid oPrivateFoundationGet('o3-color-palette-slate-white-15');
 			}
 		}
 	}

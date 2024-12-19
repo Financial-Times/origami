@@ -58,19 +58,19 @@
 			$scale-item-key: 'negative#{$scale}';
 		}
 		font-family: '#{oPrivateFoundationGet('o3-font-family-#{$font}')}',
-			sans-serif;
+		sans-serif;
 		font-size: oPrivateFoundationGet(
-			'o3-font-size#{$scale-key}#{$scale-item-key}'
+				'o3-font-size#{$scale-key}#{$scale-item-key}'
 		);
 		line-height: oPrivateFoundationGet(
-			'o3-font-lineheight#{$scale-key}#{$scale-item-key}'
+				'o3-font-lineheight#{$scale-key}#{$scale-item-key}'
 		);
 	}
 
 	font-weight: if(
-		$weight,
-		oPrivateFoundationGet('o3-font-weight-#{$weight}'),
-		null
+			$weight,
+			oPrivateFoundationGet('o3-font-weight-#{$weight}'),
+			null
 	);
 }
 
@@ -104,6 +104,7 @@
 		// be clipped by the overflow of any ancestor between it and its containing block.
 		// https://drafts.csswg.org/css2/#visufx
 		position: relative;
+
 		&:after {
 			@include oPrivateNormaliseVisuallyHidden();
 			content: '(opens a new window)';
@@ -129,26 +130,30 @@
 		$sub-brand: 'professional';
 	}
 
+	$token-prefix: 'o3-color-use-case-link-';
+	@if ($theme == 'professional-inverse') {
+		$token-prefix: 'o3-color-use-case-link-inverse-';
+	}
 	// Standard link colours.
-	$base-color: oPrivateFoundationGet('o3-color-use-case-link-text', $sub-brand);
+	$base-color: oPrivateFoundationGet(#{$token-prefix + 'text'}, $sub-brand);
 	$hover-color: oPrivateFoundationGet(
-		'o3-color-use-case-link-text-hover',
-		$sub-brand
+			#{$token-prefix + 'text-hover'},
+			$sub-brand
 	);
 	$decoration-color: oPrivateFoundationGet(
-		'o3-color-use-case-link-underline',
-		$sub-brand
+			#{$token-prefix + 'underline'},
+			$sub-brand
 	);
 	$hover-decoration-color: oPrivateFoundationGet(
-		'o3-color-use-case-link-underline-hover',
-		$sub-brand
+			#{$token-prefix + 'underline-hover'},
+			$sub-brand
 	);
 
 	@include _oPrivateTypographyLinkTheme(
-		$base-color,
-		$decoration-color,
-		$hover-color,
-		$hover-decoration-color
+			$base-color,
+			$decoration-color,
+			$hover-color,
+			$hover-decoration-color
 	);
 }
 
@@ -192,7 +197,7 @@
 
 	$hover-decoration-color: map-get($theme, 'hover-decoration');
 	$hover-decoration-color: _oPrivateTypographyGetColourFrom(
-		$hover-decoration-color
+			$hover-decoration-color
 	);
 
 	// Validate required theme colours.
@@ -215,18 +220,18 @@
 	@if (not $hover-decoration-color) {
 		// TODO: replace oColorsMix
 		$hover-decoration-color: oColorsMix(
-			$base-color,
-			$context-color,
+				$base-color,
+				$context-color,
 			$percentage: 40
 		);
 	}
 
 	// Output theme colours.
 	@include _oPrivateTypographyLinkTheme(
-		$base-color,
-		$decoration-color,
-		$hover-color,
-		$hover-decoration-color
+			$base-color,
+			$decoration-color,
+			$hover-color,
+			$hover-decoration-color
 	);
 }
 
@@ -407,9 +412,9 @@
 	}
 	// If we still have a string, assume it's a palette colour name.
 	$theme-value: if(
-		type-of($theme-value) == 'string',
-		oPrivateFoundationGet('o3-color-palette-#{$theme-value}'),
-		$theme-value
+			type-of($theme-value) == 'string',
+			oPrivateFoundationGet('o3-color-palette-#{$theme-value}'),
+			$theme-value
 	);
 	@return $theme-value;
 }

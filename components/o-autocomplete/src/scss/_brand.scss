@@ -13,7 +13,7 @@
 @if oBrandIs('core') {
 	@include oBrandDefine('o-autocomplete', 'core', (
 		'variables': (
-			search-close: oColorsByName('black-80'),
+			search-close: oPrivateFoundationGet('o3-color-palette-black-80'),
 		),
 		'supports-variants': ()
 	));
@@ -22,7 +22,7 @@
 @if oBrandIs('internal') {
 	@include oBrandDefine('o-autocomplete', 'internal', (
 		'variables': (
-			search-close: oColorsByName('black-80'),
+			search-close: oPrivateFoundationGet('o3-color-palette-black-80'),
 		),
 		'supports-variants': ()
 	));

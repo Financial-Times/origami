@@ -2,7 +2,7 @@
 @mixin _oTeaserSmall {
 	display: flex;
 	padding-bottom: oPrivateSpacingByName('s3');
-	border-bottom: 1px solid oColorsByUsecase('o-teaser/base', 'border');
+	border-bottom: 1px solid oPrivateFoundationGet('o3-color-palette-black-20');
 
 	.o-teaser__content {
 		// IE needs a unit to apply flex-basis correctly 😐
@@ -70,12 +70,12 @@
 	}
 	.o-teaser__tag-prefix {
 		@include oPrivateTypographySans($scale: 0, $weight: 'semibold');
-		color: oColorsByName('claret');
+		color: oPrivateFoundationGet('o3-color-palette-claret-60');
 		margin-right: oPrivateSpacingByName('s1');
 	}
 	.o-teaser__tag {
 		@include oPrivateTypographySans($scale: 0, $weight: 'regular');
-		color: oColorsByName('claret');
+		color: oPrivateFoundationGet('o3-color-palette-claret-60');
 	}
 	.o-teaser__standfirst {
 		display: none;
@@ -93,7 +93,7 @@
 		display: none;
 	}
 	.o-teaser__content {
-		background: oColorsByName('wheat');
+		background: oPrivateFoundationGet('o3-color-palette-wheat');
 		padding: oPrivateSpacingByName('s3');
 		box-sizing: border-box;
 		a {
@@ -105,7 +105,7 @@
 			width: 100%;
 		}
 
-		background: oColorsByName('wheat');
+		background: oPrivateFoundationGet('o3-color-palette-wheat');
 		display: flex;
 		flex: 1 0 50%;
 		width: 100%;
@@ -118,7 +118,7 @@
 	.o-teaser__heading,
 	.o-teaser__heading a {
 		@include oPrivateTypographyDisplay($scale: 2, $weight: 'medium');
-		color: oColorsByName('black');
+		color: oPrivateFoundationGet('o3-color-palette-black');
 	}
 
 	@include oPrivateGridRespondTo($until: S) {
@@ -137,7 +137,7 @@
 	.o-teaser__heading:before {
 		@include oPrivateIconsContent(
 			'speech-left',
-			oColorsByName('oxford'),
+			oPrivateFoundationGet('o3-color-palette-oxford'),
 			30,
 			$iconset-version: 1
 		);
@@ -148,10 +148,10 @@
 		margin-left: -5px;
 	}
 	.o-teaser__tag {
-		color: oColorsByName('oxford');
+		color: oPrivateFoundationGet('o3-color-palette-oxford');
 	}
 	.o-teaser__tag-prefix {
-		color: oColorsByName('oxford');
+		color: oPrivateFoundationGet('o3-color-palette-oxford');
 	}
 
 	@include oPrivateGridRespondTo($until: S) {

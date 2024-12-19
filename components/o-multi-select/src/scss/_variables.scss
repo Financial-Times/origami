@@ -1,4 +1,4 @@
-$_o-multi-select-border: 1px solid oColorsByName('black-50');
+$_o-multi-select-border: 1px solid oPrivateFoundationGet('o3-color-palette-black-50');
 
 $_o-multi-select-padding: oPrivateSpacingByIncrement(2);
 $_o-multi-select-icon-size: 20px;

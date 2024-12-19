@@ -57,7 +57,7 @@
 @mixin _oTopperOpinionGenre {
 	@extend %_o-topper__tag;
 	font-weight: normal;
-	color: oColorsByName('oxford');
+	color: oPrivateFoundationGet('o3-color-palette-oxford');
 }
 
 @mixin _oTopperHeadshot {
