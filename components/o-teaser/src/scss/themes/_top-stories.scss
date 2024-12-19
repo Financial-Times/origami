@@ -6,28 +6,32 @@
 	}
 
 	.o-teaser__heading {
-		@include oTypographyDisplay($scale: (default: (5, 1), L: (7)));
+		@include oPrivateTypographyDisplay(5);
+		line-height: 1;
+		@include oPrivateGridRespondTo('L') {
+			@include oPrivateTypographyDisplay(7);
+		}
 	}
 
 	.o-teaser__standfirst {
-		@include oTypographySans(2, $include-font-family: false);
+		@include oPrivateTypographySans(2);
 	}
 }
 
 /// Standalone top story theme styles
 @mixin _oTeaserTopStoryStandalone {
 	.o-teaser__image-container {
-		margin-bottom: oSpacingByName('s3');
+		margin-bottom: oPrivateSpacingByName('s3');
 	}
 }
 
 /// Landscape top story theme styles
 @mixin _oTeaserTopStoryLandscape {
-	@include oNormaliseClearfix;
-	background: oColorsByUsecase('o-teaser/hero', 'background');
+	@include oPrivateNormaliseClearfix;
+	background: oPrivateFoundationGet('o3-color-palette-wheat');
 	padding: 12px;
 
-	@include oGridRespondTo(M) {
+	@include oPrivateGridRespondTo(M) {
 		padding: 20px 0 0 20px;
 
 		.o-teaser__content {
@@ -62,7 +66,7 @@
 		padding: 60px 0 12px;
 	}
 
-	@include oGridRespondTo(M) {
+	@include oPrivateGridRespondTo(M) {
 		.o-teaser__content {
 			float: left;
 			width: 50%;
@@ -75,7 +79,7 @@
 		}
 	}
 
-	@include oGridRespondTo(L) {
+	@include oPrivateGridRespondTo(L) {
 		.o-teaser__image-container {
 			margin-bottom: 0;
 		}

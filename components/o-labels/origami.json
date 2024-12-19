@@ -1,11 +1,7 @@
 {
 	"origamiType": "component",
 	"origamiVersion": "2.0",
-	"brands": [
-		"core",
-		"internal",
-		"whitelabel"
-	],
+	"brands": ["core", "internal", "whitelabel"],
 	"support": "https://github.com/Financial-Times/origami/issues/new?labels=o-labels,components",
 	"supportContact": {
 		"email": "origami.support@ft.com",
@@ -32,9 +28,7 @@
 			"description": "States used to differentiate between types of content.",
 			"template": "/demos/src/states.mustache",
 			"data": "demos/src/data/states-content.json",
-			"brands": [
-				"core"
-			]
+			"brands": ["core"]
 		},
 		{
 			"name": "lifecycle-states",
@@ -42,9 +36,7 @@
 			"description": "States used to represent stages in the product lifecycle.",
 			"template": "/demos/src/states.mustache",
 			"data": "demos/src/data/states-lifecycle.json",
-			"brands": [
-				"core"
-			]
+			"brands": ["core"]
 		},
 		{
 			"name": "service-tier-states",
@@ -52,9 +44,7 @@
 			"description": "States used to represent the different service support tiers.",
 			"template": "/demos/src/states.mustache",
 			"data": "demos/src/data/states-service-tier.json",
-			"brands": [
-				"internal"
-			]
+			"brands": ["internal"]
 		},
 		{
 			"name": "support-status-states",
@@ -62,9 +52,7 @@
 			"description": "States used to represent the different support levels of Origami components.",
 			"template": "/demos/src/states.mustache",
 			"data": "demos/src/data/states-support-status.json",
-			"brands": [
-				"internal"
-			]
+			"brands": ["internal"]
 		},
 		{
 			"name": "palette-states",
@@ -72,23 +60,19 @@
 			"description": "Colour palette based states do not specify a particular usecase, and may be used flexibility.",
 			"template": "/demos/src/states.mustache",
 			"data": "demos/src/data/color-palette-states.json",
-			"brands": [
-				"internal"
-			]
+			"brands": ["internal"]
 		},
 		{
 			"name": "typography",
 			"title": "Typography",
-			"description": "Labels sitting in line with text that's styled with o-typography.",
+			"description": "Labels sitting in line with text.",
 			"template": "/demos/src/typography.mustache"
 		},
 		{
 			"name": "indicators",
 			"title": "Indicators",
 			"description": "",
-			"brands": [
-				"core"
-			],
+			"brands": ["core"],
 			"template": "/demos/src/indicators.mustache"
 		},
 		{
@@ -96,14 +80,10 @@
 			"title": "Inverse Indicators",
 			"description": "",
 			"data": {
-				"modifiers": [
-					"inverse"
-				]
+				"modifiers": ["inverse"]
 			},
 			"documentClasses": "demo-inverse",
-			"brands": [
-				"core"
-			],
+			"brands": ["core"],
 			"template": "/demos/src/indicators.mustache"
 		},
 		{
@@ -111,31 +91,23 @@
 			"title": "Badge Indicators",
 			"description": "",
 			"data": {
-				"modifiers": [
-					"badge"
-				]
+				"modifiers": ["badge"]
 			},
-			"brands": [
-				"core"
-			],
+			"brands": ["core"],
 			"template": "/demos/src/indicators-badge.mustache"
 		},
 		{
 			"name": "indicators-sizes",
 			"title": "Indicator Sizes",
 			"description": "All indicator labels adapt to the set font size. This demo shows using custom CSS to set the font size of indicator labels.",
-			"brands": [
-				"core"
-			],
+			"brands": ["core"],
 			"template": "/demos/src/indicators-sizes.mustache"
 		},
 		{
 			"name": "timestamp",
 			"title": "Timestamp",
 			"description": "",
-			"brands": [
-				"core"
-			],
+			"brands": ["core"],
 			"template": "/demos/src/timestamp.mustache"
 		},
 		{
@@ -143,14 +115,10 @@
 			"title": "Inverse Timestamp",
 			"description": "",
 			"data": {
-				"modifiers": [
-					"inverse"
-				]
+				"modifiers": ["inverse"]
 			},
 			"documentClasses": "demo-inverse",
-			"brands": [
-				"core"
-			],
+			"brands": ["core"],
 			"template": "/demos/src/timestamp.mustache"
 		},
 		{
@@ -169,9 +137,7 @@
 			"data": {
 				"indicator": true
 			},
-			"brands": [
-				"core"
-			],
+			"brands": ["core"],
 			"hidden": true
 		},
 		{

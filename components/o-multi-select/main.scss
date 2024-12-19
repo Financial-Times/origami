@@ -1,7 +1,6 @@
+@import '@financial-times/o-private-foundation/main';
+
 @import '@financial-times/o-brand/main';
-@import '@financial-times/o-spacing/main';
-@import '@financial-times/o-normalise/main';
-@import '@financial-times/o-typography/main';
 @import '@financial-times/o-icons/main';
 
 @import './src/scss/variables';
@@ -13,6 +12,8 @@
 /// @example scss
 ///		@include oMultiSelect()
 @mixin oMultiSelect() {
+	@include oPrivateFoundation();
+
 	.o-multi-select__dropdown-menu {
 		display: none;
 	}
@@ -21,7 +22,7 @@
 	}
 
 	.o-multi-select__visually-hidden {
-		@include oNormaliseVisuallyHidden;
+		@include oPrivateNormaliseVisuallyHidden;
 	}
 
 	.o-multi-select__selected-options {
@@ -35,6 +36,7 @@
 		li {
 			display: inline-block;
 			margin-bottom: 0;
+
 			.o-multi-select__selected-options-button {
 				@include _oMultiSelectButton;
 			}
@@ -42,9 +44,9 @@
 	}
 
 	.o-multi-select__combobox-wrapper {
-		@include oTypographySans(0);
+		@include oPrivateTypographySans(0);
 		position: relative;
-		background-color: oColorsByName('white');
+		background-color: oPrivateFoundationGet('o3-color-palette-white');
 		border: $_o-multi-select-border;
 
 		.o-multi-select__combobox {
@@ -60,21 +62,21 @@
 			align-items: center;
 
 			&:focus {
-				@include oNormaliseFocusUnsetContent();
+				@include oPrivateNormaliseFocusUnsetContent();
 			}
 
 			@supports selector(:focus-visible) {
 				&:focus-visible {
-					@include oNormaliseFocusContent();
+					@include oPrivateNormaliseFocusContent();
 				}
 			}
 		}
 	}
 	.o-multi-select__dropdown-menu {
-		@include oNormaliseBoxSizing();
-		@include oTypographySans(0);
+		@include oPrivateNormaliseBoxSizing();
+		@include oPrivateTypographySans(0);
 		width: 100%;
-		background-color: oColorsByName('white');
+		background-color: oPrivateFoundationGet('o3-color-palette-white');
 		padding: $_o-multi-select-padding;
 		border: $_o-multi-select-border;
 		position: absolute;
@@ -83,14 +85,16 @@
 		overflow-y: auto;
 
 		.o-multi-select-option {
-			color: oColorsByUsecase('body', 'text');
+			color: oPrivateFoundationGet('o3-color-use-case-body-text');
 			cursor: pointer;
 			padding: 8px 4px;
 			position: relative;
+
 			&:hover {
-				background-color: oColorsMix(black, white, 25);
+				background-color: oPrivateColorsMix('o3-color-palette-black', 'o3-color-palette-white', 25);
 				color: initial;
 			}
+
 			@media (max-width: 690px) {
 				padding: 12px 4px;
 			}
@@ -98,11 +102,12 @@
 
 		.o-multi-select-option__selected {
 			color: initial;
-			background-color: oColorsMix(black, white, 15);
+			background-color: oPrivateColorsMix('o3-color-palette-black', 'o3-color-palette-white', 15);
+
 			span {
-				@include oIconsContent(
+				@include oPrivateIconsContent(
 					$icon-name: 'tick',
-					$color: oColorsByUsecase('body', 'text'),
+					$color: oPrivateFoundationGet('o3-color-use-case-body-text'),
 					$size: 32,
 					$include-base-styles: false
 				);
@@ -113,8 +118,9 @@
 				vertical-align: middle;
 			}
 		}
+
 		.o-multi-select-option__current {
-			@include oNormaliseFocusContent();
+			@include oPrivateNormaliseFocusContent();
 			z-index: 2;
 		}
 	}

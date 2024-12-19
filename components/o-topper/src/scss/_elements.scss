@@ -8,43 +8,42 @@
 }
 
 @mixin _oTopperSummary {
-	@include oTypographySans(1);
+	@include oPrivateTypographySans(1);
 	> ul {
-		padding: 0 oSpacingByIncrement(5);
+		padding: 0 oPrivateSpacingByIncrement(5);
 	}
 
 	> ul > li {
-		margin: oSpacingByName('s2') 0;
+		margin: oPrivateSpacingByName('s2') 0;
 	}
 }
 
-
 @mixin _oTopperSummaryBody {
 	h2 {
-		@include oTypographySans(0, $weight: 'semibold');
+		@include oPrivateTypographySans(0, $weight: 'semibold');
 		margin: 5px 0 0;
 	}
 
 	ul {
-		@include oTypographyList('unordered');
+		@include oPrivateTypographyList('unordered');
 		margin: 0px;
 
 		li:first-child {
 			margin-top: 0px;
 		}
 		li {
-			@include oTypographySans(1);
-			margin-top: oSpacingByName('s2');
+			@include oPrivateTypographySans(1);
+			margin-top: oPrivateSpacingByName('s2');
 			margin-bottom: 0;
 		}
 	}
 }
 
 @mixin _oTopperImageCredit {
-	@include oTypographySans(-2);
-	color: oColorsByName('white');
+	@include oPrivateTypographySans(-2);
+	color: oPrivateFoundationGet('o3-color-palette-white');
 	position: absolute;
-	text-shadow: 1px 1px 1px oColorsByName('slate');
+	text-shadow: 1px 1px 1px oPrivateFoundationGet('o3-color-palette-slate');
 	text-align: right;
 	width: 100vw;
 	margin-left: 50%;
@@ -55,9 +54,9 @@
 }
 
 @mixin _oTopperImageCaption {
-	@include oTypographySans(-1);
+	@include oPrivateTypographySans(-1);
 	padding: 10px 11px 0px;
-	@include oGridRespondTo(L) {
+	@include oPrivateGridRespondTo(L) {
 		padding-left: 18px;
 	}
 }
@@ -94,7 +93,7 @@
 }
 
 @mixin _oTopperColumnist {
-	margin-top: oSpacingByName('s4');
+	margin-top: oPrivateSpacingByName('s4');
 	text-transform: uppercase;
 }
 
@@ -104,7 +103,8 @@
 }
 
 @mixin _oTopperTags {
-	@include oTypographySans(0, $line-height: 28px, $include-font-family: false);
+	@include oPrivateTypographySans(0);
+	line-height: 28px;
 	padding-bottom: 5px;
 }
 

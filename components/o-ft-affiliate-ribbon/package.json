@@ -23,8 +23,9 @@
     "watch": "bash ../../scripts/component/watch.bash"
   },
   "peerDependencies": {
-    "@financial-times/o-colors": "^6.5.0",
-    "@financial-times/o-grid": "^6.0.0",
+    "@financial-times/o-private-foundation": "^0.0.0"
+  },
+  "devDependencies": {
     "@financial-times/o-normalise": "^3.3.0"
   },
   "engines": {

@@ -1,57 +1,54 @@
-@import '@financial-times/o-typography/main';
-@import '@financial-times/o-normalise/main';
-@import '@financial-times/o-fonts/main';
-
+@import '@financial-times/o-private-foundation/main';
 /// @access private
 $_ftConceptButtonThemes: (
 	link: (
-		background: oColorsByUsecase('link', 'text'),
-		text: oColorsByName('white'),
-		highlight: oColorsByUsecase('link-hover', 'text'),
-		pressed-highlight: rgba(oColorsByUsecase('link-hover', 'text'), 0.05),
-		disabled: rgba(oColorsByName('black'), 0.5)
+		background: oPrivateFoundationGet('o3-color-use-case-link-text'),
+		text: oPrivateFoundationGet('o3-color-palette-white'),
+		highlight: oPrivateFoundationGet('o3-color-use-case-link-text-hover'),
+		pressed-highlight: rgba(oPrivateFoundationGet('o3-color-use-case-link-text-hover'), 0.05),
+		disabled: rgba(oPrivateFoundationGet('o3-color-palette-black'), 0.5),
 	),
 	standard: (
-		background: oColorsByName('claret'),
-		text: oColorsByName('white'),
-		highlight: oColorsByName('claret-50'),
-		pressed-highlight: rgba(oColorsByName('black'), 0.05),
-		disabled: rgba(oColorsByName('black'), 0.5)
+		background: oPrivateFoundationGet('o3-color-palette-claret'),
+		text: oPrivateFoundationGet('o3-color-palette-white'),
+		highlight: oPrivateFoundationGet('o3-color-palette-claret-50'),
+		pressed-highlight: rgba(oPrivateFoundationGet('o3-color-palette-black'), 0.05),
+		disabled: rgba(oPrivateFoundationGet('o3-color-palette-black'), 0.5),
 	),
 	inverse: (
-		background: oColorsByName('white'),
-		text: oColorsByName('claret'),
+		background: oPrivateFoundationGet('o3-color-palette-white'),
+		text: oPrivateFoundationGet('o3-color-palette-claret'),
 		highlight: rgba(white, 0.8),
 		pressed-highlight: rgba(white, 0.2),
-		disabled: rgba(oColorsByName('white'), 0.5)
+		disabled: rgba(oPrivateFoundationGet('o3-color-palette-white'), 0.5),
 	),
 	opinion: (
-		background: oColorsByName('oxford-40'),
-		text: oColorsByName('white'),
-		highlight: oColorsByName('oxford-30'),
-		pressed-highlight: rgba(oColorsByName('oxford-40'), 0.2),
-		disabled: rgba(oColorsByName('black'), 0.5)
+		background: oPrivateFoundationGet('o3-color-palette-oxford-40'),
+		text: oPrivateFoundationGet('o3-color-palette-white'),
+		highlight: oPrivateFoundationGet('o3-color-palette-oxford-30'),
+		pressed-highlight: rgba(oPrivateFoundationGet('o3-color-palette-oxford-40'), 0.2),
+		disabled: rgba(oPrivateFoundationGet('o3-color-palette-black'), 0.5),
 	),
 	monochrome: (
-		background: oColorsByName('white'),
-		text: oColorsByName('black'),
-		highlight: oColorsByName('white-80'),
-		pressed-highlight: rgba(oColorsByName('white'), 0.2),
-		disabled: rgba(oColorsByName('white'), 0.5)
+		background: oPrivateFoundationGet('o3-color-palette-white'),
+		text: oPrivateFoundationGet('o3-color-palette-black'),
+		highlight: oPrivateFoundationGet('o3-color-palette-white-80'),
+		pressed-highlight: rgba(oPrivateFoundationGet('o3-color-palette-white'), 0.2),
+		disabled: rgba(oPrivateFoundationGet('o3-color-palette-white'), 0.5),
 	),
 	inverse-monochrome: (
-		background: oColorsByName('black'),
-		text: oColorsByName('white'),
-		highlight: oColorsByName('black-80'),
-		pressed-highlight: rgba(oColorsByName('black'), 0.2),
-		disabled: rgba(oColorsByName('black'), 0.5)
+		background: oPrivateFoundationGet('o3-color-palette-black'),
+		text: oPrivateFoundationGet('o3-color-palette-white'),
+		highlight: oPrivateFoundationGet('o3-color-palette-black-80'),
+		pressed-highlight: rgba(oPrivateFoundationGet('o3-color-palette-black'), 0.2),
+		disabled: rgba(oPrivateFoundationGet('o3-color-palette-black'), 0.5),
 	),
 	professional-inverse: (
-		background: oColorsByName('mint'),
-		text: oColorsByName('black'),
-		highlight: oColorsByName('mint'),
-		pressed-highlight: rgba(oColorsByName('mint'), 0.15),
-		disabled: rgba(oColorsByName('black'), 0.5)
+		background: oPrivateFoundationGet('o3-color-palette-mint'),
+		text: oPrivateFoundationGet('o3-color-palette-black'),
+		highlight: oPrivateFoundationGet('o3-color-palette-mint'),
+		pressed-highlight: rgba(oPrivateFoundationGet('o3-color-palette-mint'), 0.15),
+		disabled: rgba(oPrivateFoundationGet('o3-color-palette-black'), 0.5),
 	),
 );
 
@@ -73,7 +70,7 @@ $_ftConceptButtonThemes: (
 }
 
 @mixin _ftConceptButtonGetIcon($name, $color) {
-	@include oIconsContent(
+	@include oPrivateIconsContent(
 		$icon-name: $name,
 		$size: 10,
 		$color: $color,
@@ -129,8 +126,8 @@ $_ftConceptButtonThemes: (
 
 @mixin _ftConceptButtonTheme($theme: standard, $with-toggle-icon: false) {
 	@include _ftConceptButtonWithTheme($theme) {
-		@include oNormaliseFocusApply() {
-			@include oNormaliseFocusContentForElementColour(
+		@include oPrivateNormaliseFocusApply() {
+			@include oPrivateNormaliseFocusContentForElementColour(
 				_ftConceptButtonGetThemeColor(background)
 			);
 		}
@@ -169,13 +166,13 @@ $_ftConceptButtonThemes: (
 }
 
 @mixin _ftConceptButtonBase() {
-	@include oTypographySans($weight: 'semibold', $scale: -1);
+	@include oPrivateTypographySans($weight: 'semibold', $scale: -1);
 	border-radius: 100px;
 	box-sizing: content-box;
 	display: inline-block;
 	outline-offset: 2px;
 	overflow: hidden;
-	padding: oSpacingByName('s1') oSpacingByName('s2');
+	padding: oPrivateSpacingByName('s1') oPrivateSpacingByName('s2');
 	text-align: left;
 	text-overflow: ellipsis;
 	max-width: 15em;
@@ -192,6 +189,8 @@ $_ftConceptButtonThemes: (
 		'professional-inverse',
 	)
 ) {
+	@include oPrivateFoundation();
+
 	.ft-concept-button__link,
 	.ft-concept-button__button {
 		@include _ftConceptButtonBase();
@@ -203,7 +202,7 @@ $_ftConceptButtonThemes: (
 	}
 
 	.ft-concept-button__announcement {
-		@include oNormaliseVisuallyHidden();
+		@include oPrivateNormaliseVisuallyHidden();
 	}
 
 	@each $theme in map-keys($_ftConceptButtonThemes) {

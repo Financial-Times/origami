@@ -9,15 +9,15 @@
 
 	// Get given base and border colour.
 	$base: map-get($theme, 'controls-base');
-	$base: if(type-of($base) == 'string', oColorsByName($base), $base);
+	$base: if(type-of($base) == 'string', oPrivateFoundationGet($base), $base);
 	$border: map-get($theme, 'controls-border');
-	$border: if(type-of($border) == 'string', oColorsByName($border), $border);
+	$border: if(type-of($border) == 'string', oPrivateFoundationGet($border), $border);
 
 	// Get given checked base colour.
 	$checked-base: map-get($theme, 'controls-checked-base');
 	$checked-base: if(
 		type-of($checked-base) == 'string',
-		oColorsByName($checked-base),
+		oPrivateFoundationGet($checked-base),
 		$checked-base
 	);
 
@@ -25,7 +25,7 @@
 	$negative-background: map-get($theme, 'controls-negative-checked-background');
 	$negative-background: if(
 		type-of($negative-background) == 'string',
-		oColorsByName($negative-background),
+		oPrivateFoundationGet($negative-background),
 		$negative-background
 	);
 
@@ -51,14 +51,12 @@
 		min-width: unset;
 	}
 
-	// stylelint-disable selector-no-qualifying-type
 	a.o-forms-input__link.o-forms-input__link--current,
 	input[type='radio']:checked + .o-forms-input__label {
 		&:after {
 			display: block;
 		}
 	}
-	// stylelint-enable selector-no-qualifying-type
 }
 
 /// @access public
@@ -91,7 +89,7 @@
 		}
 
 		&:before {
-			@include oIconsContent(
+			@include oPrivateIconsContent(
 				$icon-name: $icon,
 				$color: _oFormsGet('controls-base', $from: $theme),
 				$size: $_o-forms-checkbox-radio-width,
@@ -100,7 +98,7 @@
 		}
 
 		&:after {
-			@include oIconsContent(
+			@include oPrivateIconsContent(
 				$icon-name: $icon,
 				$color: _oFormsGet('controls-checked-base', $from: $theme),
 				$size: $_o-forms-checkbox-radio-width,

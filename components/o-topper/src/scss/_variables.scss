@@ -1,6 +1,6 @@
 /// @prop {Boolean}
 /// @access public
-$o-topper-snappy: if($o-grid-mode == 'snappy' , true, false) !default;
+$o-topper-snappy: if($o-pf-grid-mode == 'snappy', true, false) !default;
 
 /// @prop {Boolean}
 /// @access public
@@ -10,16 +10,16 @@ $o-topper-is-silent: true !default;
 /// @prop {List} - colours available to editorial in methode for the background
 /// @access private
 $_o-topper-colors: (
-	'white',
-	'black',
-	'claret',
-	'oxford',
-	'paper',
-	'slate',
-	'wheat',
-	'crimson',
-	'sky',
-	'matisse'
+	'o3-color-palette-white',
+	'o3-color-palette-black',
+	'o3-color-palette-claret',
+	'o3-color-palette-oxford',
+	'o3-color-palette-paper',
+	'o3-color-palette-slate',
+	'o3-color-palette-wheat',
+	'o3-color-palette-crimson',
+	'o3-color-palette-sky',
+	'o3-color-palette-matisse-blue'
 );
 
 /// When adding a new theme update the README
@@ -39,11 +39,10 @@ $_o-topper-themes: (
 	'package-extra',
 	'package-extra-wide',
 	'package-special-report',
-	'news-package', // @deprecated
 	'right-rail',
 	'centered',
 	'deep-portrait',
-	'deep-landscape',
+	'deep-landscape'
 );
 
 /// When adding a new element update the README

@@ -1,6 +1,4 @@
-
 @include describe('oLabels mixins') {
-
 	@include describe('_oLabelsBaseContent') {
 		@include it('subtracts border width from the padding values') {
 			@include assert() {
@@ -8,8 +6,12 @@
 					@include _oLabelsBaseContent;
 				}
 				@include contains() {
-					$expected-vertical-padding: calc(#{oSpacingByName('s1')} - #{1px});
-					$expected-horizontal-padding: calc(#{oSpacingByName('s2')} - #{1px});
+					$expected-vertical-padding: calc(
+						#{oPrivateSpacingByName('s1')} - #{1px}
+					);
+					$expected-horizontal-padding: calc(
+						#{oPrivateSpacingByName('s2')} - #{1px}
+					);
 					padding: $expected-vertical-padding $expected-horizontal-padding;
 				}
 			}
@@ -24,8 +26,12 @@
 						@include _oLabelsSize('big');
 					}
 					@include contains($selector: false) {
-						$expected-vertical-padding: calc(#{oSpacingByName('s2')} - #{1px});
-						$expected-horizontal-padding: calc(#{oSpacingByName('s2')} - #{1px});
+						$expected-vertical-padding: calc(
+							#{oPrivateSpacingByName('s2')} - #{1px}
+						);
+						$expected-horizontal-padding: calc(
+							#{oPrivateSpacingByName('s2')} - #{1px}
+						);
 						.o-labels--big {
 							padding: $expected-vertical-padding $expected-horizontal-padding;
 						}
@@ -60,7 +66,11 @@
 				@include assert() {
 					@include output($selector: false) {
 						.o-example-label {
-							@include oLabelsContent($opts: ('size': 'small'));
+							@include oLabelsContent(
+								$opts: (
+									'size': 'small',
+								)
+							);
 						}
 					}
 					@include expect($selector: false) {
@@ -68,9 +78,6 @@
 							font-size: 12px;
 							line-height: 1;
 							padding: calc(#{2px} - #{1px}) calc(#{4px} - #{1px});
-						}
-						.o-typography--loading-sans .o-example-label {
-							font-size: 10.44px;
 						}
 					}
 				}
@@ -81,12 +88,16 @@
 				@include assert() {
 					@include output() {
 						.o-example-label {
-							@include oLabelsContent($opts: ('state': 'content-commercial'));
+							@include oLabelsContent(
+								$opts: (
+									'state': 'content-commercial',
+								)
+							);
 						}
 					}
 					@include expect() {
 						.o-example-label {
-							background-color: #008040;
+							background-color: rgb(0, 127.50102, 64.16718);
 							color: white;
 						}
 					}
@@ -98,9 +109,13 @@
 				@include assert() {
 					@include output() {
 						.o-example-label {
-							@include oLabelsContent($opts: ('state': (
-								'background-color': hotpink
-							)));
+							@include oLabelsContent(
+								$opts: (
+									'state': (
+										'background-color': hotpink,
+									),
+								)
+							);
 						}
 					}
 					@include expect() {
@@ -117,20 +132,21 @@
 				@include assert() {
 					@include output($selector: false) {
 						.o-example-label {
-							@include oLabelsContent($opts: ('size': 'small', 'state': 'content-commercial'));
+							@include oLabelsContent(
+								$opts: (
+									'size': 'small',
+									'state': 'content-commercial',
+								)
+							);
 						}
 					}
 					@include expect($selector: false) {
 						.o-example-label {
-							background-color: #008040;
+							background-color: rgb(0, 127.50102, 64.16718);
 							color: white;
 							font-size: 12px;
 							line-height: 1;
 							padding: calc(#{2px} - #{1px}) calc(#{4px} - #{1px});
-						}
-
-						.o-typography--loading-sans .o-example-label {
-							font-size: 10.44px;
 						}
 					}
 				}
@@ -140,7 +156,11 @@
 			@include it('outputs fundamental label styles required by all labels') {
 				@include assert() {
 					@include output() {
-						@include oLabelsContent($opts: ('base': true));
+						@include oLabelsContent(
+							$opts: (
+								'base': true,
+							)
+						);
 					}
 					@include contains() {
 						box-sizing: border-box;
@@ -149,6 +169,4 @@
 			}
 		}
 	}
-
-
 }

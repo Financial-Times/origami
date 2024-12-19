@@ -1,12 +1,7 @@
 @import '@financial-times/math';
-@import '@financial-times/o-buttons/main';
 @import '@financial-times/o-brand/main';
-@import '@financial-times/o-colors/main';
 @import '@financial-times/o-icons/main';
-@import '@financial-times/o-grid/main';
-@import '@financial-times/o-normalise/main';
-@import '@financial-times/o-typography/main';
-@import '@financial-times/o-visual-effects/main';
+@import '@financial-times/o-private-foundation/main';
 @import '@financial-times/o-forms/main';
 
 @import 'src/scss/brand';
@@ -32,17 +27,18 @@
 /// @param {List} $opts [('top', 'subnav', 'search', 'nav', 'anon', 'drawer', 'megamenu', 'sticky', 'simple', 'transparent')]
 /// @param {Boolean} $include-base-styles [true]
 @mixin oHeader($opts: $_o-header-features, $include-base-styles: true) {
+	@include oPrivateFoundation();
 
-	@include oGridAddLayout(
+	@include oPrivateGridAddLayout(
 		$layout-name: 'oHeaderL',
 		$layout-width: 1080px,
-		$gutter-width: map-get($o-grid-gutters, 'M')
+		$gutter-width: map-get($o-pf-grid-gutters, 'M')
 	);
 
 	@include oForms(
 		$opts: (
 			'elements': (
-				'text'
+				'text',
 			),
 			'features': (
 				'suffix',
@@ -62,14 +58,18 @@
 		}
 
 		// Output feature.
-		@if ($feature == 'top' or $feature == 'nav' or $feature == 'drawer') and _oHeaderSupports($feature) {
+		@if ($feature == 'top' or $feature == 'nav' or $feature == 'drawer') and
+			_oHeaderSupports($feature)
+		{
 			.o-header__drawer-button,
 			.o-header__top-button,
 			.o-header__nav-button {
-				@include oButtonsContent((
-					'type': 'primary',
-					'theme': $_o-header-buttons-theme
-				));
+				@include oPrivateButtonsContent(
+					(
+						'type': 'primary',
+						'theme': 'mono',
+					)
+				);
 			}
 		}
 

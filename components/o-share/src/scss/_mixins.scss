@@ -11,8 +11,8 @@
 		color: $color;
 		border-color: $border-color;
 
-		@include oNormaliseFocusApply() {
-			@include oNormaliseFocusContentForElementColour($color);
+		@include oPrivateNormaliseFocusApply() {
+			@include oPrivateNormaliseFocusContentForElementColour($color);
 		}
 	}
 
@@ -26,13 +26,16 @@
 
 		.o-share__icon--#{$icon-name}:hover,
 		.o-share__icon--#{$icon-name}:focus {
-			// The border and background colour of icons varies depending on
-			// whether the icon is a social icon with brand colour, i.e.
-			// Twitter blue, or an fticon.
-			$usecase: if($is-ft-icon, 'o-share/ft-icon', 'o-share/#{$icon-name}-icon');
-			border-color: oColorsByUsecase($usecase, 'border');
-			background-color: oColorsByUsecase($usecase, 'background');
-			color: oColorsByUsecase($usecase, 'text');
+			@if ($is-ft-icon) {
+				border-color: oPrivateFoundationGet('o3-color-palette-teal-40');
+				background-color: oPrivateFoundationGet('o3-color-palette-teal-40');
+				color: oPrivateFoundationGet('o3-color-palette-white');
+			} @else {
+				$icon-color: map-get($_o-share-colors, $icon-name);
+				border-color: $icon-color;
+				background-color: $icon-color;
+				color: oPrivateFoundationGet('o3-color-palette-white');
+			}
 		}
 	}
 }
@@ -111,8 +114,8 @@
 		}
 		// Margins between the icon and the text need setting.
 		&.o-share--vertical .o-share__action--labelled .o-share__text {
-			margin: oSpacingByName('s1');
-			margin-top: calc(-#{$icon-whitespace} + #{oSpacingByName('s1')});
+			margin: oPrivateSpacingByName('s1');
+			margin-top: calc(-#{$icon-whitespace} + #{oPrivateSpacingByName('s1')});
 		}
 		// When vertical, the width of the actions must not increase.
 		&.o-share--vertical .o-share__action {

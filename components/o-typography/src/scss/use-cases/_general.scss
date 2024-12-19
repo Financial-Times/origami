@@ -1,3 +1,4 @@
+
 /// Output styles for page headings.
 /// @example Output heading level 1 styles.
 ///     h1 {
@@ -38,7 +39,7 @@
 		),
 		$weight: $weight
 	);
-	color: oColorsByUsecase('body', 'text', $fallback: null);
+	color:  oColorsByUsecase('body', 'text', $fallback: null);
 	margin: 0 0 oSpacingByName('s4');
 }
 

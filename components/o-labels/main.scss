@@ -1,15 +1,13 @@
 @import '@financial-times/math';
-@import '@financial-times/o-spacing/main';
 @import '@financial-times/o-brand/main';
-@import "@financial-times/o-colors/main";
-@import "@financial-times/o-typography/main";
+@import "@financial-times/o-private-foundation/main";
 @import "@financial-times/o-editorial-typography/main";
 
-@import "src/scss/colors";
-@import "src/scss/brand";
-@import "src/scss/variables";
-@import "src/scss/placeholders";
-@import "src/scss/mixins";
+@import 'src/scss/colors';
+@import 'src/scss/brand';
+@import 'src/scss/variables';
+@import 'src/scss/placeholders';
+@import 'src/scss/mixins';
 
 /// Outputs all available features and styles for labels.
 ///
@@ -26,17 +24,19 @@
 /// @example scss - Timestamp label with inverse modifier class
 ///   @include oLabels($opts: ('timestamp': ('inverse': true));
 /// @access public
-@mixin oLabels($opts: (
-	'sizes': $_o-labels-standard-sizes,
-	'states': $_o-labels-standard-states,
-	'indicators': (
-		'status': $_o-labels-indicator-status,
-		'inverse': true,
-	),
-	'timestamp': (
-		'inverse': true
+@mixin oLabels(
+	$opts: (
+		'sizes': $_o-labels-standard-sizes,
+		'states': $_o-labels-standard-states,
+		'indicators': (
+			'status': $_o-labels-indicator-status,
+			'inverse': true,
+		),
+		'timestamp': (
+			'inverse': true,
+		),
 	)
-)) {
+) {
 	// Get standard labels to include
 	$standard-label-sizes: map-get($opts, 'sizes');
 	$standard-label-states: map-get($opts, 'states');
@@ -92,16 +92,29 @@
 	// Indicator label styles
 	@if $indicator-label-status and _oLabelsSupports('indicators') {
 		.o-labels-indicator {
-			@include oLabelsIndicatorContent($opts: ('block': true));
+			@include oLabelsIndicatorContent(
+				$opts: (
+					'block': true,
+				)
+			);
 		}
 
 		.o-labels-indicator__status {
-			@include oLabelsIndicatorContent($opts: ('element': 'status'));
+			@include oLabelsIndicatorContent(
+				$opts: (
+					'element': 'status',
+				)
+			);
 		}
 
 		@each $indicator-status in $indicator-label-status {
 			.o-labels-indicator--#{$indicator-status} {
-				@include oLabelsIndicatorContent($opts: ('block': true, 'modifier': $indicator-status));
+				@include oLabelsIndicatorContent(
+					$opts: (
+						'block': true,
+						'modifier': $indicator-status,
+					)
+				);
 			}
 		}
 
@@ -112,16 +125,16 @@
 		}
 
 		.o-labels-indicator.o-labels-indicator--badge {
-			padding: oSpacingByName('s1') oSpacingByName('s2');
+			padding: oPrivateSpacingByName('s1') oPrivateSpacingByName('s2');
 			font-weight: oFontsWeight('bold');
-			color: oColorsByName('white');
+			color: oPrivateFoundationGet('o3-color-palette-white');
 			border-radius: div(2, 16) * 1rem;
 			&.o-labels-indicator--live {
-				background: oColorsByName('crimson');
+				background: oPrivateFoundationGet('o3-color-palette-crimson');
 			}
 
 			&.o-labels-indicator--closed {
-				background: oColorsByName('black-60');
+				background: oPrivateFoundationGet('o3-color-palette-black-60');
 			}
 		}
 

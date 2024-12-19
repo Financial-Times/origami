@@ -1,0 +1,68 @@
+// Fetch tokens and use to configure brands
+// following the existing Origami v2 pattern.
+@use '_tokens.scss' as tokens;
+@import '@financial-times/o-brand/main';
+$o-private-foundation-tokens: tokens.forBrand(oBrandGetCurrent());
+
+/// Helper for `o-brand` function.
+@function oPrivateFoundationGet($variables, $from: null) {
+	$value: oBrandGet(
+		$component: 'o-private-foundation',
+		$variables: $variables,
+		$from: $from,
+	);
+	@if ($value == null) {
+		@error 'oPrivateFoundationGet: design token not found: #{$variables}';
+	}
+	@return $value;
+}
+
+/// Helper for `o-brand` function.
+@function oPrivateFoundationSupports($variant) {
+	@return oBrandSupportsVariant(
+		$component: 'o-private-foundation',
+		$variant: $variant
+	);
+}
+
+@if oBrandIs('core') {
+	@include oBrandDefine(
+		'o-private-foundation',
+		'core',
+		(
+			'variables':
+				map-merge(
+					$o-private-foundation-tokens,
+					(
+						// FT professional is treated as a theme in Origami v2.
+						'professional': tokens.forBrand('professional')
+					)
+				),
+			'supports-variants': (
+				'professional',
+			),
+		)
+	);
+}
+
+@if oBrandIs('internal') {
+	@include oBrandDefine(
+		'o-private-foundation',
+		'internal',
+		(
+			'variables': $o-private-foundation-tokens,
+			'supports-variants': (),
+		)
+	);
+}
+
+@if oBrandIs('whitelabel') {
+	@include oBrandDefine(
+		'o-private-foundation',
+		'whitelabel',
+		(
+			'variables': $o-private-foundation-tokens,
+			'supports-variants': (),
+		)
+	);
+}

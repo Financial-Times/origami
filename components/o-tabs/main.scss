@@ -1,5 +1,5 @@
+@import '@financial-times/o-private-foundation/main';
 @import '@financial-times/o-colors/main';
-@import '@financial-times/o-buttons/main';
 @import '@financial-times/o-brand/main';
 
 @import 'src/scss/brand';
@@ -16,10 +16,16 @@
 /// @example scss - Base styles and primary theme
 ///   @include oTabs($opts: ('themes': ('primary'));
 /// @access public
-@mixin oTabs($opts: (
-	'sizes': ('big'),
-	'button-tabs': $_o-tabs-default-button-tabs
-)) {
+@mixin oTabs(
+	$opts: (
+		'sizes': (
+			'big',
+		),
+		'button-tabs': $_o-tabs-default-button-tabs,
+	)
+) {
+	@include oPrivateFoundation();
+
 	$sizes: map-get($opts, 'sizes');
 	$button-tabs: map-get($opts, 'button-tabs');
 

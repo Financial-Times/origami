@@ -13,15 +13,15 @@
 	@include oBrandDefine('o-top-banner', 'core', (
 		'variables': (
 			'new-world': (
-				'background-color': oColorsByName('slate'),
-				'button-background-color': oColorsByName('ft-pink'),
-				'heading-color': oColorsByName('ft-pink'),
-				'copy-color': oColorsByName('white')
+				'background-color': oPrivateFoundationGet('o3-color-palette-slate'),
+				'button-background-color': oPrivateFoundationGet('o3-color-palette-ft-pink'),
+				'heading-color': oPrivateFoundationGet('o3-color-palette-ft-pink'),
+				'copy-color': oPrivateFoundationGet('o3-color-palette-white')
 			),
 			'professional-inverse': (
-				'background-color': oColorsByName('slate'),
-				'copy-color': oColorsByName('white'),
-				'brand-border-color': oColorsByName('mint-70'),
+				'background-color': oPrivateFoundationGet('o3-color-palette-slate'),
+				'copy-color': oPrivateFoundationGet('o3-color-palette-white'),
+				'brand-border-color': #8fb3a1,
 				'heading-font-weight': regular
 			)
 		),

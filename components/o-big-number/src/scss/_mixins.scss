@@ -1,11 +1,12 @@
 /// Styles for the big number itself.
 @mixin oBigNumberTitle {
-	@include oTypographySans($scale: 8, $weight: 'semibold');
-	margin: 0 0 oSpacingByName('s1');
+	@include oPrivateTypographySans($scale: 8, $weight: 'semibold');
+	margin: 0 0 oPrivateSpacingByName('s1');
 }
 
 /// Styles for the copy under the big number.
 @mixin oBigNumberContent {
-	@include oTypographySans($scale: 1, $line-height: 22px);
-	max-width: oTypographyMaxLineWidth();
+	@include oPrivateTypographySans($scale: 1);
+	line-height: 22px;
+	max-width: oPrivateTypographyMaxLineWidth();
 }

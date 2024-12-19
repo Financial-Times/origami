@@ -1,3 +1,4 @@
+@import '@financial-times/o-private-foundation/src/scss/o-normalise/main';
 /// Includes the correct mixin for elements
 /// based on the group name passed
 ///
@@ -69,7 +70,7 @@
 		@include _oTeaserStandfirst;
 	}
 	.o-teaser__visually-hidden {
-		@include oNormaliseVisuallyHidden;
+		@include oPrivateNormaliseVisuallyHidden;
 	}
 }
 
@@ -101,12 +102,11 @@
 
 	.o-teaser--promoted-content {
 		.o-teaser__heading a {
-			@include oTypographyLink(
-				$external: true,
-				$include-base-styles: false,
+			@include oPrivateTypographyLink();
+			@include oPrivateTypographyLinkThemeOverride(
 				$theme: (
 					'base': $_o-teaser-base-color,
-					'hover': $_o-teaser-focus-hover
+					'hover': $_o-teaser-focus-hover,
 				)
 			);
 		}
