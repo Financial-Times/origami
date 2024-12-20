@@ -1,11 +1,11 @@
 {
   "o3": {
     "border-radius": {
-      "01": {
+      "1": {
         "value": "4",
         "type": "borderRadius"
       },
-      "02": {
+      "2": {
         "value": "6",
         "type": "borderRadius"
       }
