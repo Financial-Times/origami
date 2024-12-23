@@ -21,7 +21,7 @@ Output all o-share styles.
 
 | Parameter | Type | Default                                                                                                                                                        | Description                                                                   |
 | --------- | ---- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| opts      | Map  | ('icons': ('x', 'facebook', 'linkedin', 'link', 'share', 'mail', 'pinterest', 'whatsapp', 'corporate'), 'sizes': ('small'), 'vertical': true, 'inverse': true) | The o-share variants to include styles for (see the README for more details). |
+| opts      | Map  | ('icons': ('x', 'facebook', 'linkedin', 'link', 'share', 'mail', 'pinterest', 'whatsapp', 'corporate', 'bluesky'), 'sizes': ('small'), 'vertical': true, 'inverse': true) | The o-share variants to include styles for (see the README for more details). |
 
 #### Examples
 
@@ -39,7 +39,7 @@ styles for select variants.
 
 ```Output
 @include oShare($opts: (
-     'icons': ('x', 'facebook', 'linkedin', 'link', 'share', 'mail', 'pinterest', 'whatsapp', 'corporate'),
+     'icons': ('x', 'facebook', 'linkedin', 'bluesky', 'link', 'share', 'mail', 'pinterest', 'whatsapp', 'corporate'),
      'sizes': ('small'),
      'vertical': true,
      'inverse': true
