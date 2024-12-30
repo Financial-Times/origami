@@ -1,6 +1,6 @@
 .o3-button {
 	--_o3-button-min-width: 80px;
-	--_o3-button-min-height: 40px;
+	--_o3-button-min-height: 44px;
 
 	--_o3-button-block-padding: var(--o3-spacing-4xs);
 	--_o3-button-inline-padding-start: var(--o3-spacing-2xs);
