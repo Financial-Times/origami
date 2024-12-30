@@ -120,6 +120,8 @@
   --_o3-font-size-metric2-negative-3: 10px;
   --_o3-font-size-metric2-negative-2: 12px;
   --_o3-font-size-metric2-negative-1: 14px;
+  --_o3-border-radius-1: 4px;
+  --_o3-border-radius-2: 6px;
   --o3-color-use-case-link-text: var(--o3-color-palette-teal);
   --o3-color-use-case-link-text-hover: var(--o3-color-palette-teal-30);
   --o3-color-use-case-link-inverse-text: var(--o3-color-palette-white);

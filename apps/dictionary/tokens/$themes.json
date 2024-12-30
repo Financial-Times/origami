@@ -13,6 +13,9 @@
       "core/components/o3-editorial-typography": "source",
       "core/components/o3-form/use-case": "source",
       "core/components/o3-form": "source",
+      "core/base/border-radius": "source",
+      "sustainable-views/base/border-radius": "disabled",
+      "internal/base/border-radius": "disabled",
       "core/base/typography": "source",
       "core/use-case/focus": "enabled"
     },
@@ -225,6 +228,8 @@
       "core/components/o3-editorial-typography": "source",
       "core/professional/components/o3-form/use-case": "source",
       "core/professional/components/o3-form": "source",
+      "sustainable-views/base/border-radius": "disabled",
+      "internal/base/border-radius": "disabled",
       "core/base/typography": "source",
       "core/use-case/focus": "enabled"
     },
@@ -430,7 +435,8 @@
       "internal/components/o3-form": "source",
       "internal/components/o3-form/use-case": "source",
       "internal/base/typography": "source",
-      "internal/use-case/focus": "enabled"
+      "internal/use-case/focus": "enabled",
+      "internal/base/border-radius": "source"
     },
     "$figmaCollectionId": "VariableCollectionId:6510:3502",
     "$figmaModeId": "6510:2",
@@ -580,6 +586,9 @@
       "whitelabel/components/o3-editorial-typography": "source",
       "whitelabel/components/o3-form": "source",
       "whitelabel/components/o3-form/use-case": "source",
+      "whitelabel/base/border-radius": "source",
+      "sustainable-views/base/border-radius": "disabled",
+      "internal/base/border-radius": "disabled",
       "core/base/typography": "source",
       "core/use-case/focus": "source",
       "whitelabel/base/typography": "source",
@@ -658,7 +667,9 @@
       "sustainable-views/components/o3-form": "source",
       "sustainable-views/components/o3-form/use-case": "source",
       "sustainable-views/base/typography": "source",
-      "sustainable-views/use-case/focus": "enabled"
+      "sustainable-views/use-case/focus": "enabled",
+      "sustainable-views/base/border-radius": "source",
+      "internal/base/border-radius": "disabled"
     },
     "$figmaCollectionId": "VariableCollectionId:6169:227",
     "$figmaModeId": "6169:4",
