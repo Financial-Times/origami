@@ -1,6 +1,6 @@
 @mixin _oHeaderSearch() {
 	.o-header__search {
-		background-color: oColorsByName('white-60');
+		background-color: oPrivateFoundationGet('o3-color-palette-white-60');
 		box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 		position: absolute;
 		z-index: $_o-header-z-index;
@@ -21,7 +21,7 @@
 	.o-header__drawer-search,
 	.o-header__search-form {
 		.o-forms-input--text input::placeholder {
-			color: oColorsByName('black-60');
+			color: oPrivateFoundationGet('o3-color-palette-black-60');
 		}
 	}
 
@@ -52,7 +52,7 @@
 	}
 
 	.o-header__search-icon {
-		@include oIconsContent($icon-name: 'search', $size: 38, $color: white);
+		@include oPrivateIconsContent($icon-name: 'search', $size: 38, $color: white);
 
 		@include oPrivateGridRespondTo($until: 'S') {
 			display: none;

@@ -1,8 +1,6 @@
 @import '@financial-times/math';
 @import '@financial-times/o-brand/main';
-@import '@financial-times/o-colors/main';
 @import '@financial-times/o-grid/main';
-@import '@financial-times/o-icons/main';
 @import '@financial-times/o-loading/main';
 @import '@financial-times/o-private-foundation/main';
 
@@ -35,7 +33,7 @@
 	}
 
 	.o-autocomplete__clear {
-		@include oIconsContent(
+		@include oPrivateIconsContent(
 			'cross',
 			_oAutocompleteGet('search-close'),
 			$size: $_o-autocomplete-icon-size
@@ -76,9 +74,9 @@
 	.o-autocomplete__menu {
 		@include oPrivateVisualEffectsShadowContent('high');
 		top: oPrivateSpacingByName('s1');
-		background-color: oColorsByName('white');
+		background-color: oPrivateFoundationGet('o3-color-palette-white');
 		border-top: 0;
-		color: oColorsByName('black');
+		color: oPrivateFoundationGet('o3-color-palette-black');
 		margin: 0;
 		max-height: 200px; // Make this configurable as it decides how many rows to show
 		overflow-x: hidden;
@@ -136,16 +134,16 @@
 
 	.o-autocomplete__option--focused,
 	.o-autocomplete__option:hover {
-		background-color: oColorsByName('teal');
-		border-color: oColorsByName('teal');
-		color: oColorsByName('white');
+		background-color: oPrivateFoundationGet('o3-color-palette-teal');
+		border-color: oPrivateFoundationGet('o3-color-palette-teal');
+		color: oPrivateFoundationGet('o3-color-palette-white');
 		outline: none;
 	}
 
 	.o-autocomplete__option--no-results {
-		background-color: oColorsMix(white, black, 98); // #fafafa
-		color: oColorsGetTextColor(
-			oColorsMix(white, black, 98),
+		background-color: oPrivateColorsMix('o3-color-palette-white', 'o3-color-palette-black', 98); // #fafafa
+		color: oPrivateColorsGetTextColor(
+			oPrivateColorsMix('o3-color-palette-white', 'o3-color-palette-black', 98),
 			$minimum-contrast: 'aa-normal'
 		);
 		cursor: not-allowed;
@@ -180,7 +178,7 @@
 		padding: oPrivateSpacingByName('s2');
 		box-sizing: border-box;
 		min-height: 40px;
-		background-color: oColorsByName('white');
+		background-color: oPrivateFoundationGet('o3-color-palette-white');
 	}
 
 	.o-autocomplete__menu-loading-container,

@@ -1,6 +1,6 @@
 {
 	"name": "@financial-times/o-share",
-	"version": "10.0.2",
+	"version": "10.0.3",
 	"description": "Provides styling for social media sharing links",
 	"keywords": [
 		"share",
@@ -33,7 +33,6 @@
 	"peerDependencies": {
 		"@financial-times/math": "^1.0.0",
 		"@financial-times/o-brand": "^4.1.0",
-		"@financial-times/o-colors": "^6.5.0",
 		"@financial-times/o-grid": "^6.0.0",
 		"@financial-times/o-private-foundation": "0.0.0"
 	},

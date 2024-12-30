@@ -32,16 +32,16 @@
 			}
 
 			&:after {
-				@include oIconsContent(
+				@include oPrivateIconsContent(
 					'cross',
 					$color: _oFormsGet('default-text'),
 					$size: null
 				);
-				background-color: oColorsByUsecase(page, background);
+				background-color: oPrivateFoundationGet('o3-color-use-case-page-background');
 				//stylelint-disable-next-line declaration-block-no-duplicate-properties
 				background-color: var(
 					--o-forms-toggle-handle-color,
-					#{oColorsByUsecase(page, background)}
+					#{oPrivateFoundationGet('o3-color-use-case-page-background')}
 				);
 				border: $_o-forms-spacing-half solid _oFormsGet('default-text');
 				border-radius: 50%;
@@ -58,7 +58,7 @@
 					background-color: _oFormsGet('toggle-selected');
 				}
 				&:after {
-					@include oIconsContent(
+					@include oPrivateIconsContent(
 						'tick',
 						$size: null,
 						$color: _oFormsGet('toggle-selected'),
@@ -110,7 +110,7 @@
 				color: _oFormsGet('disabled-text');
 
 				&:after {
-					@include oIconsContent(
+					@include oPrivateIconsContent(
 						'cross',
 						$size: null,
 						$color: black,
@@ -126,7 +126,7 @@
 			}
 			input[type='checkbox']:disabled:checked + .o-forms-input__label {
 				&:after {
-					@include oIconsContent(
+					@include oPrivateIconsContent(
 						'tick',
 						$size: null,
 						$color: black,

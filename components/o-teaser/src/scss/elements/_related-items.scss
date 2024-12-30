@@ -3,7 +3,7 @@
 	list-style: disc outside;
 	padding-left: 30px;
 	margin: 0 0 20px;
-	border-left: 1px solid oColorsByName('black-20');
+	border-left: 1px solid oPrivateFoundationGet('o3-color-palette-black-20');
 
 	@include oPrivateGridRespondTo($until: M) {
 		display: none;
@@ -36,11 +36,11 @@
 	}
 
 	&.o-teaser__related-item--video a:after {
-		@include oIconsContent('play', oColorsByName('white'), $size: 13);
+		@include oPrivateIconsContent('play', oPrivateFoundationGet('o3-color-palette-white'), $size: 13);
 		content: '';
 		position: relative;
 		top: 1px;
-		background-color: oColorsByName('black');
+		background-color: oPrivateFoundationGet('o3-color-palette-black');
 		margin-left: 5px;
 	}
 }

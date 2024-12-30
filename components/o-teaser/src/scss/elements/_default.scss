@@ -40,7 +40,7 @@
 /// Meta area and colouring styles
 @mixin _oTeaserMeta {
 	@include oPrivateTypographySans(0);
-	color: oColorsByUsecase('o-teaser/tag', 'text');
+	color: oPrivateFoundationGet('o3-color-palette-claret');
 	margin-bottom: oPrivateSpacingByName('s3');
 }
 
@@ -70,7 +70,7 @@
 
 @mixin _oTeaserTagSuffix {
 	@include oPrivateTypographySans(-1);
-	color: oColorsByName('black-60');
+	color: oPrivateFoundationGet('o3-color-palette-black-60');
 }
 
 /// Styles for standfirst element

@@ -1,4 +1,3 @@
-@import '@financial-times/o-colors/main';
 @import '@financial-times/o-private-foundation/main';
 
 @import 'src/scss/variables';
@@ -8,7 +7,7 @@
 	@include oPrivateFoundation();
 
 	.o-ft-affiliate-ribbon {
-		background-color: oColorsByName('black-90');
+		background-color: oPrivateFoundationGet('o3-color-palette-black-90');
 		padding: 15px 0;
 		height: 18px;
 		text-align: right;
@@ -38,7 +37,7 @@
 		}
 
 		&__text {
-			color: oColorsMix('white', 'black-90', 70);
+			color: oPrivateColorsMix('o3-color-palette-white', 'o3-color-palette-black-90', 70);
 		}
 	}
 }

@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.1](https://github.com/Financial-Times/origami/compare/o3-tooltip-v2.0.0...o3-tooltip-v2.0.1) (2024-12-17)
+
+
+### Bug Fixes
+
+* use WCAG AA compatible grey in whitelabel ([#1900](https://github.com/Financial-Times/origami/issues/1900)) ([729fb25](https://github.com/Financial-Times/origami/commit/729fb25d84ab6acaff421911ff21af4e2c14a77b))
+
 ## [2.0.0](https://github.com/Financial-Times/origami/compare/o3-tooltip-v1.0.7...o3-tooltip-v2.0.0) (2024-09-23)
 
 

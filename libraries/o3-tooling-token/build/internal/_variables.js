@@ -1222,7 +1222,791 @@ export default {
 		"css": "--o3-spacing-4xl",
 		"figma": "o3/spacing/4xl"
 },
-	"o3-font-family-metric": {
+	"o3-typography-use-case-display-lg-font-family": {
+		"shortName": "fontFamily",
+		"value": "financier display VF",
+		"originalValue": "{o3.font.family.financier-display}",
+		"type": "fontFamily",
+		"description": "Use this style for large screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"display-lg",
+				"fontFamily"
+		],
+		"css": "--o3-typography-use-case-display-lg-font-family",
+		"figma": "o3/typography/use-case/display-lg/fontFamily"
+},
+	"o3-typography-use-case-display-lg-font-weight": {
+		"shortName": "fontWeight",
+		"value": "800",
+		"originalValue": "{o3.font.weight.bold}",
+		"type": "fontWeight",
+		"description": "Use this style for large screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"display-lg",
+				"fontWeight"
+		],
+		"css": "--o3-typography-use-case-display-lg-font-weight",
+		"figma": "o3/typography/use-case/display-lg/fontWeight"
+},
+	"o3-typography-use-case-display-lg-font-size": {
+		"shortName": "fontSize",
+		"value": "48px",
+		"originalValue": "{o3.font.size.7}",
+		"type": "dimension",
+		"description": "Use this style for large screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"display-lg",
+				"fontSize"
+		],
+		"css": "--o3-typography-use-case-display-lg-font-size",
+		"figma": "o3/typography/use-case/display-lg/fontSize"
+},
+	"o3-typography-use-case-display-lg-line-height": {
+		"shortName": "lineHeight",
+		"value": "48px",
+		"originalValue": "{o3.font.lineheight.7}",
+		"type": "number",
+		"description": "Use this style for large screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"display-lg",
+				"lineHeight"
+		],
+		"css": "--o3-typography-use-case-display-lg-line-height",
+		"figma": "o3/typography/use-case/display-lg/lineHeight"
+},
+	"o3-typography-use-case-display-md-font-family": {
+		"shortName": "fontFamily",
+		"value": "financier display VF",
+		"originalValue": "{o3.font.family.financier-display}",
+		"type": "fontFamily",
+		"description": "Use this style for medium screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"display-md",
+				"fontFamily"
+		],
+		"css": "--o3-typography-use-case-display-md-font-family",
+		"figma": "o3/typography/use-case/display-md/fontFamily"
+},
+	"o3-typography-use-case-display-md-font-weight": {
+		"shortName": "fontWeight",
+		"value": "800",
+		"originalValue": "{o3.font.weight.bold}",
+		"type": "fontWeight",
+		"description": "Use this style for medium screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"display-md",
+				"fontWeight"
+		],
+		"css": "--o3-typography-use-case-display-md-font-weight",
+		"figma": "o3/typography/use-case/display-md/fontWeight"
+},
+	"o3-typography-use-case-display-md-font-size": {
+		"shortName": "fontSize",
+		"value": "40px",
+		"originalValue": "{o3.font.size.6}",
+		"type": "dimension",
+		"description": "Use this style for medium screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"display-md",
+				"fontSize"
+		],
+		"css": "--o3-typography-use-case-display-md-font-size",
+		"figma": "o3/typography/use-case/display-md/fontSize"
+},
+	"o3-typography-use-case-display-md-line-height": {
+		"shortName": "lineHeight",
+		"value": "40px",
+		"originalValue": "{o3.font.lineheight.6}",
+		"type": "number",
+		"description": "Use this style for medium screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"display-md",
+				"lineHeight"
+		],
+		"css": "--o3-typography-use-case-display-md-line-height",
+		"figma": "o3/typography/use-case/display-md/lineHeight"
+},
+	"o3-typography-use-case-display-sm-font-family": {
+		"shortName": "fontFamily",
+		"value": "financier display VF",
+		"originalValue": "{o3.font.family.financier-display}",
+		"type": "fontFamily",
+		"description": "Use this style for small screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"display-sm",
+				"fontFamily"
+		],
+		"css": "--o3-typography-use-case-display-sm-font-family",
+		"figma": "o3/typography/use-case/display-sm/fontFamily"
+},
+	"o3-typography-use-case-display-sm-font-weight": {
+		"shortName": "fontWeight",
+		"value": "800",
+		"originalValue": "{o3.font.weight.bold}",
+		"type": "fontWeight",
+		"description": "Use this style for small screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"display-sm",
+				"fontWeight"
+		],
+		"css": "--o3-typography-use-case-display-sm-font-weight",
+		"figma": "o3/typography/use-case/display-sm/fontWeight"
+},
+	"o3-typography-use-case-display-sm-font-size": {
+		"shortName": "fontSize",
+		"value": "32px",
+		"originalValue": "{o3.font.size.5}",
+		"type": "dimension",
+		"description": "Use this style for small screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"display-sm",
+				"fontSize"
+		],
+		"css": "--o3-typography-use-case-display-sm-font-size",
+		"figma": "o3/typography/use-case/display-sm/fontSize"
+},
+	"o3-typography-use-case-display-sm-line-height": {
+		"shortName": "lineHeight",
+		"value": "32px",
+		"originalValue": "{o3.font.lineheight.5}",
+		"type": "number",
+		"description": "Use this style for small screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"display-sm",
+				"lineHeight"
+		],
+		"css": "--o3-typography-use-case-display-sm-line-height",
+		"figma": "o3/typography/use-case/display-sm/lineHeight"
+},
+	"o3-typography-use-case-title-lg-font-family": {
+		"shortName": "fontFamily",
+		"value": "metric 2 VF",
+		"originalValue": "{o3.font.family.metric}",
+		"type": "fontFamily",
+		"description": "Use for the main page title H1 in functional pages such as account and settings. Use across all breakpoints.",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"title-lg",
+				"fontFamily"
+		],
+		"css": "--o3-typography-use-case-title-lg-font-family",
+		"figma": "o3/typography/use-case/title-lg/fontFamily"
+},
+	"o3-typography-use-case-title-lg-font-weight": {
+		"shortName": "fontWeight",
+		"value": "700",
+		"originalValue": "{o3.font.weight.semibold}",
+		"type": "fontWeight",
+		"description": "Use for the main page title H1 in functional pages such as account and settings. Use across all breakpoints.",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"title-lg",
+				"fontWeight"
+		],
+		"css": "--o3-typography-use-case-title-lg-font-weight",
+		"figma": "o3/typography/use-case/title-lg/fontWeight"
+},
+	"o3-typography-use-case-title-lg-font-size": {
+		"shortName": "fontSize",
+		"value": "28px",
+		"originalValue": "{o3.font.size-metric2.4}",
+		"type": "dimension",
+		"description": "Use for the main page title H1 in functional pages such as account and settings. Use across all breakpoints.",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"title-lg",
+				"fontSize"
+		],
+		"css": "--o3-typography-use-case-title-lg-font-size",
+		"figma": "o3/typography/use-case/title-lg/fontSize"
+},
+	"o3-typography-use-case-title-lg-line-height": {
+		"shortName": "lineHeight",
+		"value": "32px",
+		"originalValue": "{o3.font.lineheight-metric2.3}",
+		"type": "number",
+		"description": "Use for the main page title H1 in functional pages such as account and settings. Use across all breakpoints.",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"title-lg",
+				"lineHeight"
+		],
+		"css": "--o3-typography-use-case-title-lg-line-height",
+		"figma": "o3/typography/use-case/title-lg/lineHeight"
+},
+	"o3-typography-use-case-title-md-font-family": {
+		"shortName": "fontFamily",
+		"value": "metric 2 VF",
+		"originalValue": "{o3.font.family.metric}",
+		"type": "fontFamily",
+		"description": "Use this style as H3 or subtitles within the content body to break paragraphs, or for titles of components like forms, tables and cards across all breakpoints.",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"title-md",
+				"fontFamily"
+		],
+		"css": "--o3-typography-use-case-title-md-font-family",
+		"figma": "o3/typography/use-case/title-md/fontFamily"
+},
+	"o3-typography-use-case-title-md-font-weight": {
+		"shortName": "fontWeight",
+		"value": "400",
+		"originalValue": "{o3.font.weight.regular}",
+		"type": "fontWeight",
+		"description": "Use this style as H3 or subtitles within the content body to break paragraphs, or for titles of components like forms, tables and cards across all breakpoints.",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"title-md",
+				"fontWeight"
+		],
+		"css": "--o3-typography-use-case-title-md-font-weight",
+		"figma": "o3/typography/use-case/title-md/fontWeight"
+},
+	"o3-typography-use-case-title-md-font-size": {
+		"shortName": "fontSize",
+		"value": "24px",
+		"originalValue": "{o3.font.size-metric2.3}",
+		"type": "dimension",
+		"description": "Use this style as H3 or subtitles within the content body to break paragraphs, or for titles of components like forms, tables and cards across all breakpoints.",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"title-md",
+				"fontSize"
+		],
+		"css": "--o3-typography-use-case-title-md-font-size",
+		"figma": "o3/typography/use-case/title-md/fontSize"
+},
+	"o3-typography-use-case-title-md-line-height": {
+		"shortName": "lineHeight",
+		"value": "32px",
+		"originalValue": "{o3.font.lineheight-metric2.3}",
+		"type": "number",
+		"description": "Use this style as H3 or subtitles within the content body to break paragraphs, or for titles of components like forms, tables and cards across all breakpoints.",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"title-md",
+				"lineHeight"
+		],
+		"css": "--o3-typography-use-case-title-md-line-height",
+		"figma": "o3/typography/use-case/title-md/lineHeight"
+},
+	"o3-typography-use-case-title-sm-font-family": {
+		"shortName": "fontFamily",
+		"value": "metric 2 VF",
+		"originalValue": "{o3.font.family.metric}",
+		"type": "fontFamily",
+		"description": "Use H6 for subtitles within the content body to break up paragraphs, and H2 for subheadings on stream pages or as subtitles for components such as forms, tables, and cards across all breakpoints.",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"title-sm",
+				"fontFamily"
+		],
+		"css": "--o3-typography-use-case-title-sm-font-family",
+		"figma": "o3/typography/use-case/title-sm/fontFamily"
+},
+	"o3-typography-use-case-title-sm-font-weight": {
+		"shortName": "fontWeight",
+		"value": "400",
+		"originalValue": "{o3.font.weight.regular}",
+		"type": "fontWeight",
+		"description": "Use H6 for subtitles within the content body to break up paragraphs, and H2 for subheadings on stream pages or as subtitles for components such as forms, tables, and cards across all breakpoints.",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"title-sm",
+				"fontWeight"
+		],
+		"css": "--o3-typography-use-case-title-sm-font-weight",
+		"figma": "o3/typography/use-case/title-sm/fontWeight"
+},
+	"o3-typography-use-case-title-sm-line-height": {
+		"shortName": "lineHeight",
+		"value": "28px",
+		"originalValue": "{o3.font.lineheight-metric2.2}",
+		"type": "number",
+		"description": "Use H6 for subtitles within the content body to break up paragraphs, and H2 for subheadings on stream pages or as subtitles for components such as forms, tables, and cards across all breakpoints.",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"title-sm",
+				"lineHeight"
+		],
+		"css": "--o3-typography-use-case-title-sm-line-height",
+		"figma": "o3/typography/use-case/title-sm/lineHeight"
+},
+	"o3-typography-use-case-title-sm-font-size": {
+		"shortName": "fontSize",
+		"value": "20px",
+		"originalValue": "{o3.font.size-metric2.2}",
+		"type": "dimension",
+		"description": "Use H6 for subtitles within the content body to break up paragraphs, and H2 for subheadings on stream pages or as subtitles for components such as forms, tables, and cards across all breakpoints.",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"title-sm",
+				"fontSize"
+		],
+		"css": "--o3-typography-use-case-title-sm-font-size",
+		"figma": "o3/typography/use-case/title-sm/fontSize"
+},
+	"o3-typography-use-case-body-lg-font-family": {
+		"shortName": "fontFamily",
+		"value": "metric 2 VF",
+		"originalValue": "{o3.font.family.metric}",
+		"type": "fontFamily",
+		"description": "Use primarily for the stand-first (introductory summary or highlight) in topper component, as larger body text in components, or section description.",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"body-lg",
+				"fontFamily"
+		],
+		"css": "--o3-typography-use-case-body-lg-font-family",
+		"figma": "o3/typography/use-case/body-lg/fontFamily"
+},
+	"o3-typography-use-case-body-lg-font-weight": {
+		"shortName": "fontWeight",
+		"value": "400",
+		"originalValue": "{o3.font.weight.regular}",
+		"type": "fontWeight",
+		"description": "Use primarily for the stand-first (introductory summary or highlight) in topper component, as larger body text in components, or section description.",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"body-lg",
+				"fontWeight"
+		],
+		"css": "--o3-typography-use-case-body-lg-font-weight",
+		"figma": "o3/typography/use-case/body-lg/fontWeight"
+},
+	"o3-typography-use-case-body-lg-font-size": {
+		"shortName": "fontSize",
+		"value": "18px",
+		"originalValue": "{o3.font.size-metric2.1}",
+		"type": "dimension",
+		"description": "Use primarily for the stand-first (introductory summary or highlight) in topper component, as larger body text in components, or section description.",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"body-lg",
+				"fontSize"
+		],
+		"css": "--o3-typography-use-case-body-lg-font-size",
+		"figma": "o3/typography/use-case/body-lg/fontSize"
+},
+	"o3-typography-use-case-body-lg-line-height": {
+		"shortName": "lineHeight",
+		"value": "24px",
+		"originalValue": "{o3.font.lineheight-metric2.1}",
+		"type": "number",
+		"description": "Use primarily for the stand-first (introductory summary or highlight) in topper component, as larger body text in components, or section description.",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"body-lg",
+				"lineHeight"
+		],
+		"css": "--o3-typography-use-case-body-lg-line-height",
+		"figma": "o3/typography/use-case/body-lg/lineHeight"
+},
+	"o3-typography-use-case-body-base-font-family": {
+		"shortName": "fontFamily",
+		"value": "metric 2 VF",
+		"originalValue": "{o3.font.family.metric}",
+		"type": "fontFamily",
+		"description": "Use this style for the stand-first in teasers and as the default body copy style across components such as location in the byline.",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"body-base",
+				"fontFamily"
+		],
+		"css": "--o3-typography-use-case-body-base-font-family",
+		"figma": "o3/typography/use-case/body-base/fontFamily"
+},
+	"o3-typography-use-case-body-base-font-weight": {
+		"shortName": "fontWeight",
+		"value": "400",
+		"originalValue": "{o3.font.weight.regular}",
+		"type": "fontWeight",
+		"description": "Use this style for the stand-first in teasers and as the default body copy style across components such as location in the byline.",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"body-base",
+				"fontWeight"
+		],
+		"css": "--o3-typography-use-case-body-base-font-weight",
+		"figma": "o3/typography/use-case/body-base/fontWeight"
+},
+	"o3-typography-use-case-body-base-font-size": {
+		"shortName": "fontSize",
+		"value": "16px",
+		"originalValue": "{o3.font.size-metric2.0}",
+		"type": "dimension",
+		"description": "Use this style for the stand-first in teasers and as the default body copy style across components such as location in the byline.",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"body-base",
+				"fontSize"
+		],
+		"css": "--o3-typography-use-case-body-base-font-size",
+		"figma": "o3/typography/use-case/body-base/fontSize"
+},
+	"o3-typography-use-case-body-base-line-height": {
+		"shortName": "lineHeight",
+		"value": "24px",
+		"originalValue": "{o3.font.lineheight-metric2.0}",
+		"type": "number",
+		"description": "Use this style for the stand-first in teasers and as the default body copy style across components such as location in the byline.",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"body-base",
+				"lineHeight"
+		],
+		"css": "--o3-typography-use-case-body-base-line-height",
+		"figma": "o3/typography/use-case/body-base/lineHeight"
+},
+	"o3-typography-use-case-body-highlight-font-family": {
+		"shortName": "fontFamily",
+		"value": "metric 2 VF",
+		"originalValue": "{o3.font.family.metric}",
+		"type": "fontFamily",
+		"description": "Use this style for bold formatting in body copy or for small interactive elements, such as Topic tags and Author names.",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"body-highlight",
+				"fontFamily"
+		],
+		"css": "--o3-typography-use-case-body-highlight-font-family",
+		"figma": "o3/typography/use-case/body-highlight/fontFamily"
+},
+	"o3-typography-use-case-body-highlight-font-weight": {
+		"shortName": "fontWeight",
+		"value": "700",
+		"originalValue": "{o3.font.weight.semibold}",
+		"type": "fontWeight",
+		"description": "Use this style for bold formatting in body copy or for small interactive elements, such as Topic tags and Author names.",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"body-highlight",
+				"fontWeight"
+		],
+		"css": "--o3-typography-use-case-body-highlight-font-weight",
+		"figma": "o3/typography/use-case/body-highlight/fontWeight"
+},
+	"o3-typography-use-case-body-highlight-font-size": {
+		"shortName": "fontSize",
+		"value": "16px",
+		"originalValue": "{o3.font.size-metric2.0}",
+		"type": "dimension",
+		"description": "Use this style for bold formatting in body copy or for small interactive elements, such as Topic tags and Author names.",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"body-highlight",
+				"fontSize"
+		],
+		"css": "--o3-typography-use-case-body-highlight-font-size",
+		"figma": "o3/typography/use-case/body-highlight/fontSize"
+},
+	"o3-typography-use-case-body-highlight-line-height": {
+		"shortName": "lineHeight",
+		"value": "24px",
+		"originalValue": "{o3.font.lineheight-metric2.0}",
+		"type": "number",
+		"description": "Use this style for bold formatting in body copy or for small interactive elements, such as Topic tags and Author names.",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"body-highlight",
+				"lineHeight"
+		],
+		"css": "--o3-typography-use-case-body-highlight-line-height",
+		"figma": "o3/typography/use-case/body-highlight/lineHeight"
+},
+	"o3-typography-use-case-body-link-font-family": {
+		"shortName": "fontFamily",
+		"value": "metric 2 VF",
+		"originalValue": "{o3.font.family.metric}",
+		"type": "fontFamily",
+		"description": "Use this style primarily for links in paragraph or as stand alone link.",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"body-link",
+				"fontFamily"
+		],
+		"css": "--o3-typography-use-case-body-link-font-family",
+		"figma": "o3/typography/use-case/body-link/fontFamily"
+},
+	"o3-typography-use-case-body-link-font-weight": {
+		"shortName": "fontWeight",
+		"value": "400",
+		"originalValue": "{o3.font.weight.regular}",
+		"type": "fontWeight",
+		"description": "Use this style primarily for links in paragraph or as stand alone link.",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"body-link",
+				"fontWeight"
+		],
+		"css": "--o3-typography-use-case-body-link-font-weight",
+		"figma": "o3/typography/use-case/body-link/fontWeight"
+},
+	"o3-typography-use-case-body-link-font-size": {
+		"shortName": "fontSize",
+		"value": "16px",
+		"originalValue": "{o3.font.size-metric2.0}",
+		"type": "dimension",
+		"description": "Use this style primarily for links in paragraph or as stand alone link.",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"body-link",
+				"fontSize"
+		],
+		"css": "--o3-typography-use-case-body-link-font-size",
+		"figma": "o3/typography/use-case/body-link/fontSize"
+},
+	"o3-typography-use-case-body-link-line-height": {
+		"shortName": "lineHeight",
+		"value": "24px",
+		"originalValue": "{o3.font.lineheight-metric2.0}",
+		"type": "number",
+		"description": "Use this style primarily for links in paragraph or as stand alone link.",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"body-link",
+				"lineHeight"
+		],
+		"css": "--o3-typography-use-case-body-link-line-height",
+		"figma": "o3/typography/use-case/body-link/lineHeight"
+},
+	"o3-typography-use-case-detail-font-family": {
+		"shortName": "fontFamily",
+		"value": "metric 2 VF",
+		"originalValue": "{o3.font.family.metric}",
+		"type": "fontFamily",
+		"description": "Use this style for caption in visual assets such as image and video and for small text elements, such as secondary metadata, caveats, or footnotes.",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"detail",
+				"fontFamily"
+		],
+		"css": "--o3-typography-use-case-detail-font-family",
+		"figma": "o3/typography/use-case/detail/fontFamily"
+},
+	"o3-typography-use-case-detail-font-weight": {
+		"shortName": "fontWeight",
+		"value": "400",
+		"originalValue": "{o3.font.weight.regular}",
+		"type": "fontWeight",
+		"description": "Use this style for caption in visual assets such as image and video and for small text elements, such as secondary metadata, caveats, or footnotes.",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"detail",
+				"fontWeight"
+		],
+		"css": "--o3-typography-use-case-detail-font-weight",
+		"figma": "o3/typography/use-case/detail/fontWeight"
+},
+	"o3-typography-use-case-detail-font-size": {
+		"shortName": "fontSize",
+		"value": "14px",
+		"originalValue": "{o3.font.size-metric2.negative-1}",
+		"type": "dimension",
+		"description": "Use this style for caption in visual assets such as image and video and for small text elements, such as secondary metadata, caveats, or footnotes.",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"detail",
+				"fontSize"
+		],
+		"css": "--o3-typography-use-case-detail-font-size",
+		"figma": "o3/typography/use-case/detail/fontSize"
+},
+	"o3-typography-use-case-detail-line-height": {
+		"shortName": "lineHeight",
+		"value": "20px",
+		"originalValue": "{o3.font.lineheight-metric2.negative-1}",
+		"type": "number",
+		"description": "Use this style for caption in visual assets such as image and video and for small text elements, such as secondary metadata, caveats, or footnotes.",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"detail",
+				"lineHeight"
+		],
+		"css": "--o3-typography-use-case-detail-line-height",
+		"figma": "o3/typography/use-case/detail/lineHeight"
+},
+	"o3-typography-use-case-label-font-family": {
+		"shortName": "fontFamily",
+		"value": "metric 2 VF",
+		"originalValue": "{o3.font.family.metric}",
+		"type": "fontFamily",
+		"description": "Use this style for labels such as badges and metadata in teasers and toppers (e.g., \"Live,\" \"Premium,\" or the main timestamp). Avoid using full sentences.",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"label",
+				"fontFamily"
+		],
+		"css": "--o3-typography-use-case-label-font-family",
+		"figma": "o3/typography/use-case/label/fontFamily"
+},
+	"o3-typography-use-case-label-font-weight": {
+		"shortName": "fontWeight",
+		"value": "400",
+		"originalValue": "{o3.font.weight.regular}",
+		"type": "fontWeight",
+		"description": "Use this style for labels such as badges and metadata in teasers and toppers (e.g., \"Live,\" \"Premium,\" or the main timestamp). Avoid using full sentences.",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"label",
+				"fontWeight"
+		],
+		"css": "--o3-typography-use-case-label-font-weight",
+		"figma": "o3/typography/use-case/label/fontWeight"
+},
+	"o3-typography-use-case-label-font-size": {
+		"shortName": "fontSize",
+		"value": "14px",
+		"originalValue": "{o3.font.size-metric2.negative-1}",
+		"type": "dimension",
+		"description": "Use this style for labels such as badges and metadata in teasers and toppers (e.g., \"Live,\" \"Premium,\" or the main timestamp). Avoid using full sentences.",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"label",
+				"fontSize"
+		],
+		"css": "--o3-typography-use-case-label-font-size",
+		"figma": "o3/typography/use-case/label/fontSize"
+},
+	"o3-typography-use-case-label-line-height": {
+		"shortName": "lineHeight",
+		"value": "20px",
+		"originalValue": "{o3.font.lineheight-metric2.negative-1}",
+		"type": "number",
+		"description": "Use this style for labels such as badges and metadata in teasers and toppers (e.g., \"Live,\" \"Premium,\" or the main timestamp). Avoid using full sentences.",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"label",
+				"lineHeight"
+		],
+		"css": "--o3-typography-use-case-label-line-height",
+		"figma": "o3/typography/use-case/label/lineHeight"
+},
+	"o3-typography-use-case-label-text-case": {
+		"shortName": "textCase",
+		"value": "uppercase",
+		"originalValue": "uppercase",
+		"type": "textCase",
+		"description": "Use this style for labels such as badges and metadata in teasers and toppers (e.g., \"Live,\" \"Premium,\" or the main timestamp). Avoid using full sentences.",
+		"path": [
+				"o3",
+				"typography",
+				"use-case",
+				"label",
+				"textCase"
+		],
+		"css": "--o3-typography-use-case-label-text-case",
+		"figma": "o3/typography/use-case/label/textCase"
+},
+	"_o3-font-family-metric": {
 		"shortName": "metric",
 		"value": "metric 2 VF",
 		"originalValue": "metric 2 VF",
@@ -1233,10 +2017,10 @@ export default {
 				"family",
 				"metric"
 		],
-		"css": "--o3-font-family-metric",
+		"css": "--_o3-font-family-metric",
 		"figma": "o3/font/family/metric"
 },
-	"o3-font-family-financier-display": {
+	"_o3-font-family-financier-display": {
 		"shortName": "financier-display",
 		"value": "financier display VF",
 		"originalValue": "financier display VF",
@@ -1247,10 +2031,10 @@ export default {
 				"family",
 				"financier-display"
 		],
-		"css": "--o3-font-family-financier-display",
+		"css": "--_o3-font-family-financier-display",
 		"figma": "o3/font/family/financier-display"
 },
-	"o3-font-family-georgia": {
+	"_o3-font-family-georgia": {
 		"shortName": "georgia",
 		"value": "georgia",
 		"originalValue": "georgia",
@@ -1261,10 +2045,10 @@ export default {
 				"family",
 				"georgia"
 		],
-		"css": "--o3-font-family-georgia",
+		"css": "--_o3-font-family-georgia",
 		"figma": "o3/font/family/georgia"
 },
-	"o3-font-weight-light": {
+	"_o3-font-weight-light": {
 		"shortName": "light",
 		"value": "300",
 		"originalValue": "300",
@@ -1275,10 +2059,10 @@ export default {
 				"weight",
 				"light"
 		],
-		"css": "--o3-font-weight-light",
+		"css": "--_o3-font-weight-light",
 		"figma": "o3/font/weight/light"
 },
-	"o3-font-weight-regular": {
+	"_o3-font-weight-regular": {
 		"shortName": "regular",
 		"value": "400",
 		"originalValue": "400",
@@ -1289,10 +2073,10 @@ export default {
 				"weight",
 				"regular"
 		],
-		"css": "--o3-font-weight-regular",
+		"css": "--_o3-font-weight-regular",
 		"figma": "o3/font/weight/regular"
 },
-	"o3-font-weight-medium": {
+	"_o3-font-weight-medium": {
 		"shortName": "medium",
 		"value": "500",
 		"originalValue": "500",
@@ -1303,10 +2087,10 @@ export default {
 				"weight",
 				"medium"
 		],
-		"css": "--o3-font-weight-medium",
+		"css": "--_o3-font-weight-medium",
 		"figma": "o3/font/weight/medium"
 },
-	"o3-font-weight-semibold": {
+	"_o3-font-weight-semibold": {
 		"shortName": "semibold",
 		"value": "700",
 		"originalValue": "700",
@@ -1317,10 +2101,10 @@ export default {
 				"weight",
 				"semibold"
 		],
-		"css": "--o3-font-weight-semibold",
+		"css": "--_o3-font-weight-semibold",
 		"figma": "o3/font/weight/semibold"
 },
-	"o3-font-weight-bold": {
+	"_o3-font-weight-bold": {
 		"shortName": "bold",
 		"value": "800",
 		"originalValue": "800",
@@ -1331,10 +2115,10 @@ export default {
 				"weight",
 				"bold"
 		],
-		"css": "--o3-font-weight-bold",
+		"css": "--_o3-font-weight-bold",
 		"figma": "o3/font/weight/bold"
 },
-	"o3-font-lineheight-0": {
+	"_o3-font-lineheight-0": {
 		"shortName": "0",
 		"value": "20px",
 		"originalValue": "20",
@@ -1345,10 +2129,10 @@ export default {
 				"lineheight",
 				"0"
 		],
-		"css": "--o3-font-lineheight-0",
+		"css": "--_o3-font-lineheight-0",
 		"figma": "o3/font/lineheight/0"
 },
-	"o3-font-lineheight-1": {
+	"_o3-font-lineheight-1": {
 		"shortName": "1",
 		"value": "20px",
 		"originalValue": "20",
@@ -1359,10 +2143,10 @@ export default {
 				"lineheight",
 				"1"
 		],
-		"css": "--o3-font-lineheight-1",
+		"css": "--_o3-font-lineheight-1",
 		"figma": "o3/font/lineheight/1"
 },
-	"o3-font-lineheight-2": {
+	"_o3-font-lineheight-2": {
 		"shortName": "2",
 		"value": "24px",
 		"originalValue": "24",
@@ -1373,10 +2157,10 @@ export default {
 				"lineheight",
 				"2"
 		],
-		"css": "--o3-font-lineheight-2",
+		"css": "--_o3-font-lineheight-2",
 		"figma": "o3/font/lineheight/2"
 },
-	"o3-font-lineheight-3": {
+	"_o3-font-lineheight-3": {
 		"shortName": "3",
 		"value": "28px",
 		"originalValue": "28",
@@ -1387,10 +2171,10 @@ export default {
 				"lineheight",
 				"3"
 		],
-		"css": "--o3-font-lineheight-3",
+		"css": "--_o3-font-lineheight-3",
 		"figma": "o3/font/lineheight/3"
 },
-	"o3-font-lineheight-4": {
+	"_o3-font-lineheight-4": {
 		"shortName": "4",
 		"value": "32px",
 		"originalValue": "32",
@@ -1401,10 +2185,10 @@ export default {
 				"lineheight",
 				"4"
 		],
-		"css": "--o3-font-lineheight-4",
+		"css": "--_o3-font-lineheight-4",
 		"figma": "o3/font/lineheight/4"
 },
-	"o3-font-lineheight-5": {
+	"_o3-font-lineheight-5": {
 		"shortName": "5",
 		"value": "32px",
 		"originalValue": "32",
@@ -1415,10 +2199,10 @@ export default {
 				"lineheight",
 				"5"
 		],
-		"css": "--o3-font-lineheight-5",
+		"css": "--_o3-font-lineheight-5",
 		"figma": "o3/font/lineheight/5"
 },
-	"o3-font-lineheight-6": {
+	"_o3-font-lineheight-6": {
 		"shortName": "6",
 		"value": "40px",
 		"originalValue": "40",
@@ -1429,10 +2213,10 @@ export default {
 				"lineheight",
 				"6"
 		],
-		"css": "--o3-font-lineheight-6",
+		"css": "--_o3-font-lineheight-6",
 		"figma": "o3/font/lineheight/6"
 },
-	"o3-font-lineheight-7": {
+	"_o3-font-lineheight-7": {
 		"shortName": "7",
 		"value": "48px",
 		"originalValue": "48",
@@ -1443,10 +2227,10 @@ export default {
 				"lineheight",
 				"7"
 		],
-		"css": "--o3-font-lineheight-7",
+		"css": "--_o3-font-lineheight-7",
 		"figma": "o3/font/lineheight/7"
 },
-	"o3-font-lineheight-8": {
+	"_o3-font-lineheight-8": {
 		"shortName": "8",
 		"value": "56px",
 		"originalValue": "56",
@@ -1457,10 +2241,10 @@ export default {
 				"lineheight",
 				"8"
 		],
-		"css": "--o3-font-lineheight-8",
+		"css": "--_o3-font-lineheight-8",
 		"figma": "o3/font/lineheight/8"
 },
-	"o3-font-lineheight-9": {
+	"_o3-font-lineheight-9": {
 		"shortName": "9",
 		"value": "72px",
 		"originalValue": "72",
@@ -1471,10 +2255,10 @@ export default {
 				"lineheight",
 				"9"
 		],
-		"css": "--o3-font-lineheight-9",
+		"css": "--_o3-font-lineheight-9",
 		"figma": "o3/font/lineheight/9"
 },
-	"o3-font-lineheight-10": {
+	"_o3-font-lineheight-10": {
 		"shortName": "10",
 		"value": "84px",
 		"originalValue": "84",
@@ -1485,10 +2269,10 @@ export default {
 				"lineheight",
 				"10"
 		],
-		"css": "--o3-font-lineheight-10",
+		"css": "--_o3-font-lineheight-10",
 		"figma": "o3/font/lineheight/10"
 },
-	"o3-font-lineheight-negative-2": {
+	"_o3-font-lineheight-negative-2": {
 		"shortName": "negative-2",
 		"value": "16px",
 		"originalValue": "16",
@@ -1499,10 +2283,10 @@ export default {
 				"lineheight",
 				"negative-2"
 		],
-		"css": "--o3-font-lineheight-negative-2",
+		"css": "--_o3-font-lineheight-negative-2",
 		"figma": "o3/font/lineheight/negative-2"
 },
-	"o3-font-lineheight-negative-1": {
+	"_o3-font-lineheight-negative-1": {
 		"shortName": "negative-1",
 		"value": "16px",
 		"originalValue": "16",
@@ -1513,10 +2297,10 @@ export default {
 				"lineheight",
 				"negative-1"
 		],
-		"css": "--o3-font-lineheight-negative-1",
+		"css": "--_o3-font-lineheight-negative-1",
 		"figma": "o3/font/lineheight/negative-1"
 },
-	"o3-font-size-0": {
+	"_o3-font-size-0": {
 		"shortName": "0",
 		"value": "16px",
 		"originalValue": "16",
@@ -1527,10 +2311,10 @@ export default {
 				"size",
 				"0"
 		],
-		"css": "--o3-font-size-0",
+		"css": "--_o3-font-size-0",
 		"figma": "o3/font/size/0"
 },
-	"o3-font-size-1": {
+	"_o3-font-size-1": {
 		"shortName": "1",
 		"value": "18px",
 		"originalValue": "18",
@@ -1541,10 +2325,10 @@ export default {
 				"size",
 				"1"
 		],
-		"css": "--o3-font-size-1",
+		"css": "--_o3-font-size-1",
 		"figma": "o3/font/size/1"
 },
-	"o3-font-size-2": {
+	"_o3-font-size-2": {
 		"shortName": "2",
 		"value": "20px",
 		"originalValue": "20",
@@ -1555,10 +2339,10 @@ export default {
 				"size",
 				"2"
 		],
-		"css": "--o3-font-size-2",
+		"css": "--_o3-font-size-2",
 		"figma": "o3/font/size/2"
 },
-	"o3-font-size-3": {
+	"_o3-font-size-3": {
 		"shortName": "3",
 		"value": "24px",
 		"originalValue": "24",
@@ -1569,10 +2353,10 @@ export default {
 				"size",
 				"3"
 		],
-		"css": "--o3-font-size-3",
+		"css": "--_o3-font-size-3",
 		"figma": "o3/font/size/3"
 },
-	"o3-font-size-4": {
+	"_o3-font-size-4": {
 		"shortName": "4",
 		"value": "28px",
 		"originalValue": "28",
@@ -1583,10 +2367,10 @@ export default {
 				"size",
 				"4"
 		],
-		"css": "--o3-font-size-4",
+		"css": "--_o3-font-size-4",
 		"figma": "o3/font/size/4"
 },
-	"o3-font-size-5": {
+	"_o3-font-size-5": {
 		"shortName": "5",
 		"value": "32px",
 		"originalValue": "32",
@@ -1597,10 +2381,10 @@ export default {
 				"size",
 				"5"
 		],
-		"css": "--o3-font-size-5",
+		"css": "--_o3-font-size-5",
 		"figma": "o3/font/size/5"
 },
-	"o3-font-size-6": {
+	"_o3-font-size-6": {
 		"shortName": "6",
 		"value": "40px",
 		"originalValue": "40",
@@ -1611,10 +2395,10 @@ export default {
 				"size",
 				"6"
 		],
-		"css": "--o3-font-size-6",
+		"css": "--_o3-font-size-6",
 		"figma": "o3/font/size/6"
 },
-	"o3-font-size-7": {
+	"_o3-font-size-7": {
 		"shortName": "7",
 		"value": "48px",
 		"originalValue": "48",
@@ -1625,10 +2409,10 @@ export default {
 				"size",
 				"7"
 		],
-		"css": "--o3-font-size-7",
+		"css": "--_o3-font-size-7",
 		"figma": "o3/font/size/7"
 },
-	"o3-font-size-8": {
+	"_o3-font-size-8": {
 		"shortName": "8",
 		"value": "56px",
 		"originalValue": "56",
@@ -1639,10 +2423,10 @@ export default {
 				"size",
 				"8"
 		],
-		"css": "--o3-font-size-8",
+		"css": "--_o3-font-size-8",
 		"figma": "o3/font/size/8"
 },
-	"o3-font-size-9": {
+	"_o3-font-size-9": {
 		"shortName": "9",
 		"value": "72px",
 		"originalValue": "72",
@@ -1653,10 +2437,10 @@ export default {
 				"size",
 				"9"
 		],
-		"css": "--o3-font-size-9",
+		"css": "--_o3-font-size-9",
 		"figma": "o3/font/size/9"
 },
-	"o3-font-size-10": {
+	"_o3-font-size-10": {
 		"shortName": "10",
 		"value": "84px",
 		"originalValue": "84",
@@ -1667,10 +2451,10 @@ export default {
 				"size",
 				"10"
 		],
-		"css": "--o3-font-size-10",
+		"css": "--_o3-font-size-10",
 		"figma": "o3/font/size/10"
 },
-	"o3-font-size-negative-2": {
+	"_o3-font-size-negative-2": {
 		"shortName": "negative-2",
 		"value": "12px",
 		"originalValue": "12",
@@ -1681,10 +2465,10 @@ export default {
 				"size",
 				"negative-2"
 		],
-		"css": "--o3-font-size-negative-2",
+		"css": "--_o3-font-size-negative-2",
 		"figma": "o3/font/size/negative-2"
 },
-	"o3-font-size-negative-1": {
+	"_o3-font-size-negative-1": {
 		"shortName": "negative-1",
 		"value": "14px",
 		"originalValue": "14",
@@ -1695,13 +2479,13 @@ export default {
 				"size",
 				"negative-1"
 		],
-		"css": "--o3-font-size-negative-1",
+		"css": "--_o3-font-size-negative-1",
 		"figma": "o3/font/size/negative-1"
 },
-	"o3-font-lineheight-metric2-0": {
+	"_o3-font-lineheight-metric2-0": {
 		"shortName": "0",
-		"value": "20px",
-		"originalValue": "20",
+		"value": "24px",
+		"originalValue": "24",
 		"type": "lineHeights",
 		"path": [
 				"o3",
@@ -1709,10 +2493,10 @@ export default {
 				"lineheight-metric2",
 				"0"
 		],
-		"css": "--o3-font-lineheight-metric2-0",
+		"css": "--_o3-font-lineheight-metric2-0",
 		"figma": "o3/font/lineheight-metric2/0"
 },
-	"o3-font-lineheight-metric2-1": {
+	"_o3-font-lineheight-metric2-1": {
 		"shortName": "1",
 		"value": "24px",
 		"originalValue": "24",
@@ -1723,10 +2507,10 @@ export default {
 				"lineheight-metric2",
 				"1"
 		],
-		"css": "--o3-font-lineheight-metric2-1",
+		"css": "--_o3-font-lineheight-metric2-1",
 		"figma": "o3/font/lineheight-metric2/1"
 },
-	"o3-font-lineheight-metric2-2": {
+	"_o3-font-lineheight-metric2-2": {
 		"shortName": "2",
 		"value": "28px",
 		"originalValue": "28",
@@ -1737,10 +2521,10 @@ export default {
 				"lineheight-metric2",
 				"2"
 		],
-		"css": "--o3-font-lineheight-metric2-2",
+		"css": "--_o3-font-lineheight-metric2-2",
 		"figma": "o3/font/lineheight-metric2/2"
 },
-	"o3-font-lineheight-metric2-3": {
+	"_o3-font-lineheight-metric2-3": {
 		"shortName": "3",
 		"value": "32px",
 		"originalValue": "32",
@@ -1751,10 +2535,10 @@ export default {
 				"lineheight-metric2",
 				"3"
 		],
-		"css": "--o3-font-lineheight-metric2-3",
+		"css": "--_o3-font-lineheight-metric2-3",
 		"figma": "o3/font/lineheight-metric2/3"
 },
-	"o3-font-lineheight-metric2-4": {
+	"_o3-font-lineheight-metric2-4": {
 		"shortName": "4",
 		"value": "32px",
 		"originalValue": "32",
@@ -1765,10 +2549,10 @@ export default {
 				"lineheight-metric2",
 				"4"
 		],
-		"css": "--o3-font-lineheight-metric2-4",
+		"css": "--_o3-font-lineheight-metric2-4",
 		"figma": "o3/font/lineheight-metric2/4"
 },
-	"o3-font-lineheight-metric2-5": {
+	"_o3-font-lineheight-metric2-5": {
 		"shortName": "5",
 		"value": "40px",
 		"originalValue": "40",
@@ -1779,10 +2563,10 @@ export default {
 				"lineheight-metric2",
 				"5"
 		],
-		"css": "--o3-font-lineheight-metric2-5",
+		"css": "--_o3-font-lineheight-metric2-5",
 		"figma": "o3/font/lineheight-metric2/5"
 },
-	"o3-font-lineheight-metric2-6": {
+	"_o3-font-lineheight-metric2-6": {
 		"shortName": "6",
 		"value": "48px",
 		"originalValue": "48",
@@ -1793,10 +2577,10 @@ export default {
 				"lineheight-metric2",
 				"6"
 		],
-		"css": "--o3-font-lineheight-metric2-6",
+		"css": "--_o3-font-lineheight-metric2-6",
 		"figma": "o3/font/lineheight-metric2/6"
 },
-	"o3-font-lineheight-metric2-7": {
+	"_o3-font-lineheight-metric2-7": {
 		"shortName": "7",
 		"value": "56px",
 		"originalValue": "56",
@@ -1807,10 +2591,10 @@ export default {
 				"lineheight-metric2",
 				"7"
 		],
-		"css": "--o3-font-lineheight-metric2-7",
+		"css": "--_o3-font-lineheight-metric2-7",
 		"figma": "o3/font/lineheight-metric2/7"
 },
-	"o3-font-lineheight-metric2-8": {
+	"_o3-font-lineheight-metric2-8": {
 		"shortName": "8",
 		"value": "72px",
 		"originalValue": "72",
@@ -1821,10 +2605,10 @@ export default {
 				"lineheight-metric2",
 				"8"
 		],
-		"css": "--o3-font-lineheight-metric2-8",
+		"css": "--_o3-font-lineheight-metric2-8",
 		"figma": "o3/font/lineheight-metric2/8"
 },
-	"o3-font-lineheight-metric2-9": {
+	"_o3-font-lineheight-metric2-9": {
 		"shortName": "9",
 		"value": "84px",
 		"originalValue": "84",
@@ -1835,10 +2619,10 @@ export default {
 				"lineheight-metric2",
 				"9"
 		],
-		"css": "--o3-font-lineheight-metric2-9",
+		"css": "--_o3-font-lineheight-metric2-9",
 		"figma": "o3/font/lineheight-metric2/9"
 },
-	"o3-font-lineheight-metric2-negative-3": {
+	"_o3-font-lineheight-metric2-negative-3": {
 		"shortName": "negative-3",
 		"value": "16px",
 		"originalValue": "16",
@@ -1849,10 +2633,10 @@ export default {
 				"lineheight-metric2",
 				"negative-3"
 		],
-		"css": "--o3-font-lineheight-metric2-negative-3",
+		"css": "--_o3-font-lineheight-metric2-negative-3",
 		"figma": "o3/font/lineheight-metric2/negative-3"
 },
-	"o3-font-lineheight-metric2-negative-2": {
+	"_o3-font-lineheight-metric2-negative-2": {
 		"shortName": "negative-2",
 		"value": "16px",
 		"originalValue": "16",
@@ -1863,10 +2647,10 @@ export default {
 				"lineheight-metric2",
 				"negative-2"
 		],
-		"css": "--o3-font-lineheight-metric2-negative-2",
+		"css": "--_o3-font-lineheight-metric2-negative-2",
 		"figma": "o3/font/lineheight-metric2/negative-2"
 },
-	"o3-font-lineheight-metric2-negative-1": {
+	"_o3-font-lineheight-metric2-negative-1": {
 		"shortName": "negative-1",
 		"value": "20px",
 		"originalValue": "20",
@@ -1877,10 +2661,10 @@ export default {
 				"lineheight-metric2",
 				"negative-1"
 		],
-		"css": "--o3-font-lineheight-metric2-negative-1",
+		"css": "--_o3-font-lineheight-metric2-negative-1",
 		"figma": "o3/font/lineheight-metric2/negative-1"
 },
-	"o3-font-size-metric2-0": {
+	"_o3-font-size-metric2-0": {
 		"shortName": "0",
 		"value": "16px",
 		"originalValue": "16",
@@ -1891,10 +2675,10 @@ export default {
 				"size-metric2",
 				"0"
 		],
-		"css": "--o3-font-size-metric2-0",
+		"css": "--_o3-font-size-metric2-0",
 		"figma": "o3/font/size-metric2/0"
 },
-	"o3-font-size-metric2-1": {
+	"_o3-font-size-metric2-1": {
 		"shortName": "1",
 		"value": "18px",
 		"originalValue": "18",
@@ -1905,10 +2689,10 @@ export default {
 				"size-metric2",
 				"1"
 		],
-		"css": "--o3-font-size-metric2-1",
+		"css": "--_o3-font-size-metric2-1",
 		"figma": "o3/font/size-metric2/1"
 },
-	"o3-font-size-metric2-2": {
+	"_o3-font-size-metric2-2": {
 		"shortName": "2",
 		"value": "20px",
 		"originalValue": "20",
@@ -1919,10 +2703,10 @@ export default {
 				"size-metric2",
 				"2"
 		],
-		"css": "--o3-font-size-metric2-2",
+		"css": "--_o3-font-size-metric2-2",
 		"figma": "o3/font/size-metric2/2"
 },
-	"o3-font-size-metric2-3": {
+	"_o3-font-size-metric2-3": {
 		"shortName": "3",
 		"value": "24px",
 		"originalValue": "24",
@@ -1933,10 +2717,10 @@ export default {
 				"size-metric2",
 				"3"
 		],
-		"css": "--o3-font-size-metric2-3",
+		"css": "--_o3-font-size-metric2-3",
 		"figma": "o3/font/size-metric2/3"
 },
-	"o3-font-size-metric2-4": {
+	"_o3-font-size-metric2-4": {
 		"shortName": "4",
 		"value": "28px",
 		"originalValue": "28",
@@ -1947,10 +2731,10 @@ export default {
 				"size-metric2",
 				"4"
 		],
-		"css": "--o3-font-size-metric2-4",
+		"css": "--_o3-font-size-metric2-4",
 		"figma": "o3/font/size-metric2/4"
 },
-	"o3-font-size-metric2-5": {
+	"_o3-font-size-metric2-5": {
 		"shortName": "5",
 		"value": "32px",
 		"originalValue": "32",
@@ -1961,10 +2745,10 @@ export default {
 				"size-metric2",
 				"5"
 		],
-		"css": "--o3-font-size-metric2-5",
+		"css": "--_o3-font-size-metric2-5",
 		"figma": "o3/font/size-metric2/5"
 },
-	"o3-font-size-metric2-6": {
+	"_o3-font-size-metric2-6": {
 		"shortName": "6",
 		"value": "40px",
 		"originalValue": "40",
@@ -1975,10 +2759,10 @@ export default {
 				"size-metric2",
 				"6"
 		],
-		"css": "--o3-font-size-metric2-6",
+		"css": "--_o3-font-size-metric2-6",
 		"figma": "o3/font/size-metric2/6"
 },
-	"o3-font-size-metric2-7": {
+	"_o3-font-size-metric2-7": {
 		"shortName": "7",
 		"value": "48px",
 		"originalValue": "48",
@@ -1989,10 +2773,10 @@ export default {
 				"size-metric2",
 				"7"
 		],
-		"css": "--o3-font-size-metric2-7",
+		"css": "--_o3-font-size-metric2-7",
 		"figma": "o3/font/size-metric2/7"
 },
-	"o3-font-size-metric2-8": {
+	"_o3-font-size-metric2-8": {
 		"shortName": "8",
 		"value": "64px",
 		"originalValue": "64",
@@ -2003,10 +2787,10 @@ export default {
 				"size-metric2",
 				"8"
 		],
-		"css": "--o3-font-size-metric2-8",
+		"css": "--_o3-font-size-metric2-8",
 		"figma": "o3/font/size-metric2/8"
 },
-	"o3-font-size-metric2-9": {
+	"_o3-font-size-metric2-9": {
 		"shortName": "9",
 		"value": "72px",
 		"originalValue": "72",
@@ -2017,10 +2801,10 @@ export default {
 				"size-metric2",
 				"9"
 		],
-		"css": "--o3-font-size-metric2-9",
+		"css": "--_o3-font-size-metric2-9",
 		"figma": "o3/font/size-metric2/9"
 },
-	"o3-font-size-metric2-negative-3": {
+	"_o3-font-size-metric2-negative-3": {
 		"shortName": "negative-3",
 		"value": "10px",
 		"originalValue": "10",
@@ -2031,10 +2815,10 @@ export default {
 				"size-metric2",
 				"negative-3"
 		],
-		"css": "--o3-font-size-metric2-negative-3",
+		"css": "--_o3-font-size-metric2-negative-3",
 		"figma": "o3/font/size-metric2/negative-3"
 },
-	"o3-font-size-metric2-negative-2": {
+	"_o3-font-size-metric2-negative-2": {
 		"shortName": "negative-2",
 		"value": "12px",
 		"originalValue": "12",
@@ -2045,10 +2829,10 @@ export default {
 				"size-metric2",
 				"negative-2"
 		],
-		"css": "--o3-font-size-metric2-negative-2",
+		"css": "--_o3-font-size-metric2-negative-2",
 		"figma": "o3/font/size-metric2/negative-2"
 },
-	"o3-font-size-metric2-negative-1": {
+	"_o3-font-size-metric2-negative-1": {
 		"shortName": "negative-1",
 		"value": "14px",
 		"originalValue": "14",
@@ -2059,728 +2843,8 @@ export default {
 				"size-metric2",
 				"negative-1"
 		],
-		"css": "--o3-font-size-metric2-negative-1",
+		"css": "--_o3-font-size-metric2-negative-1",
 		"figma": "o3/font/size-metric2/negative-1"
-},
-	"o3-typography-use-case-body-standard-font-family": {
-		"shortName": "fontFamily",
-		"value": "metric 2 VF",
-		"originalValue": "{o3.font.family.metric}",
-		"type": "fontFamily",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"body-standard",
-				"fontFamily"
-		],
-		"css": "--o3-typography-use-case-body-standard-font-family",
-		"figma": "o3/typography/use-case/body-standard/fontFamily"
-},
-	"o3-typography-use-case-body-standard-font-weight": {
-		"shortName": "fontWeight",
-		"value": "400",
-		"originalValue": "{o3.font.weight.regular}",
-		"type": "fontWeight",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"body-standard",
-				"fontWeight"
-		],
-		"css": "--o3-typography-use-case-body-standard-font-weight",
-		"figma": "o3/typography/use-case/body-standard/fontWeight"
-},
-	"o3-typography-use-case-body-standard-font-size": {
-		"shortName": "fontSize",
-		"value": "16px",
-		"originalValue": "{o3.font.size-metric2.0}",
-		"type": "dimension",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"body-standard",
-				"fontSize"
-		],
-		"css": "--o3-typography-use-case-body-standard-font-size",
-		"figma": "o3/typography/use-case/body-standard/fontSize"
-},
-	"o3-typography-use-case-body-standard-line-height": {
-		"shortName": "lineHeight",
-		"value": "20px",
-		"originalValue": "{o3.font.lineheight-metric2.0}",
-		"type": "number",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"body-standard",
-				"lineHeight"
-		],
-		"css": "--o3-typography-use-case-body-standard-line-height",
-		"figma": "o3/typography/use-case/body-standard/lineHeight"
-},
-	"o3-typography-use-case-body-big-font-family": {
-		"shortName": "fontFamily",
-		"value": "metric 2 VF",
-		"originalValue": "{o3.font.family.metric}",
-		"type": "fontFamily",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"body-big",
-				"fontFamily"
-		],
-		"css": "--o3-typography-use-case-body-big-font-family",
-		"figma": "o3/typography/use-case/body-big/fontFamily"
-},
-	"o3-typography-use-case-body-big-font-weight": {
-		"shortName": "fontWeight",
-		"value": "400",
-		"originalValue": "{o3.font.weight.regular}",
-		"type": "fontWeight",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"body-big",
-				"fontWeight"
-		],
-		"css": "--o3-typography-use-case-body-big-font-weight",
-		"figma": "o3/typography/use-case/body-big/fontWeight"
-},
-	"o3-typography-use-case-body-big-font-size": {
-		"shortName": "fontSize",
-		"value": "18px",
-		"originalValue": "{o3.font.size-metric2.1}",
-		"type": "dimension",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"body-big",
-				"fontSize"
-		],
-		"css": "--o3-typography-use-case-body-big-font-size",
-		"figma": "o3/typography/use-case/body-big/fontSize"
-},
-	"o3-typography-use-case-body-big-line-height": {
-		"shortName": "lineHeight",
-		"value": "24px",
-		"originalValue": "{o3.font.lineheight-metric2.1}",
-		"type": "number",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"body-big",
-				"lineHeight"
-		],
-		"css": "--o3-typography-use-case-body-big-line-height",
-		"figma": "o3/typography/use-case/body-big/lineHeight"
-},
-	"o3-typography-use-case-body-small-font-family": {
-		"shortName": "fontFamily",
-		"value": "metric 2 VF",
-		"originalValue": "{o3.font.family.metric}",
-		"type": "fontFamily",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"body-small",
-				"fontFamily"
-		],
-		"css": "--o3-typography-use-case-body-small-font-family",
-		"figma": "o3/typography/use-case/body-small/fontFamily"
-},
-	"o3-typography-use-case-body-small-font-weight": {
-		"shortName": "fontWeight",
-		"value": "400",
-		"originalValue": "{o3.font.weight.regular}",
-		"type": "fontWeight",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"body-small",
-				"fontWeight"
-		],
-		"css": "--o3-typography-use-case-body-small-font-weight",
-		"figma": "o3/typography/use-case/body-small/fontWeight"
-},
-	"o3-typography-use-case-body-small-font-size": {
-		"shortName": "fontSize",
-		"value": "14px",
-		"originalValue": "{o3.font.size-metric2.negative-1}",
-		"type": "dimension",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"body-small",
-				"fontSize"
-		],
-		"css": "--o3-typography-use-case-body-small-font-size",
-		"figma": "o3/typography/use-case/body-small/fontSize"
-},
-	"o3-typography-use-case-body-small-line-height": {
-		"shortName": "lineHeight",
-		"value": "20px",
-		"originalValue": "{o3.font.lineheight-metric2.negative-1}",
-		"type": "number",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"body-small",
-				"lineHeight"
-		],
-		"css": "--o3-typography-use-case-body-small-line-height",
-		"figma": "o3/typography/use-case/body-small/lineHeight"
-},
-	"o3-typography-use-case-body-small-caps-font-family": {
-		"shortName": "fontFamily",
-		"value": "metric 2 VF",
-		"originalValue": "{o3.font.family.metric}",
-		"type": "fontFamily",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"body-small-caps",
-				"fontFamily"
-		],
-		"css": "--o3-typography-use-case-body-small-caps-font-family",
-		"figma": "o3/typography/use-case/body-small-caps/fontFamily"
-},
-	"o3-typography-use-case-body-small-caps-font-weight": {
-		"shortName": "fontWeight",
-		"value": "400",
-		"originalValue": "{o3.font.weight.regular}",
-		"type": "fontWeight",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"body-small-caps",
-				"fontWeight"
-		],
-		"css": "--o3-typography-use-case-body-small-caps-font-weight",
-		"figma": "o3/typography/use-case/body-small-caps/fontWeight"
-},
-	"o3-typography-use-case-body-small-caps-font-size": {
-		"shortName": "fontSize",
-		"value": "14px",
-		"originalValue": "{o3.font.size-metric2.negative-1}",
-		"type": "dimension",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"body-small-caps",
-				"fontSize"
-		],
-		"css": "--o3-typography-use-case-body-small-caps-font-size",
-		"figma": "o3/typography/use-case/body-small-caps/fontSize"
-},
-	"o3-typography-use-case-body-small-caps-line-height": {
-		"shortName": "lineHeight",
-		"value": "20px",
-		"originalValue": "{o3.font.lineheight-metric2.negative-1}",
-		"type": "number",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"body-small-caps",
-				"lineHeight"
-		],
-		"css": "--o3-typography-use-case-body-small-caps-line-height",
-		"figma": "o3/typography/use-case/body-small-caps/lineHeight"
-},
-	"o3-typography-use-case-body-small-bold-font-family": {
-		"shortName": "fontFamily",
-		"value": "metric 2 VF",
-		"originalValue": "{o3.font.family.metric}",
-		"type": "fontFamily",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"body-small-bold",
-				"fontFamily"
-		],
-		"css": "--o3-typography-use-case-body-small-bold-font-family",
-		"figma": "o3/typography/use-case/body-small-bold/fontFamily"
-},
-	"o3-typography-use-case-body-small-bold-font-weight": {
-		"shortName": "fontWeight",
-		"value": "700",
-		"originalValue": "{o3.font.weight.semibold}",
-		"type": "fontWeight",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"body-small-bold",
-				"fontWeight"
-		],
-		"css": "--o3-typography-use-case-body-small-bold-font-weight",
-		"figma": "o3/typography/use-case/body-small-bold/fontWeight"
-},
-	"o3-typography-use-case-body-small-bold-font-size": {
-		"shortName": "fontSize",
-		"value": "14px",
-		"originalValue": "{o3.font.size-metric2.negative-1}",
-		"type": "dimension",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"body-small-bold",
-				"fontSize"
-		],
-		"css": "--o3-typography-use-case-body-small-bold-font-size",
-		"figma": "o3/typography/use-case/body-small-bold/fontSize"
-},
-	"o3-typography-use-case-body-small-bold-line-height": {
-		"shortName": "lineHeight",
-		"value": "20px",
-		"originalValue": "{o3.font.lineheight-metric2.negative-1}",
-		"type": "number",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"body-small-bold",
-				"lineHeight"
-		],
-		"css": "--o3-typography-use-case-body-small-bold-line-height",
-		"figma": "o3/typography/use-case/body-small-bold/lineHeight"
-},
-	"o3-typography-use-case-footer-font-family": {
-		"shortName": "fontFamily",
-		"value": "metric 2 VF",
-		"originalValue": "{o3.font.family.metric}",
-		"type": "fontFamily",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"footer",
-				"fontFamily"
-		],
-		"css": "--o3-typography-use-case-footer-font-family",
-		"figma": "o3/typography/use-case/footer/fontFamily"
-},
-	"o3-typography-use-case-footer-font-weight": {
-		"shortName": "fontWeight",
-		"value": "400",
-		"originalValue": "{o3.font.weight.regular}",
-		"type": "fontWeight",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"footer",
-				"fontWeight"
-		],
-		"css": "--o3-typography-use-case-footer-font-weight",
-		"figma": "o3/typography/use-case/footer/fontWeight"
-},
-	"o3-typography-use-case-footer-font-size": {
-		"shortName": "fontSize",
-		"value": "16px",
-		"originalValue": "{o3.font.size-metric2.0}",
-		"type": "dimension",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"footer",
-				"fontSize"
-		],
-		"css": "--o3-typography-use-case-footer-font-size",
-		"figma": "o3/typography/use-case/footer/fontSize"
-},
-	"o3-typography-use-case-footer-line-height": {
-		"shortName": "lineHeight",
-		"value": "20px",
-		"originalValue": "{o3.font.lineheight-metric2.0}",
-		"type": "number",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"footer",
-				"lineHeight"
-		],
-		"css": "--o3-typography-use-case-footer-line-height",
-		"figma": "o3/typography/use-case/footer/lineHeight"
-},
-	"o3-typography-use-case-caption-font-family": {
-		"shortName": "fontFamily",
-		"value": "metric 2 VF",
-		"originalValue": "{o3.font.family.metric}",
-		"type": "fontFamily",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"caption",
-				"fontFamily"
-		],
-		"css": "--o3-typography-use-case-caption-font-family",
-		"figma": "o3/typography/use-case/caption/fontFamily"
-},
-	"o3-typography-use-case-caption-font-weight": {
-		"shortName": "fontWeight",
-		"value": "400",
-		"originalValue": "{o3.font.weight.regular}",
-		"type": "fontWeight",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"caption",
-				"fontWeight"
-		],
-		"css": "--o3-typography-use-case-caption-font-weight",
-		"figma": "o3/typography/use-case/caption/fontWeight"
-},
-	"o3-typography-use-case-caption-font-size": {
-		"shortName": "fontSize",
-		"value": "12px",
-		"originalValue": "{o3.font.size-metric2.negative-2}",
-		"type": "dimension",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"caption",
-				"fontSize"
-		],
-		"css": "--o3-typography-use-case-caption-font-size",
-		"figma": "o3/typography/use-case/caption/fontSize"
-},
-	"o3-typography-use-case-caption-line-height": {
-		"shortName": "lineHeight",
-		"value": "16px",
-		"originalValue": "{o3.font.lineheight-metric2.negative-2}",
-		"type": "number",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"caption",
-				"lineHeight"
-		],
-		"css": "--o3-typography-use-case-caption-line-height",
-		"figma": "o3/typography/use-case/caption/lineHeight"
-},
-	"o3-typography-use-case-heading1-font-family": {
-		"shortName": "fontFamily",
-		"value": "metric 2 VF",
-		"originalValue": "{o3.font.family.metric}",
-		"type": "fontFamily",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"heading1",
-				"fontFamily"
-		],
-		"css": "--o3-typography-use-case-heading1-font-family",
-		"figma": "o3/typography/use-case/heading1/fontFamily"
-},
-	"o3-typography-use-case-heading1-font-weight": {
-		"shortName": "fontWeight",
-		"value": "700",
-		"originalValue": "{o3.font.weight.semibold}",
-		"type": "fontWeight",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"heading1",
-				"fontWeight"
-		],
-		"css": "--o3-typography-use-case-heading1-font-weight",
-		"figma": "o3/typography/use-case/heading1/fontWeight"
-},
-	"o3-typography-use-case-heading1-font-size": {
-		"shortName": "fontSize",
-		"value": "28px",
-		"originalValue": "{o3.font.size-metric2.4}",
-		"type": "dimension",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"heading1",
-				"fontSize"
-		],
-		"css": "--o3-typography-use-case-heading1-font-size",
-		"figma": "o3/typography/use-case/heading1/fontSize"
-},
-	"o3-typography-use-case-heading1-line-height": {
-		"shortName": "lineHeight",
-		"value": "32px",
-		"originalValue": "{o3.font.lineheight-metric2.4}",
-		"type": "number",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"heading1",
-				"lineHeight"
-		],
-		"css": "--o3-typography-use-case-heading1-line-height",
-		"figma": "o3/typography/use-case/heading1/lineHeight"
-},
-	"o3-typography-use-case-heading2-font-family": {
-		"shortName": "fontFamily",
-		"value": "metric 2 VF",
-		"originalValue": "{o3.font.family.metric}",
-		"type": "fontFamily",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"heading2",
-				"fontFamily"
-		],
-		"css": "--o3-typography-use-case-heading2-font-family",
-		"figma": "o3/typography/use-case/heading2/fontFamily"
-},
-	"o3-typography-use-case-heading2-font-weight": {
-		"shortName": "fontWeight",
-		"value": "700",
-		"originalValue": "{o3.font.weight.semibold}",
-		"type": "fontWeight",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"heading2",
-				"fontWeight"
-		],
-		"css": "--o3-typography-use-case-heading2-font-weight",
-		"figma": "o3/typography/use-case/heading2/fontWeight"
-},
-	"o3-typography-use-case-heading2-font-size": {
-		"shortName": "fontSize",
-		"value": "24px",
-		"originalValue": "{o3.font.size-metric2.3}",
-		"type": "dimension",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"heading2",
-				"fontSize"
-		],
-		"css": "--o3-typography-use-case-heading2-font-size",
-		"figma": "o3/typography/use-case/heading2/fontSize"
-},
-	"o3-typography-use-case-heading2-line-height": {
-		"shortName": "lineHeight",
-		"value": "32px",
-		"originalValue": "{o3.font.lineheight-metric2.3}",
-		"type": "number",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"heading2",
-				"lineHeight"
-		],
-		"css": "--o3-typography-use-case-heading2-line-height",
-		"figma": "o3/typography/use-case/heading2/lineHeight"
-},
-	"o3-typography-use-case-heading3-font-family": {
-		"shortName": "fontFamily",
-		"value": "metric 2 VF",
-		"originalValue": "{o3.font.family.metric}",
-		"type": "fontFamily",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"heading3",
-				"fontFamily"
-		],
-		"css": "--o3-typography-use-case-heading3-font-family",
-		"figma": "o3/typography/use-case/heading3/fontFamily"
-},
-	"o3-typography-use-case-heading3-font-weight": {
-		"shortName": "fontWeight",
-		"value": "700",
-		"originalValue": "{o3.font.weight.semibold}",
-		"type": "fontWeight",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"heading3",
-				"fontWeight"
-		],
-		"css": "--o3-typography-use-case-heading3-font-weight",
-		"figma": "o3/typography/use-case/heading3/fontWeight"
-},
-	"o3-typography-use-case-heading3-font-size": {
-		"shortName": "fontSize",
-		"value": "20px",
-		"originalValue": "{o3.font.size-metric2.2}",
-		"type": "dimension",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"heading3",
-				"fontSize"
-		],
-		"css": "--o3-typography-use-case-heading3-font-size",
-		"figma": "o3/typography/use-case/heading3/fontSize"
-},
-	"o3-typography-use-case-heading3-line-height": {
-		"shortName": "lineHeight",
-		"value": "28px",
-		"originalValue": "{o3.font.lineheight-metric2.2}",
-		"type": "number",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"heading3",
-				"lineHeight"
-		],
-		"css": "--o3-typography-use-case-heading3-line-height",
-		"figma": "o3/typography/use-case/heading3/lineHeight"
-},
-	"o3-typography-use-case-heading4-font-family": {
-		"shortName": "fontFamily",
-		"value": "metric 2 VF",
-		"originalValue": "{o3.font.family.metric}",
-		"type": "fontFamily",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"heading4",
-				"fontFamily"
-		],
-		"css": "--o3-typography-use-case-heading4-font-family",
-		"figma": "o3/typography/use-case/heading4/fontFamily"
-},
-	"o3-typography-use-case-heading4-font-weight": {
-		"shortName": "fontWeight",
-		"value": "700",
-		"originalValue": "{o3.font.weight.semibold}",
-		"type": "fontWeight",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"heading4",
-				"fontWeight"
-		],
-		"css": "--o3-typography-use-case-heading4-font-weight",
-		"figma": "o3/typography/use-case/heading4/fontWeight"
-},
-	"o3-typography-use-case-heading4-font-size": {
-		"shortName": "fontSize",
-		"value": "18px",
-		"originalValue": "{o3.font.size-metric2.1}",
-		"type": "dimension",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"heading4",
-				"fontSize"
-		],
-		"css": "--o3-typography-use-case-heading4-font-size",
-		"figma": "o3/typography/use-case/heading4/fontSize"
-},
-	"o3-typography-use-case-heading4-line-height": {
-		"shortName": "lineHeight",
-		"value": "24px",
-		"originalValue": "{o3.font.lineheight-metric2.1}",
-		"type": "number",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"heading4",
-				"lineHeight"
-		],
-		"css": "--o3-typography-use-case-heading4-line-height",
-		"figma": "o3/typography/use-case/heading4/lineHeight"
-},
-	"o3-typography-use-case-heading5-font-family": {
-		"shortName": "fontFamily",
-		"value": "metric 2 VF",
-		"originalValue": "{o3.font.family.metric}",
-		"type": "fontFamily",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"heading5",
-				"fontFamily"
-		],
-		"css": "--o3-typography-use-case-heading5-font-family",
-		"figma": "o3/typography/use-case/heading5/fontFamily"
-},
-	"o3-typography-use-case-heading5-font-weight": {
-		"shortName": "fontWeight",
-		"value": "700",
-		"originalValue": "{o3.font.weight.semibold}",
-		"type": "fontWeight",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"heading5",
-				"fontWeight"
-		],
-		"css": "--o3-typography-use-case-heading5-font-weight",
-		"figma": "o3/typography/use-case/heading5/fontWeight"
-},
-	"o3-typography-use-case-heading5-font-size": {
-		"shortName": "fontSize",
-		"value": "16px",
-		"originalValue": "{o3.font.size-metric2.0}",
-		"type": "dimension",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"heading5",
-				"fontSize"
-		],
-		"css": "--o3-typography-use-case-heading5-font-size",
-		"figma": "o3/typography/use-case/heading5/fontSize"
-},
-	"o3-typography-use-case-heading5-line-height": {
-		"shortName": "lineHeight",
-		"value": "20px",
-		"originalValue": "{o3.font.lineheight-metric2.0}",
-		"type": "number",
-		"path": [
-				"o3",
-				"typography",
-				"use-case",
-				"heading5",
-				"lineHeight"
-		],
-		"css": "--o3-typography-use-case-heading5-line-height",
-		"figma": "o3/typography/use-case/heading5/lineHeight"
 },
 	"o3-focus-use-case-ring-inner": {
 		"shortName": "inner",

@@ -5,7 +5,7 @@
         "link": {
           "text": {
             "@": {
-              "value": "{o3.color.palette.black-50}",
+              "value": "#757575",
               "type": "color",
               "description": ""
             },
@@ -73,7 +73,7 @@
         },
         "muted": {
           "text": {
-            "value": "{o3.color.palette.black-50}",
+            "value": "#757575",
             "type": "color",
             "description": "\"Muted\" text is less prominent, for example credits and captions."
           }

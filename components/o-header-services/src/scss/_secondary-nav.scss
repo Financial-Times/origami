@@ -75,7 +75,7 @@
 		}
 
 		&:before {
-			@include oIconsContent(
+			@include oPrivateIconsContent(
 				'arrow-right',
 				_oHeaderServicesGet('arrow-icon-color'),
 				oPrivateSpacingByName('s4')

@@ -15,7 +15,7 @@
 
 		select {
 			@include _oFormsInputBase($disabled);
-			@include oIconsContent(
+			@include oPrivateIconsContent(
 				'arrow-down',
 				_oFormsGet('field-standard-text'),
 				$size: null,
@@ -38,12 +38,12 @@
 
 			// Hide stock browser arrow in IE 10+
 			&::-ms-expand {
-				color: oColorsByName('white');
+				color: oPrivateFoundationGet('o3-color-palette-white');
 				display: none;
 			}
 
 			&:disabled {
-				@include oIconsContent(
+				@include oPrivateIconsContent(
 					'arrow-down',
 					_oFormsGet('disabled-text'),
 					$size: null,

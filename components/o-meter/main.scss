@@ -1,4 +1,3 @@
-@import '@financial-times/o-colors/main';
 @import '@financial-times/o-private-foundation/main';
 @import 'src/scss/variables';
 @import 'src/scss/functions';
@@ -17,10 +16,10 @@
 		display: block;
 		width: var(--o-meter-width);
 		height: var(--o-meter-height);
-		--o-meter-background-color: #{oColorsByName('slate-white-15')};
-		--o-meter-optimum-color: #{oColorsByName('jade')};
-		--o-meter-sub-optimum-color: #{oColorsByName('mandarin')};
-		--o-meter-less-than-sub-optimum-color: #{oColorsByName('crimson')};
+		--o-meter-background-color: #{oPrivateFoundationGet('o3-color-palette-slate-white-15')};
+		--o-meter-optimum-color: #{oPrivateFoundationGet('o3-color-palette-jade')};
+		--o-meter-sub-optimum-color: #{oPrivateFoundationGet('o3-color-palette-mandarin')};
+		--o-meter-less-than-sub-optimum-color: #{oPrivateFoundationGet('o3-color-palette-crimson')};
 
 		/* Background in Firefox */
 		background: var(--o-meter-background-color);
@@ -40,8 +39,8 @@
 		display: none; // we only display the value box for the browsers that support the meter tag
 		position: relative;
 		padding: 0 oPrivateSpacingByName('s1');
-		background: #{oColorsByName('black')};
-		color: #{oColorsByName('white')};
+		background: #{oPrivateFoundationGet('o3-color-palette-black')};
+		color: #{oPrivateFoundationGet('o3-color-palette-white')};
 		text-align: center;
 		top: 4px;
 		transform: translateX(-50%);
@@ -54,7 +53,7 @@
 			left: 50%;
 			border: 4px solid transparent;
 			border-bottom-width: 6px;
-			border-bottom-color: #{oColorsByName('black')};
+			border-bottom-color: #{oPrivateFoundationGet('o3-color-palette-black')};
 		}
 	}
 

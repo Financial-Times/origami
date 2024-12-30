@@ -19,7 +19,7 @@
 		}
 
 		.o-forms-input__label:after {
-			@include oIconsContent(
+			@include oPrivateIconsContent(
 				'cross',
 				$size: null,
 				$color: _oFormsGet('toggle-inverse'),
@@ -32,7 +32,7 @@
 		input {
 			@include oPrivateNormaliseFocusApply() {
 				@include oPrivateNormaliseFocusContentInverse();
-			}
+			};
 		}
 
 		input[type='checkbox'] {
@@ -67,7 +67,7 @@
 			}
 
 			+ .o-forms-input__label:after {
-				@include oIconsContent(
+				@include oPrivateIconsContent(
 					'tick',
 					$size: null,
 					$color: _oFormsGet('toggle-inverse-selected'),
@@ -103,7 +103,7 @@
 				}
 			}
 			.o-forms-input--radio-box__container {
-				background-color: oColorsByName('white');
+				background-color: oPrivateFoundationGet('o3-color-palette-white');
 			}
 
 			.o-forms-input--radio-box input[type='radio'] {
@@ -153,14 +153,14 @@
 			border-style: solid;
 
 			.o-forms__error-summary__heading {
-				color: oColorsByName('white');
+				color: oPrivateFoundationGet('o3-color-palette-white');
 			}
 
 			.o-forms__error-summary__list {
-				color: oColorsByName('white');
+				color: oPrivateFoundationGet('o3-color-palette-white');
 
 				a {
-					color: oColorsByName('white');
+					color: oPrivateFoundationGet('o3-color-palette-white');
 					border-bottom: 1px solid _oFormsGet('invalid-base-inverse');
 				}
 

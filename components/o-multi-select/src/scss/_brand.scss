@@ -22,8 +22,8 @@
 		'core',
 		(
 			'variables': (
-				button-bg-color: oColorsByName('wheat'),
-				button-text-color: oColorsByName('black-80'),
+				button-bg-color: oPrivateFoundationGet('o3-color-palette-wheat'),
+				button-text-color: oPrivateFoundationGet('o3-color-palette-black-80'),
 			),
 			'supports-variants': (),
 		)
@@ -36,8 +36,8 @@
 		'internal',
 		(
 			'variables': (
-				button-bg-color: oColorsByName('slate'),
-				button-text-color: oColorsByName('white'),
+				button-bg-color: oPrivateFoundationGet('o3-color-palette-slate'),
+				button-text-color: oPrivateFoundationGet('o3-color-palette-white'),
 			),
 			'supports-variants': (),
 		)

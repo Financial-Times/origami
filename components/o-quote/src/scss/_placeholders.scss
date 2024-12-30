@@ -21,8 +21,8 @@
 @if $_o-quote-first-import == true {
 	%_o-quote-blockquote {
 		position: relative;
-		border-left: 4px solid oColorsByName('black-90');
-		color: oColorsByName('black');
+		border-left: 4px solid oPrivateFoundationGet('o3-color-palette-black-90');
+		color: oPrivateFoundationGet('o3-color-palette-black');
 
 		a {
 			@include oPrivateTypographyLink();
@@ -74,9 +74,9 @@
 	%_o-quote-blockquote-editorial {
 		&:before {
 			$icon-size: 36px;
-			@include oIconsContent(
+			@include oPrivateIconsContent(
 				$icon-name: 'speech-left',
-				$color: oColorsByName('black-90'),
+				$color: oPrivateFoundationGet('o3-color-palette-black-90'),
 				$size: $icon-size
 			);
 			content: '';

@@ -103,7 +103,7 @@
 
 		.o-header__subnav-list--breadcrumb & {
 			&:before {
-				@include oIconsContent(
+				@include oPrivateIconsContent(
 					'arrow-right',
 					_oHeaderGet('link-highlight-text'),
 					$size: $_o-header-icon-size-small
@@ -152,7 +152,7 @@
 	}
 
 	.o-header__subnav-button {
-		@include oIconsContent(
+		@include oPrivateIconsContent(
 			'arrow-left',
 			_oHeaderGet('subnav-button-text'),
 			$size: null

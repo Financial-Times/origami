@@ -39,7 +39,7 @@
 		),
 		$weight: $weight
 	);
-	color: oColorsByUsecase('body', 'text', $fallback: null);
+	color:  oColorsByUsecase('body', 'text', $fallback: null);
 	margin: 0 0 oSpacingByName('s4');
 }
 
