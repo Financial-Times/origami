@@ -21,6 +21,7 @@
 	--o3-button-fluid: ;
 	width: var(--o3-button-fluid, 100%);
 	min-height: var(--_o3-button-min-height);
+	border-radius: var(--o3-border-radius-1);
 	padding: 0 var(--_o3-button-inline-padding-end) 0
 		var(--_o3-button-inline-padding-start);
 	display: inline-flex;
@@ -391,6 +392,17 @@
 
 .o3-button-group > .o3-button + .o3-button {
 	margin-left: calc(var(--_o3-button-border-size) * -1);
+	border-radius: 0;
+}
+.o3-button-group > .o3-button:first-of-type {
+	border-radius: 0;
+	border-top-left-radius: var(--o3-border-radius-1);
+	border-bottom-left-radius: var(--o3-border-radius-1);
+}
+.o3-button-group > .o3-button:last-of-type {
+	border-radius: 0;
+	border-top-right-radius: var(--o3-border-radius-1);
+	border-bottom-right-radius: var(--o3-border-radius-1);
 }
 
 /* BUTTON ICON  */
