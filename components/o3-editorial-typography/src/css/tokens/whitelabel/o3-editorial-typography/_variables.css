@@ -4,14 +4,14 @@
 
 
 [data-o3-brand="whitelabel"] {
-  --_o3-editorial-typography-big-number-title-font-family: var(--_o3-font-family-metric);
-  --_o3-editorial-typography-big-number-title-font-weight: var(--_o3-font-weight-semibold);
-  --_o3-editorial-typography-big-number-title-font-size: var(--_o3-font-size-metric2-7);
-  --_o3-editorial-typography-big-number-title-line-height: var(--_o3-font-lineheight-metric2-7);
-  --_o3-editorial-typography-pullquote-content-font-family: var(--_o3-font-family-metric);
-  --_o3-editorial-typography-pullquote-content-font-weight: var(--_o3-font-weight-semibold);
-  --_o3-editorial-typography-pullquote-content-font-size: var(--_o3-font-size-metric2-2);
-  --_o3-editorial-typography-pullquote-content-line-height: var(--_o3-font-lineheight-metric2-2);
+  --_o3-editorial-typography-big-number-title-font-family: var(--o3-font-family-metric);
+  --_o3-editorial-typography-big-number-title-font-weight: var(--o3-font-weight-semibold);
+  --_o3-editorial-typography-big-number-title-font-size: var(--o3-font-size-metric2-7);
+  --_o3-editorial-typography-big-number-title-line-height: var(--o3-font-lineheight-metric2-7);
+  --_o3-editorial-typography-pullquote-content-font-family: var(--o3-font-family-metric);
+  --_o3-editorial-typography-pullquote-content-font-weight: var(--o3-font-weight-semibold);
+  --_o3-editorial-typography-pullquote-content-font-size: var(--o3-font-size-metric2-2);
+  --_o3-editorial-typography-pullquote-content-line-height: var(--o3-font-lineheight-metric2-2);
   --_o3-editorial-typography-topic-tag-color: var(--o3-color-palette-black-80);
   --_o3-editorial-typography-topic-tag-inverse-color: var(--o3-color-palette-white);
   --_o3-editorial-typography-topic-tag-hover-color: var(--o3-color-palette-black);
