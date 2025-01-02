@@ -3,6 +3,7 @@
 /// @access private
 @mixin _oTabsButtonTabs($button-tabs, $sizes) {
 	.o-tabs--buttontabs[data-o-tabs--js] {
+
 		&[role='tablist'] {
 			display: flex; // prevent spacing between tabs
 			border-bottom: 1px solid;
@@ -16,24 +17,25 @@
 			$theme-selector: '.o-tabs--#{$button-type}';
 			@if $button-theme {
 				$theme-selector: selector-append(
-					$theme-selector,
-					'.o-tabs--#{$button-theme}'
+						$theme-selector,
+						'.o-tabs--#{$button-theme}'
 				);
 			}
+
 
 			&#{$theme-selector} {
 				&[role='tablist'] {
 					// Find a tab list border colour based on standard button colours.
 					$button-background: oPrivateFoundationGet(
-						'_o3-button-#{$button-type}-#{if($button-theme, $button-theme, 'standard')}-background'
+							'_o3-button-#{$button-type}-#{if($button-theme, $button-theme, 'standard')}-background'
 					);
 					$button-border: oPrivateFoundationGet(
-						'_o3-button-#{$button-type}-#{if($button-theme, $button-theme, 'standard')}-border'
+							'_o3-button-#{$button-type}-#{if($button-theme, $button-theme, 'standard')}-border'
 					);
 					$tablist-border: if(
-						$button-border and opacity($button-border) != 0,
-						$button-border,
-						$button-background
+							$button-border and opacity($button-border) != 0,
+							$button-border,
+							$button-background
 					);
 
 					border-color: $tablist-border;
@@ -41,23 +43,37 @@
 
 				[role='tab'] {
 					@include oPrivateButtonsContent(
-						(
-							'type': $button-type,
-							'theme': $button-theme,
-						)
+							(
+								'type': $button-type,
+								'theme': $button-theme,
+							)
 					);
+					border-radius: 0;
+					&:first-of-type {
+						border-top-left-radius: oPrivateFoundationGet('o3-border-radius-1');
+					}
+					&:last-of-type {
+						border-top-right-radius: oPrivateFoundationGet('o3-border-radius-1');
+					}
 				}
 
 				// Include tab button sizes.
 				@if index($sizes, 'big') {
 					&.o-tabs--big [role='tab'] {
 						@include oPrivateButtonsContent(
-							(
-								'type': $button-type,
-								'theme': $button-theme,
-								'size': 'big',
-							)
+								(
+									'type': $button-type,
+									'theme': $button-theme,
+									'size': 'big',
+								)
 						);
+						border-radius: 0;
+						&:first-of-type {
+							border-top-left-radius: oPrivateFoundationGet('o3-border-radius-1');
+						}
+						&:last-of-type {
+							border-top-right-radius: oPrivateFoundationGet('o3-border-radius-1');
+						}
 					}
 				}
 			}
