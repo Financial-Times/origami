@@ -37,7 +37,7 @@ $o-share-ft-icons-names: (corporate, mail, link, share, 'bookmark-outline');
 
 /// List of accepted social network icons, and the version
 /// @type Map
-$_o-share-icons: (x, facebook, linkedin, link, share, mail, pinterest, whatsapp, corporate, 'bookmark-outline');
+$_o-share-icons: (x, facebook, linkedin, link, share, mail, pinterest, whatsapp, corporate, 'bookmark-outline', bluesky);
 
 /// A map of icons to their colour.
 /// @type Map
@@ -47,5 +47,6 @@ $_o-share-colors: (
 	facebook: #3b579d,
 	linkedin: #0077b5,
 	pinterest: #bd081c,
-	whatsapp: #25d366
+	whatsapp: #25d366,
+	bluesky: #0385ff
 );
