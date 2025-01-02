@@ -43,6 +43,7 @@
 			height: 100%;
 			cursor: pointer;
 
+
 			@if $disabled {
 				&:disabled + .o-forms-input__label {
 					cursor: default;
@@ -81,6 +82,15 @@
 
 	.o-forms-input--radio-box__container {
 		background-color: _oFormsGet('radio-background');
+
+		label:first-of-type .o-forms-input__label {
+			border-top-left-radius: oPrivateFoundationGet('o3-border-radius-1');
+			border-bottom-left-radius: oPrivateFoundationGet('o3-border-radius-1');
+		}
+		label:last-of-type .o-forms-input__label {
+			border-top-right-radius: oPrivateFoundationGet('o3-border-radius-1');
+			border-bottom-right-radius: oPrivateFoundationGet('o3-border-radius-1');
+		}
 	}
 
 	.o-forms-input--radio-box__container,
@@ -89,6 +99,7 @@
 	}
 
 	input[type='radio'] {
+
 		& + .o-forms-input__label {
 			color: _oFormsGet('controls-base', $from: $theme);
 		}
@@ -99,6 +110,7 @@
 
 		&:focus {
 			@include oPrivateNormaliseFocusUnsetContent();
+
 			& + .o-forms-input__label {
 				$default-text: _oFormsGet('default-text', $theme);
 				@if $default-text and oPrivateColorsColorBrightness($default-text) > 65% {
@@ -137,7 +149,7 @@
 
 			&.o-forms-input__label--negative {
 				background-color: _oFormsGet(
-					'controls-negative-checked-background',
+						'controls-negative-checked-background',
 					$from: $theme
 				);
 			}
