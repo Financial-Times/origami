@@ -118,14 +118,14 @@ To add an icon to your button add the class `o3-button-icon` and `o3-button-icon
 
 A limited number of button icons are available. Limiting the number of icons keeps the CSS bundle smaller. If you need an icon button that we don't currently support, please contact the Origami team:
 
-- arrow-left
-- arrow-right
+- chevron-left
+- chevron-right
 - upload
 - tick
 - plus
 - warning
-- arrow-down
-- arrow-up
+- chevron-down
+- chevron-up
 - edit
 - download
 - search
@@ -134,9 +134,9 @@ A limited number of button icons are available. Limiting the number of icons kee
 
 ```html
 <button
-	class="o3-button o3-button--secondary o3-button-icon o3-button-icon--arrow-down"
+	class="o3-button o3-button--secondary o3-button-icon o3-button-icon--chevron-down"
 >
-	Down Arrow
+	Chevron down arrow
 </button>
 <button
 	class="o3-button o3-button--secondary o3-button-icon o3-button-icon--download"
@@ -151,9 +151,9 @@ If you would like your button to display only an icon, add the class `o3-button-
 
 ```html
 <button
-	class="o3-button o3-button--secondary o3-button-icon o3-button-icon--arrow-down o3-button-icon--icon-only"
+	class="o3-button o3-button--secondary o3-button-icon o3-button-icon--chevron-down o3-button-icon--icon-only"
 >
-	<span class="o3-button-icon__label"> Down Arrow </span>
+	<span class="o3-button-icon__label"> Chevron down arrow </span>
 </button>
 ```
 
@@ -203,7 +203,7 @@ We recommend using our JSX template where possible. Alternatively, you must re-i
 <div class="o3-button-pagination">
 	<a
 		href="#previous"
-		class="o3-button o3-button--secondary o3-button-icon o3-button-icon--arrow-left o3-button-icon--icon-only"
+		class="o3-button o3-button--secondary o3-button-icon o3-button-icon--chevrons-left o3-button-icon--icon-only"
 		><span class="o3-button-icon__label">previous</span></a
 	><a
 		href="#1"
@@ -261,7 +261,7 @@ We recommend using our JSX template where possible. Alternatively, you must re-i
 		>10</a
 	><a
 		href="#next"
-		class="o3-button o3-button--secondary o3-button-icon o3-button-icon--arrow-right o3-button-icon--icon-only"
+		class="o3-button o3-button--secondary o3-button-icon o3-button-icon--chevrons-right o3-button-icon--icon-only"
 		><span class="o3-button-icon__label">next</span></a
 	>
 </div>

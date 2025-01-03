@@ -455,7 +455,6 @@
 .o3-button-icon.o3-button-icon--cross::before {
 	--o3-button-icon: var(--o3-icon-cross);
 }
-
 .o3-button-icon.o3-button-icon--upload::before {
 	--o3-button-icon: var(--o3-icon-upload);
 }
@@ -472,23 +471,21 @@
 .o3-button-icon.o3-button-icon--download::before {
 	--o3-button-icon: var(--o3-icon-download);
 }
-.o3-button-icon.o3-button-icon--arrow-up::before {
-	--o3-button-icon: var(--o3-icon-arrow-up);
+.o3-button-icon.o3-button-icon--chevron-up::before {
+	--o3-button-icon: var(--o3-icon-chevron-up);
 }
-.o3-button-icon.o3-button-icon--arrow-down::before {
-	--o3-button-icon: var(--o3-icon-arrow-down);
+.o3-button-icon.o3-button-icon--chevron-down::before {
+	--o3-button-icon: var(--o3-icon-chevron-down);
 }
-.o3-button-icon.o3-button-icon--arrow-right::before {
-	--o3-button-icon: var(--o3-icon-arrow-right);
+.o3-button-icon.o3-button-icon--chevron-right::before {
+	--o3-button-icon: var(--o3-icon-chevron-right);
 }
-.o3-button-icon.o3-button-icon--arrow-left::before {
-	--o3-button-icon: var(--o3-icon-arrow-left);
+.o3-button-icon.o3-button-icon--chevron-left::before {
+	--o3-button-icon: var(--o3-icon-chevron-left);
 }
-
-.o3-button-icon.o3-button-icon--edit-outlined::before {
-	--o3-button-icon: var(--o3-icon-edit-outlined);
+.o3-button-icon.o3-button-icon--edit::before {
+	--o3-button-icon: var(--o3-icon-edit);
 }
-
 .o3-button-icon.o3-button-icon--refresh::before {
 	--o3-button-icon: var(--o3-icon-refresh);
 }
