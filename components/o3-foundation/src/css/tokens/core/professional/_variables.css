@@ -112,8 +112,8 @@
   --o3-typography-use-case-body-content-emphasis-font-style: italic; /* Use this style only for the body copy of content pages, such as articles, live news and other content experience page. */
   --o3-typography-use-case-body-content-link-font-family: Georgia; /* Use this style only for the body copy of content pages, such as articles, live news and other content experience page. */
   --o3-typography-use-case-body-content-link-font-weight: Regular; /* Use this style only for the body copy of content pages, such as articles, live news and other content experience page. */
-  --_o3-border-radius-1: 4px;
-  --_o3-border-radius-2: 6px;
+  --o3-border-radius-1: 4px;
+  --o3-border-radius-2: 6px;
   --o3-font-family-metric: 'metric 2 VF';
   --o3-font-family-financier-display: 'financier display VF';
   --o3-font-family-georgia: georgia;

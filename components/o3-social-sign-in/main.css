@@ -16,6 +16,7 @@
     font-family: var(--o3-font-family-metric), sans-serif;
 
     border: 1px solid var(--_o3-social-sign-in-border-color);
+    border-radius: var(--o3-border-radius-1);
     text-align: center;
     text-decoration: none;
     cursor: pointer;

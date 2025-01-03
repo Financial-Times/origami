@@ -4,8 +4,8 @@
 
 
 [data-o3-brand="core"] {
-  --_o3-border-radius-1: 4px;
-  --_o3-border-radius-2: 6px;
+  --o3-border-radius-1: 4px;
+  --o3-border-radius-2: 6px;
   --o3-color-palette-ft-pink: #fcd0b1; /* FT Pink is used for the FT logo */
   --o3-color-palette-ft-grey: #333333;
   --o3-color-palette-white: #ffffff;
