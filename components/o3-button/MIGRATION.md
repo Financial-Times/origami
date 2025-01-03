@@ -26,13 +26,13 @@ To upgrade, update your HTML/JSX template to reference the new icon names:
 +<button class="o3-button o3-button--primary o3-button-icon o3-button-icon--chevron-left">Hello</button>
 ```
 
-### Standard buttons are now larger
+### Review larger standard buttons
 
 Standard buttons go from 40px to 44px in height to improve the mobile experience. This increases their touch target area to meet WCAG 2.1 Level AAA standards and aligns with Apple design guidelines.
 
 To upgrade, ensure placement of elements around buttons continue to work in your application. For example, when a search input includes a text input next to a button, their height may be misaligned – for this example, upgrade `o-forms`, which also increases in height to match.
 
-### Buttons now include a boarder radius
+### Review radius in context
 
 A subtle boarder radius adds to a coherent design language which flows through our latest icon suite and typography improvements. Review where buttons are used and ensure the radius works in your project. Speak to the Origami team if you find any visual issues. In most cases, there shouldn't be anything you need to do.
 
