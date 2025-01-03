@@ -2,7 +2,7 @@
 
 ## Migrating from v2 to v3
 
-o3-button v2 introduces renamed icons, with an updated api to match. It also includes some potentially visually breaking changes.
+o3-button v3 introduces renamed icons, with an updated api to match. It also includes some potentially visually breaking changes.
 
 ### Rename icons
 
