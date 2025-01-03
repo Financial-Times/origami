@@ -1,13 +1,13 @@
 @mixin _oTeaserAudio {
 	.o-teaser__heading:before {
-		@include oIconsContent('audio', oColorsByName('white'), $size: null);
+		@include oPrivateIconsContent('audio', oPrivateFoundationGet('o3-color-palette-white'), $size: null);
 		content: '';
 		width: 0.7em;
 		height: 0.7em;
 		min-width: 12px;
 		min-height: 12px;
 		margin-right: 0.15em;
-		background-color: oColorsByName('slate');
+		background-color: oPrivateFoundationGet('o3-color-palette-slate');
 
 	}
 
@@ -18,7 +18,7 @@
 
 	// ...except for when the image is hidden on small teasers on narrow viewports
 	&.o-teaser--has-image.o-teaser--small .o-teaser__heading:before {
-		@include oGridRespondTo($until: 'M') {
+		@include oPrivateGridRespondTo($until: 'M') {
 			content: '';
 		}
 	}
@@ -28,7 +28,7 @@
 		position: relative;
 
 		&:after {
-			@include oIconsContent('audio', oColorsByName('white'), $size: null);
+			@include oPrivateIconsContent('audio', oPrivateFoundationGet('o3-color-palette-white'), $size: null);
 			pointer-events: none;
 			content: '';
 			position: absolute;
@@ -39,7 +39,7 @@
 			padding-top: 15%;
 			min-width: 20px;
 			min-height: 20px;
-			background-color: oColorsByName('slate');
+			background-color: oPrivateFoundationGet('o3-color-palette-slate');
 		}
 	}
 }

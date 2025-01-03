@@ -1,0 +1,28 @@
+@import 'variables';
+
+/// @param {String} $size-name - Get a recommended space size by name.
+/// @return {Number} - A px value (or rem value if relative units have been enabled).
+@function oPrivateSpacingByName($size-name) {
+  $value: map-get($o-pf-spacing-sizes, $size-name);
+  @if(type-of($value) != 'number') {
+    @error 'There is no recommended space named "#{$size-name}". Should be one of #{map-keys($o-pf-spacing-sizes)}.';
+  }
+  @return oPrivateSpacingByIncrement($value);
+}
+
+/// @param {Number} $increment - The number to multiply the baseline size by.
+/// @return {Number} - A px value (or rem value if relative units have been enabled).
+@function oPrivateSpacingByIncrement($increment) {
+  @if(type-of($increment) != 'number' and floor($increment) != $increment) {
+    @error 'Expected a whole number but was given "#{$increment}".';
+  }
+  @return $increment * oPrivateSpacingGetBaselineValue();
+}
+
+/// @return {Number} - A px value representing our spacing baseline (or rem value if relative units have been enabled).
+@function oPrivateSpacingGetBaselineValue() {
+  @if($o-pf-spacing-relative-units) {
+    @return div($o-pf-spacing-baseline, 16) * 1rem;
+  }
+  @return $o-pf-spacing-baseline * 1px;
+}

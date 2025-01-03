@@ -9,11 +9,11 @@
 	}
 
 	.o-teaser__content {
-		background: oColorsByUsecase('o-teaser/package-basic', 'background');
+		background: oPrivateFoundationGet('o3-color-palette-wheat');
 	}
 
 	.o-teaser__meta {
-		color: oColorsByUsecase('o-teaser/package-basic', 'text');
+		color: oPrivateFoundationGet('o3-color-palette-claret-70');
 		padding: 15px 0 0 20px;
 		width: calc(100% - 40px);
 		position: relative;
@@ -21,16 +21,16 @@
 		background: inherit;
 
 		&:after {
-			content: "";
+			content: '';
 			display: block;
 			width: 60px;
-			border-bottom: oSpacingByIncrement(1) solid oColorsByUsecase('o-teaser/package-basic', 'border');
-			margin-top: oSpacingByName('s1');
+			border-bottom: oPrivateSpacingByIncrement(1) solid oPrivateFoundationGet('o3-color-palette-claret-70');
+			margin-top: oPrivateSpacingByName('s1');
 		}
 	}
 
 	.o-teaser__heading {
-		@include oTypographyDisplay($scale: 4);
+		@include oPrivateTypographyDisplay($scale: 4);
 		color: $_o-teaser-base-color;
 		background: inherit;
 		padding: 20px;
@@ -48,26 +48,30 @@
 	@include _oTeaserSpecialReportPackageList;
 
 	.o-teaser__content {
-		background: oColorsByUsecase('o-teaser/package-special-report', 'background');
+		background: oPrivateFoundationGet('o3-color-palette-claret-70');
 	}
 
 	.o-teaser__meta {
-		color: oColorsByName('white');
+		color: oPrivateFoundationGet('o3-color-palette-white');
 
 		&:after {
-			border-color: oColorsByName('white');
+			border-color: oPrivateFoundationGet('o3-color-palette-white');
 		}
 	}
 
 	.o-teaser__heading {
-		color: oColorsByName('white');
+		color: oPrivateFoundationGet('o3-color-palette-white');
 
 		a:hover,
 		a:visited,
 		&:focus {
-			$special-report-color: oColorsByUsecase('o-teaser/package-special-report', 'text');
-			$special-report-background: oColorsByUsecase('o-teaser/package-special-report', 'background');
-			color: oColorsMix($special-report-color, $special-report-background, $percentage: 78);
+			$special-report-color: oPrivateFoundationGet('o3-color-palette-claret-70');
+			$special-report-background: oPrivateFoundationGet('o3-color-palette-claret-70');
+			color: oPrivateColorsMix(
+					$special-report-color,
+					$special-report-background,
+				$percentage: 78
+			);
 		}
 	}
 }
@@ -76,28 +80,28 @@
 	@include _oTeaserExtraPackageList;
 
 	.o-teaser__content {
-		background: oColorsByUsecase('o-teaser/theme-hero-extra', 'background');
+		background: oPrivateFoundationGet('o3-color-palette-slate');
 	}
 
 	.o-teaser__meta {
-		color: oColorsByUsecase('o-teaser/theme-hero-extra-highlight', 'text');
+		color: oPrivateFoundationGet('o3-color-palette-lemon');
 
 		&:after {
-			border-color: oColorsByUsecase('o-teaser/theme-hero-extra-highlight', 'border');
+			border-color: oPrivateFoundationGet('o3-color-palette-lemon');
 		}
 	}
 
 	.o-teaser__heading {
-		color: oColorsByName('white');
+		color: oPrivateFoundationGet('o3-color-palette-white');
 
 		a:hover,
 		&:focus {
-			color: oColorsByUsecase('o-teaser/theme-hero-extra-highlight', 'text');
+			color: oPrivateFoundationGet('o3-color-palette-lemon');
 		}
 	}
 
 	.o-teaser__timestamp {
-		color: oColorsByName('white');
+		color: oPrivateFoundationGet('o3-color-palette-white');
 	}
 }
 
@@ -112,7 +116,8 @@
 
 		&__list-item,
 		&__landing-link {
-			@include oTypographySans(0, 20px);
+			@include oPrivateTypographySans(0);
+			line-height: 20px;
 			padding: 12px 0;
 
 			> a {
@@ -122,7 +127,7 @@
 		}
 
 		&__list-item a {
-			color: oColorsMix($_o-teaser-base-color, $percentage: 80);
+			color: oPrivateColorsMix($_o-teaser-base-color, $percentage: 80);
 
 			&:hover {
 				color: $_o-teaser-focus-hover;
@@ -130,18 +135,26 @@
 		}
 
 		&__landing-link a {
-			color: oColorsByUsecase('o-teaser/package-basic', 'text');
+			color: oPrivateFoundationGet('o3-color-palette-claret-70');
 
 			&:hover,
 			&:visited,
 			&:focus {
-				$special-report-color: oColorsByUsecase('o-teaser/package-special-report', 'text');
-				$special-report-background: oColorsByUsecase('o-teaser/package-special-report', 'background');
-				color: oColorsMix($special-report-color, $special-report-background, $percentage: 78);
+				$special-report-color: oPrivateFoundationGet('o3-color-palette-claret-70');
+				$special-report-background: oPrivateFoundationGet('o3-color-palette-claret-70');
+				color: oPrivateColorsMix(
+						$special-report-color,
+						$special-report-background,
+					$percentage: 78
+				);
 			}
 
 			&:after {
-				@include oIconsContent('arrow-right', oColorsByUsecase('o-teaser/package-basic', 'text'), $size: 30);
+				@include oPrivateIconsContent(
+						'arrow-right',
+						oPrivateFoundationGet('o3-color-palette-claret-70'),
+					$size: 30
+				);
 				content: '';
 				position: absolute;
 				bottom: 18px;
@@ -152,25 +165,38 @@
 
 @mixin _oTeaserSpecialReportPackageList {
 	.package-teaser {
-		$package-special-report-color: oColorsByUsecase('o-teaser/package-special-report', 'text');
-		$package-special-report-background: oColorsByUsecase('o-teaser/package-special-report', 'background');
+		$package-special-report-color: oPrivateFoundationGet('o3-color-palette-claret-70');
+		$package-special-report-background: oPrivateFoundationGet('o3-color-palette-claret-70');
+
 		&__list-item a {
-			color: oColorsByName('white');
+			color: oPrivateFoundationGet('o3-color-palette-white');
 
 			&:hover {
-				color: oColorsMix($package-special-report-color, $package-special-report-background, $percentage: 78);
+				color: oPrivateColorsMix(
+						$package-special-report-color,
+						$package-special-report-background,
+					$percentage: 78
+				);
 			}
 		}
 
 		&__landing-link a {
-			color: oColorsMix($package-special-report-color, $package-special-report-background, $percentage: 80);
+			color: oPrivateColorsMix(
+					$package-special-report-color,
+					$package-special-report-background,
+				$percentage: 80
+			);
 
 			&:hover {
-				color: oColorsByName('white');
+				color: oPrivateFoundationGet('o3-color-palette-white');
 			}
 
 			&:after {
-				@include oIconsContent('arrow-right', oColorsByName('white'), $size: 30);
+				@include oPrivateIconsContent(
+					'arrow-right',
+					oPrivateFoundationGet('o3-color-palette-white'),
+					$size: 30
+				);
 			}
 		}
 	}
@@ -178,9 +204,10 @@
 
 @mixin _oTeaserExtraPackageList {
 	.package-teaser {
-		$hero-extra-highlight-color: oColorsByUsecase('o-teaser/theme-hero-extra-highlight', 'text');
+		$hero-extra-highlight-color: oPrivateFoundationGet('o3-color-palette-lemon');
+
 		&__list-item a {
-			color: oColorsByName('white');
+			color: oPrivateFoundationGet('o3-color-palette-white');
 
 			&:hover {
 				color: $hero-extra-highlight-color;
@@ -191,11 +218,15 @@
 			color: $hero-extra-highlight-color;
 
 			&:hover {
-				color: oColorsByName('white');
+				color: oPrivateFoundationGet('o3-color-palette-white');
 			}
 
 			&:after {
-				@include oIconsContent('arrow-right', $hero-extra-highlight-color, $size: 30);
+				@include oPrivateIconsContent(
+					'arrow-right',
+					$hero-extra-highlight-color,
+					$size: 30
+				);
 			}
 		}
 	}

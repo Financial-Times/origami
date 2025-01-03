@@ -365,7 +365,7 @@ For other elements, such as links, text, and multiline text, we use focus as an 
 
 ### Icons
 
-CSS Custom Properties for icons are included for each brand in the format: `--o3-icons-ft-icon-[ICON NAME]`.
+CSS Custom Properties for icons are included for each brand in the format: `--o3-icon-[ICON NAME]`.
 
 The icon CSS Custom Property is a [url() CSS function](https://developer.mozilla.org/en-US/docs/Web/CSS/url) for the encoded icon SVG. It may be used anywhere [url()](https://developer.mozilla.org/en-US/docs/Web/CSS/url) may be used such as within `background-image` and `mask`.
 
@@ -381,7 +381,7 @@ For example, to create a `1rem` sized icon which inherits its colour from the cu
      current foreground text colour. */
 	background-color: currentColor;
 	/* Mask the square with an Origami icon. */
-	mask-image: var(--o3-icons-ft-icon-plus);
+	mask-image: var(--o3-icon-plus);
 	mask-repeat: no-repeat;
 	mask-size: contain;
 }

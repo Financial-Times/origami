@@ -24,7 +24,7 @@
 		width: var(--o3-spacing-s);
 		height: var(--o3-spacing-s);
 		background-color: var(--_o3-form-color-use-case-background);
-		mask-image: var(--o3-icons-ft-icon-tick);
+		mask-image: var(--o3-icon-tick);
 		mask-repeat: no-repeat;
 		mask-size: contain;
 	}
@@ -82,7 +82,7 @@
 		width: var(--o3-spacing-s);
 		height: var(--o3-spacing-s);
 		background-color: var(--_o3-form-color-use-case-background);
-		mask-image: var(--o3-icons-ft-icon-minus);
+		mask-image: var(--o3-icon-minus);
 		mask-repeat: no-repeat;
 		mask-size: contain;
 	}

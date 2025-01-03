@@ -10,7 +10,7 @@
 			display: none;
 		}
 
-		@include oGridRespondTo($until: S) {
+		@include oPrivateGridRespondTo($until: S) {
 			// hide elements for the desktop version of the table
 			thead,
 			thead tr,

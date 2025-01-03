@@ -1,8 +1,5 @@
-@import '@financial-times/o-spacing/main';
-@import '@financial-times/o-colors/main';
 @import '@financial-times/o-editorial-typography/main';
-@import '@financial-times/o-typography/main';
-@import '@financial-times/o-grid/main';
+@import '@financial-times/o-private-foundation/main';
 @import '@financial-times/o-icons/main';
 
 @import 'src/scss/variables';
@@ -20,13 +17,16 @@
 @import 'src/scss/themes/centered';
 @import 'src/scss/themes/deep-portrait';
 @import 'src/scss/themes/deep-landscape';
-@import 'src/scss/deprecated';
 
-@mixin oTopper($opts: (
-	'themes': $_o-topper-themes,
-	'elements': $_o-topper-elements,
-	'colors': $_o-topper-colors
-), $include-base-styles: true) {
+@mixin oTopper(
+	$opts: (
+		'themes': $_o-topper-themes,
+		'elements': $_o-topper-elements,
+		'colors': $_o-topper-colors,
+	),
+	$include-base-styles: true
+) {
+	@include oPrivateFoundation();
 
 	// Get topper themes to include.
 	$themes: map-get($opts, 'themes');
@@ -48,7 +48,7 @@
 	// Output chosen elements, colours, and themes.
 	@include _oTopperElements($elements);
 	@include _oTopperColors($colors);
-	@include _oTopperThemes($themes,$colors);
+	@include _oTopperThemes($themes, $colors);
 }
 
 @if ($o-topper-is-silent == false) {

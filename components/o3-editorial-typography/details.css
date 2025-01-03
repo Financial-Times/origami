@@ -131,7 +131,7 @@ a.o3-editorial-typography-byline-author[data-o3-theme='inverse'] {
 		content: '';
 		width: var(--_o3-editorial-typography-quote-icon-size);
 		height: var(--_o3-editorial-typography-quote-icon-size);
-		mask-image: var(--o3-icons-ft-icon-speech-left);
+		mask-image: var(--o3-icon-speech-left);
 		mask-repeat: no-repeat;
 		mask-size: contain;
 		display: inline-block;

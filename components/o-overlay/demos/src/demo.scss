@@ -1,4 +1,5 @@
 @import "../../main";
+
 @include oOverlay();
 @import '@financial-times/o-fonts/main';
 @include oFonts();
@@ -8,24 +9,24 @@
 @include oNormalise();
 
 body {
-	@include oTypographySans();
-	padding: oSpacingByName('s3');
-	min-height: 500px;
+  @include oTypographySans();
+  padding: oSpacingByName('s3');
+  min-height: 500px;
 }
 
 .demo-button {
-	margin-right: oSpacingByName('s1');
+  margin-right: oSpacingByName('s1');
 }
 
 .demo-overlay-container {
-	height: 220px;
+  height: 220px;
 }
 
 .demo-overlay {
-	width: 100%;
-	max-width: 500px;
+  width: 100%;
+  max-width: 500px;
 }
 
 strong {
-	font-weight: 600;
+  font-weight: 600;
 }

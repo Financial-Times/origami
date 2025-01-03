@@ -11,7 +11,7 @@
 					.test-mixin .o-top-banner {
 						display: flex;
 						justify-content: center;
-						border-bottom: oSpacingByName('s2') solid transparent;
+						border-bottom: oPrivateSpacingByName('s2') solid transparent;
 					}
 				}
 			}

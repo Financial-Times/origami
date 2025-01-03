@@ -1,4 +1,3 @@
-
 /// Header Area
 /// Outputs grid header area
 /// @access private
@@ -13,7 +12,7 @@
 /// @access private
 @mixin _oLayoutAreaSidebar() {
 	.o-layout__sidebar {
-		@include oGridRespondTo($until: M) {
+		@include oPrivateGridRespondTo($until: M) {
 			margin-top: $_o-layout-gutter;
 		}
 
@@ -31,7 +30,7 @@
 		padding: $_o-layout-gutter * 2 $_o-layout-gutter;
 		text-align: center;
 		min-height: 30vh;
-		margin: 0 0 oSpacingByName('s4');
+		margin: 0 0 oPrivateSpacingByName('s4');
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -52,7 +51,7 @@
 			bottom: 0;
 			left: 50%;
 			margin-left: -50vw;
-			background-color: oColorsByName('slate-white-5');
+			background-color: oPrivateFoundationGet('o3-color-palette-slate-white-5');
 			background-size: cover;
 			background-image: inherit;
 			z-index: -1;
@@ -62,8 +61,9 @@
 		}
 	}
 
-	.o-layout__hero:not(.o-layout__hero--muted) h1:not(.o-layout__unstyled-element) {
-		@include oTypographyDisplay($scale: 6);
+	.o-layout__hero:not(.o-layout__hero--muted)
+		h1:not(.o-layout__unstyled-element) {
+		@include oPrivateTypographyDisplay($scale: 6);
 	}
 
 	.o-layout__hero.o-layout__hero--muted {
@@ -72,7 +72,7 @@
 		text-align: left;
 		background-image: none;
 		min-height: auto;
-		@include oGridRespondTo($from: M) {
+		@include oPrivateGridRespondTo($from: M) {
 			padding-left: 0;
 			padding-right: 0;
 		}
@@ -88,7 +88,10 @@
 		// o-layout does not cater for older `-ms-` versions of the grid specification.
 		display: grid;
 		/*! autoprefixer: ignore next */
-		grid-template-columns: repeat(var(--_o-layout-overview-columns, auto-fit), minmax(250px, 1fr));
+		grid-template-columns: repeat(
+			var(--_o-layout-overview-columns, auto-fit),
+			minmax(250px, 1fr)
+		);
 		/*! autoprefixer: ignore next */
 		grid-gap: $_o-layout-gutter * 3;
 		/*! autoprefixer: ignore next */
@@ -101,7 +104,9 @@
 
 	.o-layout__overview--actions {
 		grid-gap: $_o-layout-gutter;
-		margin-bottom: oSpacingByIncrement(7); // Aligns with <p> margin set by oTypographyBody
+		margin-bottom: oPrivateSpacingByIncrement(
+			7
+		); // Aligns with <p> margin set by body typography
 
 		.o-layout-item {
 			/*! autoprefixer: ignore next */
@@ -109,7 +114,7 @@
 			display: grid;
 			/*! autoprefixer: ignore next */
 			grid-template-rows: 1fr min-content;
-			background-color: oColorsByName('slate-white-5');
+			background-color: oPrivateFoundationGet('o3-color-palette-slate-white-5');
 			padding: $_o-layout-gutter;
 		}
 
@@ -134,27 +139,29 @@
 	}
 
 	.o-layout__listing__item {
-		@include oTypographySans($scale: 1, $line-height: 1.4);
-		color: oColorsByUsecase('body', 'text', $fallback: null);
-		margin: 0 0 oSpacingByName('s6');
+		@include oPrivateTypographySans($scale: 1);
+		line-height: 1.4;
+		color: oPrivateFoundationGet('o3-color-use-case-body-text');
+		margin: 0 0 oPrivateSpacingByName('s6');
 		max-width: 60ch;
 	}
 
 	.o-layout__listing a {
-		@include oTypographyLink();
+		@include oPrivateTypographyLink();
 	}
 
 	.o-layout__listing__item__title {
-		@include oTypographyHeading($level: 2);
-		margin: 0 0 oSpacingByName('s2') 0;
+		@include oPrivateTypographyHeading($level: 2);
+		margin: 0 0 oPrivateSpacingByName('s2') 0;
 	}
 
 	.o-layout__listing__item__description {
-		margin: 0 0 oSpacingByName('s1') 0;
+		margin: 0 0 oPrivateSpacingByName('s1') 0;
 	}
 
 	.o-layout__listing__item__meta {
-		@include oTypographySans($scale: 0, $line-height: 1.4);
+		@include oPrivateTypographySans($scale: 0);
+		line-height: 1.4;
 		margin: 0;
 	}
 }

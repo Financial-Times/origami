@@ -1,8 +1,6 @@
 @import '../../main';
 
 @include oTeaserCollection();
-@import '@financial-times/o-fonts/main';
-@include oFonts();
 @import '@financial-times/o-grid/main';
 @include oGrid();
 @import '@financial-times/o-normalise/main';
@@ -11,10 +9,12 @@
 body {
 	background-color: oColorsByUsecase('page', 'background');
 	margin: oSpacingByName('s8');
-	max-width: map-get($o-grid-layouts, 'XL');
+	max-width: map-get($o-pf-grid-layouts, 'XL');
+
 	.demo-paragraph {
-		@include oTypographySans();
+		@include oPrivateTypographySans();
 	}
+
 	.o-teaser-collection__item .demo-paragraph {
 		margin: oSpacingByName('s1') 0 oSpacingByName('s4');
 	}

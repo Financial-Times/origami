@@ -4,11 +4,11 @@
 	&.o-topper--right-rail {
 		.o-topper__image-caption {
 			@if not $o-topper-snappy {
-				@include oGridRespondTo(L) {
+				@include oPrivateGridRespondTo(L) {
 					width: calc(100vw - 720px);
 				}
 			}
-			@include oGridRespondTo(XL) {
+			@include oPrivateGridRespondTo(XL) {
 				width: calc(50vw - 110px);
 			}
 		}
@@ -17,7 +17,7 @@
 	display: flex;
 	flex-direction: column;
 	
-	@include oGridRespondTo($until: L) {
+	@include oPrivateGridRespondTo($until: L) {
 		margin: 0 auto;
 		padding: 0;
 
@@ -35,7 +35,7 @@
 		padding: 20px 10px;
 		order: 2;
 
-		@include oGridRespondTo(M) {
+		@include oPrivateGridRespondTo(M) {
 			padding-left: 20px;
 			padding-right: 20px;
 		}
@@ -45,7 +45,7 @@
 		padding-bottom: 0;
 	}
 
-	@include oGridRespondTo(M) {
+	@include oPrivateGridRespondTo(M) {
 		display: grid;
 		grid-template-columns: auto;
 		grid-template-rows: 20px 520px 60px min-content;
@@ -63,7 +63,7 @@
 
 
 	//Add extra 20px columns to get the space outside the content well
-	@include oGridRespondTo(L) {
+	@include oPrivateGridRespondTo(L) {
 		grid-template-columns: 40px 0px 20px minmax(500px, 700px) 20px minmax(0, auto) 300px;
 
 		&.o-topper--centered {
@@ -96,7 +96,7 @@
 			display: block;
 		}
 	}
-	@include oGridRespondTo(XL) {
+	@include oPrivateGridRespondTo(XL) {
 		grid-template-columns: 40px 40px 20px minmax(500px, 700px) 40px minmax(0, auto) 300px;
 	}
 
@@ -106,13 +106,13 @@
 		}
 	}
 	
-	@include oGridRespondTo( $from: M , $until: L ) {
+	@include oPrivateGridRespondTo( $from: M , $until: L ) {
 		display: flex;
 	}
 
 	.o-topper__image-caption {
 		text-align: left;
-		@include oGridRespondTo(L) { 
+		@include oPrivateGridRespondTo(L) {
 			box-sizing: border-box;
 			padding-left: 0px;
 			min-width: 320px;
@@ -120,12 +120,12 @@
 			width: calc(100vw - 800px);
 			float: right;
 		}
-		@include oGridRespondTo($from: XL) { 
+		@include oPrivateGridRespondTo($from: XL) {
 			transform: translate(calc(50vw - 590px), 0);
 			width: calc(50vw - 250px);
 		}
 		@if $o-topper-snappy {
-			@include oGridRespondTo($from: L, $until: XL) {
+			@include oPrivateGridRespondTo($from: L, $until: XL) {
 				transform: translate(calc(50vw - 470px), 0);
 				width: calc(50vw - 170px);
 			}

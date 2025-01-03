@@ -1,10 +1,6 @@
 @import '@financial-times/o-brand/main';
-@import '@financial-times/o-spacing/main';
 @import '@financial-times/o-fonts/main';
-@import '@financial-times/o-colors/main';
-@import '@financial-times/o-normalise/main';
-@import '@financial-times/o-typography/main';
-@import '@financial-times/o-visual-effects/main';
+@import '@financial-times/o-private-foundation/main';
 @import '@financial-times/o-quote/main';
 
 @import 'src/scss/brand';
@@ -33,6 +29,8 @@
 		'fonts': true,
 	)
 ) {
+	@include oPrivateFoundation();
+
 	$layouts: map-get($opts, $key: 'layouts');
 	$features: map-get($opts, $key: 'features');
 	$fonts: map-get($opts, $key: 'fonts');
@@ -106,7 +104,7 @@
 		.sticky-sidebar-container,
 		.o-layout-sticky-sidebar-container {
 			position: sticky;
-			top: oSpacingByName('s3');
+			top: oPrivateSpacingByName('s3');
 		}
 	}
 }

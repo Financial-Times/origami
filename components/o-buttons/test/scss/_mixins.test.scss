@@ -261,8 +261,8 @@
 
 			@include contains($selector: false) {
 				.o-buttons--primary.o-buttons--test-mixed-theme-colors {
-					background-color: #00572c;
-					color: #ccdfc7;
+					background-color: rgb(0,87.21,43.89);
+					color: rgb(204,223.4,198.6);
 					border-color: transparent;
 				}
 			}

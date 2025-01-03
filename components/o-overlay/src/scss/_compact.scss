@@ -8,18 +8,21 @@
 @mixin _oOverlayCompact {
 	.o-overlay--compact {
 		.o-overlay__content {
-			padding: oSpacingByName('s3');
+			padding: oPrivateSpacingByName('s3');
 		}
 		.o-overlay__heading {
-			@include oTypographySans($scale: 0, $include-font-family: false);
+			@include oPrivateTypographySans($scale: 0);
 		}
 		.o-overlay__title {
-			margin-top: oSpacingByName('s2'); // Actually 10px - line-height adds some space too
-			margin-bottom: oSpacingByName('s1');
-			margin-left: oSpacingByName('s3');
+			margin-top: oPrivateSpacingByName(
+				's2'
+			); // Actually 10px - line-height adds some space too
+			margin-bottom: oPrivateSpacingByName('s1');
+			margin-left: oPrivateSpacingByName('s3');
 		}
 		.o-overlay__close {
-			margin: oSpacingByName('s2') oSpacingByName('s2') oSpacingByName('s2') oSpacingByName('s3');
+			margin: oPrivateSpacingByName('s2') oPrivateSpacingByName('s2')
+				oPrivateSpacingByName('s2') oPrivateSpacingByName('s3');
 		}
 	}
 }
