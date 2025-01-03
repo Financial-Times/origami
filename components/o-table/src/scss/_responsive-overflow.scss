@@ -60,7 +60,7 @@
 				@include oPrivateButtonsContent(
 					$opts: (
 						'type': 'primary',
-						'icon': 'arrow-left',
+						'icon': 'chevron-left',
 						'size': 'big',
 						'icon-only': true,
 					)
@@ -76,7 +76,7 @@
 				@include oPrivateButtonsContent(
 					$opts: (
 						'type': 'primary',
-						'icon': 'arrow-right',
+						'icon': 'chevron-right',
 						'size': 'big',
 						'icon-only': true,
 					)

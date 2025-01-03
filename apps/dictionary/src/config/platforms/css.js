@@ -23,8 +23,7 @@ function cssConfigForBrand(brand) {
 						return false;
 					}
 					return (
-						!token.filePath.includes(`/components/`) &&
-						token.path[1] !== 'icons'
+						!token.filePath.includes(`/components/`) && token.path[1] !== 'icon'
 					);
 				},
 				destination: `o3-foundation/src/css/tokens/${brand}/_variables.css`,
@@ -36,7 +35,7 @@ function cssConfigForBrand(brand) {
 			},
 			{
 				filter: token => {
-					return token.path[1] === 'icons';
+					return token.path[1] === 'icon';
 				},
 				destination: `o3-foundation/src/css/tokens/_icons.css`,
 				format: 'css/variables',

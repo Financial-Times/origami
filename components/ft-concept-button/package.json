@@ -16,7 +16,8 @@
 	"browser": "main.js",
 	"scripts": {
 		"lint": "bash ../../scripts/component/lint.bash",
-		"watch": "bash ../../scripts/component/watch.bash"
+		"watch": "bash ../../scripts/component/watch.bash",
+		"test": "bash ../../scripts/component/test.bash"
 	},
 	"peerDependencies": {
 		"@financial-times/o-normalise": "^3.3.0",

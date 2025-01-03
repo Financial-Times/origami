@@ -453,42 +453,42 @@
 }
 
 .o3-button-icon.o3-button-icon--cross::before {
-	--o3-button-icon: var(--o3-icons-ft-icon-cross);
+	--o3-button-icon: var(--o3-icon-cross);
 }
 
 .o3-button-icon.o3-button-icon--upload::before {
-	--o3-button-icon: var(--o3-icons-ft-icon-upload);
+	--o3-button-icon: var(--o3-icon-upload);
 }
 .o3-button-icon.o3-button-icon--tick::before {
-	--o3-button-icon: var(--o3-icons-ft-icon-tick);
+	--o3-button-icon: var(--o3-icon-tick);
 }
 .o3-button-icon.o3-button-icon--search::before {
-	--o3-button-icon: var(--o3-icons-ft-icon-search);
+	--o3-button-icon: var(--o3-icon-search);
 }
 .o3-button-icon.o3-button-icon--plus::before {
-	--o3-button-icon: var(--o3-icons-ft-icon-plus);
+	--o3-button-icon: var(--o3-icon-plus);
 }
 
 .o3-button-icon.o3-button-icon--download::before {
-	--o3-button-icon: var(--o3-icons-ft-icon-download);
+	--o3-button-icon: var(--o3-icon-download);
 }
 .o3-button-icon.o3-button-icon--arrow-up::before {
-	--o3-button-icon: var(--o3-icons-ft-icon-arrow-up);
+	--o3-button-icon: var(--o3-icon-arrow-up);
 }
 .o3-button-icon.o3-button-icon--arrow-down::before {
-	--o3-button-icon: var(--o3-icons-ft-icon-arrow-down);
+	--o3-button-icon: var(--o3-icon-arrow-down);
 }
 .o3-button-icon.o3-button-icon--arrow-right::before {
-	--o3-button-icon: var(--o3-icons-ft-icon-arrow-right);
+	--o3-button-icon: var(--o3-icon-arrow-right);
 }
 .o3-button-icon.o3-button-icon--arrow-left::before {
-	--o3-button-icon: var(--o3-icons-ft-icon-arrow-left);
+	--o3-button-icon: var(--o3-icon-arrow-left);
 }
 
 .o3-button-icon.o3-button-icon--edit-outlined::before {
-	--o3-button-icon: var(--o3-icons-ft-icon-edit-outlined);
+	--o3-button-icon: var(--o3-icon-edit-outlined);
 }
 
 .o3-button-icon.o3-button-icon--refresh::before {
-	--o3-button-icon: var(--o3-icons-ft-icon-refresh);
+	--o3-button-icon: var(--o3-icon-refresh);
 }

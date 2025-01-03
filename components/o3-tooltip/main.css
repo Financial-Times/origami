@@ -196,7 +196,7 @@ o3-tooltip-toggle[open] .o3-toggletip-target::before {
 }
 
 .o3-tooltip-wrapper .o3-tooltip-close::before {
-	--_button-icon: var(--o3-icons-ft-icon-cross);
+	--_button-icon: var(--o3-icon-cross);
 }
 
 .o3-tooltip-wrapper .o3-tooltip-close:hover::before {
