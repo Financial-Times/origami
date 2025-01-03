@@ -114,66 +114,66 @@
   --o3-typography-use-case-body-content-link-font-weight: Regular; /* Use this style only for the body copy of content pages, such as articles, live news and other content experience page. */
   --_o3-border-radius-1: 4px;
   --_o3-border-radius-2: 6px;
-  --_o3-font-family-metric: 'metric 2 VF';
-  --_o3-font-family-financier-display: 'financier display VF';
-  --_o3-font-family-georgia: georgia;
-  --_o3-font-weight-light: 300;
-  --_o3-font-weight-regular: 400;
-  --_o3-font-weight-medium: 500;
-  --_o3-font-weight-semibold: 700;
-  --_o3-font-weight-bold: 800;
-  --_o3-font-lineheight-0: 20px;
-  --_o3-font-lineheight-1: 20px;
-  --_o3-font-lineheight-2: 24px;
-  --_o3-font-lineheight-3: 28px;
-  --_o3-font-lineheight-4: 32px;
-  --_o3-font-lineheight-5: 32px;
-  --_o3-font-lineheight-6: 40px;
-  --_o3-font-lineheight-7: 48px;
-  --_o3-font-lineheight-8: 56px;
-  --_o3-font-lineheight-9: 72px;
-  --_o3-font-lineheight-10: 84px;
-  --_o3-font-lineheight-negative-2: 16px;
-  --_o3-font-lineheight-negative-1: 16px;
-  --_o3-font-size-0: 16px;
-  --_o3-font-size-1: 18px;
-  --_o3-font-size-2: 20px;
-  --_o3-font-size-3: 24px;
-  --_o3-font-size-4: 28px;
-  --_o3-font-size-5: 32px;
-  --_o3-font-size-6: 40px;
-  --_o3-font-size-7: 48px;
-  --_o3-font-size-8: 56px;
-  --_o3-font-size-9: 72px;
-  --_o3-font-size-10: 84px;
-  --_o3-font-size-negative-2: 12px;
-  --_o3-font-size-negative-1: 14px;
-  --_o3-font-lineheight-metric2-0: 24px;
-  --_o3-font-lineheight-metric2-1: 24px;
-  --_o3-font-lineheight-metric2-2: 28px;
-  --_o3-font-lineheight-metric2-3: 32px;
-  --_o3-font-lineheight-metric2-4: 32px;
-  --_o3-font-lineheight-metric2-5: 40px;
-  --_o3-font-lineheight-metric2-6: 48px;
-  --_o3-font-lineheight-metric2-7: 56px;
-  --_o3-font-lineheight-metric2-8: 72px;
-  --_o3-font-lineheight-metric2-9: 84px;
-  --_o3-font-lineheight-metric2-negative-3: 16px;
-  --_o3-font-lineheight-metric2-negative-2: 16px;
-  --_o3-font-lineheight-metric2-negative-1: 20px;
-  --_o3-font-size-metric2-0: 16px;
-  --_o3-font-size-metric2-1: 18px;
-  --_o3-font-size-metric2-2: 20px;
-  --_o3-font-size-metric2-3: 24px;
-  --_o3-font-size-metric2-4: 28px;
-  --_o3-font-size-metric2-5: 32px;
-  --_o3-font-size-metric2-6: 40px;
-  --_o3-font-size-metric2-7: 48px;
-  --_o3-font-size-metric2-8: 64px;
-  --_o3-font-size-metric2-9: 72px;
-  --_o3-font-size-metric2-negative-3: 10px;
-  --_o3-font-size-metric2-negative-2: 12px;
-  --_o3-font-size-metric2-negative-1: 14px;
+  --o3-font-family-metric: 'metric 2 VF';
+  --o3-font-family-financier-display: 'financier display VF';
+  --o3-font-family-georgia: georgia;
+  --o3-font-weight-light: 300;
+  --o3-font-weight-regular: 400;
+  --o3-font-weight-medium: 500;
+  --o3-font-weight-semibold: 700;
+  --o3-font-weight-bold: 800;
+  --o3-font-lineheight-0: 20px;
+  --o3-font-lineheight-1: 20px;
+  --o3-font-lineheight-2: 24px;
+  --o3-font-lineheight-3: 28px;
+  --o3-font-lineheight-4: 32px;
+  --o3-font-lineheight-5: 32px;
+  --o3-font-lineheight-6: 40px;
+  --o3-font-lineheight-7: 48px;
+  --o3-font-lineheight-8: 56px;
+  --o3-font-lineheight-9: 72px;
+  --o3-font-lineheight-10: 84px;
+  --o3-font-lineheight-negative-2: 16px;
+  --o3-font-lineheight-negative-1: 16px;
+  --o3-font-size-0: 16px;
+  --o3-font-size-1: 18px;
+  --o3-font-size-2: 20px;
+  --o3-font-size-3: 24px;
+  --o3-font-size-4: 28px;
+  --o3-font-size-5: 32px;
+  --o3-font-size-6: 40px;
+  --o3-font-size-7: 48px;
+  --o3-font-size-8: 56px;
+  --o3-font-size-9: 72px;
+  --o3-font-size-10: 84px;
+  --o3-font-size-negative-2: 12px;
+  --o3-font-size-negative-1: 14px;
+  --o3-font-lineheight-metric2-0: 24px;
+  --o3-font-lineheight-metric2-1: 24px;
+  --o3-font-lineheight-metric2-2: 28px;
+  --o3-font-lineheight-metric2-3: 32px;
+  --o3-font-lineheight-metric2-4: 32px;
+  --o3-font-lineheight-metric2-5: 40px;
+  --o3-font-lineheight-metric2-6: 48px;
+  --o3-font-lineheight-metric2-7: 56px;
+  --o3-font-lineheight-metric2-8: 72px;
+  --o3-font-lineheight-metric2-9: 84px;
+  --o3-font-lineheight-metric2-negative-3: 16px;
+  --o3-font-lineheight-metric2-negative-2: 16px;
+  --o3-font-lineheight-metric2-negative-1: 20px;
+  --o3-font-size-metric2-0: 16px;
+  --o3-font-size-metric2-1: 18px;
+  --o3-font-size-metric2-2: 20px;
+  --o3-font-size-metric2-3: 24px;
+  --o3-font-size-metric2-4: 28px;
+  --o3-font-size-metric2-5: 32px;
+  --o3-font-size-metric2-6: 40px;
+  --o3-font-size-metric2-7: 48px;
+  --o3-font-size-metric2-8: 64px;
+  --o3-font-size-metric2-9: 72px;
+  --o3-font-size-metric2-negative-3: 10px;
+  --o3-font-size-metric2-negative-2: 12px;
+  --o3-font-size-metric2-negative-1: 14px;
   --o3-color-use-case-link-text: var(--o3-color-palette-slate);
   --o3-color-use-case-link-text-hover: var(--o3-color-palette-slate);
   --o3-color-use-case-link-text-focus: var(--o3-color-palette-slate);
@@ -198,74 +198,74 @@
   --o3-color-use-case-button-default: var(--o3-color-palette-slate);
   --o3-color-use-case-error-text: var(--o3-color-palette-crimson);
   --o3-color-use-case-error: var(--o3-color-palette-crimson);
-  --o3-typography-use-case-display-lg-font-family: var(--_o3-font-family-financier-display); /* Use this style for large screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages. */
-  --o3-typography-use-case-display-lg-font-weight: var(--_o3-font-weight-bold); /* Use this style for large screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages. */
-  --o3-typography-use-case-display-lg-font-size: var(--_o3-font-size-7); /* Use this style for large screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages. */
-  --o3-typography-use-case-display-lg-line-height: var(--_o3-font-lineheight-7); /* Use this style for large screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages. */
-  --o3-typography-use-case-display-md-font-family: var(--_o3-font-family-financier-display); /* Use this style for medium screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages. */
-  --o3-typography-use-case-display-md-font-weight: var(--_o3-font-weight-bold); /* Use this style for medium screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages. */
-  --o3-typography-use-case-display-md-font-size: var(--_o3-font-size-6); /* Use this style for medium screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages. */
-  --o3-typography-use-case-display-md-line-height: var(--_o3-font-lineheight-6); /* Use this style for medium screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages. */
-  --o3-typography-use-case-display-sm-font-family: var(--_o3-font-family-financier-display); /* Use this style for small screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages. */
-  --o3-typography-use-case-display-sm-font-weight: var(--_o3-font-weight-bold); /* Use this style for small screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages. */
-  --o3-typography-use-case-display-sm-font-size: var(--_o3-font-size-5); /* Use this style for small screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages. */
-  --o3-typography-use-case-display-sm-line-height: var(--_o3-font-lineheight-5); /* Use this style for small screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages. */
-  --o3-typography-use-case-headline-lg-font-family: var(--_o3-font-family-financier-display); /* Use this style for large screens headlines in standard-sized teasers and text only toppers (eg. Opinion and News). */
-  --o3-typography-use-case-headline-lg-font-weight: var(--_o3-font-weight-light); /* Use this style for large screens headlines in standard-sized teasers and text only toppers (eg. Opinion and News). */
-  --o3-typography-use-case-headline-lg-font-size: var(--_o3-font-size-6); /* Use this style for large screens headlines in standard-sized teasers and text only toppers (eg. Opinion and News). */
-  --o3-typography-use-case-headline-lg-line-height: var(--_o3-font-lineheight-6); /* Use this style for large screens headlines in standard-sized teasers and text only toppers (eg. Opinion and News). */
-  --o3-typography-use-case-headline-md-font-family: var(--_o3-font-family-financier-display); /* Use this style for medium screens headlines in smaller teasers and text only toppers (eg. Opinion and News). */
-  --o3-typography-use-case-headline-md-font-weight: var(--_o3-font-weight-light); /* Use this style for medium screens headlines in smaller teasers and text only toppers (eg. Opinion and News). */
-  --o3-typography-use-case-headline-md-font-size: var(--_o3-font-size-5); /* Use this style for medium screens headlines in smaller teasers and text only toppers (eg. Opinion and News). */
-  --o3-typography-use-case-headline-md-line-height: var(--_o3-font-lineheight-5); /* Use this style for medium screens headlines in smaller teasers and text only toppers (eg. Opinion and News). */
-  --o3-typography-use-case-headline-sm-font-family: var(--_o3-font-family-financier-display); /* Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News). */
-  --o3-typography-use-case-headline-sm-font-weight: var(--_o3-font-weight-light); /* Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News). */
-  --o3-typography-use-case-headline-sm-font-size: var(--_o3-font-size-4); /* Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News). */
-  --o3-typography-use-case-headline-sm-line-height: var(--_o3-font-lineheight-4); /* Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News). */
-  --o3-typography-use-case-title-lg-font-family: var(--_o3-font-family-metric); /* Use for the main page title H1 in functional pages such as account and settings. Use across all breakpoints. */
-  --o3-typography-use-case-title-lg-font-weight: var(--_o3-font-weight-semibold); /* Use for the main page title H1 in functional pages such as account and settings. Use across all breakpoints. */
-  --o3-typography-use-case-title-lg-font-size: var(--_o3-font-size-metric2-4); /* Use for the main page title H1 in functional pages such as account and settings. Use across all breakpoints. */
-  --o3-typography-use-case-title-lg-line-height: var(--_o3-font-lineheight-metric2-3); /* Use for the main page title H1 in functional pages such as account and settings. Use across all breakpoints. */
-  --o3-typography-use-case-title-md-font-family: var(--_o3-font-family-metric); /* Use this style as H3 or subtitles within the content body to break paragraphs, or for titles of components like forms, tables and cards across all breakpoints. */
-  --o3-typography-use-case-title-md-font-weight: var(--_o3-font-weight-regular); /* Use this style as H3 or subtitles within the content body to break paragraphs, or for titles of components like forms, tables and cards across all breakpoints. */
-  --o3-typography-use-case-title-md-font-size: var(--_o3-font-size-metric2-3); /* Use this style as H3 or subtitles within the content body to break paragraphs, or for titles of components like forms, tables and cards across all breakpoints. */
-  --o3-typography-use-case-title-md-line-height: var(--_o3-font-lineheight-metric2-3); /* Use this style as H3 or subtitles within the content body to break paragraphs, or for titles of components like forms, tables and cards across all breakpoints. */
-  --o3-typography-use-case-title-sm-font-family: var(--_o3-font-family-metric); /* Use H6 for subtitles within the content body to break up paragraphs, and H2 for subheadings on stream pages or as subtitles for components such as forms, tables, and cards across all breakpoints. */
-  --o3-typography-use-case-title-sm-font-weight: var(--_o3-font-weight-regular); /* Use H6 for subtitles within the content body to break up paragraphs, and H2 for subheadings on stream pages or as subtitles for components such as forms, tables, and cards across all breakpoints. */
-  --o3-typography-use-case-title-sm-line-height: var(--_o3-font-lineheight-metric2-2); /* Use H6 for subtitles within the content body to break up paragraphs, and H2 for subheadings on stream pages or as subtitles for components such as forms, tables, and cards across all breakpoints. */
-  --o3-typography-use-case-title-sm-font-size: var(--_o3-font-size-metric2-2); /* Use H6 for subtitles within the content body to break up paragraphs, and H2 for subheadings on stream pages or as subtitles for components such as forms, tables, and cards across all breakpoints. */
-  --o3-typography-use-case-body-lg-font-family: var(--_o3-font-family-metric); /* Use primarily for the stand-first (introductory summary or highlight) in topper component, as larger body text in components, or section description. */
-  --o3-typography-use-case-body-lg-font-weight: var(--_o3-font-weight-regular); /* Use primarily for the stand-first (introductory summary or highlight) in topper component, as larger body text in components, or section description. */
-  --o3-typography-use-case-body-lg-font-size: var(--_o3-font-size-metric2-1); /* Use primarily for the stand-first (introductory summary or highlight) in topper component, as larger body text in components, or section description. */
-  --o3-typography-use-case-body-lg-line-height: var(--_o3-font-lineheight-metric2-1); /* Use primarily for the stand-first (introductory summary or highlight) in topper component, as larger body text in components, or section description. */
-  --o3-typography-use-case-body-base-font-family: var(--_o3-font-family-metric); /* Use this style for the stand-first in teasers and as the default body copy style across components such as location in the byline. */
-  --o3-typography-use-case-body-base-font-weight: var(--_o3-font-weight-regular); /* Use this style for the stand-first in teasers and as the default body copy style across components such as location in the byline. */
-  --o3-typography-use-case-body-base-font-size: var(--_o3-font-size-metric2-0); /* Use this style for the stand-first in teasers and as the default body copy style across components such as location in the byline. */
-  --o3-typography-use-case-body-base-line-height: var(--_o3-font-lineheight-metric2-0); /* Use this style for the stand-first in teasers and as the default body copy style across components such as location in the byline. */
-  --o3-typography-use-case-body-highlight-font-family: var(--_o3-font-family-metric); /* Use this style for bold formatting in body copy or for small interactive elements, such as Topic tags and Author names. */
-  --o3-typography-use-case-body-highlight-font-weight: var(--_o3-font-weight-semibold); /* Use this style for bold formatting in body copy or for small interactive elements, such as Topic tags and Author names. */
-  --o3-typography-use-case-body-highlight-font-size: var(--_o3-font-size-metric2-0); /* Use this style for bold formatting in body copy or for small interactive elements, such as Topic tags and Author names. */
-  --o3-typography-use-case-body-highlight-line-height: var(--_o3-font-lineheight-metric2-0); /* Use this style for bold formatting in body copy or for small interactive elements, such as Topic tags and Author names. */
-  --o3-typography-use-case-body-link-font-family: var(--_o3-font-family-metric); /* Use this style primarily for links in paragraph or as stand alone link. */
-  --o3-typography-use-case-body-link-font-weight: var(--_o3-font-weight-regular); /* Use this style primarily for links in paragraph or as stand alone link. */
-  --o3-typography-use-case-body-link-font-size: var(--_o3-font-size-metric2-0); /* Use this style primarily for links in paragraph or as stand alone link. */
-  --o3-typography-use-case-body-link-line-height: var(--_o3-font-lineheight-metric2-0); /* Use this style primarily for links in paragraph or as stand alone link. */
-  --o3-typography-use-case-detail-font-family: var(--_o3-font-family-metric); /* Use this style for caption in visual assets such as image and video and for small text elements, such as secondary metadata, caveats, or footnotes. */
-  --o3-typography-use-case-detail-font-weight: var(--_o3-font-weight-regular); /* Use this style for caption in visual assets such as image and video and for small text elements, such as secondary metadata, caveats, or footnotes. */
-  --o3-typography-use-case-detail-font-size: var(--_o3-font-size-metric2-negative-1); /* Use this style for caption in visual assets such as image and video and for small text elements, such as secondary metadata, caveats, or footnotes. */
-  --o3-typography-use-case-detail-line-height: var(--_o3-font-lineheight-metric2-negative-1); /* Use this style for caption in visual assets such as image and video and for small text elements, such as secondary metadata, caveats, or footnotes. */
-  --o3-typography-use-case-label-font-family: var(--_o3-font-family-metric); /* Use this style for labels such as badges and metadata in teasers and toppers (e.g., "Live," "Premium," or the main timestamp). Avoid using full sentences. */
-  --o3-typography-use-case-label-font-weight: var(--_o3-font-weight-regular); /* Use this style for labels such as badges and metadata in teasers and toppers (e.g., "Live," "Premium," or the main timestamp). Avoid using full sentences. */
-  --o3-typography-use-case-label-font-size: var(--_o3-font-size-metric2-negative-1); /* Use this style for labels such as badges and metadata in teasers and toppers (e.g., "Live," "Premium," or the main timestamp). Avoid using full sentences. */
-  --o3-typography-use-case-label-line-height: var(--_o3-font-lineheight-metric2-negative-1); /* Use this style for labels such as badges and metadata in teasers and toppers (e.g., "Live," "Premium," or the main timestamp). Avoid using full sentences. */
-  --o3-typography-use-case-body-content-base-font-size: var(--_o3-font-size-2); /* Use this style only for the body copy of content pages, such as articles, live news and other content experience page. */
-  --o3-typography-use-case-body-content-base-line-height: var(--_o3-font-lineheight-4); /* Use this style only for the body copy of content pages, such as articles, live news and other content experience page. */
-  --o3-typography-use-case-body-content-highlight-font-size: var(--_o3-font-size-2); /* Use this style only for the body copy of content pages, such as articles, live news and other content experience page. */
-  --o3-typography-use-case-body-content-highlight-line-height: var(--_o3-font-lineheight-4); /* Use this style only for the body copy of content pages, such as articles, live news and other content experience page. */
-  --o3-typography-use-case-body-content-emphasis-font-size: var(--_o3-font-size-2); /* Use this style only for the body copy of content pages, such as articles, live news and other content experience page. */
-  --o3-typography-use-case-body-content-emphasis-line-height: var(--_o3-font-lineheight-4); /* Use this style only for the body copy of content pages, such as articles, live news and other content experience page. */
-  --o3-typography-use-case-body-content-link-font-size: var(--_o3-font-size-2); /* Use this style only for the body copy of content pages, such as articles, live news and other content experience page. */
-  --o3-typography-use-case-body-content-link-line-height: var(--_o3-font-lineheight-4); /* Use this style only for the body copy of content pages, such as articles, live news and other content experience page. */
+  --o3-typography-use-case-display-lg-font-family: var(--o3-font-family-financier-display); /* Use this style for large screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages. */
+  --o3-typography-use-case-display-lg-font-weight: var(--o3-font-weight-bold); /* Use this style for large screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages. */
+  --o3-typography-use-case-display-lg-font-size: var(--o3-font-size-7); /* Use this style for large screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages. */
+  --o3-typography-use-case-display-lg-line-height: var(--o3-font-lineheight-7); /* Use this style for large screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages. */
+  --o3-typography-use-case-display-md-font-family: var(--o3-font-family-financier-display); /* Use this style for medium screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages. */
+  --o3-typography-use-case-display-md-font-weight: var(--o3-font-weight-bold); /* Use this style for medium screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages. */
+  --o3-typography-use-case-display-md-font-size: var(--o3-font-size-6); /* Use this style for medium screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages. */
+  --o3-typography-use-case-display-md-line-height: var(--o3-font-lineheight-6); /* Use this style for medium screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages. */
+  --o3-typography-use-case-display-sm-font-family: var(--o3-font-family-financier-display); /* Use this style for small screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages. */
+  --o3-typography-use-case-display-sm-font-weight: var(--o3-font-weight-bold); /* Use this style for small screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages. */
+  --o3-typography-use-case-display-sm-font-size: var(--o3-font-size-5); /* Use this style for small screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages. */
+  --o3-typography-use-case-display-sm-line-height: var(--o3-font-lineheight-5); /* Use this style for small screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages. */
+  --o3-typography-use-case-headline-lg-font-family: var(--o3-font-family-financier-display); /* Use this style for large screens headlines in standard-sized teasers and text only toppers (eg. Opinion and News). */
+  --o3-typography-use-case-headline-lg-font-weight: var(--o3-font-weight-light); /* Use this style for large screens headlines in standard-sized teasers and text only toppers (eg. Opinion and News). */
+  --o3-typography-use-case-headline-lg-font-size: var(--o3-font-size-6); /* Use this style for large screens headlines in standard-sized teasers and text only toppers (eg. Opinion and News). */
+  --o3-typography-use-case-headline-lg-line-height: var(--o3-font-lineheight-6); /* Use this style for large screens headlines in standard-sized teasers and text only toppers (eg. Opinion and News). */
+  --o3-typography-use-case-headline-md-font-family: var(--o3-font-family-financier-display); /* Use this style for medium screens headlines in smaller teasers and text only toppers (eg. Opinion and News). */
+  --o3-typography-use-case-headline-md-font-weight: var(--o3-font-weight-light); /* Use this style for medium screens headlines in smaller teasers and text only toppers (eg. Opinion and News). */
+  --o3-typography-use-case-headline-md-font-size: var(--o3-font-size-5); /* Use this style for medium screens headlines in smaller teasers and text only toppers (eg. Opinion and News). */
+  --o3-typography-use-case-headline-md-line-height: var(--o3-font-lineheight-5); /* Use this style for medium screens headlines in smaller teasers and text only toppers (eg. Opinion and News). */
+  --o3-typography-use-case-headline-sm-font-family: var(--o3-font-family-financier-display); /* Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News). */
+  --o3-typography-use-case-headline-sm-font-weight: var(--o3-font-weight-light); /* Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News). */
+  --o3-typography-use-case-headline-sm-font-size: var(--o3-font-size-4); /* Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News). */
+  --o3-typography-use-case-headline-sm-line-height: var(--o3-font-lineheight-4); /* Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News). */
+  --o3-typography-use-case-title-lg-font-family: var(--o3-font-family-metric); /* Use for the main page title H1 in functional pages such as account and settings. Use across all breakpoints. */
+  --o3-typography-use-case-title-lg-font-weight: var(--o3-font-weight-semibold); /* Use for the main page title H1 in functional pages such as account and settings. Use across all breakpoints. */
+  --o3-typography-use-case-title-lg-font-size: var(--o3-font-size-metric2-4); /* Use for the main page title H1 in functional pages such as account and settings. Use across all breakpoints. */
+  --o3-typography-use-case-title-lg-line-height: var(--o3-font-lineheight-metric2-3); /* Use for the main page title H1 in functional pages such as account and settings. Use across all breakpoints. */
+  --o3-typography-use-case-title-md-font-family: var(--o3-font-family-metric); /* Use this style as H3 or subtitles within the content body to break paragraphs, or for titles of components like forms, tables and cards across all breakpoints. */
+  --o3-typography-use-case-title-md-font-weight: var(--o3-font-weight-regular); /* Use this style as H3 or subtitles within the content body to break paragraphs, or for titles of components like forms, tables and cards across all breakpoints. */
+  --o3-typography-use-case-title-md-font-size: var(--o3-font-size-metric2-3); /* Use this style as H3 or subtitles within the content body to break paragraphs, or for titles of components like forms, tables and cards across all breakpoints. */
+  --o3-typography-use-case-title-md-line-height: var(--o3-font-lineheight-metric2-3); /* Use this style as H3 or subtitles within the content body to break paragraphs, or for titles of components like forms, tables and cards across all breakpoints. */
+  --o3-typography-use-case-title-sm-font-family: var(--o3-font-family-metric); /* Use H6 for subtitles within the content body to break up paragraphs, and H2 for subheadings on stream pages or as subtitles for components such as forms, tables, and cards across all breakpoints. */
+  --o3-typography-use-case-title-sm-font-weight: var(--o3-font-weight-regular); /* Use H6 for subtitles within the content body to break up paragraphs, and H2 for subheadings on stream pages or as subtitles for components such as forms, tables, and cards across all breakpoints. */
+  --o3-typography-use-case-title-sm-line-height: var(--o3-font-lineheight-metric2-2); /* Use H6 for subtitles within the content body to break up paragraphs, and H2 for subheadings on stream pages or as subtitles for components such as forms, tables, and cards across all breakpoints. */
+  --o3-typography-use-case-title-sm-font-size: var(--o3-font-size-metric2-2); /* Use H6 for subtitles within the content body to break up paragraphs, and H2 for subheadings on stream pages or as subtitles for components such as forms, tables, and cards across all breakpoints. */
+  --o3-typography-use-case-body-lg-font-family: var(--o3-font-family-metric); /* Use primarily for the stand-first (introductory summary or highlight) in topper component, as larger body text in components, or section description. */
+  --o3-typography-use-case-body-lg-font-weight: var(--o3-font-weight-regular); /* Use primarily for the stand-first (introductory summary or highlight) in topper component, as larger body text in components, or section description. */
+  --o3-typography-use-case-body-lg-font-size: var(--o3-font-size-metric2-1); /* Use primarily for the stand-first (introductory summary or highlight) in topper component, as larger body text in components, or section description. */
+  --o3-typography-use-case-body-lg-line-height: var(--o3-font-lineheight-metric2-1); /* Use primarily for the stand-first (introductory summary or highlight) in topper component, as larger body text in components, or section description. */
+  --o3-typography-use-case-body-base-font-family: var(--o3-font-family-metric); /* Use this style for the stand-first in teasers and as the default body copy style across components such as location in the byline. */
+  --o3-typography-use-case-body-base-font-weight: var(--o3-font-weight-regular); /* Use this style for the stand-first in teasers and as the default body copy style across components such as location in the byline. */
+  --o3-typography-use-case-body-base-font-size: var(--o3-font-size-metric2-0); /* Use this style for the stand-first in teasers and as the default body copy style across components such as location in the byline. */
+  --o3-typography-use-case-body-base-line-height: var(--o3-font-lineheight-metric2-0); /* Use this style for the stand-first in teasers and as the default body copy style across components such as location in the byline. */
+  --o3-typography-use-case-body-highlight-font-family: var(--o3-font-family-metric); /* Use this style for bold formatting in body copy or for small interactive elements, such as Topic tags and Author names. */
+  --o3-typography-use-case-body-highlight-font-weight: var(--o3-font-weight-semibold); /* Use this style for bold formatting in body copy or for small interactive elements, such as Topic tags and Author names. */
+  --o3-typography-use-case-body-highlight-font-size: var(--o3-font-size-metric2-0); /* Use this style for bold formatting in body copy or for small interactive elements, such as Topic tags and Author names. */
+  --o3-typography-use-case-body-highlight-line-height: var(--o3-font-lineheight-metric2-0); /* Use this style for bold formatting in body copy or for small interactive elements, such as Topic tags and Author names. */
+  --o3-typography-use-case-body-link-font-family: var(--o3-font-family-metric); /* Use this style primarily for links in paragraph or as stand alone link. */
+  --o3-typography-use-case-body-link-font-weight: var(--o3-font-weight-regular); /* Use this style primarily for links in paragraph or as stand alone link. */
+  --o3-typography-use-case-body-link-font-size: var(--o3-font-size-metric2-0); /* Use this style primarily for links in paragraph or as stand alone link. */
+  --o3-typography-use-case-body-link-line-height: var(--o3-font-lineheight-metric2-0); /* Use this style primarily for links in paragraph or as stand alone link. */
+  --o3-typography-use-case-detail-font-family: var(--o3-font-family-metric); /* Use this style for caption in visual assets such as image and video and for small text elements, such as secondary metadata, caveats, or footnotes. */
+  --o3-typography-use-case-detail-font-weight: var(--o3-font-weight-regular); /* Use this style for caption in visual assets such as image and video and for small text elements, such as secondary metadata, caveats, or footnotes. */
+  --o3-typography-use-case-detail-font-size: var(--o3-font-size-metric2-negative-1); /* Use this style for caption in visual assets such as image and video and for small text elements, such as secondary metadata, caveats, or footnotes. */
+  --o3-typography-use-case-detail-line-height: var(--o3-font-lineheight-metric2-negative-1); /* Use this style for caption in visual assets such as image and video and for small text elements, such as secondary metadata, caveats, or footnotes. */
+  --o3-typography-use-case-label-font-family: var(--o3-font-family-metric); /* Use this style for labels such as badges and metadata in teasers and toppers (e.g., "Live," "Premium," or the main timestamp). Avoid using full sentences. */
+  --o3-typography-use-case-label-font-weight: var(--o3-font-weight-regular); /* Use this style for labels such as badges and metadata in teasers and toppers (e.g., "Live," "Premium," or the main timestamp). Avoid using full sentences. */
+  --o3-typography-use-case-label-font-size: var(--o3-font-size-metric2-negative-1); /* Use this style for labels such as badges and metadata in teasers and toppers (e.g., "Live," "Premium," or the main timestamp). Avoid using full sentences. */
+  --o3-typography-use-case-label-line-height: var(--o3-font-lineheight-metric2-negative-1); /* Use this style for labels such as badges and metadata in teasers and toppers (e.g., "Live," "Premium," or the main timestamp). Avoid using full sentences. */
+  --o3-typography-use-case-body-content-base-font-size: var(--o3-font-size-2); /* Use this style only for the body copy of content pages, such as articles, live news and other content experience page. */
+  --o3-typography-use-case-body-content-base-line-height: var(--o3-font-lineheight-4); /* Use this style only for the body copy of content pages, such as articles, live news and other content experience page. */
+  --o3-typography-use-case-body-content-highlight-font-size: var(--o3-font-size-2); /* Use this style only for the body copy of content pages, such as articles, live news and other content experience page. */
+  --o3-typography-use-case-body-content-highlight-line-height: var(--o3-font-lineheight-4); /* Use this style only for the body copy of content pages, such as articles, live news and other content experience page. */
+  --o3-typography-use-case-body-content-emphasis-font-size: var(--o3-font-size-2); /* Use this style only for the body copy of content pages, such as articles, live news and other content experience page. */
+  --o3-typography-use-case-body-content-emphasis-line-height: var(--o3-font-lineheight-4); /* Use this style only for the body copy of content pages, such as articles, live news and other content experience page. */
+  --o3-typography-use-case-body-content-link-font-size: var(--o3-font-size-2); /* Use this style only for the body copy of content pages, such as articles, live news and other content experience page. */
+  --o3-typography-use-case-body-content-link-line-height: var(--o3-font-lineheight-4); /* Use this style only for the body copy of content pages, such as articles, live news and other content experience page. */
   --o3-focus-use-case-ring-inner: 0px 0px 0px 4px var(--o3-color-palette-white);
   --o3-focus-use-case-ring-outer: 0px 0px 0px 8px var(--o3-color-palette-black-70);
   --o3-focus-use-case-ring-inverse-inner: 0px 0px 0px 4px var(--o3-color-palette-black-70);

@@ -3019,7 +3019,7 @@ export default {
 		"css": "--o3-typography-use-case-body-content-link-line-height",
 		"figma": "o3/typography/use-case/body-content-link/lineHeight"
 },
-	"_o3-font-family-metric": {
+	"o3-font-family-metric": {
 		"shortName": "metric",
 		"value": "metric 2 VF",
 		"originalValue": "metric 2 VF",
@@ -3030,10 +3030,10 @@ export default {
 				"family",
 				"metric"
 		],
-		"css": "--_o3-font-family-metric",
+		"css": "--o3-font-family-metric",
 		"figma": "o3/font/family/metric"
 },
-	"_o3-font-family-financier-display": {
+	"o3-font-family-financier-display": {
 		"shortName": "financier-display",
 		"value": "financier display VF",
 		"originalValue": "financier display VF",
@@ -3044,10 +3044,10 @@ export default {
 				"family",
 				"financier-display"
 		],
-		"css": "--_o3-font-family-financier-display",
+		"css": "--o3-font-family-financier-display",
 		"figma": "o3/font/family/financier-display"
 },
-	"_o3-font-family-georgia": {
+	"o3-font-family-georgia": {
 		"shortName": "georgia",
 		"value": "georgia",
 		"originalValue": "georgia",
@@ -3058,10 +3058,10 @@ export default {
 				"family",
 				"georgia"
 		],
-		"css": "--_o3-font-family-georgia",
+		"css": "--o3-font-family-georgia",
 		"figma": "o3/font/family/georgia"
 },
-	"_o3-font-weight-light": {
+	"o3-font-weight-light": {
 		"shortName": "light",
 		"value": "300",
 		"originalValue": "300",
@@ -3072,10 +3072,10 @@ export default {
 				"weight",
 				"light"
 		],
-		"css": "--_o3-font-weight-light",
+		"css": "--o3-font-weight-light",
 		"figma": "o3/font/weight/light"
 },
-	"_o3-font-weight-regular": {
+	"o3-font-weight-regular": {
 		"shortName": "regular",
 		"value": "400",
 		"originalValue": "400",
@@ -3086,10 +3086,10 @@ export default {
 				"weight",
 				"regular"
 		],
-		"css": "--_o3-font-weight-regular",
+		"css": "--o3-font-weight-regular",
 		"figma": "o3/font/weight/regular"
 },
-	"_o3-font-weight-medium": {
+	"o3-font-weight-medium": {
 		"shortName": "medium",
 		"value": "500",
 		"originalValue": "500",
@@ -3100,10 +3100,10 @@ export default {
 				"weight",
 				"medium"
 		],
-		"css": "--_o3-font-weight-medium",
+		"css": "--o3-font-weight-medium",
 		"figma": "o3/font/weight/medium"
 },
-	"_o3-font-weight-semibold": {
+	"o3-font-weight-semibold": {
 		"shortName": "semibold",
 		"value": "700",
 		"originalValue": "700",
@@ -3114,10 +3114,10 @@ export default {
 				"weight",
 				"semibold"
 		],
-		"css": "--_o3-font-weight-semibold",
+		"css": "--o3-font-weight-semibold",
 		"figma": "o3/font/weight/semibold"
 },
-	"_o3-font-weight-bold": {
+	"o3-font-weight-bold": {
 		"shortName": "bold",
 		"value": "800",
 		"originalValue": "800",
@@ -3128,10 +3128,10 @@ export default {
 				"weight",
 				"bold"
 		],
-		"css": "--_o3-font-weight-bold",
+		"css": "--o3-font-weight-bold",
 		"figma": "o3/font/weight/bold"
 },
-	"_o3-font-lineheight-0": {
+	"o3-font-lineheight-0": {
 		"shortName": "0",
 		"value": "20px",
 		"originalValue": "20",
@@ -3142,10 +3142,10 @@ export default {
 				"lineheight",
 				"0"
 		],
-		"css": "--_o3-font-lineheight-0",
+		"css": "--o3-font-lineheight-0",
 		"figma": "o3/font/lineheight/0"
 },
-	"_o3-font-lineheight-1": {
+	"o3-font-lineheight-1": {
 		"shortName": "1",
 		"value": "20px",
 		"originalValue": "20",
@@ -3156,10 +3156,10 @@ export default {
 				"lineheight",
 				"1"
 		],
-		"css": "--_o3-font-lineheight-1",
+		"css": "--o3-font-lineheight-1",
 		"figma": "o3/font/lineheight/1"
 },
-	"_o3-font-lineheight-2": {
+	"o3-font-lineheight-2": {
 		"shortName": "2",
 		"value": "24px",
 		"originalValue": "24",
@@ -3170,10 +3170,10 @@ export default {
 				"lineheight",
 				"2"
 		],
-		"css": "--_o3-font-lineheight-2",
+		"css": "--o3-font-lineheight-2",
 		"figma": "o3/font/lineheight/2"
 },
-	"_o3-font-lineheight-3": {
+	"o3-font-lineheight-3": {
 		"shortName": "3",
 		"value": "28px",
 		"originalValue": "28",
@@ -3184,10 +3184,10 @@ export default {
 				"lineheight",
 				"3"
 		],
-		"css": "--_o3-font-lineheight-3",
+		"css": "--o3-font-lineheight-3",
 		"figma": "o3/font/lineheight/3"
 },
-	"_o3-font-lineheight-4": {
+	"o3-font-lineheight-4": {
 		"shortName": "4",
 		"value": "32px",
 		"originalValue": "32",
@@ -3198,10 +3198,10 @@ export default {
 				"lineheight",
 				"4"
 		],
-		"css": "--_o3-font-lineheight-4",
+		"css": "--o3-font-lineheight-4",
 		"figma": "o3/font/lineheight/4"
 },
-	"_o3-font-lineheight-5": {
+	"o3-font-lineheight-5": {
 		"shortName": "5",
 		"value": "32px",
 		"originalValue": "32",
@@ -3212,10 +3212,10 @@ export default {
 				"lineheight",
 				"5"
 		],
-		"css": "--_o3-font-lineheight-5",
+		"css": "--o3-font-lineheight-5",
 		"figma": "o3/font/lineheight/5"
 },
-	"_o3-font-lineheight-6": {
+	"o3-font-lineheight-6": {
 		"shortName": "6",
 		"value": "40px",
 		"originalValue": "40",
@@ -3226,10 +3226,10 @@ export default {
 				"lineheight",
 				"6"
 		],
-		"css": "--_o3-font-lineheight-6",
+		"css": "--o3-font-lineheight-6",
 		"figma": "o3/font/lineheight/6"
 },
-	"_o3-font-lineheight-7": {
+	"o3-font-lineheight-7": {
 		"shortName": "7",
 		"value": "48px",
 		"originalValue": "48",
@@ -3240,10 +3240,10 @@ export default {
 				"lineheight",
 				"7"
 		],
-		"css": "--_o3-font-lineheight-7",
+		"css": "--o3-font-lineheight-7",
 		"figma": "o3/font/lineheight/7"
 },
-	"_o3-font-lineheight-8": {
+	"o3-font-lineheight-8": {
 		"shortName": "8",
 		"value": "56px",
 		"originalValue": "56",
@@ -3254,10 +3254,10 @@ export default {
 				"lineheight",
 				"8"
 		],
-		"css": "--_o3-font-lineheight-8",
+		"css": "--o3-font-lineheight-8",
 		"figma": "o3/font/lineheight/8"
 },
-	"_o3-font-lineheight-9": {
+	"o3-font-lineheight-9": {
 		"shortName": "9",
 		"value": "72px",
 		"originalValue": "72",
@@ -3268,10 +3268,10 @@ export default {
 				"lineheight",
 				"9"
 		],
-		"css": "--_o3-font-lineheight-9",
+		"css": "--o3-font-lineheight-9",
 		"figma": "o3/font/lineheight/9"
 },
-	"_o3-font-lineheight-10": {
+	"o3-font-lineheight-10": {
 		"shortName": "10",
 		"value": "84px",
 		"originalValue": "84",
@@ -3282,10 +3282,10 @@ export default {
 				"lineheight",
 				"10"
 		],
-		"css": "--_o3-font-lineheight-10",
+		"css": "--o3-font-lineheight-10",
 		"figma": "o3/font/lineheight/10"
 },
-	"_o3-font-lineheight-negative-2": {
+	"o3-font-lineheight-negative-2": {
 		"shortName": "negative-2",
 		"value": "16px",
 		"originalValue": "16",
@@ -3296,10 +3296,10 @@ export default {
 				"lineheight",
 				"negative-2"
 		],
-		"css": "--_o3-font-lineheight-negative-2",
+		"css": "--o3-font-lineheight-negative-2",
 		"figma": "o3/font/lineheight/negative-2"
 },
-	"_o3-font-lineheight-negative-1": {
+	"o3-font-lineheight-negative-1": {
 		"shortName": "negative-1",
 		"value": "16px",
 		"originalValue": "16",
@@ -3310,10 +3310,10 @@ export default {
 				"lineheight",
 				"negative-1"
 		],
-		"css": "--_o3-font-lineheight-negative-1",
+		"css": "--o3-font-lineheight-negative-1",
 		"figma": "o3/font/lineheight/negative-1"
 },
-	"_o3-font-size-0": {
+	"o3-font-size-0": {
 		"shortName": "0",
 		"value": "16px",
 		"originalValue": "16",
@@ -3324,10 +3324,10 @@ export default {
 				"size",
 				"0"
 		],
-		"css": "--_o3-font-size-0",
+		"css": "--o3-font-size-0",
 		"figma": "o3/font/size/0"
 },
-	"_o3-font-size-1": {
+	"o3-font-size-1": {
 		"shortName": "1",
 		"value": "18px",
 		"originalValue": "18",
@@ -3338,10 +3338,10 @@ export default {
 				"size",
 				"1"
 		],
-		"css": "--_o3-font-size-1",
+		"css": "--o3-font-size-1",
 		"figma": "o3/font/size/1"
 },
-	"_o3-font-size-2": {
+	"o3-font-size-2": {
 		"shortName": "2",
 		"value": "20px",
 		"originalValue": "20",
@@ -3352,10 +3352,10 @@ export default {
 				"size",
 				"2"
 		],
-		"css": "--_o3-font-size-2",
+		"css": "--o3-font-size-2",
 		"figma": "o3/font/size/2"
 },
-	"_o3-font-size-3": {
+	"o3-font-size-3": {
 		"shortName": "3",
 		"value": "24px",
 		"originalValue": "24",
@@ -3366,10 +3366,10 @@ export default {
 				"size",
 				"3"
 		],
-		"css": "--_o3-font-size-3",
+		"css": "--o3-font-size-3",
 		"figma": "o3/font/size/3"
 },
-	"_o3-font-size-4": {
+	"o3-font-size-4": {
 		"shortName": "4",
 		"value": "28px",
 		"originalValue": "28",
@@ -3380,10 +3380,10 @@ export default {
 				"size",
 				"4"
 		],
-		"css": "--_o3-font-size-4",
+		"css": "--o3-font-size-4",
 		"figma": "o3/font/size/4"
 },
-	"_o3-font-size-5": {
+	"o3-font-size-5": {
 		"shortName": "5",
 		"value": "32px",
 		"originalValue": "32",
@@ -3394,10 +3394,10 @@ export default {
 				"size",
 				"5"
 		],
-		"css": "--_o3-font-size-5",
+		"css": "--o3-font-size-5",
 		"figma": "o3/font/size/5"
 },
-	"_o3-font-size-6": {
+	"o3-font-size-6": {
 		"shortName": "6",
 		"value": "40px",
 		"originalValue": "40",
@@ -3408,10 +3408,10 @@ export default {
 				"size",
 				"6"
 		],
-		"css": "--_o3-font-size-6",
+		"css": "--o3-font-size-6",
 		"figma": "o3/font/size/6"
 },
-	"_o3-font-size-7": {
+	"o3-font-size-7": {
 		"shortName": "7",
 		"value": "48px",
 		"originalValue": "48",
@@ -3422,10 +3422,10 @@ export default {
 				"size",
 				"7"
 		],
-		"css": "--_o3-font-size-7",
+		"css": "--o3-font-size-7",
 		"figma": "o3/font/size/7"
 },
-	"_o3-font-size-8": {
+	"o3-font-size-8": {
 		"shortName": "8",
 		"value": "56px",
 		"originalValue": "56",
@@ -3436,10 +3436,10 @@ export default {
 				"size",
 				"8"
 		],
-		"css": "--_o3-font-size-8",
+		"css": "--o3-font-size-8",
 		"figma": "o3/font/size/8"
 },
-	"_o3-font-size-9": {
+	"o3-font-size-9": {
 		"shortName": "9",
 		"value": "72px",
 		"originalValue": "72",
@@ -3450,10 +3450,10 @@ export default {
 				"size",
 				"9"
 		],
-		"css": "--_o3-font-size-9",
+		"css": "--o3-font-size-9",
 		"figma": "o3/font/size/9"
 },
-	"_o3-font-size-10": {
+	"o3-font-size-10": {
 		"shortName": "10",
 		"value": "84px",
 		"originalValue": "84",
@@ -3464,10 +3464,10 @@ export default {
 				"size",
 				"10"
 		],
-		"css": "--_o3-font-size-10",
+		"css": "--o3-font-size-10",
 		"figma": "o3/font/size/10"
 },
-	"_o3-font-size-negative-2": {
+	"o3-font-size-negative-2": {
 		"shortName": "negative-2",
 		"value": "12px",
 		"originalValue": "12",
@@ -3478,10 +3478,10 @@ export default {
 				"size",
 				"negative-2"
 		],
-		"css": "--_o3-font-size-negative-2",
+		"css": "--o3-font-size-negative-2",
 		"figma": "o3/font/size/negative-2"
 },
-	"_o3-font-size-negative-1": {
+	"o3-font-size-negative-1": {
 		"shortName": "negative-1",
 		"value": "14px",
 		"originalValue": "14",
@@ -3492,10 +3492,10 @@ export default {
 				"size",
 				"negative-1"
 		],
-		"css": "--_o3-font-size-negative-1",
+		"css": "--o3-font-size-negative-1",
 		"figma": "o3/font/size/negative-1"
 },
-	"_o3-font-lineheight-metric2-0": {
+	"o3-font-lineheight-metric2-0": {
 		"shortName": "0",
 		"value": "24px",
 		"originalValue": "24",
@@ -3506,10 +3506,10 @@ export default {
 				"lineheight-metric2",
 				"0"
 		],
-		"css": "--_o3-font-lineheight-metric2-0",
+		"css": "--o3-font-lineheight-metric2-0",
 		"figma": "o3/font/lineheight-metric2/0"
 },
-	"_o3-font-lineheight-metric2-1": {
+	"o3-font-lineheight-metric2-1": {
 		"shortName": "1",
 		"value": "24px",
 		"originalValue": "24",
@@ -3520,10 +3520,10 @@ export default {
 				"lineheight-metric2",
 				"1"
 		],
-		"css": "--_o3-font-lineheight-metric2-1",
+		"css": "--o3-font-lineheight-metric2-1",
 		"figma": "o3/font/lineheight-metric2/1"
 },
-	"_o3-font-lineheight-metric2-2": {
+	"o3-font-lineheight-metric2-2": {
 		"shortName": "2",
 		"value": "28px",
 		"originalValue": "28",
@@ -3534,10 +3534,10 @@ export default {
 				"lineheight-metric2",
 				"2"
 		],
-		"css": "--_o3-font-lineheight-metric2-2",
+		"css": "--o3-font-lineheight-metric2-2",
 		"figma": "o3/font/lineheight-metric2/2"
 },
-	"_o3-font-lineheight-metric2-3": {
+	"o3-font-lineheight-metric2-3": {
 		"shortName": "3",
 		"value": "32px",
 		"originalValue": "32",
@@ -3548,10 +3548,10 @@ export default {
 				"lineheight-metric2",
 				"3"
 		],
-		"css": "--_o3-font-lineheight-metric2-3",
+		"css": "--o3-font-lineheight-metric2-3",
 		"figma": "o3/font/lineheight-metric2/3"
 },
-	"_o3-font-lineheight-metric2-4": {
+	"o3-font-lineheight-metric2-4": {
 		"shortName": "4",
 		"value": "32px",
 		"originalValue": "32",
@@ -3562,10 +3562,10 @@ export default {
 				"lineheight-metric2",
 				"4"
 		],
-		"css": "--_o3-font-lineheight-metric2-4",
+		"css": "--o3-font-lineheight-metric2-4",
 		"figma": "o3/font/lineheight-metric2/4"
 },
-	"_o3-font-lineheight-metric2-5": {
+	"o3-font-lineheight-metric2-5": {
 		"shortName": "5",
 		"value": "40px",
 		"originalValue": "40",
@@ -3576,10 +3576,10 @@ export default {
 				"lineheight-metric2",
 				"5"
 		],
-		"css": "--_o3-font-lineheight-metric2-5",
+		"css": "--o3-font-lineheight-metric2-5",
 		"figma": "o3/font/lineheight-metric2/5"
 },
-	"_o3-font-lineheight-metric2-6": {
+	"o3-font-lineheight-metric2-6": {
 		"shortName": "6",
 		"value": "48px",
 		"originalValue": "48",
@@ -3590,10 +3590,10 @@ export default {
 				"lineheight-metric2",
 				"6"
 		],
-		"css": "--_o3-font-lineheight-metric2-6",
+		"css": "--o3-font-lineheight-metric2-6",
 		"figma": "o3/font/lineheight-metric2/6"
 },
-	"_o3-font-lineheight-metric2-7": {
+	"o3-font-lineheight-metric2-7": {
 		"shortName": "7",
 		"value": "56px",
 		"originalValue": "56",
@@ -3604,10 +3604,10 @@ export default {
 				"lineheight-metric2",
 				"7"
 		],
-		"css": "--_o3-font-lineheight-metric2-7",
+		"css": "--o3-font-lineheight-metric2-7",
 		"figma": "o3/font/lineheight-metric2/7"
 },
-	"_o3-font-lineheight-metric2-8": {
+	"o3-font-lineheight-metric2-8": {
 		"shortName": "8",
 		"value": "72px",
 		"originalValue": "72",
@@ -3618,10 +3618,10 @@ export default {
 				"lineheight-metric2",
 				"8"
 		],
-		"css": "--_o3-font-lineheight-metric2-8",
+		"css": "--o3-font-lineheight-metric2-8",
 		"figma": "o3/font/lineheight-metric2/8"
 },
-	"_o3-font-lineheight-metric2-9": {
+	"o3-font-lineheight-metric2-9": {
 		"shortName": "9",
 		"value": "84px",
 		"originalValue": "84",
@@ -3632,10 +3632,10 @@ export default {
 				"lineheight-metric2",
 				"9"
 		],
-		"css": "--_o3-font-lineheight-metric2-9",
+		"css": "--o3-font-lineheight-metric2-9",
 		"figma": "o3/font/lineheight-metric2/9"
 },
-	"_o3-font-lineheight-metric2-negative-3": {
+	"o3-font-lineheight-metric2-negative-3": {
 		"shortName": "negative-3",
 		"value": "16px",
 		"originalValue": "16",
@@ -3646,10 +3646,10 @@ export default {
 				"lineheight-metric2",
 				"negative-3"
 		],
-		"css": "--_o3-font-lineheight-metric2-negative-3",
+		"css": "--o3-font-lineheight-metric2-negative-3",
 		"figma": "o3/font/lineheight-metric2/negative-3"
 },
-	"_o3-font-lineheight-metric2-negative-2": {
+	"o3-font-lineheight-metric2-negative-2": {
 		"shortName": "negative-2",
 		"value": "16px",
 		"originalValue": "16",
@@ -3660,10 +3660,10 @@ export default {
 				"lineheight-metric2",
 				"negative-2"
 		],
-		"css": "--_o3-font-lineheight-metric2-negative-2",
+		"css": "--o3-font-lineheight-metric2-negative-2",
 		"figma": "o3/font/lineheight-metric2/negative-2"
 },
-	"_o3-font-lineheight-metric2-negative-1": {
+	"o3-font-lineheight-metric2-negative-1": {
 		"shortName": "negative-1",
 		"value": "20px",
 		"originalValue": "20",
@@ -3674,10 +3674,10 @@ export default {
 				"lineheight-metric2",
 				"negative-1"
 		],
-		"css": "--_o3-font-lineheight-metric2-negative-1",
+		"css": "--o3-font-lineheight-metric2-negative-1",
 		"figma": "o3/font/lineheight-metric2/negative-1"
 },
-	"_o3-font-size-metric2-0": {
+	"o3-font-size-metric2-0": {
 		"shortName": "0",
 		"value": "16px",
 		"originalValue": "16",
@@ -3688,10 +3688,10 @@ export default {
 				"size-metric2",
 				"0"
 		],
-		"css": "--_o3-font-size-metric2-0",
+		"css": "--o3-font-size-metric2-0",
 		"figma": "o3/font/size-metric2/0"
 },
-	"_o3-font-size-metric2-1": {
+	"o3-font-size-metric2-1": {
 		"shortName": "1",
 		"value": "18px",
 		"originalValue": "18",
@@ -3702,10 +3702,10 @@ export default {
 				"size-metric2",
 				"1"
 		],
-		"css": "--_o3-font-size-metric2-1",
+		"css": "--o3-font-size-metric2-1",
 		"figma": "o3/font/size-metric2/1"
 },
-	"_o3-font-size-metric2-2": {
+	"o3-font-size-metric2-2": {
 		"shortName": "2",
 		"value": "20px",
 		"originalValue": "20",
@@ -3716,10 +3716,10 @@ export default {
 				"size-metric2",
 				"2"
 		],
-		"css": "--_o3-font-size-metric2-2",
+		"css": "--o3-font-size-metric2-2",
 		"figma": "o3/font/size-metric2/2"
 },
-	"_o3-font-size-metric2-3": {
+	"o3-font-size-metric2-3": {
 		"shortName": "3",
 		"value": "24px",
 		"originalValue": "24",
@@ -3730,10 +3730,10 @@ export default {
 				"size-metric2",
 				"3"
 		],
-		"css": "--_o3-font-size-metric2-3",
+		"css": "--o3-font-size-metric2-3",
 		"figma": "o3/font/size-metric2/3"
 },
-	"_o3-font-size-metric2-4": {
+	"o3-font-size-metric2-4": {
 		"shortName": "4",
 		"value": "28px",
 		"originalValue": "28",
@@ -3744,10 +3744,10 @@ export default {
 				"size-metric2",
 				"4"
 		],
-		"css": "--_o3-font-size-metric2-4",
+		"css": "--o3-font-size-metric2-4",
 		"figma": "o3/font/size-metric2/4"
 },
-	"_o3-font-size-metric2-5": {
+	"o3-font-size-metric2-5": {
 		"shortName": "5",
 		"value": "32px",
 		"originalValue": "32",
@@ -3758,10 +3758,10 @@ export default {
 				"size-metric2",
 				"5"
 		],
-		"css": "--_o3-font-size-metric2-5",
+		"css": "--o3-font-size-metric2-5",
 		"figma": "o3/font/size-metric2/5"
 },
-	"_o3-font-size-metric2-6": {
+	"o3-font-size-metric2-6": {
 		"shortName": "6",
 		"value": "40px",
 		"originalValue": "40",
@@ -3772,10 +3772,10 @@ export default {
 				"size-metric2",
 				"6"
 		],
-		"css": "--_o3-font-size-metric2-6",
+		"css": "--o3-font-size-metric2-6",
 		"figma": "o3/font/size-metric2/6"
 },
-	"_o3-font-size-metric2-7": {
+	"o3-font-size-metric2-7": {
 		"shortName": "7",
 		"value": "48px",
 		"originalValue": "48",
@@ -3786,10 +3786,10 @@ export default {
 				"size-metric2",
 				"7"
 		],
-		"css": "--_o3-font-size-metric2-7",
+		"css": "--o3-font-size-metric2-7",
 		"figma": "o3/font/size-metric2/7"
 },
-	"_o3-font-size-metric2-8": {
+	"o3-font-size-metric2-8": {
 		"shortName": "8",
 		"value": "64px",
 		"originalValue": "64",
@@ -3800,10 +3800,10 @@ export default {
 				"size-metric2",
 				"8"
 		],
-		"css": "--_o3-font-size-metric2-8",
+		"css": "--o3-font-size-metric2-8",
 		"figma": "o3/font/size-metric2/8"
 },
-	"_o3-font-size-metric2-9": {
+	"o3-font-size-metric2-9": {
 		"shortName": "9",
 		"value": "72px",
 		"originalValue": "72",
@@ -3814,10 +3814,10 @@ export default {
 				"size-metric2",
 				"9"
 		],
-		"css": "--_o3-font-size-metric2-9",
+		"css": "--o3-font-size-metric2-9",
 		"figma": "o3/font/size-metric2/9"
 },
-	"_o3-font-size-metric2-negative-3": {
+	"o3-font-size-metric2-negative-3": {
 		"shortName": "negative-3",
 		"value": "10px",
 		"originalValue": "10",
@@ -3828,10 +3828,10 @@ export default {
 				"size-metric2",
 				"negative-3"
 		],
-		"css": "--_o3-font-size-metric2-negative-3",
+		"css": "--o3-font-size-metric2-negative-3",
 		"figma": "o3/font/size-metric2/negative-3"
 },
-	"_o3-font-size-metric2-negative-2": {
+	"o3-font-size-metric2-negative-2": {
 		"shortName": "negative-2",
 		"value": "12px",
 		"originalValue": "12",
@@ -3842,10 +3842,10 @@ export default {
 				"size-metric2",
 				"negative-2"
 		],
-		"css": "--_o3-font-size-metric2-negative-2",
+		"css": "--o3-font-size-metric2-negative-2",
 		"figma": "o3/font/size-metric2/negative-2"
 },
-	"_o3-font-size-metric2-negative-1": {
+	"o3-font-size-metric2-negative-1": {
 		"shortName": "negative-1",
 		"value": "14px",
 		"originalValue": "14",
@@ -3856,7 +3856,7 @@ export default {
 				"size-metric2",
 				"negative-1"
 		],
-		"css": "--_o3-font-size-metric2-negative-1",
+		"css": "--o3-font-size-metric2-negative-1",
 		"figma": "o3/font/size-metric2/negative-1"
 },
 	"o3-focus-use-case-ring-inner": {
