@@ -141,7 +141,7 @@
 		@include oPrivateButtonsContentWithThemeOverride(
 			$opts: (
 				'type': 'primary',
-				'icon': 'arrow-left',
+				'icon': 'chevron-left',
 				'icon-only': true,
 			),
 			$theme-override: $_o-header-services-button-theme
@@ -156,7 +156,7 @@
 		@include oPrivateButtonsContentWithThemeOverride(
 			$opts: (
 				'type': 'primary',
-				'icon': 'arrow-right',
+				'icon': 'chevron-right',
 				'icon-only': true,
 			),
 			$theme-override: $_o-header-services-button-theme

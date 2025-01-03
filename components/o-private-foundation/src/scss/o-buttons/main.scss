@@ -195,7 +195,7 @@
 			content: '';
 			width: var(--_o-pf-button-icon-size);
 			height: var(--_o-pf-button-icon-size);
-			mask-image: #{oPrivateFoundationGet('o3-icons-ft-icon-' + $icon)};
+			mask-image: #{oPrivateFoundationGet('o3-icon-' + $icon)};
 			mask-repeat: no-repeat;
 			mask-size: contain;
 			display: inline-block;
