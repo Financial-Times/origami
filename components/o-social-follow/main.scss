@@ -1,10 +1,7 @@
 @import '@financial-times/math';
 @import '@financial-times/o-brand/main';
 @import '@financial-times/o-colors/main';
-@import '@financial-times/o-grid/main';
-@import '@financial-times/o-normalise/main';
-@import '@financial-times/o-spacing/main';
-@import '@financial-times/o-typography/main';
+@import '@financial-times/o-private-foundation/main';
 
 @import 'src/scss/variables';
 
@@ -21,11 +18,17 @@
 ///       'standalone': true,
 ///       'themes': ('inverse')
 ///   ));
-@mixin oSocialFollow($opts: (
-	'icons': map-keys($_o-social-follow-icons),
-	'standalone': true,
-	'themes': ('inverse')
-)) {
+@mixin oSocialFollow(
+	$opts: (
+		'icons': map-keys($_o-social-follow-icons),
+		'standalone': true,
+		'themes': (
+			'inverse',
+		),
+	)
+) {
+	@include oPrivateFoundation();
+
 	// Default to an empty list if no icons are given.
 	$icons: map-get($opts, 'icons');
 	$icons: if($icons, $icons, ());
@@ -35,14 +38,19 @@
 	$standalone: map-get($opts, 'standalone');
 
 	// Error if the global $system-code variable is not set.
-	@if (global-variable-exists('system-code') == false or type-of($system-code) != 'string') {
+	@if (
+		global-variable-exists('system-code') ==
+			false or
+			type-of($system-code) !=
+			'string'
+	) {
 		@error 'A global "$system-code" Sass variable must be set to a valid [Bizops system code](https://biz-ops.in.ft.com/list/Systems).';
 	}
 
 	.o-social-follow {
 		display: flex;
 		flex-wrap: wrap;
-		gap: oSpacingByName('s4');
+		gap: oPrivateSpacingByName('s4');
 		margin: 0;
 		padding: 0;
 		list-style: none;
@@ -55,6 +63,7 @@
 		width: 38px;
 		height: 38px;
 		border: 1px solid var(--o-social-follow-icon-color);
+
 		&:before {
 			content: '';
 			flex-grow: 1;
@@ -69,8 +78,8 @@
 			--o-social-follow-icon-color: white;
 		}
 
-		@include oNormaliseFocusApply() {
-			@include oNormaliseFocusContent();
+		@include oPrivateNormaliseFocusApply() {
+			@include oPrivateNormaliseFocusContent();
 		}
 	}
 
@@ -83,8 +92,8 @@
 	@if index($themes, 'inverse') {
 		.o-social-follow-icon--inverse {
 			--o-social-follow-icon-color: white;
-			@include oNormaliseFocusApply() {
-				@include oNormaliseFocusContentInverse();
+			@include oPrivateNormaliseFocusApply() {
+				@include oPrivateNormaliseFocusContentInverse();
 			}
 		}
 	}
@@ -95,8 +104,9 @@
 			@error 'o-social-follow: "#{$icon-name}" is not supported. Icons must be one or more of "#{map-keys($_o-social-follow-icons)}"';
 		}
 		.o-social-follow-icon--#{$icon-name} {
-			$icon-image-url: "https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2%3A#{$icon-name}?source=#{$system-code}";
+			$icon-image-url: 'https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2%3A#{$icon-name}?source=#{$system-code}';
 			--o-social-follow-brand-color: #{$social-brand-colour};
+
 			&:before {
 				mask-image: url($icon-image-url);
 			}
@@ -110,6 +120,6 @@
 	}
 
 	.o-social-follow-icon__label {
-		@include oNormaliseVisuallyHidden();
+		@include oPrivateNormaliseVisuallyHidden();
 	}
 }

@@ -24,7 +24,7 @@
 		code,
 		var {
 			background: $_o-syntax-highlight-grey-5;
-			color: oColorsByName('black');
+			color: oPrivateFoundationGet('o3-color-palette-black');
 			font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
 			font-size: 14px;
 			line-height: 1.5;

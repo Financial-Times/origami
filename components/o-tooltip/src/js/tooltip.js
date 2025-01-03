@@ -1,11 +1,11 @@
 import Delegate from 'ftdomdelegate';
 import Viewport from '@financial-times/o-viewport';
-import oGrid from '@financial-times/o-grid';
+import {oPrivateGrid} from '@financial-times/o-private-foundation/main.js';
 import Target from './target.js';
 
 class Tooltip {
 	static _getCurrentLayout() {
-		return oGrid.getCurrentLayout();
+		return oPrivateGrid.getCurrentLayout();
 	}
 
 	/**
@@ -19,7 +19,6 @@ class Tooltip {
 		if (!Tooltip._tooltips) {
 			Tooltip._tooltips = new Map();
 		}
-
 		this.opts = opts || Tooltip.getOptions(tooltipEl);
 		this.opts = Tooltip.checkOptions(this.opts);
 

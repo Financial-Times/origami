@@ -1,0 +1,384 @@
+/// Apply styles at a given layout size (breakpoint) as the grid. It should be
+// passed one of $o-pf-grid-layouts e.g. `S`, `M`, etc... depending on which layout
+// size the style should apply at.
+///
+/// @example
+///  // Turn the color of an element red at medium layout size and up
+///  @include oPrivateGridRespondTo(M) {
+///  	element {
+///  		color: red;
+///  	}
+///  }
+///  // Turn the color of an element blue until medium layout
+///  element {
+///  	@include oPrivateGridRespondTo($until: M) {
+///  		color: blue;
+///  	}
+///  }
+///  // Turn the color of an element green from small layout until medium layout
+///  element {
+///  	@include oPrivateGridRespondTo($from: S, $until: M) {
+///  		color: green;
+///  	}
+///  }
+///
+/// @param {String} from - one of $o-pf-grid-layouts
+/// @param {String} until - one of $o-pf-grid-layouts
+@mixin oPrivateGridRespondTo($from: false, $until: false) {
+	$grid-is-responsive: $o-pf-grid-mode != 'fixed';
+	@include mq(
+		$from: $from,
+		$until: $until,
+		$responsive: $grid-is-responsive,
+		$breakpoints: $o-pf-grid-layouts,
+		$static-breakpoint: $o-pf-grid-fixed-layout
+	) {
+		@content;
+	}
+}
+
+/// Base column styles and responsive layout width
+///
+/// @example scss Block has column styles
+///   el { @include oPrivateGridColspan(); }
+///
+/// @example scss 4-column wide block
+///   el { @include oPrivateGridColspan(4); }
+///
+/// @example scss Half-width block
+///   el { @include oPrivateGridColspan(1/2); }
+///
+/// @example scss Block is full-width by default, 8-column wide on Medium layouts and hidden on Large layouts
+///   el { @include oPrivateGridColspan((default: 12, M: 8, L: hide)); }
+///
+/// @param {Number | Map} $span [null]
+@mixin oPrivateGridColspan($span: null, $width-only: false) {
+	@if not $width-only {
+		box-sizing: border-box;
+		float: left;
+		flex: 1 1 0%;
+		position: relative; // Required for push and pull
+
+		@if $o-pf-grid-mode == 'fixed' {
+			padding-left: oPrivateGridGutter($o-pf-grid-fixed-layout);
+		} @else {
+			@each $layout-name in map-keys($o-pf-grid-gutters) {
+				@if $layout-name == 'default' {
+					padding-left: oPrivateGridGutter();
+				} @else {
+					@include oPrivateGridRespondTo($layout-name) {
+						padding-left: oPrivateGridGutter($layout-name);
+					}
+				}
+			}
+		}
+	}
+	@if $span {
+		@include _oPrivateGridColumnWidth($span);
+	}
+}
+
+/// Grid container
+///
+/// @param {String} $grid-mode [$o-pf-grid-mode]
+/// @param {Boolean} $bleed [false]
+@mixin oPrivateGridContainer($grid-mode: $o-pf-grid-mode, $bleed: false) {
+	box-sizing: border-box;
+	margin-left: auto;
+	margin-right: auto;
+	min-width: $_o-pf-grid-min-width;
+	// Older browsers get a fixed-width layout
+	max-width: oPrivateGridGetMaxWidthForLayout($o-pf-grid-fixed-layout);
+	position: relative;
+
+	@if $bleed {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	@if $grid-mode == 'fixed' {
+		// If the grid isn't fluid, we set it to a certain width
+		width: oPrivateGridGetMaxWidthForLayout(
+			$o-pf-grid-fixed-layout,
+			$grid-mode: 'fixed'
+		);
+		@if not $bleed {
+			padding-left: oPrivateGridGutter($o-pf-grid-fixed-layout);
+			padding-right: oPrivateGridGutter($o-pf-grid-fixed-layout);
+		}
+	} @else {
+		max-width: $_o-pf-grid-max-width;
+
+		@each $layout-name in map-keys($o-pf-grid-gutters) {
+			@if $layout-name == 'default' {
+				@if not $bleed {
+					padding-left: oPrivateGridGutter();
+					padding-right: oPrivateGridGutter();
+				}
+			} @else {
+				@include oPrivateGridRespondTo($layout-name) {
+					@if not $bleed {
+						padding-left: oPrivateGridGutter($layout-name);
+						padding-right: oPrivateGridGutter($layout-name);
+					}
+				}
+			}
+		}
+
+		@each $layout-name in $_o-pf-grid-layout-names {
+			@if index($_o-pf-grid-layout-names, $layout-name) >=
+				index($_o-pf-grid-layout-names, $_o-pf-grid-start-snappy-mode-at)
+			{
+				@include oPrivateGridRespondTo($layout-name) {
+					@if $grid-mode == 'snappy' {
+						max-width: map-get($o-pf-grid-layouts, $layout-name);
+					}
+					@if $grid-mode == 'fluid' {
+						// If the grid mode is fluid, then use a class to make a row or a set of rows snappy
+						.o-grid-snappy &,
+						&--snappy {
+							max-width: map-get($o-pf-grid-layouts, $layout-name);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+/// Base row styles
+@mixin oPrivateGridRow {
+	clear: both;
+	flex-wrap: wrap; // Note that this breaks in old Firefox
+	display: flex;
+
+	@media print {
+		display: inherit;
+	}
+
+	@if $o-pf-grid-mode == 'fixed' {
+		margin-left: -1 * oPrivateGridGutter($o-pf-grid-fixed-layout);
+	} @else {
+		@each $layout-name in map-keys($o-pf-grid-gutters) {
+			@if $layout-name == 'default' {
+				margin-left: -1 * oPrivateGridGutter();
+			} @else {
+				@include oPrivateGridRespondTo($layout-name) {
+					margin-left: -1 * oPrivateGridGutter($layout-name);
+				}
+			}
+		}
+	}
+
+	// Clearfix for IE9 and below
+	zoom: 1;
+
+	&:before,
+	&:after {
+		content: '';
+		display: table;
+		display: flex; // stylelint-disable-line declaration-block-no-duplicate-properties
+	}
+	&:after {
+		clear: both;
+	}
+}
+
+/// Surface the layout currently displayed to make it readable in JS.
+///
+/// @example js
+///  // your-app/main.js
+///  // Return the current layout (e.g. default, S, M, L, XL)
+///  import oPrivateGrid from 'o-private-foundation/o-grid';
+///  let currentLayout = oPrivateGrid.getCurrentLayout();
+///  console.log(currentLayout);
+///
+///  // Return the current gutter (e.g. 10px, 20px)
+///  import oPrivateGrid from 'o-private-foundation/o-grid';
+///  let currentGutter = oPrivateGrid.getCurrentGutter();
+///  console.log(currentGutter);
+@mixin oPrivateGridSurfaceCurrentLayout {
+	html:after {
+		content: '{ "layout": "default", "gutter": "' + oPrivateGridGutter() + '" }';
+		display: none;
+
+		@each $breakpoint in $_o-pf-grid-layout-names {
+			@include oPrivateGridRespondTo($breakpoint) {
+				content: '{ "layout": "' + $breakpoint + '", "gutter": "' +
+					oPrivateGridGutter($breakpoint) + '" }';
+			}
+		}
+	}
+}
+
+/// Fix a bug in Safari where items wouldn't wrap properly
+/// Remove when Safari 10 support is no longer required.
+/// @link https://github.com/philipwalton/flexbugs#11-min-and-max-size-declarations-are-ignored-when-wrapping-flex-items
+/// @access private
+@mixin _oPrivateGridFixSafariWrap($args...) {
+	flex-basis: oPrivateGridColspan($args...);
+}
+
+/// Cross browser column widths across layouts
+///
+/// @access private
+///
+/// @example scss
+///   el { @include _oPrivateGridColumnWidth(4); }
+///   el { @include _oPrivateGridColumnWidth(1/2); }
+///   el { @include _oPrivateGridColumnWidth(hide); }
+///   el { @include _oPrivateGridColumnWidth((default: 12, M: 8, L: hide)); }
+///
+/// @param {Number | Map} $span
+@mixin _oPrivateGridColumnWidth($span) {
+	// Special case: the column is hidden by default
+	@if $span == 'hide' {
+		display: none;
+	} @else {
+		// $span is a number or a keyword, so we're outputting the default width for that column
+		@if type-of($span) == number or type-of($span) == string {
+			// Restore visibility from `display: none`
+			// if `data-o-grid-colspan` was set to `0` or `hide`
+			display: block;
+
+			// Define width in %
+			@include _oPrivateGridFixSafariWrap(
+				$span
+			); //stylelint-disable-line order/order
+			min-width: oPrivateGridColspan($span);
+			max-width: oPrivateGridColspan($span);
+		}
+	}
+
+	// $span is a map, we're looping through all of the layouts
+	@if type-of($span) == map {
+		@each $layout-name, $layout-span in $span {
+			@if $layout-name == 'default' {
+				@include _oPrivateGridColumnWidth($layout-span);
+			} @else {
+				@if $layout-span == 'hide' {
+					@include oPrivateGridRespondTo($layout-name) {
+						display: none;
+					}
+				} @else {
+					@include oPrivateGridRespondTo($layout-name) {
+						// Restore visibility from `display: none`
+						// if `data-o-grid-colspan` was set to `0` or `hide`
+						display: block;
+						// Define width in %
+						@include _oPrivateGridFixSafariWrap(
+							$layout-span
+						); // stylelint-disable-line order/order
+						min-width: oPrivateGridColspan($layout-span);
+						max-width: oPrivateGridColspan($layout-span);
+					}
+				}
+			}
+		}
+	}
+}
+
+/// Remove gutters from columns in a row
+///
+/// @param {string} $column-selector ["[o-grid-colspan]"] - CSS selector for row element
+@mixin oPrivateGridRowCompact($column-selector: '[o-grid-colspan]') {
+	margin-left: 0;
+
+	> #{unquote($column-selector)} {
+		padding-left: 0;
+	}
+}
+
+/// Add a layout (breakpoint). This can be used to add a new breakpoint to a
+/// project, in addition to the default layouts (S, M, L, XL).
+///
+/// @example scss
+///  @include oGridAddLayout($layout-name: P, $layout-width: 600px);
+///  @include oGridAddLayout($layout-name: XXL, $layout-width: 1600px, $gutter-width: 30px);
+///
+/// @param {String} $layout-name - Name of the layout (e.g. S)
+/// @param {Number} $layout-width - Layout width in px
+/// @param {Number} $gutter-width [null] - Gutter width in px
+@mixin oPrivateGridAddLayout($layout-name, $layout-width, $gutter-width: null) {
+	$temp-layouts: ();
+	$temp-gutters: (
+		default: oGridGutter(),
+	);
+	$current-max-width: map-get(
+		$o-pf-grid-layouts,
+		nth($_o-pf-grid-layout-names, -1)
+	);
+
+	// Add the new layout in the correct position:
+	// (we want $o-grid-layouts and $o-grid-gutters to be ordered from the smallest to the largest layout)
+	@if ($layout-width >= $current-max-width) {
+		$temp-layouts: map-merge(
+			$o-pf-grid-layouts,
+			(
+				$layout-name: $layout-width,
+			)
+		);
+		$temp-gutters: map-merge(
+			$o-pf-grid-gutters,
+			(
+				$layout-name: $gutter-width,
+			)
+		);
+	} @else {
+		@for $index from 1 through length($o-pf-grid-layouts) {
+			$previous-layout-width: if(
+				$index == 1,
+				0,
+				map-get($o-pf-grid-layouts, nth($_o-pf-grid-layout-names, $index - 1))
+			);
+			$current-layout-name: nth($_o-pf-grid-layout-names, $index);
+			$current-layout-width: map-get($o-pf-grid-layouts, $current-layout-name);
+
+			$current-gutter-width: map-get($o-pf-grid-gutters, $current-layout-name);
+
+			// Assumes all layouts use the same unit e.g. px or rem (as does the JavaScript)
+			@if not(
+				$previous-layout-width >
+					$layout-width or
+					$current-layout-width <
+					$layout-width
+			)
+			{
+				$temp-layouts: map-merge(
+					$temp-layouts,
+					(
+						$layout-name: $layout-width,
+					)
+				);
+				$temp-gutters: map-merge(
+					$temp-gutters,
+					(
+						$layout-name: $gutter-width,
+					)
+				);
+			}
+
+			$temp-layouts: map-merge(
+				$temp-layouts,
+				(
+					$current-layout-name: $current-layout-width,
+				)
+			);
+
+			@if $current-gutter-width {
+				$temp-gutters: map-merge(
+					$temp-gutters,
+					(
+						$current-layout-name: $current-gutter-width,
+					)
+				);
+			}
+		}
+	}
+	$o-pf-grid-layouts: $temp-layouts !global;
+	$_o-pf-grid-layout-names: map-keys($o-pf-grid-layouts) !global;
+
+	@if $gutter-width {
+		$o-pf-grid-gutters: $temp-gutters !global;
+	}
+}

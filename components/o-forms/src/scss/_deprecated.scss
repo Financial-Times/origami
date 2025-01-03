@@ -20,7 +20,8 @@
 		@include _oFormsControlsBoxBase();
 		box-sizing: border-box;
 		color: _oFormsGet('controls-base', $from: $theme);
-		padding: ($_o-forms-spacing-one + $_o-forms-spacing-half) $_o-forms-spacing-two;
+		padding: ($_o-forms-spacing-one + $_o-forms-spacing-half)
+			$_o-forms-spacing-two;
 		position: relative;
 		text-decoration: none;
 
@@ -28,7 +29,7 @@
 			background-color: rgba(_oFormsGet('controls-base', $from: $theme), 0.15);
 		}
 
-		&.o-forms-input__link--current { //stylelint-disable-line selector-no-qualifying-type
+		&.o-forms-input__link--current {
 			background-color: _oFormsGet('controls-base', $from: $theme);
 			color: _oFormsGet('controls-checked-base', $from: $theme);
 		}

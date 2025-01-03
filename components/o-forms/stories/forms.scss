@@ -4,5 +4,6 @@
 @include oNormalise();
 
 @import '@financial-times/o-forms/main';
+@import '@financial-times/o-buttons/main';
 @include oForms();
 @include oButtons();

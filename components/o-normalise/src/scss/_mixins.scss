@@ -31,22 +31,18 @@
 
 /// Adds box sizing to current and all child elements
 @mixin oNormaliseBoxSizing {
-
 	/*autoprefixer: off*/
 	-webkit-box-sizing: border-box; // stylelint-disable-line property-no-vendor-prefix
 	-moz-box-sizing: border-box; // stylelint-disable-line property-no-vendor-prefix
 	box-sizing: border-box;
 
-
 	& *,
 	& *:before,
 	& *:after {
-
 		/*autoprefixer: off*/
 		-webkit-box-sizing: inherit; // stylelint-disable-line property-no-vendor-prefix
 		-moz-box-sizing: inherit; // stylelint-disable-line property-no-vendor-prefix
 		box-sizing: inherit;
-
 	}
 }
 
@@ -110,9 +106,13 @@
 ///
 /// @param {String|Color} $color - The background colour of the focused element.
 @mixin oNormaliseFocusContentForElementColour($color) {
-	$black-contrast: oColorsGetContrastRatio($color, black);
-	$white-contrast: oColorsGetContrastRatio($color, white);
-	$shadow: if($black-contrast <= $white-contrast, $_o-normalise-focus-ring, $_o-normalise-reverse-focus-ring);
+	$black-contrast: oPrivateColorsGetContrastRatio($color, 'o3-color-palette-black');
+	$white-contrast: oPrivateColorsGetContrastRatio($color, 'o3-color-palette-white');
+	$shadow: if(
+		$black-contrast <= $white-contrast,
+		$_o-normalise-focus-ring,
+		$_o-normalise-reverse-focus-ring
+	);
 
 	box-shadow: $shadow;
 }
@@ -126,7 +126,12 @@
 /// Adds normalising styles to general html elements
 /// effects: <html>, <body>, <main>, and :focus state
 /// @access private
-@mixin _oNormaliseBody($font-smoothing: true, $box-sizing: true, $focus: true, $reduce-motion: true) {
+@mixin _oNormaliseBody(
+	$font-smoothing: true,
+	$box-sizing: true,
+	$focus: true,
+	$reduce-motion: true
+) {
 	html,
 	body {
 		margin: 0;
@@ -135,12 +140,9 @@
 		-ms-text-size-adjust: 100%; // stylelint-disable-line property-no-vendor-prefix
 		-webkit-text-size-adjust: 100%; // stylelint-disable-line property-no-vendor-prefix
 
-
 		@if $font-smoothing {
-
 			-webkit-font-smoothing: antialiased;
 			-moz-osx-font-smoothing: grayscale;
-
 		}
 
 		@if $box-sizing {
@@ -155,11 +157,9 @@
 				*,
 				*:before,
 				*:after {
-
 					animation-duration: 0.001s !important; // stylelint-disable-line declaration-no-important
 					transition-duration: 0.001s !important; // stylelint-disable-line declaration-no-important
 					animation-iteration-count: 1 !important; // stylelint-disable-line declaration-no-important
-
 				}
 			}
 		}
@@ -220,16 +220,14 @@
 	a:hover {
 		outline-width: 0;
 	}
-
 }
 
 /// Adds normalising styles to text related elements
 /// @access private
 @mixin _oNormaliseText {
-
 	// 1. Remove the bottom border in Firefox 39-.
 	// 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
-	// stylelint-disable-next-line selector-no-qualifying-type
+
 	abbr[title] {
 		border-bottom: 0; // [1]
 		text-decoration: underline; // [2]
@@ -286,15 +284,16 @@
 	button,
 	input,
 	select,
-	textarea { // [1]
+	textarea {
+		// [1]
 		margin: 0;
 	}
 
 	// Change the cursor in all browsers (opinionated).
 	button,
-	[type="button"],
-	[type="reset"],
-	[type="submit"] {
+	[type='button'],
+	[type='reset'],
+	[type='submit'] {
 		cursor: pointer;
 	}
 

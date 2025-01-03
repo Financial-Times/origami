@@ -11,7 +11,11 @@
 		padding: 0 0.25rem;
 
 		&:after {
-			@include oIconsContent('arrow-down', _oHeaderServicesGet('arrow-icon-color'), 1.5rem);
+			@include oPrivateIconsContent(
+				'arrow-down',
+				_oHeaderServicesGet('arrow-icon-color'),
+				1.5rem
+			);
 			content: '';
 			transition: transform 0.2s ease;
 		}
@@ -21,7 +25,11 @@
 
 			&:after {
 				@if _oHeaderServicesGet('arrow-icon-hover-color') {
-					@include oIconsContent('arrow-down', _oHeaderServicesGet('arrow-icon-hover-color'), 1.5rem);
+					@include oPrivateIconsContent(
+						'arrow-down',
+						_oHeaderServicesGet('arrow-icon-hover-color'),
+						1.5rem
+					);
 				}
 			}
 		}
@@ -33,7 +41,10 @@
 	}
 
 	// Current drop down button.
-	.o-header-services__primary-nav li[data-o-header-services-level] a[aria-current='true'] + .o-header-services__drop-down-button { // stylelint-disable-line selector-no-qualifying-type
+	.o-header-services__primary-nav
+		li[data-o-header-services-level]
+		a[aria-current='true']
+		+ .o-header-services__drop-down-button {
 		background-color: _oHeaderServicesGet('nav-hover-background');
 		&:hover {
 			background-color: _oHeaderServicesGet('button-hover-color');
@@ -41,8 +52,8 @@
 	}
 
 	// Drop down list.
-	.o-header-services__primary-nav ul[data-o-header-services-level="2"] { // stylelint-disable-line selector-no-qualifying-type
-		@include oTypographySans(-1);
+	.o-header-services__primary-nav ul[data-o-header-services-level='2'] {
+		@include oPrivateTypographySans(-1);
 		background: _oHeaderServicesGet('nav-background');
 		border: 1px solid _oHeaderServicesGet('nav-border');
 		left: -1px;
@@ -55,7 +66,8 @@
 		clip-path: inset(10.5% 0 0 0);
 		opacity: 0;
 		transform: translateY(-10%);
-		transition: clip-path 0.1s linear, opacity 0.1s linear, transform 0.1s ease-in;
+		transition: clip-path 0.1s linear, opacity 0.1s linear,
+			transform 0.1s ease-in;
 
 		// The dropdown list is inviisble when closed.
 		// This is so it doesn't block interaction with other elements.
@@ -65,25 +77,28 @@
 			pointer-events: none;
 		}
 
-		&.o-header-services__list--right { // stylelint-disable-line selector-no-qualifying-type
+		&.o-header-services__list--right {
 			right: -1px;
 			left: auto;
 		}
 	}
 
 	// Completely hide visually hidden elements until the dropdown is open.
-	.o-header-services__primary-nav ul[data-o-header-services-level="2"][aria-hidden=true] { // stylelint-disable-line selector-no-qualifying-type
+	.o-header-services__primary-nav
+		ul[data-o-header-services-level='2'][aria-hidden='true'] {
 		display: none;
 	}
 
 	// Drop down list (opened state).
-	// stylelint-disable-next-line selector-no-qualifying-type
-	.o-header-services:not([data-o-header-services-js]) .o-header-services__primary-nav li[data-o-header-services-level]:hover,
-	.o-header-services__primary-nav li[dropdown-open=true] { // stylelint-disable-line selector-no-qualifying-type
+
+	.o-header-services:not([data-o-header-services-js])
+		.o-header-services__primary-nav
+		li[data-o-header-services-level]:hover,
+	.o-header-services__primary-nav li[dropdown-open='true'] {
 		// Reveal the dropdown.
-		ul[data-o-header-services-level] { // stylelint-disable-line selector-no-qualifying-type
+		ul[data-o-header-services-level] {
 			height: auto;
-			@supports (pointer-events: none) { // stylelint-disable-line selector-no-qualifying-type
+			@supports (pointer-events: none) {
 				pointer-events: all;
 			}
 			transform: translateY(0);
@@ -92,18 +107,18 @@
 		}
 
 		// Reveal visually hidden elements within the dropdown to screen readers.
-		// stylelint-disable-next-line selector-no-qualifying-type
+
 		ul[data-o-header-services-level] {
 			display: block;
-		}  // stylelint-disable-line selector-no-qualifying-type
+		}
 
 		// Hide the bottom border which will clash with the top
 		// border of the dropdown list.
-		.o-header-services__drop-down-button { // stylelint-disable-line selector-no-qualifying-type
+		.o-header-services__drop-down-button {
 			border-bottom-color: transparent;
 		}
 		// Update the dropdown icon to show the drawer is open.
-		.o-header-services__drop-down-button:after { // stylelint-disable-line selector-no-qualifying-type
+		.o-header-services__drop-down-button:after {
 			transform: rotate(-180deg);
 		}
 	}
@@ -115,8 +130,8 @@
 			transition: none;
 		}
 		// Drop down list.
-		ul[data-o-header-services-level="2"] {
-			transition: none; // stylelint-disable-line selector-no-qualifying-type
+		ul[data-o-header-services-level='2'] {
+			transition: none;
 		}
 	}
 }

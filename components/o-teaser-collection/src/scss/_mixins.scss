@@ -21,11 +21,17 @@
 ///			));
 ///		}
 /// @param {Map} $opts [('anchor': true,'divider': true,'sizes': ('full-width', 'half-width', 'small'))]
-@mixin oTeaserCollectionContentHeading($opts: (
-	'anchor': true,
-	'divider': true,
-	'sizes': ('full-width', 'half-width', 'small')
-)) {
+@mixin oTeaserCollectionContentHeading(
+	$opts: (
+		'anchor': true,
+		'divider': true,
+		'sizes': (
+			'full-width',
+			'half-width',
+			'small',
+		),
+	)
+) {
 	$anchor: map-get($opts, 'anchor');
 	$divider: map-get($opts, 'divider');
 
@@ -34,19 +40,18 @@
 	$half-width: index($sizes, 'half-width');
 	$small: index($sizes, 'small');
 
-	@include oTypographySans(3, $weight: 'regular');
+	@include oPrivateTypographySans(3, $weight: 'regular');
 	position: relative;
 	width: 100%;
 	margin: 0;
-	padding-top: oSpacingByName('s3');
-	padding-bottom: oSpacingByIncrement(5);
+	padding-top: oPrivateSpacingByName('s3');
+	padding-bottom: oPrivateSpacingByIncrement(5);
 	-webkit-font-smoothing: antialiased;
 
-
-	@if($divider) {
+	@if ($divider) {
 		&:before,
 		&:after {
-			border-top: 8px solid rgba(oColorsByName('black'), 0.05);
+			border-top: 8px solid rgba(oPrivateFoundationGet('o3-color-palette-black'), 0.05);
 			content: '';
 			left: 0;
 			top: 0;
@@ -55,34 +60,34 @@
 		}
 
 		&:after {
-			border-top-color: oColorsByName('black');
+			border-top-color: oPrivateFoundationGet('o3-color-palette-black');
 
-			@include oGridRespondTo(L) {
+			@include oPrivateGridRespondTo(L) {
 				width: 32.5%;
 			}
 		}
 	}
 
-	@if($divider and $full-width) {
+	@if ($divider and $full-width) {
 		&--full-width:after {
 			width: 100%;
 		}
 	}
 
-	@if($divider and $half-width) {
+	@if ($divider and $half-width) {
 		&--half-width:after {
-			@include oGridRespondTo(L) {
+			@include oPrivateGridRespondTo(L) {
 				width: 49%;
 			}
 		}
 	}
 
-	@if($small) {
+	@if ($small) {
 		&--small {
-			margin-bottom: oSpacingByIncrement(5);
+			margin-bottom: oPrivateSpacingByIncrement(5);
 			border-bottom: 1px solid $_o-teaser-collection-color-bottom-border;
 
-			@if($divider) {
+			@if ($divider) {
 				&:after {
 					width: 100%;
 				}
@@ -97,7 +102,6 @@
 	}
 }
 
-
 /// @access private
 @mixin _oTeaserCollectionHeadingLink {
 	color: inherit;
@@ -106,11 +110,11 @@
 	padding: 1px 0px 3px; // Magic numbers to make the focus style the same height for the text and > icon
 
 	&:hover {
-		color: oColorsMix('black', $percentage: 55);
+		color: oPrivateColorsMix('o3-color-palette-black', $percentage: 55);
 	}
 
 	&:after {
-		@include oIconsContent('arrow-right', oColorsByName('black'), $size: 30);
+		@include oPrivateIconsContent('arrow-right', oPrivateFoundationGet('o3-color-palette-black'), $size: 30);
 		content: '';
 		display: inline-block;
 		position: relative;
@@ -132,7 +136,7 @@
 		position: relative;
 
 		&:before {
-			@include oTypographyDisplay(4);
+			@include oPrivateTypographyDisplay(4);
 			content: counter(o-teaser-collection-items);
 			position: absolute;
 			top: 0;
@@ -178,7 +182,7 @@
 		position: absolute;
 		-webkit-font-smoothing: antialiased;
 
-		@include oGridRespondTo(L) {
+		@include oPrivateGridRespondTo(L) {
 			width: 32.5%;
 		}
 
@@ -196,10 +200,10 @@
 
 		// Modify o-teaser: remove the related teaser borders when stacked
 		.o-teaser {
-			@include oGridRespondTo(M) {
+			@include oPrivateGridRespondTo(M) {
 				border-bottom-width: 0;
 			}
-			@include oGridRespondTo(L) {
+			@include oPrivateGridRespondTo(L) {
 				border-bottom-width: 1px;
 			}
 		}

@@ -1,8 +1,8 @@
 
 $o-banner-is-silent: true !default;
 
-$_o-banner-spacing: oSpacingByIncrement(10) !default;
-$_o-banner-brand-border: oSpacingByName('s2') !default;
+$_o-banner-spacing: oPrivateSpacingByIncrement(10) !default;
+$_o-banner-brand-border: oPrivateSpacingByName('s2') !default;
 $_o-banner-close-button-size: 26px !default;
 $_o-banner-themes: ('marketing', 'product', 'professional-inverse');
 $_o-banner-layouts: ('small', 'compact');

@@ -141,14 +141,14 @@
 	}
 
 	// Valid characters only.
-	$valid-characters: ('-', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z');
+	$valid-characters: ('_', '-', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z');
 	@for $character-index from 1 through str-length($name) {
 		$character: str-slice($name, $character-index, $character-index);
 		@if $character == " " {
 			@return _oBrandError('#{$error-context}. #{$thing} "#{$name}" is invalid. #{$thing} names can not contain spaces.');
 		}
 		@if not index($valid-characters, $character) {
-			@return _oBrandError('#{$error-context}. #{$thing} "#{$name}" is invalid. #{$thing} names can only contain lowercase alphanumeric characters and "-".');
+			@return _oBrandError('#{$error-context}. #{$thing} "#{$name}" is invalid. #{$thing} names can only contain lowercase alphanumeric characters, "-", and "_".');
 		}
 	}
 
