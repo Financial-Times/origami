@@ -20,7 +20,6 @@
 
 		.o-table-control {
 			display: inline-block;
-			background: _oTableGet('table-background');
 			pointer-events: all;
 			transition: 1s opacity ease-in-out;
 		}
@@ -39,6 +38,7 @@
 					)
 				);
 				width: 100%;
+				border-radius: 0;
 			}
 		}
 
@@ -60,7 +60,7 @@
 				@include oPrivateButtonsContent(
 					$opts: (
 						'type': 'primary',
-						'icon': 'arrow-left',
+						'icon': 'chevron-left',
 						'size': 'big',
 						'icon-only': true,
 					)
@@ -76,7 +76,7 @@
 				@include oPrivateButtonsContent(
 					$opts: (
 						'type': 'primary',
-						'icon': 'arrow-right',
+						'icon': 'chevron-right',
 						'size': 'big',
 						'icon-only': true,
 					)
@@ -103,9 +103,12 @@
 			position: absolute;
 			content: '';
 			bottom: 0;
-			height: 40px;
+			height: 44px;
 			pointer-events: none;
 			border-color: oPrivateFoundationGet(
+				'_o3-button-primary-standard-background'
+			);
+			background-color: oPrivateFoundationGet(
 				'_o3-button-primary-standard-background'
 			);
 			border-style: solid;
@@ -114,12 +117,12 @@
 
 		&:before {
 			left: 0;
-			border-width: 0 40px 0 9px;
+			border-width: 0 44px 0 9px;
 		}
 
 		&:after {
 			right: 0;
-			border-width: 0 9px 0 40px;
+			border-width: 0 9px 0 44px;
 		}
 
 		// Make more control leave space for arrows to dock left/right.
