@@ -197,7 +197,7 @@ export function ButtonPagination({
 				}
 				href={previousPager.href}
 				label={previousPager.label}
-				icon={'arrow-left'}
+				icon={'chevron-left'}
 				iconOnly={true}
 				theme={theme}
 				type="secondary"></PreviousTag>
@@ -210,7 +210,7 @@ export function ButtonPagination({
 				}
 				href={nextPager.href}
 				label={nextPager.label}
-				icon={'arrow-right'}
+				icon={'chevron-right'}
 				iconOnly={true}
 				theme={theme}
 				type="secondary"></NextTag>
