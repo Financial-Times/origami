@@ -58,6 +58,7 @@
 	line-height: unset;
 	box-sizing: border-box;
 	border: $_o-forms-border;
+	border-radius: oPrivateFoundationGet('o3-border-radius-2');
 	display: inline-flex;
 	flex-wrap: wrap;
 	text-align: center;
