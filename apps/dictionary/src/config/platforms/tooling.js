@@ -13,7 +13,7 @@ function toolingConfigForBrand(brand) {
 		files: [
 			{
 				filter: token => {
-					return token.path[1] === 'icons';
+					return token.path[1] === 'icon';
 				},
 				destination: 'icons/_variables.js',
 				format: 'tooling/esm',
@@ -21,7 +21,7 @@ function toolingConfigForBrand(brand) {
 			{
 				filter: token => {
 					return (
-						token.path[1] !== 'icons' &&
+						token.path[1] !== 'icon' &&
 						!token.filePath.includes(`/components/`) &&
 						token.original.value !== '{DO-NOT-USE}' &&
 						token.path[0] !== 'DO-NOT-USE'
