@@ -17,10 +17,6 @@
 		label {
 			@include _oFormsControlsBoxBase();
 
-			&:not(:first-of-type) {
-				border-left: $_o-forms-border;
-			}
-
 			.o-forms-input__label {
 				box-sizing: border-box;
 				padding: $_o-forms-spacing-one $_o-forms-spacing-two;
@@ -83,16 +79,8 @@
 	.o-forms-input--radio-box__container {
 		background-color: _oFormsGet('radio-background');
 
-		label {
-			&:first-of-type .o-forms-input__label {
-				border-top-left-radius: oPrivateFoundationGet('o3-border-radius-1');
-				border-bottom-left-radius: oPrivateFoundationGet('o3-border-radius-1');
-
-				&last-of-type .o-forms-input__label {
-					border-top-right-radius: oPrivateFoundationGet('o3-border-radius-1');
-					border-bottom-right-radius: oPrivateFoundationGet('o3-border-radius-1');
-				}
-			}
+		label .o-forms-input__label {
+			border-radius: oPrivateFoundationGet('o3-border-radius-1');
 		}
 
 		.o-forms-input--radio-box__container,
