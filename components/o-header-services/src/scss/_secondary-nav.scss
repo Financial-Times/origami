@@ -148,6 +148,7 @@
 		);
 		border-color: _oHeaderServicesGet('nav-border');
 		border-width: 0 1px 0 0;
+		border-radius: 0;
 		min-width: $_o-header-services-button-icon-size;
 		left: 0;
 	}
@@ -163,6 +164,7 @@
 		);
 		border-color: _oHeaderServicesGet('nav-border');
 		border-width: 0 0 0 1px;
+		border-radius: 0;
 		min-width: $_o-header-services-button-icon-size;
 		right: 0;
 	}
