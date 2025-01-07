@@ -127,13 +127,13 @@
 		transition: opacity 0.5s $o-pf-visual-effects-timing-fade;
 
 		&[disabled] {
-			opacity: 0;
+			display: none;
 			pointer-events: none;
 		}
 	}
 
-	.o-header-services:not([data-o-header-services-js])
-		.o-header-services__scroll-button {
+	.o-header-services:not([data-o-header-services-js]),
+	.o-header-services__scroll-button {
 		display: none;
 	}
 
