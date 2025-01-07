@@ -17,10 +17,6 @@
 		label {
 			@include _oFormsControlsBoxBase();
 
-			&:not(:first-of-type) {
-				border-left: $_o-forms-border;
-			}
-
 			.o-forms-input__label {
 				box-sizing: border-box;
 				padding: $_o-forms-spacing-one $_o-forms-spacing-two;
@@ -42,6 +38,7 @@
 			width: 100%;
 			height: 100%;
 			cursor: pointer;
+
 
 			@if $disabled {
 				&:disabled + .o-forms-input__label {
@@ -81,45 +78,29 @@
 
 	.o-forms-input--radio-box__container {
 		background-color: _oFormsGet('radio-background');
-	}
 
-	.o-forms-input--radio-box__container,
-	label:not(:first-of-type) {
-		border-color: _oFormsGet('default-border', $from: $theme);
-	}
-
-	input[type='radio'] {
-		& + .o-forms-input__label {
-			color: _oFormsGet('controls-base', $from: $theme);
+		label .o-forms-input__label {
+			border-radius: oPrivateFoundationGet('o3-border-radius-1');
 		}
 
-		&:not(:checked):not(:disabled):hover + .o-forms-input__label {
-			background-color: rgba(_oFormsGet('controls-base', $from: $theme), 0.15);
+		.o-forms-input--radio-box__container,
+		label:not(:first-of-type) {
+			border-color: _oFormsGet('default-border', $from: $theme);
 		}
 
-		&:focus {
-			@include oPrivateNormaliseFocusUnsetContent();
+		input[type='radio'] {
+
 			& + .o-forms-input__label {
-				$default-text: _oFormsGet('default-text', $theme);
-				@if $default-text and oPrivateColorsColorBrightness($default-text) > 65% {
-					@include oPrivateNormaliseFocusContentInverse();
-				} @else {
-					@include oPrivateNormaliseFocusContent();
-				}
+				color: _oFormsGet('controls-base', $from: $theme);
 			}
-		}
 
-		// Unset :focus styles where :focus-visible is supported.
-		// Ideally we would set `:focus-visible` by default and use
-		// `@supports not selector(:focus-visible)` to provide a
-		// `:focus` fallback, however some of our supported browsers
-		// do not understand `@supports: selector()`.
-		@supports selector(:focus-visible) {
-			&:focus + .o-forms-input__label {
+			&:not(:checked):not(:disabled):hover + .o-forms-input__label {
+				background-color: rgba(_oFormsGet('controls-base', $from: $theme), 0.15);
+			}
+
+			&:focus {
 				@include oPrivateNormaliseFocusUnsetContent();
-			}
 
-			&:focus-visible {
 				& + .o-forms-input__label {
 					$default-text: _oFormsGet('default-text', $theme);
 					@if $default-text and oPrivateColorsColorBrightness($default-text) > 65% {
@@ -129,17 +110,39 @@
 					}
 				}
 			}
-		}
 
-		&:checked + .o-forms-input__label {
-			background-color: _oFormsGet('controls-base', $from: $theme);
-			color: _oFormsGet('controls-checked-base', $from: $theme);
+			// Unset :focus styles where :focus-visible is supported.
+			// Ideally we would set `:focus-visible` by default and use
+			// `@supports not selector(:focus-visible)` to provide a
+			// `:focus` fallback, however some of our supported browsers
+			// do not understand `@supports: selector()`.
+			@supports selector(:focus-visible) {
+				&:focus + .o-forms-input__label {
+					@include oPrivateNormaliseFocusUnsetContent();
+				}
 
-			&.o-forms-input__label--negative {
-				background-color: _oFormsGet(
-					'controls-negative-checked-background',
-					$from: $theme
-				);
+				&:focus-visible {
+					& + .o-forms-input__label {
+						$default-text: _oFormsGet('default-text', $theme);
+						@if $default-text and oPrivateColorsColorBrightness($default-text) > 65% {
+							@include oPrivateNormaliseFocusContentInverse();
+						} @else {
+							@include oPrivateNormaliseFocusContent();
+						}
+					}
+				}
+			}
+
+			&:checked + .o-forms-input__label {
+				background-color: _oFormsGet('controls-base', $from: $theme);
+				color: _oFormsGet('controls-checked-base', $from: $theme);
+
+				&.o-forms-input__label--negative {
+					background-color: _oFormsGet(
+							'controls-negative-checked-background',
+						$from: $theme
+					);
+				}
 			}
 		}
 	}

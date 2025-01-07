@@ -4,8 +4,8 @@
 
 
 [data-o3-brand="whitelabel"] {
-  --_o3-border-radius-1: 4px;
-  --_o3-border-radius-2: 6px;
+  --o3-border-radius-1: 4px;
+  --o3-border-radius-2: 6px;
   --o3-font-family-metric: 'metric 2 VF';
   --o3-font-family-financier-display: 'financier display VF';
   --o3-font-family-georgia: georgia;

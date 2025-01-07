@@ -119,7 +119,7 @@
 	/* Button Sizes */
 	@if ($size == 'big') {
 		--_o-pf-button-min-width: 80px;
-		--_o-pf-button-min-height: 40px;
+		--_o-pf-button-min-height: 44px;
 
 		--_o-pf-button-inline-padding-start: #{oPrivateFoundationGet(
 				'o3-spacing-2xs'
@@ -156,7 +156,7 @@
 	}
 
 	min-width: var(--_o-pf-button-min-width);
-	min-height: var(--_o-pf-button-min-height);
+	min-height: var(--_o-pf-button-min-height, 44px);
 	padding: 0 var(--_o-pf-button-inline-padding-end) 0
 		var(--_o-pf-button-inline-padding-start);
 	display: inline-flex;
@@ -169,6 +169,7 @@
 	font-weight: var(--_o-pf-button-font-weight);
 	font-family: '#{oPrivateFoundationGet('o3-font-family-metric')}', sans-serif;
 	border: var(--_o-pf-button-border-size) solid transparent;
+	border-radius: oPrivateFoundationGet('o3-border-radius-1');
 	text-align: center;
 	text-decoration: none;
 	cursor: pointer;
