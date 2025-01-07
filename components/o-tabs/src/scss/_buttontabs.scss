@@ -49,12 +49,14 @@
 							)
 					);
 					border-radius: 0;
-					&:first-of-type {
-						border-top-left-radius: oPrivateFoundationGet('o3-border-radius-1');
-					}
-					&:last-of-type {
-						border-top-right-radius: oPrivateFoundationGet('o3-border-radius-1');
-					}
+				}
+
+				[role='tab']:first-of-type {
+					border-top-left-radius: oPrivateFoundationGet('o3-border-radius-1');
+				}
+
+				[role='tab']:last-of-type {
+					border-top-right-radius: oPrivateFoundationGet('o3-border-radius-1');
 				}
 
 				// Include tab button sizes.
@@ -68,12 +70,14 @@
 								)
 						);
 						border-radius: 0;
-						&:first-of-type {
-							border-top-left-radius: oPrivateFoundationGet('o3-border-radius-1');
-						}
-						&:last-of-type {
-							border-top-right-radius: oPrivateFoundationGet('o3-border-radius-1');
-						}
+					}
+
+					&.o-tabs--big [role='tab']:first-of-type {
+						border-top-left-radius: oPrivateFoundationGet('o3-border-radius-1');
+					}
+
+					&.o-tabs--big [role='tab']:last-of-type{
+						border-top-right-radius: oPrivateFoundationGet('o3-border-radius-1');
 					}
 				}
 			}
