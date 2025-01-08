@@ -1,7 +1,18 @@
 import {tokenStudioThemeToBrand, getTokenStudioThemes} from '../utils.js';
 
 const privatePrefix = token => {
-	return isTokenStudioSource(token) ? `_${token.name}` : token.name;
+	const isSourceExceptionForEngineering = token => {
+		// We do not want to export our typography scale in Figma for end users.
+		// However to support migration efforts we want it to still be available in the engineering token set.
+		if (token.filePath.includes('base/typography')) {
+			return true;
+		}
+		return false;
+	};
+
+	return isTokenStudioSource(token) && !isSourceExceptionForEngineering(token)
+		? `_${token.name}`
+		: token.name;
 };
 
 /*Get token theme from brand in token set file path.*/
