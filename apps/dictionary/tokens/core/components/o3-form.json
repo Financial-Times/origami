@@ -21,7 +21,7 @@
           }
         },
         "border-radius": {
-          "value": "6px",
+          "value": "{o3.border-radius.1}",
           "type": "borderRadius"
         }
       },
