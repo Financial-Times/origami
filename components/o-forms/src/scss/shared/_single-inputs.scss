@@ -6,8 +6,9 @@
 	font-size: inherit;
 	background-color: _oFormsGet('default-background');
 	border: $_o-forms-border;
+	border-radius: oPrivateFoundationGet('o3-border-radius-2');
 	box-sizing: border-box;
-	min-height: $_o-forms-spacing-ten;
+	min-height: $_o-forms-spacing-eleven;
 	padding: $_o-forms-spacing-two;
 	width: 100%;
 
