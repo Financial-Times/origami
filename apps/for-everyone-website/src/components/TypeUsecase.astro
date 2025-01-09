@@ -1,0 +1,47 @@
+---
+import PreviewFrame from './utils/PreviewFrame.astro';
+
+const tokens = await import(`@financial-times/o3-tooling-token/${Astro.props.brand}.js`);
+
+const usecases = Array.isArray(Astro.props.usecases) ? Astro.props.usecases : [Astro.props.usecases];
+
+const TypeUsecaseTokens = Object.entries(tokens.default).filter(([key, value]) => key.includes(`o3-typography-use-case`) && usecases.includes(value.attributes?.subitem)).map(([key, value]) => {
+    value.name = key;
+    return value
+});
+const TypeUsecaseTokensByItem = Object.groupBy(TypeUsecaseTokens, (token) => token.attributes?.subitem);
+
+---
+
+{
+
+
+    Object.entries(TypeUsecaseTokensByItem).map(([key, tokens]) => {
+        console.log(tokens);
+        return <>
+            <h3>{key}</h3>
+            <p>{tokens[0].description}</p>
+
+            <PreviewFrame html={`<span class="o3-typography-use-case-${key}">Make sense of all of it</span>`} mark={`class="o3-typography-use-case-${key}`} />
+
+            <table class="color-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>CSS Custom Property</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {tokens.map(token => {
+                        return <tr>
+                            <td>{token.type}</td>
+                            <td>{token.css}</td>
+                            <td>{token.value}</td>
+                        </tr>
+                    })}
+                </tbody>
+            </table>
+        </>;
+    })
+}
