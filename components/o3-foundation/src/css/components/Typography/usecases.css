@@ -1,0 +1,20 @@
+.o3-typography-use-case-display-lg {
+	font-family: var(--o3-typography-use-case-display-lg-font-family);
+	font-size: var(--o3-typography-use-case-display-lg-font-size);
+	line-height: var(--o3-typography-use-case-display-lg-line-height);
+	font-weight: var(--o3-typography-use-case-display-lg-font-weight);
+}
+
+.o3-typography-use-case-display-md {
+	font-family: var(--o3-typography-use-case-display-md-font-family);
+	font-size: var(--o3-typography-use-case-display-md-font-size);
+	line-height: var(--o3-typography-use-case-display-md-line-height);
+	font-weight: var(--o3-typography-use-case-display-md-font-weight);
+}
+
+.o3-typography-use-case-display-sm {
+	font-family: var(--o3-typography-use-case-display-sm-font-family);
+	font-size: var(--o3-typography-use-case-display-sm-font-size);
+	line-height: var(--o3-typography-use-case-display-sm-line-height);
+	font-weight: var(--o3-typography-use-case-display-sm-font-weight);
+}
