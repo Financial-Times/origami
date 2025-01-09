@@ -1,43 +1,46 @@
 ---
-import {resolve as pathResolve} from 'path';
-import {readFile} from 'node:fs/promises';
-import {format} from 'prettier';
-import {renderToString} from 'react-dom/server';
-import PreviewFrame from './PreviewFrame.astro';
+import {Tabs, TabItem, Code} from '@astrojs/starlight/components';
 
-const {component} = Astro.props;
-const mark = component?.previewMarkers?.mark;
-const resolvedPath = pathResolve(component.filePath);
-
-const fileContent = await readFile(resolvedPath, {
-	encoding: 'utf8',
-});
-
-const regex = /@preview(?:[^\n]+)?\n([\s\S]*?)\n.*@preview/;
-const jsxMatch = fileContent.match(regex);
-let JSXString = jsxMatch && jsxMatch[1];
-
-let componentJSX =
-	JSXString &&
-	(await format(JSXString, {
-		parser: 'babel',
-	}));
-
-const HTMLregex =
-	/<meta itemProp="@preview"\/>(.+)<meta itemProp="@preview"\/>/;
-const componentHTMLString = renderToString(component.preview());
-const htmlMatch = componentHTMLString.match(HTMLregex);
-const htmlString = htmlMatch && htmlMatch[1];
-
-const componentHTML =
-	htmlString &&
-	(await format(htmlString, {
-		parser: 'html',
-		htmlWhitespaceSensitivity: 'ignore',
-	}));
+const {component: Component, html, jsx, mark} = Astro.props;
+const uniqueID = 'switcher-' + Math.random().toString(36).substring(7);
 ---
 
-<PreviewFrame html={componentHTML} jsx={componentJSX} component={component.preview} {mark} />
+<div class="not-content">
+	<div class="slide-switch">
+		<label class="switch-label" for={uniqueID}>Show code</label>
+		<label class="switch">
+			<input class="sliding-switch" id={uniqueID} type="checkbox" />
+			<span class="slider round"></span>
+		</label>
+	</div>
+
+	<div class="component-preview-wrapper">
+		<div class={`not-content component-preview visible ${uniqueID}`}>
+			{Component ? <Component /> : <Fragment set:html={html} />}
+		</div>
+	</div>
+
+	<div class={`code-preview ${uniqueID}`}>
+		<div>
+			<Tabs syncKey="code">
+				{
+					jsx && (
+						<TabItem label="JSX">
+							<Code code={jsx} lang="jsx" wrap={true} {mark} />
+						</TabItem>
+					)
+				}
+				{
+					html && (
+						<TabItem label="HTML">
+							<Code code={html} lang="html" wrap={true} {mark} />
+						</TabItem>
+					)
+				}
+			</Tabs>
+		</div>
+	</div>
+</div>
 
 <script>
 	const checkBoxElelements = document.querySelectorAll('.sliding-switch');
