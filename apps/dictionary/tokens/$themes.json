@@ -227,7 +227,8 @@
       "core/professional/components/o3-form/use-case": "source",
       "core/professional/components/o3-form": "source",
       "core/base/typography": "source",
-      "core/use-case/focus": "enabled"
+      "core/use-case/focus": "enabled",
+      "core/base/border-radius": "enabled"
     },
     "$figmaStyleReferences": {
       "color-usecase.background.button.primary.active": "S:55d4b73d90c40ff305a097a15d86f53de276da57,",
