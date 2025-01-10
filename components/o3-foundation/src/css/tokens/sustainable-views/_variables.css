@@ -4,8 +4,6 @@
 
 
 [data-o3-brand="sustainable-views"] {
-  --o3-border-radius-1: 4px;
-  --o3-border-radius-2: 6px;
   --o3-spacing-5xs: 4px;
   --o3-spacing-4xs: 8px;
   --o3-spacing-3xs: 12px;
@@ -104,6 +102,8 @@
   --o3-font-size-metric2-negative-3: 10px;
   --o3-font-size-metric2-negative-2: 12px;
   --o3-font-size-metric2-negative-1: 14px;
+  --o3-border-radius-1: 4px;
+  --o3-border-radius-2: 6px;
   --o3-color-use-case-link-text: var(--o3-color-palette-teal);
   --o3-color-use-case-link-text-hover: var(--o3-color-palette-slate);
   --o3-color-use-case-link-underline: var(--o3-color-palette-teal);
