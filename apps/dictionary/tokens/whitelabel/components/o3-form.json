@@ -6,7 +6,7 @@
           "@": {
             "value": {
               "color": "{o3.color.palette.black-30}",
-              "width": "2px",
+              "width": "1.5px",
               "style": "solid"
             },
             "type": "border"
@@ -14,7 +14,7 @@
           "error": {
             "value": {
               "color": "{o3.color.use-case.error}",
-              "width": "2px",
+              "width": "1.5px",
               "style": "solid"
             },
             "type": "border"

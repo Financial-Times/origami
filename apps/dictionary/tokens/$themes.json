@@ -14,8 +14,6 @@
       "core/components/o3-form/use-case": "source",
       "core/components/o3-form": "source",
       "core/base/border-radius": "enabled",
-      "sustainable-views/base/border-radius": "disabled",
-      "internal/base/border-radius": "disabled",
       "core/base/typography": "source",
       "core/use-case/focus": "enabled"
     },
@@ -228,8 +226,6 @@
       "core/components/o3-editorial-typography": "source",
       "core/professional/components/o3-form/use-case": "source",
       "core/professional/components/o3-form": "source",
-      "sustainable-views/base/border-radius": "disabled",
-      "internal/base/border-radius": "disabled",
       "core/base/typography": "source",
       "core/use-case/focus": "enabled"
     },
@@ -587,8 +583,6 @@
       "whitelabel/components/o3-form": "source",
       "whitelabel/components/o3-form/use-case": "source",
       "whitelabel/base/border-radius": "enabled",
-      "sustainable-views/base/border-radius": "disabled",
-      "internal/base/border-radius": "disabled",
       "core/base/typography": "source",
       "core/use-case/focus": "source",
       "whitelabel/base/typography": "source",
@@ -668,8 +662,7 @@
       "sustainable-views/components/o3-form/use-case": "source",
       "sustainable-views/base/typography": "source",
       "sustainable-views/use-case/focus": "enabled",
-      "sustainable-views/base/border-radius": "enabled",
-      "internal/base/border-radius": "disabled"
+      "sustainable-views/base/border-radius": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:6169:227",
     "$figmaModeId": "6169:4",
