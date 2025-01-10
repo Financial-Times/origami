@@ -1,3 +1,4 @@
+/* DISPLAY */
 .o3-typography-use-case-display-lg {
 	font-family: var(--o3-typography-use-case-display-lg-font-family);
 	font-size: var(--o3-typography-use-case-display-lg-font-size);
@@ -17,4 +18,131 @@
 	font-size: var(--o3-typography-use-case-display-sm-font-size);
 	line-height: var(--o3-typography-use-case-display-sm-line-height);
 	font-weight: var(--o3-typography-use-case-display-sm-font-weight);
+}
+
+/* HEADLINE */
+.o3-typography-use-case-headline-lg {
+	font-family: var(--o3-typography-use-case-headline-lg-font-family);
+	font-size: var(--o3-typography-use-case-headline-lg-font-size);
+	line-height: var(--o3-typography-use-case-headline-lg-line-height);
+	font-weight: var(--o3-typography-use-case-headline-lg-font-weight);
+}
+
+.o3-typography-use-case-headline-md {
+	font-family: var(--o3-typography-use-case-headline-md-font-family);
+	font-size: var(--o3-typography-use-case-headline-md-font-size);
+	line-height: var(--o3-typography-use-case-headline-md-line-height);
+	font-weight: var(--o3-typography-use-case-headline-md-font-weight);
+}
+
+.o3-typography-use-case-headline-sm {
+	font-family: var(--o3-typography-use-case-headline-sm-font-family);
+	font-size: var(--o3-typography-use-case-headline-sm-font-size);
+	line-height: var(--o3-typography-use-case-headline-sm-line-height);
+	font-weight: var(--o3-typography-use-case-headline-sm-font-weight);
+}
+
+/* TITLE */
+.o3-typography-use-case-title-lg {
+	font-family: var(--o3-typography-use-case-title-lg-font-family);
+	font-size: var(--o3-typography-use-case-title-lg-font-size);
+	line-height: var(--o3-typography-use-case-title-lg-line-height);
+	font-weight: var(--o3-typography-use-case-title-lg-font-weight);
+}
+
+.o3-typography-use-case-title-md {
+	font-family: var(--o3-typography-use-case-title-md-font-family);
+	font-size: var(--o3-typography-use-case-title-md-font-size);
+	line-height: var(--o3-typography-use-case-title-md-line-height);
+	font-weight: var(--o3-typography-use-case-title-md-font-weight);
+}
+
+.o3-typography-use-case-title-sm {
+	font-family: var(--o3-typography-use-case-title-sm-font-family);
+	font-size: var(--o3-typography-use-case-title-sm-font-size);
+	line-height: var(--o3-typography-use-case-title-sm-line-height);
+	font-weight: var(--o3-typography-use-case-title-sm-font-weight);
+}
+
+/* TITLE */
+.o3-typography-use-case-title-lg {
+	font-family: var(--o3-typography-use-case-title-lg-font-family);
+	font-size: var(--o3-typography-use-case-title-lg-font-size);
+	line-height: var(--o3-typography-use-case-title-lg-line-height);
+	font-weight: var(--o3-typography-use-case-title-lg-font-weight);
+}
+
+.o3-typography-use-case-title-md {
+	font-family: var(--o3-typography-use-case-title-md-font-family);
+	font-size: var(--o3-typography-use-case-title-md-font-size);
+	line-height: var(--o3-typography-use-case-title-md-line-height);
+	font-weight: var(--o3-typography-use-case-title-md-font-weight);
+}
+
+.o3-typography-use-case-title-sm {
+	font-family: var(--o3-typography-use-case-title-sm-font-family);
+	font-size: var(--o3-typography-use-case-title-sm-font-size);
+	line-height: var(--o3-typography-use-case-title-sm-line-height);
+	font-weight: var(--o3-typography-use-case-title-sm-font-weight);
+}
+
+/* BODY */
+.o3-typography-use-case-body-lg {
+	font-family: var(--o3-typography-use-case-body-lg-font-family);
+	font-size: var(--o3-typography-use-case-body-lg-font-size);
+	line-height: var(--o3-typography-use-case-body-lg-line-height);
+	font-weight: var(--o3-typography-use-case-body-lg-font-weight);
+}
+
+.o3-typography-use-case-body-base {
+	font-family: var(--o3-typography-use-case-body-base-font-family);
+	font-size: var(--o3-typography-use-case-body-base-font-size);
+	line-height: var(--o3-typography-use-case-body-base-line-height);
+	font-weight: var(--o3-typography-use-case-body-base-font-weight);
+}
+
+.o3-typography-use-case-body-highlight {
+	font-family: var(--o3-typography-use-case-body-highlight-font-family);
+	font-size: var(--o3-typography-use-case-body-highlight-font-size);
+	line-height: var(--o3-typography-use-case-body-highlight-line-height);
+	font-weight: var(--o3-typography-use-case-body-highlight-font-weight);
+}
+
+/* DETAIL / LABEL */
+.o3-typography-use-case-detail {
+	font-family: var(--o3-typography-use-case-detail-font-family);
+	font-size: var(--o3-typography-use-case-detail-font-size);
+	line-height: var(--o3-typography-use-case-detail-line-height);
+	font-weight: var(--o3-typography-use-case-detail-font-weight);
+}
+
+.o3-typography-use-case-label {
+	font-family: var(--o3-typography-use-case-label-font-family);
+	font-size: var(--o3-typography-use-case-label-font-size);
+	line-height: var(--o3-typography-use-case-label-line-height);
+	font-weight: var(--o3-typography-use-case-label-font-weight);
+	text-transform: var(--o3-typography-use-case-label-text-case);
+}
+
+/* BODY CONTENT – EDITORIAL */
+.o3-typography-use-case-body-content-base {
+	font-family: var(--o3-typography-use-case-body-content-base-font-family);
+	font-size: var(--o3-typography-use-case-body-content-base-font-size);
+	line-height: var(--o3-typography-use-case-body-content-base-line-height);
+	font-weight: var(--o3-typography-use-case-body-content-base-font-weight);
+}
+
+.o3-typography-use-case-body-content-highlight {
+	font-family: var(--o3-typography-use-case-body-content-highlight-font-family);
+	font-size: var(--o3-typography-use-case-body-content-highlight-font-size);
+	line-height: var(--o3-typography-use-case-body-content-highlight-line-height);
+	font-weight: var(--o3-typography-use-case-body-content-highlight-font-weight);
+}
+
+.o3-typography-use-case-body-content-emphasis {
+	font-family: var(--o3-typography-use-case-body-content-emphasis-font-family);
+	font-size: var(--o3-typography-use-case-body-content-emphasis-font-size);
+	line-height: var(--o3-typography-use-case-body-content-emphasis-line-height);
+	font-weight: var(--o3-typography-use-case-body-content-emphasis-font-weight);
+	font-style: var(--o3-typography-use-case-body-content-emphasis-font-style);
 }
