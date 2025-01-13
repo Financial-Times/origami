@@ -64,28 +64,6 @@
 	font-weight: var(--o3-typography-use-case-title-sm-font-weight);
 }
 
-/* TITLE */
-.o3-typography-use-case-title-lg {
-	font-family: var(--o3-typography-use-case-title-lg-font-family);
-	font-size: var(--o3-typography-use-case-title-lg-font-size);
-	line-height: var(--o3-typography-use-case-title-lg-line-height);
-	font-weight: var(--o3-typography-use-case-title-lg-font-weight);
-}
-
-.o3-typography-use-case-title-md {
-	font-family: var(--o3-typography-use-case-title-md-font-family);
-	font-size: var(--o3-typography-use-case-title-md-font-size);
-	line-height: var(--o3-typography-use-case-title-md-line-height);
-	font-weight: var(--o3-typography-use-case-title-md-font-weight);
-}
-
-.o3-typography-use-case-title-sm {
-	font-family: var(--o3-typography-use-case-title-sm-font-family);
-	font-size: var(--o3-typography-use-case-title-sm-font-size);
-	line-height: var(--o3-typography-use-case-title-sm-line-height);
-	font-weight: var(--o3-typography-use-case-title-sm-font-weight);
-}
-
 /* BODY */
 .o3-typography-use-case-body-lg {
 	font-family: var(--o3-typography-use-case-body-lg-font-family);
