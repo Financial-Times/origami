@@ -17,7 +17,6 @@ const TypeUsecaseTokensByItem = Object.groupBy(TypeUsecaseTokens, (token) => tok
 
 
     Object.entries(TypeUsecaseTokensByItem).map(([key, tokens]) => {
-        console.log(tokens);
         return <>
             <h3>{key}</h3>
             <p>{tokens[0].description}</p>
