@@ -10,7 +10,7 @@
 	border-radius: oPrivateFoundationGet('o3-border-radius-1');
 	box-sizing: border-box;
 	min-height: $_o-forms-spacing-eleven;
-	padding: $_o-forms-spacing-two;
+	padding: oPrivateFoundationGet('o3-spacing-4xs') oPrivateFoundationGet('o3-spacing-2xs');
 	width: 100%;
 
 	@if $disabled {
