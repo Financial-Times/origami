@@ -77,9 +77,9 @@ const TemplateSBConfig: Meta = {
 	},
 	parameters: {
 		design: {
-			type: 'figma'
-		}
-	}
+			type: 'figma',
+		},
+	},
 };
 
 const HeadlineTemplate: StoryObj = {
@@ -282,8 +282,14 @@ export const Heading: HeadlineStory = {
 export const Body: BodyStory = {
 	...BodyTemplate,
 	args: {
-		content:
-			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet earum libero at voluptatum illum facere totam architecto eum porro exercitationem, ea, accusamus quia? Repellat beatae similique ab? Reprehenderit, ullam quae?',
+		content: (
+			<>
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet earum
+				libero at voluptatum <strong>highlight</strong> illum facere totam
+				architecto eum porro exercitationem, ea, <em>emphasis</em> accusamus
+				quia? Repellat beatae similique ab? Reprehenderit, ullam quae?
+			</>
+		),
 		theme: 'standard',
 	},
 };
