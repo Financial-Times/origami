@@ -1,12 +1,10 @@
-import {Headline} from '@financial-times/o3-editorial-typography/esm';
+import {Heading} from '@financial-times/o3-editorial-typography/esm';
 
 function Chapter() {
 	return (
 		<>
 			<meta itemProp="@preview" />
-					<Headline type='chapter'>
-						Don’t settle for black and white
-					</Headline>
+			<Heading type="chapter">Don’t settle for black and white</Heading>
 			<meta itemProp="@preview" />
 		</>
 	);

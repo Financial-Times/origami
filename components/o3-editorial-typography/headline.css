@@ -5,15 +5,14 @@
 	line-height: var(--_o3-editorial-typography-headline-s-line-height);
 }
 
-.o3-editorial-typography-headline-large {
-	font-family: var(--_o3-editorial-typography-headline-large-l-font-family),
-		serif;
-	font-size: var(--_o3-editorial-typography-headline-large-s-font-size);
-	font-weight: var(--_o3-editorial-typography-headline-large-s-font-weight);
-	line-height: var(--_o3-editorial-typography-headline-large-s-line-height);
+.o3-editorial-typography-display {
+	font-family: var(--o3-typography-use-case-display-sm-font-family), serif;
+	font-size: var(--o3-typography-use-case-display-sm-font-size);
+	font-weight: var(--o3-typography-use-case-display-sm-font-weight);
+	line-height: var(--o3-typography-use-case-display-sm-line-height);
 }
 
-.o3-editorial-typography-headline-large[data-o3-editorial-underline]::after {
+.o3-editorial-typography-display[data-o3-editorial-underline]::after {
 	content: '';
 	display: block;
 	width: 182px;
@@ -49,10 +48,10 @@
 		line-height: var(--_o3-editorial-typography-headline-m-line-height);
 	}
 
-	.o3-editorial-typography-headline-large {
-		font-size: var(--_o3-editorial-typography-headline-large-m-font-size);
-		font-weight: var(--_o3-editorial-typography-headline-large-m-font-weight);
-		line-height: var(--_o3-editorial-typography-headline-large-m-line-height);
+	.o3-editorial-typography-display {
+		font-size: var(--o3-typography-use-case-display-md-font-size);
+		font-weight: var(--o3-typography-use-case-display-md-font-weight);
+		line-height: var(--o3-typography-use-case-display-md-line-height);
 	}
 }
 
@@ -63,9 +62,9 @@
 		line-height: var(--_o3-editorial-typography-headline-l-line-height);
 	}
 
-	.o3-editorial-typography-headline-large {
-		font-size: var(--_o3-editorial-typography-headline-large-l-font-size);
-		font-weight: var(--_o3-editorial-typography-headline-large-l-font-weight);
-		line-height: var(--_o3-editorial-typography-headline-large-l-line-height);
+	.o3-editorial-typography-display {
+		font-size: var(--o3-typography-use-case-display-lg-font-size);
+		font-weight: var(--o3-typography-use-case-display-lg-font-weight);
+		line-height: var(--o3-typography-use-case-display-lg-line-height);
 	}
 }

@@ -14,7 +14,7 @@ import {
 
 import type {StoryObj, Meta} from '@storybook/react';
 import type {
-	HeadlineProps,
+	HeadingProps,
 	BodyProps,
 	SummaryProps,
 	QuoteProps,
@@ -28,7 +28,7 @@ import type {
 type StoryObjNoArgs = Omit<StoryObj, 'args'>;
 
 type HeadlineStory = StoryObjNoArgs & {
-	args: Omit<HeadlineProps, 'children'> & {content: string};
+	args: Omit<HeadingProps, 'children'> & {content: string};
 };
 
 type BodyStory = StoryObjNoArgs & {
@@ -86,7 +86,7 @@ const HeadlineTemplate: StoryObj = {
 	argTypes: {
 		...TemplateSBConfig.argTypes,
 		type: {
-			options: ['headline-large', 'headline', 'subheading', 'chapter', 'label'],
+			options: ['display', 'headline', 'subheading', 'chapter', 'label'],
 			control: {
 				type: 'radio',
 			},
@@ -95,7 +95,7 @@ const HeadlineTemplate: StoryObj = {
 			control: {
 				type: 'boolean',
 			},
-			if: {arg: 'type', eq: 'headline-large'},
+			if: {arg: 'type', eq: 'display'},
 		},
 	},
 	render: args => {
@@ -274,7 +274,7 @@ export const Heading: HeadlineStory = {
 	args: {
 		content: 'Don’t settle for black and white',
 		theme: 'standard',
-		type: 'headline-large',
+		type: 'display',
 		underline: true,
 	},
 };

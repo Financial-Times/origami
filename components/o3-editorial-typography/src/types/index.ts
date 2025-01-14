@@ -1,5 +1,5 @@
-export type HeadlineProps = {
-	type: 'headline-large' | 'headline' | 'chapter' | 'subheading' | 'label';
+export type HeadingProps = {
+	type: 'display' | 'headline' | 'chapter' | 'subheading' | 'label';
 	theme?: 'standard' | 'inverse';
 	underline?: boolean;
 	children: string;
@@ -38,10 +38,10 @@ export type BigNumberProps = {
 	children: string;
 };
 
-export type BylineProps ={
-	theme?: 'standard' | 'inverse',
+export type BylineProps = {
+	theme?: 'standard' | 'inverse';
 	children: JSX.Element[] | JSX.Element | string;
-}
+};
 
 export type ListProps = {
 	type: 'ordered' | 'unordered';
