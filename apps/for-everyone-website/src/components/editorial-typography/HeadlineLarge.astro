@@ -1,5 +1,5 @@
 ---
-import * as HeadlineLargePreview from './preview/Headline-Large';
+import * as DisplayPreview from './preview/Display';
 import Preview from '../utils/Preview.astro';
 import FigmaSbLinks from '../utils/FigmaSbLinks.astro';
 const {brand} = Astro.props;
@@ -15,6 +15,6 @@ const storybookId = `${brand}-o3-editorial-typography--heading`;
 		articles. Usually in the full-bleed topper component. Use in moderation.
 	</p>
 
-	<Preview component={HeadlineLargePreview} />
+	<Preview component={DisplayPreview} />
 	<FigmaSbLinks {storybookId} />
 </>
