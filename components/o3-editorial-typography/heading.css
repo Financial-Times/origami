@@ -22,23 +22,24 @@
 }
 
 .o3-editorial-typography-chapter {
-	font-family: var(--_o3-editorial-typography-chapter-font-family), sans-serif;
-	font-size: var(--_o3-editorial-typography-chapter-font-size);
-	font-weight: var(--_o3-editorial-typography-chapter-font-weight);
-	line-height: var(--_o3-editorial-typography-chapter-line-height);
+	font-family: var(--o3-typography-use-case-title-lg-font-family), sans-serif;
+	font-size: var(--o3-typography-use-case-title-lg-font-size);
+	font-weight: var(--o3-typography-use-case-title-lg-font-weight);
+	line-height: var(--o3-typography-use-case-title-lg-line-height);
 }
+
 .o3-editorial-typography-subheading {
-	font-family: var(--_o3-editorial-typography-subheading-font-family),
-		sans-serif;
-	font-size: var(--_o3-editorial-typography-subheading-font-size);
-	font-weight: var(--_o3-editorial-typography-subheading-font-weight);
-	line-height: var(--_o3-editorial-typography-subheading-line-height);
+	font-family: var(--o3-typography-use-case-title-md-font-family), sans-serif;
+	font-size: var(--o3-typography-use-case-title-md-font-size);
+	font-weight: var(--o3-typography-use-case-title-md-font-weight);
+	line-height: var(--o3-typography-use-case-title-md-line-height);
 }
+
 .o3-editorial-typography-label {
-	font-family: var(--_o3-editorial-typography-label-font-family), sans-serif;
-	font-size: var(--_o3-editorial-typography-label-font-size);
-	font-weight: var(--_o3-editorial-typography-label-font-weight);
-	line-height: var(--_o3-editorial-typography-label-line-height);
+	font-family: var(--o3-typography-use-case-body-base-font-family), sans-serif;
+	font-size: var(--o3-typography-use-case-body-base-font-size);
+	font-weight: var(--o3-typography-use-case-body-base-font-weight);
+	line-height: var(--o3-typography-use-case-body-base-line-height);
 }
 
 @media (min-width: 740px) {
