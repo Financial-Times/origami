@@ -1,4 +1,4 @@
-import {Heading} from './headline';
+import {Heading} from './heading';
 import {Body} from './body';
 import {Summary} from './summary';
 export * from './detail';
