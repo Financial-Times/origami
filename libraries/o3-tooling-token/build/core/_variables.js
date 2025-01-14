@@ -1,36 +1,4 @@
 export default {
-	"o3-border-radius-1": {
-		"shortName": "1",
-		"value": "4px",
-		"originalValue": "4",
-		"type": "dimension",
-		"attributes": {
-				"item": "1"
-		},
-		"path": [
-				"o3",
-				"border-radius",
-				"1"
-		],
-		"css": "--o3-border-radius-1",
-		"figma": "o3/border-radius/1"
-},
-	"o3-border-radius-2": {
-		"shortName": "2",
-		"value": "6px",
-		"originalValue": "6",
-		"type": "dimension",
-		"attributes": {
-				"item": "2"
-		},
-		"path": [
-				"o3",
-				"border-radius",
-				"2"
-		],
-		"css": "--o3-border-radius-2",
-		"figma": "o3/border-radius/2"
-},
 	"o3-color-palette-ft-pink": {
 		"shortName": "ft-pink",
 		"value": "#fcd0b1",
@@ -3830,6 +3798,38 @@ export default {
 		],
 		"css": "--o3-typography-use-case-body-content-link-line-height",
 		"figma": "o3/typography/use-case/body-content-link/lineHeight"
+},
+	"o3-border-radius-1": {
+		"shortName": "1",
+		"value": "4px",
+		"originalValue": "4",
+		"type": "dimension",
+		"attributes": {
+				"item": "1"
+		},
+		"path": [
+				"o3",
+				"border-radius",
+				"1"
+		],
+		"css": "--o3-border-radius-1",
+		"figma": "o3/border-radius/1"
+},
+	"o3-border-radius-2": {
+		"shortName": "2",
+		"value": "6px",
+		"originalValue": "6",
+		"type": "dimension",
+		"attributes": {
+				"item": "2"
+		},
+		"path": [
+				"o3",
+				"border-radius",
+				"2"
+		],
+		"css": "--o3-border-radius-2",
+		"figma": "o3/border-radius/2"
 },
 	"o3-font-family-metric": {
 		"shortName": "metric",
