@@ -4,7 +4,7 @@
 @import './list.css';
 @import './footer.css';
 @import './caption.css';
-
+@import './usecases.css';
 
 :root {
 	--o3-typography-max-line-width: 60ch;
@@ -18,6 +18,6 @@
 	font-style: italic;
 }
 
-[class^='o3-typography'] {
+:where([class^='o3-typography']) {
 	font-family: var(--o3-font-family-metric);
 }
