@@ -20,8 +20,8 @@ export default {
 		design: {
 			type: 'figma',
 			url: links['whitelabel-o3-typography-heading--heading-story'].figma,
-		}
+		},
 	},
 } as Meta;
 
-export const HeadingStory = TypographyStories.HeadingTemplate;
+export const Headings = TypographyStories.HeadingTemplate;

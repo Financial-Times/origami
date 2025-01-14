@@ -20,7 +20,8 @@ export default {
 		backgrounds: {default: 'paper'},
 		design: {
 			type: 'figma',
-			url: links['core-professional-o3-typography-heading--heading-story'].figma,
+			url: links['core-professional-o3-typography-heading--heading-story']
+				.figma,
 		},
 	},
 	argTypes: {
@@ -30,4 +31,4 @@ export default {
 	},
 } as Meta;
 
-export const HeadingStory = TypographyStories.HeadingTemplate;
+export const Headings = TypographyStories.HeadingTemplate;
