@@ -24,8 +24,8 @@ export default {
 	},
 } as Meta;
 
-export const HeadingStory = StoryTemplates.Heading;
-HeadingStory.argTypes = {
+export const Headings = StoryTemplates.Heading;
+Headings.argTypes = {
 	type: {
 		options: ['headline', 'subheading', 'chapter', 'label'],
 		control: {
@@ -34,7 +34,7 @@ HeadingStory.argTypes = {
 	},
 };
 
-HeadingStory.args = {
+Headings.args = {
 	...StoryTemplates.Heading.args,
 	type: 'headline',
 };

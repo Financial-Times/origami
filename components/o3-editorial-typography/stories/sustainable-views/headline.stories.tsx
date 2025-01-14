@@ -25,7 +25,7 @@ const DesignParams = {
 	url: 'https://www.figma.com/file/5ATknbGociZMlnNXX4sy4f/Whitelabel---Design-System?type=design&node-id=4717-652&mode=design&t=Y50jCZbAtgxH2F3S-4',
 };
 
-export const HeadingStory = StoryTemplates.Heading;
-HeadingStory.parameters = {
+export const Headings = StoryTemplates.Heading;
+Headings.parameters = {
 	design: DesignParams,
 };

@@ -10,7 +10,7 @@ import {
 	UnorderedList,
 	OrderedList,
 	Caption,
-	Wrapper
+	Wrapper,
 } from '../src/tsx';
 import {Emphasis, Strong, Subscript, Superscript} from '../src/tsx/body';
 import type {StoryObj} from '@storybook/react';
@@ -35,7 +35,6 @@ export function GridMetaGenerator(brand: string): Meta {
 		},
 	};
 }
-
 
 const TemplateSBConfig = {
 	argTypes: {
@@ -100,7 +99,7 @@ const BodyStory = {
 	},
 };
 
-const HeadingStory = {
+const Headings = {
 	...TemplateSBConfig,
 	argTypes: {
 		...TemplateSBConfig.argTypes,
@@ -230,7 +229,7 @@ export const BodyTemplate: TemplateType = {
 };
 
 export const HeadingTemplate: TemplateType = {
-	...HeadingStory,
+	...Headings,
 };
 
 export const LinkTemplate: TemplateType = {

@@ -1,5 +1,5 @@
 import {
-	Headline as HeadlineTsx,
+	Heading as HeadingTsx,
 	Body as BodyTsx,
 	Summary as SummaryTsx,
 	Caption as CaptionTsx,
@@ -27,7 +27,7 @@ import type {
 
 type StoryObjNoArgs = Omit<StoryObj, 'args'>;
 
-type HeadlineStory = StoryObjNoArgs & {
+type Headings = StoryObjNoArgs & {
 	args: Omit<HeadingProps, 'children'> & {content: string};
 };
 
@@ -82,11 +82,11 @@ const TemplateSBConfig: Meta = {
 	},
 };
 
-const HeadlineTemplate: StoryObj = {
+const HeadingTemplate: StoryObj = {
 	argTypes: {
 		...TemplateSBConfig.argTypes,
 		type: {
-			options: ['display', 'headline', 'subheading', 'chapter', 'label'],
+			options: ['display', 'Heading', 'subheading', 'chapter', 'label'],
 			control: {
 				type: 'radio',
 			},
@@ -99,7 +99,7 @@ const HeadlineTemplate: StoryObj = {
 		},
 	},
 	render: args => {
-		return <HeadlineTsx {...args}>{args.content}</HeadlineTsx>;
+		return <HeadingTsx {...args}>{args.content}</HeadingTsx>;
 	},
 };
 
@@ -269,8 +269,8 @@ const LinkTemplate: StoryObj = {
 		);
 	},
 };
-export const Heading: HeadlineStory = {
-	...HeadlineTemplate,
+export const Heading: Headings = {
+	...HeadingTemplate,
 	args: {
 		content: 'Don’t settle for black and white',
 		theme: 'standard',
