@@ -1,8 +1,8 @@
 .o3-editorial-typography-headline {
-	font-family: var(--_o3-editorial-typography-headline-s-font-family), serif;
-	font-size: var(--_o3-editorial-typography-headline-s-font-size);
-	font-weight: var(--_o3-editorial-typography-headline-s-font-weight);
-	line-height: var(--_o3-editorial-typography-headline-s-line-height);
+	font-family: var(--o3-typography-use-case-headline-sm-font-family), serif;
+	font-size: var(--o3-typography-use-case-headline-sm-font-size);
+	font-weight: var(--o3-typography-use-case-headline-sm-font-weight);
+	line-height: var(--o3-typography-use-case-headline-sm-line-height);
 }
 
 .o3-editorial-typography-display {
@@ -43,9 +43,9 @@
 
 @media (min-width: 740px) {
 	.o3-editorial-typography-headline {
-		font-size: var(--_o3-editorial-typography-headline-m-font-size);
-		font-weight: var(--_o3-editorial-typography-headline-m-font-weight);
-		line-height: var(--_o3-editorial-typography-headline-m-line-height);
+		font-size: var(--o3-typography-use-case-headline-md-font-size);
+		font-weight: var(--o3-typography-use-case-headline-md-font-weight);
+		line-height: var(--o3-typography-use-case-headline-md-line-height);
 	}
 
 	.o3-editorial-typography-display {
@@ -57,9 +57,9 @@
 
 @media (min-width: 980px) {
 	.o3-editorial-typography-headline {
-		font-size: var(--_o3-editorial-typography-headline-l-font-size);
-		font-weight: var(--_o3-editorial-typography-headline-l-font-weight);
-		line-height: var(--_o3-editorial-typography-headline-l-line-height);
+		font-size: var(--o3-typography-use-case-headline-lg-font-size);
+		font-weight: var(--o3-typography-use-case-headline-lg-font-weight);
+		line-height: var(--o3-typography-use-case-headline-lg-line-height);
 	}
 
 	.o3-editorial-typography-display {

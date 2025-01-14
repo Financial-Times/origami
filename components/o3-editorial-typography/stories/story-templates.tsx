@@ -86,7 +86,7 @@ const HeadingTemplate: StoryObj = {
 	argTypes: {
 		...TemplateSBConfig.argTypes,
 		type: {
-			options: ['display', 'Heading', 'subheading', 'chapter', 'label'],
+			options: ['display', 'headline', 'subheading', 'chapter', 'label'],
 			control: {
 				type: 'radio',
 			},
