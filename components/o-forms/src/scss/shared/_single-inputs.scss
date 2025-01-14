@@ -4,6 +4,7 @@
 @mixin _oFormsInputBase($disabled) {
 	font-family: oPrivateFoundationGet('o3-font-family-metric');
 	font-size: oPrivateFoundationGet('o3-font-size-metric2-1');
+	line-height: oPrivateFoundationGet('o3-font-lineheight-metric2-1');
 	background-color: _oFormsGet('default-background');
 	border: $_o-forms-border;
 	border-radius: oPrivateFoundationGet('o3-border-radius-1');
