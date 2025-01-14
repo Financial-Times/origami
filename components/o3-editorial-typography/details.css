@@ -130,7 +130,7 @@ a.o3-editorial-typography-byline-author[data-o3-theme='inverse'] {
 		content: '';
 		width: var(--_o3-editorial-typography-quote-icon-size);
 		height: var(--_o3-editorial-typography-quote-icon-size);
-		mask-image: var(--o3-icon-speech-left);
+		mask-image: var(--o3-icon-quote-left);
 		mask-repeat: no-repeat;
 		mask-size: contain;
 		display: inline-block;
@@ -160,36 +160,27 @@ a.o3-editorial-typography-byline-author[data-o3-theme='inverse'] {
 }
 
 .o3-editorial-typography-pullquote__author {
-	font-family: var(--o3-typography-use-case-body-small-bold-font-family),
+	font-family: var(--o3-typography-use-case-body-base-highlight-font-family),
 		sans-serif;
-	font-size: var(--o3-typography-use-case-body-small-bold-font-size);
-	font-weight: var(--o3-typography-use-case-body-small-bold-font-weight);
-	line-height: var(--o3-typography-use-case-body-small-bold-line-height);
-}
-
-.o3-editorial-typography-pullquote__source {
-	font-family: var(--_o3-editorial-typography-pullquote-source-font-family),
-		sans-serif;
-	font-size: var(--_o3-editorial-typography-pullquote-source-font-size);
-	font-weight: var(--_o3-editorial-typography-pullquote-source-font-weight);
-	line-height: var(--_o3-editorial-typography-pullquote-source-line-height);
+	font-size: var(--o3-typography-use-case-body-base-highlight-font-size);
+	font-weight: var(--o3-typography-use-case-body-base-highlight-font-weight);
+	line-height: var(--o3-typography-use-case-body-base-highlight-line-height);
 }
 
 .o3-editorial-typography-blockquote__author {
-	font-family: var(--o3-typography-use-case-body-small-bold-font-family),
-		sans-serif;
-	font-size: var(--o3-typography-use-case-body-small-bold-font-size);
-	font-weight: var(--o3-typography-use-case-body-small-bold-font-weight);
-	line-height: var(--o3-typography-use-case-body-small-bold-line-height);
-	text-transform: uppercase;
+	font-family: var(--o3-typography-use-case-label-font-family), sans-serif;
+	font-size: var(--o3-typography-use-case-label-font-size);
+	font-weight: var(--o3-typography-use-case-label-font-weight);
+	line-height: var(--o3-typography-use-case-label-line-height);
+	text-transform: var(--o3-typography-use-case-label-text-case);
 }
 
 .o3-editorial-typography-blockquote__source {
-	font-family: var(--o3-typography-use-case-body-standard-font-family),
-		sans-serif;
-	font-size: var(--o3-typography-use-case-body-standard-font-size);
-	font-weight: var(--o3-typography-use-case-body-standard-font-weight);
-	line-height: var(--o3-typography-use-case-body-standard-line-height);
+	font-family: var(--o3-typography-use-case-detail-font-family), sans-serif;
+	font-size: var(--o3-typography-use-case-detail-font-size);
+	font-weight: var(--o3-typography-use-case-detail-font-weight);
+	line-height: var(--o3-typography-use-case-detail-line-height);
+	text-transform: var(--o3-typography-use-case-detail-text-case);
 }
 
 .o3-editorial-typography-big-number,
