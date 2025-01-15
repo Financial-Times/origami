@@ -9,24 +9,24 @@ on:
     branches: [ main, 2025-release]
 
 jobs:
-  changes:
-    runs-on: ubuntu-latest
-    permissions:
-      pull-requests: read
-    outputs:
-      components: ${{ steps.filter.outputs.changes }}
-    steps:
-    - uses: dorny/paths-filter@v2
-      id: filter
-      with:
-        filters: |
-        <%#projects%>
-          <%& workspace %>:
-            - '<%& workspace %>/**'
-        <%/projects%>
+  # changes:
+  #   runs-on: ubuntu-latest
+  #   permissions:
+  #     pull-requests: read
+  #   outputs:
+  #     components: ${{ steps.filter.outputs.changes }}
+  #   steps:
+  #   - uses: dorny/paths-filter@v2
+  #     id: filter
+  #     with:
+  #       filters: |
+  #       <%#projects%>
+  #         <%& workspace %>:
+  #           - '<%& workspace %>/**'
+  #       <%/projects%>
   test:
-    if: ${{ needs.changes.outputs.components != '[]' && needs.changes.outputs.components != '' }}
-    needs: changes
+    # if: ${{ needs.changes.outputs.components != '[]' && needs.changes.outputs.components != '' }}
+    # needs: changes
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
