@@ -1,7 +1,7 @@
 import type {Meta} from '@storybook/react';
 import links from "@financial-times/o3-figma-sb-links"
 import {RadioButtonGroup as RadioButtonTsx} from '../../src/tsx/index';
-import '../../src/css/brands/professional.css';
+import '../../src/css/brands/internal.css';
 import {RadioButtonGroupStory} from '../story-template';
 
 export default {
