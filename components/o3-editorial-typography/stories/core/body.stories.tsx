@@ -17,15 +17,14 @@ export default {
 	],
 	parameters: {
 		backgrounds: {default: 'paper'},
-		controls: {exclude: ['children', 'dropCap']},
+		controls: {exclude: ['children', 'content']},
 	},
 } as Meta;
-
 
 export const Body = StoryTemplates.Body;
 Body.parameters = {
 	design: {
 		type: 'figma',
-		url: links['core-o3-editorial-typography--body'].figma
+		url: links['core-o3-editorial-typography--body'].figma,
 	},
 };
