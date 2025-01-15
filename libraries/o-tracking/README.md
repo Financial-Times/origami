@@ -123,8 +123,7 @@ oTracking.init(config);
 ##### oTracking.page
 
 To track a page view for the product you call the `oTracking.page` method.
-Page events automatically track the url and the referrer.
-Please refer to the [event document](docs/event.md) for information about all the possible properties which can be set.
+Page events automatically track the url and the referrer. Refer to the [page event document](docs/event-parameters/page-view.md) for information about properties which can be set.
 ```js
 const pageConfig = {
   content: {
