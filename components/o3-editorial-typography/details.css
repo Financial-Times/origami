@@ -180,7 +180,6 @@ a.o3-editorial-typography-byline-author[data-o3-theme='inverse'] {
 	font-size: var(--o3-typography-use-case-detail-font-size);
 	font-weight: var(--o3-typography-use-case-detail-font-weight);
 	line-height: var(--o3-typography-use-case-detail-line-height);
-	text-transform: var(--o3-typography-use-case-detail-text-case);
 }
 
 .o3-editorial-typography-big-number,
