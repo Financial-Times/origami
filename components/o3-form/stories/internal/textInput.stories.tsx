@@ -2,7 +2,7 @@ import type {Meta} from '@storybook/react';
 import links from '@financial-times/o3-figma-sb-links';
 
 import {TextInput as TextInputTsx} from '../../src/tsx/TextInput';
-import '../../src/css/brands/professional.css';
+import '../../src/css/brands/internal.css';
 
 const meta: Meta<typeof TextInputTsx> = {
 	title: 'Internal/o3-form',
