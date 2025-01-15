@@ -20,9 +20,10 @@
 	.o3-form-field__label,
 	.o3-form-field__title,
 	.o3-form-field__legend {
-		font-size: var(--o3-font-size-metric2-0);
-		line-height: var(--o3-font-lineheight-metric2-0);
-		font-weight: var(--o3-font-weight-semibold);
+		font-family: var(--o3-typography-use-case-body-highlight-font-family);
+		font-size: var(--o3-typography-use-case-body-highlight-font-family);
+		font-weight: var(--o3-typography-use-case-body-highlight-font-weight);
+		line-height: var(--o3-typography-use-case-body-highlight-line-height);
 		color: var(--o3-color-use-case-body-text);
 
 		&.o3-form-field--optional::after {
@@ -34,9 +35,10 @@
 	}
 
 	.o3-form-input__description {
-		font-size: var(--o3-font-size-metric2-0);
-		line-height: var(--o3-font-lineheight-metric2-0);
-		font-weight: var(--o3-font-weight-regular);
+		font-family: var(--o3-typography-use-case-body-base-font-family);
+		font-size: var(--o3-typography-use-case-body-base-font-family);
+		font-weight: var(--o3-typography-use-case-body-base-font-weight);
+		line-height: var(--o3-typography-use-case-body-base-line-height);
 		color: var(--o3-color-use-case-body-text);
 	}
 
