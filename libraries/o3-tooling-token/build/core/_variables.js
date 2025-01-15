@@ -1,36 +1,14 @@
 export default {
-	"o3-border-radius-1": {
-		"shortName": "1",
-		"value": "4px",
-		"originalValue": "4",
-		"type": "dimension",
-		"path": [
-				"o3",
-				"border-radius",
-				"1"
-		],
-		"css": "--o3-border-radius-1",
-		"figma": "o3/border-radius/1"
-},
-	"o3-border-radius-2": {
-		"shortName": "2",
-		"value": "6px",
-		"originalValue": "6",
-		"type": "dimension",
-		"path": [
-				"o3",
-				"border-radius",
-				"2"
-		],
-		"css": "--o3-border-radius-2",
-		"figma": "o3/border-radius/2"
-},
 	"o3-color-palette-ft-pink": {
 		"shortName": "ft-pink",
 		"value": "#fcd0b1",
 		"originalValue": "#FCD0B1",
 		"type": "color",
 		"description": "FT Pink is used for the FT logo",
+		"attributes": {
+				"item": "palette",
+				"subitem": "ft-pink"
+		},
 		"origamiKeys": [
 				"palette",
 				"primary"
@@ -50,6 +28,10 @@ export default {
 		"originalValue": "#333333ff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "ft-grey"
+		},
 		"origamiKeys": [
 				"palette",
 				"primary"
@@ -69,6 +51,10 @@ export default {
 		"originalValue": "#ffffffff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "white"
+		},
 		"origamiKeys": [
 				"palette",
 				"primary"
@@ -88,6 +74,10 @@ export default {
 		"originalValue": "#000000ff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "black"
+		},
 		"origamiKeys": [
 				"palette",
 				"primary"
@@ -107,6 +97,10 @@ export default {
 		"originalValue": "#990f3dff",
 		"type": "color",
 		"description": "Claret is the main branding colour for MyFT related products. It should be used sparingly and never be used as a background colour.\n\nUsage example: MyFT branding; MyFT CTAs",
+		"attributes": {
+				"item": "palette",
+				"subitem": "claret"
+		},
 		"origamiKeys": [
 				"palette",
 				"secondary"
@@ -126,6 +120,10 @@ export default {
 		"originalValue": "#0d7680ff",
 		"type": "color",
 		"description": "Teal is the most striking colour and main CTA colour on ft.com. It is reserved for important action items that need to stand out: buttons, text links and other critical functional use cases.",
+		"attributes": {
+				"item": "palette",
+				"subitem": "teal"
+		},
 		"origamiKeys": [
 				"palette",
 				"secondary"
@@ -145,6 +143,10 @@ export default {
 		"originalValue": "#0f5499ff",
 		"type": "color",
 		"description": "Oxford is used to denote opinion pieces (in combination with Sky). It is used on the homepage and in articles. Use for information and callouts in general.\n\nUsage example: opinion branding; opinion topic tags.",
+		"attributes": {
+				"item": "palette",
+				"subitem": "oxford"
+		},
 		"origamiKeys": [
 				"palette",
 				"secondary"
@@ -164,6 +166,10 @@ export default {
 		"originalValue": "#262a33ff",
 		"type": "color",
 		"description": "Slate is a warmer version of black. It is used as inverse backgrounds for editorial content and as a theme option(Mono) for buttons.",
+		"attributes": {
+				"item": "palette",
+				"subitem": "slate"
+		},
 		"origamiKeys": [
 				"palette",
 				"secondary"
@@ -183,6 +189,10 @@ export default {
 		"originalValue": "#fff1e5ff",
 		"type": "color",
 		"description": "Paper, as it’s name implies, is the FT’s main background colour. It is the main expression of the brand colour on product. It is a lighter, more legible shade of FT Pink and can be seen as a kind of replacement of white.",
+		"attributes": {
+				"item": "palette",
+				"subitem": "paper"
+		},
 		"origamiKeys": [
 				"palette",
 				"secondary"
@@ -202,6 +212,10 @@ export default {
 		"originalValue": "#ff8833ff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "mandarin"
+		},
 		"origamiKeys": [
 				"palette",
 				"tertiary"
@@ -221,6 +235,10 @@ export default {
 		"originalValue": "#00a0ddff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "light-blue"
+		},
 		"origamiKeys": [
 				"palette",
 				"tertiary"
@@ -240,6 +258,10 @@ export default {
 		"originalValue": "#cc0000ff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "crimson"
+		},
 		"origamiKeys": [
 				"palette",
 				"tertiary"
@@ -259,6 +281,10 @@ export default {
 		"originalValue": "#006f9bff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "graphics-dark-blue"
+		},
 		"origamiKeys": [
 				"palette",
 				"tertiary"
@@ -278,6 +304,10 @@ export default {
 		"originalValue": "#f2dfceff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "wheat"
+		},
 		"origamiKeys": [
 				"palette",
 				"tertiary"
@@ -297,6 +327,10 @@ export default {
 		"originalValue": "#ff7faaff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "candy"
+		},
 		"origamiKeys": [
 				"palette",
 				"tertiary"
@@ -316,6 +350,10 @@ export default {
 		"originalValue": "#96cc28ff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "wasabi"
+		},
 		"origamiKeys": [
 				"palette",
 				"tertiary"
@@ -335,6 +373,10 @@ export default {
 		"originalValue": "#00994dff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "jade"
+		},
 		"origamiKeys": [
 				"palette",
 				"tertiary"
@@ -354,6 +396,10 @@ export default {
 		"originalValue": "#593380ff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "velvet"
+		},
 		"origamiKeys": [
 				"palette",
 				"tertiary"
@@ -373,6 +419,10 @@ export default {
 		"originalValue": "#ffec1aff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "lemon"
+		},
 		"origamiKeys": [
 				"palette",
 				"tertiary"
@@ -392,6 +442,10 @@ export default {
 		"originalValue": "#cce6ffff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "sky"
+		},
 		"origamiKeys": [
 				"palette",
 				"tertiary"
@@ -411,6 +465,10 @@ export default {
 		"originalValue": "#355778ff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "matisse-blue"
+		},
 		"origamiKeys": [
 				"palette",
 				"tertiary"
@@ -430,6 +488,10 @@ export default {
 		"originalValue": "#f2e5daff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "black-5"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -449,6 +511,10 @@ export default {
 		"originalValue": "#e6d9ceff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "black-10"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -468,6 +534,10 @@ export default {
 		"originalValue": "#ccc1b7ff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "black-20"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -487,6 +557,10 @@ export default {
 		"originalValue": "#b3a9a0ff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "black-30"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -506,6 +580,10 @@ export default {
 		"originalValue": "#999189ff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "black-40"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -525,6 +603,10 @@ export default {
 		"originalValue": "#807973ff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "black-50"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -544,6 +626,10 @@ export default {
 		"originalValue": "#66605cff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "black-60"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -563,6 +649,10 @@ export default {
 		"originalValue": "#4d4845ff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "black-70"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -582,6 +672,10 @@ export default {
 		"originalValue": "#33302eff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "black-80"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -601,6 +695,10 @@ export default {
 		"originalValue": "#1a1817ff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "black-90"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -620,6 +718,10 @@ export default {
 		"originalValue": "#fff2e8ff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "white-10"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -639,6 +741,10 @@ export default {
 		"originalValue": "#fff4eaff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "white-20"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -658,6 +764,10 @@ export default {
 		"originalValue": "#fff7efff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "white-40"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -677,6 +787,10 @@ export default {
 		"originalValue": "#fff9f5ff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "white-60"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -696,6 +810,10 @@ export default {
 		"originalValue": "#fffcfaff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "white-80"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -715,6 +833,10 @@ export default {
 		"originalValue": "#082a4dff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "oxford-30"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -734,6 +856,10 @@ export default {
 		"originalValue": "#0a3866ff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "oxford-40"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -753,6 +879,10 @@ export default {
 		"originalValue": "#0d4680ff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "oxford-50"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -772,6 +902,10 @@ export default {
 		"originalValue": "#0f5499ff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "oxford-60"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -791,6 +925,10 @@ export default {
 		"originalValue": "#1262b3ff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "oxford-70"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -810,6 +948,10 @@ export default {
 		"originalValue": "#1470ccff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "oxford-80"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -829,6 +971,10 @@ export default {
 		"originalValue": "#177ee6ff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "oxford-90"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -848,6 +994,10 @@ export default {
 		"originalValue": "#1a8cffff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "oxford-100"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -867,6 +1017,10 @@ export default {
 		"originalValue": "#052f33ff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "teal-20"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -886,6 +1040,10 @@ export default {
 		"originalValue": "#08474dff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "teal-30"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -905,6 +1063,10 @@ export default {
 		"originalValue": "#0a5e66ff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "teal-40"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -924,6 +1086,10 @@ export default {
 		"originalValue": "#0d7680ff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "teal-50"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -943,6 +1109,10 @@ export default {
 		"originalValue": "#0f8e99ff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "teal-60"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -962,6 +1132,10 @@ export default {
 		"originalValue": "#12a5b3ff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "teal-70"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -981,6 +1155,10 @@ export default {
 		"originalValue": "#14bdccff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "teal-80"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -1000,6 +1178,10 @@ export default {
 		"originalValue": "#17d4e6ff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "teal-90"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -1019,6 +1201,10 @@ export default {
 		"originalValue": "#1aecffff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "teal-100"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -1038,6 +1224,10 @@ export default {
 		"originalValue": "#4d081fff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "claret-30"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -1057,6 +1247,10 @@ export default {
 		"originalValue": "#660a29ff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "claret-40"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -1076,6 +1270,10 @@ export default {
 		"originalValue": "#800d33ff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "claret-50"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -1095,6 +1293,10 @@ export default {
 		"originalValue": "#990f3dff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "claret-60"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -1114,6 +1316,10 @@ export default {
 		"originalValue": "#b31247ff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "claret-70"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -1133,6 +1339,10 @@ export default {
 		"originalValue": "#cc1452ff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "claret-80"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -1152,6 +1362,10 @@ export default {
 		"originalValue": "#e6175cff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "claret-90"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -1171,6 +1385,10 @@ export default {
 		"originalValue": "#ff1a66ff",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "claret-100"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -1189,6 +1407,10 @@ export default {
 		"value": "#ffebd9",
 		"originalValue": "#FFEBD9",
 		"type": "color",
+		"attributes": {
+				"item": "palette",
+				"subitem": "wheat-100"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -1208,6 +1430,11 @@ export default {
 		"originalValue": "{o3.color.palette.teal}",
 		"type": "color",
 		"description": "",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "link",
+				"state": "text"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -1224,6 +1451,11 @@ export default {
 		"value": "#08474d",
 		"originalValue": "{o3.color.palette.teal-30}",
 		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "link",
+				"state": "text"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -1240,6 +1472,11 @@ export default {
 		"value": "#cfd8d1",
 		"originalValue": "#CFD8D1",
 		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "link",
+				"state": "underline"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -1256,6 +1493,11 @@ export default {
 		"value": "#9ec0bd",
 		"originalValue": "#9EC0BD",
 		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "link",
+				"state": "underline"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -1272,6 +1514,11 @@ export default {
 		"value": "#ffffff",
 		"originalValue": "#ffffffff",
 		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "link-inverse",
+				"state": "text"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -1288,6 +1535,11 @@ export default {
 		"value": "#d4d4d6",
 		"originalValue": "#d4d4d6",
 		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "link-inverse",
+				"state": "text"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -1304,6 +1556,11 @@ export default {
 		"value": "#ffffff",
 		"originalValue": "#ffffffff",
 		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "link-inverse",
+				"state": "underline"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -1320,6 +1577,11 @@ export default {
 		"value": "#d4d4d6",
 		"originalValue": "#d4d4d6",
 		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "link-inverse",
+				"state": "underline"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -1336,6 +1598,11 @@ export default {
 		"value": "#fff1e5",
 		"originalValue": "{o3.color.palette.paper}",
 		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "page",
+				"state": "background"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -1351,6 +1618,11 @@ export default {
 		"value": "#262a33",
 		"originalValue": "{o3.color.palette.slate}",
 		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "page-inverse",
+				"state": "background"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -1366,6 +1638,11 @@ export default {
 		"value": "#33302e",
 		"originalValue": "{o3.color.palette.black-80}",
 		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "body",
+				"state": "text"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -1381,6 +1658,11 @@ export default {
 		"value": "#ffffff",
 		"originalValue": "{o3.color.palette.white}",
 		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "body-inverse",
+				"state": "text"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -1396,6 +1678,11 @@ export default {
 		"value": "#33302e",
 		"originalValue": "{o3.color.palette.black-80}",
 		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "heading",
+				"state": "text"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -1411,6 +1698,11 @@ export default {
 		"value": "#ffffff",
 		"originalValue": "{o3.color.palette.white}",
 		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "heading-inverse",
+				"state": "text"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -1427,6 +1719,11 @@ export default {
 		"originalValue": "{o3.color.palette.black-50}",
 		"type": "color",
 		"description": "\"Muted\" text is less prominent, for example credits and captions.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "muted",
+				"state": "text"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -1443,6 +1740,11 @@ export default {
 		"originalValue": "#a8aaad",
 		"type": "color",
 		"description": "\"Muted\" text is less prominent, for example credits and captions.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "muted-inverse",
+				"state": "text"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -1458,6 +1760,11 @@ export default {
 		"value": "#33302e",
 		"originalValue": "{o3.color.palette.black-80}",
 		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "footer",
+				"state": "text"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -1473,6 +1780,11 @@ export default {
 		"value": "#33302e",
 		"originalValue": "{o3.color.palette.black-80}",
 		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "caption",
+				"state": "text"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -1488,6 +1800,11 @@ export default {
 		"value": "#ffffff",
 		"originalValue": "{o3.color.palette.white}",
 		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "button",
+				"state": "foreground"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -1503,6 +1820,11 @@ export default {
 		"value": "#fff7ef",
 		"originalValue": "{o3.color.palette.white-40}",
 		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "button",
+				"state": "foreground-disabled"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -1518,6 +1840,11 @@ export default {
 		"value": "#0d7680",
 		"originalValue": "{o3.color.palette.teal}",
 		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "button",
+				"state": "default"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -1533,6 +1860,11 @@ export default {
 		"value": "#0a5e66",
 		"originalValue": "{o3.color.palette.teal-40}",
 		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "button",
+				"state": "hover"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -1548,6 +1880,11 @@ export default {
 		"value": "#052f33",
 		"originalValue": "{o3.color.palette.teal-20}",
 		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "button",
+				"state": "pressed"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -1563,6 +1900,11 @@ export default {
 		"value": "#9ec0bd",
 		"originalValue": "#9EC0BD",
 		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "button",
+				"state": "disabled"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -1578,6 +1920,10 @@ export default {
 		"value": "#cc0000",
 		"originalValue": "rgba(204,0,0,0.06)",
 		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "error-background"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -1592,6 +1938,10 @@ export default {
 		"value": "#cc0000",
 		"originalValue": "{o3.color.palette.crimson}",
 		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "error-text"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -1606,6 +1956,10 @@ export default {
 		"value": "#cc0000",
 		"originalValue": "{o3.color.palette.crimson}",
 		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "error"
+		},
 		"path": [
 				"o3",
 				"color",
@@ -1620,6 +1974,9 @@ export default {
 		"value": "4px",
 		"originalValue": "4px",
 		"type": "dimension",
+		"attributes": {
+				"item": "5xs"
+		},
 		"path": [
 				"o3",
 				"spacing",
@@ -1633,6 +1990,9 @@ export default {
 		"value": "8px",
 		"originalValue": "8px",
 		"type": "dimension",
+		"attributes": {
+				"item": "4xs"
+		},
 		"path": [
 				"o3",
 				"spacing",
@@ -1646,6 +2006,9 @@ export default {
 		"value": "12px",
 		"originalValue": "12px",
 		"type": "dimension",
+		"attributes": {
+				"item": "3xs"
+		},
 		"path": [
 				"o3",
 				"spacing",
@@ -1659,6 +2022,9 @@ export default {
 		"value": "16px",
 		"originalValue": "16px",
 		"type": "dimension",
+		"attributes": {
+				"item": "2xs"
+		},
 		"path": [
 				"o3",
 				"spacing",
@@ -1672,6 +2038,9 @@ export default {
 		"value": "20px",
 		"originalValue": "20px",
 		"type": "dimension",
+		"attributes": {
+				"item": "xs"
+		},
 		"path": [
 				"o3",
 				"spacing",
@@ -1685,6 +2054,9 @@ export default {
 		"value": "24px",
 		"originalValue": "24px",
 		"type": "dimension",
+		"attributes": {
+				"item": "s"
+		},
 		"path": [
 				"o3",
 				"spacing",
@@ -1698,6 +2070,9 @@ export default {
 		"value": "32px",
 		"originalValue": "32px",
 		"type": "dimension",
+		"attributes": {
+				"item": "m"
+		},
 		"path": [
 				"o3",
 				"spacing",
@@ -1711,6 +2086,9 @@ export default {
 		"value": "40px",
 		"originalValue": "40px",
 		"type": "dimension",
+		"attributes": {
+				"item": "l"
+		},
 		"path": [
 				"o3",
 				"spacing",
@@ -1724,6 +2102,9 @@ export default {
 		"value": "48px",
 		"originalValue": "48px",
 		"type": "dimension",
+		"attributes": {
+				"item": "xl"
+		},
 		"path": [
 				"o3",
 				"spacing",
@@ -1737,6 +2118,9 @@ export default {
 		"value": "64px",
 		"originalValue": "64px",
 		"type": "dimension",
+		"attributes": {
+				"item": "2xl"
+		},
 		"path": [
 				"o3",
 				"spacing",
@@ -1750,6 +2134,9 @@ export default {
 		"value": "80px",
 		"originalValue": "80px",
 		"type": "dimension",
+		"attributes": {
+				"item": "3xl"
+		},
 		"path": [
 				"o3",
 				"spacing",
@@ -1763,6 +2150,9 @@ export default {
 		"value": "96px",
 		"originalValue": "96px",
 		"type": "dimension",
+		"attributes": {
+				"item": "4xl"
+		},
 		"path": [
 				"o3",
 				"spacing",
@@ -1777,6 +2167,11 @@ export default {
 		"originalValue": "{o3.font.family.financier-display}",
 		"type": "fontFamily",
 		"description": "Use this style for large screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "display-lg",
+				"state": "fontFamily"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -1793,6 +2188,11 @@ export default {
 		"originalValue": "{o3.font.weight.bold}",
 		"type": "fontWeight",
 		"description": "Use this style for large screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "display-lg",
+				"state": "fontWeight"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -1809,6 +2209,11 @@ export default {
 		"originalValue": "{o3.font.size.7}",
 		"type": "dimension",
 		"description": "Use this style for large screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "display-lg",
+				"state": "fontSize"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -1825,6 +2230,11 @@ export default {
 		"originalValue": "{o3.font.lineheight.7}",
 		"type": "number",
 		"description": "Use this style for large screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "display-lg",
+				"state": "lineHeight"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -1841,6 +2251,11 @@ export default {
 		"originalValue": "{o3.font.family.financier-display}",
 		"type": "fontFamily",
 		"description": "Use this style for medium screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "display-md",
+				"state": "fontFamily"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -1857,6 +2272,11 @@ export default {
 		"originalValue": "{o3.font.weight.bold}",
 		"type": "fontWeight",
 		"description": "Use this style for medium screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "display-md",
+				"state": "fontWeight"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -1873,6 +2293,11 @@ export default {
 		"originalValue": "{o3.font.size.6}",
 		"type": "dimension",
 		"description": "Use this style for medium screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "display-md",
+				"state": "fontSize"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -1889,6 +2314,11 @@ export default {
 		"originalValue": "{o3.font.lineheight.6}",
 		"type": "number",
 		"description": "Use this style for medium screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "display-md",
+				"state": "lineHeight"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -1905,6 +2335,11 @@ export default {
 		"originalValue": "{o3.font.family.financier-display}",
 		"type": "fontFamily",
 		"description": "Use this style for small screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "display-sm",
+				"state": "fontFamily"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -1921,6 +2356,11 @@ export default {
 		"originalValue": "{o3.font.weight.bold}",
 		"type": "fontWeight",
 		"description": "Use this style for small screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "display-sm",
+				"state": "fontWeight"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -1937,6 +2377,11 @@ export default {
 		"originalValue": "{o3.font.size.5}",
 		"type": "dimension",
 		"description": "Use this style for small screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "display-sm",
+				"state": "fontSize"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -1953,6 +2398,11 @@ export default {
 		"originalValue": "{o3.font.lineheight.5}",
 		"type": "number",
 		"description": "Use this style for small screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "display-sm",
+				"state": "lineHeight"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -1969,6 +2419,11 @@ export default {
 		"originalValue": "{o3.font.family.financier-display}",
 		"type": "fontFamily",
 		"description": "Use this style for large screens headlines in standard-sized teasers and text only toppers (eg. Opinion and News).",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "headline-lg",
+				"state": "fontFamily"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -1985,6 +2440,11 @@ export default {
 		"originalValue": "{o3.font.weight.light}",
 		"type": "fontWeight",
 		"description": "Use this style for large screens headlines in standard-sized teasers and text only toppers (eg. Opinion and News).",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "headline-lg",
+				"state": "fontWeight"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2001,6 +2461,11 @@ export default {
 		"originalValue": "{o3.font.size.6}",
 		"type": "dimension",
 		"description": "Use this style for large screens headlines in standard-sized teasers and text only toppers (eg. Opinion and News).",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "headline-lg",
+				"state": "fontSize"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2017,6 +2482,11 @@ export default {
 		"originalValue": "{o3.font.lineheight.6}",
 		"type": "number",
 		"description": "Use this style for large screens headlines in standard-sized teasers and text only toppers (eg. Opinion and News).",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "headline-lg",
+				"state": "lineHeight"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2033,6 +2503,11 @@ export default {
 		"originalValue": "{o3.font.family.financier-display}",
 		"type": "fontFamily",
 		"description": "Use this style for medium screens headlines in smaller teasers and text only toppers (eg. Opinion and News).",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "headline-md",
+				"state": "fontFamily"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2049,6 +2524,11 @@ export default {
 		"originalValue": "{o3.font.weight.light}",
 		"type": "fontWeight",
 		"description": "Use this style for medium screens headlines in smaller teasers and text only toppers (eg. Opinion and News).",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "headline-md",
+				"state": "fontWeight"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2065,6 +2545,11 @@ export default {
 		"originalValue": "{o3.font.size.5}",
 		"type": "dimension",
 		"description": "Use this style for medium screens headlines in smaller teasers and text only toppers (eg. Opinion and News).",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "headline-md",
+				"state": "fontSize"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2081,6 +2566,11 @@ export default {
 		"originalValue": "{o3.font.lineheight.5}",
 		"type": "number",
 		"description": "Use this style for medium screens headlines in smaller teasers and text only toppers (eg. Opinion and News).",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "headline-md",
+				"state": "lineHeight"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2097,6 +2587,11 @@ export default {
 		"originalValue": "{o3.font.family.financier-display}",
 		"type": "fontFamily",
 		"description": "Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News).",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "headline-sm",
+				"state": "fontFamily"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2113,6 +2608,11 @@ export default {
 		"originalValue": "{o3.font.weight.light}",
 		"type": "fontWeight",
 		"description": "Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News).",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "headline-sm",
+				"state": "fontWeight"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2129,6 +2629,11 @@ export default {
 		"originalValue": "{o3.font.size.4}",
 		"type": "dimension",
 		"description": "Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News).",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "headline-sm",
+				"state": "fontSize"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2145,6 +2650,11 @@ export default {
 		"originalValue": "{o3.font.lineheight.4}",
 		"type": "number",
 		"description": "Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News).",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "headline-sm",
+				"state": "lineHeight"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2161,6 +2671,11 @@ export default {
 		"originalValue": "{o3.font.family.metric}",
 		"type": "fontFamily",
 		"description": "Use for the main page title H1 in functional pages such as account and settings. Use across all breakpoints.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "title-lg",
+				"state": "fontFamily"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2177,6 +2692,11 @@ export default {
 		"originalValue": "{o3.font.weight.semibold}",
 		"type": "fontWeight",
 		"description": "Use for the main page title H1 in functional pages such as account and settings. Use across all breakpoints.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "title-lg",
+				"state": "fontWeight"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2193,6 +2713,11 @@ export default {
 		"originalValue": "{o3.font.size-metric2.4}",
 		"type": "dimension",
 		"description": "Use for the main page title H1 in functional pages such as account and settings. Use across all breakpoints.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "title-lg",
+				"state": "fontSize"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2209,6 +2734,11 @@ export default {
 		"originalValue": "{o3.font.lineheight-metric2.3}",
 		"type": "number",
 		"description": "Use for the main page title H1 in functional pages such as account and settings. Use across all breakpoints.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "title-lg",
+				"state": "lineHeight"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2225,6 +2755,11 @@ export default {
 		"originalValue": "{o3.font.family.metric}",
 		"type": "fontFamily",
 		"description": "Use this style as H3 or subtitles within the content body to break paragraphs, or for titles of components like forms, tables and cards across all breakpoints.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "title-md",
+				"state": "fontFamily"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2241,6 +2776,11 @@ export default {
 		"originalValue": "{o3.font.weight.regular}",
 		"type": "fontWeight",
 		"description": "Use this style as H3 or subtitles within the content body to break paragraphs, or for titles of components like forms, tables and cards across all breakpoints.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "title-md",
+				"state": "fontWeight"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2257,6 +2797,11 @@ export default {
 		"originalValue": "{o3.font.size-metric2.3}",
 		"type": "dimension",
 		"description": "Use this style as H3 or subtitles within the content body to break paragraphs, or for titles of components like forms, tables and cards across all breakpoints.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "title-md",
+				"state": "fontSize"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2273,6 +2818,11 @@ export default {
 		"originalValue": "{o3.font.lineheight-metric2.3}",
 		"type": "number",
 		"description": "Use this style as H3 or subtitles within the content body to break paragraphs, or for titles of components like forms, tables and cards across all breakpoints.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "title-md",
+				"state": "lineHeight"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2289,6 +2839,11 @@ export default {
 		"originalValue": "{o3.font.family.metric}",
 		"type": "fontFamily",
 		"description": "Use H6 for subtitles within the content body to break up paragraphs, and H2 for subheadings on stream pages or as subtitles for components such as forms, tables, and cards across all breakpoints.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "title-sm",
+				"state": "fontFamily"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2305,6 +2860,11 @@ export default {
 		"originalValue": "{o3.font.weight.regular}",
 		"type": "fontWeight",
 		"description": "Use H6 for subtitles within the content body to break up paragraphs, and H2 for subheadings on stream pages or as subtitles for components such as forms, tables, and cards across all breakpoints.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "title-sm",
+				"state": "fontWeight"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2321,6 +2881,11 @@ export default {
 		"originalValue": "{o3.font.lineheight-metric2.2}",
 		"type": "number",
 		"description": "Use H6 for subtitles within the content body to break up paragraphs, and H2 for subheadings on stream pages or as subtitles for components such as forms, tables, and cards across all breakpoints.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "title-sm",
+				"state": "lineHeight"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2337,6 +2902,11 @@ export default {
 		"originalValue": "{o3.font.size-metric2.2}",
 		"type": "dimension",
 		"description": "Use H6 for subtitles within the content body to break up paragraphs, and H2 for subheadings on stream pages or as subtitles for components such as forms, tables, and cards across all breakpoints.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "title-sm",
+				"state": "fontSize"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2353,6 +2923,11 @@ export default {
 		"originalValue": "{o3.font.family.metric}",
 		"type": "fontFamily",
 		"description": "Use primarily for the stand-first (introductory summary or highlight) in topper component, as larger body text in components, or section description.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "body-lg",
+				"state": "fontFamily"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2369,6 +2944,11 @@ export default {
 		"originalValue": "{o3.font.weight.regular}",
 		"type": "fontWeight",
 		"description": "Use primarily for the stand-first (introductory summary or highlight) in topper component, as larger body text in components, or section description.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "body-lg",
+				"state": "fontWeight"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2385,6 +2965,11 @@ export default {
 		"originalValue": "{o3.font.size-metric2.1}",
 		"type": "dimension",
 		"description": "Use primarily for the stand-first (introductory summary or highlight) in topper component, as larger body text in components, or section description.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "body-lg",
+				"state": "fontSize"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2401,6 +2986,11 @@ export default {
 		"originalValue": "{o3.font.lineheight-metric2.1}",
 		"type": "number",
 		"description": "Use primarily for the stand-first (introductory summary or highlight) in topper component, as larger body text in components, or section description.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "body-lg",
+				"state": "lineHeight"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2417,6 +3007,11 @@ export default {
 		"originalValue": "{o3.font.family.metric}",
 		"type": "fontFamily",
 		"description": "Use this style for the stand-first in teasers and as the default body copy style across components such as location in the byline.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "body-base",
+				"state": "fontFamily"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2433,6 +3028,11 @@ export default {
 		"originalValue": "{o3.font.weight.regular}",
 		"type": "fontWeight",
 		"description": "Use this style for the stand-first in teasers and as the default body copy style across components such as location in the byline.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "body-base",
+				"state": "fontWeight"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2449,6 +3049,11 @@ export default {
 		"originalValue": "{o3.font.size-metric2.0}",
 		"type": "dimension",
 		"description": "Use this style for the stand-first in teasers and as the default body copy style across components such as location in the byline.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "body-base",
+				"state": "fontSize"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2465,6 +3070,11 @@ export default {
 		"originalValue": "{o3.font.lineheight-metric2.0}",
 		"type": "number",
 		"description": "Use this style for the stand-first in teasers and as the default body copy style across components such as location in the byline.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "body-base",
+				"state": "lineHeight"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2481,6 +3091,11 @@ export default {
 		"originalValue": "{o3.font.family.metric}",
 		"type": "fontFamily",
 		"description": "Use this style for bold formatting in body copy or for small interactive elements, such as Topic tags and Author names.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "body-highlight",
+				"state": "fontFamily"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2497,6 +3112,11 @@ export default {
 		"originalValue": "{o3.font.weight.semibold}",
 		"type": "fontWeight",
 		"description": "Use this style for bold formatting in body copy or for small interactive elements, such as Topic tags and Author names.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "body-highlight",
+				"state": "fontWeight"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2513,6 +3133,11 @@ export default {
 		"originalValue": "{o3.font.size-metric2.0}",
 		"type": "dimension",
 		"description": "Use this style for bold formatting in body copy or for small interactive elements, such as Topic tags and Author names.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "body-highlight",
+				"state": "fontSize"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2529,6 +3154,11 @@ export default {
 		"originalValue": "{o3.font.lineheight-metric2.0}",
 		"type": "number",
 		"description": "Use this style for bold formatting in body copy or for small interactive elements, such as Topic tags and Author names.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "body-highlight",
+				"state": "lineHeight"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2545,6 +3175,11 @@ export default {
 		"originalValue": "{o3.font.family.metric}",
 		"type": "fontFamily",
 		"description": "Use this style primarily for links in paragraph or as stand alone link.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "body-link",
+				"state": "fontFamily"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2561,6 +3196,11 @@ export default {
 		"originalValue": "{o3.font.weight.regular}",
 		"type": "fontWeight",
 		"description": "Use this style primarily for links in paragraph or as stand alone link.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "body-link",
+				"state": "fontWeight"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2577,6 +3217,11 @@ export default {
 		"originalValue": "{o3.font.size-metric2.0}",
 		"type": "dimension",
 		"description": "Use this style primarily for links in paragraph or as stand alone link.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "body-link",
+				"state": "fontSize"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2593,6 +3238,11 @@ export default {
 		"originalValue": "{o3.font.lineheight-metric2.0}",
 		"type": "number",
 		"description": "Use this style primarily for links in paragraph or as stand alone link.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "body-link",
+				"state": "lineHeight"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2609,6 +3259,11 @@ export default {
 		"originalValue": "{o3.font.family.metric}",
 		"type": "fontFamily",
 		"description": "Use this style for caption in visual assets such as image and video and for small text elements, such as secondary metadata, caveats, or footnotes.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "detail",
+				"state": "fontFamily"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2625,6 +3280,11 @@ export default {
 		"originalValue": "{o3.font.weight.regular}",
 		"type": "fontWeight",
 		"description": "Use this style for caption in visual assets such as image and video and for small text elements, such as secondary metadata, caveats, or footnotes.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "detail",
+				"state": "fontWeight"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2641,6 +3301,11 @@ export default {
 		"originalValue": "{o3.font.size-metric2.negative-1}",
 		"type": "dimension",
 		"description": "Use this style for caption in visual assets such as image and video and for small text elements, such as secondary metadata, caveats, or footnotes.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "detail",
+				"state": "fontSize"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2657,6 +3322,11 @@ export default {
 		"originalValue": "{o3.font.lineheight-metric2.negative-1}",
 		"type": "number",
 		"description": "Use this style for caption in visual assets such as image and video and for small text elements, such as secondary metadata, caveats, or footnotes.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "detail",
+				"state": "lineHeight"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2673,6 +3343,11 @@ export default {
 		"originalValue": "{o3.font.family.metric}",
 		"type": "fontFamily",
 		"description": "Use this style for labels such as badges and metadata in teasers and toppers (e.g., \"Live,\" \"Premium,\" or the main timestamp). Avoid using full sentences.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "label",
+				"state": "fontFamily"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2689,6 +3364,11 @@ export default {
 		"originalValue": "{o3.font.weight.regular}",
 		"type": "fontWeight",
 		"description": "Use this style for labels such as badges and metadata in teasers and toppers (e.g., \"Live,\" \"Premium,\" or the main timestamp). Avoid using full sentences.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "label",
+				"state": "fontWeight"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2705,6 +3385,11 @@ export default {
 		"originalValue": "{o3.font.size-metric2.negative-1}",
 		"type": "dimension",
 		"description": "Use this style for labels such as badges and metadata in teasers and toppers (e.g., \"Live,\" \"Premium,\" or the main timestamp). Avoid using full sentences.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "label",
+				"state": "fontSize"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2721,6 +3406,11 @@ export default {
 		"originalValue": "{o3.font.lineheight-metric2.negative-1}",
 		"type": "number",
 		"description": "Use this style for labels such as badges and metadata in teasers and toppers (e.g., \"Live,\" \"Premium,\" or the main timestamp). Avoid using full sentences.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "label",
+				"state": "lineHeight"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2737,6 +3427,11 @@ export default {
 		"originalValue": "uppercase",
 		"type": "textCase",
 		"description": "Use this style for labels such as badges and metadata in teasers and toppers (e.g., \"Live,\" \"Premium,\" or the main timestamp). Avoid using full sentences.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "label",
+				"state": "textCase"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2753,6 +3448,11 @@ export default {
 		"originalValue": "Georgia",
 		"type": "fontFamily",
 		"description": "Use this style only for the body copy of content pages, such as articles, live news and other content experience page.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "body-content-base",
+				"state": "fontFamily"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2769,6 +3469,11 @@ export default {
 		"originalValue": "Regular",
 		"type": "fontWeight",
 		"description": "Use this style only for the body copy of content pages, such as articles, live news and other content experience page.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "body-content-base",
+				"state": "fontWeight"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2785,6 +3490,11 @@ export default {
 		"originalValue": "{o3.font.size.2}",
 		"type": "dimension",
 		"description": "Use this style only for the body copy of content pages, such as articles, live news and other content experience page.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "body-content-base",
+				"state": "fontSize"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2801,6 +3511,11 @@ export default {
 		"originalValue": "{o3.font.lineheight.4}",
 		"type": "number",
 		"description": "Use this style only for the body copy of content pages, such as articles, live news and other content experience page.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "body-content-base",
+				"state": "lineHeight"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2817,6 +3532,11 @@ export default {
 		"originalValue": "Georgia",
 		"type": "fontFamily",
 		"description": "Use this style only for the body copy of content pages, such as articles, live news and other content experience page.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "body-content-highlight",
+				"state": "fontFamily"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2833,6 +3553,11 @@ export default {
 		"originalValue": "Bold",
 		"type": "fontWeight",
 		"description": "Use this style only for the body copy of content pages, such as articles, live news and other content experience page.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "body-content-highlight",
+				"state": "fontWeight"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2849,6 +3574,11 @@ export default {
 		"originalValue": "{o3.font.size.2}",
 		"type": "dimension",
 		"description": "Use this style only for the body copy of content pages, such as articles, live news and other content experience page.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "body-content-highlight",
+				"state": "fontSize"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2865,6 +3595,11 @@ export default {
 		"originalValue": "{o3.font.lineheight.4}",
 		"type": "number",
 		"description": "Use this style only for the body copy of content pages, such as articles, live news and other content experience page.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "body-content-highlight",
+				"state": "lineHeight"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2881,6 +3616,11 @@ export default {
 		"originalValue": "Georgia",
 		"type": "fontFamily",
 		"description": "Use this style only for the body copy of content pages, such as articles, live news and other content experience page.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "body-content-emphasis",
+				"state": "fontFamily"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2897,6 +3637,11 @@ export default {
 		"originalValue": "Regular",
 		"type": "fontWeight",
 		"description": "Use this style only for the body copy of content pages, such as articles, live news and other content experience page.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "body-content-emphasis",
+				"state": "fontWeight"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2913,6 +3658,11 @@ export default {
 		"originalValue": "{o3.font.size.2}",
 		"type": "dimension",
 		"description": "Use this style only for the body copy of content pages, such as articles, live news and other content experience page.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "body-content-emphasis",
+				"state": "fontSize"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2929,6 +3679,11 @@ export default {
 		"originalValue": "{o3.font.lineheight.4}",
 		"type": "number",
 		"description": "Use this style only for the body copy of content pages, such as articles, live news and other content experience page.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "body-content-emphasis",
+				"state": "lineHeight"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2945,6 +3700,11 @@ export default {
 		"originalValue": "italic",
 		"type": "fontStyle",
 		"description": "Use this style only for the body copy of content pages, such as articles, live news and other content experience page.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "body-content-emphasis",
+				"state": "fontStyle"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2961,6 +3721,11 @@ export default {
 		"originalValue": "Georgia",
 		"type": "fontFamily",
 		"description": "Use this style only for the body copy of content pages, such as articles, live news and other content experience page.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "body-content-link",
+				"state": "fontFamily"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2977,6 +3742,11 @@ export default {
 		"originalValue": "Regular",
 		"type": "fontWeight",
 		"description": "Use this style only for the body copy of content pages, such as articles, live news and other content experience page.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "body-content-link",
+				"state": "fontWeight"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -2993,6 +3763,11 @@ export default {
 		"originalValue": "{o3.font.size.2}",
 		"type": "dimension",
 		"description": "Use this style only for the body copy of content pages, such as articles, live news and other content experience page.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "body-content-link",
+				"state": "fontSize"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -3009,6 +3784,11 @@ export default {
 		"originalValue": "{o3.font.lineheight.4}",
 		"type": "number",
 		"description": "Use this style only for the body copy of content pages, such as articles, live news and other content experience page.",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "body-content-link",
+				"state": "lineHeight"
+		},
 		"path": [
 				"o3",
 				"typography",
@@ -3019,11 +3799,47 @@ export default {
 		"css": "--o3-typography-use-case-body-content-link-line-height",
 		"figma": "o3/typography/use-case/body-content-link/lineHeight"
 },
+	"o3-border-radius-1": {
+		"shortName": "1",
+		"value": "4px",
+		"originalValue": "4",
+		"type": "dimension",
+		"attributes": {
+				"item": "1"
+		},
+		"path": [
+				"o3",
+				"border-radius",
+				"1"
+		],
+		"css": "--o3-border-radius-1",
+		"figma": "o3/border-radius/1"
+},
+	"o3-border-radius-2": {
+		"shortName": "2",
+		"value": "6px",
+		"originalValue": "6",
+		"type": "dimension",
+		"attributes": {
+				"item": "2"
+		},
+		"path": [
+				"o3",
+				"border-radius",
+				"2"
+		],
+		"css": "--o3-border-radius-2",
+		"figma": "o3/border-radius/2"
+},
 	"o3-font-family-metric": {
 		"shortName": "metric",
 		"value": "metric 2 VF",
 		"originalValue": "metric 2 VF",
 		"type": "fontFamily",
+		"attributes": {
+				"item": "family",
+				"subitem": "metric"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3038,6 +3854,10 @@ export default {
 		"value": "financier display VF",
 		"originalValue": "financier display VF",
 		"type": "fontFamily",
+		"attributes": {
+				"item": "family",
+				"subitem": "financier-display"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3052,6 +3872,10 @@ export default {
 		"value": "georgia",
 		"originalValue": "georgia",
 		"type": "fontFamily",
+		"attributes": {
+				"item": "family",
+				"subitem": "georgia"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3066,6 +3890,10 @@ export default {
 		"value": "300",
 		"originalValue": "300",
 		"type": "fontWeight",
+		"attributes": {
+				"item": "weight",
+				"subitem": "light"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3080,6 +3908,10 @@ export default {
 		"value": "400",
 		"originalValue": "400",
 		"type": "fontWeight",
+		"attributes": {
+				"item": "weight",
+				"subitem": "regular"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3094,6 +3926,10 @@ export default {
 		"value": "500",
 		"originalValue": "500",
 		"type": "fontWeight",
+		"attributes": {
+				"item": "weight",
+				"subitem": "medium"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3108,6 +3944,10 @@ export default {
 		"value": "700",
 		"originalValue": "700",
 		"type": "fontWeight",
+		"attributes": {
+				"item": "weight",
+				"subitem": "semibold"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3122,6 +3962,10 @@ export default {
 		"value": "800",
 		"originalValue": "800",
 		"type": "fontWeight",
+		"attributes": {
+				"item": "weight",
+				"subitem": "bold"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3136,6 +3980,10 @@ export default {
 		"value": "20px",
 		"originalValue": "20",
 		"type": "lineHeights",
+		"attributes": {
+				"item": "lineheight",
+				"subitem": "0"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3150,6 +3998,10 @@ export default {
 		"value": "20px",
 		"originalValue": "20",
 		"type": "lineHeights",
+		"attributes": {
+				"item": "lineheight",
+				"subitem": "1"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3164,6 +4016,10 @@ export default {
 		"value": "24px",
 		"originalValue": "24",
 		"type": "lineHeights",
+		"attributes": {
+				"item": "lineheight",
+				"subitem": "2"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3178,6 +4034,10 @@ export default {
 		"value": "28px",
 		"originalValue": "28",
 		"type": "lineHeights",
+		"attributes": {
+				"item": "lineheight",
+				"subitem": "3"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3192,6 +4052,10 @@ export default {
 		"value": "32px",
 		"originalValue": "32",
 		"type": "lineHeights",
+		"attributes": {
+				"item": "lineheight",
+				"subitem": "4"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3206,6 +4070,10 @@ export default {
 		"value": "32px",
 		"originalValue": "32",
 		"type": "lineHeights",
+		"attributes": {
+				"item": "lineheight",
+				"subitem": "5"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3220,6 +4088,10 @@ export default {
 		"value": "40px",
 		"originalValue": "40",
 		"type": "lineHeights",
+		"attributes": {
+				"item": "lineheight",
+				"subitem": "6"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3234,6 +4106,10 @@ export default {
 		"value": "48px",
 		"originalValue": "48",
 		"type": "lineHeights",
+		"attributes": {
+				"item": "lineheight",
+				"subitem": "7"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3248,6 +4124,10 @@ export default {
 		"value": "56px",
 		"originalValue": "56",
 		"type": "lineHeights",
+		"attributes": {
+				"item": "lineheight",
+				"subitem": "8"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3262,6 +4142,10 @@ export default {
 		"value": "72px",
 		"originalValue": "72",
 		"type": "lineHeights",
+		"attributes": {
+				"item": "lineheight",
+				"subitem": "9"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3276,6 +4160,10 @@ export default {
 		"value": "84px",
 		"originalValue": "84",
 		"type": "lineHeights",
+		"attributes": {
+				"item": "lineheight",
+				"subitem": "10"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3290,6 +4178,10 @@ export default {
 		"value": "16px",
 		"originalValue": "16",
 		"type": "lineHeights",
+		"attributes": {
+				"item": "lineheight",
+				"subitem": "negative-2"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3304,6 +4196,10 @@ export default {
 		"value": "16px",
 		"originalValue": "16",
 		"type": "lineHeights",
+		"attributes": {
+				"item": "lineheight",
+				"subitem": "negative-1"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3318,6 +4214,10 @@ export default {
 		"value": "16px",
 		"originalValue": "16",
 		"type": "fontSize",
+		"attributes": {
+				"item": "size",
+				"subitem": "0"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3332,6 +4232,10 @@ export default {
 		"value": "18px",
 		"originalValue": "18",
 		"type": "fontSize",
+		"attributes": {
+				"item": "size",
+				"subitem": "1"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3346,6 +4250,10 @@ export default {
 		"value": "20px",
 		"originalValue": "20",
 		"type": "fontSize",
+		"attributes": {
+				"item": "size",
+				"subitem": "2"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3360,6 +4268,10 @@ export default {
 		"value": "24px",
 		"originalValue": "24",
 		"type": "fontSize",
+		"attributes": {
+				"item": "size",
+				"subitem": "3"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3374,6 +4286,10 @@ export default {
 		"value": "28px",
 		"originalValue": "28",
 		"type": "fontSize",
+		"attributes": {
+				"item": "size",
+				"subitem": "4"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3388,6 +4304,10 @@ export default {
 		"value": "32px",
 		"originalValue": "32",
 		"type": "fontSize",
+		"attributes": {
+				"item": "size",
+				"subitem": "5"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3402,6 +4322,10 @@ export default {
 		"value": "40px",
 		"originalValue": "40",
 		"type": "fontSize",
+		"attributes": {
+				"item": "size",
+				"subitem": "6"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3416,6 +4340,10 @@ export default {
 		"value": "48px",
 		"originalValue": "48",
 		"type": "fontSize",
+		"attributes": {
+				"item": "size",
+				"subitem": "7"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3430,6 +4358,10 @@ export default {
 		"value": "56px",
 		"originalValue": "56",
 		"type": "fontSize",
+		"attributes": {
+				"item": "size",
+				"subitem": "8"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3444,6 +4376,10 @@ export default {
 		"value": "72px",
 		"originalValue": "72",
 		"type": "fontSize",
+		"attributes": {
+				"item": "size",
+				"subitem": "9"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3458,6 +4394,10 @@ export default {
 		"value": "84px",
 		"originalValue": "84",
 		"type": "fontSize",
+		"attributes": {
+				"item": "size",
+				"subitem": "10"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3472,6 +4412,10 @@ export default {
 		"value": "12px",
 		"originalValue": "12",
 		"type": "fontSize",
+		"attributes": {
+				"item": "size",
+				"subitem": "negative-2"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3486,6 +4430,10 @@ export default {
 		"value": "14px",
 		"originalValue": "14",
 		"type": "fontSize",
+		"attributes": {
+				"item": "size",
+				"subitem": "negative-1"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3500,6 +4448,10 @@ export default {
 		"value": "24px",
 		"originalValue": "24",
 		"type": "lineHeights",
+		"attributes": {
+				"item": "lineheight-metric2",
+				"subitem": "0"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3514,6 +4466,10 @@ export default {
 		"value": "24px",
 		"originalValue": "24",
 		"type": "lineHeights",
+		"attributes": {
+				"item": "lineheight-metric2",
+				"subitem": "1"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3528,6 +4484,10 @@ export default {
 		"value": "28px",
 		"originalValue": "28",
 		"type": "lineHeights",
+		"attributes": {
+				"item": "lineheight-metric2",
+				"subitem": "2"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3542,6 +4502,10 @@ export default {
 		"value": "32px",
 		"originalValue": "32",
 		"type": "lineHeights",
+		"attributes": {
+				"item": "lineheight-metric2",
+				"subitem": "3"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3556,6 +4520,10 @@ export default {
 		"value": "32px",
 		"originalValue": "32",
 		"type": "lineHeights",
+		"attributes": {
+				"item": "lineheight-metric2",
+				"subitem": "4"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3570,6 +4538,10 @@ export default {
 		"value": "40px",
 		"originalValue": "40",
 		"type": "lineHeights",
+		"attributes": {
+				"item": "lineheight-metric2",
+				"subitem": "5"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3584,6 +4556,10 @@ export default {
 		"value": "48px",
 		"originalValue": "48",
 		"type": "lineHeights",
+		"attributes": {
+				"item": "lineheight-metric2",
+				"subitem": "6"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3598,6 +4574,10 @@ export default {
 		"value": "56px",
 		"originalValue": "56",
 		"type": "lineHeights",
+		"attributes": {
+				"item": "lineheight-metric2",
+				"subitem": "7"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3612,6 +4592,10 @@ export default {
 		"value": "72px",
 		"originalValue": "72",
 		"type": "lineHeights",
+		"attributes": {
+				"item": "lineheight-metric2",
+				"subitem": "8"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3626,6 +4610,10 @@ export default {
 		"value": "84px",
 		"originalValue": "84",
 		"type": "lineHeights",
+		"attributes": {
+				"item": "lineheight-metric2",
+				"subitem": "9"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3640,6 +4628,10 @@ export default {
 		"value": "16px",
 		"originalValue": "16",
 		"type": "lineHeights",
+		"attributes": {
+				"item": "lineheight-metric2",
+				"subitem": "negative-3"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3654,6 +4646,10 @@ export default {
 		"value": "16px",
 		"originalValue": "16",
 		"type": "lineHeights",
+		"attributes": {
+				"item": "lineheight-metric2",
+				"subitem": "negative-2"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3668,6 +4664,10 @@ export default {
 		"value": "20px",
 		"originalValue": "20",
 		"type": "lineHeights",
+		"attributes": {
+				"item": "lineheight-metric2",
+				"subitem": "negative-1"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3682,6 +4682,10 @@ export default {
 		"value": "16px",
 		"originalValue": "16",
 		"type": "fontSize",
+		"attributes": {
+				"item": "size-metric2",
+				"subitem": "0"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3696,6 +4700,10 @@ export default {
 		"value": "18px",
 		"originalValue": "18",
 		"type": "fontSize",
+		"attributes": {
+				"item": "size-metric2",
+				"subitem": "1"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3710,6 +4718,10 @@ export default {
 		"value": "20px",
 		"originalValue": "20",
 		"type": "fontSize",
+		"attributes": {
+				"item": "size-metric2",
+				"subitem": "2"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3724,6 +4736,10 @@ export default {
 		"value": "24px",
 		"originalValue": "24",
 		"type": "fontSize",
+		"attributes": {
+				"item": "size-metric2",
+				"subitem": "3"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3738,6 +4754,10 @@ export default {
 		"value": "28px",
 		"originalValue": "28",
 		"type": "fontSize",
+		"attributes": {
+				"item": "size-metric2",
+				"subitem": "4"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3752,6 +4772,10 @@ export default {
 		"value": "32px",
 		"originalValue": "32",
 		"type": "fontSize",
+		"attributes": {
+				"item": "size-metric2",
+				"subitem": "5"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3766,6 +4790,10 @@ export default {
 		"value": "40px",
 		"originalValue": "40",
 		"type": "fontSize",
+		"attributes": {
+				"item": "size-metric2",
+				"subitem": "6"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3780,6 +4808,10 @@ export default {
 		"value": "48px",
 		"originalValue": "48",
 		"type": "fontSize",
+		"attributes": {
+				"item": "size-metric2",
+				"subitem": "7"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3794,6 +4826,10 @@ export default {
 		"value": "64px",
 		"originalValue": "64",
 		"type": "fontSize",
+		"attributes": {
+				"item": "size-metric2",
+				"subitem": "8"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3808,6 +4844,10 @@ export default {
 		"value": "72px",
 		"originalValue": "72",
 		"type": "fontSize",
+		"attributes": {
+				"item": "size-metric2",
+				"subitem": "9"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3822,6 +4862,10 @@ export default {
 		"value": "10px",
 		"originalValue": "10",
 		"type": "fontSize",
+		"attributes": {
+				"item": "size-metric2",
+				"subitem": "negative-3"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3836,6 +4880,10 @@ export default {
 		"value": "12px",
 		"originalValue": "12",
 		"type": "fontSize",
+		"attributes": {
+				"item": "size-metric2",
+				"subitem": "negative-2"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3850,6 +4898,10 @@ export default {
 		"value": "14px",
 		"originalValue": "14",
 		"type": "fontSize",
+		"attributes": {
+				"item": "size-metric2",
+				"subitem": "negative-1"
+		},
 		"path": [
 				"o3",
 				"font",
@@ -3878,6 +4930,11 @@ export default {
 				"offsetY": "0"
 		},
 		"type": "shadow",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "ring",
+				"state": "inner"
+		},
 		"path": [
 				"o3",
 				"focus",
@@ -3907,6 +4964,11 @@ export default {
 				"offsetY": "0"
 		},
 		"type": "shadow",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "ring",
+				"state": "outer"
+		},
 		"path": [
 				"o3",
 				"focus",
@@ -3936,6 +4998,11 @@ export default {
 				"offsetY": "0"
 		},
 		"type": "shadow",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "ring",
+				"state": "inverse"
+		},
 		"path": [
 				"o3",
 				"focus",
@@ -3966,6 +5033,11 @@ export default {
 				"offsetY": "0"
 		},
 		"type": "shadow",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "ring",
+				"state": "inverse"
+		},
 		"path": [
 				"o3",
 				"focus",
@@ -3996,6 +5068,11 @@ export default {
 				"offsetY": "0"
 		},
 		"type": "shadow",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "outline",
+				"state": "color"
+		},
 		"path": [
 				"o3",
 				"focus",
@@ -4025,6 +5102,11 @@ export default {
 				"offsetY": "0"
 		},
 		"type": "shadow",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "outline",
+				"state": "inverse"
+		},
 		"path": [
 				"o3",
 				"focus",

@@ -23,4 +23,4 @@ export default {
 	},
 } as Meta;
 
-export const HeadingStory = TypographyStories.HeadingTemplate;
+export const Headings = TypographyStories.HeadingTemplate;

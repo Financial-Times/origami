@@ -1,12 +1,12 @@
-import {HeadlineProps} from '../types/index';
+import {HeadingProps} from '../types/index';
 import {getDataAttributes} from './utils';
 
-export const Headline = ({
+export const Heading = ({
 	type = 'headline',
 	theme,
 	underline,
 	children,
-}: HeadlineProps) => {
+}: HeadingProps) => {
 	const classNames = `o3-editorial-typography-${type}`;
 	const attributes = getDataAttributes(theme, underline);
 

@@ -18,9 +18,10 @@ export default {
 		backgrounds: {default: 'white'},
 		design: {
 			type: 'figma',
-			url: links['sustainable-views-o3-typography-heading--heading-story'].figma,
+			url: links['sustainable-views-o3-typography-heading--heading-story']
+				.figma,
 		},
 	},
 } as Meta;
 
-export const HeadingStory = TypographyStories.HeadingTemplate;
+export const Headings = TypographyStories.HeadingTemplate;

@@ -1,5 +1,5 @@
 import {
-	Headline as HeadlineTsx,
+	Heading as HeadingTsx,
 	Body as BodyTsx,
 	Summary as SummaryTsx,
 	Caption as CaptionTsx,
@@ -14,7 +14,7 @@ import {
 
 import type {StoryObj, Meta} from '@storybook/react';
 import type {
-	HeadlineProps,
+	HeadingProps,
 	BodyProps,
 	SummaryProps,
 	QuoteProps,
@@ -27,8 +27,8 @@ import type {
 
 type StoryObjNoArgs = Omit<StoryObj, 'args'>;
 
-type HeadlineStory = StoryObjNoArgs & {
-	args: Omit<HeadlineProps, 'children'> & {content: string};
+type Headings = StoryObjNoArgs & {
+	args: Omit<HeadingProps, 'children'> & {content: string};
 };
 
 type BodyStory = StoryObjNoArgs & {
@@ -77,16 +77,16 @@ const TemplateSBConfig: Meta = {
 	},
 	parameters: {
 		design: {
-			type: 'figma'
-		}
-	}
+			type: 'figma',
+		},
+	},
 };
 
-const HeadlineTemplate: StoryObj = {
+const HeadingTemplate: StoryObj = {
 	argTypes: {
 		...TemplateSBConfig.argTypes,
 		type: {
-			options: ['headline-large', 'headline', 'subheading', 'chapter', 'label'],
+			options: ['display', 'Heading', 'subheading', 'chapter', 'label'],
 			control: {
 				type: 'radio',
 			},
@@ -95,11 +95,11 @@ const HeadlineTemplate: StoryObj = {
 			control: {
 				type: 'boolean',
 			},
-			if: {arg: 'type', eq: 'headline-large'},
+			if: {arg: 'type', eq: 'display'},
 		},
 	},
 	render: args => {
-		return <HeadlineTsx {...args}>{args.content}</HeadlineTsx>;
+		return <HeadingTsx {...args}>{args.content}</HeadingTsx>;
 	},
 };
 
@@ -269,12 +269,12 @@ const LinkTemplate: StoryObj = {
 		);
 	},
 };
-export const Heading: HeadlineStory = {
-	...HeadlineTemplate,
+export const Heading: Headings = {
+	...HeadingTemplate,
 	args: {
 		content: 'Don’t settle for black and white',
 		theme: 'standard',
-		type: 'headline-large',
+		type: 'display',
 		underline: true,
 	},
 };
@@ -282,8 +282,14 @@ export const Heading: HeadlineStory = {
 export const Body: BodyStory = {
 	...BodyTemplate,
 	args: {
-		content:
-			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet earum libero at voluptatum illum facere totam architecto eum porro exercitationem, ea, accusamus quia? Repellat beatae similique ab? Reprehenderit, ullam quae?',
+		content: (
+			<>
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet earum
+				libero at voluptatum <strong>highlight</strong> illum facere totam
+				architecto eum porro exercitationem, ea, <em>emphasis</em> accusamus
+				quia? Repellat beatae similique ab? Reprehenderit, ullam quae?
+			</>
+		),
 		theme: 'standard',
 	},
 };

@@ -20,9 +20,9 @@
 	.o3-form-field__label,
 	.o3-form-field__title,
 	.o3-form-field__legend {
-		font-size: var(--o3-font-size-metric2-negative-1);
-		line-height: var(--o3-font-lineheight-metric2-negative-1);
-		font-weight: var(--o3-font-weight-medium);
+		font-size: var(--o3-font-size-metric2-0);
+		line-height: var(--o3-font-lineheight-metric2-0);
+		font-weight: var(--o3-font-weight-semibold);
 		color: var(--o3-color-use-case-body-text);
 
 		&.o3-form-field--optional::after {
@@ -34,10 +34,10 @@
 	}
 
 	.o3-form-input__description {
-		font-size: var(--o3-font-size-metric2-negative-1);
-		line-height: var(--o3-font-lineheight-metric2-negative-1);
+		font-size: var(--o3-font-size-metric2-0);
+		line-height: var(--o3-font-lineheight-metric2-0);
 		font-weight: var(--o3-font-weight-regular);
-		color: var(--o3-color-palette-black-60);
+		color: var(--o3-color-use-case-body-text);
 	}
 
 	.o3-form-field__label + .o3-form-input__description,

@@ -1,12 +1,12 @@
 import type {Meta} from '@storybook/react';
-import {Headline} from '../../src/tsx/index';
+import {Heading} from '../../src/tsx/index';
 import * as StoryTemplates from '../story-templates';
 
 import '../../src/css/brands/whitelabel.css';
 import links from '@financial-times/o3-figma-sb-links';
 export default {
 	title: 'Whitelabel/o3-editorial-typography',
-	component: Headline,
+	component: Heading,
 	decorators: [
 		Story => (
 			<div data-o3-brand="whitelabel">
@@ -24,8 +24,8 @@ export default {
 	},
 } as Meta;
 
-export const Heading = StoryTemplates.Heading;
-Heading.argTypes = {
+export const Headings = StoryTemplates.Heading;
+Headings.argTypes = {
 	type: {
 		options: ['headline', 'subheading', 'chapter', 'label'],
 		control: {
@@ -34,7 +34,7 @@ Heading.argTypes = {
 	},
 };
 
-Heading.args = {
+Headings.args = {
 	...StoryTemplates.Heading.args,
 	type: 'headline',
 };
