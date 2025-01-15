@@ -1,10 +1,12 @@
 import {tokenStudioThemeToBrand, getTokenStudioThemes} from '../utils.js';
 
+const sourceExceptions = ['base/typography', 'base/border-radius']
+
 const privatePrefix = token => {
 	const isSourceExceptionForEngineering = token => {
-		// We do not want to export our typography scale in Figma for end users.
-		// However to support migration efforts we want it to still be available in the engineering token set.
-		if (token.filePath.includes('base/typography')) {
+		// We do not want to export our typography scale and border radius in Figma for end users.
+		// However, to support migration efforts we want it to still be available in the engineering token set.
+		if (sourceExceptions.find((sourceException) => token.filePath.includes(sourceException))) {
 			return true;
 		}
 		return false;

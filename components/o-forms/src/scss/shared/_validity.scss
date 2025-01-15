@@ -20,11 +20,11 @@
 		}
 
 		.o-forms-input__error {
-			@include oPrivateTypographySans($scale: -1);
+			@include oPrivateTypographySans($scale: 1);
 			color: _oFormsGet('invalid-base');
 			display: block;
 			position: relative;
-			margin-top: $_o-forms-spacing-one;
+			margin-top: oPrivateFoundationGet('o3-spacing-3xs');
 			margin-bottom: -$_o-forms-spacing-five;
 		}
 	}
