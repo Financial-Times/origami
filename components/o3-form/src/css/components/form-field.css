@@ -45,8 +45,3 @@
 		margin-top: calc(-1 * var(--o3-spacing-4xs));
 	}
 }
-
-.o3-form-field__feedback--error {
-	color: var(--o3-color-use-case-error);
-	font-size: var(--o3-font-size-metric2-negative-1);
-}
