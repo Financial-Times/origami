@@ -22,7 +22,6 @@ import '@financial-times/o3-editorial-typography/css/whitelabel.css';
 import { Tabs, TabItem, Code } from '@astrojs/starlight/components';
 
 import PreviewFrame from '../../../components/utils/PreviewFrame.astro';
-import CaptionTypography from '../../../components/typography/Caption.astro';
 import ListTypography from '../../../components/typography/Lists.astro';
 
 import HeadingStyles from '../../../components/editorial-typography/HeadingStyles.astro';
@@ -148,12 +147,6 @@ The link style can be applied inline (within a paragraph or body text) or standa
 Link focus style follows the global Origami focus for single ring element.
 
 <PreviewFrame html={`<span class="o3-typography-use-case-body-base">Make <a href="#">sense of</a> it all.</span>`} mark={`a href`} />
-
-### Caption
-
-A caption is a brief text description or explanation that provides context to visual elements such as images, illustrations, charts, or infographics. Captions should be kept brief.
-
-<CaptionTypography brand={props.brand} />
 
 ### List
 
