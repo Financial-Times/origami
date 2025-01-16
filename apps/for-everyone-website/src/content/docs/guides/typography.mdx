@@ -21,8 +21,7 @@ import '@financial-times/o3-editorial-typography/css/whitelabel.css';
 
 import { Tabs, TabItem, Code } from '@astrojs/starlight/components';
 
-import BodyTypography from '../../../components/typography/Body.astro';
-import LinkTypography from '../../../components/typography/Link.astro';
+import PreviewFrame from '../../../components/utils/PreviewFrame.astro';
 import FooterTypography from '../../../components/typography/Footer.astro';
 import CaptionTypography from '../../../components/typography/Caption.astro';
 import ListTypography from '../../../components/typography/Lists.astro';
@@ -144,25 +143,13 @@ Label styles are smaller, utilitarian styles, used for things like the text insi
 	for UI designs, rather than Financier.
 </BrandedContent>
 
-### UI Body
-
-| Preview                                                                                                                                                   | Usage                                                                                                                                                                                |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <div class="not-content"><p class="o3-typography-body-big">Body Big - Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p></div>                 | Body big is primarily used to create a comfortable reading experience on long-form content such as main sub-titles, standfirst and paragraphs.                                       |
-| <div class="not-content"><p class="o3-typography-body-standard">Body Standard - Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p></div>       | Body standard is the default text size. Used for detailed or descriptive content, in components, or where space is limited.                                                          |
-| <div class="not-content"><p class="o3-typography-body-small">Body Small - Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p></div>             | Body small serves secondary level content such as small details in tags, locations, teasers and cards. Avoid using this for long-form text for good readability and user experience. |
-| <div class="not-content"><p class="o3-typography-body-small-bold">Body Small (bold) - Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p></div> | Use to emphasise secondary text such as author name or topic tags.                                                                                                                   |
-| <div class="not-content"><p class="o3-typography-body-small-caps">Body small (caps) - Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p></div> | Use to emphasise secondary text such as author name or topic tags.                                                                                                                   |
-
-<BodyTypography brand={props.brand} />
-
 ### Links
 
-For general links in UI pages. The link style can be applied inline (within a paragraph or body text) or standalone. The inline links inherits the text properties of the body it is in.
+The link style can be applied inline (within a paragraph or body text) or standalone. The inline links inherits the text properties of the body it is in.
 
 Link focus style follows the global Origami focus for single ring element.
 
-<LinkTypography brand={props.brand} />
+<PreviewFrame html={`<span class="o3-typography-use-case-body-base">Make <a href="#">sense of</a> it all.</span>`} mark={`a href`} />
 
 ### Footer
 
