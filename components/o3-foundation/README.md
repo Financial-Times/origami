@@ -7,7 +7,6 @@
       - [Body/Paragraphs](#bodyparagraphs)
       - [Links](#links)
       - [List](#list)
-      - [Modifiers](#modifiers)
       - [Wrapper](#wrapper)
       - [Custom Properties](#custom-properties)
     - [Normalisation](#normalisation)
@@ -100,57 +99,6 @@ import { List } from '@financial-times/o3-foundation/cjs' // or esm;
  <li>Item 2</li>
  <li>Item 3</li>
 </OrderedList>
-```
-
-### Captions
-
-Used with figures to provide a caption:
-
-```html
-<figcaption class="o3-typography-caption">This is a caption.</figcaption>
-```
-
-```tsx
-import {Caption} from '@financial-times/o3-foundation/cjs'; // or esm;
-
-<Caption>This is a caption.</Caption>;
-```
-
-### Modifiers
-
-`o3-foundation` comes with 4 modifier classes:
-
-- Strong (Bold)
-- Emphasis (Italic)
-- Superscript
-- Subscript
-
-These can be used on whole paragraphs or individual words:
-
-#### HTML
-
-```html
-<p class="o3-typography-body-standard o3-typography-bold">
-	This is a paragraph of bold text.
-</p>
-<p class="o3-typography-body-standard">
-	This body contains an <em class="o3-typography-italic">emphasised</em> word.
-</p>
-<p class="o3-typography-body-standard">
-	This body contains a
-	<sup class="o3-typography-superscript">superscript</sup> and a
-	<strong class="o3-typography-bold">strong</strong> word.
-</p>
-```
-
-#### JSX
-
-```tsx
-import { Body, Emphasis, Strong, Superscript } from '@financial-times/o3-foundation/cjs' // or esm;
-
-<Body><Strong>This is a paragraph of bold text.</Strong></Body>
-<Body>This body contains an <Emphasis>emphasised</Emphasis> word.</Body>
-<Body>This body contains a <Superscript>superscript</Superscript> and a <Strong>strong</Strong> word.</Body>
 ```
 
 ### Wrapper

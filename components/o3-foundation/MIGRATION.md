@@ -64,6 +64,22 @@ We have deleted the UI `Footer` JSX component, and replaced it with more generic
 +<footer class="o3-typography-use-case-body-base">Copyright notice</footer>
 ```
 
+### Replace caption components
+
+We have deleted the UI `Caption` JSX component, and replaced it with more generic "detail" typography use-cases.
+
+```diff
+-import {Caption} from '@financial-times/o3-foundation/cjs'; // or esm;
+-
+-<Caption>This is a caption.</Caption>;
++<figcaption class="o3-typography-use-case-detail">This is a caption.</figcaption>
+```
+
+```diff
+-<figcaption class="o3-typography-caption">This is a caption.</figcaption>
++<figcaption class="o3-typography-use-case-detail">This is a caption.</figcaption>
+```
+
 ## Migrating from v1 to v2
 
 v2 introduces changes to the scale for Metric2:
@@ -111,3 +127,7 @@ or `--o3-font-font-size-metric2-10` will break. Usages of any other token will v
 | `--o3-font-size-metric2-8`          | `--o3-font-size-metric2-7`          | `48px` |
 | `--o3-font-size-metric2-9`          | `--o3-font-size-metric2-8`          | `64px` |
 | `--o3-font-size-metric2-10`         | `--o3-font-size-metric2-9`          | `72px` |
+
+```
+
+```
