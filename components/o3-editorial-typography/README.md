@@ -20,7 +20,6 @@ Typographic styles for editorial content.
     - [Quote](#quote)
     - [Big Number](#big-number)
     - [Lists](#lists)
-    - [Links](#links)
   - [Theme modifiers](#theme-modifiers)
   - [Migration](#migration)
   - [Contact](#contact)
@@ -384,36 +383,6 @@ import {Body, List} from '@financial-times/o3-editorial-typography/cjs'; // or /
 | type      | `ordered` \| `unordered` | -          | Type of the list.  |
 | theme     | `standard` \| `inverse`  | `standard` | Theme of the list. |
 | listItems | `Array<string>`          | -          | List items.        |
-
-### Links
-
-Links are styled using `o3-editorial-typography-link` inside a `o3-editorial-typography-body` container.
-
-```html
-<p class="o3-editorial-typography-body">
-	An article by
-	<a href="https://ft.com/" class="o3-editorial-typography-link"
-		>The Financial Times</a
-	>.
-</p>
-```
-
-```jsx
-import {Body, Link} from '@financial-times/o3-editorial-typography/cjs'; // or /esm
-
-<Body>
-	An article by
-	<Link href="https://ft.com/">The Financial Times</Link>.
-</Body>;
-```
-
-`<Link>` props:
-
-| Prop         | Type                    | Default    | Description           |
-| ------------ | ----------------------- | ---------- | --------------------- |
-| href         | `string`                | -          | URL to link the text. |
-| theme        | `standard` \| `inverse` | `standard` | Theme of the link.    |
-| anchorTarget | `_blank`                | -          | Text to be linked.    |
 
 ## Theme modifiers
 
