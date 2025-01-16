@@ -2,9 +2,9 @@
 
 ## Migrating from v2 to v3
 
-### Replace headings
+### Replace heading components
 
-We have replaced UI Headings with more generic "title" typography use-cases. This reduces the total number of typography styles to choose from across "UI" (product) and "Editorial" (article) contexts. Please consult with the design team to decide the best match for your context.
+We have deleted the UI `Heading` JSX component, and replaced it with more generic "title" typography use-cases. This reduces the total number of typography styles to choose from across "UI" (product) and "Editorial" (article) contexts. Please consult with the design team to decide the best match for your context.
 
 ```diff
 -<h1 class="o3-typography-h1">Welcome to Origami</h1>
@@ -16,6 +16,36 @@ We have replaced UI Headings with more generic "title" typography use-cases. Thi
 -
 -<Heading level={1}>Welcome to Origami</Heading>
 +<h1 class="o3-typography-use-case-title-lg">Welcome to Origami</h1>
+```
+
+### Replace body and link components
+
+We have deleted the UI `Body` JSX component, and replaced it with more generic "body-\*" typography use-cases. This reduces the total number of typography styles to choose from across "UI" (product) and "Editorial" (article) contexts. Please consult with the design team to decide the best match for your context.
+
+Link styles are now applied to anchor tags by default.
+
+```diff
+-<p class="o3-typography-body-standard">
+-	Styling and usage guides can be seen on the
+-	<a href="#" class="o3-typography-link">Origami</a> homepage.
+-</p>
++<p class="o3-typography-use-case-body-base">
++	Styling and usage guides can be seen on the
++	<a href="#">Origami</a> homepage.
++</p>
+```
+
+```diff
+-import {Link, Body} from '@financial-times/o3-foundation';
+-
+-<Body>
+-	Styling and usage guides can be seen on the <Link href="#">Origami</Link>{' '}
+-	homepage.
+-</Body>;
++<p class="o3-typography-use-case-body-base">
++	Styling and usage guides can be seen on the
++	<a href="#">Origami</a> homepage.
++</p>
 ```
 
 ## Migrating from v1 to v2
