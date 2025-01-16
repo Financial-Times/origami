@@ -67,7 +67,7 @@ Link styles can be used to give consistent styling to anchor tags:
 #### JSX
 
 ```tsx
-import {Link, Body} from '@financial-times/o3-typography';
+import {Link} from '@financial-times/o3-typography';
 
 <Body>
 	Styling and usage guides can be seen on the <Link href="#">Origami</Link>{' '}
@@ -171,20 +171,16 @@ The wrapper can be used to style blocks of body without needing to apply the cla
 #### HTML
 
 ```html
-<div class="o3-typography-wrapper">
-	<h1>This heading gets styled.</h1>
-	<p>And so does this paragraphy of text.</p>
-	<h2>This gets styled also</h2>
-</div>
+<div class="o3-typography-wrapper"></div>
 ```
 
 ```jsx
-import {Wrapper, Heading, Body} from '@financial-times/o3-typography';
+import {Wrapper, Heading} from '@financial-times/o3-typography';
 
 <Wrapper>
-	<Heading level={1}>This heading gets styled.</Heading>
-	<Body>And so does this paragraphy of text.</Body>
-	<Heading level={2}>This gets styled also</Heading>
+	<h1>This heading gets styled.</h1>
+	<p>And so does this paragraphy of text.</p>
+	<h2>This gets styled also</h2>
 </Wrapper>;
 ```
 

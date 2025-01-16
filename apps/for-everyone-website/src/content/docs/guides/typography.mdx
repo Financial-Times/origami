@@ -32,7 +32,6 @@ import Lists from '../../../components/editorial-typography/Lists.astro';
 import BigNumber from '../../../components/editorial-typography/BigNumber.astro';
 import Byline from '../../../components/editorial-typography/Byline.astro';
 import TopicTag from '../../../components/editorial-typography/TopicTag.astro';
-import DropCap from '../../../components/editorial-typography/DropCap.astro';
 import StandFirst from '../../../components/editorial-typography/StandFirst.astro';
 import Caption from '../../../components/editorial-typography/Caption.astro';
 
@@ -131,22 +130,26 @@ Label styles are smaller, utilitarian styles, used for things like the text insi
 </BrandedContent>
 
 
-## UI Typography
-
-<BrandedContent brands="core, professional, sustainable-views, whitelabel">
-	User interface (UI) typography is intended for all design elements except
-	those with an editorial voice, such as article page content (see [editorial
-	typography](#editorial-typography)). We exclusively use the Metric font family
-	for UI designs, rather than Financier.
-</BrandedContent>
-
 ### Links
 
 The link style can be applied inline (within a paragraph or body text) or standalone. The inline links inherits the text properties of the body it is in.
 
 Link focus style follows the global Origami focus for single ring element.
 
+This example shows a link within copy that uses `body-base`.
 <PreviewFrame html={`<span class="o3-typography-use-case-body-base">Make <a href="#">sense of</a> it all.</span>`} mark={`a href`} />
+
+Here is another example which shows a link within `body-content-base`.
+<PreviewFrame html={`<span class="o3-typography-use-case-body-content-base">Make <a href="#">sense of</a> it all.</span>`} mark={`a href`} />
+
+## UI Components
+
+<BrandedContent brands="core, professional, sustainable-views, whitelabel">
+	User interface (UI) typography components apply typography usecases for a specific context. They are intended for all design elements except
+	those with an editorial voice, such as article page content (see [editorial
+	typography](#editorial-typography)). We exclusively use the Metric font family
+	for UI designs, rather than Financier.
+</BrandedContent>
 
 ### List
 
@@ -155,13 +158,13 @@ For lists in UI pages. Lists allow users to view two or more individual, but rel
 <ListTypography brand={props.brand} />
 
 <BrandedContent brands="core, professional, sustainable-views, whitelabel">
-	## Editorial Typography
+	## Editorial Components
 
-    Editorial typography is intended for editorial and article content e.g article and home pages, live news, teasers.
+    Editorial typography components bring together typography usecases for a specific purpose. For example combining the 3 `display` sizes into one responsive heading. They are intended for editorial and article content e.g article and home pages, live news, teasers.
 
     ### Headings
 
-    Names of heading styles in Editorial typography are now aligned with the Editorial naming to allow the freedom to use heading styles as needed. H1 to H5 should be set during  development.
+    Names of heading styles in Editorial typography are broadly aligned with the naming used within Editorial, however "display" is sometimes called "headline large".
 
     <BrandedContent brands="core,professional,internal,whitelabel,sustainable-views">
     	<BrandedContent brands="core,professiona,sustainable-views">
@@ -171,16 +174,15 @@ For lists in UI pages. Lists allow users to view two or more individual, but rel
     </BrandedContent>
 
     ### Body
-    Use for body text, paragraphs and lists. This is responsive.
-    <BodyStyles brand={props.brand} />
+    For article body use the `body-content` typography use-case as above.
 
-    <BrandedContent brands="whitelabel">
-    	### Drop cap
-    	Use for stylistic emphasis on the first letter of an article.
+	<PreviewFrame html={`<span class="o3-typography-use-case-body-content-base">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet earum libero at voluptatum <strong>highlight</strong> illum facere totam architecto eum porro exercitationem, ea, <em>emphasis</em> accusamus quia? Repellat beatae similique ab? Reprehenderit, ullam quae?`} mark={`o3-typography-use-case-body-content-base`} />
 
-    	<DropCap brand={props.brand} />
+	### Drop cap
 
-    </BrandedContent>
+	Use for stylistic emphasis on the first letter of an article.
+
+	<PreviewFrame html={`<span class="o3-typography-use-case-body-content-base o3-editorial-typography-drop-cap">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet earum libero at voluptatum <strong>highlight</strong> illum facere totam architecto eum porro exercitationem, ea, <em>emphasis</em> accusamus quia? Repellat beatae similique ab? Reprehenderit, ullam quae?`} mark={`o3-editorial-typography-drop-cap`} />
 
     ### Quotes
 
