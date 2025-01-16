@@ -1,5 +1,23 @@
 # Migration Guide
 
+## Migrating from v2 to v3
+
+### Replace headings
+
+We have replaced UI Headings with more generic "title" typography use-cases. This reduces the total number of typography styles to choose from across "UI" (product) and "Editorial" (article) contexts. Please consult with the design team to decide the best match for your context.
+
+```diff
+-<h1 class="o3-typography-h1">Welcome to Origami</h1>
++<h1 class="o3-typography-use-case-title-lg">Welcome to Origami</h1>
+```
+
+```diff
+-import { Heading } from '@financial-times/o3-foundation/cjs' // or esm;
+-
+-<Heading level={1}>Welcome to Origami</Heading>
++<h1 class="o3-typography-use-case-title-lg">Welcome to Origami</h1>
+```
+
 ## Migrating from v1 to v2
 
 v2 introduces changes to the scale for Metric2:

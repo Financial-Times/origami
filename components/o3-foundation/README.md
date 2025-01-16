@@ -67,35 +67,12 @@ Then apply the brand data selector `data-o3-brand="[BRAND]"` on a container elem
 
 Typography is a collection of typographical styles for FT branded sites using design tokens. It provides styling and Typescript templates for:
 
-- Headings
 - Paragraphs
 - Links
 
 It also includes modifier classes to apply bold, italic, superscript, and subscript styles. The classes related to typography are prefixed with `o3-typography-` instead of `o3-foundation` for convince.
 
 `o3-foundation` supports [JSX templates for React users](#jsx), or direct HTML for typography components. We recommend using JSX where possible.
-
-### Headings
-
-`o3-foundation` headings come in 5 levels, `<h1>` to `<h5>`, and styling can be applied to each through class modifiers:
-
-#### HTML
-
-```html
-<h1 class="o3-typography-h1">Welcome to Origami</h1>
-<h2 class="o3-typography-h2">Who are we?</h2>
-```
-
-#### JSX
-
-Properties on the typescript components can be used to apply the same styles:
-
-```tsx
-import { Heading } from '@financial-times/o3-foundation/cjs' // or esm;
-
-<Heading level={1}>Welcome to Origami</Heading>
-<Heading level={2}>Who are we?</Heading>
-```
 
 ### Body/Paragraphs
 
