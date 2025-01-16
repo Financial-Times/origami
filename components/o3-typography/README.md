@@ -11,7 +11,6 @@ Typographical styles for FT branded sites.
   - [Body/Paragraphs](#bodyparagraphs)
   - [Links](#links)
   - [List](#list)
-  - [Footer](#footer)
   - [Modifiers](#modifiers)
   - [Wrapper](#wrapper)
   - [Custom Properties](#custom-properties)
@@ -112,22 +111,6 @@ import { List } from '@financial-times/o3-typography';
 	<li>Item 2</li>
 	<li>Item 3</li>
 </OrderedList>
-```
-
-### Footer
-
-#### HTML
-
-```html
-<footer class="o3-typography-footer">Copyright notice</footer>
-```
-
-#### JSX
-
-```tsx
-import {Footer} from '@financial-times/o3-typography';
-
-<Footer>Copyright notice</Footer>;
 ```
 
 ### Captions

@@ -48,6 +48,22 @@ Link styles are now applied to anchor tags by default.
 +</p>
 ```
 
+### Replace footer components
+
+We have deleted the UI `Footer` JSX component, and replaced it with more generic "body-base" typography use-cases.
+
+```diff
+-import {Footer} from '@financial-times/o3-typography';
+-
+-<Footer>Copyright notice</Footer>;
++<footer class="o3-typography-use-case-body-base">Copyright notice</footer>
+```
+
+```diff
+-<footer class="o3-typography-footer">Copyright notice</footer>
++<footer class="o3-typography-use-case-body-base">Copyright notice</footer>
+```
+
 ## Migrating from v1 to v2
 
 v2 introduces changes to the scale for Metric2:
