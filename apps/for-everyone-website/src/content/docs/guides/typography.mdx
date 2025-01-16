@@ -21,7 +21,6 @@ import '@financial-times/o3-editorial-typography/css/whitelabel.css';
 
 import { Tabs, TabItem, Code } from '@astrojs/starlight/components';
 
-import HeadingTypography from '../../../components/typography/Heading.astro';
 import BodyTypography from '../../../components/typography/Body.astro';
 import LinkTypography from '../../../components/typography/Link.astro';
 import FooterTypography from '../../../components/typography/Footer.astro';
@@ -144,20 +143,6 @@ Label styles are smaller, utilitarian styles, used for things like the text insi
 	typography](#editorial-typography)). We exclusively use the Metric font family
 	for UI designs, rather than Financier.
 </BrandedContent>
-
-### UI Headings
-
-The following headlines have the same values across all screen sizes, mobile, tablet, desktop.
-
-| Preview                                                                            | Usage                                                                                                           |
-| ---------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| <span class="not-content"><h1 class="o3-typography-h1">Heading level 1</h1></span> | Heading 1 is for the main title of a general content page.                                                      |
-| <span class="not-content"><h2 class="o3-typography-h2">Heading level 2</h2></span> | Heading 2 is for section headings.                                                                              |
-| <span class="not-content"><h3 class="o3-typography-h3">Heading level 3</h3></span> | Heading 3 is for sub-section headings.                                                                          |
-| <span class="not-content"><h4 class="o3-typography-h4">Heading level 4</h4></span> | Heading 4 is for smaller titles, inside a component such as cards or teasers.                                   |
-| <span class="not-content"><h5 class="o3-typography-h5">Heading level 5</h5></span> | Heading 5 is for lowest level headings, titles with less hierarchy inside a component such as cards or teasers. |
-
-<HeadingTypography brand={props.brand} />
 
 ### UI Body
 
