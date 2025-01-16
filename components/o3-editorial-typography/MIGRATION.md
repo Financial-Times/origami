@@ -2,6 +2,27 @@
 
 ## Migrating from v2 to v3
 
+### Remove editorial link use
+
+Remove the `o3-editorial-typography-link` class and `Link` component. Link styles are applied by `o3-foundation`, against any anchor `a` element by default.
+
+```diff
+-	An article by <a class="o3-editorial-typography-link" href="https://ft.com/">The Financial Times</a>.
++	An article by <a href="https://ft.com/">The Financial Times</a>.
+```
+
+```diff
+-import {Body, Link} from '@financial-times/o3-editorial-typography/cjs'; // or /esm
+-
+-<Body>
+-	An article by
+-	<Link href="https://ft.com/">The Financial Times</Link>.
+-</Body>;
++	An article by <a href="https://ft.com/">The Financial Times</a>.
+```
+
+### Rename heading large
+
 o3-editorial-typography v3 refines component naming according to the design team.
 
 - We have renamed the `Headline` JSX component to `Heading`.
