@@ -31,23 +31,22 @@
 
 	%_o-quote-blockquote-cite {
 		// Output weight and style to override browser defaults.
-		@include oPrivateTypographySans(
-			$scale: 1,
-			$weight: 'regular',
-			$style: 'normal'
-		);
+
+		font-family: oPrivateFoundationGet('o3-typography-use-case-body-lg-font-family');
+		font-size: oPrivateFoundationGet('o3-typography-use-case-body-lg-font-size');
+		font-weight: oPrivateFoundationGet('o3-typography-use-case-body-lg-font-weight');
+		line-height: oPrivateFoundationGet('o3-typography-use-case-body-lg-line-height');
 		a {
 			@include oPrivateTypographyLink();
 		}
 	}
 
 	%_o-quote-blockquote-author {
-		// Output weight and style to override browser defaults.
-		@include oPrivateTypographySans(
-			$scale: 0,
-			$weight: 'semibold',
-			$style: 'normal'
-		);
+		font-family: oPrivateFoundationGet('o3-typography-use-case-body-highlight-font-family');
+		font-size: oPrivateFoundationGet('o3-typography-use-case-body-highlight-font-size');
+		font-weight: oPrivateFoundationGet('o3-typography-use-case-body-highlight-font-weight');
+		line-height: oPrivateFoundationGet('o3-typography-use-case-body-highlight-line-height');
+		font-style: normal;
 		text-transform: uppercase;
 	}
 }
@@ -60,7 +59,11 @@
 		padding-left: oPrivateSpacingByName('s4');
 
 		p {
-			@include oPrivateTypographyBody();
+			font-family: oPrivateFoundationGet('o3-typography-use-case-body-lg-font-family');
+			font-size: oPrivateFoundationGet('o3-typography-use-case-body-lg-font-size');
+			font-weight: oPrivateFoundationGet('o3-typography-use-case-body-lg-font-weight');
+			line-height: oPrivateFoundationGet('o3-typography-use-case-body-lg-line-height');
+
 			margin-bottom: oPrivateSpacingByName('s4');
 			&:last-child {
 				margin-bottom: 0;
@@ -95,7 +98,7 @@
 			// inherited depending on the context of the editorial blockquote.
 			// E.g. At the time of writing the font size of stories differed
 			// on article pages and live blogs by design.
-			font-family: '#{oPrivateFoundationGet('o3-font-family-georgia')}', serif;
+			font-family: oPrivateFoundationGet('o3-typography-use-case-body-content-base-font-family');
 		}
 	}
 }
