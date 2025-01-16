@@ -89,7 +89,7 @@ import { Headline } from '@financial-times/o3-editorial-typography/cjs';
 | theme     | `standard` \| `inverse`                                         | -          | Theme of the headline.                                       |
 | underline | `boolean`                                                       | `false`    | Adds an underline to the headline. Valid only for `display`. |
 
-### Body/Paragraph styles
+### Body and dropcap
 
 O3 editorial paragraphs are styled with the `o3-editorial-typography-body` class.
 

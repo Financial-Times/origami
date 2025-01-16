@@ -46,10 +46,6 @@ const TemplateSBConfig = {
 	},
 };
 
-type BodyStory = Omit<StoryObj, 'args'> & {
-	args: BodyProps & {disabled: Boolean};
-};
-
 export type TemplateType = StoryObj & {
 	render: (args) => JSX.Element;
 };
@@ -74,21 +70,6 @@ const Headings = {
 			{args.text}
 		</Heading>
 	),
-};
-
-const LinkStory = {
-	...TemplateSBConfig,
-	render: args => {
-		return (
-			<Body theme={args.theme}>
-				This page links back{' '}
-				<Link href="https://origami.ft.com" theme={args.theme}>
-					to Origami
-				</Link>
-				.
-			</Body>
-		);
-	},
 };
 
 const UnorderedListStory = {

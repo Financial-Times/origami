@@ -4,6 +4,10 @@
 	padding: 0px;
 	color: var(--o3-color-use-case-body-text);
 	list-style: none;
+	font-family: var(--_o3-body-font-family);
+	font-weight: var(--_o3-body-font-weight);
+	font-size: var(--_o3-body-font-size);
+	line-height: var(--_o3-body-line-height);
 }
 
 [class^='o3-editorial-typography-list-'] li::before {

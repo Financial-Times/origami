@@ -2,13 +2,13 @@
 
 ## Migrating from v2 to v3
 
-### Remove editorial link use
+### Replace editorial body and link components
 
-Remove the `o3-editorial-typography-link` class and `Link` component. Link styles are applied by `o3-foundation`, against any anchor `a` element by default.
+We have deleted the editorial `Body` JSX component, and replaced it with more generic "content-body\*" typography use-cases, provided by `o3-foundation`. We have also removed the `o3-editorial-typography-link` class and `Link` component. Link styles are applied by `o3-foundation`, against any anchor `a` element by default.
 
 ```diff
--	An article by <a class="o3-editorial-typography-link" href="https://ft.com/">The Financial Times</a>.
-+	An article by <a href="https://ft.com/">The Financial Times</a>.
+-	<p class="o3-editorial-typography-body">An article by <a class="o3-editorial-typography-link" href="https://ft.com/">The Financial Times</a></p>.
++	<p class="o3-typography-use-case-body-content-base">An article by <a href="https://ft.com/">The Financial Times</a></p>.
 ```
 
 ```diff
@@ -18,7 +18,14 @@ Remove the `o3-editorial-typography-link` class and `Link` component. Link style
 -	An article by
 -	<Link href="https://ft.com/">The Financial Times</Link>.
 -</Body>;
-+	An article by <a href="https://ft.com/">The Financial Times</a>.
++	<p class="o3-typography-use-case-body-content-base">An article by <a href="https://ft.com/">The Financial Times</a></p>.
+```
+
+If using a drop cap replace `o3-editorial-typography-body--drop-cap` with `o3-editorial-typography-drop-cap`.
+
+```diff
+-	<p class="o3-editorial-typography-body o3-editorial-typography-body--drop-cap">An article by <a class="o3-editorial-typography-link" href="https://ft.com/">The Financial Times</a></p>.
++	<p class="o3-typography-use-case-body-content-base o3-editorial-typography-drop-cap">An article by <a href="https://ft.com/">The Financial Times</a></p>.
 ```
 
 ### Rename heading large
