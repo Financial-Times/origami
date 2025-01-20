@@ -6,13 +6,24 @@
 	.o-forms-field,
 	.o-forms-title,
 	.o-forms-input {
-		@include oPrivateTypographySans(0);
+		font-family: oPrivateFoundationGet(
+			'o3-typography-use-case-body-base-font-family'
+		);
+		font-size: oPrivateFoundationGet(
+			'o3-typography-use-case-body-base-font-size'
+		);
+		line-height: oPrivateFoundationGet(
+			'o3-typography-use-case-body-base-line-height'
+		);
+		font-weight: oPrivateFoundationGet(
+			'o3-typography-use-case-body-base-font-weight'
+		);
 	}
 
 	.o-forms-field {
 		display: flex;
 		flex-direction: column;
-		margin-bottom: $_o-forms-spacing-six;
+		margin-bottom: $_o-forms-spacing-eight;
 		position: relative;
 
 		label {
@@ -27,27 +38,69 @@
 	}
 
 	.o-forms-field--optional .o-forms-title__main:after {
-		@include oPrivateTypographySans($scale: 1);
 		content: 'Optional';
-		color: _oFormsGet('default-prompt-text');
-		font-weight: 400;
+		font-family: oPrivateFoundationGet(
+			'o3-typography-use-case-body-base-font-family'
+		);
+		font-size: oPrivateFoundationGet(
+			'o3-typography-use-case-body-base-font-size'
+		);
+		line-height: oPrivateFoundationGet(
+			'o3-typography-use-case-body-base-line-height'
+		);
+		font-weight: oPrivateFoundationGet(
+			'o3-typography-use-case-body-base-font-weight'
+		);
+		color: oPrivateFoundationGet('o3-color-use-case-muted-text');
 		margin-left: oPrivateFoundationGet('o3-spacing-3xs');
 	}
 
 	.o-forms-title__main {
-		@include oPrivateTypographySans($weight: 'semibold', $scale: 1);
+		font-family: oPrivateFoundationGet(
+			'o3-typography-use-case-body-highlight-font-family'
+		);
+		font-size: oPrivateFoundationGet(
+			'o3-typography-use-case-body-highlight-font-size'
+		);
+		line-height: oPrivateFoundationGet(
+			'o3-typography-use-case-body-highlight-line-height'
+		);
+		font-weight: oPrivateFoundationGet(
+			'o3-typography-use-case-body-highlight-font-weight'
+		);
 		display: block;
 	}
 
 	.o-forms-input__label__main {
-		@include oPrivateTypographySans($weight: 'regular');
+		font-family: oPrivateFoundationGet(
+			'o3-typography-use-case-body-lg-font-family'
+		);
+		font-size: oPrivateFoundationGet(
+			'o3-typography-use-case-body-lg-font-size'
+		);
+		line-height: oPrivateFoundationGet(
+			'o3-typography-use-case-body-lg-line-height'
+		);
+		font-weight: oPrivateFoundationGet(
+			'o3-typography-use-case-body-lg-font-weight'
+		);
 		display: block;
 	}
 
 	.o-forms-input__label__prompt,
 	.o-forms-title__prompt {
-		@include oPrivateTypographySans($scale: 1);
-		margin-top: oPrivateFoundationGet('o3-spacing-5xs');
+		font-family: oPrivateFoundationGet(
+			'o3-typography-use-case-body-base-font-family'
+		);
+		font-size: oPrivateFoundationGet(
+			'o3-typography-use-case-body-base-font-size'
+		);
+		line-height: oPrivateFoundationGet(
+			'o3-typography-use-case-body-base-line-height'
+		);
+		font-weight: oPrivateFoundationGet(
+			'o3-typography-use-case-body-base-font-weight'
+		);
 		color: _oFormsGet('default-prompt-text');
 		display: block;
 	}

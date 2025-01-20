@@ -65,7 +65,7 @@
 
 		input[type='checkbox'] ~ .o-forms-input__label {
 			display: inline-block;
-			padding: $_o-forms-spacing-half 0 0 $_o-forms-spacing-controls;
+			padding: 0 0 0 $_o-forms-spacing-controls;
 			vertical-align: top;
 
 			&:before {

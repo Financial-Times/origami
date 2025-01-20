@@ -20,11 +20,21 @@
 		}
 
 		.o-forms-input__error {
-			@include oPrivateTypographySans($scale: 1);
+			font-family: oPrivateFoundationGet(
+				'o3-typography-use-case-body-base-font-family'
+			);
+			font-size: oPrivateFoundationGet(
+				'o3-typography-use-case-body-base-font-size'
+			);
+			line-height: oPrivateFoundationGet(
+				'o3-typography-use-case-body-base-line-height'
+			);
+			font-weight: oPrivateFoundationGet(
+				'o3-typography-use-case-body-base-font-weight'
+			);
 			color: _oFormsGet('invalid-base');
 			display: block;
 			position: relative;
-			margin-top: oPrivateFoundationGet('o3-spacing-3xs');
 			margin-bottom: -$_o-forms-spacing-five;
 		}
 	}
