@@ -122,16 +122,6 @@
           "type": "typography",
           "description": "Use this style for bold formatting in body copy or for small interactive elements, such as Topic tags and Author names."
         },
-        "body-link": {
-          "value": {
-            "fontFamily": "{o3.font.family.metric}",
-            "fontWeight": "{o3.font.weight.regular}",
-            "fontSize": "{o3.font.size-metric2.0}",
-            "lineHeight": "{o3.font.lineheight-metric2.0}"
-          },
-          "type": "typography",
-          "description": "Use this style primarily for links in paragraph or as stand alone link."
-        },
         "detail": {
           "value": {
             "fontFamily": "{o3.font.family.metric}",
@@ -174,16 +164,6 @@
           "description": "Use this style only for the body copy of content pages, such as articles, live news and other content experience page."
         },
         "body-content-emphasis": {
-          "value": {
-            "fontFamily": "{o3.font.family.financier-text}",
-            "fontWeight": "1",
-            "fontSize": "{o3.font.size.3}",
-            "lineHeight": "{o3.font.lineheight.4}"
-          },
-          "type": "typography",
-          "description": "Use this style only for the body copy of content pages, such as articles, live news and other content experience page."
-        },
-        "body-content-link": {
           "value": {
             "fontFamily": "{o3.font.family.financier-text}",
             "fontWeight": "1",
