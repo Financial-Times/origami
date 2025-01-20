@@ -83,9 +83,53 @@ Metric is our primary typeface. Clear, contemporary and rational, Metric communi
 
 </BrandedContent>
 
-## Usecases
+## Typographic Scale
 
-Typography use-cases provide low level typography styles for use in a variety of contexts. In addition to these general type styles, Origami provides typography components which use these. For example the [display component](#) combines all three [display sizes](#display) at different breakpoints for a responsive heading.
+We do not recommend the direct use of our typographic scale within projects. Instead use a [usecase](#Style-Usecases), which defines family, scale, weight, and style as one token for specific scenarios.
+
+These usecases are based on multiple typographic scales, for different font families. Our scale ranges from -2 to 10, depending on the font family. Consider scale 0 the baseline, with ascending and descending values in each direction. Avoid using styles below zero for long form content.
+
+<Tabs syncKey="code">
+	<TabItem label="Metric2">
+		<TypeScale brand={props.brand} scaleFamily="metric2" />
+	</TabItem>
+	<BrandedContent brands="core, professional, sustainable-views, whitelabel">
+		<TabItem label="Financier Display">
+			<TypeScale brand={props.brand} scaleFamily="financier-display" />
+		</TabItem>
+	</BrandedContent>
+	<BrandedContent brands="sustainable-views">
+		<TabItem label="Financier Text">
+			<TypeScale brand={props.brand} scaleFamily="financier-text" />
+		</TabItem>
+	</BrandedContent>
+	<BrandedContent brands="core, professional, whitelabel">
+		<TabItem label="Georgia">
+			<TypeScale brand={props.brand} scaleFamily="georgia" />
+		</TabItem>
+	</BrandedContent>
+</Tabs>
+
+## Font Weight
+
+Font weight can be used to express hierarchy or urgency of information. As with our typographic scale, we do not recommend the direct use of our font weight values within projects. Instead apply a [typography usecase](#Style-Usecases).
+
+| Preview                                                                                                               | Value | Token                     |
+| --------------------------------------------------------------------------------------------------------------------- | ----- | ------------------------- |
+| <span style="font-family: var(--o3-font-family-metric) ; font-weight: var(--o3-font-weight-light)">light</span>       | 300   | <Code code={`font-weight: var(--o3-font-weight-light);`} lang="css" wrap={true}/>  |
+| <span style="font-family: var(--o3-font-family-metric) ; font-weight: var(--o3-font-weight-regular)">regular</span>   | 400   | <Code code={`font-weight: var(--o3-font-weight-regular);`} lang="css" wrap={true}/> |
+| <span style="font-family: var(--o3-font-family-metric) ; font-weight: var(--o3-font-weight-medium)">medium</span>     | 500   | <Code code={`font-weight: var(--o3-font-weight-medium);`} lang="css" wrap={true}/> |
+| <span style="font-family: var(--o3-font-family-metric) ; font-weight: var(--o3-font-weight-semibold)">semibold</span> | 700   | <Code code={`font-weight: var(--o3-font-weight-semibold);`} lang="css" wrap={true}/> |
+| <span style="font-family: var(--o3-font-family-metric) ; font-weight: var(--o3-font-weight-bold)">bold</span>         | 800   | <Code code={`font-weight: var(--o3-font-weight-bold);`} lang="css" wrap={true}/> |
+
+
+## Style Usecases
+
+Typography use-cases provide low level typography styles for use in a variety of contexts.
+
+<BrandedContent brands="core, professional, sustainable-views, whitelabel">
+In addition to these general styles, Origami provides typography components which use these. For example the [display heading component](#headings) combines all three [display sizes](#display) at different breakpoints for a responsive heading.
+</BrandedContent>
 
 ### Display
 
@@ -281,42 +325,3 @@ Keeping typography consistent and sticking to logical hierarchies ensures that e
     </Guideline>
 
 </BrandedContent>
-
-
-## Typographic Scale
-
-We use multiple typographic scales for different font families. Our scale ranges from -3 to 10, depending on the font family. Consider scale 0 the baseline, with ascending and descending values in each direction. Avoid using styles below zero for long form content.
-
-<Tabs syncKey="code">
-	<TabItem label="Metric2">
-		<TypeScale brand={props.brand} scaleFamily="metric2" />
-	</TabItem>
-	<BrandedContent brands="core, professional, sustainable-views, whitelabel">
-		<TabItem label="Financier Display">
-			<TypeScale brand={props.brand} scaleFamily="financier-display" />
-		</TabItem>
-	</BrandedContent>
-	<BrandedContent brands="sustainable-views">
-		<TabItem label="Financier Text">
-			<TypeScale brand={props.brand} scaleFamily="financier-text" />
-		</TabItem>
-	</BrandedContent>
-	<BrandedContent brands="core, professional, whitelabel">
-		<TabItem label="Georgia">
-			<TypeScale brand={props.brand} scaleFamily="georgia" />
-		</TabItem>
-	</BrandedContent>
-</Tabs>
-
-## Font Weight
-
-Font weight can be used to express hierarchy or urgency of information.
-
-We recommend using our standard [UI typography](#ui-typography) <BrandedContent currentBrand={props.brand} brands="core, professional, sustainable-views, whitelabel">or [Editorial typography](#editorial-typography)</BrandedContent> styles where possible. For custom typography, align to these standard styles where possible. For example when using Metric2 for UI use `semibold` over other bold weights.
-| Preview                                                                                                               | Value | Token                     |
-| --------------------------------------------------------------------------------------------------------------------- | ----- | ------------------------- |
-| <span style="font-family: var(--o3-font-family-metric) ; font-weight: var(--o3-font-weight-light)">light</span>       | 300   | <Code code={`font-weight: var(--o3-font-weight-light);`} lang="css" wrap={true}/>  |
-| <span style="font-family: var(--o3-font-family-metric) ; font-weight: var(--o3-font-weight-regular)">regular</span>   | 400   | <Code code={`font-weight: var(--o3-font-weight-regular);`} lang="css" wrap={true}/> |
-| <span style="font-family: var(--o3-font-family-metric) ; font-weight: var(--o3-font-weight-medium)">medium</span>     | 500   | <Code code={`font-weight: var(--o3-font-weight-medium);`} lang="css" wrap={true}/> |
-| <span style="font-family: var(--o3-font-family-metric) ; font-weight: var(--o3-font-weight-semibold)">semibold</span> | 700   | <Code code={`font-weight: var(--o3-font-weight-semibold);`} lang="css" wrap={true}/> |
-| <span style="font-family: var(--o3-font-family-metric) ; font-weight: var(--o3-font-weight-bold)">bold</span>         | 800   | <Code code={`font-weight: var(--o3-font-weight-bold);`} lang="css" wrap={true}/> |
