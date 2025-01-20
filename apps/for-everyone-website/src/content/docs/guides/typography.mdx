@@ -44,22 +44,17 @@ import { default as Guideline } from '../../../components/Guideline.astro';
 
 <TypeFamily brand={props.brand} />
 
-<BrandedContent brands="core, professional, internal">
-	The FT typography uses the following typefaces to convey information to our
-	users in different aspects of the FT products. Metric, Financier Display and
-	Georgia.
-</BrandedContent>
+FT typography uses the following typefaces, to convey information to our users in different aspects of FT products.
 
 ### Metric
 
-Metric is our primary typeface. Clear, contemporary and rational, Metric communicates with clarity best used for CTAs, body copy and headings across all sub-brands.
+Metric is our primary typeface. Clear, contemporary and rational, Metric communicates with clarity. It is best used for CTAs, body copy, and headings across all sub-brands.
 
 [Learn more about Metric](https://brand.ft.com/document/24#/branding-elements/fonts).
 
 <BrandedContent brands="core, professional, sustainable-views, whitelabel">
 	### Financier Display
-	Financier is a secondary typeface. Elegant, authoritative and has a distinct voice.
-	Primarily used for large article titles and headings in editorial pages only.
+	Financier is our secondary typeface. Elegant, authoritative, and with a distinct voice. It is primarily used for large article titles and headings in editorial pages only.
 
     [Learn more about Financier Display](https://brand.ft.com/document/24#/branding-elements/fonts).
 
@@ -85,7 +80,7 @@ Metric is our primary typeface. Clear, contemporary and rational, Metric communi
 
 ## Typographic Scale
 
-We do not recommend the direct use of our typographic scale within projects. Instead use a [usecase](#Style-Usecases), which defines family, scale, weight, and style as one token for specific scenarios.
+We do not recommend the direct use of our typographic scale within projects. Instead use a [usecase token](#usecase-tokens), which defines family, scale, weight, and style as one token for specific scenarios.
 
 These usecases are based on multiple typographic scales, for different font families. Our scale ranges from -2 to 10, depending on the font family. Consider scale 0 the baseline, with ascending and descending values in each direction. Avoid using styles below zero for long form content.
 
@@ -112,7 +107,7 @@ These usecases are based on multiple typographic scales, for different font fami
 
 ## Font Weight
 
-Font weight can be used to express hierarchy or urgency of information. As with our typographic scale, we do not recommend the direct use of our font weight values within projects. Instead apply a [typography usecase](#Style-Usecases).
+Font weight can be used to express hierarchy or urgency of information. As with our typographic scale, we do not recommend the direct use of our font weight values within projects. Instead [apply a usecase token](#usecase-tokens).
 
 | Preview                                                                                                               | Value | Token                     |
 | --------------------------------------------------------------------------------------------------------------------- | ----- | ------------------------- |
@@ -123,17 +118,21 @@ Font weight can be used to express hierarchy or urgency of information. As with 
 | <span style="font-family: var(--o3-font-family-metric) ; font-weight: var(--o3-font-weight-bold)">bold</span>         | 800   | <Code code={`font-weight: var(--o3-font-weight-bold);`} lang="css" wrap={true}/> |
 
 
-## Style Usecases
+## Usecase Tokens
 
-Typography use-cases provide low level typography styles for use in a variety of contexts.
+Typography usecase tokens provide low level typography styles for use in a variety of contexts.
 
 <BrandedContent brands="core, professional, sustainable-views, whitelabel">
-In addition to these general styles, Origami provides typography components which use these. For example the [display heading component](#headings) combines all three [display sizes](#display) at different breakpoints for a responsive heading.
+In addition to these usecase tokens, Origami provides typography components which use these. For example the [display heading component](#headings) combines all three [display sizes](#display) at different breakpoints for a responsive heading.
 </BrandedContent>
 
 ### Display
 
-Display styles, as the largest text on the screen, are reserved for short, important text or numerals. These styles are responsive to screen sizes and use the Financier Display typeface. This font family should be used exclusively for editorial story headlines, such as teaser headlines or article toppers.
+Display styles, as the largest text on the screen, are reserved for short, important text or numerals.
+
+<BrandedContent brands="core, professional, sustainable-views">
+These styles are responsive to screen sizes and use the Financier Display typeface. This font family should be used exclusively for editorial story headlines, such as teaser headlines or article toppers.
+</BrandedContent>
 
 <TypeUsecase brand={props.brand} usecases={['display-sm', 'display-md', 'display-lg']} />
 
@@ -147,20 +146,20 @@ Display styles, as the largest text on the screen, are reserved for short, impor
 
 ### Title
 
-Titles are smaller than headline styles, and should be used for medium-emphasis text that remains relatively short. For example, consider using title styles to divide secondary passages of text or story paragraph.
+Titles should be used for medium-emphasis text that remains relatively short. For example, consider using title styles to divide secondary passages of text or story paragraph.
 
 <TypeUsecase brand={props.brand} usecases={['title-sm', 'title-md', 'title-lg']} />
 
 ### Body
 
-Text styles are used for longer passages of text in your features and components. Use typefaces intended for text styles, and description in functional components such as buttons, inputs, forms, stand-first, teasers and cards which are readable at smaller sizes and can be comfortably read in longer passages.
+Body styles are used for longer passages of text in your features and components.
 
 <TypeUsecase brand={props.brand} usecases={['body-lg', 'body-base', 'body-highlight']} />
 
 
-### Label and details
+### Label and Details
 
-Label styles are smaller, utilitarian styles, used for things like the text inside components or for very small text in the content body, such as captions, contextual info and label tags.
+Label styles are smaller, utilitarian styles, used for very small text within body copy such as captions, contextual info, and label tags.
 
 <TypeUsecase brand={props.brand} usecases={['detail', 'label']} />
 
@@ -176,9 +175,7 @@ Label styles are smaller, utilitarian styles, used for things like the text insi
 
 ### Links
 
-The link style can be applied inline (within a paragraph or body text) or standalone. The inline links inherits the text properties of the body it is in.
-
-Link focus style follows the global Origami focus for single ring element.
+The link style can be applied inline (within a paragraph or body text) or standalone. The inline links inherit the text properties of the body it is in. Its focus style follows the global Origami focus for single ring element.
 
 This example shows a link within copy that uses `body-base`.
 <PreviewFrame html={`<span class="o3-typography-use-case-body-base">Make <a href="#">sense of</a> it all.</span>`} mark={`a href`} />
@@ -189,22 +186,21 @@ Here is another example which shows a link within `body-content-base`.
 ## UI Components
 
 <BrandedContent brands="core, professional, sustainable-views, whitelabel">
-	User interface (UI) typography components apply typography usecases for a specific context. They are intended for all design elements except
+	User interface (UI) typography components apply [typography usecase tokens](#usecase-tokens). They are intended for all design elements except
 	those with an editorial voice, such as article page content (see [editorial
-	typography](#editorial-typography)). We exclusively use the Metric font family
-	for UI designs, rather than Financier.
+	typography](#editorial-typography)).
 </BrandedContent>
 
 ### List
 
-For lists in UI pages. Lists allow users to view two or more individual, but related, text items grouped together. We have ordered and unordered lists.
+Lists allow users to view two or more individual, but related, text items grouped together. We have ordered and unordered lists.
 
 <ListTypography brand={props.brand} />
 
 <BrandedContent brands="core, professional, sustainable-views, whitelabel">
 	## Editorial Components
 
-    Editorial typography components bring together typography usecases for a specific purpose. For example combining the 3 `display` sizes into one responsive heading. They are intended for editorial and article content e.g article and home pages, live news, teasers.
+    Editorial typography components bring together [typography usecases](#usecase-tokens) for a specific purpose. For example combining the 3 `display` sizes into one responsive heading. They are intended for editorial and article content e.g article and home pages, live news, teasers.
 
     ### Headings
 
@@ -222,7 +218,7 @@ For lists in UI pages. Lists allow users to view two or more individual, but rel
 
 	<PreviewFrame html={`<span class="o3-typography-use-case-body-content-base">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet earum libero at voluptatum <strong>highlight</strong> illum facere totam architecto eum porro exercitationem, ea, <em>emphasis</em> accusamus quia? Repellat beatae similique ab? Reprehenderit, ullam quae?`} mark={`o3-typography-use-case-body-content-base`} />
 
-	### Drop cap
+	### Drop Cap
 
 	Use for stylistic emphasis on the first letter of an article.
 
