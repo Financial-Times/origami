@@ -2,6 +2,7 @@ import {
 	Heading as HeadingTsx,
 	Summary as SummaryTsx,
 	StandFirst as StandFirstTsx,
+	Caption as CaptionTsx,
 	TopicTag as TopicTagTsx,
 	Quote as QuoteTsx,
 	BigNumber as BigNumberTsx,
@@ -12,14 +13,12 @@ import {
 import type {StoryObj, Meta} from '@storybook/react';
 import type {
 	HeadingProps,
-	BodyProps,
 	SummaryProps,
 	QuoteProps,
 	BigNumberProps,
 	BylineProps,
 	DetailProps,
 	TopicTagProps,
-	LinkProps,
 } from '../src/types';
 
 type StoryObjNoArgs = Omit<StoryObj, 'args'>;
