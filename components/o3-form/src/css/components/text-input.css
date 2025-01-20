@@ -4,8 +4,10 @@
     background-color: var(--_o3-form-color-use-case-background);
 	box-sizing: border-box;
     border-radius: var(--_o3-form-input-border-radius);
-    font-size: var(--o3-font-size-metric2-1);
-    line-height: var(--o3-font-lineheight-metric2-1);
+    font-family: var(--o3-typography-use-case-body-lg-font-family);
+    font-size: var(--o3-typography-use-case-body-lg-font-size);
+    font-weight: var(--o3-typography-use-case-body-lg-font-weight);
+    line-height: var(--o3-typography-use-case-body-lg-line-height);
     --o3-grid-columns-to-span-count: 4;
     max-width: var(--_o3-form-text-input-max-width, var(--o3-grid-columns-to-span-width));
     min-height: 44px;
