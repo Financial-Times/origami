@@ -43,6 +43,8 @@
 }
 
 /* TITLE */
+
+.o3-typography-wrapper > h1,
 .o3-typography-use-case-title-lg {
 	font-family: var(--o3-typography-use-case-title-lg-font-family);
 	font-size: var(--o3-typography-use-case-title-lg-font-size);
@@ -50,6 +52,7 @@
 	font-weight: var(--o3-typography-use-case-title-lg-font-weight);
 }
 
+.o3-typography-wrapper > h2,
 .o3-typography-use-case-title-md {
 	font-family: var(--o3-typography-use-case-title-md-font-family);
 	font-size: var(--o3-typography-use-case-title-md-font-size);
@@ -57,6 +60,7 @@
 	font-weight: var(--o3-typography-use-case-title-md-font-weight);
 }
 
+.o3-typography-wrapper > h3,
 .o3-typography-use-case-title-sm {
 	font-family: var(--o3-typography-use-case-title-sm-font-family);
 	font-size: var(--o3-typography-use-case-title-sm-font-size);
@@ -123,4 +127,58 @@
 	line-height: var(--o3-typography-use-case-body-content-emphasis-line-height);
 	font-weight: var(--o3-typography-use-case-body-content-emphasis-font-weight);
 	font-style: var(--o3-typography-use-case-body-content-emphasis-font-style);
+}
+
+/* Default body colours */
+
+:where(
+		[class~='typography-use-case-body'],
+		.o3-typography-use-case-detail,
+		.o3-typography-use-case-highlight,
+		.o3-typography-wrapper > p
+	) {
+	color: var(--o3-color-use-case-body-text);
+	[data-o3-theme='inverse']&,
+	:where([data-o3-theme='inverse']) & {
+		color: var(--o3-color-use-case-body-inverse-text);
+	}
+}
+
+/* Default heading colours */
+
+:where(
+		[class~='o3-typography-use-case-headline'],
+		[class~='o3-typography-use-case-display'],
+		.o3-typography-wrapper > :where(h1, h2, h3, h4, h5, h6),
+
+	) {
+	color: var(--o3-color-use-case-heading-text);
+	[data-o3-theme='inverse']&,
+	:where([data-o3-theme='inverse']) & {
+		color: var(--o3-color-use-case-heading-inverse-text);
+	}
+}
+
+/* Superscript / Subscript */
+.o3-typography-wrapper > sub,
+.o3-typography-wrapper > p sub,
+.o3-typography-use-case-body-base > sub,
+.o3-typography-use-case-body-lg > sub {
+	font-size: 0.666em;
+	position: static;
+	vertical-align: sub;
+	line-height: 0;
+	display: inline-block;
+	margin-bottom: -1em;
+}
+.o3-typography-wrapper > sup,
+.o3-typography-wrapper > p sup,
+.o3-typography-use-case-body-base > sup,
+.o3-typography-use-case-body-lg > sup {
+	font-size: 0.666em;
+	position: static;
+	vertical-align: super;
+	line-height: 0;
+	display: inline-block;
+	margin-top: -1em;
 }

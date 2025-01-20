@@ -24,6 +24,16 @@ We have deleted the UI `Body` JSX component, and replaced it with more generic "
 
 Link styles are now applied to anchor tags by default.
 
+Impacted classes include:
+
+- `o3-typography-body-standard`
+- `o3-typography-body-small`
+- `o3-typography-body-big`
+- `o3-typography-body-small-caps`
+- `o3-typography-body-small-bold`
+
+Which should be replaced with their closes matching use-case:
+
 ```diff
 -<p class="o3-typography-body-standard">
 -	Styling and usage guides can be seen on the
