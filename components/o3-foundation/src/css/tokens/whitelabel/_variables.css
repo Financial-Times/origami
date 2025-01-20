@@ -101,8 +101,6 @@
   --o3-typography-use-case-body-content-emphasis-font-family: Georgia; /* Use this style only for the body copy of content pages, such as articles, live news and other content experience page. */
   --o3-typography-use-case-body-content-emphasis-font-weight: Regular; /* Use this style only for the body copy of content pages, such as articles, live news and other content experience page. */
   --o3-typography-use-case-body-content-emphasis-font-style: italic; /* Use this style only for the body copy of content pages, such as articles, live news and other content experience page. */
-  --o3-typography-use-case-body-content-link-font-family: Georgia; /* Use this style only for the body copy of content pages, such as articles, live news and other content experience page. */
-  --o3-typography-use-case-body-content-link-font-weight: Regular; /* Use this style only for the body copy of content pages, such as articles, live news and other content experience page. */
   --o3-border-radius-1: 4px;
   --o3-border-radius-2: 6px;
   --o3-focus-use-case-ring-inner: 0px 0px 0px 4px var(--o3-color-palette-white);
@@ -181,10 +179,6 @@
   --o3-typography-use-case-body-highlight-font-weight: var(--o3-font-weight-semibold); /* Use this style for bold formatting in body copy or for small interactive elements, such as Topic tags and Author names. */
   --o3-typography-use-case-body-highlight-font-size: var(--o3-font-size-metric2-0); /* Use this style for bold formatting in body copy or for small interactive elements, such as Topic tags and Author names. */
   --o3-typography-use-case-body-highlight-line-height: var(--o3-font-lineheight-metric2-0); /* Use this style for bold formatting in body copy or for small interactive elements, such as Topic tags and Author names. */
-  --o3-typography-use-case-body-link-font-family: var(--o3-font-family-metric); /* Use this style primarily for links in paragraph or as stand alone link. */
-  --o3-typography-use-case-body-link-font-weight: var(--o3-font-weight-regular); /* Use this style primarily for links in paragraph or as stand alone link. */
-  --o3-typography-use-case-body-link-font-size: var(--o3-font-size-metric2-0); /* Use this style primarily for links in paragraph or as stand alone link. */
-  --o3-typography-use-case-body-link-line-height: var(--o3-font-lineheight-metric2-0); /* Use this style primarily for links in paragraph or as stand alone link. */
   --o3-typography-use-case-detail-font-family: var(--o3-font-family-metric); /* Use this style for caption in visual assets such as image and video and for small text elements, such as secondary metadata, caveats, or footnotes. */
   --o3-typography-use-case-detail-font-weight: var(--o3-font-weight-regular); /* Use this style for caption in visual assets such as image and video and for small text elements, such as secondary metadata, caveats, or footnotes. */
   --o3-typography-use-case-detail-font-size: var(--o3-font-size-metric2-negative-1); /* Use this style for caption in visual assets such as image and video and for small text elements, such as secondary metadata, caveats, or footnotes. */
@@ -199,6 +193,4 @@
   --o3-typography-use-case-body-content-highlight-line-height: var(--o3-font-lineheight-4); /* Use this style only for the body copy of content pages, such as articles, live news and other content experience page. */
   --o3-typography-use-case-body-content-emphasis-font-size: var(--o3-font-size-2); /* Use this style only for the body copy of content pages, such as articles, live news and other content experience page. */
   --o3-typography-use-case-body-content-emphasis-line-height: var(--o3-font-lineheight-4); /* Use this style only for the body copy of content pages, such as articles, live news and other content experience page. */
-  --o3-typography-use-case-body-content-link-font-size: var(--o3-font-size-2); /* Use this style only for the body copy of content pages, such as articles, live news and other content experience page. */
-  --o3-typography-use-case-body-content-link-line-height: var(--o3-font-lineheight-4); /* Use this style only for the body copy of content pages, such as articles, live news and other content experience page. */
 }
