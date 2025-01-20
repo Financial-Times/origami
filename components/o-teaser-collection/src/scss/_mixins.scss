@@ -40,7 +40,17 @@
 	$half-width: index($sizes, 'half-width');
 	$small: index($sizes, 'small');
 
-	@include oPrivateTypographySans(3, $weight: 'regular');
+	font-family: oPrivateFoundationGet(
+		'o3-typography-use-case-title-sm-font-family'
+	);
+	font-size: oPrivateFoundationGet('o3-typography-use-case-title-sm-font-size');
+	font-weight: oPrivateFoundationGet(
+		'o3-typography-use-case-title-sm-font-weight'
+	);
+	line-height: oPrivateFoundationGet(
+		'o3-typography-use-case-title-sm-line-height'
+	);
+
 	position: relative;
 	width: 100%;
 	margin: 0;
@@ -51,7 +61,9 @@
 	@if ($divider) {
 		&:before,
 		&:after {
-			border-top: 8px solid rgba(oPrivateFoundationGet('o3-color-palette-black'), 0.05);
+			border-top: 8px
+				solid
+				rgba(oPrivateFoundationGet('o3-color-palette-black'), 0.05);
 			content: '';
 			left: 0;
 			top: 0;
@@ -114,7 +126,11 @@
 	}
 
 	&:after {
-		@include oPrivateIconsContent('arrow-right', oPrivateFoundationGet('o3-color-palette-black'), $size: 30);
+		@include oPrivateIconsContent(
+			'arrow-right',
+			oPrivateFoundationGet('o3-color-palette-black'),
+			$size: 30
+		);
 		content: '';
 		display: inline-block;
 		position: relative;
@@ -136,7 +152,18 @@
 		position: relative;
 
 		&:before {
-			@include oPrivateTypographyDisplay(4);
+			font-family: oPrivateFoundationGet(
+				'o3-typography-use-case-headline-sm-font-family'
+			);
+			font-size: oPrivateFoundationGet(
+				'o3-typography-use-case-headline-sm-font-size'
+			);
+			font-weight: oPrivateFoundationGet(
+				'o3-typography-use-case-headline-sm-font-weight'
+			);
+			line-height: oPrivateFoundationGet(
+				'o3-typography-use-case-headline-sm-line-height'
+			);
 			content: counter(o-teaser-collection-items);
 			position: absolute;
 			top: 0;
