@@ -49,7 +49,9 @@
 @mixin _oTopperThemeOpinion {
 	.o-topper__topic,
 	.o-topper__opinion-genre {
-		@include oPrivateTypographySans($scale: 2);
+		font-family: oPrivateFoundationGet('o3-typography-use-case-body-lg-font-family');
+		font-size: oPrivateFoundationGet('o3-typography-use-case-body-lg-font-size');
+		font-weight: oPrivateFoundationGet('o3-typography-use-case-body-lg-font-weight');
 		line-height: 28px;
 	}
 }

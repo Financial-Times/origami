@@ -1,5 +1,8 @@
 @mixin _oTopperAnchorLink {
-	@include oPrivateTypographySans(0);
+	font-family: oPrivateFoundationGet('o3-typography-use-case-body-base-font-family');
+	font-size: oPrivateFoundationGet('o3-typography-use-case-body-base-font-size');
+	font-weight: oPrivateFoundationGet('o3-typography-use-case-body-base-font-weight');
+	line-height: oPrivateFoundationGet('o3-typography-use-case-body-base-font-line-height');
 	display: inline-block;
 	width: 110px;
 	padding: 5px 0 0 10px;
@@ -34,8 +37,10 @@
 
 	%_o-topper__tag,
 	.o-topper__headline {
-		@include oPrivateTypographySans(6);
+		font-family: oPrivateFoundationGet('o3-typography-use-case-display-sm-font-family');
+		font-size: oPrivateFoundationGet('o3-typography-use-case-display-sm-font-size');
 		font-weight: 400;
+		line-height: oPrivateFoundationGet('o3-typography-use-case-display-sm-line-height');
 	}
 
 	.o-topper__headline {

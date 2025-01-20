@@ -13,7 +13,11 @@
 /// Base styles for a teaser
 /// sets the font and basic display properties
 @mixin _oTeaserBase {
-	@include oPrivateTypographySans(-1);
+	font-family: oPrivateFoundationGet('o3-typography-use-case-detail-font-family');
+	font-size: oPrivateFoundationGet('o3-typography-use-case-detail-font-size');
+	font-weight: oPrivateFoundationGet('o3-typography-use-case-detail-font-weight');
+	line-height: oPrivateFoundationGet('o3-typography-use-case-detail-line-height');
+
 	position: relative;
 	width: 100%;
 	text-rendering: optimizeLegibility;
