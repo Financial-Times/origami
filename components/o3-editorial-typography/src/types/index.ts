@@ -5,12 +5,6 @@ export type HeadingProps = {
 	children: string;
 };
 
-export type BodyProps = {
-	theme?: 'standard' | 'inverse';
-	dropCap?: boolean;
-	children: (string | JSX.Element)[] | string | JSX.Element;
-};
-
 export type SummaryProps = {
 	children: (string | JSX.Element)[] | string | JSX.Element;
 };
@@ -47,13 +41,6 @@ export type ListProps = {
 	type: 'ordered' | 'unordered';
 	theme?: 'standard' | 'inverse';
 	listItems: string[];
-};
-
-export type LinkProps = {
-	theme?: 'standard' | 'inverse';
-	children: string;
-	href: string;
-	anchorTarget?: '_blank';
 };
 
 export type Attributes = {
