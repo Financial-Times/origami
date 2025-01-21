@@ -6,15 +6,23 @@
 	}
 
 	.o-teaser__heading {
-		@include oPrivateTypographyDisplay(5);
-		line-height: 1;
+		font-family: oPrivateFoundationGet('o3-typography-use-case-display-sm-font-family');
+		font-size: oPrivateFoundationGet('o3-typography-use-case-display-sm-font-size');
+		font-weight: oPrivateFoundationGet('o3-typography-use-case-display-sm-font-weight');
+		line-height: oPrivateFoundationGet('o3-typography-use-case-display-sm-line-height');
 		@include oPrivateGridRespondTo('L') {
-			@include oPrivateTypographyDisplay(7);
+			font-family: oPrivateFoundationGet('o3-typography-use-case-display-lg-font-family');
+			font-size: oPrivateFoundationGet('o3-typography-use-case-display-lg-font-size');
+			font-weight: oPrivateFoundationGet('o3-typography-use-case-display-lg-font-weight');
+			line-height: oPrivateFoundationGet('o3-typography-use-case-display-lg-line-height');
 		}
 	}
 
 	.o-teaser__standfirst {
-		@include oPrivateTypographySans(2);
+		font-family: oPrivateFoundationGet('o3-typography-use-case-body-base-font-family');
+		font-size: oPrivateFoundationGet('o3-typography-use-case-body-base-font-size');
+		font-weight: oPrivateFoundationGet('o3-typography-use-case-body-base-font-weight');
+		line-height: oPrivateFoundationGet('o3-typography-use-case-body-base-line-height');
 	}
 }
 

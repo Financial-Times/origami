@@ -13,12 +13,16 @@
 	}
 
 	.o-teaser__standfirst {
-		@include oPrivateTypographySans(1);
-		line-height: 24px;
+		font-family: oPrivateFoundationGet('o3-typography-use-case-body-base-font-family');
+		font-size: oPrivateFoundationGet('o3-typography-use-case-body-base-font-size');
+		font-weight: oPrivateFoundationGet('o3-typography-use-case-body-base-font-weight');
+		line-height: oPrivateFoundationGet('o3-typography-use-case-body-base-line-height');
 
 		@include oPrivateGridRespondTo('L') {
-			@include oPrivateTypographySans(2);
-			line-height: 24px;
+			font-family: oPrivateFoundationGet('o3-typography-use-case-body-lg-font-family');
+			font-size: oPrivateFoundationGet('o3-typography-use-case-body-lg-font-size');
+			font-weight: oPrivateFoundationGet('o3-typography-use-case-body-lg-font-weight');
+			line-height: oPrivateFoundationGet('o3-typography-use-case-body-lg-line-height');
 		}
 		margin-top: oPrivateSpacingByName('s6');
 	}

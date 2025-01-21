@@ -116,7 +116,9 @@
 
 		&__list-item,
 		&__landing-link {
-			@include oPrivateTypographySans(0);
+			font-family: oPrivateFoundationGet('o3-typography-use-case-body-base-font-family');
+			font-size: oPrivateFoundationGet('o3-typography-use-case-body-base-font-size');
+			font-weight: oPrivateFoundationGet('o3-typography-use-case-body-base-font-weight');
 			line-height: 20px;
 			padding: 12px 0;
 

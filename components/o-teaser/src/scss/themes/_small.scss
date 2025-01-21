@@ -69,12 +69,18 @@
 		margin-bottom: oPrivateSpacingByName('s2');
 	}
 	.o-teaser__tag-prefix {
-		@include oPrivateTypographySans($scale: 0, $weight: 'semibold');
+		font-family: oPrivateFoundationGet('o3-typography-use-case-body-base-font-family');
+		font-size: oPrivateFoundationGet('o3-typography-use-case-body-base-font-size');
+		font-weight: oPrivateFoundationGet('o3-font-weight-semibold');
+		line-height: oPrivateFoundationGet('o3-typography-use-case-body-base-line-height');
 		color: oPrivateFoundationGet('o3-color-palette-claret-60');
 		margin-right: oPrivateSpacingByName('s1');
 	}
 	.o-teaser__tag {
-		@include oPrivateTypographySans($scale: 0, $weight: 'regular');
+		font-family: oPrivateFoundationGet('o3-typography-use-case-body-base-font-family');
+		font-size: oPrivateFoundationGet('o3-typography-use-case-body-base-font-size');
+		font-weight: oPrivateFoundationGet('o3-typography-use-case-body-base-font-weight');
+		line-height: oPrivateFoundationGet('o3-typography-use-case-body-base-line-height');
 		color: oPrivateFoundationGet('o3-color-palette-claret-60');
 	}
 	.o-teaser__standfirst {
