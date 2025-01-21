@@ -8,10 +8,10 @@
 }
 
 @mixin _oTopperSummary {
-	font-family: oPrivateFoundationGet('o3-typography-use-case-body-lg-font-family');
-	font-size: oPrivateFoundationGet('o3-typography-use-case-body-lg-font-size');
-	font-weight: oPrivateFoundationGet('o3-typography-use-case-body-lg-font-weight');
-	line-height: oPrivateFoundationGet('o3-typography-use-case-body-lg-font-line-height');
+	font-family: oPrivateFoundationGet('o3-typography-use-case-body-base-font-family');
+	font-size: oPrivateFoundationGet('o3-typography-use-case-body-base-font-size');
+	font-weight: oPrivateFoundationGet('o3-typography-use-case-body-base-font-weight');
+	line-height: oPrivateFoundationGet('o3-typography-use-case-body-base-line-height');
 	> ul {
 		padding: 0 oPrivateSpacingByIncrement(5);
 	}
@@ -26,7 +26,7 @@
 		font-family: oPrivateFoundationGet('o3-typography-use-case-body-highlight-font-family');
 		font-size: oPrivateFoundationGet('o3-typography-use-case-body-highlight-font-size');
 		font-weight: oPrivateFoundationGet('o3-typography-use-case-body-highlight-font-weight');
-		line-height: oPrivateFoundationGet('o3-typography-use-case-body-highlight-font-line-height');
+		line-height: oPrivateFoundationGet('o3-typography-use-case-body-highlight-line-height');
 		margin: 5px 0 0;
 	}
 

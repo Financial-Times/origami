@@ -69,10 +69,10 @@
 		margin-bottom: oPrivateSpacingByName('s2');
 	}
 	.o-teaser__tag-prefix {
-		font-family: oPrivateFoundationGet('o3-typography-use-case-body-base-font-family');
-		font-size: oPrivateFoundationGet('o3-typography-use-case-body-base-font-size');
+		font-family: oPrivateFoundationGet('o3-typography-use-case-detail-font-family');
+		font-size: oPrivateFoundationGet('o3-typography-use-case-detail-font-size');
 		font-weight: oPrivateFoundationGet('o3-font-weight-semibold');
-		line-height: oPrivateFoundationGet('o3-typography-use-case-body-base-line-height');
+		line-height: oPrivateFoundationGet('o3-typography-use-case-detail-line-height');
 		color: oPrivateFoundationGet('o3-color-palette-claret-60');
 		margin-right: oPrivateSpacingByName('s1');
 	}

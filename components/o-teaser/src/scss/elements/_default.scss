@@ -43,10 +43,10 @@
 
 /// Meta area and colouring styles
 @mixin _oTeaserMeta {
-	font-family: oPrivateFoundationGet('o3-typography-use-case-body-base-font-family');
-	font-size: oPrivateFoundationGet('o3-typography-use-case-body-base-font-size');
-	font-weight: oPrivateFoundationGet('o3-typography-use-case-body-base-font-weight');
-	line-height: oPrivateFoundationGet('o3-typography-use-case-body-base-line-height');
+	font-family: oPrivateFoundationGet('o3-typography-use-case-detail-font-family');
+	font-size: oPrivateFoundationGet('o3-typography-use-case-detail-font-size');
+	font-weight: oPrivateFoundationGet('o3-typography-use-case-detail-font-weight');
+	line-height: oPrivateFoundationGet('o3-typography-use-case-detail-line-height');
 	color: oPrivateFoundationGet('o3-color-palette-claret');
 	margin-bottom: oPrivateSpacingByName('s3');
 }
@@ -54,10 +54,7 @@
 /// Tag styling.
 /// Element should be a link, otherwise use _oTeaserMeta
 @mixin _oTeaserTag {
-	font-family: oPrivateFoundationGet('o3-typography-use-case-body-base-font-family');
-	font-size: oPrivateFoundationGet('o3-typography-use-case-body-base-font-size');
-	font-weight: oPrivateFoundationGet('o3-typography-use-case-body-base-font-weight');
-	line-height: oPrivateFoundationGet('o3-typography-use-case-body-base-line-height');
+	font-weight: oPrivateFoundationGet('o3-font-weight-regular');
 	color: inherit;
 	text-decoration: none;
 	border: 0;
@@ -74,11 +71,7 @@
 }
 
 @mixin _oTeaserTagPrefix {
-	font-family: oPrivateFoundationGet('o3-typography-use-case-body-highlight-font-family');
-	font-size: oPrivateFoundationGet('o3-typography-use-case-body-highlight-font-size');
-	font-weight: oPrivateFoundationGet('o3-typography-use-case-body-highlight-font-weight');
-	line-height: oPrivateFoundationGet('o3-typography-use-case-body-highlight-line-height');
-	margin-right: 0.25em;
+	font-weight: oPrivateFoundationGet('o3-font-weight-semibold');
 }
 
 @mixin _oTeaserTagSuffix {
@@ -91,10 +84,10 @@
 
 /// Styles for standfirst element
 @mixin _oTeaserStandfirst {
-	font-family: oPrivateFoundationGet('o3-typography-use-case-body-base-font-family');
-	font-size: oPrivateFoundationGet('o3-typography-use-case-body-base-font-size');
-	font-weight: oPrivateFoundationGet('o3-typography-use-case-body-base-font-weight');
-	line-height: 20px;
+	font-family: oPrivateFoundationGet('o3-typography-use-case-detail-font-family');
+	font-size: oPrivateFoundationGet('o3-typography-use-case-detail-font-size');
+	font-weight: oPrivateFoundationGet('o3-typography-use-case-detail-font-weight');
+	line-height: oPrivateFoundationGet('o3-typography-use-case-detail-line-height');
 
 	@include _oTeaserLink();
 	color: $_o-teaser-muted;
