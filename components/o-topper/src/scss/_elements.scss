@@ -49,10 +49,10 @@
 }
 
 @mixin _oTopperImageCredit {
-	font-family: oPrivateFoundationGet('o3-typography-use-case-body-detail-font-family');
-	font-size: oPrivateFoundationGet('o3-typography-use-case-body-detail-font-size');
-	font-weight: oPrivateFoundationGet('o3-typography-use-case-body-detail-font-weight');
-	line-height: oPrivateFoundationGet('o3-typography-use-case-body-detail-line-height');
+	font-family: oPrivateFoundationGet('o3-typography-use-case-detail-font-family');
+	font-size: oPrivateFoundationGet('o3-typography-use-case-detail-font-size');
+	font-weight: oPrivateFoundationGet('o3-typography-use-case-detail-font-weight');
+	line-height: oPrivateFoundationGet('o3-typography-use-case-detail-line-height');
 	color: oPrivateFoundationGet('o3-color-palette-white');
 	position: absolute;
 	text-shadow: 1px 1px 1px oPrivateFoundationGet('o3-color-palette-slate');
@@ -66,10 +66,10 @@
 }
 
 @mixin _oTopperImageCaption {
-	font-family: oPrivateFoundationGet('o3-typography-use-case-body-detail-font-family');
-	font-size: oPrivateFoundationGet('o3-typography-use-case-body-detail-font-size');
-	font-weight: oPrivateFoundationGet('o3-typography-use-case-body-detail-font-weight');
-	line-height: oPrivateFoundationGet('o3-typography-use-case-body-detail-line-height');
+	font-family: oPrivateFoundationGet('o3-typography-use-case-detail-font-family');
+	font-size: oPrivateFoundationGet('o3-typography-use-case-detail-font-size');
+	font-weight: oPrivateFoundationGet('o3-typography-use-case-detail-font-weight');
+	line-height: oPrivateFoundationGet('o3-typography-use-case-detail-line-height');
 	padding: 10px 11px 0px;
 	@include oPrivateGridRespondTo(L) {
 		padding-left: 18px;
