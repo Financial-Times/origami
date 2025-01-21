@@ -47,6 +47,9 @@
     "sb": "?path=/story/core-o3-editorial-typography--heading-large",
     "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FVVM0PixrY3IRZq2ZUTdWfU%2F%25F0%259F%2592%25A0-Core---Origami-(o3)%3Fnode-id%3D7030-117%26t%3DOXWNvTZ67QPdakfd-4"
   },
+  "core-o3-editorial-typography--headings": {
+    "sb": "?path=/story/core-o3-editorial-typography--headings"
+  },
   "core-o3-editorial-typography--label": {
     "sb": "?path=/story/core-o3-editorial-typography--heading&args=type:label",
     "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FVVM0PixrY3IRZq2ZUTdWfU%2F%25F0%259F%2592%25A0-Core---Origami-(o3)%3Fnode-id%3D7030-117%26t%3DOXWNvTZ67QPdakfd-4"
@@ -225,6 +228,9 @@
   "core-professional-o3-editorial-typography--heading": {
     "sb": "?path=/story/core-professional-o3-editorial-typography--heading",
     "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2Fqfi6fTq5V05b0mnXw3F7q5%2F%25F0%259F%2592%25A0-Professional---Origami-(o3)%3Fnode-id%3D4287-342%26t%3DxcH8QRZUayrRLl8o-4"
+  },
+  "core-professional-o3-editorial-typography--headings": {
+    "sb": "?path=/story/core-professional-o3-editorial-typography--headings"
   },
   "core-professional-o3-editorial-typography--link": {
     "sb": "?path=/story/core-professional-o3-editorial-typography--link",
@@ -527,6 +533,9 @@
     "sb": "?path=/story/sustainable-views-o3-editorial-typography--heading",
     "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FY7u0SwIJ1mCNDE0dpzgHCJ%2F%25F0%259F%2592%25A0-Sustainable-Views---Origami-(o3)%3Fnode-id%3D6418-178%26t%3Df6FGZ2XYbvorQQMT-4"
   },
+  "sustainable-views-o3-editorial-typography--headings": {
+    "sb": "?path=/story/sustainable-views-o3-editorial-typography--headings"
+  },
   "sustainable-views-o3-editorial-typography--label": {
     "sb": "?path=/story/sustainable-views-o3-editorial-typography--heading&args=type:label",
     "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FY7u0SwIJ1mCNDE0dpzgHCJ%2F%25F0%259F%2592%25A0-Sustainable-Views---Origami-(o3)%3Fnode-id%3D6418-178%26t%3Df6FGZ2XYbvorQQMT-4"
@@ -713,6 +722,9 @@
   "whitelabel-o3-editorial-typography--heading-large": {
     "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2F5ATknbGociZMlnNXX4sy4f%2FWhitelabel---Origami-(o3)%3Fnode-id%3D5075-366%26t%3DuSXzpLGDcxFzfDex-4",
     "sb": "?path=/story/whitelabel-o3-editorial-typography--heading"
+  },
+  "whitelabel-o3-editorial-typography--headings": {
+    "sb": "?path=/story/whitelabel-o3-editorial-typography--headings"
   },
   "whitelabel-o3-editorial-typography--label": {
     "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2F5ATknbGociZMlnNXX4sy4f%2FWhitelabel---Origami-(o3)%3Fnode-id%3D5075-366%26t%3DuSXzpLGDcxFzfDex-4",
