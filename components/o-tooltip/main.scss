@@ -62,13 +62,26 @@
 	}
 
 	.o-tooltip-content {
-		font-family: '#{oPrivateFoundationGet('o3-font-family-metric')}', sans-serif;
+		font-family: oPrivateFoundationGet(
+			'o3-typography-use-case-body-base-font-family'
+		);
+		font-size: oPrivateFoundationGet(
+			'o3-typography-use-case-body-base-font-size'
+		);
+		line-height: oPrivateFoundationGet(
+			'o3-typography-use-case-body-base-line-height'
+		);
+		font-weight: oPrivateFoundationGet(
+			'o3-typography-use-case-body-base-font-weight'
+		);
 		position: relative;
 		box-sizing: border-box;
 		overflow: auto;
-		padding: 15px 35px 15px 20px;
+		padding: oPrivateFoundationGet('o3-spacing-3xs')
+			oPrivateFoundationGet('o3-spacing-m')
+			oPrivateFoundationGet('o3-spacing-3xs')
+			oPrivateFoundationGet('o3-spacing-xs');
 		float: left;
-		line-height: 1;
 		hyphens: auto; // Breaks long words to fit into smaller screen sizes
 
 		> *:first-child {
@@ -212,8 +225,6 @@
 		margin: 5px 5px 15px 15px;
 		padding: 0;
 		cursor: pointer;
-		font-size: 8px;
-		line-height: 1;
 		user-select: none;
 		top: 0;
 		right: 0;
