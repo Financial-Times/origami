@@ -309,7 +309,6 @@
 			}
 
 			@if ($type == 'ordered') {
-				@include oPrivateTypographySans($weight: 'semibold');
 				font-family: oPrivateFoundationGet('o3-typography-use-case-body-highlight-font-family');
 				font-size: oPrivateFoundationGet('o3-typography-use-case-body-highlight-font-size');
 				font-weight: oPrivateFoundationGet('o3-typography-use-case-body-highlight-font-weight');
