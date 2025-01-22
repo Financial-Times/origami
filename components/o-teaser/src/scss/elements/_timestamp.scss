@@ -1,6 +1,10 @@
 /// Timestamp base styles
 @mixin _oTeaserTimestamp {
-	@include oLabelsTimestampContent();
+	font-family: oPrivateFoundationGet('o3-typography-use-case-label-font-family');
+	font-size: oPrivateFoundationGet('o3-typography-use-case-label-font-size');
+	font-weight: oPrivateFoundationGet('o3-typography-use-case-label-font-weight');
+	line-height: oPrivateFoundationGet('o3-typography-use-case-label-line-height');
+	text-transform: oPrivateFoundationGet('o3-typography-use-case-label-text-case');
 	display: block;
 	// Moves timestamp to the bottom when stretched modifier is used
 	margin-top: auto;
