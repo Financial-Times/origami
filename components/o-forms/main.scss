@@ -154,7 +154,9 @@
 
 	@if $white-theme {
 		.o-forms-field--white {
-			--o-forms-toggle-handle-color: #{oPrivateFoundationGet('o3-color-palette-white')};
+			--o-forms-toggle-handle-color: #{oPrivateFoundationGet(
+					'o3-color-palette-white'
+				)};
 		}
 	}
 

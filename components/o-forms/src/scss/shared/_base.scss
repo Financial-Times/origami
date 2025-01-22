@@ -25,6 +25,7 @@
 		flex-direction: column;
 		margin-bottom: $_o-forms-spacing-eight;
 		position: relative;
+		color: oPrivateFoundationGet('o3-color-use-case-body-text');
 
 		label {
 			display: block;

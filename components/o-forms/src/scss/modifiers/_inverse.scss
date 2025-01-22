@@ -5,7 +5,7 @@
 /// @output styles for inverse toggle based on a checkbox input
 @mixin _oFormsInverse($error-summary: null, $radio: null, $file: null) {
 	.o-forms-field--inverse {
-		color: _oFormsGet('toggle-inverse');
+		color: oPrivateFoundationGet('o3-color-use-case-body-inverse-text');
 
 		.o-forms-title {
 			.o-forms-title__main:after,
@@ -32,7 +32,7 @@
 		input {
 			@include oPrivateNormaliseFocusApply() {
 				@include oPrivateNormaliseFocusContentInverse();
-			};
+			}
 		}
 
 		input[type='checkbox'] {
