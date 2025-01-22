@@ -19,7 +19,7 @@
 			},
 			"input": {
 				"type": "text",
-				"modifiers": [ ],
+				"modifiers": [],
 				"value": "Valid Input",
 				"id": "valid"
 			}
@@ -31,7 +31,7 @@
 			},
 			"input": {
 				"type": "text",
-				"modifiers": [ "invalid" ],
+				"modifiers": ["invalid"],
 				"error": "Please fill out this field",
 				"id": "invalid"
 			}
@@ -55,7 +55,7 @@
 			},
 			"input": {
 				"type": "text",
-				"modifiers": [ "small" ],
+				"modifiers": ["small"],
 				"value": "Value",
 				"id": "small"
 			}
@@ -68,9 +68,9 @@
 			},
 			"input": {
 				"type": "text",
-				"modifiers": [ "suffix" ],
+				"modifiers": ["suffix"],
 				"value": "",
-				"button": "o-buttons o-buttons--secondary o-buttons--big",
+				"button": "demo-submit-button",
 				"id": "suffix"
 			}
 		},
@@ -81,9 +81,9 @@
 			},
 			"input": {
 				"type": "text",
-				"modifiers": [ "small", "suffix" ],
+				"modifiers": ["small", "suffix"],
 				"value": "",
-				"button": "o-buttons o-buttons--secondary",
+				"button": "demo-submit-small-button",
 				"id": "small-suffix"
 			}
 		},
@@ -94,7 +94,7 @@
 			"title": {
 				"main": "Shrunken title",
 				"prompt": "Vertically centered",
-				"modifiers": [ "shrink", "vertical-center" ]
+				"modifiers": ["shrink", "vertical-center"]
 			},
 			"input": {
 				"type": "text",

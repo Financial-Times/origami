@@ -1,9 +1,6 @@
-@import "./../../main";
-@import '@financial-times/o-fonts/main';
-@include oFonts();
-@import '@financial-times/o-buttons/main';
-@include oButtons();
+@import './../../main';
 @import '@financial-times/o-normalise/main';
+@import '@financial-times/o-private-foundation/main';
 @include oNormalise();
 body {
 	background: oColorsByUsecase(page, background);
@@ -12,6 +9,32 @@ body {
 .demo {
 	margin: 12px;
 	max-width: 500px;
+}
+
+.demo-submit-button {
+	@include oPrivateButtonsContent(
+		$opts: (
+			'type': 'primary',
+			'size': 'big',
+		)
+	);
+}
+
+.demo-submit-small-button {
+	@include oPrivateButtonsContent(
+		$opts: (
+			'type': 'primary',
+		)
+	);
+}
+
+.demo-submit-button-inverse {
+	@include oPrivateButtonsContent(
+		$opts: (
+			'type': 'primary',
+			'size': 'big',
+		)
+	);
 }
 
 .demo-inverse {
@@ -31,7 +54,7 @@ body {
 $custom-theme: (
 	controls-base: 'o3-color-palette-crimson',
 	controls-checked-base: 'o3-color-palette-white',
-	controls-border: 'o3-color-palette-crimson'
+	controls-border: 'o3-color-palette-crimson',
 );
 
 $icon-list: ('grid', 'list');
