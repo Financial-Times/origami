@@ -21,7 +21,18 @@ $_o-forms-alert-icon-right-padding: $_o-forms-spacing-two;
 /// @output styles for error summary
 @mixin _oFormsErrorSummary() {
 	.o-forms__error-summary {
-		@include oPrivateTypographySans($scale: 0);
+		font-family: oPrivateFoundationGet(
+			'o3-typography-use-case-body-base-font-family'
+		);
+		font-size: oPrivateFoundationGet(
+			'o3-typography-use-case-body-base-font-size'
+		);
+		line-height: oPrivateFoundationGet(
+			'o3-typography-use-case-body-base-line-height'
+		);
+		font-weight: oPrivateFoundationGet(
+			'o3-typography-use-case-body-base-font-weight'
+		);
 		background-color: $_o-forms-error-summary-background-color;
 		margin-bottom: $_o-forms-spacing-four;
 		padding: $_o-forms-spacing-three;
@@ -50,7 +61,18 @@ $_o-forms-alert-icon-right-padding: $_o-forms-spacing-two;
 			top: calc($_o-forms-spacing-three + 0.1rem);
 		}
 		.o-forms__error-summary__heading {
-			@include oPrivateTypographySans($weight: 'semibold');
+			font-family: oPrivateFoundationGet(
+				'o3-typography-use-case-body-highlight-font-family'
+			);
+			font-size: oPrivateFoundationGet(
+				'o3-typography-use-case-body-highlight-font-size'
+			);
+			line-height: oPrivateFoundationGet(
+				'o3-typography-use-case-body-highlight-line-height'
+			);
+			font-weight: oPrivateFoundationGet(
+				'o3-typography-use-case-body-highlight-font-weight'
+			);
 			color: $_o-forms-error-summary-foreground-color;
 			margin: 0 0 $_o-forms-spacing-one;
 		}
@@ -70,7 +92,18 @@ $_o-forms-alert-icon-right-padding: $_o-forms-spacing-two;
 			}
 
 			.o-forms__error-summary__item-overview {
-				@include oPrivateTypographySans($weight: 'semibold');
+				font-family: oPrivateFoundationGet(
+					'o3-typography-use-case-body-highlight-font-family'
+				);
+				font-size: oPrivateFoundationGet(
+					'o3-typography-use-case-body-highlight-font-size'
+				);
+				line-height: oPrivateFoundationGet(
+					'o3-typography-use-case-body-highlight-line-height'
+				);
+				font-weight: oPrivateFoundationGet(
+					'o3-typography-use-case-body-highlight-font-weight'
+				);
 			}
 		}
 	}

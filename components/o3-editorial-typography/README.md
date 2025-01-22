@@ -8,7 +8,7 @@ Typographic styles for editorial content.
     - [Heading styles](#heading-styles)
       - [HTML](#html)
       - [JSX](#jsx)
-    - [Body/Paragraph styles](#bodyparagraph-styles)
+    - [Body and dropcap](#body-and-dropcap)
       - [HTML](#html-1)
       - [JSX](#jsx-1)
     - [Editorial detail styles](#editorial-detail-styles)
@@ -20,7 +20,6 @@ Typographic styles for editorial content.
     - [Quote](#quote)
     - [Big Number](#big-number)
     - [Lists](#lists)
-    - [Links](#links)
   - [Theme modifiers](#theme-modifiers)
   - [Migration](#migration)
   - [Contact](#contact)
@@ -84,44 +83,26 @@ import { Headline } from '@financial-times/o3-editorial-typography/cjs';
 
 `<Headline>` props:
 
-| Prop      | Type                                                            | Default    | Description                                                  |
+| Prop | Type | Default |
+Description |
 | --------- | --------------------------------------------------------------- | ---------- | ------------------------------------------------------------ |
-| type      | `display` \| `headline` \| `chapter` \| `subheading` \| `label` | `headline` | Type of the headline.                                        |
-| theme     | `standard` \| `inverse`                                         | -          | Theme of the headline.                                       |
-| underline | `boolean`                                                       | `false`    | Adds an underline to the headline. Valid only for `display`. |
+| type | `display` \| `headline` \| `chapter` \| `subheading` \| `label` | `headline` | Type of the headline. |
+| theme | `standard` \| `inverse` | - | Theme of the headline. |
+| underline | `boolean` | `false` | Adds an underline to the headline. Valid only for `display`. |
 
-### Body/Paragraph styles
+### Body and dropcap
 
-O3 editorial paragraphs are styled with the `o3-editorial-typography-body` class.
+`o3-foundation` provides typography usecase tokens, including for editorial body copy (see `o3-typography-use-case-body-content-*` classes). `o3-editorial-typography` builds on this by providing an optional drop cap style, `o3-editorial-typography-drop-cap`.
 
 #### HTML
 
 ```html
-<p class="o3-editorial-typography-body">This is a small paragraph of text.</p>
+<p
+	class="o3-editorial-typography-drop-cap o3-typography-use-case-body-content-base"
+>
+	This is a small paragraph of text with a drop cap.
+</p>
 ```
-
-#### JSX
-
-While using JSX, you can import the `<Body>` component and apply the `type` prop.
-
-```jsx
-import {Body} from '@financial-times/o3-editorial-typography/cjs'; // or /esm
-
-<Body>This is a paragraph of text.</Body>;
-```
-
-`<Body>` props:
-
-| Prop    | Type                    | Default    | Description                                                 |
-| ------- | ----------------------- | ---------- | ----------------------------------------------------------- |
-| theme   | `standard` \| `inverse` | `standard` | Theme of the body.                                          |
-| dropCap | `boolean`               | `false`    | Style the first letter as a drop cap, for supported brands. |
-
-**Note:** if the children of the `<Body>` component are not text, the wrapper element with be a `<div>` element. If the children are just string, the wrapper element will be a `<p>` element.
-
-### Editorial detail styles
-
-The package exports components that can be used to style additional information in the editorial content.
 
 #### Topic Tag
 
@@ -384,36 +365,6 @@ import {Body, List} from '@financial-times/o3-editorial-typography/cjs'; // or /
 | type      | `ordered` \| `unordered` | -          | Type of the list.  |
 | theme     | `standard` \| `inverse`  | `standard` | Theme of the list. |
 | listItems | `Array<string>`          | -          | List items.        |
-
-### Links
-
-Links are styled using `o3-editorial-typography-link` inside a `o3-editorial-typography-body` container.
-
-```html
-<p class="o3-editorial-typography-body">
-	An article by
-	<a href="https://ft.com/" class="o3-editorial-typography-link"
-		>The Financial Times</a
-	>.
-</p>
-```
-
-```jsx
-import {Body, Link} from '@financial-times/o3-editorial-typography/cjs'; // or /esm
-
-<Body>
-	An article by
-	<Link href="https://ft.com/">The Financial Times</Link>.
-</Body>;
-```
-
-`<Link>` props:
-
-| Prop         | Type                    | Default    | Description           |
-| ------------ | ----------------------- | ---------- | --------------------- |
-| href         | `string`                | -          | URL to link the text. |
-| theme        | `standard` \| `inverse` | `standard` | Theme of the link.    |
-| anchorTarget | `_blank`                | -          | Text to be linked.    |
 
 ## Theme modifiers
 

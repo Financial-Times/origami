@@ -111,6 +111,10 @@
 				'context': $background-color,
 			)
 		);
+		font-family: oPrivateFoundationGet('o3-typography-use-case-body-link-font-family');
+		font-size: oPrivateFoundationGet('o3-typography-use-case-body-link-font-size');
+		font-weight: oPrivateFoundationGet('o3-typography-use-case-body-link-font-weight');
+		line-height: oPrivateFoundationGet('o3-typography-use-case-body-link-line-height');
 	}
 
 	// action button
@@ -127,6 +131,7 @@
 				'context': $background-color,
 			)
 		);
+		margin-top: -2px;
 	}
 
 	// action link
@@ -139,6 +144,10 @@
 				'context': $background-color,
 			)
 		);
+		font-family: oPrivateFoundationGet('o3-typography-use-case-body-link-font-family');
+		font-size: oPrivateFoundationGet('o3-typography-use-case-body-link-font-size');
+		font-weight: oPrivateFoundationGet('o3-typography-use-case-body-link-font-weight');
+		line-height: oPrivateFoundationGet('o3-typography-use-case-body-link-line-height');
 	}
 
 	// state icon, only for alert messages

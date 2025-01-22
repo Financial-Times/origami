@@ -8,10 +8,10 @@ const {brand} = Astro.props
 <Example slot="examples" do title="Group similar inputs to ease the user">
 	<div data-o3-brand={brand}>
 		<Form>
-			<h3 class="o3-typography-h3 grouping-title">Your Details</h3>
+			<h3 class="o3-typography-use-case-title-sm">Your Details</h3>
 			<TextInput label="Email address" attributes={{defaultValue: "john.smith@ft.com" }} />
 
-			<h3 class="o3-typography-h3 grouping-title">Your address</h3>
+			<h3 class="o3-typography-use-case-title-sm">Your address</h3>
 			<TextInput label="Country" attributes={{defaultValue: "United Kingdom" }} />
 			<TextInput label="Address" attributes={{defaultValue: "1 Friday St"}} optional={true} />
 		</form>

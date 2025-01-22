@@ -4,8 +4,7 @@
 @mixin _oFormsRadioRound($disabled: null, $themes: ()) {
 	.o-forms-input--radio-round {
 		.o-forms-input__label {
-			padding: $_o-forms-spacing-half 0 $_o-forms-spacing-half
-				$_o-forms-spacing-controls;
+			padding: 0 0 0 $_o-forms-spacing-controls;
 			display: inline-block;
 
 			&:before,

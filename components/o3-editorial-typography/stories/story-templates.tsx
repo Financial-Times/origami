@@ -1,38 +1,30 @@
 import {
 	Heading as HeadingTsx,
-	Body as BodyTsx,
 	Summary as SummaryTsx,
-	Caption as CaptionTsx,
 	StandFirst as StandFirstTsx,
+	Caption as CaptionTsx,
 	TopicTag as TopicTagTsx,
 	Quote as QuoteTsx,
 	BigNumber as BigNumberTsx,
 	Byline as BylineTsx,
 	List as ListTsx,
-	Link as LinkTsx,
 } from '../src/tsx/index';
 
 import type {StoryObj, Meta} from '@storybook/react';
 import type {
 	HeadingProps,
-	BodyProps,
 	SummaryProps,
 	QuoteProps,
 	BigNumberProps,
 	BylineProps,
 	DetailProps,
 	TopicTagProps,
-	LinkProps,
 } from '../src/types';
 
 type StoryObjNoArgs = Omit<StoryObj, 'args'>;
 
 type Headings = StoryObjNoArgs & {
 	args: Omit<HeadingProps, 'children'> & {content: string};
-};
-
-type BodyStory = StoryObjNoArgs & {
-	args: Omit<BodyProps, 'children'> & {content: string};
 };
 
 type SummaryStory = StoryObjNoArgs & {
@@ -57,13 +49,6 @@ type BigNumberStory = StoryObjNoArgs & {
 
 type BylineStory = StoryObjNoArgs & {
 	args: Omit<BylineProps, 'children'> & {brand?: string};
-};
-
-type LinkStory = StoryObjNoArgs & {
-	args: Omit<LinkProps, 'children' | 'anchorAttributes'> & {
-		content: string;
-		openInNewTab: boolean;
-	};
 };
 
 const TemplateSBConfig: Meta = {
@@ -100,15 +85,6 @@ const HeadingTemplate: StoryObj = {
 	},
 	render: args => {
 		return <HeadingTsx {...args}>{args.content}</HeadingTsx>;
-	},
-};
-
-const BodyTemplate: StoryObj = {
-	argTypes: {
-		...TemplateSBConfig.argTypes,
-	},
-	render: args => {
-		return <BodyTsx {...args}>{args.content}</BodyTsx>;
 	},
 };
 
@@ -235,40 +211,12 @@ const ListTemplate: StoryObj = {
 	render: args => {
 		return (
 			<div id="component-wrapper" style={{padding: '20px'}}>
-				<BodyTsx>
-					<ListTsx {...args} />
-				</BodyTsx>
+				<ListTsx {...args} />
 			</div>
 		);
 	},
 };
 
-const LinkTemplate: StoryObj = {
-	argTypes: {
-		...TemplateSBConfig.argTypes,
-		openInNewTab: {
-			control: {
-				type: 'boolean',
-			},
-		},
-	},
-	render: args => {
-		if (args.openInNewTab) {
-			args.anchorTarget = '_blank';
-		}
-		return (
-			<BodyTsx theme={args.theme}>
-				We have a &nbsp;
-				<LinkTsx {...args}>{args.content}</LinkTsx>
-				&nbsp; style. Links may open in a new window/tab but we &nbsp;
-				<LinkTsx {...args} anchorTarget="_blank">
-					recommend against it
-				</LinkTsx>
-				&nbsp; in most cases.
-			</BodyTsx>
-		);
-	},
-};
 export const Heading: Headings = {
 	...HeadingTemplate,
 	args: {
@@ -276,21 +224,6 @@ export const Heading: Headings = {
 		theme: 'standard',
 		type: 'display',
 		underline: true,
-	},
-};
-
-export const Body: BodyStory = {
-	...BodyTemplate,
-	args: {
-		content: (
-			<>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet earum
-				libero at voluptatum <strong>highlight</strong> illum facere totam
-				architecto eum porro exercitationem, ea, <em>emphasis</em> accusamus
-				quia? Repellat beatae similique ab? Reprehenderit, ullam quae?
-			</>
-		),
-		theme: 'standard',
 	},
 };
 
@@ -364,15 +297,5 @@ export const List: StoryObj = {
 			'Sed feugiat turpis at massa tristique.',
 			'Curabitu r accumsan elit luctus.',
 		],
-	},
-};
-
-export const Link: LinkStory = {
-	...LinkTemplate,
-	args: {
-		content: 'standard link',
-		theme: 'standard',
-		openInNewTab: false,
-		href: 'https://origami.ft.com',
 	},
 };

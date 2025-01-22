@@ -1,5 +1,95 @@
 # Migration Guide
 
+## Migrating from v2 to v3
+
+### Replace heading components
+
+We have deleted the UI `Heading` JSX component, and replaced it with more generic "title" typography use-cases. This reduces the total number of typography styles to choose from across "UI" (product) and "Editorial" (article) contexts. Please consult with the design team to decide the best match for your context.
+
+```diff
+-<h1 class="o3-typography-h1">Welcome to Origami</h1>
++<h1 class="o3-typography-use-case-title-lg">Welcome to Origami</h1>
+```
+
+```diff
+-import { Heading } from '@financial-times/o3-foundation/cjs' // or esm;
+-
+-<Heading level={1}>Welcome to Origami</Heading>
++<h1 class="o3-typography-use-case-title-lg">Welcome to Origami</h1>
+```
+
+### Replace body and link components
+
+We have deleted the UI `Body` JSX component, and replaced it with more generic "body-\*" typography use-cases. This reduces the total number of typography styles to choose from across "UI" (product) and "Editorial" (article) contexts. Please consult with the design team to decide the best match for your context.
+
+Link styles are now applied to anchor tags by default.
+
+Impacted classes include:
+
+- `o3-typography-body-standard`
+- `o3-typography-body-small`
+- `o3-typography-body-big`
+- `o3-typography-body-small-caps`
+- `o3-typography-body-small-bold`
+
+Which should be replaced with their closes matching use-case:
+
+```diff
+-<p class="o3-typography-body-standard">
+-	Styling and usage guides can be seen on the
+-	<a href="#" class="o3-typography-link">Origami</a> homepage.
+-</p>
++<p class="o3-typography-use-case-body-base">
++	Styling and usage guides can be seen on the
++	<a href="#">Origami</a> homepage.
++</p>
+```
+
+```diff
+-import {Link, Body} from '@financial-times/o3-foundation';
+-
+-<Body>
+-	Styling and usage guides can be seen on the <Link href="#">Origami</Link>{' '}
+-	homepage.
+-</Body>;
++<p class="o3-typography-use-case-body-base">
++	Styling and usage guides can be seen on the
++	<a href="#">Origami</a> homepage.
++</p>
+```
+
+### Replace footer components
+
+We have deleted the UI `Footer` JSX component, and replaced it with more generic "body-base" typography use-cases.
+
+```diff
+-import {Footer} from '@financial-times/o3-typography';
+-
+-<Footer>Copyright notice</Footer>;
++<footer class="o3-typography-use-case-body-base">Copyright notice</footer>
+```
+
+```diff
+-<footer class="o3-typography-footer">Copyright notice</footer>
++<footer class="o3-typography-use-case-body-base">Copyright notice</footer>
+```
+
+### Replace caption components
+
+We have deleted the UI `Caption` JSX component, and replaced it with more generic "detail" typography use-cases.
+
+```diff
+-import {Caption} from '@financial-times/o3-foundation/cjs'; // or esm;
+-
+-<Caption>This is a caption.</Caption>;
++<figcaption class="o3-typography-use-case-detail">This is a caption.</figcaption>
+```
+
+```diff
+-<figcaption class="o3-typography-caption">This is a caption.</figcaption>
++<figcaption class="o3-typography-use-case-detail">This is a caption.</figcaption>
+```
+
 ## Migrating from v1 to v2
 
 v2 introduces changes to the scale for Metric2:
@@ -47,3 +137,7 @@ or `--o3-font-font-size-metric2-10` will break. Usages of any other token will v
 | `--o3-font-size-metric2-8`          | `--o3-font-size-metric2-7`          | `48px` |
 | `--o3-font-size-metric2-9`          | `--o3-font-size-metric2-8`          | `64px` |
 | `--o3-font-size-metric2-10`         | `--o3-font-size-metric2-9`          | `72px` |
+
+```
+
+```
