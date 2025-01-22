@@ -103,7 +103,7 @@ InlineWithShrunkenTitle.args = {
 SmallInputWithSuffix.args = {
 	title: 'Small text input with suffix',
 	isSmall: true,
-	children: <button className="demo-submit-button">Submit</button>,
+	children: <button className="demo-submit-small-button">Submit</button>,
 };
 
 PasswordInput.args = {
