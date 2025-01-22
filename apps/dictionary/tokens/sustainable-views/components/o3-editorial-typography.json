@@ -6,9 +6,17 @@
           "value": "{o3.color.use-case.link.text.@}",
           "type": "color"
         },
+        "inverse-color": {
+          "value": "{o3.color.palette.white}",
+          "type": "color"
+        },
         "hover": {
           "color": {
             "value": "{o3.color.use-case.link.text.hover}",
+            "type": "color"
+          },
+          "inverse-color": {
+            "value": "#C9F5EA",
             "type": "color"
           }
         }
@@ -18,9 +26,17 @@
           "value": "{o3.color.use-case.link.text.@}",
           "type": "color"
         },
+        "inverse-color": {
+          "value": "{o3.color.palette.white}",
+          "type": "color"
+        },
         "hover": {
           "color": {
             "value": "{o3.color.use-case.link.text.hover}",
+            "type": "color"
+          },
+          "inverse-color": {
+            "value": "#C9F5EA",
             "type": "color"
           }
         }
@@ -44,6 +60,16 @@
         },
         "type": "typography"
       },
+      "caption": {
+        "color": {
+          "value": "{o3.color.palette.black-50}",
+          "type": "color"
+        },
+        "inverse-color": {
+          "value": "{o3.color.palette.white}",
+          "type": "color"
+        }
+      },
       "big-number-title": {
         "value": {
           "fontFamily": "{o3.font.family.metric}",
@@ -52,20 +78,6 @@
           "lineHeight": "{o3.font.lineheight-metric2.7}"
         },
         "type": "typography"
-      },
-      "quote": {
-        "icon": {
-          "color": {
-            "value": "{o3.color.palette.teal}",
-            "type": "color"
-          }
-        }
-      },
-      "pullquote": {
-        "color": {
-          "value": "{o3.color.palette.teal}",
-          "type": "color"
-        }
       }
     }
   }
