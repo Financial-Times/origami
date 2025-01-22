@@ -38,7 +38,17 @@
 /// @access private
 @mixin _oSteppedProgressBase() {
 	.o-stepped-progress {
-		@include oPrivateTypographySans(_oSteppedProgressGet('font-scale'));
+		font-family: oPrivateFoundationGet(
+			'o3-typography-use-case-detail-font-family'
+		);
+		font-size: oPrivateFoundationGet('o3-typography-use-case-detail-font-size');
+		font-weight: oPrivateFoundationGet(
+			'o3-typography-use-case-detail-font-weight'
+		);
+		line-height: oPrivateFoundationGet(
+			'o3-typography-use-case-detail-line-height'
+		);
+
 		display: block;
 		position: relative;
 
@@ -252,9 +262,9 @@
 	$variant: 'heavy';
 
 	.o-stepped-progress--heavy {
-		@include oPrivateTypographySans(
-			_oSteppedProgressGet('font-scale', $variant)
-		);
+		strong {
+			font-weight: oPrivateFoundationGet('o3-font-weight-semibold');
+		}
 
 		// Progress bars
 		&::before {

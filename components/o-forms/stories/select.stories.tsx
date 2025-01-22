@@ -3,7 +3,6 @@ import {useEffect} from 'react';
 import './forms.scss';
 import javascript from '../main.js';
 import {Select} from '../src/tsx/Select';
-import {Button} from '../../o-buttons/src/tsx/button';
 
 const hideArg = {
 	table: {
@@ -20,7 +19,7 @@ export default {
 		children: hideArg,
 		inlineInput: hideArg,
 		value: hideArg,
-		theme: hideArg
+		theme: hideArg,
 	},
 } as ComponentMeta<typeof Select>;
 
@@ -94,7 +93,7 @@ MultipleSelectBox.args = {
 SelectBoxWithSuffix.args = {
 	title: 'Select box with suffix',
 	description: 'And prompt text for good measure',
-	suffix: <Button label="Submit" type="secondary" size="big" />,
+	suffix: <button className="demo-submit-button">Submit</button>,
 	children,
 };
 

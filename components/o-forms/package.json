@@ -36,9 +36,7 @@
 		"@financial-times/o-utils": "^2.2.0"
 	},
 	"devDependencies": {
-		"@financial-times/o-buttons": "^7.8.0",
-        "@financial-times/o-colors": "^6.7.0",
-		"@financial-times/o-fonts": "^5.2.0",
+		"@financial-times/o-colors": "^6.7.0",
 		"@financial-times/o-normalise": "^3.3.0"
 	},
 	"engines": {

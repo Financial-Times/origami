@@ -72,6 +72,7 @@
 				@include _oFormsControlsPseudoElements();
 				border: $_o-forms-border;
 				background-color: _oFormsGet('default-background');
+				border-radius: oPrivateFoundationGet('o3-border-radius-1');
 			}
 
 			&:after {
@@ -84,6 +85,7 @@
 				background-color: _oFormsGet('controls-base');
 				opacity: 0;
 				transition: opacity 0.1s ease;
+				border-radius: oPrivateFoundationGet('o3-border-radius-1');
 			}
 
 			// this handles spacing between two input__label spans for the same input element,

@@ -2,12 +2,14 @@
 /// Including styles for a nested link.
 /// @access public
 @mixin oTeaserHeading {
-	@include oPrivateTypographyDisplay(2);
+	font-family: oPrivateFoundationGet('o3-typography-use-case-body-content-base-font-family');
+	font-size: oPrivateFoundationGet('o3-typography-use-case-body-content-base-font-size');
+	font-weight: oPrivateFoundationGet('o3-typography-use-case-body-content-base-font-weight');
+	line-height: oPrivateFoundationGet('o3-typography-use-case-body-content-base-line-height');
 	@include _oTeaserLink();
 	color: $_o-teaser-base-color;
 	margin-top: 0;
 	margin-bottom: 0;
-	font-weight: oFontsWeight(medium);
 }
 
 /// Base styles for a teaser
@@ -54,7 +56,11 @@
 /// Tag styling.
 /// Element should be a link, otherwise use _oTeaserMeta
 @mixin _oTeaserTag {
-	font-weight: oPrivateFoundationGet('o3-font-weight-regular');
+	font-family: oPrivateFoundationGet('o3-typography-use-case-detail-font-family');
+	font-size: oPrivateFoundationGet('o3-typography-use-case-detail-font-size');
+	font-weight: oPrivateFoundationGet('o3-typography-use-case-detail-font-weight');
+	line-height: oPrivateFoundationGet('o3-typography-use-case-detail-line-height');
+  
 	color: inherit;
 	text-decoration: none;
 	border: 0;
@@ -71,7 +77,11 @@
 }
 
 @mixin _oTeaserTagPrefix {
+	font-family: oPrivateFoundationGet('o3-typography-use-case-detail-font-family');
+	font-size: oPrivateFoundationGet('o3-typography-use-case-detail-font-size');
 	font-weight: oPrivateFoundationGet('o3-font-weight-semibold');
+	line-height: oPrivateFoundationGet('o3-typography-use-case-detail-line-height');
+	margin-right: 0.25em;
 }
 
 @mixin _oTeaserTagSuffix {
