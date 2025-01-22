@@ -2,12 +2,14 @@
   "o3": {
     "border-radius": {
       "1": {
-        "value": "4",
-        "type": "borderRadius"
+        "value": "2",
+        "type": "borderRadius",
+        "description": "for default radius on interactive elements"
       },
       "2": {
-        "value": "6",
-        "type": "borderRadius"
+        "value": "4",
+        "type": "borderRadius",
+        "description": "for the outer radius of interactive elements that have both inner and outer boundaries as in box radio button "
       }
     }
   }
