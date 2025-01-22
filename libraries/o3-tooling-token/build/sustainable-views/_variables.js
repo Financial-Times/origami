@@ -3698,9 +3698,10 @@ export default {
 },
 	"o3-border-radius-1": {
 		"shortName": "1",
-		"value": "4px",
-		"originalValue": "4",
+		"value": "2px",
+		"originalValue": "2",
 		"type": "dimension",
+		"description": "for default radius on interactive elements",
 		"attributes": {
 				"item": "1"
 		},
@@ -3714,9 +3715,10 @@ export default {
 },
 	"o3-border-radius-2": {
 		"shortName": "2",
-		"value": "6px",
-		"originalValue": "6",
+		"value": "4px",
+		"originalValue": "4",
 		"type": "dimension",
+		"description": "for the outer radius of interactive elements that have both inner and outer boundaries as in box radio button ",
 		"attributes": {
 				"item": "2"
 		},

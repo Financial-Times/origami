@@ -105,8 +105,8 @@
   --o3-typography-use-case-body-content-emphasis-font-family: Georgia; /* Use this style only for the body copy of content pages, such as articles, live news and other content experience page. */
   --o3-typography-use-case-body-content-emphasis-font-weight: Regular; /* Use this style only for the body copy of content pages, such as articles, live news and other content experience page. */
   --o3-typography-use-case-body-content-emphasis-font-style: italic; /* Use this style only for the body copy of content pages, such as articles, live news and other content experience page. */
-  --o3-border-radius-1: 4px;
-  --o3-border-radius-2: 6px;
+  --o3-border-radius-1: 2px; /* for default radius on interactive elements */
+  --o3-border-radius-2: 4px; /* for the outer radius of interactive elements that have both inner and outer boundaries as in box radio button  */
   --o3-font-family-metric: 'metric 2 VF';
   --o3-font-family-financier-display: 'financier display VF';
   --o3-font-family-georgia: georgia;
