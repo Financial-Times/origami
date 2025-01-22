@@ -157,12 +157,18 @@
 
 	@if index($elements, 'headline') {
 		.o-topper__headline {
-			@include oEditorialTypographyHeading($level: 1);
+			font-family: oPrivateFoundationGet('o3-typography-use-case-headline-md-font-family');
+			font-size: oPrivateFoundationGet('o3-typography-use-case-headline-md-font-size');
+			font-weight: oPrivateFoundationGet('o3-typography-use-case-headline-md-font-weight');
+			line-height: oPrivateFoundationGet('o3-typography-use-case-headline-md-line-height');
 			margin-bottom: oPrivateSpacingByIncrement(5);
 		}
 
 		.o-topper__headline--large {
-			@include oEditorialTypographyHeadline();
+			font-family: oPrivateFoundationGet('o3-typography-use-case-headline-lg-font-family');
+			font-size: oPrivateFoundationGet('o3-typography-use-case-headline-lg-font-size');
+			font-weight: oPrivateFoundationGet('o3-typography-use-case-headline-lg-font-weight');
+			line-height: oPrivateFoundationGet('o3-typography-use-case-headline-lg-line-height');
 			position: relative; //so it appears above the full width background
 			margin-bottom: oPrivateSpacingByIncrement(4);
 		}
