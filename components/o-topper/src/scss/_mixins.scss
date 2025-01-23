@@ -352,10 +352,11 @@
 		color: oPrivateColorsMix($foreground, $color-name, 73);
 	}
 
-	@if $color-name == 'paper' or $color-name == 'wheat' {
+	@if $color-name == 'o3-color-palette-paper' or $color-name == 'o3-color-palette-wheat' {
 		.o-topper__opinion-genre,
 		.o-topper__topic,
 		.o-topper__columnist-name {
+			$color: oPrivateFoundationGet('_o3-editorial-typography-topic-tag-color');
 			color: oPrivateFoundationGet('_o3-editorial-typography-topic-tag-color');
 
 			&:hover {
