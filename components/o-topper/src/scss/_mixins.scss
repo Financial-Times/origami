@@ -161,7 +161,6 @@
 			font-size: oPrivateFoundationGet('o3-typography-use-case-headline-sm-font-size');
 			font-weight: oPrivateFoundationGet('o3-typography-use-case-headline-sm-font-weight');
 			line-height: oPrivateFoundationGet('o3-typography-use-case-headline-sm-line-height');
-			@include oEditorialTypographyDecorated();
 
 			@include oPrivateGridRespondTo('S') {
 				font-family: oPrivateFoundationGet('o3-typography-use-case-headline-md-font-family');
@@ -184,6 +183,8 @@
 			font-size: oPrivateFoundationGet('o3-typography-use-case-display-sm-font-size');
 			font-weight: oPrivateFoundationGet('o3-typography-use-case-display-sm-font-weight');
 			line-height: oPrivateFoundationGet('o3-typography-use-case-display-sm-line-height');
+
+			@include oEditorialTypographyDecorated();
 
 			@include oPrivateGridRespondTo('S') {
 				font-family: oPrivateFoundationGet('o3-typography-use-case-display-md-font-family');
