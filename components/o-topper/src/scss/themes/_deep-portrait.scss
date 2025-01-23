@@ -34,6 +34,7 @@
 		}
 
 		@each $color-name in $colors {
+			$color-name: if($color-name == 'matisse', 'o3-color-palette-#{$color-name}-blue', 'o3-color-palette-#{$color-name}');
 			&.o-topper--color-#{$color-name} {
 				.o-topper__image-caption {
 					$background: oPrivateFoundationGet($color-name);

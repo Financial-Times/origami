@@ -277,6 +277,7 @@
 
 @mixin _oTopperColors($colors) {
 	@each $color in $colors {
+		$color: if($color == 'matisse', 'o3-color-palette-#{$color}-blue', 'o3-color-palette-#{$color}');
 		.o-topper--color-#{$color} {
 			@include _oTopperColor($color);
 		}
