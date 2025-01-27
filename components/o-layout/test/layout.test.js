@@ -74,7 +74,9 @@ describe('Layout', () => {
 			);
 			assert.dom.equal(
 				documentationLayoutElement.querySelector('.o-layout__sidebar'),
-				`<div class="o-layout__sidebar"><nav class="o-layout__navigation"><ol class="o-layout__unstyled-element"><li class="o-layout__unstyled-element o-layout__navigation-title"><a class="o-layout__unstyled-element" href="#this-is-a-h1" aria-current="location">This is a heading level 1</a></li><li class="o-layout__unstyled-element "><a class="o-layout__unstyled-element" href="#this-is-a-h2" aria-current="false">This is a heading level 2</a><ol><li><a class="o-layout__unstyled-element" href="#sub-heading-1" aria-current="false">Sub heading 1</a></li><li><a class="o-layout__unstyled-element" href="#sub-heading-1b" aria-current="false">Sub heading 1b</a></li><li><a class="o-layout__
+				`<div class="o-layout__sidebar"><nav class="o-layout__navigation"><ol class="o-layout__unstyled-element"><li class="o-layout__unstyled-element o-layout__navigation-title"><a class="o-layout__unstyled-element" href="#this-is-a-h1" aria-current="location">This is a heading level 1</a></li><li class="o-layout__unstyled-element "><a class="o-layout__unstyled-element" href="#this-is-a-h2" aria-current="false">This is a heading level 2</a><ol><li><a class="o-layout__unstyled-element" href="#sub-heading-1" aria-current="false">Sub heading 1</a></li><li><a class="o-layout__unstyled-element" href="#sub-heading-1b" aria-current="false">Sub heading 1b</a></li><li><a class="o-layout__unstyled-element" href="#sub-heading-2" aria-current="false">Sub heading 2</a></li></ol></li><li class="o-layout__unstyled-element "><a class="o-layout__unstyled-element" href="#this-is-a-second-h2" aria-current="false">This is a second heading level 2</a><ol><li><a class="o-layout__unstyled-element" href="#sub-heading-a" aria-current="false">Sub heading a</a></li></ol></li></ol></nav></div>`
+			);
+		});
 
 		it('does not construct the navigation by default for the query layout', () => {
 			new Layout(queryLayoutElement);
