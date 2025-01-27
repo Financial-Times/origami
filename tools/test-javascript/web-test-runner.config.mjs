@@ -78,6 +78,12 @@ export default {
 	rootDir: '../../',
 	// Use our custom html which loads a css file (which will contains the components css)
 	testRunnerHtml,
+	testFramework: {
+		config: {
+			timeout: '5000',
+		},
+	},
+	concurrency: 1,
 	plugins: [
 		// Use our plugin to compile the components sass into the css which is loaded into the testRunnerHtml
 		await compileComponentsSassPlugin(group),

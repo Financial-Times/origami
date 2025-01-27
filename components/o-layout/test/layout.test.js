@@ -69,7 +69,7 @@ describe('Layout', () => {
 				},
 				'the correct link never became listed as the current location',
 				{
-					timeout: 3000, // 3 seconds
+					timeout: 2000, // 2 seconds
 				}
 			);
 			assert.dom.equal(
