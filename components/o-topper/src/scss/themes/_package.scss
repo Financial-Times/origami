@@ -37,11 +37,10 @@
 
 	%_o-topper__tag,
 	.o-topper__headline {
-		margin: 0;
-		font-family: oPrivateFoundationGet('o3-typography-use-case-headline-md-font-family');
-		font-size: oPrivateFoundationGet('o3-typography-use-case-headline-md-font-size');
-		font-weight: oPrivateFoundationGet('o3-typography-use-case-headline-md-font-weight');
-		line-height: oPrivateFoundationGet('o3-typography-use-case-headline-md-line-height');
+		font-family: oPrivateFoundationGet('o3-typography-use-case-title-md-font-family');
+		font-size: oPrivateFoundationGet('o3-font-size-metric2-5');
+		font-weight: oPrivateFoundationGet('o3-typography-use-case-title-md-font-weight');
+		line-height: oPrivateFoundationGet('o3-font-lineheight-metric2-5');
 	}
 
 	.o-topper__headline {

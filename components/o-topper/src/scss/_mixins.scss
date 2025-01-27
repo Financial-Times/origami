@@ -158,6 +158,7 @@
 	@if index($elements, 'headline') {
 		.o-topper__headline {
 			margin: 0;
+			margin-bottom: oPrivateSpacingByIncrement(5);
 			font-family: oPrivateFoundationGet('o3-typography-use-case-headline-sm-font-family');
 			font-size: oPrivateFoundationGet('o3-typography-use-case-headline-sm-font-size');
 			font-weight: oPrivateFoundationGet('o3-typography-use-case-headline-sm-font-weight');
@@ -176,7 +177,6 @@
 				font-weight: oPrivateFoundationGet('o3-typography-use-case-headline-lg-font-weight');
 				line-height: oPrivateFoundationGet('o3-typography-use-case-headline-lg-line-height');
 			}
-			margin-bottom: oPrivateSpacingByIncrement(5);
 		}
 
 		.o-topper__headline--large {
