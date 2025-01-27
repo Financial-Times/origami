@@ -190,10 +190,6 @@
           "value": "84",
           "type": "dimension"
         },
-        "negative-3": {
-          "value": "16",
-          "type": "dimension"
-        },
         "negative-2": {
           "value": "16",
           "type": "dimension"
@@ -242,10 +238,6 @@
         },
         "9": {
           "value": "72",
-          "type": "fontSizes"
-        },
-        "negative-3": {
-          "value": "10",
           "type": "fontSizes"
         },
         "negative-2": {

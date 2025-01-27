@@ -791,24 +791,6 @@ export default {
 		"css": "--o3-font-lineheight-metric2-9",
 		"figma": "o3/font/lineheight-metric2/9"
 },
-	"o3-font-lineheight-metric2-negative-3": {
-		"shortName": "negative-3",
-		"value": "16px",
-		"originalValue": "16",
-		"type": "lineHeights",
-		"attributes": {
-				"item": "lineheight-metric2",
-				"subitem": "negative-3"
-		},
-		"path": [
-				"o3",
-				"font",
-				"lineheight-metric2",
-				"negative-3"
-		],
-		"css": "--o3-font-lineheight-metric2-negative-3",
-		"figma": "o3/font/lineheight-metric2/negative-3"
-},
 	"o3-font-lineheight-metric2-negative-2": {
 		"shortName": "negative-2",
 		"value": "16px",
@@ -1024,24 +1006,6 @@ export default {
 		],
 		"css": "--o3-font-size-metric2-9",
 		"figma": "o3/font/size-metric2/9"
-},
-	"o3-font-size-metric2-negative-3": {
-		"shortName": "negative-3",
-		"value": "10px",
-		"originalValue": "10",
-		"type": "fontSize",
-		"attributes": {
-				"item": "size-metric2",
-				"subitem": "negative-3"
-		},
-		"path": [
-				"o3",
-				"font",
-				"size-metric2",
-				"negative-3"
-		],
-		"css": "--o3-font-size-metric2-negative-3",
-		"figma": "o3/font/size-metric2/negative-3"
 },
 	"o3-font-size-metric2-negative-2": {
 		"shortName": "negative-2",
