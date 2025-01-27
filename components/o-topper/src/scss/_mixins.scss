@@ -157,6 +157,7 @@
 
 	@if index($elements, 'headline') {
 		.o-topper__headline {
+			margin: 0;
 			font-family: oPrivateFoundationGet('o3-typography-use-case-headline-sm-font-family');
 			font-size: oPrivateFoundationGet('o3-typography-use-case-headline-sm-font-size');
 			font-weight: oPrivateFoundationGet('o3-typography-use-case-headline-sm-font-weight');

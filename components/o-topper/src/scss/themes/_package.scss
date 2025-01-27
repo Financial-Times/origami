@@ -37,6 +37,7 @@
 
 	%_o-topper__tag,
 	.o-topper__headline {
+		margin: 0;
 		font-family: oPrivateFoundationGet('o3-typography-use-case-headline-md-font-family');
 		font-size: oPrivateFoundationGet('o3-typography-use-case-headline-md-font-size');
 		font-weight: oPrivateFoundationGet('o3-typography-use-case-headline-md-font-weight');
