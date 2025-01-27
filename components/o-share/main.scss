@@ -134,7 +134,7 @@
 			}
 			.o-share__text {
 				// Horizontal space is tight for vertical share labels.
-				@include oPrivateTypographySans($scale: -2);
+				@include oPrivateTypographySans($scale: -1);
 				word-wrap: anywhere;
 				overflow-wrap: anywhere;
 			}
