@@ -11,6 +11,7 @@
 @include oButtons();
 @import '@financial-times/o-overlay/main';
 @include oOverlay();
+
 @mixin swatchStyle() {
 	appearance: none;
 	border: 1px solid lightgrey;
@@ -127,8 +128,8 @@
 			right: 20px;
 		}
 
+		/* stylelint-disable selector-max-id */
 		#add-mix {
-			//stylelint-disable-line selector-max-id
 			background-image: none;
 			font-size: inherit;
 			float: none;
@@ -188,6 +189,7 @@
 		}
 
 		.rating-result {
+
 			&--aaa,
 			&--aa {
 				color: oColorsMix('jade', 'black', 70);
