@@ -198,7 +198,10 @@
 /// Hero standalone theme styles
 @mixin _oTeaserHeroStandalone {
 	.o-teaser__heading {
-		@include oPrivateTypographySans(4);
+		font-family: oPrivateFoundationGet('o3-typography-use-case-headline-sm-font-family');
+		font-size: oPrivateFoundationGet('o3-typography-use-case-headline-sm-font-size');
+		font-weight: oPrivateFoundationGet('o3-typography-use-case-headline-sm-font-weight');
+		line-height: oPrivateFoundationGet('o3-typography-use-case-headline-sm-line-height');
 	}
 
 	.o-teaser__image-container {
