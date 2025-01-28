@@ -2,10 +2,10 @@
 /// Including styles for a nested link.
 /// @access public
 @mixin oTeaserHeading {
-	font-family: oPrivateFoundationGet('o3-typography-use-case-body-content-base-font-family');
-	font-size: oPrivateFoundationGet('o3-typography-use-case-body-content-base-font-size');
-	font-weight: oPrivateFoundationGet('o3-typography-use-case-body-content-base-font-weight');
-	line-height: oPrivateFoundationGet('o3-typography-use-case-body-content-base-line-height');
+	font-family: oPrivateFoundationGet('o3-typography-use-case-headline-sm-font-family');
+	font-size: oPrivateFoundationGet('o3-font-size-2');
+	font-weight: oPrivateFoundationGet('o3-font-weight-medium');
+	line-height: oPrivateFoundationGet('o3-font-lineheight-2');
 	@include _oTeaserLink();
 	color: $_o-teaser-base-color;
 	margin-top: 0;
