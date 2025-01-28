@@ -18,7 +18,11 @@
 			border-right: 1px solid _oHeaderGet('drawer-border');
 			// use a 2D transform because 3D are unsupported by IE9
 			transform: translateX(-100%);
-			transform: translate3d(-100%, 0, 0); // stylelint-disable-line declaration-block-no-duplicate-properties
+			transform: translate3d(
+				-100%,
+				0,
+				0
+			); // stylelint-disable-line declaration-block-no-duplicate-properties
 
 			// this is literally the specification example for will-change
 			will-change: transform;
@@ -34,7 +38,11 @@
 			&.o-header__drawer--open {
 				// use a 2D transform because 3D are unsupported by IE9
 				transform: translateX(0);
-				transform: translate3d(0, 0, 0); // stylelint-disable-line declaration-block-no-duplicate-properties
+				transform: translate3d(
+					0,
+					0,
+					0
+				); // stylelint-disable-line declaration-block-no-duplicate-properties
 			}
 		}
 	}
@@ -97,15 +105,37 @@
 				);
 			}
 
-			.o-header__drawer-current-edition {
-				font-weight: 600;
-				color: oPrivateFoundationGet('o3-color-palette-black-60');
-			}
-
 			.o-header__drawer-menu-item {
 				padding-top: 12px;
 				padding-right: 12px;
-				font-size: 18px;
+				font-family: oPrivateFoundationGet(
+					'o3-typography-use-case-body-base-font-family'
+				);
+				font-size: oPrivateFoundationGet(
+					'o3-typography-use-case-body-base-font-size'
+				);
+				line-height: oPrivateFoundationGet(
+					'o3-typography-use-case-body-base-line-height'
+				);
+				font-weight: oPrivateFoundationGet(
+					'o3-typography-use-case-body-base-font-weight'
+				);
+			}
+
+			.o-header__drawer-current-edition {
+				font-family: oPrivateFoundationGet(
+					'o3-typography-use-case-body-highlight-font-family'
+				);
+				font-size: oPrivateFoundationGet(
+					'o3-typography-use-case-body-highlight-font-size'
+				);
+				line-height: oPrivateFoundationGet(
+					'o3-typography-use-case-body-highlight-line-height'
+				);
+				font-weight: oPrivateFoundationGet(
+					'o3-typography-use-case-body-highlight-font-weight'
+				);
+				color: oPrivateFoundationGet('o3-color-palette-black-60');
 			}
 		}
 	}
@@ -200,7 +230,6 @@
 				'size': 'big',
 			)
 		);
-		border-radius: 0;
 	}
 
 	//
@@ -269,11 +298,21 @@
 	}
 
 	.o-header__drawer-menu-item--heading {
+		font-family: oPrivateFoundationGet(
+			'o3-typography-use-case-body-highlight-font-family'
+		);
+		font-size: oPrivateFoundationGet(
+			'o3-typography-use-case-body-highlight-font-size'
+		);
+		line-height: oPrivateFoundationGet(
+			'o3-typography-use-case-body-highlight-line-height'
+		);
+		font-weight: oPrivateFoundationGet(
+			'o3-typography-use-case-body-highlight-font-weight'
+		);
 		margin-bottom: 0px;
-		font-size: 16px;
 		background-color: _oHeaderGet('drawer-menu-item-background');
 		padding: (div($_o-header-drawer-padding-x, 2)) $_o-header-drawer-padding-x;
-		font-weight: 600;
 	}
 
 	//
@@ -356,7 +395,18 @@
 		display: block;
 		padding: $_o-header-drawer-padding-y $_o-header-drawer-padding-x;
 		border-bottom: 0;
-		font-size: 18px;
+		font-family: oPrivateFoundationGet(
+			'o3-typography-use-case-body-base-font-family'
+		);
+		font-size: oPrivateFoundationGet(
+			'o3-typography-use-case-body-base-font-size'
+		);
+		line-height: oPrivateFoundationGet(
+			'o3-typography-use-case-body-base-line-height'
+		);
+		font-weight: oPrivateFoundationGet(
+			'o3-typography-use-case-body-base-font-weight'
+		);
 		text-decoration: none;
 		// This value exists to show the focus ring
 		// We need to keep it in sync to the outline width in o-normalise
@@ -400,7 +450,18 @@
 	.o-header__drawer-menu-link-detail {
 		display: block;
 		margin-top: 0.25em;
-		font-size: 14px;
+		font-family: oPrivateFoundationGet(
+			'o3-typography-use-case-body-base-font-family'
+		);
+		font-size: oPrivateFoundationGet(
+			'o3-typography-use-case-body-base-font-size'
+		);
+		line-height: oPrivateFoundationGet(
+			'o3-typography-use-case-body-base-line-height'
+		);
+		font-weight: oPrivateFoundationGet(
+			'o3-typography-use-case-body-base-font-weight'
+		);
 	}
 
 	.o-header__ask-ft-button--drawer {
