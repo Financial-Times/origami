@@ -182,7 +182,10 @@
 	// rather than assume it, as our sans and serif fonts
 	// use different font weights.
 	@if ($type == 'author' or $type == 'topic') {
-		@include oPrivateTypographySans($weight: 'semibold');
+		font-family: oPrivateFoundationGet('o3-typography-use-case-detail-font-family');
+		font-size: oPrivateFoundationGet('o3-typography-use-case-detail-font-size');
+		font-weight: oPrivateFoundationGet('o3-font-weight-semibold');
+		line-height: oPrivateFoundationGet('o3-typography-use-case-detail-line-height');
 	}
 
 	// Apply tag link styles only to anchor elements.

@@ -51,14 +51,13 @@
 	.o-topper__opinion-genre {
 		font-family: oPrivateFoundationGet('o3-typography-use-case-body-highlight-font-family');
 		font-size: oPrivateFoundationGet('o3-typography-use-case-body-highlight-font-size');
-		font-weight: oPrivateFoundationGet('o3-typography-use-case-body-highlight-font-weight');
 		line-height: oPrivateFoundationGet('o3-typography-use-case-body-highlight-line-height');
 	}
 }
 
 @mixin _oTopperOpinionGenre {
 	@extend %_o-topper__tag;
-	font-weight: normal;
+	font-weight: oPrivateFoundationGet('o3-font-weight-regular');
 	color: oPrivateFoundationGet('o3-color-palette-oxford');
 }
 
