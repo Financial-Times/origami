@@ -167,8 +167,8 @@
 
 @mixin _oTeaserSpecialReportPackageList {
 	.package-teaser {
-		$package-special-report-color: oPrivateFoundationGet('o3-color-palette-claret-70');
 		$package-special-report-background: oPrivateFoundationGet('o3-color-palette-claret-70');
+		$package-special-report-color: oPrivateColorsGetTextColor($package-special-report-background, 100);
 
 		&__list-item a {
 			color: oPrivateFoundationGet('o3-color-palette-white');
