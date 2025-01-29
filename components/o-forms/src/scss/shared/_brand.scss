@@ -73,7 +73,7 @@ $_o-forms-shared-brand-config: (
 						error-summary-border-inverse:
 							oPrivateFoundationGet('o3-color-palette-claret-100'),
 						'professional': (
-							default-text: oPrivateFoundationGet('o3-color-palette-black-80'),
+							default-text: oPrivateFoundationGet('o3-color-use-case-body-text'),
 							controls-base: oPrivateFoundationGet('o3-color-palette-slate'),
 							controls-negative-checked-background:
 								oPrivateFoundationGet('o3-color-palette-slate'),
@@ -83,7 +83,8 @@ $_o-forms-shared-brand-config: (
 								oPrivateFoundationGet('o3-color-palette-white'),
 						),
 						'professional-inverse': (
-							default-text: oPrivateFoundationGet('o3-color-palette-white'),
+							default-text:
+								oPrivateFoundationGet('o3-color-use-case-body-inverse-text'),
 							controls-base: oPrivateFoundationGet('o3-color-palette-mint'),
 							default-border: oPrivateFoundationGet('o3-color-palette-mint'),
 							controls-checked-base:

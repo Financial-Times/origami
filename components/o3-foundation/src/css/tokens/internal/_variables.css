@@ -104,7 +104,6 @@
   --o3-font-lineheight-metric2-7: 56px;
   --o3-font-lineheight-metric2-8: 72px;
   --o3-font-lineheight-metric2-9: 84px;
-  --o3-font-lineheight-metric2-negative-3: 16px;
   --o3-font-lineheight-metric2-negative-2: 16px;
   --o3-font-lineheight-metric2-negative-1: 20px;
   --o3-font-size-metric2-0: 16px;
@@ -117,11 +116,10 @@
   --o3-font-size-metric2-7: 48px;
   --o3-font-size-metric2-8: 64px;
   --o3-font-size-metric2-9: 72px;
-  --o3-font-size-metric2-negative-3: 10px;
   --o3-font-size-metric2-negative-2: 12px;
   --o3-font-size-metric2-negative-1: 14px;
-  --o3-border-radius-1: 4px;
-  --o3-border-radius-2: 6px;
+  --o3-border-radius-1: 2px; /* for default radius on interactive elements */
+  --o3-border-radius-2: 4px; /* for the outer radius of interactive elements that have both inner and outer boundaries as in box radio button  */
   --o3-color-use-case-link-text: var(--o3-color-palette-teal);
   --o3-color-use-case-link-text-hover: var(--o3-color-palette-teal-30);
   --o3-color-use-case-link-inverse-text: var(--o3-color-palette-white);
