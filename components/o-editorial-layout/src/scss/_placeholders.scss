@@ -8,7 +8,7 @@
 	// - match body
 	%_o-editorial-layout-list {
 		@extend %_o-editorial-layout-body;
-		@include oEditorialTypographyList();
+		margin: 0;
 	}
 	// h1
 	// - small margin below by default

@@ -1,5 +1,4 @@
 @import '@financial-times/o-private-foundation/main';
-@import '@financial-times/o-editorial-typography/main';
 @import '@financial-times/o-quote/main';
 @import '@financial-times/o-brand/main';
 
@@ -104,28 +103,17 @@
 			}
 
 			> ol {
-				@include oEditorialTypographyList(
-					'ordered',
-					$include-base-styles: false
-				);
+				margin: 0 0 oPrivateFoundationGet('o3-spacing-s');
 			}
 
 			> ul {
-				@include oEditorialTypographyList(
-					'unordered',
-					$include-base-styles: false
-				);
+				margin: 0 0 oPrivateFoundationGet('o3-spacing-s');
 			}
 
 			> footer {
 				@include oPrivateTypographySans($scale: 1);
 				line-height: 24px;
 				color: oPrivateFoundationGet('o3-color-use-case-body-text');
-			}
-
-			> figure > figcaption,
-			> figcaption {
-				@include oEditorialTypographyCaption();
 			}
 
 			> blockquote {
