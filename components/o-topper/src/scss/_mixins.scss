@@ -369,7 +369,7 @@
 		}
 	}
 
-	@if $color-name == 'sky' {
+	@if $color-name == 'o3-color-palette-sky' {
 		.o-topper__tags,
 		.o-topper__topic,
 		.o-topper__columnist-name {
@@ -381,7 +381,7 @@
 		}
 	}
 
-	@if $color-name == 'matisse' {
+	@if $color-name == 'o3-color-palette-matisse-blue' {
 		.o-topper__columnist-name {
 			&:hover {
 				color: oPrivateColorsMix($foreground, $color-name, 73);
