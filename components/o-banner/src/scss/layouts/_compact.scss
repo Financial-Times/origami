@@ -30,7 +30,18 @@
 
 @mixin _oBannerCompactInner {
 	@include oPrivateVisualEffectsShadowContent('high');
-	@include oPrivateTypographySans($scale: 0);
+	font-family: oPrivateFoundationGet(
+		'o3-typography-use-case-body-base-font-family'
+	);
+	font-size: oPrivateFoundationGet(
+		'o3-typography-use-case-body-base-font-size'
+	);
+	line-height: oPrivateFoundationGet(
+		'o3-typography-use-case-body-base-line-height'
+	);
+	font-weight: oPrivateFoundationGet(
+		'o3-typography-use-case-body-base-font-weight'
+	);
 	background: _oBannerGet('background-color');
 	display: block;
 	padding: $_o-banner-spacing;
@@ -39,6 +50,18 @@
 }
 
 @mixin _oBannerCompactContent {
+	font-family: oPrivateFoundationGet(
+		'o3-typography-use-case-body-base-font-family'
+	);
+	font-size: oPrivateFoundationGet(
+		'o3-typography-use-case-body-base-font-size'
+	);
+	line-height: oPrivateFoundationGet(
+		'o3-typography-use-case-body-base-line-height'
+	);
+	font-weight: oPrivateFoundationGet(
+		'o3-typography-use-case-body-base-font-weight'
+	);
 	padding: 0;
 
 	h1,
@@ -48,24 +71,32 @@
 	h5,
 	h6,
 	ul li {
-		@include oPrivateTypographySans($scale: 0);
-	}
-	@include oPrivateGridRespondTo($until: M) {
-		&,
-		h1,
-		h2,
-		h3,
-		h4,
-		h5,
-		h6,
-		ul li {
-			@include oPrivateTypographySans($scale: 0);
-		}
+		font-family: oPrivateFoundationGet(
+			'o3-typography-use-case-body-highlight-font-family'
+		);
+		font-size: oPrivateFoundationGet(
+			'o3-typography-use-case-body-highlight-font-size'
+		);
+		line-height: oPrivateFoundationGet(
+			'o3-typography-use-case-body-highlight-line-height'
+		);
+		font-weight: oPrivateFoundationGet(
+			'o3-typography-use-case-body-highlight-font-weight'
+		);
 	}
 }
 
 @mixin _oBannerCompactHeading {
-	@include oPrivateTypographySans($scale: 3);
+	font-family: oPrivateFoundationGet(
+		'o3-typography-use-case-title-md-font-family'
+	);
+	font-size: oPrivateFoundationGet('o3-typography-use-case-title-md-font-size');
+	line-height: oPrivateFoundationGet(
+		'o3-typography-use-case-title-md-line-height'
+	);
+	font-weight: oPrivateFoundationGet(
+		'o3-typography-use-case-title-md-font-weight'
+	);
 	padding-right: $_o-banner-spacing;
 
 	h1,
@@ -74,19 +105,20 @@
 	h4,
 	h5,
 	h6 {
-		@include oPrivateTypographySans($scale: 3, $weight: 'semibold');
+		font-family: oPrivateFoundationGet(
+			'o3-typography-use-case-title-lg-font-family'
+		);
+		font-size: oPrivateFoundationGet(
+			'o3-typography-use-case-title-lg-font-size'
+		);
+		line-height: oPrivateFoundationGet(
+			'o3-typography-use-case-title-lg-line-height'
+		);
+		font-weight: oPrivateFoundationGet(
+			'o3-typography-use-case-title-lg-font-weight'
+		);
 	}
-	@include oPrivateGridRespondTo($until: M) {
-		&,
-		h1,
-		h2,
-		h3,
-		h4,
-		h5,
-		h6 {
-			@include oPrivateTypographySans($scale: 2);
-		}
-	}
+
 	&:after {
 		margin-top: oPrivateSpacingByName('s2');
 		margin-bottom: oPrivateSpacingByName('s3');

@@ -48,7 +48,16 @@
 }
 
 @mixin _oBannerInner {
-	@include oPrivateTypographySans($scale: 2);
+	font-family: oPrivateFoundationGet(
+		'o3-typography-use-case-body-lg-font-family'
+	);
+	font-size: oPrivateFoundationGet('o3-typography-use-case-body-lg-font-size');
+	line-height: oPrivateFoundationGet(
+		'o3-typography-use-case-body-lg-line-height'
+	);
+	font-weight: oPrivateFoundationGet(
+		'o3-typography-use-case-body-lg-font-weight'
+	);
 	-webkit-font-smoothing: antialiased;
 	position: relative;
 	display: flex;
@@ -61,7 +70,18 @@
 	box-sizing: border-box;
 
 	@include oPrivateGridRespondTo($until: S) {
-		@include oPrivateTypographySans($scale: 0);
+		font-family: oPrivateFoundationGet(
+			'o3-typography-use-case-body-base-font-family'
+		);
+		font-size: oPrivateFoundationGet(
+			'o3-typography-use-case-body-base-font-size'
+		);
+		line-height: oPrivateFoundationGet(
+			'o3-typography-use-case-body-base-line-height'
+		);
+		font-weight: oPrivateFoundationGet(
+			'o3-typography-use-case-body-base-font-weight'
+		);
 		display: block;
 		padding: $_o-banner-spacing;
 		padding-bottom: $_o-banner-spacing - $_o-banner-brand-border;
@@ -84,7 +104,18 @@
 	h4,
 	h5,
 	h6 {
-		@include oPrivateTypographySans($scale: 3, $weight: 'semibold');
+		font-family: oPrivateFoundationGet(
+			'o3-typography-use-case-title-lg-font-family'
+		);
+		font-size: oPrivateFoundationGet(
+			'o3-typography-use-case-title-lg-font-size'
+		);
+		line-height: oPrivateFoundationGet(
+			'o3-typography-use-case-title-lg-line-height'
+		);
+		font-weight: oPrivateFoundationGet(
+			'o3-typography-use-case-title-lg-font-weight'
+		);
 		margin-top: 0;
 		margin-bottom: oPrivateSpacingByName('s1');
 	}
@@ -101,10 +132,6 @@
 		margin-top: oPrivateSpacingByName('s3');
 		margin-bottom: 0;
 
-		li {
-			@include oPrivateTypographySans($scale: 2);
-			line-height: oPrivateSpacingByIncrement(7);
-		}
 		li:before {
 			color: inherit;
 		}
@@ -147,13 +174,22 @@
 		margin-bottom: oPrivateSpacingByName('s4');
 
 		// Color is set separately for easier overriding later
-		border-bottom: oPrivateSpacingByIncrement(2) solid;
+		border-bottom: 0.6ex solid;
 		border-color: _oBannerGet('heading-rule-color');
 	}
 }
 
 @mixin _oBannerActions {
-	@include oPrivateTypographySans($scale: 2);
+	font-family: oPrivateFoundationGet(
+		'o3-typography-use-case-body-lg-font-family'
+	);
+	font-size: oPrivateFoundationGet('o3-typography-use-case-body-lg-font-size');
+	line-height: oPrivateFoundationGet(
+		'o3-typography-use-case-body-lg-line-height'
+	);
+	font-weight: oPrivateFoundationGet(
+		'o3-typography-use-case-body-lg-font-weight'
+	);
 	display: flex;
 	align-items: center;
 
@@ -194,7 +230,18 @@
 
 @mixin _oBannerLink {
 	@include oPrivateTypographyLink();
-	@include oPrivateTypographySans($scale: 0);
+	font-family: oPrivateFoundationGet(
+		'o3-typography-use-case-body-base-font-family'
+	);
+	font-size: oPrivateFoundationGet(
+		'o3-typography-use-case-body-base-font-size'
+	);
+	line-height: oPrivateFoundationGet(
+		'o3-typography-use-case-body-base-line-height'
+	);
+	font-weight: oPrivateFoundationGet(
+		'o3-typography-use-case-body-base-font-weight'
+	);
 	white-space: nowrap;
 	&:focus,
 	&:focus-visible {
