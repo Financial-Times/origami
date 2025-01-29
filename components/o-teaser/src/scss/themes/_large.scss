@@ -10,9 +10,9 @@
 
 	.o-teaser__heading {
 		font-family: oPrivateFoundationGet('o3-typography-use-case-headline-sm-font-family');
-		font-size: oPrivateFoundationGet('o3-font-size-3');
-		font-weight: oPrivateFoundationGet('o3-font-weight-medium');
-		line-height: oPrivateFoundationGet('o3-font-lineheight-3');
+		font-size: oPrivateFoundationGet('o3-typography-use-case-headline-sm-font-size-');
+		font-weight: oPrivateFoundationGet('o3-typography-use-case-headline-sm-font-weight');
+		line-height: oPrivateFoundationGet('o3-typography-use-case-headline-sm-line-height');
 	}
 
 	.o-teaser__standfirst {

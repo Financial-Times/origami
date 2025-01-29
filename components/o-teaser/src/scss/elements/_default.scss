@@ -3,9 +3,9 @@
 /// @access public
 @mixin oTeaserHeading {
 	font-family: oPrivateFoundationGet('o3-typography-use-case-headline-sm-font-family');
-	font-size: oPrivateFoundationGet('o3-font-size-2');
-	font-weight: oPrivateFoundationGet('o3-font-weight-medium');
-	line-height: oPrivateFoundationGet('o3-font-lineheight-2');
+	font-size: oPrivateFoundationGet('o3-typography-use-case-headline-sm-font-size');
+	font-weight: oPrivateFoundationGet('o3-typography-use-case-headline-sm-font-weight');
+	line-height: oPrivateFoundationGet('o3-typography-use-case-headline-sm-line-height');
 	@include _oTeaserLink();
 	color: $_o-teaser-base-color;
 	margin-top: 0;
