@@ -1406,8 +1406,8 @@ export default {
 },
 	"o3-typography-use-case-headline-sm-font-size": {
 		"shortName": "fontSize",
-		"value": "28px",
-		"originalValue": "{o3.font.size-metric2.4}",
+		"value": "24px",
+		"originalValue": "{o3.font.size-metric2.3}",
 		"type": "dimension",
 		"description": "Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News).",
 		"attributes": {
@@ -1428,7 +1428,7 @@ export default {
 	"o3-typography-use-case-headline-sm-line-height": {
 		"shortName": "lineHeight",
 		"value": "32px",
-		"originalValue": "{o3.font.lineheight-metric2.4}",
+		"originalValue": "{o3.font.lineheight-metric2.3}",
 		"type": "number",
 		"description": "Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News).",
 		"attributes": {

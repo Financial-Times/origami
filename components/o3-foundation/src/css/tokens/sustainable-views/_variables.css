@@ -141,8 +141,8 @@
   --o3-typography-use-case-headline-md-line-height: var(--o3-font-lineheight-metric2-5); /* Use this style for medium screens headlines in smaller teasers and text only toppers (eg. Opinion and News). */
   --o3-typography-use-case-headline-sm-font-family: var(--o3-font-family-metric); /* Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News). */
   --o3-typography-use-case-headline-sm-font-weight: var(--o3-font-weight-regular); /* Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News). */
-  --o3-typography-use-case-headline-sm-font-size: var(--o3-font-size-metric2-4); /* Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News). */
-  --o3-typography-use-case-headline-sm-line-height: var(--o3-font-lineheight-metric2-4); /* Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News). */
+  --o3-typography-use-case-headline-sm-font-size: var(--o3-font-size-metric2-3); /* Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News). */
+  --o3-typography-use-case-headline-sm-line-height: var(--o3-font-lineheight-metric2-3); /* Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News). */
   --o3-typography-use-case-title-lg-font-family: var(--o3-font-family-metric); /* Use for the main page title H1 in functional pages such as account and settings. Use across all breakpoints. */
   --o3-typography-use-case-title-lg-font-weight: var(--o3-font-weight-semibold); /* Use for the main page title H1 in functional pages such as account and settings. Use across all breakpoints. */
   --o3-typography-use-case-title-lg-font-size: var(--o3-font-size-metric2-4); /* Use for the main page title H1 in functional pages such as account and settings. Use across all breakpoints. */
@@ -184,10 +184,10 @@
   --o3-typography-use-case-body-content-emphasis-font-family: var(--o3-font-family-financier-text); /* Use this style only for the body copy of content pages, such as articles, live news and other content experience page. */
   --o3-typography-use-case-body-content-emphasis-font-size: var(--o3-font-size-3); /* Use this style only for the body copy of content pages, such as articles, live news and other content experience page. */
   --o3-typography-use-case-body-content-emphasis-line-height: var(--o3-font-lineheight-4); /* Use this style only for the body copy of content pages, such as articles, live news and other content experience page. */
-  --o3-focus-use-case-ring-inner: 0px 0px 0px 4px var(--o3-color-palette-white);
-  --o3-focus-use-case-ring-outer: 0px 0px 0px 8px var(--o3-color-palette-black);
-  --o3-focus-use-case-ring-inverse-inner: 0px 0px 0px 4px var(--o3-color-palette-black);
-  --o3-focus-use-case-ring-inverse-outer: 0px 0px 0px 8px var(--o3-color-palette-white);
-  --o3-focus-use-case-outline-color: 0px 0px 0px 2px var(--o3-color-palette-black-50);
-  --o3-focus-use-case-outline-inverse-color: 0px 0px 0px 2px var(--o3-color-palette-white);
+  --o3-focus-use-case-ring-inner: 0px 0px 0px 4px #ffffff;
+  --o3-focus-use-case-ring-outer: 0px 0px 0px 8px #000000;
+  --o3-focus-use-case-ring-inverse-inner: 0px 0px 0px 4px #000000;
+  --o3-focus-use-case-ring-inverse-outer: 0px 0px 0px 8px #ffffff;
+  --o3-focus-use-case-outline-color: 0px 0px 0px 2px #807973;
+  --o3-focus-use-case-outline-inverse-color: 0px 0px 0px 2px #ffffff;
 }
