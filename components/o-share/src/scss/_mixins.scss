@@ -17,7 +17,7 @@
 	}
 
 	.o-share__icon__image > svg {
-		fill: currentColor
+		fill: currentColor;
 	}
 
 	// Output themed icons.
@@ -114,8 +114,10 @@
 		}
 		// Margins between the icon and the text need setting.
 		&.o-share--vertical .o-share__action--labelled .o-share__text {
-			margin: oPrivateSpacingByName('s1');
-			margin-top: calc(-#{$icon-whitespace} + #{oPrivateSpacingByName('s1')});
+			margin: calc(-#{$icon-whitespace} + #{oPrivateSpacingByName('s1')})
+				0
+				oPrivateSpacingByName('s1')
+				0;
 		}
 		// When vertical, the width of the actions must not increase.
 		&.o-share--vertical .o-share__action {
