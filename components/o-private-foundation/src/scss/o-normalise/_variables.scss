@@ -1,3 +1,10 @@
 /// @access private
-$_o-private-normalise-focus-ring: oPrivateFoundationGet('o3-focus-use-case-ring-inverse-outer'), oPrivateFoundationGet('o3-focus-use-case-ring-inverse-inner');
-$_o-private-normalise-reverse-focus-ring: oPrivateFoundationGet('o3-focus-use-case-ring-inverse-inner'), oPrivateFoundationGet('o3-focus-use-case-ring-inverse-outer');
+$_o-private-normalise-focus-ring: oPrivateFoundationGet(
+		'o3-focus-use-case-ring-inner'
+	),
+	oPrivateFoundationGet('o3-focus-use-case-ring-outer');
+
+$_o-private-normalise-reverse-focus-ring: oPrivateFoundationGet(
+		'o3-focus-use-case-ring-inverse-inner'
+	),
+	oPrivateFoundationGet('o3-focus-use-case-ring-inverse-outer');
