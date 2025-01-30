@@ -2,11 +2,11 @@
 /// Including styles for a nested link.
 /// @access public
 @mixin oTeaserHeading {
+	@include _oTeaserLink();
 	font-family: oPrivateFoundationGet('o3-typography-use-case-headline-sm-font-family');
 	font-size: oPrivateFoundationGet('o3-typography-use-case-headline-sm-font-size');
 	font-weight: oPrivateFoundationGet('o3-typography-use-case-headline-sm-font-weight');
 	line-height: oPrivateFoundationGet('o3-typography-use-case-headline-sm-line-height');
-	@include _oTeaserLink();
 	color: $_o-teaser-base-color;
 	margin-top: 0;
 	margin-bottom: 0;
@@ -94,17 +94,16 @@
 
 /// Styles for standfirst element
 @mixin _oTeaserStandfirst {
+	@include _oTeaserLink();
 	font-family: oPrivateFoundationGet('o3-typography-use-case-detail-font-family');
 	font-size: oPrivateFoundationGet('o3-typography-use-case-detail-font-size');
 	font-weight: oPrivateFoundationGet('o3-typography-use-case-detail-font-weight');
 	line-height: oPrivateFoundationGet('o3-typography-use-case-detail-line-height');
-
-	@include _oTeaserLink();
 	color: $_o-teaser-muted;
 	margin-top: 0;
 	margin-bottom: 0;
 
-	.o-teaser__heading + & {
+	.o-teaser__heading+& {
 		margin-top: oPrivateSpacingByName('s2');
 	}
 }

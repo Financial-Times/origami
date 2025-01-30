@@ -16,6 +16,7 @@
 		"lint": "bash ../../scripts/component/lint.bash",
 		"watch": "bash ../../scripts/component/watch.bash"
 	},
+	"browser": "main.js",
 	"peerDependencies": {
 		"@financial-times/o-brand": "^4.1.0",
 		"@financial-times/o-colors": "6.7.0"

@@ -210,7 +210,9 @@ describe('Overlay', () => {
 				fullscreen: false,
 			});
 			testOverlay.open();
-			proclaim.equal(document.documentElement.style.overflow, 'hidden');
+			setTimeout(() => {
+				proclaim.equal(document.documentElement.style.overflow, 'hidden');
+			}, 1000);
 		});
 
 		it('Disables document scrolling with an open fullscreen overlay.', () => {

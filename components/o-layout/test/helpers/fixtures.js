@@ -99,4 +99,4 @@ const query = `
 </div>
 `;
 
-export { docs, query, docsWithSubHeading};
+export {docs, docsWithSubHeading, query};

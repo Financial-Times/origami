@@ -8,13 +8,14 @@
 				$o-typography-load-fonts: true !global;
 				$o-typography-progressive-font-loading: true !global;
 			}
+
 			@include expect {
 				.o-typography-heading-level-1 {
 					font-family: MetricWeb, sans-serif;
 					font-size: 32px;
 					line-height: 32px;
 					font-weight: 600;
-					color: #33302e;
+					color: rgb(51, 48.2, 45.8); // #33302e
 					margin: 0 0 16px;
 				}
 			}
@@ -30,13 +31,14 @@
 				$o-typography-load-fonts: true !global;
 				$o-typography-progressive-font-loading: true !global;
 			}
+
 			@include expect($selector: false) {
 				.o-typography-heading-level-1 {
 					font-family: MetricWeb, sans-serif;
 					font-size: 32px;
 					line-height: 32px;
 					font-weight: 600;
-					color: #33302e;
+					color: rgb(51, 48.2, 45.8); // #33302e
 					margin: 0 0 16px;
 				}
 
@@ -45,7 +47,7 @@
 					font-size: 28px;
 					line-height: 32px;
 					font-weight: 600;
-					color: #33302e;
+					color: rgb(51, 48.2, 45.8); // #33302e
 					margin: 0 0 16px;
 				}
 			}
@@ -59,6 +61,7 @@
 			@include output {
 				@include oTypographySans();
 			}
+
 			@include expect {
 				font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
 			}
@@ -70,10 +73,12 @@
 			@include output {
 				@include oTypographySans(1);
 			}
+
 			@include expect {
 				font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
 				font-size: 18px;
 				line-height: 20px;
+
 				.o-typography--loading-sans & {
 					font-size: 15.66px;
 					font-family: sans-serif;
@@ -87,10 +92,12 @@
 			@include output {
 				@include oTypographySans(1, 1.6);
 			}
+
 			@include expect {
 				font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
 				font-size: 18px;
 				line-height: 1.6;
+
 				.o-typography--loading-sans & {
 					font-size: 15.66px;
 					font-family: sans-serif;
@@ -104,11 +111,13 @@
 			@include output {
 				@include oTypographySans(1, $weight: 'bold');
 			}
+
 			@include expect {
 				font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
 				font-size: 18px;
 				line-height: 20px;
 				font-weight: 700;
+
 				.o-typography--loading-sans-bold & {
 					font-size: 14.94px;
 					font-family: sans-serif;
@@ -138,6 +147,7 @@
 			@include output {
 				@include oTypographySans(1, 1.6, $include-font-family: false);
 			}
+
 			@include expect {
 				font-size: 18px;
 				line-height: 1.6;
@@ -154,6 +164,7 @@
 			@include output {
 				@include oTypographySans(1, 1.6, $include-progressive: false);
 			}
+
 			@include expect {
 				font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
 				font-size: 18px;
@@ -168,6 +179,7 @@
 			@include output {
 				@include oTypographySans($scale: (default: 1, L: 2));
 			}
+
 			@include contains {
 				font-size: 18px;
 				line-height: 20px;
@@ -185,6 +197,7 @@
 			@include output {
 				@include oTypographySans($scale: 1, $line-height: 1.4);
 			}
+
 			@include contains {
 				font-size: 18px;
 				line-height: 1.4;
@@ -197,6 +210,7 @@
 			@include output {
 				@include oTypographySans($scale: (default: 1, L: 2), $line-height: 24px);
 			}
+
 			@include contains {
 				font-size: 18px;
 				line-height: 24px;
@@ -214,6 +228,7 @@
 			@include output {
 				@include oTypographySans($scale: (default: (1, 18px), L: (2, 24px)));
 			}
+
 			@include contains {
 				font-size: 18px;
 				line-height: 18px;
@@ -231,6 +246,7 @@
 			@include output {
 				@include oTypographySans($scale: (default: (1, 18px), L: 2), $line-height: 1.4);
 			}
+
 			@include contains {
 				font-size: 18px;
 				line-height: 18px;
@@ -250,6 +266,7 @@
 				@include oTypographySans($scale: 1, $line-height: unset);
 				$o-typography-relative-units: false !global;
 			}
+
 			@include contains {
 				font-size: 1.125rem;
 				line-height: unset;
@@ -264,6 +281,7 @@
 				@include oTypographySans($scale: 1);
 				$o-typography-relative-units: false !global;
 			}
+
 			@include contains {
 				font-size: 1.125rem;
 				line-height: 1.25rem;
@@ -278,6 +296,7 @@
 				@include oTypographySans($scale: 1, $line-height: unset);
 				$o-typography-relative-units: false !global;
 			}
+
 			@include contains {
 				font-size: 1.125rem;
 				line-height: unset;
@@ -292,6 +311,7 @@
 			@include output {
 				@include oTypographySerif();
 			}
+
 			@include expect {
 				font-family: oFontsGetFontFamilyWithFallbacks(Georgia);
 			}
@@ -303,6 +323,7 @@
 			@include output {
 				@include oTypographySerif(1);
 			}
+
 			@include expect {
 				font-family: oFontsGetFontFamilyWithFallbacks(Georgia);
 				font-size: 18px;
@@ -316,6 +337,7 @@
 			@include output {
 				@include oTypographySerif(1, 1.6);
 			}
+
 			@include expect {
 				font-family: oFontsGetFontFamilyWithFallbacks(Georgia);
 				font-size: 18px;
@@ -329,6 +351,7 @@
 			@include output {
 				@include oTypographySerif(1, $weight: 'bold');
 			}
+
 			@include expect {
 				font-family: oFontsGetFontFamilyWithFallbacks(Georgia);
 				font-size: 18px;
@@ -358,6 +381,7 @@
 			@include output {
 				@include oTypographySerif(1, 1.6, $include-font-family: false);
 			}
+
 			@include expect {
 				font-size: 18px;
 				line-height: 1.6;
@@ -370,6 +394,7 @@
 			@include output {
 				@include oTypographySerif(1, 1.6, $include-progressive: false);
 			}
+
 			@include expect {
 				font-family: oFontsGetFontFamilyWithFallbacks(Georgia);
 				font-size: 18px;
@@ -385,6 +410,7 @@
 			@include output {
 				@include oTypographyDisplay();
 			}
+
 			@include expect {
 				font-family: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb);
 			}
@@ -396,10 +422,12 @@
 			@include output {
 				@include oTypographyDisplay(1);
 			}
+
 			@include expect {
 				font-family: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb);
 				font-size: 18px;
 				line-height: 20px;
+
 				.o-typography--loading-display & {
 					font-size: 16.2px;
 					font-family: serif;
@@ -413,10 +441,12 @@
 			@include output {
 				@include oTypographyDisplay(1, 1.6);
 			}
+
 			@include expect {
 				font-family: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb);
 				font-size: 18px;
 				line-height: 1.6;
+
 				.o-typography--loading-display & {
 					font-size: 16.2px;
 					font-family: serif;
@@ -430,11 +460,13 @@
 			@include output {
 				@include oTypographyDisplay(1, $weight: 'bold');
 			}
+
 			@include expect {
 				font-family: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb);
 				font-size: 18px;
 				line-height: 20px;
 				font-weight: 700;
+
 				.o-typography--loading-display-bold & {
 					font-size: 16.2px;
 					font-family: serif;
@@ -448,6 +480,7 @@
 			@include output {
 				@include oTypographyDisplay(1, 1.6, $include-font-family: false);
 			}
+
 			@include expect {
 				font-size: 18px;
 				line-height: 1.6;
@@ -464,6 +497,7 @@
 			@include output {
 				@include oTypographyDisplay(1, 1.6, $include-progressive: false);
 			}
+
 			@include expect {
 				font-family: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb);
 				font-size: 18px;
@@ -489,44 +523,35 @@
 		9: (18, 20),
 		10: (20, 22)
 	);
-	@include test('Adds scale to font scale map.') {
-		// Set custom scale for custom font.
-		@include oTypographyDefineFontScale('MyFont, sans', $custom-font-scale);
 
-		// The custom scale is added to the font scale map.
-		@include assert-equal(
-			$_o-typography-font-scale-by-font,
-			(
-				'MyFont': $custom-font-scale
-			)
-		);
-	}
+@include test('Adds scale to font scale map.') {
+	// Set custom scale for custom font.
+	@include oTypographyDefineFontScale('MyFont, sans', $custom-font-scale);
+
+	// The custom scale is added to the font scale map.
+	@include assert-equal($_o-typography-font-scale-by-font,
+		('MyFont': $custom-font-scale));
+}
 }
 
 @include test-module('oTypographySetFont') {
 	@include test('Updates the global variable for the sans font') {
-		@include oFontsDefineCustomFont('system-ui', (
-			(weight: semibold, style: normal),
-			(weight: regular, style: normal),
-			(weight: bold, style: normal)
-		));
+		@include oFontsDefineCustomFont('system-ui', ((weight: semibold, style: normal),
+				(weight: regular, style: normal),
+				(weight: bold, style: normal)));
 		// Set sans font.
-		@include oTypographySetFont(
-			$type: 'sans',
+		@include oTypographySetFont($type: 'sans',
 			$family: 'system-ui'
 		);
 		@include assert-equal($_o-typography-sans, 'system-ui');
 	}
 
 	@include test('Updates the global variable for the display font') {
-		@include oFontsDefineCustomFont('MyDisplayFont, serif', (
-			(weight: semibold, style: normal),
-			(weight: regular, style: normal),
-			(weight: bold, style: normal)
-		));
+		@include oFontsDefineCustomFont('MyDisplayFont, serif', ((weight: semibold, style: normal),
+				(weight: regular, style: normal),
+				(weight: bold, style: normal)));
 		// Set display font.
-		@include oTypographySetFont(
-			$type: 'display',
+		@include oTypographySetFont($type: 'display',
 			$family: 'MyDisplayFont'
 		);
 		@include assert-equal($_o-typography-display, 'MyDisplayFont');

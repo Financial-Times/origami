@@ -9,7 +9,7 @@ _Typography styles and layout for editorial content._
 - [Contact](#contact)
 - [Licence](#licence)
 
-o-editorial-layout builds on [o-editorial-typography](https://registry.origami.ft.com/components/o-editorial-typography) to provide margin and layout for editorial typography for specific contexts such as an article page.
+o-editorial-layout provides margin and layout for editorial typography for specific contexts such as an article page.
 
 o-editorial-layout currently provides margins between typographical elements, asides, and figures. It could be expanded to include the layout of article pages themselves.
 
@@ -32,7 +32,9 @@ Headings 1-5 are provided with their margin with the class `o-editorial-layout-h
 For paragraphs use the `o-editorial-layout-body` class:
 
 ```html
-<p class="o-editorial-layout-body">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+<p class="o-editorial-layout-body">
+	Lorem ipsum dolor sit amet consectetur adipisicing elit.
+</p>
 ```
 
 Adjacent `figure`, `aside`, and `div` elements will have margin applied.
@@ -44,10 +46,14 @@ A wrapper class `o-editorial-layout-wrapper` may be used to style child elements
 	<h1>heading 1</h1>
 	<h2>heading 2</h2>
 
-	<p><a href="#">Lorem ipsum dolor sit amet consectetur</a> adipisicing elit.</p>
+	<p>
+		<a href="#">Lorem ipsum dolor sit amet consectetur</a> adipisicing elit.
+	</p>
 
 	<blockquote>
-		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, quaerat!</p>
+		<p>
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, quaerat!
+		</p>
 		<footer><cite>Lorem, ipsum dolor.</cite></footer>
 	</blockquote>
 
@@ -68,7 +74,7 @@ A wrapper class `o-editorial-layout-wrapper` may be used to style child elements
 Include all o-editorial-layout styles by including the `oEditorialLayout` mixin.
 
 ```scss
-@import "@financial-times/o-editorial-layout/main";
+@import '@financial-times/o-editorial-layout/main';
 
 @include oEditorialLayout();
 ```
@@ -76,20 +82,28 @@ Include all o-editorial-layout styles by including the `oEditorialLayout` mixin.
 To include just the styles you need we recommend setting the options `$opts` argument.
 
 For example to include only heading levels 1-3 and body copy styles.
+
 ```scss
-@include oEditorialLayout($opts: (
-	'body': true,
-	'headings': (1, 2, 3),
-	'wrapper': true
-));
+@include oEditorialLayout(
+	$opts: (
+		'body': true,
+		'headings': (
+			1,
+			2,
+			3,
+		),
+		'wrapper': true,
+	)
+);
 ```
 
 We recommend including styles with `oEditorialLayout` and using default markup to reduce duplicated CSS in your project. However you may also use `oEditorialLayoutHeading` and `oEditorialLayoutBody` to apply styles to your own markup _(note: placeholders are used, which ay effect the source order of your CSS)_.
 
 For example to output a heading:
+
 ```scss
 .my-h2-with-margin {
-    @include oEditorialLayoutHeading(2);
+	@include oEditorialLayoutHeading(2);
 }
 ```
 
@@ -97,14 +111,15 @@ See the [o-editorial-layout Sassdoc](https://registry.origami.ft.com/components/
 
 ## Migration guide
 
-State | Major Version | Last Minor Release | Migration guide |
-:---: | :---: | :---: | :---:
-✨ active | 2 | N/A | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
-⚠ maintained | 1 | 1.4 | N/A |
+|    State     | Major Version | Last Minor Release |                    Migration guide                    |
+| :----------: | :-----------: | :----------------: | :---------------------------------------------------: |
+|  ✨ active   |       3       |        N/A         | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+| ╳ deprecated |       2       |        2.4         | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+| ╳ deprecated |       1       |        1.4         |                          N/A                          |
 
 ## Contact
 
-If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-editorial-typography/issues), visit [#ft-origami](https://financialtimes.slack.com/messages/ft-origami/) or email [Origami Support](mailto:origami-support@ft.com).
+If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/origami/issues), visit [#ft-origami](https://financialtimes.slack.com/messages/ft-origami/) or email [Origami Support](mailto:origami-support@ft.com).
 
 ## Licence
 

@@ -1,9 +1,6 @@
 /// Output All oComments Features
-@mixin oComments(
-	$opts: (
-		"coral-talk-iframe": true,
-	)
-) {
+@mixin oComments($opts: ("coral-talk-iframe": true,
+	)) {
 	@include oPrivateFoundation();
 
 	@if map-get($opts, coral-talk-iframe) {
@@ -41,12 +38,9 @@
 	}
 
 	.o-comments__edit-display-name {
-		@include oPrivateButtonsContent(
-			$opts: (
-				"type": "primary",
-				"icon": "edit-filled",
-			)
-		);
+		@include oPrivateButtonsContent($opts: ("type": "primary",
+				"icon": "edit",
+			));
 
 		margin-left: oPrivateSpacingByName("s2");
 	}
@@ -90,11 +84,8 @@
 		}
 
 		.o-comments__displayname-submit {
-			@include oPrivateButtonsContent(
-				$opts: (
-					"type": "primary",
-				)
-			);
+			@include oPrivateButtonsContent($opts: ("type": "primary",
+				));
 		}
 
 		.o-comments__displayname-error {

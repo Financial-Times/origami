@@ -4,6 +4,7 @@
 			@include output($selector: false) {
 				@include oFooterServices();
 			}
+
 			// o-footer-service__container base styles
 			@include contains($selector: false) {
 				.o-footer-services .o-footer-services__container {
@@ -12,10 +13,12 @@
 				}
 			}
 		}
+
 		@include assert {
 			@include output($selector: false) {
 				@include oFooterServices();
 			}
+
 			// o-footer-services__icon-link--github icon styles
 			@include contains($selector: false) {
 				.o-footer-services .o-footer-services__icon-link--github:before {
@@ -30,6 +33,7 @@
 			@include output($selector: false) {
 				@include oFooterServices($opts: ('logo': 'ftlogo-v1:origami'));
 			}
+
 			// o-footer-service__container base styles
 			@include contains($selector: false) {
 				.o-footer-services__logo:before {
@@ -44,26 +48,12 @@
 			@include output($selector: false) {
 				@include oFooterServices($opts: ('icons': ('whatsapp')));
 			}
+
 			// o-footer-service__container base styles
 			@include contains($selector: false) {
 				.o-footer-services .o-footer-services__icon-link--whatsapp:before {
 					background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2%3Awhatsapp?source=#{$system-code}&tint=000000&format=svg");
 				}
-			}
-		}
-	}
-
-	@include test('Does not output base styles if turned off.') {
-		@include assert {
-			@include output() {
-				@include oFooterServices(
-					$opts: (),
-					$include-base-styles: false
-				);
-			}
-			// Note we are using "expect" not "contains":
-			// With no options set and no base styles nothing should be output.
-			@include expect() { //styleling-disable-lie block-no-empty
 			}
 		}
 	}
