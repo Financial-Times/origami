@@ -110,11 +110,23 @@
 	$size: map-get($opts, 'size');
 	$icon: map-get($opts, 'icon');
 
+	font-family: oPrivateFoundationGet(
+		'o3-typography-use-case-body-highlight-font-family'
+	);
+	font-size: oPrivateFoundationGet(
+		'o3-typography-use-case-body-highlight-font-size'
+	);
+	line-height: oPrivateFoundationGet(
+		'o3-typography-use-case-body-highlight-line-height'
+	);
+	font-weight: oPrivateFoundationGet(
+		'o3-typography-use-case-body-highlight-font-weight'
+	);
+
 	--_o-pf-button-border-size: 1px;
 	--_o-pf-button-icon-size: calc(
 		var(--_o-pf-button-min-height) - (var(--_o-pf-button-block-padding) * 2)
 	);
-	--_o-pf-button-font-weight: #{oPrivateFoundationGet('o3-font-weight-semibold')};
 
 	/* Button Sizes */
 	@if ($size == 'big') {
@@ -128,13 +140,6 @@
 				'o3-spacing-2xs'
 			)};
 		--_o-pf-button-block-padding: #{oPrivateFoundationGet('o3-spacing-4xs')};
-
-		--_o-pf-button-font-size: #{oPrivateFoundationGet(
-				'o3-font-size-metric2-negative-1'
-			)};
-		--_o-pf-button-lineheight: #{oPrivateFoundationGet(
-				'o3-font-lineheight-metric2-negative-1'
-			)};
 	} @else {
 		--_o-pf-button-min-width: 60px;
 		--_o-pf-button-min-height: 28px;
@@ -146,13 +151,9 @@
 				'o3-spacing-4xs'
 			)};
 		--_o-pf-button-block-padding: #{oPrivateFoundationGet('o3-spacing-5xs')};
-
-		--_o-pf-button-font-size: #{oPrivateFoundationGet(
-				'o3-font-size-negative-2'
-			)};
-		--_o-pf-button-lineheight: #{oPrivateFoundationGet(
-				'o3-font-lineheight-negative-2'
-			)};
+		// Non-standard font size for small buttons.
+		font-size: oPrivateFoundationGet('o3-font-size-negative-2');
+		line-height: oPrivateFoundationGet('o3-font-lineheight-negative-2');
 	}
 
 	min-width: var(--_o-pf-button-min-width);
@@ -164,10 +165,6 @@
 	justify-content: center;
 	box-sizing: border-box;
 	vertical-align: middle;
-	font-size: var(--_o-pf-button-font-size);
-	line-height: var(--_o-pf-button-lineheight);
-	font-weight: var(--_o-pf-button-font-weight);
-	font-family: '#{oPrivateFoundationGet('o3-font-family-metric')}', sans-serif;
 	border: var(--_o-pf-button-border-size) solid transparent;
 	border-radius: oPrivateFoundationGet('o3-border-radius-1');
 	text-align: center;

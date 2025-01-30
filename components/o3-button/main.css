@@ -6,15 +6,10 @@
 	--_o3-button-inline-padding-start: var(--o3-spacing-2xs);
 	--_o3-button-inline-padding-end: var(--o3-spacing-2xs);
 
-	--_o3-button-font-size: var(--o3-font-size-metric2-negative-1);
-	--_o3-button-lineheight: var(--o3-font-lineheight-metric2-negative-1);
-
 	--_o3-button-border-size: 1px;
 	--_o3-icon-size: calc(
 		var(--_o3-button-min-height) - (var(--_o3-button-block-padding) * 2)
 	);
-
-	--_o3-button-font-weight: var(--o3-font-weight-semibold);
 
 	min-width: var(--_o3-button-min-width);
 	/* Width based on content by default, until set to `inital` */
@@ -29,10 +24,10 @@
 	justify-content: center;
 	box-sizing: border-box;
 	vertical-align: middle;
-	font-size: var(--_o3-button-font-size);
-	line-height: var(--_o3-button-lineheight);
-	font-weight: var(--_o3-button-font-weight);
-	font-family: var(--o3-font-family-metric), sans-serif;
+	font-family: var(--o3-typography-use-case-body-highlight-font-family);
+	font-size: var(--o3-typography-use-case-body-highlight-font-size);
+	line-height: var(--o3-typography-use-case-body-highlight-line-height);
+	font-weight: var(--o3-typography-use-case-body-highlight-font-weight);
 	border: var(--_o3-button-border-size) solid transparent;
 	text-align: center;
 	text-decoration: none;
@@ -309,8 +304,9 @@
 	--_o3-button-inline-padding-end: var(--o3-spacing-4xs);
 	--_o3-button-block-padding: var(--o3-spacing-5xs);
 
-	--_o3-button-font-size: var(--o3-font-size-negative-2);
-	--_o3-button-lineheight: var(--o3-font-lineheight-negative-2);
+	/* Non-standard font size for small buttons. */
+	font-size: var(--o3-font-size-negative-2);
+	line-height: var(--o3-font-lineheight-negative-2);
 }
 
 /* PAGINATION */

@@ -6,7 +6,7 @@ $_o-labels-first-import: true !default;
 @if $_o-labels-first-import == true {
 	// shared placeholders
 	%_o-labels-indicator-size {
-		@include oPrivateTypographySans(-2);
+		@include oPrivateTypographySans(-1);
 	}
 
 	%_o-labels-timestamp-typography {

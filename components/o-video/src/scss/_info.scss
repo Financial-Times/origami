@@ -5,7 +5,7 @@
 		display: none;
 	}
 	.o-video__info-title {
-		@include oPrivateTypographySans(-2, $weight: "semibold");
+		@include oPrivateTypographySans(-1, $weight: "semibold");
 		margin: 6px 0;
 	}
 }
