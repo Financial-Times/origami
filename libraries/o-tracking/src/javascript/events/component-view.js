@@ -42,7 +42,7 @@ const decorateEventData = (eventData, viewedEl, opts) => {
  * Listen for view events.
  *
  * @alias view#init
- * @param {object} opts - To set custom category[String], selector[String], getContextData[Function]
+ * @param {object} opts - To set custom category[String], selector[String], getContextData[Function], intersectionObserverThreshold[Any]
  * @returns {undefined}
  */
 const init = (opts = {}) => {
@@ -75,7 +75,7 @@ const init = (opts = {}) => {
 		});
 	}
 
-	const observer = new IntersectionObserver(onChange, { threshold: [ 1.0 ] });
+	const observer = new IntersectionObserver(onChange, { threshold: opts.intersectionObserverThreshold || [ 1.0 ] });
 
 	elementsToTrack.forEach(el => observer.observe(el));
 };
