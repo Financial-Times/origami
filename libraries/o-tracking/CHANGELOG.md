@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.7.0](https://github.com/Financial-Times/origami/compare/o-tracking-v4.6.1...o-tracking-v4.7.0) (2025-01-30)
+
+
+### Features
+
+* add a new opt to component-view to be able to configure the IntersectionObserver threshold ([6f4ed74](https://github.com/Financial-Times/origami/commit/6f4ed74db6ab1c241227c6ae6f2a920255dddc55))
+
 ## [4.6.1](https://github.com/Financial-Times/origami/compare/o-tracking-v4.6.0...o-tracking-v4.6.1) (2024-11-18)
 
 
