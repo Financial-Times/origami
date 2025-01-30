@@ -5,13 +5,10 @@
 				@include output() {
 					@include _oLabelsBaseContent;
 				}
+
 				@include contains() {
-					$expected-vertical-padding: calc(
-						#{oPrivateSpacingByName('s1')} - #{1px}
-					);
-					$expected-horizontal-padding: calc(
-						#{oPrivateSpacingByName('s2')} - #{1px}
-					);
+					$expected-vertical-padding: calc(#{oPrivateSpacingByName('s1')} - #{1px});
+					$expected-horizontal-padding: calc(#{oPrivateSpacingByName('s2')} - #{1px});
 					padding: $expected-vertical-padding $expected-horizontal-padding;
 				}
 			}
@@ -25,13 +22,11 @@
 					@include output($selector: false) {
 						@include _oLabelsSize('big');
 					}
+
 					@include contains($selector: false) {
-						$expected-vertical-padding: calc(
-							#{oPrivateSpacingByName('s2')} - #{1px}
-						);
-						$expected-horizontal-padding: calc(
-							#{oPrivateSpacingByName('s2')} - #{1px}
-						);
+						$expected-vertical-padding: calc(#{oSpacingByName('s2')} - #{1px});
+						$expected-horizontal-padding: calc(#{oSpacingByName('s2')} - #{1px});
+
 						.o-labels--big {
 							padding: $expected-vertical-padding $expected-horizontal-padding;
 						}
@@ -48,9 +43,11 @@
 					@include output($selector: false) {
 						@include _oLabelsSize('small');
 					}
+
 					@include contains($selector: false) {
 						$expected-vertical-padding: calc(#{2px} - #{1px});
 						$expected-horizontal-padding: calc(#{4px} - #{1px});
+
 						.o-labels--small {
 							padding: $expected-vertical-padding $expected-horizontal-padding;
 						}
@@ -62,109 +59,105 @@
 
 	@include describe('oLabelsContent') {
 		@include describe('with "size" and no "state"') {
-			@include it('outputs label dimentions only') {
+			@include it('outputs label dimensions only') {
 				@include assert() {
 					@include output($selector: false) {
 						.o-example-label {
-							@include oLabelsContent(
-								$opts: (
-									'size': 'small',
-								)
-							);
+							@include oLabelsContent($opts: ('size': 'small',
+								));
 						}
 					}
+
 					@include expect($selector: false) {
 						.o-example-label {
+							font-family: "metric 2 VF", sans-serif;
 							font-size: 12px;
-							line-height: 1;
+							line-height: 16px;
+							line-height: 1; // stylelint-disable-line declaration-block-no-duplicate-properties
 							padding: calc(#{2px} - #{1px}) calc(#{4px} - #{1px});
 						}
 					}
 				}
 			}
 		}
-		@include describe('with "state" and no "size"') {
-			@include it('outputs state styles only') {
-				@include assert() {
-					@include output() {
-						.o-example-label {
-							@include oLabelsContent(
-								$opts: (
-									'state': 'content-commercial',
-								)
-							);
-						}
+	}
+
+	@include describe('with "state" and no "size"') {
+		@include it('outputs state styles only') {
+			@include assert() {
+				@include output() {
+					.o-example-label {
+						@include oLabelsContent($opts: ('state': 'content-commercial',
+							));
 					}
-					@include expect() {
-						.o-example-label {
-							background-color: rgb(0, 127.50102, 64.16718);
-							color: white;
-						}
+				}
+
+				@include expect() {
+					.o-example-label {
+						background-color: rgb(0, 127.50102, 64.16718);
+						; // #008040
+						color: white;
 					}
 				}
 			}
 		}
-		@include describe('with a custom "state" and no "size"') {
-			@include it('outputs custom state styles only') {
-				@include assert() {
-					@include output() {
-						.o-example-label {
-							@include oLabelsContent(
-								$opts: (
-									'state': (
-										'background-color': hotpink,
-									),
-								)
-							);
-						}
+	}
+
+	@include describe('with a custom "state" and no "size"') {
+		@include it('outputs custom state styles only') {
+			@include assert() {
+				@include output() {
+					.o-example-label {
+						@include oLabelsContent($opts: ('state': ('background-color': hotpink)));
 					}
-					@include expect() {
-						.o-example-label {
-							background-color: hotpink;
-							color: black;
-						}
+				}
+
+				@include expect() {
+					.o-example-label {
+						background-color: hotpink;
+						color: black;
 					}
 				}
 			}
 		}
-		@include describe('with "state" and "size"') {
-			@include it('outputs state and size styles') {
-				@include assert() {
-					@include output($selector: false) {
-						.o-example-label {
-							@include oLabelsContent(
-								$opts: (
-									'size': 'small',
-									'state': 'content-commercial',
-								)
-							);
-						}
+	}
+
+	@include describe('with "state" and "size"') {
+		@include it('outputs state and size styles') {
+			@include assert() {
+				@include output($selector: false) {
+					.o-example-label {
+						@include oLabelsContent($opts: ('size': 'small',
+								'state': 'content-commercial',
+							));
 					}
-					@include expect($selector: false) {
-						.o-example-label {
-							background-color: rgb(0, 127.50102, 64.16718);
-							color: white;
-							font-size: 12px;
-							line-height: 1;
-							padding: calc(#{2px} - #{1px}) calc(#{4px} - #{1px});
-						}
+				}
+
+				@include expect($selector: false) {
+					.o-example-label {
+						background-color: rgb(0, 127.50102, 64.16718); // #008040
+						color: white;
+						font-family: "metric 2 VF", sans-serif;
+						font-size: 12px;
+						line-height: 16px;
+						line-height: 1; // stylelint-disable-line declaration-block-no-duplicate-properties
+						padding: calc(#{2px} - #{1px}) calc(#{4px} - #{1px});
 					}
 				}
 			}
 		}
-		@include describe('with "base"') {
-			@include it('outputs fundamental label styles required by all labels') {
-				@include assert() {
-					@include output() {
-						@include oLabelsContent(
-							$opts: (
-								'base': true,
-							)
-						);
-					}
-					@include contains() {
-						box-sizing: border-box;
-					}
+	}
+
+	@include describe('with "base"') {
+		@include it('outputs fundamental label styles required by all labels') {
+			@include assert() {
+				@include output() {
+					@include oLabelsContent($opts: ('base': true,
+						));
+				}
+
+				@include contains() {
+					box-sizing: border-box;
 				}
 			}
 		}

@@ -17,13 +17,10 @@
 	}
 
 	.o-subs-card__select-button {
-		@include oPrivateButtonsContent(
-			$opts: (
-				"type": "primary",
+		@include oPrivateButtonsContent($opts: ("type": "primary",
 				"size": "big",
 				"theme": "inverse",
-			)
-		);
+			));
 	}
 }
 
@@ -40,16 +37,12 @@
 	}
 
 	.o-subs-card__select-button {
-		@include oPrivateButtonsContentWithThemeOverride(
-			$opts: (
-				"type": "primary",
+		@include oPrivateButtonsContentWithThemeOverride($opts: ("type": "primary",
 				"size": "big",
 			),
-			$theme-override: (
-				color: "claret-80",
-				context: "white",
-			)
-		);
+			$theme-override: (color: oColorsByName("claret-80"),
+				context: oColorsByName("white"),
+			));
 	}
 
 	.o-subs-card__charge__value {

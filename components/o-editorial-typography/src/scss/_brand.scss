@@ -16,10 +16,10 @@
 	@include oBrandDefine('o-editorial-typography', 'core', (
 		'variables': (
 			'link-inverse': (
-				'base': oPrivateColorsMix('o3-color-palette-teal', 'o3-color-palette-white', 55),
-				'base-decoration': oPrivateColorsMix('o3-color-palette-teal', 'o3-color-palette-slate', 40),
-				'hover': oPrivateColorsMix('o3-color-palette-teal', 'o3-color-palette-white', 40),
-				'hover-decoration': oPrivateColorsMix('o3-color-palette-teal', 'o3-color-palette-slate', 80)
+				'base': oColorsMix('teal', 'white', 55),
+				'base-decoration': oColorsMix('teal', 'slate', 40),
+				'hover': oColorsMix('teal', 'white', 40),
+				'hover-decoration': oColorsMix('teal', 'slate', 80)
 			),
 		),
 		'supports-variants': ()
