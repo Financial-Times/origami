@@ -78,11 +78,10 @@ export default {
 	rootDir: '../../',
 	// Use our custom html which loads a css file (which will contains the components css)
 	testRunnerHtml,
-	testFramework: {
-		config: {
-			timeout: '5000',
-		},
-	},
+	// requestAnimationFrame sometimes not firing a callback in tests
+	// Please consult the GitHub issue for more information as it proposes 
+	// using concurrency: 1 to get around this intermittent issue
+	// https://github.com/modernweb-dev/web/issues/2520
 	concurrency: 1,
 	plugins: [
 		// Use our plugin to compile the components sass into the css which is loaded into the testRunnerHtml
