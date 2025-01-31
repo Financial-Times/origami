@@ -1,8 +1,24 @@
-@import '@financial-times/o-fonts/main';
+@import '@financial-times/o-private-foundation/main';
+
 @import '@financial-times/o-normalise/main';
-@include oFonts();
 @include oNormalise();
 
 @import '@financial-times/o-forms/main';
 @include oForms();
-@include oButtons();
+
+.demo-submit-button {
+	@include oPrivateButtonsContent(
+		$opts: (
+			'type': 'secondary',
+			'size': 'big',
+		)
+	);
+}
+
+.demo-submit-small-button {
+	@include oPrivateButtonsContent(
+		$opts: (
+			'type': 'secondary',
+		)
+	);
+}

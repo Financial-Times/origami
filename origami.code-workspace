@@ -248,6 +248,9 @@
 		},
 		{
 			"path": "components/o3-button"
+		},
+		{
+			"path": "./components/o-private-foundation"
 		}
 	]
 }

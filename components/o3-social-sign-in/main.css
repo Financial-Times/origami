@@ -2,7 +2,7 @@
     --o3-grid-columns-to-span-count: 4;
     max-width: var(--o3-grid-columns-to-span-width, 484px);
     width: 100%;
-    min-height: 40px;
+    min-height: 44px;
     padding: 0 var(--o3-spacing-m) 0 var(--o3-spacing-s);
     display: inline-flex;
     gap: var(--o3-spacing-s);
@@ -16,6 +16,7 @@
     font-family: var(--o3-font-family-metric), sans-serif;
 
     border: 1px solid var(--_o3-social-sign-in-border-color);
+    border-radius: var(--o3-border-radius-1);
     text-align: center;
     text-decoration: none;
     cursor: pointer;

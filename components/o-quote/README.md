@@ -1,3 +1,5 @@
+> ⚠️ o-quote is now deprecated, please see the [Migration Guide](MIGRATION.md) for details on migrating to O3.
+
 # o-quote [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
 Styling for quotes

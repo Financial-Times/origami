@@ -5,7 +5,7 @@ import sinon from 'sinon/pkg/sinon-esm.js';
 
 import {
 	invalidForm as invalidFormFixture,
-	validForm as validFormFixture
+	validForm as validFormFixture,
 } from './helpers/fixtures.js';
 import Forms from './../main.js';
 
@@ -16,7 +16,10 @@ describe('Forms', () => {
 	let dateFields;
 
 	before(() => {
-		parentClass = (element, modifier) => element.closest('.o-forms-input').classList.contains(`o-forms-input--${modifier}`);
+		parentClass = (element, modifier) =>
+			element
+				.closest('.o-forms-input')
+				.classList.contains(`o-forms-input--${modifier}`);
 	});
 
 	context('on `submit` of an invalid form', () => {
@@ -42,7 +45,7 @@ describe('Forms', () => {
 
 		context('`opts.useBrowserValidation = true`', () => {
 			it('relays form validation to browser on all invalid form inputs', () => {
-				new Forms(formEl, { useBrowserValidation: true });
+				new Forms(formEl, {useBrowserValidation: true});
 				submit.click();
 
 				proclaim.isTrue(formAddEventListenerSpy.withArgs('submit').notCalled);
@@ -54,16 +57,16 @@ describe('Forms', () => {
 				proclaim.throws(() => {
 					new Forms(formEl, {
 						useBrowserValidation: true,
-						preventSubmit: true
+						preventSubmit: true,
 					});
-				}, Error)
+				}, Error);
 			});
 		});
 
 		context('`opts.useBrowserValidation = false`', () => {
 			it('`uses o-forms form validation', () => {
 				new Forms(formEl, {
-					useBrowserValidation: false
+					useBrowserValidation: false,
 				});
 				submit.click();
 
@@ -76,7 +79,7 @@ describe('Forms', () => {
 				it('prevents form submission after `o-forms` has validated the form', () => {
 					new Forms(formEl, {
 						useBrowserValidation: false,
-						preventSubmit: true
+						preventSubmit: true,
 					});
 					submit.click();
 
@@ -85,12 +88,12 @@ describe('Forms', () => {
 					proclaim.isTrue(parentClass(requiredTextField, 'invalid'));
 				});
 
-				it('fires `oForms.submit`', (done) => {
+				it('fires `oForms.submit`', done => {
 					const oFormsInstance = new Forms(formEl, {
 						useBrowserValidation: false,
-						preventSubmit: true
+						preventSubmit: true,
 					});
-					formEl.addEventListener('oForms.submit', (e) => {
+					formEl.addEventListener('oForms.submit', e => {
 						proclaim.equal(e.detail.instance, oFormsInstance);
 						proclaim.equal(e.detail.valid, false);
 						done();
@@ -99,8 +102,6 @@ describe('Forms', () => {
 				});
 			});
 		});
-
-
 
 		context('`opts.errorSummary = true`', () => {
 			let listItems;
@@ -150,14 +151,19 @@ describe('Forms', () => {
 							</label>
 						</span>
 					</div>
-					<input class="o-buttons o-buttons--secondary" type="submit">
+					<input class="demo-submit-button" type="submit">
 				</form>
 			`;
 				const range = document.createRange();
-				const formDocumentFragment = range.createContextualFragment(singleCheckboxFormString);
+				const formDocumentFragment = range.createContextualFragment(
+					singleCheckboxFormString
+				);
 				document.body.appendChild(formDocumentFragment);
-				const singleCheckboxFormEl = document.getElementById('single-checkbox-form');
-				const singleCheckboxFormSubmitEl = singleCheckboxFormEl.querySelector('[type="submit"]');
+				const singleCheckboxFormEl = document.getElementById(
+					'single-checkbox-form'
+				);
+				const singleCheckboxFormSubmitEl =
+					singleCheckboxFormEl.querySelector('[type="submit"]');
 				// initialise and submit the form, with no error
 				new Forms(singleCheckboxFormEl);
 				singleCheckboxFormSubmitEl.click();
@@ -166,7 +172,7 @@ describe('Forms', () => {
 
 		context('`opts.errorSummary = false`', () => {
 			it('does not create a new summary when inputs are invalid ', () => {
-				new Forms(formEl, { errorSummary: false });
+				new Forms(formEl, {errorSummary: false});
 				submit.click();
 				summary = formEl.querySelector('.o-forms__error-summary');
 				proclaim.isNull(summary);
@@ -186,11 +192,12 @@ describe('Forms', () => {
 							<input id="text" type="text" name="form-two-required" value="" required>
 						</span>
 					</label>
-					<input class="o-buttons o-buttons--secondary" type="submit">
+					<input class="demo-submit-button" type="submit">
 				</form>
 			`;
 			const range = document.createRange();
-			const secondFormDocumentFragment = range.createContextualFragment(secondFormString);
+			const secondFormDocumentFragment =
+				range.createContextualFragment(secondFormString);
 			document.body.appendChild(secondFormDocumentFragment);
 			const secondFormEl = document.getElementById('second-initialised-form');
 			// initialise the first form
@@ -202,8 +209,14 @@ describe('Forms', () => {
 			// submit the first form
 			submit.click();
 			// the first form is validated, the second is not
-			proclaim.isTrue(formAddEventListenerSpy.called, 'The first form was submitted but not validated.');
-			proclaim.isTrue(secondFormSpy.notCalled, 'The second form was not submitted but was validated.');
+			proclaim.isTrue(
+				formAddEventListenerSpy.called,
+				'The first form was submitted but not validated.'
+			);
+			proclaim.isTrue(
+				secondFormSpy.notCalled,
+				'The second form was not submitted but was validated.'
+			);
 		});
 
 		it('does not attempt to validate other uninitialised forms on submit', () => {
@@ -219,11 +232,12 @@ describe('Forms', () => {
 							<input id="text" type="text" name="form-two-required" value="" required>
 						</span>
 					</label>
-					<input class="o-buttons o-buttons--secondary" type="submit">
+					<input class="demo-submit-button" type="submit">
 				</form>
 			`;
 			const range = document.createRange();
-			const secondFormDocumentFragment = range.createContextualFragment(secondFormString);
+			const secondFormDocumentFragment =
+				range.createContextualFragment(secondFormString);
 			document.body.appendChild(secondFormDocumentFragment);
 			const secondFormEl = document.getElementById('second-form');
 			const secondFormSubmitEl = secondFormEl.querySelector('[type="submit"]');
@@ -233,7 +247,10 @@ describe('Forms', () => {
 			// submit the second form
 			secondFormSubmitEl.click();
 			// the first form is not validated
-			proclaim.isTrue(formAddEventListenerSpy.notCalled, 'The first form was validated even though it was not submitted.');
+			proclaim.isTrue(
+				formAddEventListenerSpy.notCalled,
+				'The first form was validated even though it was not submitted.'
+			);
 		});
 	});
 
@@ -257,13 +274,13 @@ describe('Forms', () => {
 
 		context('`opts.useBrowserValidation = false`', () => {
 			context('`opts.preventSubmit = true`', () => {
-				it('prevents form submission after `o-forms` has validated the form', (done) => {
+				it('prevents form submission after `o-forms` has validated the form', done => {
 					new Forms(formEl, {
 						useBrowserValidation: false,
-						preventSubmit: true
+						preventSubmit: true,
 					});
 
-					formEl.addEventListener('oForms.submit', (e) => {
+					formEl.addEventListener('oForms.submit', e => {
 						proclaim.isTrue(e.detail.valid);
 						proclaim.isTrue(formSubmitSpy.notCalled);
 						done();
@@ -290,10 +307,14 @@ describe('Forms', () => {
 		it('removing input element should return correct number of formInputs elements', () => {
 			const originalFormInputsLength = formEl.querySelectorAll('input').length;
 			const fieldElement = formEl.querySelector('.o-forms-field');
-			const numberOfInputElements = fieldElement.querySelectorAll('input').length;
+			const numberOfInputElements =
+				fieldElement.querySelectorAll('input').length;
 			fieldElement.remove();
 			const formInputsLength = form.formInputs.length;
-			proclaim.equal(formInputsLength, originalFormInputsLength - numberOfInputElements);
+			proclaim.equal(
+				formInputsLength,
+				originalFormInputsLength - numberOfInputElements
+			);
 		});
 
 		it('adding input element should return correct number of formInputs elements', () => {

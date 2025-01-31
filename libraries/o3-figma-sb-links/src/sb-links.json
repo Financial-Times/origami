@@ -188,5 +188,9 @@
   "core-professional-o3-form--radio-button": "?path=/story/core-professional-o3-form--radio-button",
   "core-o3-form--radio-button": "?path=/story/core-o3-form--radio-button",
   "internal-o3-form--radio-button": "?path=/story/internal-o3-form--radio-button",
-  "sustainable-views-o3-form--radio-button": "?path=/story/sustainable-views-o3-form--radio-button"
+  "sustainable-views-o3-form--radio-button": "?path=/story/sustainable-views-o3-form--radio-button",
+  "core-o3-editorial-typography--headings": "?path=/story/core-o3-editorial-typography--headings",
+  "core-professional-o3-editorial-typography--headings": "?path=/story/core-professional-o3-editorial-typography--headings",
+  "sustainable-views-o3-editorial-typography--headings": "?path=/story/sustainable-views-o3-editorial-typography--headings",
+  "whitelabel-o3-editorial-typography--headings": "?path=/story/whitelabel-o3-editorial-typography--headings"
 }

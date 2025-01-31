@@ -2,7 +2,7 @@ $o-footer-is-silent: true !default;
 
 /// Footer spacing unit
 /// @type Number
-$_o-footer-spacing-unit: oSpacingByIncrement(5);
+$_o-footer-spacing-unit: oPrivateSpacingByIncrement(5);
 
 /// Footer matrix
 /// The o-grid column sizes for groups and inner columns

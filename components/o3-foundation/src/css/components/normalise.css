@@ -19,7 +19,7 @@ a:hover {
 /* add normalising to text related elements */
 /* 1. Remove the bottom border in Firefox 39-. */
 /* 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari. */
-/* stylelint-disable-next-line selector-no-qualifying-type */
+
 abbr[title] {
 	border-bottom: 0; /* [1] */
 	text-decoration: underline; /*  [2] */

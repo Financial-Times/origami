@@ -1,72 +1,74 @@
 @mixin oSubsCardBase {
-	@include oTypographySans(0);
+	@include oPrivateTypographySans(0);
 
 	text-align: center;
 
 	.o-subs-card-visually-hidden {
-		@include oNormaliseVisuallyHidden;
+		@include oPrivateNormaliseVisuallyHidden;
 	}
 
 	// https://github.com/philipwalton/flexbugs#flexbug-17 (for suport in ie 9/10)
-	@include oGridRespondTo(L) {
+	@include oPrivateGridRespondTo(L) {
 		// 12px = the combined 6px padding either side.
 		flex: 0 1 calc(25% - 12px);
 		min-width: 0;
 	}
 
 	.o-subs-card__top {
-		color: oColorsByName('black');
-		background-color: oColorsByName('white');
-		box-shadow: 0 5px 5px oColorsByName('black-5');
+		color: oColorsByName("black");
+		background-color: oColorsByName("white");
+		box-shadow: 0 5px 5px oColorsByName("black-5");
 		padding-bottom: 0;
 		padding-right: $o-subs-card-horizontal-padding;
 		padding-left: $o-subs-card-horizontal-padding;
 	}
 
 	.o-subs-card__copy-title {
-		@include oTypographySans($scale: 3, $weight: 'semibold');
+		@include oPrivateTypographySans($scale: 3, $weight: "semibold");
 
-		margin-bottom: oSpacingByIncrement(5);
+		margin-bottom: oPrivateSpacingByIncrement(5);
 
 		&:first-child {
-			padding-top: oSpacingByName('s8');
+			padding-top: oPrivateSpacingByName("s8");
 		}
 
 		//Handle the height change when there is an offer in place
 		&:nth-child(2) {
-			margin-bottom: oSpacingByName('s2');
+			margin-bottom: oPrivateSpacingByName("s2");
 		}
 	}
 
 	.o-subs-card__copy-pitch {
-		@include oTypographySans(0);
+		@include oPrivateTypographySans(0);
 
 		display: inline-block;
 		text-align: center;
-		padding-bottom: oSpacingByName('s3');
+		padding-bottom: oPrivateSpacingByName("s3");
 	}
 
 	.o-subs-card__charge {
-		padding-bottom: oSpacingByName('s4');
+		padding-bottom: oPrivateSpacingByName("s4");
 	}
 
 	.o-subs-card__charge__value {
-		padding-bottom: oSpacingByName('s2');
+		padding-bottom: oPrivateSpacingByName("s2");
 	}
 
 	.o-subs-card__select-button {
-		@include oButtonsContent($opts: (
-			'type': 'primary',
-			'size': 'big',
-		));
-		margin-bottom: oSpacingByName('s1');
+		@include oPrivateButtonsContent(
+			$opts: (
+				"type": "primary",
+				"size": "big",
+			)
+		);
+		margin-bottom: oPrivateSpacingByName("s1");
 		width: 100%;
 	}
 
 	.o-subs-card__expander {
-		color: oColorsByName('black');
-		background-color: oColorsByName('white');
-		box-shadow: 0 5px 5px oColorsByName('black-5');
+		color: oColorsByName("black");
+		background-color: oColorsByName("white");
+		box-shadow: 0 5px 5px oColorsByName("black-5");
 
 		&--collapsed {
 			display: none;
@@ -84,41 +86,41 @@
 
 	.o-subs-card__copy-benefits {
 		margin: 0;
-		padding: oSpacingByName('s3');
+		padding: oPrivateSpacingByName("s3");
 		padding-left: $o-subs-card-horizontal-padding;
 		padding-right: $o-subs-card-horizontal-padding;
 		list-style: none;
 
 		li {
-			padding-bottom: oSpacingByName('s3');
+			padding-bottom: oPrivateSpacingByName("s3");
 		}
 	}
 
 	.o-subs-card__read-more {
-		@include oTypographySans($scale: -1, $weight: 'semibold');
+		@include oPrivateTypographySans($scale: -1, $weight: "semibold");
 
-		background-color: oColorsByName('wheat');
+		background-color: oColorsByName("wheat");
 		border-width: 0;
-		color: oColorsByName('teal-50');
+		color: oColorsByName("teal-50");
 		cursor: pointer;
 		display: block;
-		padding-bottom: oSpacingByName('s2');
-		padding-top: oSpacingByName('s2');
+		padding-bottom: oPrivateSpacingByName("s2");
+		padding-top: oPrivateSpacingByName("s2");
 		width: 100%;
 
-		@include oGridRespondTo(L) {
+		@include oPrivateGridRespondTo(L) {
 			display: none;
 		}
 
 		//doesn't use oExpanderToggle mixin, because that mixin has a fixed font-size/icon size
 		&:after {
-			@include oIconsContent('arrow-down', oColorsByName('teal-50'), $size: 16);
-			content: '';
+			@include oPrivateIconsContent("arrow-down", oColorsByName("teal-50"), $size: 16);
+			content: "";
 			position: relative;
 			vertical-align: middle;
 		}
 
-		&[aria-expanded='true']:after {
+		&[aria-expanded="true"]:after {
 			transform: rotate(180deg);
 		}
 
@@ -130,7 +132,7 @@
 	.o-subs-card__swg {
 		background: white;
 		padding: 0 16px 16px;
-		box-shadow: 0 5px 5px oColorsByName('black-5');
+		box-shadow: 0 5px 5px oColorsByName("black-5");
 	}
 
 	.o-subs-card__separator {
@@ -140,8 +142,8 @@
 
 		&:after,
 		&:before {
-			background: getColor('black');
-			content: '';
+			background: getColor("black");
+			content: "";
 			display: block;
 			height: 1px;
 			opacity: 0.25;
@@ -164,7 +166,7 @@
 		text-align: left;
 
 		&--note {
-			color: getColor('teal');
+			color: getColor("teal");
 			font-weight: 600;
 			margin: 10px 0 0;
 
@@ -183,13 +185,13 @@
 @mixin oSubsCardContainer {
 	border-spacing: $o-subs-card-horizontal-margin; //ie 9
 	display: table-cell; // ie 9
-	display: flex;	// stylelint-disable-line declaration-block-no-duplicate-properties
+	display: flex; // stylelint-disable-line declaration-block-no-duplicate-properties
 	flex-direction: column;
 	flex: auto;
 	margin: 0 20px;
 	padding: 10px 0;
 
-	@include oGridRespondTo(M) {
+	@include oPrivateGridRespondTo(M) {
 		flex-direction: row;
 		flex-wrap: wrap;
 
@@ -198,7 +200,7 @@
 		}
 	}
 
-	@include oGridRespondTo(L) {
+	@include oPrivateGridRespondTo(L) {
 		flex-direction: row;
 
 		.o-subs-card {
@@ -208,7 +210,7 @@
 
 	.o-subs-card {
 		// no collapsing margins in display flex
-		margin: oSpacingByName('s3') div($o-subs-card-horizontal-margin, 2);
+		margin: oPrivateSpacingByName("s3") div($o-subs-card-horizontal-margin, 2);
 	}
 
 	.o-subs-card,

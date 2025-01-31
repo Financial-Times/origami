@@ -1,12 +1,10 @@
-import {Headline} from '@financial-times/o3-editorial-typography/esm';
+import {Heading} from '@financial-times/o3-editorial-typography/esm';
 
 function Subheading() {
 	return (
 		<>
 			<meta itemProp="@preview" />
-					<Headline type='subheading'>
-						Don’t settle for black and white
-					</Headline>
+			<Heading type="subheading">Don’t settle for black and white</Heading>
 			<meta itemProp="@preview" />
 		</>
 	);

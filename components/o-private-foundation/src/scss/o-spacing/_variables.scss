@@ -1,0 +1,29 @@
+/// Represents the baseline number (pixels) to base spaces off.
+/// @type Number
+/// @access private
+$o-pf-spacing-baseline: 4;
+
+/// The named spaces. Where the key is the name and the number value is the
+/// increment of the baseline value.
+/// @type Map
+/// @access private
+$o-pf-spacing-sizes: (
+        's1': 1,
+        's2': 2,
+        's3': 3,
+        's4': 4,
+        's6': 6,
+        's8': 8,
+        'm12': 12,
+        'm16': 16,
+        'l18': 18,
+        'l24': 24,
+);
+
+/// When true output relative `rem` space values, not `px`.
+/// Relative spaces will respect the browser's configured font size.
+///
+/// For legacy reasons, this defaults to `false` (outputs px units).
+/// Projects may need to be updated to support relative units.
+/// @type Bool
+$o-pf-spacing-relative-units: false !default;

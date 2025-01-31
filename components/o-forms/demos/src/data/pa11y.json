@@ -111,9 +111,7 @@
 						"label": "error-date-group-title"
 					},
 					"error": "Not a valid date",
-					"modifiers": [
-						"invalid"
-					]
+					"modifiers": ["invalid"]
 				},
 				"title": {
 					"main": "Invalid date input"
@@ -136,7 +134,6 @@
 						"value": "24",
 						"id": "error-month",
 						"name": "error-month"
-
 					},
 					{
 						"type": "text",
@@ -145,7 +142,6 @@
 						"value": "2019",
 						"id": "error-year",
 						"name": "error-year"
-
 					}
 				]
 			},
@@ -221,10 +217,7 @@
 						"label": "saving-state-group-title",
 						"info": "saving-state-group-info"
 					},
-					"modifiers": [
-						"saving",
-						"inline"
-					],
+					"modifiers": ["saving", "inline"],
 					"state": "Saving"
 				},
 				"title": {
@@ -398,9 +391,7 @@
 				},
 				"input": {
 					"type": "text",
-					"modifiers": [
-						"invalid"
-					],
+					"modifiers": ["invalid"],
 					"value": "Invalid Input",
 					"error": "Something went wrong",
 					"id": "invalid-text-input"
@@ -425,11 +416,9 @@
 				},
 				"input": {
 					"type": "text",
-					"modifiers": [
-						"suffix"
-					],
+					"modifiers": ["suffix"],
 					"value": "",
-					"button": "o-buttons o-buttons--secondary o-buttons--big",
+					"button": "demo-submit-button",
 					"id": "suffix-text-input"
 				}
 			},
@@ -461,15 +450,8 @@
 				},
 				"input": {
 					"type": "select",
-					"options": [
-						"Option 1",
-						"Option 2",
-						"Option 3",
-						"Option 4"
-					],
-					"modifiers": [
-						"small"
-					],
+					"options": ["Option 1", "Option 2", "Option 3", "Option 4"],
+					"modifiers": ["small"],
 					"id": "small-select"
 				}
 			},
@@ -481,12 +463,7 @@
 				},
 				"input": {
 					"type": "select",
-					"options": [
-						"Option 1",
-						"Option 2",
-						"Option 3",
-						"Option 4"
-					],
+					"options": ["Option 1", "Option 2", "Option 3", "Option 4"],
 					"id": "multiple-select"
 				}
 			},

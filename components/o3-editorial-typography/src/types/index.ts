@@ -1,14 +1,8 @@
-export type HeadlineProps = {
-	type: 'headline-large' | 'headline' | 'chapter' | 'subheading' | 'label';
+export type HeadingProps = {
+	type: 'display' | 'headline' | 'chapter' | 'subheading' | 'label';
 	theme?: 'standard' | 'inverse';
 	underline?: boolean;
 	children: string;
-};
-
-export type BodyProps = {
-	theme?: 'standard' | 'inverse';
-	dropCap?: boolean;
-	children: (string | JSX.Element)[] | string | JSX.Element;
 };
 
 export type SummaryProps = {
@@ -38,22 +32,15 @@ export type BigNumberProps = {
 	children: string;
 };
 
-export type BylineProps ={
-	theme?: 'standard' | 'inverse',
+export type BylineProps = {
+	theme?: 'standard' | 'inverse';
 	children: JSX.Element[] | JSX.Element | string;
-}
+};
 
 export type ListProps = {
 	type: 'ordered' | 'unordered';
 	theme?: 'standard' | 'inverse';
 	listItems: string[];
-};
-
-export type LinkProps = {
-	theme?: 'standard' | 'inverse';
-	children: string;
-	href: string;
-	anchorTarget?: '_blank';
 };
 
 export type Attributes = {

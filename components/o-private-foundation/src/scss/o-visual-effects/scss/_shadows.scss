@@ -1,0 +1,31 @@
+/// Elevation
+/// @param {String} $elevation [] - 'ultra', 'low', 'mid' or 'high'
+/// @param {Color} $color []
+/// @output A repeating linear gradient background
+@mixin oPrivateVisualEffectsShadowContent($elevation: 'low', $color: $_o-pf-visual-effects-shadow-color) {
+	box-shadow: oPrivateVisualEffectsShadow($elevation, $color);
+}
+
+/// Elevation
+/// @param {String} $elevation [] - 'ultra', 'low', 'mid' or 'high'
+/// @param {Color} $color []
+/// @output A repeating linear gradient background
+@function oPrivateVisualEffectsShadow($elevation: 'low', $color: $_o-pf-visual-effects-shadow-color) {
+	@if $elevation == 'ultralow' {
+		@return 0 2px 2px rgba($color, 0.12), 0 4px 6px rgba($color, 0.1);
+	}
+
+	@if $elevation == 'low' {
+		@return 0 1px 2px rgba($color, 0.25), 0 4px 6px rgba($color, 0.1);
+	}
+
+	@if $elevation == 'mid' {
+		@return 0 1px 3px rgba($color, 0.2), 0 6px 10px rgba($color, 0.15);
+	}
+
+	@if $elevation == 'high' {
+		@return 0 1px 4px rgba($color, 0.15), 0 8px 14px rgba($color, 0.2);
+	}
+
+	@error 'A shadow with elevation "#{$elevation}" is not supported. Must be one of: "ultralow", "low", "mid", or "high".';
+}

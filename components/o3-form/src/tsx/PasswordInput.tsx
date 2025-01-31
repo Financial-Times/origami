@@ -43,9 +43,13 @@ export const PasswordInput = ({
 				<CheckBoxItem
 					attributes={{disabled}}
 					inputId={showPasswordId}
-					checkboxLabel="Show Password"
+					checkboxLabel="Show password"
 				/>
-				{!disabled && <a className='o3-typography-link' href="">Forgot password?</a>}
+				{!disabled && (
+					<a className="o3-typography-link" href="">
+						Forgot password?
+					</a>
+				)}
 			</div>
 		</>
 	);

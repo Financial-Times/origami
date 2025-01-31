@@ -10,9 +10,8 @@ import {
 	UnorderedList,
 	OrderedList,
 	Caption,
-	Wrapper
+	Wrapper,
 } from '../src/tsx';
-import {Emphasis, Strong, Subscript, Superscript} from '../src/tsx/body';
 import type {StoryObj} from '@storybook/react';
 import {BodyProps} from '@financial-times/o-typography/src/tsx/typography';
 
@@ -36,7 +35,6 @@ export function GridMetaGenerator(brand: string): Meta {
 	};
 }
 
-
 const TemplateSBConfig = {
 	argTypes: {
 		theme: {
@@ -48,59 +46,11 @@ const TemplateSBConfig = {
 	},
 };
 
-type BodyStory = Omit<StoryObj, 'args'> & {
-	args: BodyProps & {disabled: Boolean};
-};
-
 export type TemplateType = StoryObj & {
 	render: (args) => JSX.Element;
 };
 
-const BodyStory = {
-	...TemplateSBConfig,
-	argTypes: {
-		...TemplateSBConfig.argTypes,
-		style: {
-			options: ['regular', 'italic'],
-			control: {
-				type: 'radio',
-			},
-		},
-		size: {
-			options: ['standard', 'small', 'big', 'small-caps', 'small-bold'],
-			control: {
-				type: 'radio',
-			},
-		},
-	},
-	render: args => {
-		return (
-			<>
-				<Body theme={args.theme} style={args.style} size={args.size}>
-					Body - Lorem ipsum dolor sit amet, consectetur adipisicing elit.{' '}
-					<Link href="#" theme={args.theme}>
-						Link
-					</Link>{' '}
-					a rem <Strong theme={args.theme}>excepturi</Strong> consequuntur
-					commodi dolores ad <Emphasis theme={args.theme}>laboriosam</Emphasis>{' '}
-					qui odit ipsum distinctio quos laborum dolore magnam iure rerum, enim
-					deleniti saepe sunt.
-				</Body>
-				<Body theme={args.theme} style={args.style}>
-					Lorem ipsum dolor sit amet
-					<Superscript theme={args.theme}>Sup</Superscript>, consectetur
-					adipisicing elit
-					<Subscript theme={args.theme}>Sub</Subscript>.
-					<Link href="#" theme={args.theme}>
-						Link Necessitatibus asperiores
-					</Link>
-				</Body>
-			</>
-		);
-	},
-};
-
-const HeadingStory = {
+const Headings = {
 	...TemplateSBConfig,
 	argTypes: {
 		...TemplateSBConfig.argTypes,
@@ -120,21 +70,6 @@ const HeadingStory = {
 			{args.text}
 		</Heading>
 	),
-};
-
-const LinkStory = {
-	...TemplateSBConfig,
-	render: args => {
-		return (
-			<Body theme={args.theme}>
-				This page links back{' '}
-				<Link href="https://origami.ft.com" theme={args.theme}>
-					to Origami
-				</Link>
-				.
-			</Body>
-		);
-	},
 };
 
 const UnorderedListStory = {
@@ -225,16 +160,8 @@ export const FooterTemplate = {
 	),
 };
 
-export const BodyTemplate: TemplateType = {
-	...BodyStory,
-};
-
 export const HeadingTemplate: TemplateType = {
-	...HeadingStory,
-};
-
-export const LinkTemplate: TemplateType = {
-	...LinkStory,
+	...Headings,
 };
 
 export const UnorderedListTemplate: TemplateType = {

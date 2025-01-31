@@ -116,7 +116,7 @@ brew install rg
 
      ```shell
      npm run build-storybook -w apps/o3-storybook/
-     npm run storybook -w apps/o3-storybook/ 
+     npm run storybook -w apps/o3-storybook/
      ```
 
    - For Origami Design System website, run the following command:
@@ -136,7 +136,6 @@ Follow the [quick start guide](#quick-start) to get started developing component
 ##### Storybook
 
 Storybook can be run locally with the `storybook` command.
-
 
 ```shell
 npm run storybook
@@ -207,6 +206,14 @@ Run tests for a given component with the npm `test` script.
 npm run test -w components/o-example
 ```
 
+Run tests for all components with the npm `test` script.
+
+```shell
+npm run test -w components
+```
+
+_Note: This will take a good amount of time when running on localhost._
+
 Run JavaScript tests in a browser using the `debug:js` script.
 
 ```shell
@@ -218,6 +225,14 @@ Lint the code of a given component with the npm `lint` script.
 ```shell
 npm run lint -w components/o-example
 ```
+
+Run linting for all components with the npm `test` script.
+
+```shell
+npm run lint -w components
+```
+
+_Note: This will take a good amount of time when running on localhost._
 
 ### Tips
 

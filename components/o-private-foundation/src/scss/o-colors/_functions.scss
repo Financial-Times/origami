@@ -1,0 +1,354 @@
+/// Returns a brighter or darker tone of a colour, where the hue remains
+/// the same but the saturation and luminance changes.
+///
+/// Not all our colours allow tones. If a colour cannot be toned an error is
+/// thrown. You may however mix the colour with another supported colour.
+/// @see oPrivateColorsMix
+///
+/// @param {String} $color-name - the name of the color to be shaded
+/// @param {Number} $brightness - the brightness value of the new color, 0-100
+@function oPrivateColorsGetTone($color-name, $brightness) {
+	// Find palette colour information.
+	$color: oPrivateFoundationGet($color-name);
+	$color-map: map-get($_o-pf-colors-palette, $color-name);
+	$color-meta: map-get($color-map, 'meta');
+
+	// Validate brightness.
+	@if(type-of($brightness) != 'number' or $brightness > 100 or $brightness < 0) {
+		@return _oPrivateColorsError('"$brightness" must be a number between 0 and 100.');
+	}
+
+	// Error for colours which have no hue, such as white and black, which we do not allow tones of.
+	@if (hue($color) == 0 and saturation($color) == 0) {
+		@return _oPrivateColorsError('"#{$color-name}" does not support tones. ' +
+		'Use a mix instead: ' +
+		'`oPrivateColorsMix(\'#{$color-name}\', $percentage: #{$brightness})`');
+	}
+
+	// Error for any palette colour which hasn't been configured to allow tones.
+	$allows-tones: map-get($color-meta, 'allow-tones');
+	@if (not $allows-tones) {
+		@return _oPrivateColorsError('"#{$color-name}" does not allow tones. ' +
+		'We only allow tones for some colours, to reduce the number ' +
+		'of different colours used across sites. ' +
+		'For custom colours, set the `allow-tones` option ' +
+		'of `oPrivateColorsSetColor` to enable tones. ' +
+		'If using a default o-colors colour consider using the `oPrivateColorsMix` ' +
+		'function to mix with black to darken or white to lighten.');
+	}
+
+	// Convert the given colour to the HSB colour space.
+	$hsb: _oPrivateColorsHexToHsbValues($color);
+	$hsb-hue: map-get($hsb, 'h');
+	$hsb-saturation: map-get($hsb, 's');
+	// Update the colours brightness with the given brightness value,
+	// using the HSB colour space.
+	@return _oPrivateColorsHsbToHex($hsb-hue, $hsb-saturation, $brightness);
+}
+
+/// Figure out if a given colour is a tone. If it is a tone return the original
+/// colour name and its tone brightness, otherwise return null.
+///
+/// @example Get the tone brightness of 'claret-80'
+///    $tone-details: oPrivateColorsGetToneDetails('claret-80');
+///    $color-name: map-get($tone-details, 'color-name'); // claret
+///    $brightness: map-get($tone-details, 'brightness'); // 80
+///
+/// @param {String} $color - the palette colour or color name e.g. 'claret-80'
+/// @return {Map|Null} - the details of the given tone e.g. ('color-name': 'claret', 'brightness': 80)					)
+@function oPrivateColorsGetToneDetails($color) {
+	$color: if(type-of($color) == 'string', oPrivateFoundationGet($color), $color);
+	$hue: hue($color);
+	@each $tone-color, $tone-config in $_o-pf-colors-default-palette-tones {
+		// Check the given colour against the tone to find the tone brightness.
+		$brightness: 0;
+		@while $brightness <= 100 {
+			@if(inspect(oPrivateColorsGetTone($tone-color, $brightness)) == inspect($color)) {
+				@return (
+					'color-name': $tone-color,
+					'brightness': $brightness
+				);
+			}
+			$brightness: $brightness + 1;
+		}
+	}
+	// No tone matched.
+	@return null;
+}
+
+/// Returns a color based on the background context and base color
+/// at the supplied percentage
+///
+/// @param {String|Color} $color [black] - palette name of color
+/// @param {String|Color} $background [paper] - palette name of background color
+/// @param {Number} $percentage [60] - percentage opacity of the foreground color over the background
+@function oPrivateColorsMix($color: 'o3-color-palette-black', $background: oPrivateFoundationGet('o3-color-use-case-page-background'), $percentage: 80) {
+	// Cast colour arguments to string before checking if they exist in our pallet.
+	// If colour names are passed without quotes they will be of type `color`.
+	// We want both of these to be equivalent:
+	// oPrivateColorsMix('o3-color-palette-paper', 'o3-color-palette-wheat', 30);
+	// oPrivateColorsMix(o3-color-palette-paper, o3-color-palette-wheat, 30);
+	// https://www.w3.org/wiki/CSS/Properties/color/keywords
+	$base: if(type-of($background) == color, $background, oPrivateFoundationGet(#{$background}));
+	$mixer: if(type-of($color) == "color", $color, oPrivateFoundationGet(#{$color}));
+
+	@if type-of($base) != color {
+		@return _oPrivateColorsError("'#{inspect($background)}' is not a valid base color.");
+	}
+
+	@if type-of($mixer) != color {
+		@return _oPrivateColorsError("'#{inspect($color)}' is not a valid mixing color.");
+	}
+
+	@if (unitless($percentage)) {
+		@return mix($mixer, $base, $percentage * 1%);
+	}
+
+	@return mix($mixer, $base, $percentage);
+}
+
+/// Returns a text color based on the background and
+/// an opacity percentage the color should appear at
+///
+/// @param {Color|String} $background - the color or palette color name of the background the text will appear on
+/// @param {Number} $opacity [100] - the opacity percentage the text color should appear at
+/// @param {String|Null} $minimum-contrast ['aa-normal'] - the minimum contrast ratio standard between the background and the returned text color, one of: aa-normal, aa-large, aaa-normal, aaa-large. See [WCAG 2.1 guidelines](https://www.w3.org/TR/WCAG21/#contrast-minimum). If the contrast ratio is too low to meet the selected guideline an error is thrown. Set to `null` to remove contrast checking and never throw an error.
+@function oPrivateColorsGetTextColor($background, $opacity: 90, $minimum-contrast: 'aa-normal') {
+	$background-name: $background;
+	// Get background color if palette colour name has been given.
+	$background: if(type-of($background) == 'string', oPrivateFoundationGet($background), $background);
+
+	// Contrast values. See https://www.w3.org/TR/WCAG21/#contrast-minimum
+	$contrast-levels: (
+		'aa-normal': 4.5,
+		'aa-large': 3,
+		'aaa-normal': 7,
+		'aaa-large': 4.5
+	);
+
+	// Validate arguments.
+	@if($minimum-contrast != null and not map-has-key($contrast-levels, $minimum-contrast)) {
+		@return _oPrivateColorsError('The minimum contrast must by one of "#{map-keys($contrast-levels)}" '+
+		'or `null`. Found "#{inspect($minimum-contrast)}".');
+	}
+
+	@if type-of($background) != color {
+		@return _oPrivateColorsError("'#{inspect($background)}' is not a valid color. To get a text color, please supply a valid color or palette color name for the background color'");
+	}
+
+	@if type-of($opacity) != 'number' {
+		@return _oPrivateColorsError("'#{inspect($opacity)}' is not a valid opacity, set to a number.'");
+	}
+
+	$contrast-ratio-aim: map-get($contrast-levels, if($minimum-contrast, $minimum-contrast, 'aa-normal'));
+
+	// Calculate text colour for background and opacity.
+	$base-color-a: if(oPrivateColorsColorBrightness($background) < 65%, 'o3-color-palette-white', 'o3-color-palette-black');
+	$text-color-a: oPrivateColorsMix($base-color-a, $background, $opacity);
+	$contrast-ratio-a: oPrivateColorsGetContrastRatio($text-color-a, $background);
+	@if $contrast-ratio-a > $contrast-ratio-aim {
+		@return $text-color-a;
+	}
+
+	// Switch the base colour if the first attempt did not pass contrast checks.
+	$base-color-b: if($base-color-a == 'o3-color-palette-black', 'o3-color-palette-white', 'o3-color-palette-black');
+	$text-color-b: oPrivateColorsMix($base-color-b, $background, $opacity);
+	$contrast-ratio-b: oPrivateColorsGetContrastRatio($text-color-b, $background);
+	@if $contrast-ratio-b > $contrast-ratio-aim {
+		@return $text-color-b;
+	}
+
+	// Error if neither base colour produced a text colour of high enough contrast.
+	@if $minimum-contrast != null {
+		$best-contrast-ratio: if($contrast-ratio-a > $contrast-ratio-b, $contrast-ratio-a, $contrast-ratio-b);
+		@return _oPrivateColorsError(
+			'The text colour generated for #{inspect($background-name)} at ' +
+			'#{inspect($opacity)}% opacity has a contrast ratio of ' +
+			'"#{inspect($best-contrast-ratio)}" and does not pass the WCAG 2.1 ' +
+			'#{$minimum-contrast} required contrast ratio of at least ' +
+			'#{$contrast-ratio-aim}:1. Update the `$minimum-contrast` argument ' +
+			'if a lower contrast is acceptable.'
+		);
+	}
+
+	@return if($contrast-ratio-a > $contrast-ratio-b, $text-color-a, $text-color-b);
+}
+
+/// Work out the brightness value in % of a color
+/// From: https://gist.github.com/jlong/f06f5843104ee10006fe
+///
+/// @param {Color} $color - color value to get brightness from (either a CSS colour or o-colors palette colour name)
+@function oPrivateColorsColorBrightness($color) {
+	$color: if(type-of($color) == 'string', oPrivateFoundationGet($color), $color);
+
+	$red-magic-number: 241;
+	$green-magic-number: 691;
+	$blue-magic-number: 68;
+
+	$brightness-divisor: $red-magic-number + $green-magic-number + $blue-magic-number;
+
+	// Extract color components
+	$red-component: red($color);
+	$green-component: green($color);
+	$blue-component: blue($color);
+
+	// Calculate a brightness value in 3d color space between 0 and 255
+	$number: sqrt(div(($red-component * $red-component * $red-magic-number) + ($green-component * $green-component * $green-magic-number) + ($blue-component * $blue-component * $blue-magic-number), $brightness-divisor));
+
+	// Convert to percentage and return
+	@return 100% * div($number, 255);
+}
+
+/// Returns the luminance of `$color` as a float (between 0 and 1)
+/// 1 is pure white, 0 is pure black.
+/// From: https://css-tricks.com/snippets/sass/luminance-color-function/
+/// @param {String|Color} $color -  The colour to return a luminance for (either a CSS colour or o-colors palette colour name)
+/// @return {Number} - a number between 0 and 1
+@function oPrivateColorsColorLuminance($color) {
+	$color: if(type-of($color) == 'string', oPrivateFoundationGet($color), $color);
+
+	$colors: (
+		'red': red($color),
+		'green': green($color),
+		'blue': blue($color)
+	);
+
+	@each $name, $value in $colors {
+		$adjusted: 0;
+		$value: div($value, 255);
+
+		@if $value < 0.03928 {
+			$value: div($value, 12.92);
+		} @else {
+			$value: div($value + 0.055, 1.055);
+			$value: pow($value, 2.4);
+		}
+
+		$colors: map-merge($colors, ($name: $value));
+	}
+
+	@return (map-get($colors, 'red') * 0.2126) + (map-get($colors, 'green') * 0.7152) + (map-get($colors, 'blue') * 0.0722);
+}
+
+/// Calculate the contrast ratio between two colours.
+///
+/// @param {String|Color} $color-a - first colour to compare (either a CSS colour or o-colors palette colour name)
+/// @param {String|Color} $color-b - second colour to compare (either a CSS colour or o-colors palette colour name)
+/// Based on the JS in https://github.com/LeaVerou/contrast-ratio/blob/gh-pages/contrast-ratio.js
+@function oPrivateColorsGetContrastRatio($color-a, $color-b) {
+	$l1: oPrivateColorsColorLuminance($color-a) + 0.05;
+	$l2: oPrivateColorsColorLuminance($color-b) + 0.05;
+
+	$ratio: div($l1, $l2);
+
+	@if $l2 > $l1 {
+		$ratio: div(1, $ratio);
+	}
+
+	$ratio: _oPrivateColorsPreciseFloor($ratio);
+
+	@return $ratio;
+}
+
+/// @access private
+@function _oPrivateColorsPreciseFloor($number, $decimals: 2) {
+	$multiplier: pow(10, $decimals);
+	@return div(floor($number * $multiplier), $multiplier);
+}
+
+/// Allows for errors to be tested in dev environments
+/// Code from: https://github.com/oddbird/true/issues/92
+/// @access private
+@function _oPrivateColorsError($message, $capture: $_o-pf-colors-test-environment) {
+	@if $capture {
+		@return 'ERROR: #{$message}';
+	}
+
+	@error('#{$message}');
+}
+
+/// Get a namespace from a colour name.
+/// Returns null if there is no namespace.
+/// @example
+///    $namespace: _oPrivateColorsGetNameSpace('o-example/paper'); // o-example
+///    $namespace: _oPrivateColorsGetNameSpace('o-colors/paper'); // o-colors
+///    $namespace: _oPrivateColorsGetNameSpace('paper'); // null
+@function _oPrivateColorsGetNameSpace($color-name) {
+	$slash-index: str-index($color-name, '/');
+	@return if($slash-index, str-slice($color-name, 0, $slash-index - 1), null);
+}
+
+/// Add the default o-colors namespace if a namespace isn't given.
+/// @example
+///    $namespace: _oPrivateColorsRemoveDefaultNamespace('o-example/paper'); // o-example/paper
+///    $namespace: _oPrivateColorsRemoveDefaultNamespace('o-colors/paper'); // paper
+///    $namespace: _oPrivateColorsRemoveDefaultNamespace('paper'); // paper
+@function _oPrivateColorsRemoveDefaultNamespace($color-name) {
+	$namespace: _oPrivateColorsGetNameSpace($color-name);
+	$slash-index: str-index($color-name, '/');
+	$color-part: if($namespace, str-slice($color-name, $slash-index + 1, -1), $color-name);
+	@return if($namespace == 'o-colors', $color-part, $color-name);
+}
+
+/// Check if a colour name exists in the palette.
+@function _oPrivateColorsNameExists($color-name) {
+	@return map-has-key($_o-pf-colors-palette, $color-name);
+}
+
+/// Converts HSB/HSV values to a hex colour
+///
+/// @access private
+///
+/// @param {Number} $hue - number between 0-360
+/// @param {Number} $saturation - number between 0-100
+/// @param {Number} $brigthness - number between 0-100
+///
+/// @return {Colour} - the hex representation of given hsb values
+@function _oPrivateColorsHsbToHex($hue, $saturation, $brightness) {
+	@if $brightness == 0 {
+		@return hsl(0, 0%, 0%);
+	}
+
+	$hsl-luminance: (div($brightness, 2)) * (2 - (div($saturation, 100)));
+	$hsl-saturation: div($brightness * $saturation, if($hsl-luminance < 50, $hsl-luminance * 2, 200 - $hsl-luminance * 2));
+	@return hsl($hue, $hsl-saturation * 1%, $hsl-luminance * 1%);
+}
+
+/// Returns HSB/HSV colour values for a given colour hex.
+///
+/// Logic derived from chroma.js
+/// https://github.com/gka/chroma.js/blob/088e18f50a3b5b1d009ce68f540265cafa0cb6a1/src/io/hsv/rgb2hsv.js#L10
+/// HSL to HSB is also documented here, if you prefer math:
+/// https://www.rapidtables.com/convert/color/rgb-to-hsv.html
+///
+/// @access private
+///
+/// @param {Color} $hex - The hex colour value to find hsb values for.
+/// @return {Map} - map of `h`, `s`, `b` colour values.
+@function _oPrivateColorsHexToHsbValues($hex) {
+	$redValue: red($hex);
+	$greenValue: green($hex);
+	$blueValue: blue($hex);
+
+	// Find smallest and largest amount of colour.
+	$min: null;
+	$max: null;
+	@each $var in ($redValue, $greenValue, $blueValue) {
+		@if $min == null or $var < $min {
+			$min: $var;
+		}
+
+		@if $max == null or $var > $max {
+			$max: $var;
+		}
+	}
+
+	// Difference between the smallest and largest amount of colour.
+	$delta: $max - $min;
+
+	$hue: hue($hex);
+	$saturation: if($max == 0, 0, div($delta, $max));
+	$brightness: div($max, 255);
+
+	@return ('h': $hue, 's': $saturation * 100, 'b': $brightness * 100);
+}

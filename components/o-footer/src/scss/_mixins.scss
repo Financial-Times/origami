@@ -34,7 +34,7 @@
 		}
 
 		.o-footer__matrix-link--more:after {
-			@include oIconsContent(
+			@include oPrivateIconsContent(
 				$icon-name: 'arrow-right',
 				$size: $_o-footer-icon-size,
 				$color: _oFooterGet('text', $from: $theme),
@@ -76,20 +76,20 @@
 @mixin _oFooterMatrix($themes) {
 	.o-footer__matrix,
 	.o-footer__matrix-content {
-		@include oGridRow();
+		@include oPrivateGridRow();
 	}
 
 	.o-footer__matrix-group,
 	.o-footer__matrix-column {
-		@include oGridColspan();
+		@include oPrivateGridColspan();
 	}
 
 	@each $key, $value in $_o-footer-matrix {
 		.o-footer__matrix-group--#{$key} {
-			@include oGridColspan(map-get($value, 'group'), $width-only: true);
+			@include oPrivateGridColspan(map-get($value, 'group'), $width-only: true);
 
 			.o-footer__matrix-column {
-				@include oGridColspan(map-get($value, 'columns'), $width-only: true);
+				@include oPrivateGridColspan(map-get($value, 'columns'), $width-only: true);
 			}
 		}
 	}
@@ -121,11 +121,7 @@
 
 				@each $theme in $themes {
 					.o-footer--theme-#{$theme} & {
-						@include oIconsContent(
-							'arrow-down',
-							_oFooterGet('title', $theme),
-							$size: $_o-footer-icon-size
-						);
+						@include oPrivateIconsContent('arrow-down', _oFooterGet('title', $theme), $size: $_o-footer-icon-size);
 					}
 				}
 			}
@@ -146,7 +142,7 @@
 		line-height: $_o-footer-spacing-unit * 2;
 
 		border-top: 1px solid;
-		@include oGridRespondTo(M) {
+		@include oPrivateGridRespondTo(M) {
 			border-top: 0;
 			line-height: initial;
 		}
@@ -159,13 +155,13 @@
 	}
 
 	.o-footer__matrix-column {
-		margin-top: oSpacingByName('s4');
-		margin-bottom: oSpacingByName('s4');
+		margin-top: oPrivateSpacingByName('s4');
+		margin-bottom: oPrivateSpacingByName('s4');
 	}
 
 	.o-footer__matrix-link {
-		padding-top: oSpacingByName('s2');
-		padding-bottom: oSpacingByName('s2');
+		padding-top: oPrivateSpacingByName('s2');
+		padding-bottom: oPrivateSpacingByName('s2');
 		display: block;
 
 		&:first-child {
@@ -180,7 +176,7 @@
 			white-space: normal;
 		}
 		&:after {
-			@include oIconsContent(
+			@include oPrivateIconsContent(
 				$icon-name: 'arrow-right',
 				$size: $_o-footer-icon-size,
 				$color: _oFooterGet('text'),

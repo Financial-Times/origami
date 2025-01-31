@@ -1,18 +1,15 @@
-import {Headline} from '@financial-times/o3-editorial-typography/esm';
+import {Heading} from '@financial-times/o3-editorial-typography/esm';
 
 function Label() {
 	return (
 		<>
 			<meta itemProp="@preview" />
-					<Headline type='label'>
-						Don’t settle for black and white
-					</Headline>
+			<Heading type="label">Don’t settle for black and white</Heading>
 			<meta itemProp="@preview" />
 		</>
 	);
 }
 
-export const filePath =
-	'src/components/editorial-typography/preview/Label.tsx';
+export const filePath = 'src/components/editorial-typography/preview/Label.tsx';
 
 export {Label as preview};

@@ -1,9 +1,9 @@
-import {OrderedList, Body} from '@financial-times/o3-foundation/esm';
+import {OrderedList} from '@financial-times/o3-foundation/esm';
 
 function ListPreview() {
 	return (
 		<>
-			<Body>
+			<div className="o3-typography-use-case-body-base">
 				<meta itemProp="@preview" />
 				<OrderedList>
 					<li>Lorem ipsum adipiscing elit.</li>
@@ -11,7 +11,7 @@ function ListPreview() {
 					<li>Curabitu r accumsan elit luctus.</li>
 				</OrderedList>
 				<meta itemProp="@preview" />
-			</Body>
+			</div>
 		</>
 	);
 }

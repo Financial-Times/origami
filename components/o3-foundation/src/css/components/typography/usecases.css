@@ -1,0 +1,184 @@
+/* DISPLAY */
+.o3-typography-use-case-display-lg {
+	font-family: var(--o3-typography-use-case-display-lg-font-family);
+	font-size: var(--o3-typography-use-case-display-lg-font-size);
+	line-height: var(--o3-typography-use-case-display-lg-line-height);
+	font-weight: var(--o3-typography-use-case-display-lg-font-weight);
+}
+
+.o3-typography-use-case-display-md {
+	font-family: var(--o3-typography-use-case-display-md-font-family);
+	font-size: var(--o3-typography-use-case-display-md-font-size);
+	line-height: var(--o3-typography-use-case-display-md-line-height);
+	font-weight: var(--o3-typography-use-case-display-md-font-weight);
+}
+
+.o3-typography-use-case-display-sm {
+	font-family: var(--o3-typography-use-case-display-sm-font-family);
+	font-size: var(--o3-typography-use-case-display-sm-font-size);
+	line-height: var(--o3-typography-use-case-display-sm-line-height);
+	font-weight: var(--o3-typography-use-case-display-sm-font-weight);
+}
+
+/* HEADLINE */
+.o3-typography-use-case-headline-lg {
+	font-family: var(--o3-typography-use-case-headline-lg-font-family);
+	font-size: var(--o3-typography-use-case-headline-lg-font-size);
+	line-height: var(--o3-typography-use-case-headline-lg-line-height);
+	font-weight: var(--o3-typography-use-case-headline-lg-font-weight);
+}
+
+.o3-typography-use-case-headline-md {
+	font-family: var(--o3-typography-use-case-headline-md-font-family);
+	font-size: var(--o3-typography-use-case-headline-md-font-size);
+	line-height: var(--o3-typography-use-case-headline-md-line-height);
+	font-weight: var(--o3-typography-use-case-headline-md-font-weight);
+}
+
+.o3-typography-use-case-headline-sm {
+	font-family: var(--o3-typography-use-case-headline-sm-font-family);
+	font-size: var(--o3-typography-use-case-headline-sm-font-size);
+	line-height: var(--o3-typography-use-case-headline-sm-line-height);
+	font-weight: var(--o3-typography-use-case-headline-sm-font-weight);
+}
+
+/* TITLE */
+
+.o3-typography-wrapper > h1,
+.o3-typography-use-case-title-lg {
+	font-family: var(--o3-typography-use-case-title-lg-font-family);
+	font-size: var(--o3-typography-use-case-title-lg-font-size);
+	line-height: var(--o3-typography-use-case-title-lg-line-height);
+	font-weight: var(--o3-typography-use-case-title-lg-font-weight);
+}
+
+.o3-typography-wrapper > h2,
+.o3-typography-use-case-title-md {
+	font-family: var(--o3-typography-use-case-title-md-font-family);
+	font-size: var(--o3-typography-use-case-title-md-font-size);
+	line-height: var(--o3-typography-use-case-title-md-line-height);
+	font-weight: var(--o3-typography-use-case-title-md-font-weight);
+}
+
+.o3-typography-wrapper > h3,
+.o3-typography-use-case-title-sm {
+	font-family: var(--o3-typography-use-case-title-sm-font-family);
+	font-size: var(--o3-typography-use-case-title-sm-font-size);
+	line-height: var(--o3-typography-use-case-title-sm-line-height);
+	font-weight: var(--o3-typography-use-case-title-sm-font-weight);
+}
+
+/* BODY */
+.o3-typography-use-case-body-lg {
+	font-family: var(--o3-typography-use-case-body-lg-font-family);
+	font-size: var(--o3-typography-use-case-body-lg-font-size);
+	line-height: var(--o3-typography-use-case-body-lg-line-height);
+	font-weight: var(--o3-typography-use-case-body-lg-font-weight);
+}
+
+.o3-typography-use-case-body-base {
+	font-family: var(--o3-typography-use-case-body-base-font-family);
+	font-size: var(--o3-typography-use-case-body-base-font-size);
+	line-height: var(--o3-typography-use-case-body-base-line-height);
+	font-weight: var(--o3-typography-use-case-body-base-font-weight);
+}
+
+.o3-typography-use-case-body-highlight {
+	font-family: var(--o3-typography-use-case-body-highlight-font-family);
+	font-size: var(--o3-typography-use-case-body-highlight-font-size);
+	line-height: var(--o3-typography-use-case-body-highlight-line-height);
+	font-weight: var(--o3-typography-use-case-body-highlight-font-weight);
+}
+
+/* DETAIL / LABEL */
+.o3-typography-use-case-detail {
+	font-family: var(--o3-typography-use-case-detail-font-family);
+	font-size: var(--o3-typography-use-case-detail-font-size);
+	line-height: var(--o3-typography-use-case-detail-line-height);
+	font-weight: var(--o3-typography-use-case-detail-font-weight);
+}
+
+.o3-typography-use-case-label {
+	font-family: var(--o3-typography-use-case-label-font-family);
+	font-size: var(--o3-typography-use-case-label-font-size);
+	line-height: var(--o3-typography-use-case-label-line-height);
+	font-weight: var(--o3-typography-use-case-label-font-weight);
+	text-transform: var(--o3-typography-use-case-label-text-case);
+}
+
+/* BODY CONTENT – EDITORIAL */
+.o3-typography-use-case-body-content-base {
+	font-family: var(--o3-typography-use-case-body-content-base-font-family);
+	font-size: var(--o3-typography-use-case-body-content-base-font-size);
+	line-height: var(--o3-typography-use-case-body-content-base-line-height);
+	font-weight: var(--o3-typography-use-case-body-content-base-font-weight);
+}
+
+.o3-typography-use-case-body-content-highlight {
+	font-family: var(--o3-typography-use-case-body-content-highlight-font-family);
+	font-size: var(--o3-typography-use-case-body-content-highlight-font-size);
+	line-height: var(--o3-typography-use-case-body-content-highlight-line-height);
+	font-weight: var(--o3-typography-use-case-body-content-highlight-font-weight);
+}
+
+.o3-typography-use-case-body-content-emphasis {
+	font-family: var(--o3-typography-use-case-body-content-emphasis-font-family);
+	font-size: var(--o3-typography-use-case-body-content-emphasis-font-size);
+	line-height: var(--o3-typography-use-case-body-content-emphasis-line-height);
+	font-weight: var(--o3-typography-use-case-body-content-emphasis-font-weight);
+	font-style: var(--o3-typography-use-case-body-content-emphasis-font-style);
+}
+
+/* Default body colours */
+
+:where(
+		[class~='typography-use-case-body'],
+		.o3-typography-use-case-detail,
+		.o3-typography-use-case-highlight,
+		.o3-typography-wrapper > p
+	) {
+	color: var(--o3-color-use-case-body-text);
+	[data-o3-theme='inverse']&,
+	:where([data-o3-theme='inverse']) & {
+		color: var(--o3-color-use-case-body-inverse-text);
+	}
+}
+
+/* Default heading colours */
+
+:where(
+		[class~='o3-typography-use-case-headline'],
+		[class~='o3-typography-use-case-display'],
+		.o3-typography-wrapper > :where(h1, h2, h3, h4, h5, h6),
+
+	) {
+	color: var(--o3-color-use-case-heading-text);
+	[data-o3-theme='inverse']&,
+	:where([data-o3-theme='inverse']) & {
+		color: var(--o3-color-use-case-heading-inverse-text);
+	}
+}
+
+/* Superscript / Subscript */
+.o3-typography-wrapper > sub,
+.o3-typography-wrapper > p sub,
+.o3-typography-use-case-body-base > sub,
+.o3-typography-use-case-body-lg > sub {
+	font-size: 0.666em;
+	position: static;
+	vertical-align: sub;
+	line-height: 0;
+	display: inline-block;
+	margin-bottom: -1em;
+}
+.o3-typography-wrapper > sup,
+.o3-typography-wrapper > p sup,
+.o3-typography-use-case-body-base > sup,
+.o3-typography-use-case-body-lg > sup {
+	font-size: 0.666em;
+	position: static;
+	vertical-align: super;
+	line-height: 0;
+	display: inline-block;
+	margin-top: -1em;
+}

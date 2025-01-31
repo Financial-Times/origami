@@ -6,10 +6,11 @@
 				@include output($selector: false) {
 					@include oEditorialTypography(('headings': (1)));
 				}
+
 				@include contains($selector: false) {
 					.o-editorial-typography-heading-level-1 {
 						margin: 0;
-						color: #33302e;
+						color: rgb(51, 48.2, 45.8); // #33302e
 						font-family: FinancierDisplayWeb, serif;
 						font-size: 28px;
 						line-height: 32px;
@@ -24,10 +25,11 @@
 				@include output($selector: false) {
 					@include oEditorialTypography(('headings': (1, 2)));
 				}
+
 				@include contains($selector: false) {
 					.o-editorial-typography-heading-level-1 {
 						margin: 0;
-						color: #33302e;
+						color: rgb(51, 48.2, 45.8); // #33302e
 						font-family: FinancierDisplayWeb, serif;
 						font-size: 28px;
 						line-height: 32px;
@@ -36,7 +38,7 @@
 
 					.o-editorial-typography-heading-level-2 {
 						margin: 0;
-						color: #33302e;
+						color: rgb(51, 48.2, 45.8); // #33302e
 						font-family: MetricWeb, sans-serif;
 						font-size: 28px;
 						line-height: 32px;
@@ -56,19 +58,23 @@
 						@include oEditorialTypographyTag('topic');
 					}
 				}
+
 				@include expect($selector: false) {
 					.my-topic-tag {
-						color: #33302e;
+						color: rgb(51, 48.2, 45.8); // #33302e
 						font-family: MetricWeb, sans-serif;
 						font-weight: 600;
 					}
-					a.my-topic-tag { // stylelint-disable-line selector-no-qualifying-type
+
+					a.my-topic-tag {
+						// stylelint-disable-line selector-no-qualifying-type
 						color: #990f3d;
 						text-decoration: none;
 						border-bottom: 0;
 					}
 
-					a.my-topic-tag:hover { // stylelint-disable-line selector-no-qualifying-type
+					a.my-topic-tag:hover {
+						// stylelint-disable-line selector-no-qualifying-type
 						color: hsl(340, 82.1428571429%, 16.4705882353%);
 					}
 				}
@@ -78,23 +84,28 @@
 		@include test('Styles topic tags which are links') {
 			@include assert {
 				@include output($selector: false) {
-					a.my-topic-tag { // stylelint-disable-line selector-no-qualifying-type
+					a.my-topic-tag {
+						// stylelint-disable-line selector-no-qualifying-type
 						@include oEditorialTypographyTag('topic');
 					}
 				}
+
 				@include expect($selector: false) {
-					a.my-topic-tag { // stylelint-disable-line selector-no-qualifying-type
+					a.my-topic-tag {
+						// stylelint-disable-line selector-no-qualifying-type
 						font-family: MetricWeb, sans-serif;
 						font-weight: 600;
 					}
 
-					a.my-topic-tag { // stylelint-disable-line selector-no-qualifying-type
+					a.my-topic-tag {
+						// stylelint-disable-line selector-no-qualifying-type
 						color: #990f3d;
 						text-decoration: none;
 						border-bottom: 0;
 					}
 
-					a.my-topic-tag:hover { // stylelint-disable-line selector-no-qualifying-type
+					a.my-topic-tag:hover {
+						// stylelint-disable-line selector-no-qualifying-type
 						color: hsl(340, 82.1428571429%, 16.4705882353%);
 					}
 				}

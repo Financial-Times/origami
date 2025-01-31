@@ -51,6 +51,7 @@ function getSassData(sassFile, config = {
  * @return {Promise<String>} - The built css.
  */
 function buildSass(config) {
+	console.log(`Building Sass for brand ${config.brand}`);
 	config = config || {};
 	const cwd = config.cwd || process.cwd();
 	const src = config.sass ? Promise.resolve(config.sass) : files.getMainSassPath(cwd);

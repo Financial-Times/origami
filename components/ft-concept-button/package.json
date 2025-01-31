@@ -1,29 +1,30 @@
 {
-  "name": "@financial-times/ft-concept-button",
-  "version": "1.3.0",
-  "description": "ft concept button (includes the ft follow button)",
-  "keywords": [
-    "button",
-    "ft",
-    "follow"
-  ],
-  "bugs": {
-    "url": "https://github.com/Financial-Times/origami/issues/new?labels=ft-follow-button,components",
-    "email": "origami.support@ft.com"
-  },
-  "license": "MIT",
-  "type": "module",
-  "browser": "main.js",
-  "scripts": {
-    "lint": "bash ../../scripts/component/lint.bash",
-    "watch": "bash ../../scripts/component/watch.bash"
-  },
-  "peerDependencies": {
-    "@financial-times/o-normalise": "^3.3.0",
-    "@financial-times/o-typography": "^7.4.1"
-  },
-  "engines": {
-    "npm": ">7"
-  },
-  "private": false
+	"name": "@financial-times/ft-concept-button",
+	"version": "1.3.0",
+	"description": "ft concept button (includes the ft follow button)",
+	"keywords": [
+		"button",
+		"ft",
+		"follow"
+	],
+	"bugs": {
+		"url": "https://github.com/Financial-Times/origami/issues/new?labels=ft-follow-button,components",
+		"email": "origami.support@ft.com"
+	},
+	"license": "MIT",
+	"type": "module",
+	"browser": "main.js",
+	"scripts": {
+		"lint": "bash ../../scripts/component/lint.bash",
+		"watch": "bash ../../scripts/component/watch.bash",
+		"test": "bash ../../scripts/component/test.bash"
+	},
+	"peerDependencies": {
+		"@financial-times/o-normalise": "^3.3.0",
+		"@financial-times/o-private-foundation": "^0.0.0"
+	},
+	"engines": {
+		"npm": ">7"
+	},
+	"private": false
 }
