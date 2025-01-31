@@ -110,18 +110,10 @@
 	$size: map-get($opts, 'size');
 	$icon: map-get($opts, 'icon');
 
-	font-family: oPrivateFoundationGet(
-		'o3-typography-use-case-body-highlight-font-family'
-	);
-	font-size: oPrivateFoundationGet(
-		'o3-typography-use-case-body-highlight-font-size'
-	);
-	line-height: oPrivateFoundationGet(
-		'o3-typography-use-case-body-highlight-line-height'
-	);
-	font-weight: oPrivateFoundationGet(
-		'o3-typography-use-case-body-highlight-font-weight'
-	);
+	font-family: oPrivateFoundationGet('o3-type-body-highlight-font-family');
+	font-size: oPrivateFoundationGet('o3-type-body-highlight-font-size');
+	line-height: oPrivateFoundationGet('o3-type-body-highlight-line-height');
+	font-weight: oPrivateFoundationGet('o3-type-body-highlight-font-weight');
 
 	--_o-pf-button-border-size: 1px;
 	--_o-pf-button-icon-size: calc(

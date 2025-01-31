@@ -8,8 +8,8 @@
 		content: '';
 		display: inline-block;
 		background-color: var(--o3-color-use-case-error);
-		width: var(--o3-typography-use-case-body-small-font-size);
-		height: var(--o3-typography-use-case-body-small-font-size);
+		width: var(--o3-type-body-small-font-size);
+		height: var(--o3-type-body-small-font-size);
 		mask-image: var(--_o3-form-icon-error);
 		mask-repeat: no-repeat;
 		mask-size: contain;
@@ -18,10 +18,10 @@
 	.o3-form__error-summary__heading {
 		margin-left: var(--o3-spacing-4xs);
 		& > span {
-			font-family: var(--o3-typography-use-case-body-highlight-font-family);
-			font-size: var(--o3-typography-use-case-body-highlight-font-size);
-			font-weight: var(--o3-typography-use-case-body-highlight-font-weight);
-			line-height: var(--o3-typography-use-case-body-highlight-line-height);
+			font-family: var(--o3-type-body-highlight-font-family);
+			font-size: var(--o3-type-body-highlight-font-size);
+			font-weight: var(--o3-type-body-highlight-font-weight);
+			line-height: var(--o3-type-body-highlight-line-height);
 			color: var(--o3-color-use-case-error-text);
 			display: inline-block;
 			margin-bottom: var(--o3-spacing-4xs);

@@ -2,18 +2,10 @@
 	margin: 0 0 var(--o3-spacing-s);
 }
 [class^='o3-editorial-typography-'] {
-	--_o3-body-font-family: var(
-		--o3-typography-use-case-body-content-base-font-family
-	);
-	--_o3-body-font-size: var(
-		--o3-typography-use-case-body-content-base-font-size
-	);
-	--_o3-body-font-weight: var(
-		--o3-typography-use-case-body-content-base-font-weight
-	);
-	--_o3-body-line-height: var(
-		--o3-typography-use-case-body-content-base-line-height
-	);
+	--_o3-body-font-family: var(--o3-type-body-content-base-font-family);
+	--_o3-body-font-size: var(--o3-type-body-content-base-font-size);
+	--_o3-body-font-weight: var(--o3-type-body-content-base-font-weight);
+	--_o3-body-line-height: var(--o3-type-body-content-base-line-height);
 }
 .o3-editorial-typography-body {
 	font-family: var(--_o3-body-font-family);
@@ -23,16 +15,16 @@
 }
 
 .o3-editorial-typography-body > strong {
-	font-family: var(--o3-typography-use-case-body-content-highlight-font-family);
-	font-size: var(--o3-typography-use-case-body-content-highlight-font-size);
-	line-height: var(--o3-typography-use-case-body-content-highlight-line-height);
-	font-weight: var(--o3-typography-use-case-body-content-highlight-font-weight);
+	font-family: var(--o3-type-body-content-highlight-font-family);
+	font-size: var(--o3-type-body-content-highlight-font-size);
+	line-height: var(--o3-type-body-content-highlight-line-height);
+	font-weight: var(--o3-type-body-content-highlight-font-weight);
 }
 
 .o3-editorial-typography-body > em {
-	font-family: var(--o3-typography-use-case-body-content-emphasis-font-family);
-	font-size: var(--o3-typography-use-case-body-content-emphasis-font-size);
-	line-height: var(--o3-typography-use-case-body-content-emphasis-line-height);
-	font-weight: var(--o3-typography-use-case-body-content-emphasis-font-weight);
-	font-style: var(--o3-typography-use-case-body-content-emphasis-font-style);
+	font-family: var(--o3-type-body-content-emphasis-font-family);
+	font-size: var(--o3-type-body-content-emphasis-font-size);
+	line-height: var(--o3-type-body-content-emphasis-line-height);
+	font-weight: var(--o3-type-body-content-emphasis-font-weight);
+	font-style: var(--o3-type-body-content-emphasis-font-style);
 }

@@ -111,18 +111,10 @@
 				'context': $background-color,
 			)
 		);
-		font-family: oPrivateFoundationGet(
-			'o3-typography-use-case-body-base-font-family'
-		);
-		font-size: oPrivateFoundationGet(
-			'o3-typography-use-case-body-base-font-size'
-		);
-		font-weight: oPrivateFoundationGet(
-			'o3-typography-use-case-body-base-font-weight'
-		);
-		line-height: oPrivateFoundationGet(
-			'o3-typography-use-case-body-base-line-height'
-		);
+		font-family: oPrivateFoundationGet('o3-type-body-base-font-family');
+		font-size: oPrivateFoundationGet('o3-type-body-base-font-size');
+		font-weight: oPrivateFoundationGet('o3-type-body-base-font-weight');
+		line-height: oPrivateFoundationGet('o3-type-body-base-line-height');
 	}
 
 	// action button
@@ -152,18 +144,10 @@
 				'context': $background-color,
 			)
 		);
-		font-family: oPrivateFoundationGet(
-			'o3-typography-use-case-body-base-font-family'
-		);
-		font-size: oPrivateFoundationGet(
-			'o3-typography-use-case-body-base-font-size'
-		);
-		font-weight: oPrivateFoundationGet(
-			'o3-typography-use-case-body-base-font-weight'
-		);
-		line-height: oPrivateFoundationGet(
-			'o3-typography-use-case-body-base-line-height'
-		);
+		font-family: oPrivateFoundationGet('o3-type-body-base-font-family');
+		font-size: oPrivateFoundationGet('o3-type-body-base-font-size');
+		font-weight: oPrivateFoundationGet('o3-type-body-base-font-weight');
+		line-height: oPrivateFoundationGet('o3-type-body-base-line-height');
 	}
 
 	// state icon, only for alert messages
