@@ -1,5 +1,12 @@
 # Changelog
 
+## [9.2.10](https://github.com/Financial-Times/origami/compare/o-footer-v9.2.9...o-footer-v9.2.10) (2025-01-31)
+
+
+### Bug Fixes
+
+* o-footer arrow position ([dde96f9](https://github.com/Financial-Times/origami/commit/dde96f9156ed4aef84b8ff1c4b3d55411075e0cd))
+
 ## [9.2.9](https://github.com/Financial-Times/origami/compare/o-footer-v9.2.8...o-footer-v9.2.9) (2023-10-27)
 
 

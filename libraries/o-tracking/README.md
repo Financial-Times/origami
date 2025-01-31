@@ -182,6 +182,7 @@ To track when an element has come into view of the user, add the attribute `data
 - To track different elements, set the `selector` option property to a CSS selector.
 - Like click events, view events will also track the path from the root of the DOM tree to the element which triggered the tracking event into a property called `domPathTokens`.
 - To categorise the view events, set the `category` option property.
+- To customise the how much of this element needs to be in the viewport to trigger the event, use the `intersectionObserverThreshold` option. This value will be set as the threshold for the IntersectionObserver (it defaults to `1.0`).
 - To collect extra data to send with the tracking event, add a function named `getContextData` to the options. The function receives as it's single argument the element which triggered the tracking event and needs to return an object with any of these optional properties set:
 	- `componentContentId`
 	- `type`
