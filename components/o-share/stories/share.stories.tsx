@@ -1,20 +1,20 @@
-import { Story, ComponentMeta } from "@storybook/react";
+import {Story, ComponentMeta} from '@storybook/react';
 
-import { Share } from "../src/tsx/share";
-import { ShareIcon, UrlProps } from "../src/tsx/shareIcon";
-import { useEffect, ComponentProps } from "react";
-import javascript from "../main";
-import "./share.scss";
+import {Share} from '../src/tsx/share';
+import {ShareIcon, UrlProps} from '../src/tsx/shareIcon';
+import {useEffect, ComponentProps} from 'react';
+import javascript from '../main';
+import './share.scss';
 
 export default {
-	title: "Components/o-share",
+	title: 'Components/o-share',
 	component: Share,
 	args: {
-		title: "US drugs",
-		url: "http://on.ft.com/1mUdgA2",
-		titleExtra: "FT.com | Pharmaceuticals",
-		summary: "US drugs group vows to maintain big British presence",
-		relatedXAccounts: "ftcompanies",
+		title: 'US drugs',
+		url: 'http://on.ft.com/1mUdgA2',
+		titleExtra: 'FT.com | Pharmaceuticals',
+		summary: 'US drugs group vows to maintain big British presence',
+		relatedXAccounts: 'ftcompanies',
 		small: false,
 		inverse: false,
 		vertical: false,
@@ -40,6 +40,7 @@ const StoryTemplate: Story<ShareProps> = args => {
 	return (
 		<Share {...shareProps}>
 			<ShareIcon icon="x" urlProps={shareIconProps} />
+			<ShareIcon icon="bluesky" urlProps={shareIconProps} />
 			<ShareIcon icon="facebook" urlProps={shareIconProps} />
 			<ShareIcon icon="linkedin" urlProps={shareIconProps} />
 			<ShareIcon icon="whatsapp" urlProps={shareIconProps} />
@@ -58,7 +59,7 @@ Inverse.args = {
 	inverse: true,
 };
 Inverse.parameters = {
-	origamiBackground: "slate",
+	origamiBackground: 'slate',
 };
 export const Vertical: Story<ShareProps> = StoryTemplate.bind({});
 Vertical.args = {
