@@ -12,11 +12,16 @@
 
 /// Single related content item styles
 @mixin _oTeaserRelatedItem {
-	@include oPrivateTypographySans(-1);
+	font-family: oPrivateFoundationGet('o3-typography-use-case-detail-font-family');
+	font-size: oPrivateFoundationGet('o3-typography-use-case-detail-font-size');
+	font-weight: oPrivateFoundationGet('o3-typography-use-case-detail-font-weight');
 	line-height: 22px;
+
 	@include oPrivateGridRespondTo('L') {
-		@include oPrivateTypographySans(0);
-		line-height: 24px;
+		font-family: oPrivateFoundationGet('o3-typography-use-case-body-base-font-family');
+		font-size: oPrivateFoundationGet('o3-typography-use-case-body-base-font-size');
+		font-weight: oPrivateFoundationGet('o3-typography-use-case-body-base-font-weight');
+		line-height: oPrivateFoundationGet('o3-typography-use-case-body-base-line-height');
 	}
 	color: $_o-teaser-muted;
 

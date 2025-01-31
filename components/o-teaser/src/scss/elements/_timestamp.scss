@@ -5,6 +5,7 @@
 	font-weight: oPrivateFoundationGet('o3-typography-use-case-label-font-weight');
 	line-height: oPrivateFoundationGet('o3-typography-use-case-label-line-height');
 	text-transform: oPrivateFoundationGet('o3-typography-use-case-label-text-case');
+	color: $_o-teaser-muted;
 	display: block;
 	// Moves timestamp to the bottom when stretched modifier is used
 	margin-top: auto;
@@ -32,7 +33,8 @@
 	// @deprecated - o-teaser__timestamp--inprogress has been replaced by o-teaser__timestamp--live
 	// https://github.com/Financial-Times/o-teaser/issues/173
 	.o-teaser__timestamp--inprogress,
-	.o-teaser__timestamp--live {
+	.o-teaser__timestamp--live,
+	.o-teaser__timestamp.o-teaser__timestamp--live {
 		@include oLabelsIndicatorContent($opts: ('block': true, 'modifier': 'live'));
 	}
 

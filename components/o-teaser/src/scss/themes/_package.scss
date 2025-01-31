@@ -116,7 +116,9 @@
 
 		&__list-item,
 		&__landing-link {
-			@include oPrivateTypographySans(0);
+			font-family: oPrivateFoundationGet('o3-typography-use-case-body-base-font-family');
+			font-size: oPrivateFoundationGet('o3-typography-use-case-body-base-font-size');
+			font-weight: oPrivateFoundationGet('o3-typography-use-case-body-base-font-weight');
 			line-height: 20px;
 			padding: 12px 0;
 
@@ -165,8 +167,8 @@
 
 @mixin _oTeaserSpecialReportPackageList {
 	.package-teaser {
-		$package-special-report-color: oPrivateFoundationGet('o3-color-palette-claret-70');
 		$package-special-report-background: oPrivateFoundationGet('o3-color-palette-claret-70');
+		$package-special-report-color: oPrivateColorsGetTextColor($package-special-report-background, 100);
 
 		&__list-item a {
 			color: oPrivateFoundationGet('o3-color-palette-white');

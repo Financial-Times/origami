@@ -40,8 +40,8 @@
 
 /// Hero opinion theme - blue background white based text
 @mixin _oTeaserHeroOpinion {
-	$opinion-color: oPrivateFoundationGet('o3-color-palette-oxford');
 	$opinion-background: oPrivateFoundationGet('o3-color-palette-oxford');
+	$opinion-color: oPrivateColorsGetTextColor($opinion-background, 100);
 	.o-teaser__heading a:hover,
 	.o-teaser__heading a:focus,
 	.o-teaser__heading a:visited,
@@ -198,7 +198,10 @@
 /// Hero standalone theme styles
 @mixin _oTeaserHeroStandalone {
 	.o-teaser__heading {
-		@include oPrivateTypographySans(4);
+		font-family: oPrivateFoundationGet('o3-typography-use-case-headline-sm-font-family');
+		font-size: oPrivateFoundationGet('o3-typography-use-case-headline-sm-font-size');
+		font-weight: oPrivateFoundationGet('o3-typography-use-case-headline-sm-font-weight');
+		line-height: oPrivateFoundationGet('o3-typography-use-case-headline-sm-line-height');
 	}
 
 	.o-teaser__image-container {
@@ -213,8 +216,8 @@
 
 // Hero Package theme — extra
 @mixin _oTeaserHeroExtra {
-	$hero-extra-color: oPrivateFoundationGet('o3-color-palette-slate');
 	$hero-extra-background: oPrivateFoundationGet('o3-color-palette-slate');
+	$hero-extra-color: oPrivateColorsGetTextColor($hero-extra-background, 100);
 	// highlight colours
 	$hero-extra-highlight-border: oPrivateFoundationGet('o3-color-palette-lemon');
 	$hero-extra-highlight-color: oPrivateFoundationGet('o3-color-palette-lemon');

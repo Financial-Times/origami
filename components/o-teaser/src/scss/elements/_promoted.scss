@@ -2,13 +2,19 @@
 	color: oPrivateFoundationGet('o3-color-palette-black');
 
 	.o-teaser__meta {
-		@include oPrivateTypographySans($scale: -1, $weight: 'semibold');
+		font-family: oPrivateFoundationGet('o3-typography-use-case-detail-font-family');
+		font-size: oPrivateFoundationGet('o3-typography-use-case-detail-font-size');
+		font-weight: oPrivateFoundationGet('o3-font-weight-semibold');
+		line-height: oPrivateFoundationGet('o3-typography-use-case-detail-line-height');
 		color: $_o-teaser-muted;
 		margin-bottom: oPrivateSpacingByName('s3');
 	}
 
 	.o-teaser__promoted-prefix {
-		@include oPrivateTypographySans($scale: 0);
+		font-family: oPrivateFoundationGet('o3-typography-use-case-label-font-family');
+		font-size: oPrivateFoundationGet('o3-typography-use-case-label-font-size');
+		font-weight: oPrivateFoundationGet('o3-font-weight-semibold');
+		line-height: oPrivateFoundationGet('o3-typography-use-case-label-line-height');
 		text-transform: uppercase;
 		color: oPrivateFoundationGet('o3-color-palette-matisse-blue');
 		display: block;

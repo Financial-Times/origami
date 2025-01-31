@@ -8,7 +8,10 @@
 }
 
 @mixin _oTopperSummary {
-	@include oPrivateTypographySans(1);
+	font-family: oPrivateFoundationGet('o3-typography-use-case-body-base-font-family');
+	font-size: oPrivateFoundationGet('o3-typography-use-case-body-base-font-size');
+	font-weight: oPrivateFoundationGet('o3-typography-use-case-body-base-font-weight');
+	line-height: oPrivateFoundationGet('o3-typography-use-case-body-base-line-height');
 	> ul {
 		padding: 0 oPrivateSpacingByIncrement(5);
 	}
@@ -20,7 +23,10 @@
 
 @mixin _oTopperSummaryBody {
 	h2 {
-		@include oPrivateTypographySans(0, $weight: 'semibold');
+		font-family: oPrivateFoundationGet('o3-typography-use-case-body-highlight-font-family');
+		font-size: oPrivateFoundationGet('o3-typography-use-case-body-highlight-font-size');
+		font-weight: oPrivateFoundationGet('o3-typography-use-case-body-highlight-font-weight');
+		line-height: oPrivateFoundationGet('o3-typography-use-case-body-highlight-line-height');
 		margin: 5px 0 0;
 	}
 
@@ -32,7 +38,10 @@
 			margin-top: 0px;
 		}
 		li {
-			@include oPrivateTypographySans(1);
+			font-family: oPrivateFoundationGet('o3-typography-use-case-body-base-font-family');
+			font-size: oPrivateFoundationGet('o3-typography-use-case-body-base-font-size');
+			font-weight: oPrivateFoundationGet('o3-typography-use-case-body-base-font-weight');
+			line-height: oPrivateFoundationGet('o3-typography-use-case-body-base-line-height');
 			margin-top: oPrivateSpacingByName('s2');
 			margin-bottom: 0;
 		}
@@ -40,7 +49,11 @@
 }
 
 @mixin _oTopperImageCredit {
-	@include oPrivateTypographySans(-1);
+	font-family: oPrivateFoundationGet('o3-typography-use-case-detail-font-family');
+	font-size: oPrivateFoundationGet('o3-typography-use-case-detail-font-size');
+	font-weight: oPrivateFoundationGet('o3-typography-use-case-detail-font-weight');
+	line-height: oPrivateFoundationGet('o3-typography-use-case-detail-line-height');
+
 	color: oPrivateFoundationGet('o3-color-palette-white');
 	position: absolute;
 	text-shadow: 1px 1px 1px oPrivateFoundationGet('o3-color-palette-slate');
@@ -54,7 +67,10 @@
 }
 
 @mixin _oTopperImageCaption {
-	@include oPrivateTypographySans(-1);
+	font-family: oPrivateFoundationGet('o3-typography-use-case-detail-font-family');
+	font-size: oPrivateFoundationGet('o3-typography-use-case-detail-font-size');
+	font-weight: oPrivateFoundationGet('o3-typography-use-case-detail-font-weight');
+	line-height: oPrivateFoundationGet('o3-typography-use-case-detail-line-height');
 	padding: 10px 11px 0px;
 	@include oPrivateGridRespondTo(L) {
 		padding-left: 18px;
@@ -103,8 +119,10 @@
 }
 
 @mixin _oTopperTags {
-	@include oPrivateTypographySans(0);
-	line-height: 28px;
+	font-family: oPrivateFoundationGet('o3-typography-use-case-body-base-font-family');
+	font-size: oPrivateFoundationGet('o3-typography-use-case-body-base-font-size');
+	font-weight: oPrivateFoundationGet('o3-typography-use-case-body-base-font-weight');
+	line-height: oPrivateFoundationGet('o3-typography-use-case-body-base-line-height');
 	padding-bottom: 5px;
 }
 

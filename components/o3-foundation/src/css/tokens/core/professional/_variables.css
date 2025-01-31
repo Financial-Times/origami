@@ -216,8 +216,8 @@
   --o3-typography-use-case-headline-md-line-height: var(--o3-font-lineheight-5); /* Use this style for medium screens headlines in smaller teasers and text only toppers (eg. Opinion and News). */
   --o3-typography-use-case-headline-sm-font-family: var(--o3-font-family-financier-display); /* Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News). */
   --o3-typography-use-case-headline-sm-font-weight: var(--o3-font-weight-light); /* Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News). */
-  --o3-typography-use-case-headline-sm-font-size: var(--o3-font-size-4); /* Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News). */
-  --o3-typography-use-case-headline-sm-line-height: var(--o3-font-lineheight-4); /* Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News). */
+  --o3-typography-use-case-headline-sm-font-size: var(--o3-font-size-3); /* Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News). */
+  --o3-typography-use-case-headline-sm-line-height: var(--o3-font-lineheight-3); /* Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News). */
   --o3-typography-use-case-title-lg-font-family: var(--o3-font-family-metric); /* Use for the main page title H1 in functional pages such as account and settings. Use across all breakpoints. */
   --o3-typography-use-case-title-lg-font-weight: var(--o3-font-weight-semibold); /* Use for the main page title H1 in functional pages such as account and settings. Use across all breakpoints. */
   --o3-typography-use-case-title-lg-font-size: var(--o3-font-size-metric2-4); /* Use for the main page title H1 in functional pages such as account and settings. Use across all breakpoints. */

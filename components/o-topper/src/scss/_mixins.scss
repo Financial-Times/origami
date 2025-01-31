@@ -157,12 +157,49 @@
 
 	@if index($elements, 'headline') {
 		.o-topper__headline {
-			@include oEditorialTypographyHeading($level: 1);
+			margin: 0;
 			margin-bottom: oPrivateSpacingByIncrement(5);
+			font-family: oPrivateFoundationGet('o3-typography-use-case-headline-sm-font-family');
+			font-size: oPrivateFoundationGet('o3-typography-use-case-headline-sm-font-size');
+			font-weight: oPrivateFoundationGet('o3-typography-use-case-headline-sm-font-weight');
+			line-height: oPrivateFoundationGet('o3-typography-use-case-headline-sm-line-height');
+
+			@include oPrivateGridRespondTo('S') {
+				font-family: oPrivateFoundationGet('o3-typography-use-case-headline-md-font-family');
+				font-size: oPrivateFoundationGet('o3-typography-use-case-headline-md-font-size');
+				font-weight: oPrivateFoundationGet('o3-typography-use-case-headline-md-font-weight');
+				line-height: oPrivateFoundationGet('o3-typography-use-case-headline-md-line-height');
+			}
+
+			@include oPrivateGridRespondTo('L') {
+				font-family: oPrivateFoundationGet('o3-typography-use-case-headline-lg-font-family');
+				font-size: oPrivateFoundationGet('o3-typography-use-case-headline-lg-font-size');
+				font-weight: oPrivateFoundationGet('o3-typography-use-case-headline-lg-font-weight');
+				line-height: oPrivateFoundationGet('o3-typography-use-case-headline-lg-line-height');
+			}
 		}
 
 		.o-topper__headline--large {
-			@include oEditorialTypographyHeadline();
+			font-family: oPrivateFoundationGet('o3-typography-use-case-display-sm-font-family');
+			font-size: oPrivateFoundationGet('o3-typography-use-case-display-sm-font-size');
+			font-weight: oPrivateFoundationGet('o3-typography-use-case-display-sm-font-weight');
+			line-height: oPrivateFoundationGet('o3-typography-use-case-display-sm-line-height');
+
+			@include oEditorialTypographyDecorated();
+
+			@include oPrivateGridRespondTo('S') {
+				font-family: oPrivateFoundationGet('o3-typography-use-case-display-md-font-family');
+				font-size: oPrivateFoundationGet('o3-typography-use-case-display-md-font-size');
+				font-weight: oPrivateFoundationGet('o3-typography-use-case-display-md-font-weight');
+				line-height: oPrivateFoundationGet('o3-typography-use-case-display-md-line-height');
+			}
+
+			@include oPrivateGridRespondTo('L') {
+				font-family: oPrivateFoundationGet('o3-typography-use-case-display-lg-font-family');
+				font-size: oPrivateFoundationGet('o3-typography-use-case-display-lg-font-size');
+				font-weight: oPrivateFoundationGet('o3-typography-use-case-display-lg-font-weight');
+				line-height: oPrivateFoundationGet('o3-typography-use-case-display-lg-line-height');
+			}
 			position: relative; //so it appears above the full width background
 			margin-bottom: oPrivateSpacingByIncrement(4);
 		}
@@ -243,6 +280,7 @@
 
 @mixin _oTopperColors($colors) {
 	@each $color in $colors {
+		$color: if($color == 'matisse', 'o3-color-palette-#{$color}-blue', 'o3-color-palette-#{$color}');
 		.o-topper--color-#{$color} {
 			@include _oTopperColor($color);
 		}
@@ -318,10 +356,11 @@
 		color: oPrivateColorsMix($foreground, $color-name, 73);
 	}
 
-	@if $color-name == 'paper' or $color-name == 'wheat' {
+	@if $color-name == 'o3-color-palette-paper' or $color-name == 'o3-color-palette-wheat' {
 		.o-topper__opinion-genre,
 		.o-topper__topic,
 		.o-topper__columnist-name {
+			$color: oPrivateFoundationGet('_o3-editorial-typography-topic-tag-color');
 			color: oPrivateFoundationGet('_o3-editorial-typography-topic-tag-color');
 
 			&:hover {
@@ -330,7 +369,7 @@
 		}
 	}
 
-	@if $color-name == 'sky' {
+	@if $color-name == 'o3-color-palette-sky' {
 		.o-topper__tags,
 		.o-topper__topic,
 		.o-topper__columnist-name {
@@ -342,7 +381,7 @@
 		}
 	}
 
-	@if $color-name == 'matisse' {
+	@if $color-name == 'o3-color-palette-matisse-blue' {
 		.o-topper__columnist-name {
 			&:hover {
 				color: oPrivateColorsMix($foreground, $color-name, 73);
