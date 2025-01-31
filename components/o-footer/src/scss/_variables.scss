@@ -9,21 +9,45 @@ $_o-footer-spacing-unit: oSpacingByIncrement(5);
 /// @type Map
 $_o-footer-matrix: (
 	1: (
-		group: (default: 12, M: 4, L: 2),
-		columns: (default: 12)
+		group: (
+			default: 12,
+			M: 4,
+			L: 2,
+		),
+		columns: (
+			default: 12,
+		),
 	),
 	2: (
-		group: (default: 12, M: 6, L: 4),
-		columns: (default: 6)
+		group: (
+			default: 12,
+			M: 6,
+			L: 4,
+		),
+		columns: (
+			default: 6,
+		),
 	),
 	4: (
-		group: (default: 12, L: 8),
-		columns: (default: 6, M: 3)
+		group: (
+			default: 12,
+			L: 8,
+		),
+		columns: (
+			default: 6,
+			M: 3,
+		),
 	),
 	6: (
-		group: (default: 12),
-		columns: (default: 6, M: 3, L: 2)
-	)
+		group: (
+			default: 12,
+		),
+		columns: (
+			default: 6,
+			M: 3,
+			L: 2,
+		),
+	),
 );
 
-$_o-footer-icon-size: 20;
+$_o-footer-icon-size: 20px;
