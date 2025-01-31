@@ -3,7 +3,7 @@ import {UnorderedList} from '@financial-times/o3-foundation/esm';
 function ListPreview() {
 	return (
 		<>
-			<div className="o3-typography-use-case-body-base">
+			<div className="o3-type-body-base">
 				<meta itemProp="@preview" />
 				<UnorderedList>
 					<li>Lorem ipsum adipiscing elit.</li>

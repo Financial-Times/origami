@@ -24,10 +24,10 @@
 	justify-content: center;
 	box-sizing: border-box;
 	vertical-align: middle;
-	font-family: var(--o3-typography-use-case-body-highlight-font-family);
-	font-size: var(--o3-typography-use-case-body-highlight-font-size);
-	line-height: var(--o3-typography-use-case-body-highlight-line-height);
-	font-weight: var(--o3-typography-use-case-body-highlight-font-weight);
+	font-family: var(--o3-type-body-highlight-font-family);
+	font-size: var(--o3-type-body-highlight-font-size);
+	line-height: var(--o3-type-body-highlight-line-height);
+	font-weight: var(--o3-type-body-highlight-font-weight);
 	border: var(--_o3-button-border-size) solid transparent;
 	text-align: center;
 	text-decoration: none;

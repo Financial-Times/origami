@@ -12,18 +12,10 @@ body {
 	max-width: map-get($o-pf-grid-layouts, 'XL');
 
 	.demo-paragraph {
-		font-family: oPrivateFoundationGet(
-			'o3-typography-use-case-body-content-base-font-family'
-		);
-		font-size: oPrivateFoundationGet(
-			'o3-typography-use-case-body-content-base-font-size'
-		);
-		font-weight: oPrivateFoundationGet(
-			'o3-typography-use-case-body-content-base-font-weight'
-		);
-		line-height: oPrivateFoundationGet(
-			'o3-typography-use-case-body-content-base-line-height'
-		);
+		font-family: oPrivateFoundationGet('o3-type-body-content-base-font-family');
+		font-size: oPrivateFoundationGet('o3-type-body-content-base-font-size');
+		font-weight: oPrivateFoundationGet('o3-type-body-content-base-font-weight');
+		line-height: oPrivateFoundationGet('o3-type-body-content-base-line-height');
 	}
 
 	.o-teaser-collection__item .demo-paragraph {

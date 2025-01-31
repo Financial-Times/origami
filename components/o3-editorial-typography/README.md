@@ -92,14 +92,12 @@ Description |
 
 ### Body and dropcap
 
-`o3-foundation` provides typography usecase tokens, including for editorial body copy (see `o3-typography-use-case-body-content-*` classes). `o3-editorial-typography` builds on this by providing an optional drop cap style, `o3-editorial-typography-drop-cap`.
+`o3-foundation` provides typography usecase tokens, including for editorial body copy (see `o3-type-body-content-*` classes). `o3-editorial-typography` builds on this by providing an optional drop cap style, `o3-editorial-typography-drop-cap`.
 
 #### HTML
 
 ```html
-<p
-	class="o3-editorial-typography-drop-cap o3-typography-use-case-body-content-base"
->
+<p class="o3-editorial-typography-drop-cap o3-type-body-content-base">
 	This is a small paragraph of text with a drop cap.
 </p>
 ```

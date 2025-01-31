@@ -42,18 +42,10 @@
 @mixin _oFormsInputSmall($element) {
 	&.o-forms-input--small {
 		#{$element} {
-			font-family: oPrivateFoundationGet(
-				'o3-typography-use-case-body-base-font-family'
-			);
-			font-size: oPrivateFoundationGet(
-				'o3-typography-use-case-body-base-font-size'
-			);
-			line-height: oPrivateFoundationGet(
-				'o3-typography-use-case-body-base-line-height'
-			);
-			font-weight: oPrivateFoundationGet(
-				'o3-typography-use-case-body-base-font-weight'
-			);
+			font-family: oPrivateFoundationGet('o3-type-body-base-font-family');
+			font-size: oPrivateFoundationGet('o3-type-body-base-font-size');
+			line-height: oPrivateFoundationGet('o3-type-body-base-line-height');
+			font-weight: oPrivateFoundationGet('o3-type-body-base-font-weight');
 			min-height: $_o-forms-spacing-seven;
 			padding: 0 $_o-forms-spacing-two;
 		}

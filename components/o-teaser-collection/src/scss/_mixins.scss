@@ -40,16 +40,10 @@
 	$half-width: index($sizes, 'half-width');
 	$small: index($sizes, 'small');
 
-	font-family: oPrivateFoundationGet(
-		'o3-typography-use-case-title-sm-font-family'
-	);
-	font-size: oPrivateFoundationGet('o3-typography-use-case-title-sm-font-size');
-	font-weight: oPrivateFoundationGet(
-		'o3-typography-use-case-title-sm-font-weight'
-	);
-	line-height: oPrivateFoundationGet(
-		'o3-typography-use-case-title-sm-line-height'
-	);
+	font-family: oPrivateFoundationGet('o3-type-title-sm-font-family');
+	font-size: oPrivateFoundationGet('o3-type-title-sm-font-size');
+	font-weight: oPrivateFoundationGet('o3-type-title-sm-font-weight');
+	line-height: oPrivateFoundationGet('o3-type-title-sm-line-height');
 
 	position: relative;
 	width: 100%;
@@ -152,18 +146,10 @@
 		position: relative;
 
 		&:before {
-			font-family: oPrivateFoundationGet(
-				'o3-typography-use-case-headline-sm-font-family'
-			);
-			font-size: oPrivateFoundationGet(
-				'o3-typography-use-case-headline-sm-font-size'
-			);
-			font-weight: oPrivateFoundationGet(
-				'o3-typography-use-case-headline-sm-font-weight'
-			);
-			line-height: oPrivateFoundationGet(
-				'o3-typography-use-case-headline-sm-line-height'
-			);
+			font-family: oPrivateFoundationGet('o3-type-headline-sm-font-family');
+			font-size: oPrivateFoundationGet('o3-type-headline-sm-font-size');
+			font-weight: oPrivateFoundationGet('o3-type-headline-sm-font-weight');
+			line-height: oPrivateFoundationGet('o3-type-headline-sm-line-height');
 			content: counter(o-teaser-collection-items);
 			position: absolute;
 			top: 0;

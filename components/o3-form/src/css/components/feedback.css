@@ -1,10 +1,10 @@
 .o3-form-feedback__error {
 	display: flex;
 	align-items: center;
-	font-family: var(--o3-typography-use-case-detail-font-family);
-	font-size: var(--o3-typography-use-case-detail-font-size);
-	font-weight: var(--o3-typography-use-case-detail-font-weight);
-	line-height: var(--o3-typography-use-case-detail-line-height);
+	font-family: var(--o3-type-detail-font-family);
+	font-size: var(--o3-type-detail-font-size);
+	font-weight: var(--o3-type-detail-font-weight);
+	line-height: var(--o3-type-detail-line-height);
 	color: var(--o3-color-use-case-error-text);
 }
 
