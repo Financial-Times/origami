@@ -44,6 +44,12 @@
             "description": "\"Muted\" text is less prominent, for example credits and captions."
           }
         },
+        "support": {
+          "text": {
+            "value": "{o3.color.palette.black-70}",
+            "type": "color"
+          }
+        },
         "muted-inverse": {
           "text": {
             "value": "#a8aaad",

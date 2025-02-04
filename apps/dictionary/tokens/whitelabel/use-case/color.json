@@ -65,6 +65,12 @@
             "type": "color"
           }
         },
+        "support": {
+          "text": {
+            "value": "{o3.color.palette.black-70}",
+            "type": "color"
+          }
+        },
         "body-inverse": {
           "text": {
             "value": "{o3.color.palette.white}",
