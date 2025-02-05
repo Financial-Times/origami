@@ -60,6 +60,29 @@ If you still need a clearfix solution, start a conversation on Slack in #origami
   <p>Content is sized by border box!</p>
 </div>
 ```
+
+#### Focus States
+
+Focus states are provided as standard when importing o3-foundation.
+
+#### oNormaliseFocusApply and oNormaliseFocusContent
+
+Replace with classes in HTML
+
+**Sass**
+```diff
+button {
+-    @include oNormaliseFocusApply() {
+-    @include oNormaliseFocusContent();
+    /* other styles */
+}
+}
+```
+**HTML**
+```html
+<button class="o3-apply-focus-rings">My Button</button>
+```
+
 ### Migrating from v2 to v3
 
 V3 drops support for Bower and version 2 of the Origami Build Service.
