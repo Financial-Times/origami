@@ -211,6 +211,12 @@
 					'context': _oFooterServicesGet('background-color', $from: $theme-name),
 				)
 			);
+			// Remove link underline.
+			border-bottom: 0;
+			@supports (text-decoration-thickness: 0.25ex) {
+				text-decoration-line: none;
+			}
+
 		}
 
 		@each $icon in $icons {
