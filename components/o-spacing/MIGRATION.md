@@ -34,7 +34,7 @@ Replace utility class usages with a class referencing a CSS custom property. Ref
 **CSS**
 
 ```css
-@import '@financial-times/o3-foundation';
+@import '@financial-times/o3-foundation/[your-brand].css';
 
 .content {
     margin: var(--o3-spacing-xl);
@@ -61,7 +61,7 @@ Replace mixin uses with CSS Custom Properties. Refer to table below for mappings
 **oSpacingByName**
 
 ```diff
-+ @import '@financial-times/o3-foundation'
++ @import '@financial-times/o3-foundation/[your-brand].css'
 
 .my-class {
 -    padding: oSpacingByName('s1');
@@ -72,7 +72,7 @@ Replace mixin uses with CSS Custom Properties. Refer to table below for mappings
 **oSpacingByIncrement**
 
 ```diff
-+ @import '@financial-times/o3-foundation'
++ @import '@financial-times/o3-foundation/[your-brand].css'
 
 .my-class {
 -    padding: oSpacingByIncrement('1');
