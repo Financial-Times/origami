@@ -1,5 +1,137 @@
 ## Migration Guide
 
+### Migrating from v6 to o3-foundation
+
+o-grid is now replaced by [o3-foundation](../o3-foundation/README.md).
+
+One of the major changes in Origami 3 is the removal of Sass, we now use plain CSS for Origami components.
+
+This guide will update to the latest version of o3-foundation (v3). Be sure to
+check [o3-foundation's migration guide](../o3-foundation/MIGRATION.md) for any further updates.
+
+Origami 3's grid makes use of [CSS Grid](https://css-tricks.com/snippets/css/complete-guide-grid/) to provide responsive layouts. Replace o-grid utility classes with o3-foundation's grid classes and CSS Grid's `grid-column` property:
+
+```html
+
+<div class="o-grid-container">
+	<div class="o-grid-row">
+		<!-- two divs, spanning a total of 12 columns -->
+		<div data-o-grid-colspan="8">A div, 8 columns wide</div>
+		<div data-o-grid-colspan="4">Another div, 4 columns wide</div>
+	</div>
+</div>
+```
+
+Replace with:
+
+```html
+<div class="o3-grid">
+        <!-- two divs, spanning a total of 12 columns -->
+        <div style="grid-column: content-start / span 8;">A div, 8 columns wide</div>
+        <div style="grid-column: span 4">Another div, 4 columns wide</div>
+</div>
+```
+
+**Full bleed content**
+
+Use the full bleed named grid lines to span content across whole page:
+
+```html
+<div class="o3-grid">
+        <!-- two divs, spanning a total of 12 columns -->
+        <div style="grid-column: bleed-left / bleed-right;">Header, spans across whole page</div>
+</div>
+```
+
+#### Mixins
+
+**oGridAddLayout**
+
+There is no replacement in o3-foundation. See [advanced usage of grid](../o3-foundation/README.md#Advanced-usage-of-grid) to customise grid.
+
+**oGridRespondT**
+
+There is no replacement in o3-foundation. Use media queries to style at different breakpoints:
+
+```css
+@media screen and (max-width: 768px) {
+    .my-element {
+        color: blue;
+    }
+}
+
+```
+CSS Custom properties are currently unsupported in media queries, refer to our [grid css](../o3-foundation/src/css/components/grid.css) for breakpoints.
+
+**oGridColSpan**
+
+Style using `grid-column` in examples above. Use media queries to adjust column spans at different breakpoints.
+
+**oGridContainer**
+
+Replaced by `o3-grid` class, see example above for usage.
+
+**oGridCenter and oGridUncenter**
+
+There is no replacement in o3-foundation. Create your own styles where apropriate:
+
+```css
+.container-centered {
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
+}
+```
+
+**oGridPull and oGridPush**
+
+Elements using o3-foundation's grid will automatically reflow at smaller breakpoints. For finer control, make use of CSS Grid's properties and breakpoints:
+
+```css
+@media screen and (max-width: 768px) {
+    /*Change the ordering of elements using the order property*/
+    .my-first-grid-element {
+        order: 1;
+    }
+
+    .my-second-grid-element {
+        order: 0;
+    }
+}
+```
+
+```html
+<div class="o3-grid">
+  <div class="my-first-grid-element">Content</div>
+  <div class="my-second-grid-element">Content</div>
+</div>
+```
+
+The following mixins have no replacement:
+
+* oGridOffset
+* oGridResetColumn
+* oGridRow
+* oGridRowCompact
+* oGridResetRow
+* oGridSurfaceLayout
+* oGridSurfaceLayoutSizes
+
+#### JavaScript
+
+o3-foundation currently does not provide any replacements for o-grid JavaScript.
+
+#### Variables
+
+The following variables have no replacement in o3-foundation:
+ * $o-grid-mode
+ * $o-grid-fixed-layout
+ * $o-grid-start-snappy-mode-at
+ * $o-grid-columns
+ * $o-grid-min-width
+ * $o-grid-layouts 
+ * $o-grid-gutters
+
 ### Migrating from v5 to v6
 
 V6 has dropped support for use through Bower.
