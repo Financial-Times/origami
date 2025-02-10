@@ -1,5 +1,5 @@
 >  ⚠️ **NOTE:** o-spacing has been replaced with [o3-foundation](../o3-foundation/README.md). Please see [Migration Guide](MIGRATION.md#migrating-from-v3-to-origami-3) for steps to upgrade.
-> 
+
 # o-spacing
 
 A styling utility component to aid projects and component with consistent spacing, according to the baseline grid within the design guidelines.
