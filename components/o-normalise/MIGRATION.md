@@ -51,7 +51,7 @@ If you still need a clearfix solution, start a conversation on Slack in #origami
 **Sass**
 ```diff
     .myclass {
--        @include oNormaliseVisuallyHidden();
+-        @include oNormaliseBoxSizing);
          padding: 20px;
          width: 300px;
      }
