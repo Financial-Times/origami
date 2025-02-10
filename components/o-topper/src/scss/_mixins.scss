@@ -180,12 +180,11 @@
 		}
 
 		.o-topper__headline--large {
+			@include oEditorialTypographyDecorated();
 			font-family: oPrivateFoundationGet('o3-type-display-sm-font-family');
 			font-size: oPrivateFoundationGet('o3-type-display-sm-font-size');
 			font-weight: oPrivateFoundationGet('o3-type-display-sm-font-weight');
 			line-height: oPrivateFoundationGet('o3-type-display-sm-line-height');
-
-			@include oEditorialTypographyDecorated();
 
 			@include oPrivateGridRespondTo('S') {
 				font-family: oPrivateFoundationGet('o3-type-display-md-font-family');
