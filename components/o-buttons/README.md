@@ -1,3 +1,5 @@
+>  ⚠️ **NOTE:** o-buttons has been replaced with [o3-button](../o3-button/README.md). Please see [Migration Guide](MIGRATION.md#migrating-from-v7-to-o3-button) for steps to upgrade.
+
 # o-buttons
 
 o-buttons provides Sass mixins and variables to create buttons.
@@ -282,15 +284,16 @@ We recommend using `o-buttons` markup as this encourages CSS reuse and smaller b
 
 ## Migration
 
-State | Major Version | Last Minor Release | Migration guide |
-:---: | :---: | :---: | :---:
-✨ active | 7 | N/A | [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7) |
-⚠ maintained | 6 | 6.2 | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
-╳ deprecated | 5 | 5.16 | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
-╳ deprecated | 4 | 4.5 | - |
-╳ deprecated | 3 | 3.1 | - |
-╳ deprecated | 2 | 2.0 | - |
-╳ deprecated | 1 | 1.8 | - |
+State | Major Version | Last Minor Release |                       Migration guide                        |
+:---: |:-------------:| :---: |:------------------------------------------------------------:
+✨ active |      o3       | N/A | [migrate to o3](MIGRATION.md#migrating-from-v7-to-o3-button) |
+⚠ maintained |       7       | N/A |    [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7)     |
+╳ deprecated |       6       | 6.2 |    [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6)     |
+╳ deprecated |       5       | 5.16 |    [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5)     |
+╳ deprecated |       4       | 4.5 |                              -                               |
+╳ deprecated |       3       | 3.1 |                              -                               |
+╳ deprecated |       2       | 2.0 |                              -                               |
+╳ deprecated |       1       | 1.8 |                              -                               |
 
 
 ## Contact
