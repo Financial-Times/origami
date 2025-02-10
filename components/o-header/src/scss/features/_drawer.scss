@@ -16,13 +16,7 @@
 			z-index: $_o-header-drawer-z-index;
 			width: 100%;
 			border-right: 1px solid _oHeaderGet('drawer-border');
-			// use a 2D transform because 3D are unsupported by IE9
-			transform: translateX(-100%);
-			transform: translate3d(
-				-100%,
-				0,
-				0
-			); // stylelint-disable-line declaration-block-no-duplicate-properties
+			transform: translate3d(-100%, 0, 0);
 
 			// this is literally the specification example for will-change
 			will-change: transform;
@@ -36,13 +30,7 @@
 			}
 
 			&.o-header__drawer--open {
-				// use a 2D transform because 3D are unsupported by IE9
-				transform: translateX(0);
-				transform: translate3d(
-					0,
-					0,
-					0
-				); // stylelint-disable-line declaration-block-no-duplicate-properties
+				transform: translate3d(0, 0, 0);
 			}
 		}
 	}
