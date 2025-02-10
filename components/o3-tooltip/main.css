@@ -21,10 +21,10 @@ o3-tooltip-toggle.o3-tooltip {
 		5px 5px 24px 0px rgba(26, 26, 26, 0.17);
 	background: var(--_o3-tooltip-background-color);
 	color: var(--_o3-tooltip-text-color);
-	font-family: var(--o3-typography-use-case-body-base-font-family);
-	font-weight: var(--o3-typography-use-case-body-base-font-weight);
-	font-size: var(--o3-typography-use-case-body-base-font-size);
-	line-height: var(--o3-typography-use-case-body-base-line-height);
+	font-family: var(--o3-type-body-base-font-family);
+	font-weight: var(--o3-type-body-base-font-weight);
+	font-size: var(--o3-type-body-base-font-size);
+	line-height: var(--o3-type-body-base-line-height);
 }
 
 .o3-tooltip-content {
@@ -49,10 +49,10 @@ o3-tooltip-toggle[no-title] .o3-tooltip-content-title {
 }
 
 .o3-tooltip-content-title {
-	font-family: var(--o3-typography-use-case-body-highlight-font-family);
-	font-weight: var(--o3-typography-use-case-body-highlight-font-weight);
-	font-size: var(--o3-typography-use-case-body-highlight-font-size);
-	line-height: var(--o3-typography-use-case-body-highlight-line-height);
+	font-family: var(--o3-type-body-highlight-font-family);
+	font-weight: var(--o3-type-body-highlight-font-weight);
+	font-size: var(--o3-type-body-highlight-font-size);
+	line-height: var(--o3-type-body-highlight-line-height);
 	color: inherit;
 	margin-bottom: var(--o3-spacing-4xs);
 	padding-right: calc(

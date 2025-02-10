@@ -1532,950 +1532,860 @@ export default {
 		"css": "--o3-spacing-4xl",
 		"figma": "o3/spacing/4xl"
 },
-	"o3-typography-use-case-display-lg-font-family": {
+	"o3-type-display-lg-font-family": {
 		"shortName": "fontFamily",
 		"value": "financier display VF",
 		"originalValue": "{o3.font.family.financier-display}",
 		"type": "fontFamily",
 		"description": "Use this style for large screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.",
 		"attributes": {
-				"item": "use-case",
-				"subitem": "display-lg",
-				"state": "fontFamily"
+				"item": "display-lg",
+				"subitem": "fontFamily"
 		},
 		"path": [
 				"o3",
-				"typography",
-				"use-case",
+				"type",
 				"display-lg",
 				"fontFamily"
 		],
-		"css": "--o3-typography-use-case-display-lg-font-family",
-		"figma": "o3/typography/use-case/display-lg/fontFamily"
+		"css": "--o3-type-display-lg-font-family",
+		"figma": "o3/type/display-lg/fontFamily"
 },
-	"o3-typography-use-case-display-lg-font-weight": {
+	"o3-type-display-lg-font-weight": {
 		"shortName": "fontWeight",
 		"value": "800",
 		"originalValue": "{o3.font.weight.bold}",
 		"type": "fontWeight",
 		"description": "Use this style for large screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.",
 		"attributes": {
-				"item": "use-case",
-				"subitem": "display-lg",
-				"state": "fontWeight"
+				"item": "display-lg",
+				"subitem": "fontWeight"
 		},
 		"path": [
 				"o3",
-				"typography",
-				"use-case",
+				"type",
 				"display-lg",
 				"fontWeight"
 		],
-		"css": "--o3-typography-use-case-display-lg-font-weight",
-		"figma": "o3/typography/use-case/display-lg/fontWeight"
+		"css": "--o3-type-display-lg-font-weight",
+		"figma": "o3/type/display-lg/fontWeight"
 },
-	"o3-typography-use-case-display-lg-font-size": {
+	"o3-type-display-lg-font-size": {
 		"shortName": "fontSize",
 		"value": "48px",
 		"originalValue": "{o3.font.size.7}",
 		"type": "dimension",
 		"description": "Use this style for large screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.",
 		"attributes": {
-				"item": "use-case",
-				"subitem": "display-lg",
-				"state": "fontSize"
+				"item": "display-lg",
+				"subitem": "fontSize"
 		},
 		"path": [
 				"o3",
-				"typography",
-				"use-case",
+				"type",
 				"display-lg",
 				"fontSize"
 		],
-		"css": "--o3-typography-use-case-display-lg-font-size",
-		"figma": "o3/typography/use-case/display-lg/fontSize"
+		"css": "--o3-type-display-lg-font-size",
+		"figma": "o3/type/display-lg/fontSize"
 },
-	"o3-typography-use-case-display-lg-line-height": {
+	"o3-type-display-lg-line-height": {
 		"shortName": "lineHeight",
 		"value": "48px",
 		"originalValue": "{o3.font.lineheight.7}",
 		"type": "number",
 		"description": "Use this style for large screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.",
 		"attributes": {
-				"item": "use-case",
-				"subitem": "display-lg",
-				"state": "lineHeight"
+				"item": "display-lg",
+				"subitem": "lineHeight"
 		},
 		"path": [
 				"o3",
-				"typography",
-				"use-case",
+				"type",
 				"display-lg",
 				"lineHeight"
 		],
-		"css": "--o3-typography-use-case-display-lg-line-height",
-		"figma": "o3/typography/use-case/display-lg/lineHeight"
+		"css": "--o3-type-display-lg-line-height",
+		"figma": "o3/type/display-lg/lineHeight"
 },
-	"o3-typography-use-case-display-md-font-family": {
+	"o3-type-display-md-font-family": {
 		"shortName": "fontFamily",
 		"value": "financier display VF",
 		"originalValue": "{o3.font.family.financier-display}",
 		"type": "fontFamily",
 		"description": "Use this style for medium screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.",
 		"attributes": {
-				"item": "use-case",
-				"subitem": "display-md",
-				"state": "fontFamily"
+				"item": "display-md",
+				"subitem": "fontFamily"
 		},
 		"path": [
 				"o3",
-				"typography",
-				"use-case",
+				"type",
 				"display-md",
 				"fontFamily"
 		],
-		"css": "--o3-typography-use-case-display-md-font-family",
-		"figma": "o3/typography/use-case/display-md/fontFamily"
+		"css": "--o3-type-display-md-font-family",
+		"figma": "o3/type/display-md/fontFamily"
 },
-	"o3-typography-use-case-display-md-font-weight": {
+	"o3-type-display-md-font-weight": {
 		"shortName": "fontWeight",
 		"value": "800",
 		"originalValue": "{o3.font.weight.bold}",
 		"type": "fontWeight",
 		"description": "Use this style for medium screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.",
 		"attributes": {
-				"item": "use-case",
-				"subitem": "display-md",
-				"state": "fontWeight"
+				"item": "display-md",
+				"subitem": "fontWeight"
 		},
 		"path": [
 				"o3",
-				"typography",
-				"use-case",
+				"type",
 				"display-md",
 				"fontWeight"
 		],
-		"css": "--o3-typography-use-case-display-md-font-weight",
-		"figma": "o3/typography/use-case/display-md/fontWeight"
+		"css": "--o3-type-display-md-font-weight",
+		"figma": "o3/type/display-md/fontWeight"
 },
-	"o3-typography-use-case-display-md-font-size": {
+	"o3-type-display-md-font-size": {
 		"shortName": "fontSize",
 		"value": "40px",
 		"originalValue": "{o3.font.size.6}",
 		"type": "dimension",
 		"description": "Use this style for medium screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.",
 		"attributes": {
-				"item": "use-case",
-				"subitem": "display-md",
-				"state": "fontSize"
+				"item": "display-md",
+				"subitem": "fontSize"
 		},
 		"path": [
 				"o3",
-				"typography",
-				"use-case",
+				"type",
 				"display-md",
 				"fontSize"
 		],
-		"css": "--o3-typography-use-case-display-md-font-size",
-		"figma": "o3/typography/use-case/display-md/fontSize"
+		"css": "--o3-type-display-md-font-size",
+		"figma": "o3/type/display-md/fontSize"
 },
-	"o3-typography-use-case-display-md-line-height": {
+	"o3-type-display-md-line-height": {
 		"shortName": "lineHeight",
 		"value": "40px",
 		"originalValue": "{o3.font.lineheight.6}",
 		"type": "number",
 		"description": "Use this style for medium screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.",
 		"attributes": {
-				"item": "use-case",
-				"subitem": "display-md",
-				"state": "lineHeight"
+				"item": "display-md",
+				"subitem": "lineHeight"
 		},
 		"path": [
 				"o3",
-				"typography",
-				"use-case",
+				"type",
 				"display-md",
 				"lineHeight"
 		],
-		"css": "--o3-typography-use-case-display-md-line-height",
-		"figma": "o3/typography/use-case/display-md/lineHeight"
+		"css": "--o3-type-display-md-line-height",
+		"figma": "o3/type/display-md/lineHeight"
 },
-	"o3-typography-use-case-display-sm-font-family": {
+	"o3-type-display-sm-font-family": {
 		"shortName": "fontFamily",
 		"value": "financier display VF",
 		"originalValue": "{o3.font.family.financier-display}",
 		"type": "fontFamily",
 		"description": "Use this style for small screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.",
 		"attributes": {
-				"item": "use-case",
-				"subitem": "display-sm",
-				"state": "fontFamily"
+				"item": "display-sm",
+				"subitem": "fontFamily"
 		},
 		"path": [
 				"o3",
-				"typography",
-				"use-case",
+				"type",
 				"display-sm",
 				"fontFamily"
 		],
-		"css": "--o3-typography-use-case-display-sm-font-family",
-		"figma": "o3/typography/use-case/display-sm/fontFamily"
+		"css": "--o3-type-display-sm-font-family",
+		"figma": "o3/type/display-sm/fontFamily"
 },
-	"o3-typography-use-case-display-sm-font-weight": {
+	"o3-type-display-sm-font-weight": {
 		"shortName": "fontWeight",
 		"value": "800",
 		"originalValue": "{o3.font.weight.bold}",
 		"type": "fontWeight",
 		"description": "Use this style for small screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.",
 		"attributes": {
-				"item": "use-case",
-				"subitem": "display-sm",
-				"state": "fontWeight"
+				"item": "display-sm",
+				"subitem": "fontWeight"
 		},
 		"path": [
 				"o3",
-				"typography",
-				"use-case",
+				"type",
 				"display-sm",
 				"fontWeight"
 		],
-		"css": "--o3-typography-use-case-display-sm-font-weight",
-		"figma": "o3/typography/use-case/display-sm/fontWeight"
+		"css": "--o3-type-display-sm-font-weight",
+		"figma": "o3/type/display-sm/fontWeight"
 },
-	"o3-typography-use-case-display-sm-font-size": {
+	"o3-type-display-sm-font-size": {
 		"shortName": "fontSize",
 		"value": "32px",
 		"originalValue": "{o3.font.size.5}",
 		"type": "dimension",
 		"description": "Use this style for small screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.",
 		"attributes": {
-				"item": "use-case",
-				"subitem": "display-sm",
-				"state": "fontSize"
+				"item": "display-sm",
+				"subitem": "fontSize"
 		},
 		"path": [
 				"o3",
-				"typography",
-				"use-case",
+				"type",
 				"display-sm",
 				"fontSize"
 		],
-		"css": "--o3-typography-use-case-display-sm-font-size",
-		"figma": "o3/typography/use-case/display-sm/fontSize"
+		"css": "--o3-type-display-sm-font-size",
+		"figma": "o3/type/display-sm/fontSize"
 },
-	"o3-typography-use-case-display-sm-line-height": {
+	"o3-type-display-sm-line-height": {
 		"shortName": "lineHeight",
 		"value": "32px",
 		"originalValue": "{o3.font.lineheight.5}",
 		"type": "number",
 		"description": "Use this style for small screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.",
 		"attributes": {
-				"item": "use-case",
-				"subitem": "display-sm",
-				"state": "lineHeight"
+				"item": "display-sm",
+				"subitem": "lineHeight"
 		},
 		"path": [
 				"o3",
-				"typography",
-				"use-case",
+				"type",
 				"display-sm",
 				"lineHeight"
 		],
-		"css": "--o3-typography-use-case-display-sm-line-height",
-		"figma": "o3/typography/use-case/display-sm/lineHeight"
+		"css": "--o3-type-display-sm-line-height",
+		"figma": "o3/type/display-sm/lineHeight"
 },
-	"o3-typography-use-case-title-lg-font-family": {
+	"o3-type-title-lg-font-family": {
 		"shortName": "fontFamily",
 		"value": "metric 2 VF",
 		"originalValue": "{o3.font.family.metric}",
 		"type": "fontFamily",
 		"description": "Use for the main page title H1 in functional pages such as account and settings. Use across all breakpoints.",
 		"attributes": {
-				"item": "use-case",
-				"subitem": "title-lg",
-				"state": "fontFamily"
+				"item": "title-lg",
+				"subitem": "fontFamily"
 		},
 		"path": [
 				"o3",
-				"typography",
-				"use-case",
+				"type",
 				"title-lg",
 				"fontFamily"
 		],
-		"css": "--o3-typography-use-case-title-lg-font-family",
-		"figma": "o3/typography/use-case/title-lg/fontFamily"
+		"css": "--o3-type-title-lg-font-family",
+		"figma": "o3/type/title-lg/fontFamily"
 },
-	"o3-typography-use-case-title-lg-font-weight": {
+	"o3-type-title-lg-font-weight": {
 		"shortName": "fontWeight",
 		"value": "700",
 		"originalValue": "{o3.font.weight.semibold}",
 		"type": "fontWeight",
 		"description": "Use for the main page title H1 in functional pages such as account and settings. Use across all breakpoints.",
 		"attributes": {
-				"item": "use-case",
-				"subitem": "title-lg",
-				"state": "fontWeight"
+				"item": "title-lg",
+				"subitem": "fontWeight"
 		},
 		"path": [
 				"o3",
-				"typography",
-				"use-case",
+				"type",
 				"title-lg",
 				"fontWeight"
 		],
-		"css": "--o3-typography-use-case-title-lg-font-weight",
-		"figma": "o3/typography/use-case/title-lg/fontWeight"
+		"css": "--o3-type-title-lg-font-weight",
+		"figma": "o3/type/title-lg/fontWeight"
 },
-	"o3-typography-use-case-title-lg-font-size": {
+	"o3-type-title-lg-font-size": {
 		"shortName": "fontSize",
 		"value": "28px",
 		"originalValue": "{o3.font.size-metric2.4}",
 		"type": "dimension",
 		"description": "Use for the main page title H1 in functional pages such as account and settings. Use across all breakpoints.",
 		"attributes": {
-				"item": "use-case",
-				"subitem": "title-lg",
-				"state": "fontSize"
+				"item": "title-lg",
+				"subitem": "fontSize"
 		},
 		"path": [
 				"o3",
-				"typography",
-				"use-case",
+				"type",
 				"title-lg",
 				"fontSize"
 		],
-		"css": "--o3-typography-use-case-title-lg-font-size",
-		"figma": "o3/typography/use-case/title-lg/fontSize"
+		"css": "--o3-type-title-lg-font-size",
+		"figma": "o3/type/title-lg/fontSize"
 },
-	"o3-typography-use-case-title-lg-line-height": {
+	"o3-type-title-lg-line-height": {
 		"shortName": "lineHeight",
 		"value": "32px",
 		"originalValue": "{o3.font.lineheight-metric2.3}",
 		"type": "number",
 		"description": "Use for the main page title H1 in functional pages such as account and settings. Use across all breakpoints.",
 		"attributes": {
-				"item": "use-case",
-				"subitem": "title-lg",
-				"state": "lineHeight"
+				"item": "title-lg",
+				"subitem": "lineHeight"
 		},
 		"path": [
 				"o3",
-				"typography",
-				"use-case",
+				"type",
 				"title-lg",
 				"lineHeight"
 		],
-		"css": "--o3-typography-use-case-title-lg-line-height",
-		"figma": "o3/typography/use-case/title-lg/lineHeight"
+		"css": "--o3-type-title-lg-line-height",
+		"figma": "o3/type/title-lg/lineHeight"
 },
-	"o3-typography-use-case-title-md-font-family": {
+	"o3-type-title-md-font-family": {
 		"shortName": "fontFamily",
 		"value": "metric 2 VF",
 		"originalValue": "{o3.font.family.metric}",
 		"type": "fontFamily",
 		"description": "Use this style as H3 or subtitles within the content body to break paragraphs, or for titles of components like forms, tables and cards across all breakpoints.",
 		"attributes": {
-				"item": "use-case",
-				"subitem": "title-md",
-				"state": "fontFamily"
+				"item": "title-md",
+				"subitem": "fontFamily"
 		},
 		"path": [
 				"o3",
-				"typography",
-				"use-case",
+				"type",
 				"title-md",
 				"fontFamily"
 		],
-		"css": "--o3-typography-use-case-title-md-font-family",
-		"figma": "o3/typography/use-case/title-md/fontFamily"
+		"css": "--o3-type-title-md-font-family",
+		"figma": "o3/type/title-md/fontFamily"
 },
-	"o3-typography-use-case-title-md-font-weight": {
+	"o3-type-title-md-font-weight": {
 		"shortName": "fontWeight",
 		"value": "400",
 		"originalValue": "{o3.font.weight.regular}",
 		"type": "fontWeight",
 		"description": "Use this style as H3 or subtitles within the content body to break paragraphs, or for titles of components like forms, tables and cards across all breakpoints.",
 		"attributes": {
-				"item": "use-case",
-				"subitem": "title-md",
-				"state": "fontWeight"
+				"item": "title-md",
+				"subitem": "fontWeight"
 		},
 		"path": [
 				"o3",
-				"typography",
-				"use-case",
+				"type",
 				"title-md",
 				"fontWeight"
 		],
-		"css": "--o3-typography-use-case-title-md-font-weight",
-		"figma": "o3/typography/use-case/title-md/fontWeight"
+		"css": "--o3-type-title-md-font-weight",
+		"figma": "o3/type/title-md/fontWeight"
 },
-	"o3-typography-use-case-title-md-font-size": {
+	"o3-type-title-md-font-size": {
 		"shortName": "fontSize",
 		"value": "24px",
 		"originalValue": "{o3.font.size-metric2.3}",
 		"type": "dimension",
 		"description": "Use this style as H3 or subtitles within the content body to break paragraphs, or for titles of components like forms, tables and cards across all breakpoints.",
 		"attributes": {
-				"item": "use-case",
-				"subitem": "title-md",
-				"state": "fontSize"
+				"item": "title-md",
+				"subitem": "fontSize"
 		},
 		"path": [
 				"o3",
-				"typography",
-				"use-case",
+				"type",
 				"title-md",
 				"fontSize"
 		],
-		"css": "--o3-typography-use-case-title-md-font-size",
-		"figma": "o3/typography/use-case/title-md/fontSize"
+		"css": "--o3-type-title-md-font-size",
+		"figma": "o3/type/title-md/fontSize"
 },
-	"o3-typography-use-case-title-md-line-height": {
+	"o3-type-title-md-line-height": {
 		"shortName": "lineHeight",
 		"value": "32px",
 		"originalValue": "{o3.font.lineheight-metric2.3}",
 		"type": "number",
 		"description": "Use this style as H3 or subtitles within the content body to break paragraphs, or for titles of components like forms, tables and cards across all breakpoints.",
 		"attributes": {
-				"item": "use-case",
-				"subitem": "title-md",
-				"state": "lineHeight"
+				"item": "title-md",
+				"subitem": "lineHeight"
 		},
 		"path": [
 				"o3",
-				"typography",
-				"use-case",
+				"type",
 				"title-md",
 				"lineHeight"
 		],
-		"css": "--o3-typography-use-case-title-md-line-height",
-		"figma": "o3/typography/use-case/title-md/lineHeight"
+		"css": "--o3-type-title-md-line-height",
+		"figma": "o3/type/title-md/lineHeight"
 },
-	"o3-typography-use-case-title-sm-font-family": {
+	"o3-type-title-sm-font-family": {
 		"shortName": "fontFamily",
 		"value": "metric 2 VF",
 		"originalValue": "{o3.font.family.metric}",
 		"type": "fontFamily",
 		"description": "Use H6 for subtitles within the content body to break up paragraphs, and H2 for subheadings on stream pages or as subtitles for components such as forms, tables, and cards across all breakpoints.",
 		"attributes": {
-				"item": "use-case",
-				"subitem": "title-sm",
-				"state": "fontFamily"
+				"item": "title-sm",
+				"subitem": "fontFamily"
 		},
 		"path": [
 				"o3",
-				"typography",
-				"use-case",
+				"type",
 				"title-sm",
 				"fontFamily"
 		],
-		"css": "--o3-typography-use-case-title-sm-font-family",
-		"figma": "o3/typography/use-case/title-sm/fontFamily"
+		"css": "--o3-type-title-sm-font-family",
+		"figma": "o3/type/title-sm/fontFamily"
 },
-	"o3-typography-use-case-title-sm-font-weight": {
+	"o3-type-title-sm-font-weight": {
 		"shortName": "fontWeight",
 		"value": "400",
 		"originalValue": "{o3.font.weight.regular}",
 		"type": "fontWeight",
 		"description": "Use H6 for subtitles within the content body to break up paragraphs, and H2 for subheadings on stream pages or as subtitles for components such as forms, tables, and cards across all breakpoints.",
 		"attributes": {
-				"item": "use-case",
-				"subitem": "title-sm",
-				"state": "fontWeight"
+				"item": "title-sm",
+				"subitem": "fontWeight"
 		},
 		"path": [
 				"o3",
-				"typography",
-				"use-case",
+				"type",
 				"title-sm",
 				"fontWeight"
 		],
-		"css": "--o3-typography-use-case-title-sm-font-weight",
-		"figma": "o3/typography/use-case/title-sm/fontWeight"
+		"css": "--o3-type-title-sm-font-weight",
+		"figma": "o3/type/title-sm/fontWeight"
 },
-	"o3-typography-use-case-title-sm-line-height": {
+	"o3-type-title-sm-line-height": {
 		"shortName": "lineHeight",
 		"value": "28px",
 		"originalValue": "{o3.font.lineheight-metric2.2}",
 		"type": "number",
 		"description": "Use H6 for subtitles within the content body to break up paragraphs, and H2 for subheadings on stream pages or as subtitles for components such as forms, tables, and cards across all breakpoints.",
 		"attributes": {
-				"item": "use-case",
-				"subitem": "title-sm",
-				"state": "lineHeight"
+				"item": "title-sm",
+				"subitem": "lineHeight"
 		},
 		"path": [
 				"o3",
-				"typography",
-				"use-case",
+				"type",
 				"title-sm",
 				"lineHeight"
 		],
-		"css": "--o3-typography-use-case-title-sm-line-height",
-		"figma": "o3/typography/use-case/title-sm/lineHeight"
+		"css": "--o3-type-title-sm-line-height",
+		"figma": "o3/type/title-sm/lineHeight"
 },
-	"o3-typography-use-case-title-sm-font-size": {
+	"o3-type-title-sm-font-size": {
 		"shortName": "fontSize",
 		"value": "20px",
 		"originalValue": "{o3.font.size-metric2.2}",
 		"type": "dimension",
 		"description": "Use H6 for subtitles within the content body to break up paragraphs, and H2 for subheadings on stream pages or as subtitles for components such as forms, tables, and cards across all breakpoints.",
 		"attributes": {
-				"item": "use-case",
-				"subitem": "title-sm",
-				"state": "fontSize"
+				"item": "title-sm",
+				"subitem": "fontSize"
 		},
 		"path": [
 				"o3",
-				"typography",
-				"use-case",
+				"type",
 				"title-sm",
 				"fontSize"
 		],
-		"css": "--o3-typography-use-case-title-sm-font-size",
-		"figma": "o3/typography/use-case/title-sm/fontSize"
+		"css": "--o3-type-title-sm-font-size",
+		"figma": "o3/type/title-sm/fontSize"
 },
-	"o3-typography-use-case-body-lg-font-family": {
+	"o3-type-body-lg-font-family": {
 		"shortName": "fontFamily",
 		"value": "metric 2 VF",
 		"originalValue": "{o3.font.family.metric}",
 		"type": "fontFamily",
 		"description": "Use primarily for the stand-first (introductory summary or highlight) in topper component, as larger body text in components, or section description.",
 		"attributes": {
-				"item": "use-case",
-				"subitem": "body-lg",
-				"state": "fontFamily"
+				"item": "body-lg",
+				"subitem": "fontFamily"
 		},
 		"path": [
 				"o3",
-				"typography",
-				"use-case",
+				"type",
 				"body-lg",
 				"fontFamily"
 		],
-		"css": "--o3-typography-use-case-body-lg-font-family",
-		"figma": "o3/typography/use-case/body-lg/fontFamily"
+		"css": "--o3-type-body-lg-font-family",
+		"figma": "o3/type/body-lg/fontFamily"
 },
-	"o3-typography-use-case-body-lg-font-weight": {
+	"o3-type-body-lg-font-weight": {
 		"shortName": "fontWeight",
 		"value": "400",
 		"originalValue": "{o3.font.weight.regular}",
 		"type": "fontWeight",
 		"description": "Use primarily for the stand-first (introductory summary or highlight) in topper component, as larger body text in components, or section description.",
 		"attributes": {
-				"item": "use-case",
-				"subitem": "body-lg",
-				"state": "fontWeight"
+				"item": "body-lg",
+				"subitem": "fontWeight"
 		},
 		"path": [
 				"o3",
-				"typography",
-				"use-case",
+				"type",
 				"body-lg",
 				"fontWeight"
 		],
-		"css": "--o3-typography-use-case-body-lg-font-weight",
-		"figma": "o3/typography/use-case/body-lg/fontWeight"
+		"css": "--o3-type-body-lg-font-weight",
+		"figma": "o3/type/body-lg/fontWeight"
 },
-	"o3-typography-use-case-body-lg-font-size": {
+	"o3-type-body-lg-font-size": {
 		"shortName": "fontSize",
 		"value": "18px",
 		"originalValue": "{o3.font.size-metric2.1}",
 		"type": "dimension",
 		"description": "Use primarily for the stand-first (introductory summary or highlight) in topper component, as larger body text in components, or section description.",
 		"attributes": {
-				"item": "use-case",
-				"subitem": "body-lg",
-				"state": "fontSize"
+				"item": "body-lg",
+				"subitem": "fontSize"
 		},
 		"path": [
 				"o3",
-				"typography",
-				"use-case",
+				"type",
 				"body-lg",
 				"fontSize"
 		],
-		"css": "--o3-typography-use-case-body-lg-font-size",
-		"figma": "o3/typography/use-case/body-lg/fontSize"
+		"css": "--o3-type-body-lg-font-size",
+		"figma": "o3/type/body-lg/fontSize"
 },
-	"o3-typography-use-case-body-lg-line-height": {
+	"o3-type-body-lg-line-height": {
 		"shortName": "lineHeight",
 		"value": "24px",
 		"originalValue": "{o3.font.lineheight-metric2.1}",
 		"type": "number",
 		"description": "Use primarily for the stand-first (introductory summary or highlight) in topper component, as larger body text in components, or section description.",
 		"attributes": {
-				"item": "use-case",
-				"subitem": "body-lg",
-				"state": "lineHeight"
+				"item": "body-lg",
+				"subitem": "lineHeight"
 		},
 		"path": [
 				"o3",
-				"typography",
-				"use-case",
+				"type",
 				"body-lg",
 				"lineHeight"
 		],
-		"css": "--o3-typography-use-case-body-lg-line-height",
-		"figma": "o3/typography/use-case/body-lg/lineHeight"
+		"css": "--o3-type-body-lg-line-height",
+		"figma": "o3/type/body-lg/lineHeight"
 },
-	"o3-typography-use-case-body-base-font-family": {
+	"o3-type-body-base-font-family": {
 		"shortName": "fontFamily",
 		"value": "metric 2 VF",
 		"originalValue": "{o3.font.family.metric}",
 		"type": "fontFamily",
 		"description": "Use this style for the stand-first in teasers and as the default body copy style across components such as location in the byline.",
 		"attributes": {
-				"item": "use-case",
-				"subitem": "body-base",
-				"state": "fontFamily"
+				"item": "body-base",
+				"subitem": "fontFamily"
 		},
 		"path": [
 				"o3",
-				"typography",
-				"use-case",
+				"type",
 				"body-base",
 				"fontFamily"
 		],
-		"css": "--o3-typography-use-case-body-base-font-family",
-		"figma": "o3/typography/use-case/body-base/fontFamily"
+		"css": "--o3-type-body-base-font-family",
+		"figma": "o3/type/body-base/fontFamily"
 },
-	"o3-typography-use-case-body-base-font-weight": {
+	"o3-type-body-base-font-weight": {
 		"shortName": "fontWeight",
 		"value": "400",
 		"originalValue": "{o3.font.weight.regular}",
 		"type": "fontWeight",
 		"description": "Use this style for the stand-first in teasers and as the default body copy style across components such as location in the byline.",
 		"attributes": {
-				"item": "use-case",
-				"subitem": "body-base",
-				"state": "fontWeight"
+				"item": "body-base",
+				"subitem": "fontWeight"
 		},
 		"path": [
 				"o3",
-				"typography",
-				"use-case",
+				"type",
 				"body-base",
 				"fontWeight"
 		],
-		"css": "--o3-typography-use-case-body-base-font-weight",
-		"figma": "o3/typography/use-case/body-base/fontWeight"
+		"css": "--o3-type-body-base-font-weight",
+		"figma": "o3/type/body-base/fontWeight"
 },
-	"o3-typography-use-case-body-base-font-size": {
+	"o3-type-body-base-font-size": {
 		"shortName": "fontSize",
 		"value": "16px",
 		"originalValue": "{o3.font.size-metric2.0}",
 		"type": "dimension",
 		"description": "Use this style for the stand-first in teasers and as the default body copy style across components such as location in the byline.",
 		"attributes": {
-				"item": "use-case",
-				"subitem": "body-base",
-				"state": "fontSize"
+				"item": "body-base",
+				"subitem": "fontSize"
 		},
 		"path": [
 				"o3",
-				"typography",
-				"use-case",
+				"type",
 				"body-base",
 				"fontSize"
 		],
-		"css": "--o3-typography-use-case-body-base-font-size",
-		"figma": "o3/typography/use-case/body-base/fontSize"
+		"css": "--o3-type-body-base-font-size",
+		"figma": "o3/type/body-base/fontSize"
 },
-	"o3-typography-use-case-body-base-line-height": {
+	"o3-type-body-base-line-height": {
 		"shortName": "lineHeight",
 		"value": "24px",
 		"originalValue": "{o3.font.lineheight-metric2.0}",
 		"type": "number",
 		"description": "Use this style for the stand-first in teasers and as the default body copy style across components such as location in the byline.",
 		"attributes": {
-				"item": "use-case",
-				"subitem": "body-base",
-				"state": "lineHeight"
+				"item": "body-base",
+				"subitem": "lineHeight"
 		},
 		"path": [
 				"o3",
-				"typography",
-				"use-case",
+				"type",
 				"body-base",
 				"lineHeight"
 		],
-		"css": "--o3-typography-use-case-body-base-line-height",
-		"figma": "o3/typography/use-case/body-base/lineHeight"
+		"css": "--o3-type-body-base-line-height",
+		"figma": "o3/type/body-base/lineHeight"
 },
-	"o3-typography-use-case-body-highlight-font-family": {
+	"o3-type-body-highlight-font-family": {
 		"shortName": "fontFamily",
 		"value": "metric 2 VF",
 		"originalValue": "{o3.font.family.metric}",
 		"type": "fontFamily",
 		"description": "Use this style for bold formatting in body copy or for small interactive elements, such as Topic tags and Author names.",
 		"attributes": {
-				"item": "use-case",
-				"subitem": "body-highlight",
-				"state": "fontFamily"
+				"item": "body-highlight",
+				"subitem": "fontFamily"
 		},
 		"path": [
 				"o3",
-				"typography",
-				"use-case",
+				"type",
 				"body-highlight",
 				"fontFamily"
 		],
-		"css": "--o3-typography-use-case-body-highlight-font-family",
-		"figma": "o3/typography/use-case/body-highlight/fontFamily"
+		"css": "--o3-type-body-highlight-font-family",
+		"figma": "o3/type/body-highlight/fontFamily"
 },
-	"o3-typography-use-case-body-highlight-font-weight": {
+	"o3-type-body-highlight-font-weight": {
 		"shortName": "fontWeight",
 		"value": "700",
 		"originalValue": "{o3.font.weight.semibold}",
 		"type": "fontWeight",
 		"description": "Use this style for bold formatting in body copy or for small interactive elements, such as Topic tags and Author names.",
 		"attributes": {
-				"item": "use-case",
-				"subitem": "body-highlight",
-				"state": "fontWeight"
+				"item": "body-highlight",
+				"subitem": "fontWeight"
 		},
 		"path": [
 				"o3",
-				"typography",
-				"use-case",
+				"type",
 				"body-highlight",
 				"fontWeight"
 		],
-		"css": "--o3-typography-use-case-body-highlight-font-weight",
-		"figma": "o3/typography/use-case/body-highlight/fontWeight"
+		"css": "--o3-type-body-highlight-font-weight",
+		"figma": "o3/type/body-highlight/fontWeight"
 },
-	"o3-typography-use-case-body-highlight-font-size": {
+	"o3-type-body-highlight-font-size": {
 		"shortName": "fontSize",
 		"value": "16px",
 		"originalValue": "{o3.font.size-metric2.0}",
 		"type": "dimension",
 		"description": "Use this style for bold formatting in body copy or for small interactive elements, such as Topic tags and Author names.",
 		"attributes": {
-				"item": "use-case",
-				"subitem": "body-highlight",
-				"state": "fontSize"
+				"item": "body-highlight",
+				"subitem": "fontSize"
 		},
 		"path": [
 				"o3",
-				"typography",
-				"use-case",
+				"type",
 				"body-highlight",
 				"fontSize"
 		],
-		"css": "--o3-typography-use-case-body-highlight-font-size",
-		"figma": "o3/typography/use-case/body-highlight/fontSize"
+		"css": "--o3-type-body-highlight-font-size",
+		"figma": "o3/type/body-highlight/fontSize"
 },
-	"o3-typography-use-case-body-highlight-line-height": {
+	"o3-type-body-highlight-line-height": {
 		"shortName": "lineHeight",
 		"value": "24px",
 		"originalValue": "{o3.font.lineheight-metric2.0}",
 		"type": "number",
 		"description": "Use this style for bold formatting in body copy or for small interactive elements, such as Topic tags and Author names.",
 		"attributes": {
-				"item": "use-case",
-				"subitem": "body-highlight",
-				"state": "lineHeight"
+				"item": "body-highlight",
+				"subitem": "lineHeight"
 		},
 		"path": [
 				"o3",
-				"typography",
-				"use-case",
+				"type",
 				"body-highlight",
 				"lineHeight"
 		],
-		"css": "--o3-typography-use-case-body-highlight-line-height",
-		"figma": "o3/typography/use-case/body-highlight/lineHeight"
+		"css": "--o3-type-body-highlight-line-height",
+		"figma": "o3/type/body-highlight/lineHeight"
 },
-	"o3-typography-use-case-detail-font-family": {
+	"o3-type-detail-font-family": {
 		"shortName": "fontFamily",
 		"value": "metric 2 VF",
 		"originalValue": "{o3.font.family.metric}",
 		"type": "fontFamily",
 		"description": "Use this style for caption in visual assets such as image and video and for small text elements, such as secondary metadata, caveats, or footnotes.",
 		"attributes": {
-				"item": "use-case",
-				"subitem": "detail",
-				"state": "fontFamily"
+				"item": "detail",
+				"subitem": "fontFamily"
 		},
 		"path": [
 				"o3",
-				"typography",
-				"use-case",
+				"type",
 				"detail",
 				"fontFamily"
 		],
-		"css": "--o3-typography-use-case-detail-font-family",
-		"figma": "o3/typography/use-case/detail/fontFamily"
+		"css": "--o3-type-detail-font-family",
+		"figma": "o3/type/detail/fontFamily"
 },
-	"o3-typography-use-case-detail-font-weight": {
+	"o3-type-detail-font-weight": {
 		"shortName": "fontWeight",
 		"value": "400",
 		"originalValue": "{o3.font.weight.regular}",
 		"type": "fontWeight",
 		"description": "Use this style for caption in visual assets such as image and video and for small text elements, such as secondary metadata, caveats, or footnotes.",
 		"attributes": {
-				"item": "use-case",
-				"subitem": "detail",
-				"state": "fontWeight"
+				"item": "detail",
+				"subitem": "fontWeight"
 		},
 		"path": [
 				"o3",
-				"typography",
-				"use-case",
+				"type",
 				"detail",
 				"fontWeight"
 		],
-		"css": "--o3-typography-use-case-detail-font-weight",
-		"figma": "o3/typography/use-case/detail/fontWeight"
+		"css": "--o3-type-detail-font-weight",
+		"figma": "o3/type/detail/fontWeight"
 },
-	"o3-typography-use-case-detail-font-size": {
+	"o3-type-detail-font-size": {
 		"shortName": "fontSize",
 		"value": "14px",
 		"originalValue": "{o3.font.size-metric2.negative-1}",
 		"type": "dimension",
 		"description": "Use this style for caption in visual assets such as image and video and for small text elements, such as secondary metadata, caveats, or footnotes.",
 		"attributes": {
-				"item": "use-case",
-				"subitem": "detail",
-				"state": "fontSize"
+				"item": "detail",
+				"subitem": "fontSize"
 		},
 		"path": [
 				"o3",
-				"typography",
-				"use-case",
+				"type",
 				"detail",
 				"fontSize"
 		],
-		"css": "--o3-typography-use-case-detail-font-size",
-		"figma": "o3/typography/use-case/detail/fontSize"
+		"css": "--o3-type-detail-font-size",
+		"figma": "o3/type/detail/fontSize"
 },
-	"o3-typography-use-case-detail-line-height": {
+	"o3-type-detail-line-height": {
 		"shortName": "lineHeight",
 		"value": "20px",
 		"originalValue": "{o3.font.lineheight-metric2.negative-1}",
 		"type": "number",
 		"description": "Use this style for caption in visual assets such as image and video and for small text elements, such as secondary metadata, caveats, or footnotes.",
 		"attributes": {
-				"item": "use-case",
-				"subitem": "detail",
-				"state": "lineHeight"
+				"item": "detail",
+				"subitem": "lineHeight"
 		},
 		"path": [
 				"o3",
-				"typography",
-				"use-case",
+				"type",
 				"detail",
 				"lineHeight"
 		],
-		"css": "--o3-typography-use-case-detail-line-height",
-		"figma": "o3/typography/use-case/detail/lineHeight"
+		"css": "--o3-type-detail-line-height",
+		"figma": "o3/type/detail/lineHeight"
 },
-	"o3-typography-use-case-label-font-family": {
+	"o3-type-label-font-family": {
 		"shortName": "fontFamily",
 		"value": "metric 2 VF",
 		"originalValue": "{o3.font.family.metric}",
 		"type": "fontFamily",
 		"description": "Use this style for labels such as badges and metadata in teasers and toppers (e.g., \"Live,\" \"Premium,\" or the main timestamp). Avoid using full sentences.",
 		"attributes": {
-				"item": "use-case",
-				"subitem": "label",
-				"state": "fontFamily"
+				"item": "label",
+				"subitem": "fontFamily"
 		},
 		"path": [
 				"o3",
-				"typography",
-				"use-case",
+				"type",
 				"label",
 				"fontFamily"
 		],
-		"css": "--o3-typography-use-case-label-font-family",
-		"figma": "o3/typography/use-case/label/fontFamily"
+		"css": "--o3-type-label-font-family",
+		"figma": "o3/type/label/fontFamily"
 },
-	"o3-typography-use-case-label-font-weight": {
+	"o3-type-label-font-weight": {
 		"shortName": "fontWeight",
 		"value": "400",
 		"originalValue": "{o3.font.weight.regular}",
 		"type": "fontWeight",
 		"description": "Use this style for labels such as badges and metadata in teasers and toppers (e.g., \"Live,\" \"Premium,\" or the main timestamp). Avoid using full sentences.",
 		"attributes": {
-				"item": "use-case",
-				"subitem": "label",
-				"state": "fontWeight"
+				"item": "label",
+				"subitem": "fontWeight"
 		},
 		"path": [
 				"o3",
-				"typography",
-				"use-case",
+				"type",
 				"label",
 				"fontWeight"
 		],
-		"css": "--o3-typography-use-case-label-font-weight",
-		"figma": "o3/typography/use-case/label/fontWeight"
+		"css": "--o3-type-label-font-weight",
+		"figma": "o3/type/label/fontWeight"
 },
-	"o3-typography-use-case-label-font-size": {
+	"o3-type-label-font-size": {
 		"shortName": "fontSize",
 		"value": "14px",
 		"originalValue": "{o3.font.size-metric2.negative-1}",
 		"type": "dimension",
 		"description": "Use this style for labels such as badges and metadata in teasers and toppers (e.g., \"Live,\" \"Premium,\" or the main timestamp). Avoid using full sentences.",
 		"attributes": {
-				"item": "use-case",
-				"subitem": "label",
-				"state": "fontSize"
+				"item": "label",
+				"subitem": "fontSize"
 		},
 		"path": [
 				"o3",
-				"typography",
-				"use-case",
+				"type",
 				"label",
 				"fontSize"
 		],
-		"css": "--o3-typography-use-case-label-font-size",
-		"figma": "o3/typography/use-case/label/fontSize"
+		"css": "--o3-type-label-font-size",
+		"figma": "o3/type/label/fontSize"
 },
-	"o3-typography-use-case-label-line-height": {
+	"o3-type-label-line-height": {
 		"shortName": "lineHeight",
 		"value": "20px",
 		"originalValue": "{o3.font.lineheight-metric2.negative-1}",
 		"type": "number",
 		"description": "Use this style for labels such as badges and metadata in teasers and toppers (e.g., \"Live,\" \"Premium,\" or the main timestamp). Avoid using full sentences.",
 		"attributes": {
-				"item": "use-case",
-				"subitem": "label",
-				"state": "lineHeight"
+				"item": "label",
+				"subitem": "lineHeight"
 		},
 		"path": [
 				"o3",
-				"typography",
-				"use-case",
+				"type",
 				"label",
 				"lineHeight"
 		],
-		"css": "--o3-typography-use-case-label-line-height",
-		"figma": "o3/typography/use-case/label/lineHeight"
+		"css": "--o3-type-label-line-height",
+		"figma": "o3/type/label/lineHeight"
 },
-	"o3-typography-use-case-label-text-case": {
+	"o3-type-label-text-case": {
 		"shortName": "textCase",
 		"value": "uppercase",
 		"originalValue": "uppercase",
 		"type": "textCase",
 		"description": "Use this style for labels such as badges and metadata in teasers and toppers (e.g., \"Live,\" \"Premium,\" or the main timestamp). Avoid using full sentences.",
 		"attributes": {
-				"item": "use-case",
-				"subitem": "label",
-				"state": "textCase"
+				"item": "label",
+				"subitem": "textCase"
 		},
 		"path": [
 				"o3",
-				"typography",
-				"use-case",
+				"type",
 				"label",
 				"textCase"
 		],
-		"css": "--o3-typography-use-case-label-text-case",
-		"figma": "o3/typography/use-case/label/textCase"
+		"css": "--o3-type-label-text-case",
+		"figma": "o3/type/label/textCase"
 },
 	"o3-font-family-metric": {
 		"shortName": "metric",

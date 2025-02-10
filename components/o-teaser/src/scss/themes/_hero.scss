@@ -13,7 +13,8 @@
 		content: '';
 		display: block;
 		width: 60px;
-		border-bottom: oPrivateSpacingByIncrement(1) solid oPrivateFoundationGet('o3-color-palette-claret-60');
+		border-bottom: oPrivateSpacingByIncrement(1) solid
+			oPrivateFoundationGet('o3-color-palette-claret-60');
 		margin-top: oPrivateSpacingByName('s1');
 		margin-bottom: oPrivateSpacingByName('s2');
 	}
@@ -50,20 +51,28 @@
 	.o-teaser__standfirst a:visited,
 	.o-teaser__tag:hover,
 	.o-teaser__tag:focus {
-		color: oPrivateColorsMix($opinion-color, $opinion-background, $percentage: 73);
+		color: oPrivateColorsMix(
+			$opinion-color,
+			$opinion-background,
+			$percentage: 73
+		);
 	}
 
 	.o-teaser__standfirst,
 	.o-teaser__timestamp,
 	.o-teaser__timestamp-prefix:before {
-		color: oPrivateColorsMix($opinion-color, $opinion-background, $percentage: 80);
+		color: oPrivateColorsMix(
+			$opinion-color,
+			$opinion-background,
+			$percentage: 80
+		);
 	}
 
 	.o-teaser__timestamp-prefix:before {
 		background-color: oPrivateColorsMix(
-				oPrivateFoundationGet('o3-color-palette-white'),
-				$opinion-background,
-				80
+			oPrivateFoundationGet('o3-color-palette-white'),
+			$opinion-background,
+			80
 		);
 	}
 
@@ -110,7 +119,7 @@
 			background-color: transparent;
 			background-image: linear-gradient(
 				to bottom,
-				rgba(oPrivateFoundationGet("o3-color-palette-black"), 0.75),
+				rgba(oPrivateFoundationGet('o3-color-palette-black'), 0.75),
 				transparent
 			);
 			pointer-events: none;
@@ -198,10 +207,10 @@
 /// Hero standalone theme styles
 @mixin _oTeaserHeroStandalone {
 	.o-teaser__heading {
-		font-family: oPrivateFoundationGet('o3-typography-use-case-headline-sm-font-family');
-		font-size: oPrivateFoundationGet('o3-typography-use-case-headline-sm-font-size');
-		font-weight: oPrivateFoundationGet('o3-typography-use-case-headline-sm-font-weight');
-		line-height: oPrivateFoundationGet('o3-typography-use-case-headline-sm-line-height');
+		font-family: oPrivateFoundationGet('o3-type-headline-sm-font-family');
+		font-size: oPrivateFoundationGet('o3-type-headline-sm-font-size');
+		font-weight: oPrivateFoundationGet('o3-type-headline-sm-font-weight');
+		line-height: oPrivateFoundationGet('o3-type-headline-sm-line-height');
 	}
 
 	.o-teaser__image-container {
@@ -230,7 +239,11 @@
 
 	.o-teaser__tag:hover,
 	.o-teaser__tag:focus {
-		color: oPrivateColorsMix(oPrivateFoundationGet('o3-color-palette-white'), $hero-extra-highlight-color, 73);
+		color: oPrivateColorsMix(
+			oPrivateFoundationGet('o3-color-palette-white'),
+			$hero-extra-highlight-color,
+			73
+		);
 	}
 
 	.o-teaser__meta {
