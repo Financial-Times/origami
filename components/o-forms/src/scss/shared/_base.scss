@@ -6,18 +6,10 @@
 	.o-forms-field,
 	.o-forms-title,
 	.o-forms-input {
-		font-family: oPrivateFoundationGet(
-			'o3-typography-use-case-body-base-font-family'
-		);
-		font-size: oPrivateFoundationGet(
-			'o3-typography-use-case-body-base-font-size'
-		);
-		line-height: oPrivateFoundationGet(
-			'o3-typography-use-case-body-base-line-height'
-		);
-		font-weight: oPrivateFoundationGet(
-			'o3-typography-use-case-body-base-font-weight'
-		);
+		font-family: oPrivateFoundationGet('o3-type-body-base-font-family');
+		font-size: oPrivateFoundationGet('o3-type-body-base-font-size');
+		line-height: oPrivateFoundationGet('o3-type-body-base-line-height');
+		font-weight: oPrivateFoundationGet('o3-type-body-base-font-weight');
 	}
 
 	.o-forms-field {
@@ -40,68 +32,36 @@
 
 	.o-forms-field--optional .o-forms-title__main:after {
 		content: 'Optional';
-		font-family: oPrivateFoundationGet(
-			'o3-typography-use-case-body-base-font-family'
-		);
-		font-size: oPrivateFoundationGet(
-			'o3-typography-use-case-body-base-font-size'
-		);
-		line-height: oPrivateFoundationGet(
-			'o3-typography-use-case-body-base-line-height'
-		);
-		font-weight: oPrivateFoundationGet(
-			'o3-typography-use-case-body-base-font-weight'
-		);
+		font-family: oPrivateFoundationGet('o3-type-body-base-font-family');
+		font-size: oPrivateFoundationGet('o3-type-body-base-font-size');
+		line-height: oPrivateFoundationGet('o3-type-body-base-line-height');
+		font-weight: oPrivateFoundationGet('o3-type-body-base-font-weight');
 		color: oPrivateFoundationGet('o3-color-use-case-muted-text');
 		margin-left: oPrivateFoundationGet('o3-spacing-3xs');
 	}
 
 	.o-forms-title__main {
-		font-family: oPrivateFoundationGet(
-			'o3-typography-use-case-body-highlight-font-family'
-		);
-		font-size: oPrivateFoundationGet(
-			'o3-typography-use-case-body-highlight-font-size'
-		);
-		line-height: oPrivateFoundationGet(
-			'o3-typography-use-case-body-highlight-line-height'
-		);
-		font-weight: oPrivateFoundationGet(
-			'o3-typography-use-case-body-highlight-font-weight'
-		);
+		font-family: oPrivateFoundationGet('o3-type-body-highlight-font-family');
+		font-size: oPrivateFoundationGet('o3-type-body-highlight-font-size');
+		line-height: oPrivateFoundationGet('o3-type-body-highlight-line-height');
+		font-weight: oPrivateFoundationGet('o3-type-body-highlight-font-weight');
 		display: block;
 	}
 
 	.o-forms-input__label__main {
-		font-family: oPrivateFoundationGet(
-			'o3-typography-use-case-body-lg-font-family'
-		);
-		font-size: oPrivateFoundationGet(
-			'o3-typography-use-case-body-lg-font-size'
-		);
-		line-height: oPrivateFoundationGet(
-			'o3-typography-use-case-body-lg-line-height'
-		);
-		font-weight: oPrivateFoundationGet(
-			'o3-typography-use-case-body-lg-font-weight'
-		);
+		font-family: oPrivateFoundationGet('o3-type-body-lg-font-family');
+		font-size: oPrivateFoundationGet('o3-type-body-lg-font-size');
+		line-height: oPrivateFoundationGet('o3-type-body-lg-line-height');
+		font-weight: oPrivateFoundationGet('o3-type-body-lg-font-weight');
 		display: block;
 	}
 
 	.o-forms-input__label__prompt,
 	.o-forms-title__prompt {
-		font-family: oPrivateFoundationGet(
-			'o3-typography-use-case-body-base-font-family'
-		);
-		font-size: oPrivateFoundationGet(
-			'o3-typography-use-case-body-base-font-size'
-		);
-		line-height: oPrivateFoundationGet(
-			'o3-typography-use-case-body-base-line-height'
-		);
-		font-weight: oPrivateFoundationGet(
-			'o3-typography-use-case-body-base-font-weight'
-		);
+		font-family: oPrivateFoundationGet('o3-type-body-base-font-family');
+		font-size: oPrivateFoundationGet('o3-type-body-base-font-size');
+		line-height: oPrivateFoundationGet('o3-type-body-base-line-height');
+		font-weight: oPrivateFoundationGet('o3-type-body-base-font-weight');
 		color: _oFormsGet('default-prompt-text');
 		display: block;
 	}

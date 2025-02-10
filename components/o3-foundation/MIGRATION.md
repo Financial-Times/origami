@@ -8,14 +8,14 @@ We have deleted the UI `Heading` JSX component, and replaced it with more generi
 
 ```diff
 -<h1 class="o3-typography-h1">Welcome to Origami</h1>
-+<h1 class="o3-typography-use-case-title-lg">Welcome to Origami</h1>
++<h1 class="o3-type-title-lg">Welcome to Origami</h1>
 ```
 
 ```diff
 -import { Heading } from '@financial-times/o3-foundation/cjs' // or esm;
 -
 -<Heading level={1}>Welcome to Origami</Heading>
-+<h1 class="o3-typography-use-case-title-lg">Welcome to Origami</h1>
++<h1 class="o3-type-title-lg">Welcome to Origami</h1>
 ```
 
 ### Replace body and link components
@@ -39,7 +39,7 @@ Which should be replaced with their closes matching use-case:
 -	Styling and usage guides can be seen on the
 -	<a href="#" class="o3-typography-link">Origami</a> homepage.
 -</p>
-+<p class="o3-typography-use-case-body-base">
++<p class="o3-type-body-base">
 +	Styling and usage guides can be seen on the
 +	<a href="#">Origami</a> homepage.
 +</p>
@@ -52,7 +52,7 @@ Which should be replaced with their closes matching use-case:
 -	Styling and usage guides can be seen on the <Link href="#">Origami</Link>{' '}
 -	homepage.
 -</Body>;
-+<p class="o3-typography-use-case-body-base">
++<p class="o3-type-body-base">
 +	Styling and usage guides can be seen on the
 +	<a href="#">Origami</a> homepage.
 +</p>
@@ -66,12 +66,12 @@ We have deleted the UI `Footer` JSX component, and replaced it with more generic
 -import {Footer} from '@financial-times/o3-typography';
 -
 -<Footer>Copyright notice</Footer>;
-+<footer class="o3-typography-use-case-body-base">Copyright notice</footer>
++<footer class="o3-type-body-base">Copyright notice</footer>
 ```
 
 ```diff
 -<footer class="o3-typography-footer">Copyright notice</footer>
-+<footer class="o3-typography-use-case-body-base">Copyright notice</footer>
++<footer class="o3-type-body-base">Copyright notice</footer>
 ```
 
 ### Replace caption components
@@ -82,12 +82,12 @@ We have deleted the UI `Caption` JSX component, and replaced it with more generi
 -import {Caption} from '@financial-times/o3-foundation/cjs'; // or esm;
 -
 -<Caption>This is a caption.</Caption>;
-+<figcaption class="o3-typography-use-case-detail">This is a caption.</figcaption>
++<figcaption class="o3-type-detail">This is a caption.</figcaption>
 ```
 
 ```diff
 -<figcaption class="o3-typography-caption">This is a caption.</figcaption>
-+<figcaption class="o3-typography-use-case-detail">This is a caption.</figcaption>
++<figcaption class="o3-type-detail">This is a caption.</figcaption>
 ```
 
 ## Migrating from v1 to v2
@@ -105,27 +105,27 @@ or `--o3-font-font-size-metric2-10` will break. Usages of any other token will v
 
 **Lineheight**
 
-| v1 name                                   | v2 name                                   | value  |
-| ----------------------------------------- | ----------------------------------------- | ------ |
-| `--o3-font-lineheight-metric2-negative-2` |  none (continue using `--o3-font-size-metric2-negative-2`) | |
-| `--o3-font-lineheight-metric2-negative-1` | `--o3-font-lineheight-metric2-negative-2` | `16px` |
-| `--o3-font-lineheight-metric2-0`          | `--o3-font-lineheight-metric2-negative-1` | `20px` |
-| `--o3-font-lineheight-1`                  | `--o3-font-lineheight-0`                  | `20px` |
-| `--o3-font-lineheight-2`                  | `--o3-font-lineheight-1`                  | `24px` |
-| `--o3-font-lineheight-3`                  | `--o3-font-lineheight-2`                  | `28px` |
-| `--o3-font-lineheight-4`                  | `--o3-font-lineheight-3`                  | `32px` |
-| `--o3-font-lineheight-5`                  | `--o3-font-lineheight-4`                  | `32px` |
-| `--o3-font-lineheight-6`                  | `--o3-font-lineheight-5`                  | `40px` |
-| `--o3-font-lineheight-7`                  | `--o3-font-lineheight-6`                  | `48px` |
-| `--o3-font-lineheight-8`                  | `--o3-font-lineheight-7`                  | `56px` |
-| `--o3-font-lineheight-9`                  | `--o3-font-lineheight-8`                  | `72px` |
-| `--o3-font-lineheight-10`                 | `--o3-font-lineheight-9`                  | `84px` |
+| v1 name                                   | v2 name                                                   | value  |
+| ----------------------------------------- | --------------------------------------------------------- | ------ |
+| `--o3-font-lineheight-metric2-negative-2` | none (continue using `--o3-font-size-metric2-negative-2`) |        |
+| `--o3-font-lineheight-metric2-negative-1` | `--o3-font-lineheight-metric2-negative-2`                 | `16px` |
+| `--o3-font-lineheight-metric2-0`          | `--o3-font-lineheight-metric2-negative-1`                 | `20px` |
+| `--o3-font-lineheight-1`                  | `--o3-font-lineheight-0`                                  | `20px` |
+| `--o3-font-lineheight-2`                  | `--o3-font-lineheight-1`                                  | `24px` |
+| `--o3-font-lineheight-3`                  | `--o3-font-lineheight-2`                                  | `28px` |
+| `--o3-font-lineheight-4`                  | `--o3-font-lineheight-3`                                  | `32px` |
+| `--o3-font-lineheight-5`                  | `--o3-font-lineheight-4`                                  | `32px` |
+| `--o3-font-lineheight-6`                  | `--o3-font-lineheight-5`                                  | `40px` |
+| `--o3-font-lineheight-7`                  | `--o3-font-lineheight-6`                                  | `48px` |
+| `--o3-font-lineheight-8`                  | `--o3-font-lineheight-7`                                  | `56px` |
+| `--o3-font-lineheight-9`                  | `--o3-font-lineheight-8`                                  | `72px` |
+| `--o3-font-lineheight-10`                 | `--o3-font-lineheight-9`                                  | `84px` |
 
 **Font Size**
 
 | v1 name                             | v2 name                                                   | value  |
-| ----------------------------------- |-----------------------------------------------------------| ------ |
-| `--o3-font-size-metric2-negative-2` | none (continue using `--o3-font-size-metric2-negative-2`) |  |
+| ----------------------------------- | --------------------------------------------------------- | ------ |
+| `--o3-font-size-metric2-negative-2` | none (continue using `--o3-font-size-metric2-negative-2`) |        |
 | `--o3-font-size-metric2-negative-1` | `--o3-font-size-metric2-negative-2`                       | `12px` |
 | `--o3-font-size-metric2-0`          | `--o3-font-size-metric2-negative-1`                       | `14px` |
 | `--o3-font-size-metric2-1`          | `--o3-font-size-metric2-0`                                | `16px` |
@@ -138,7 +138,3 @@ or `--o3-font-font-size-metric2-10` will break. Usages of any other token will v
 | `--o3-font-size-metric2-8`          | `--o3-font-size-metric2-7`                                | `48px` |
 | `--o3-font-size-metric2-9`          | `--o3-font-size-metric2-8`                                | `64px` |
 | `--o3-font-size-metric2-10`         | `--o3-font-size-metric2-9`                                | `72px` |
-
-```
-
-```

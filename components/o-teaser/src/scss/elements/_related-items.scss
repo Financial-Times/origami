@@ -12,16 +12,16 @@
 
 /// Single related content item styles
 @mixin _oTeaserRelatedItem {
-	font-family: oPrivateFoundationGet('o3-typography-use-case-detail-font-family');
-	font-size: oPrivateFoundationGet('o3-typography-use-case-detail-font-size');
-	font-weight: oPrivateFoundationGet('o3-typography-use-case-detail-font-weight');
+	font-family: oPrivateFoundationGet('o3-type-detail-font-family');
+	font-size: oPrivateFoundationGet('o3-type-detail-font-size');
+	font-weight: oPrivateFoundationGet('o3-type-detail-font-weight');
 	line-height: 22px;
 
 	@include oPrivateGridRespondTo('L') {
-		font-family: oPrivateFoundationGet('o3-typography-use-case-body-base-font-family');
-		font-size: oPrivateFoundationGet('o3-typography-use-case-body-base-font-size');
-		font-weight: oPrivateFoundationGet('o3-typography-use-case-body-base-font-weight');
-		line-height: oPrivateFoundationGet('o3-typography-use-case-body-base-line-height');
+		font-family: oPrivateFoundationGet('o3-type-body-base-font-family');
+		font-size: oPrivateFoundationGet('o3-type-body-base-font-size');
+		font-weight: oPrivateFoundationGet('o3-type-body-base-font-weight');
+		line-height: oPrivateFoundationGet('o3-type-body-base-line-height');
 	}
 	color: $_o-teaser-muted;
 
@@ -41,7 +41,11 @@
 	}
 
 	&.o-teaser__related-item--video a:after {
-		@include oPrivateIconsContent('play', oPrivateFoundationGet('o3-color-palette-white'), $size: 13);
+		@include oPrivateIconsContent(
+			'play',
+			oPrivateFoundationGet('o3-color-palette-white'),
+			$size: 13
+		);
 		content: '';
 		position: relative;
 		top: 1px;

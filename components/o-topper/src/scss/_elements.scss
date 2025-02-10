@@ -8,10 +8,10 @@
 }
 
 @mixin _oTopperSummary {
-	font-family: oPrivateFoundationGet('o3-typography-use-case-body-base-font-family');
-	font-size: oPrivateFoundationGet('o3-typography-use-case-body-base-font-size');
-	font-weight: oPrivateFoundationGet('o3-typography-use-case-body-base-font-weight');
-	line-height: oPrivateFoundationGet('o3-typography-use-case-body-base-line-height');
+	font-family: oPrivateFoundationGet('o3-type-body-base-font-family');
+	font-size: oPrivateFoundationGet('o3-type-body-base-font-size');
+	font-weight: oPrivateFoundationGet('o3-type-body-base-font-weight');
+	line-height: oPrivateFoundationGet('o3-type-body-base-line-height');
 	> ul {
 		padding: 0 oPrivateSpacingByIncrement(5);
 	}
@@ -23,10 +23,10 @@
 
 @mixin _oTopperSummaryBody {
 	h2 {
-		font-family: oPrivateFoundationGet('o3-typography-use-case-body-highlight-font-family');
-		font-size: oPrivateFoundationGet('o3-typography-use-case-body-highlight-font-size');
-		font-weight: oPrivateFoundationGet('o3-typography-use-case-body-highlight-font-weight');
-		line-height: oPrivateFoundationGet('o3-typography-use-case-body-highlight-line-height');
+		font-family: oPrivateFoundationGet('o3-type-body-highlight-font-family');
+		font-size: oPrivateFoundationGet('o3-type-body-highlight-font-size');
+		font-weight: oPrivateFoundationGet('o3-type-body-highlight-font-weight');
+		line-height: oPrivateFoundationGet('o3-type-body-highlight-line-height');
 		margin: 5px 0 0;
 	}
 
@@ -38,10 +38,10 @@
 			margin-top: 0px;
 		}
 		li {
-			font-family: oPrivateFoundationGet('o3-typography-use-case-body-base-font-family');
-			font-size: oPrivateFoundationGet('o3-typography-use-case-body-base-font-size');
-			font-weight: oPrivateFoundationGet('o3-typography-use-case-body-base-font-weight');
-			line-height: oPrivateFoundationGet('o3-typography-use-case-body-base-line-height');
+			font-family: oPrivateFoundationGet('o3-type-body-base-font-family');
+			font-size: oPrivateFoundationGet('o3-type-body-base-font-size');
+			font-weight: oPrivateFoundationGet('o3-type-body-base-font-weight');
+			line-height: oPrivateFoundationGet('o3-type-body-base-line-height');
 			margin-top: oPrivateSpacingByName('s2');
 			margin-bottom: 0;
 		}
@@ -49,10 +49,10 @@
 }
 
 @mixin _oTopperImageCredit {
-	font-family: oPrivateFoundationGet('o3-typography-use-case-detail-font-family');
-	font-size: oPrivateFoundationGet('o3-typography-use-case-detail-font-size');
-	font-weight: oPrivateFoundationGet('o3-typography-use-case-detail-font-weight');
-	line-height: oPrivateFoundationGet('o3-typography-use-case-detail-line-height');
+	font-family: oPrivateFoundationGet('o3-type-detail-font-family');
+	font-size: oPrivateFoundationGet('o3-type-detail-font-size');
+	font-weight: oPrivateFoundationGet('o3-type-detail-font-weight');
+	line-height: oPrivateFoundationGet('o3-type-detail-line-height');
 
 	color: oPrivateFoundationGet('o3-color-palette-white');
 	position: absolute;
@@ -67,10 +67,10 @@
 }
 
 @mixin _oTopperImageCaption {
-	font-family: oPrivateFoundationGet('o3-typography-use-case-detail-font-family');
-	font-size: oPrivateFoundationGet('o3-typography-use-case-detail-font-size');
-	font-weight: oPrivateFoundationGet('o3-typography-use-case-detail-font-weight');
-	line-height: oPrivateFoundationGet('o3-typography-use-case-detail-line-height');
+	font-family: oPrivateFoundationGet('o3-type-detail-font-family');
+	font-size: oPrivateFoundationGet('o3-type-detail-font-size');
+	font-weight: oPrivateFoundationGet('o3-type-detail-font-weight');
+	line-height: oPrivateFoundationGet('o3-type-detail-line-height');
 	padding: 10px 11px 0px;
 	@include oPrivateGridRespondTo(L) {
 		padding-left: 18px;
@@ -119,10 +119,10 @@
 }
 
 @mixin _oTopperTags {
-	font-family: oPrivateFoundationGet('o3-typography-use-case-body-base-font-family');
-	font-size: oPrivateFoundationGet('o3-typography-use-case-body-base-font-size');
-	font-weight: oPrivateFoundationGet('o3-typography-use-case-body-base-font-weight');
-	line-height: oPrivateFoundationGet('o3-typography-use-case-body-base-line-height');
+	font-family: oPrivateFoundationGet('o3-type-body-base-font-family');
+	font-size: oPrivateFoundationGet('o3-type-body-base-font-size');
+	font-weight: oPrivateFoundationGet('o3-type-body-base-font-weight');
+	line-height: oPrivateFoundationGet('o3-type-body-base-line-height');
 	padding-bottom: 5px;
 }
 

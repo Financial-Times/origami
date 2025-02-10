@@ -8,7 +8,7 @@ We have deleted the editorial `Body` JSX component, and replaced it with more ge
 
 ```diff
 -	<p class="o3-editorial-typography-body">An article by <a class="o3-editorial-typography-link" href="https://ft.com/">The Financial Times</a></p>.
-+	<p class="o3-typography-use-case-body-content-base">An article by <a href="https://ft.com/">The Financial Times</a></p>.
++	<p class="o3-type-body-content-base">An article by <a href="https://ft.com/">The Financial Times</a></p>.
 ```
 
 ```diff
@@ -18,14 +18,14 @@ We have deleted the editorial `Body` JSX component, and replaced it with more ge
 -	An article by
 -	<Link href="https://ft.com/">The Financial Times</Link>.
 -</Body>;
-+	<p class="o3-typography-use-case-body-content-base">An article by <a href="https://ft.com/">The Financial Times</a></p>.
++	<p class="o3-type-body-content-base">An article by <a href="https://ft.com/">The Financial Times</a></p>.
 ```
 
 If using a drop cap replace `o3-editorial-typography-body--drop-cap` with `o3-editorial-typography-drop-cap`.
 
 ```diff
 -	<p class="o3-editorial-typography-body o3-editorial-typography-body--drop-cap">An article by <a class="o3-editorial-typography-link" href="https://ft.com/">The Financial Times</a></p>.
-+	<p class="o3-typography-use-case-body-content-base o3-editorial-typography-drop-cap">An article by <a href="https://ft.com/">The Financial Times</a></p>.
++	<p class="o3-type-body-content-base o3-editorial-typography-drop-cap">An article by <a href="https://ft.com/">The Financial Times</a></p>.
 ```
 
 ### Rename heading large

@@ -5,11 +5,11 @@ const tokens = await import(`@financial-times/o3-tooling-token/${Astro.props.bra
 
 const usecases = Array.isArray(Astro.props.usecases) ? Astro.props.usecases : [Astro.props.usecases];
 
-const TypeUsecaseTokens = Object.entries(tokens.default).filter(([key, value]) => key.includes(`o3-typography-use-case`) && usecases.includes(value.attributes?.subitem)).map(([key, value]) => {
+const TypeUsecaseTokens = Object.entries(tokens.default).filter(([key, value]) => key.includes(`o3-type`) && usecases.includes(value.attributes?.item)).map(([key, value]) => {
     value.name = key;
     return value
 });
-const TypeUsecaseTokensByItem = Object.groupBy(TypeUsecaseTokens, (token) => token.attributes?.subitem);
+const TypeUsecaseTokensByItem = Object.groupBy(TypeUsecaseTokens, (token) => token.attributes?.item);
 
 ---
 
@@ -21,7 +21,7 @@ const TypeUsecaseTokensByItem = Object.groupBy(TypeUsecaseTokens, (token) => tok
             <h3>{key}</h3>
             <p>{tokens[0].description}</p>
 
-            <PreviewFrame html={`<span class="o3-typography-use-case-${key}">Make sense of it all</span>`} mark={`class="o3-typography-use-case-${key}`} />
+            <PreviewFrame html={`<span class="o3-type-${key}">Make sense of it all</span>`} mark={`class="o3-type-${key}`} />
 
             <table class="color-table">
                 <thead>
