@@ -95,6 +95,16 @@ Replace mixin uses with CSS Custom Properties. Refer to table below for mappings
 | `l18`                                                               | `18`                | none (use `--o3-spacing-2xl` or `--o3-spacing-3xl` | 72px   |
 | `l24`                                                               | `24`                | `--o3-spacing-4xl`                                 | 96px   |
 
+#### Variables
+
+**$o-spacing-relative-units**
+
+There is no direct replacement in o3-foundartion.
+
+**$o-spacing-names**
+
+There is no direct replacement in o3-foundation. Use CSS Custom Properties mentioned above.
+
 ### Migrating from v2 to v3
 
 V3 drops support for Bower and version 2 of the Origami Build Service.

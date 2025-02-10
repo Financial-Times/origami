@@ -119,6 +119,16 @@ There is no replacement in Origami 3.
 
 There is no replacement in Origami 3.
 
+#### Variables
+
+The following variables are not replaced in o3 foundation:
+
+* $o-fonts-path
+* $o-fonts-build-service-path
+* $o-fonts-self-host-path
+* $o-fonts-display
+* 
+
 ### Migrating from v4 to v5
 
 V5 has dropped support for use through Bower.
