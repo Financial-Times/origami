@@ -1,6 +1,11 @@
 ## Migration guide
 
-### Migrating from v7 to o3-typography
+### Migrating from v7 to o3-foundation
+
+o-typography is now replaced by [o3-foundation](../o3-foundation/README.md).
+
+This guide will update to the latest version of o3-foundation (v3). Be sure to
+check [o3-foundation's migration guide](../o3-foundation/MIGRATION.md) for any further updates.
 
 #### Themes
 
@@ -61,7 +66,7 @@ Replace with:
 **JSX**
 
 ```jsx
-import {Body, Link, Strong, Emphasis, Caption, Footer} from '@financial-times/o3-typography';
+import {Body, Link, Strong, Emphasis, Caption, Footer} from '@financial-times/o3-foundation';
 
 <Body>Body - Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 	<Link>Link</Link>
@@ -98,7 +103,7 @@ Replace with:
 **JSX**
 
 ```jsx
-import {Wrapper} from '@financial-times/o3-typography';
+import {Wrapper} from '@financial-times/o3-foundation';
 
 <Wrapper>
 	<h1>Heading</h1>
@@ -134,7 +139,7 @@ Replace with:
 **JSX**
 
 ```jsx
-import {Heading} from '@financial-times/o3-typography';
+import {Heading} from '@financial-times/o3-foundation';
 
 <Heading level={1}>Heading 1</Heading>
 <Heading level={2}>Heading 2</Heading>
@@ -177,7 +182,7 @@ Replace with:
 **JSX**
 
 ```jsx
-import {UnorderedList, OrderedList } from '@financial-times/o3-typography';
+import {UnorderedList, OrderedList } from '@financial-times/o3-foundation';
 
 <UnorderedList>
 	<li>List item</li>
