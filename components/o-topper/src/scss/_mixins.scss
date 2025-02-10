@@ -159,46 +159,46 @@
 		.o-topper__headline {
 			margin: 0;
 			margin-bottom: oPrivateSpacingByIncrement(5);
-			font-family: oPrivateFoundationGet('o3-typography-use-case-headline-sm-font-family');
-			font-size: oPrivateFoundationGet('o3-typography-use-case-headline-sm-font-size');
-			font-weight: oPrivateFoundationGet('o3-typography-use-case-headline-sm-font-weight');
-			line-height: oPrivateFoundationGet('o3-typography-use-case-headline-sm-line-height');
+			font-family: oPrivateFoundationGet('o3-type-headline-sm-font-family');
+			font-size: oPrivateFoundationGet('o3-type-headline-sm-font-size');
+			font-weight: oPrivateFoundationGet('o3-type-headline-sm-font-weight');
+			line-height: oPrivateFoundationGet('o3-type-headline-sm-line-height');
 
 			@include oPrivateGridRespondTo('S') {
-				font-family: oPrivateFoundationGet('o3-typography-use-case-headline-md-font-family');
-				font-size: oPrivateFoundationGet('o3-typography-use-case-headline-md-font-size');
-				font-weight: oPrivateFoundationGet('o3-typography-use-case-headline-md-font-weight');
-				line-height: oPrivateFoundationGet('o3-typography-use-case-headline-md-line-height');
+				font-family: oPrivateFoundationGet('o3-type-headline-md-font-family');
+				font-size: oPrivateFoundationGet('o3-type-headline-md-font-size');
+				font-weight: oPrivateFoundationGet('o3-type-headline-md-font-weight');
+				line-height: oPrivateFoundationGet('o3-type-headline-md-line-height');
 			}
 
 			@include oPrivateGridRespondTo('L') {
-				font-family: oPrivateFoundationGet('o3-typography-use-case-headline-lg-font-family');
-				font-size: oPrivateFoundationGet('o3-typography-use-case-headline-lg-font-size');
-				font-weight: oPrivateFoundationGet('o3-typography-use-case-headline-lg-font-weight');
-				line-height: oPrivateFoundationGet('o3-typography-use-case-headline-lg-line-height');
+				font-family: oPrivateFoundationGet('o3-type-headline-lg-font-family');
+				font-size: oPrivateFoundationGet('o3-type-headline-lg-font-size');
+				font-weight: oPrivateFoundationGet('o3-type-headline-lg-font-weight');
+				line-height: oPrivateFoundationGet('o3-type-headline-lg-line-height');
 			}
 		}
 
 		.o-topper__headline--large {
-			font-family: oPrivateFoundationGet('o3-typography-use-case-display-sm-font-family');
-			font-size: oPrivateFoundationGet('o3-typography-use-case-display-sm-font-size');
-			font-weight: oPrivateFoundationGet('o3-typography-use-case-display-sm-font-weight');
-			line-height: oPrivateFoundationGet('o3-typography-use-case-display-sm-line-height');
+			font-family: oPrivateFoundationGet('o3-type-display-sm-font-family');
+			font-size: oPrivateFoundationGet('o3-type-display-sm-font-size');
+			font-weight: oPrivateFoundationGet('o3-type-display-sm-font-weight');
+			line-height: oPrivateFoundationGet('o3-type-display-sm-line-height');
 
 			@include oEditorialTypographyDecorated();
 
 			@include oPrivateGridRespondTo('S') {
-				font-family: oPrivateFoundationGet('o3-typography-use-case-display-md-font-family');
-				font-size: oPrivateFoundationGet('o3-typography-use-case-display-md-font-size');
-				font-weight: oPrivateFoundationGet('o3-typography-use-case-display-md-font-weight');
-				line-height: oPrivateFoundationGet('o3-typography-use-case-display-md-line-height');
+				font-family: oPrivateFoundationGet('o3-type-display-md-font-family');
+				font-size: oPrivateFoundationGet('o3-type-display-md-font-size');
+				font-weight: oPrivateFoundationGet('o3-type-display-md-font-weight');
+				line-height: oPrivateFoundationGet('o3-type-display-md-line-height');
 			}
 
 			@include oPrivateGridRespondTo('L') {
-				font-family: oPrivateFoundationGet('o3-typography-use-case-display-lg-font-family');
-				font-size: oPrivateFoundationGet('o3-typography-use-case-display-lg-font-size');
-				font-weight: oPrivateFoundationGet('o3-typography-use-case-display-lg-font-weight');
-				line-height: oPrivateFoundationGet('o3-typography-use-case-display-lg-line-height');
+				font-family: oPrivateFoundationGet('o3-type-display-lg-font-family');
+				font-size: oPrivateFoundationGet('o3-type-display-lg-font-size');
+				font-weight: oPrivateFoundationGet('o3-type-display-lg-font-weight');
+				line-height: oPrivateFoundationGet('o3-type-display-lg-line-height');
 			}
 			position: relative; //so it appears above the full width background
 			margin-bottom: oPrivateSpacingByIncrement(4);
@@ -280,7 +280,11 @@
 
 @mixin _oTopperColors($colors) {
 	@each $color in $colors {
-		$color: if($color == 'matisse', 'o3-color-palette-#{$color}-blue', 'o3-color-palette-#{$color}');
+		$color: if(
+			$color == 'matisse',
+			'o3-color-palette-#{$color}-blue',
+			'o3-color-palette-#{$color}'
+		);
 		.o-topper--color-#{$color} {
 			@include _oTopperColor($color);
 		}
@@ -293,10 +297,10 @@
 	$foreground: oPrivateColorsGetTextColor($background, $opacity: 100);
 	$link-text-color: oPrivateFoundationGet('o3-color-use-case-link-text');
 	$link-contrasts-with-background: oPrivateColorsGetContrastRatio(
-	$background,
-	$link-text-color
-	)
-	> 4.5;
+			$background,
+			$link-text-color
+		)
+		> 4.5;
 	// include oTopperColor on a parent then extend this placeholder on a
 	// descendent to lend that descendent the color you specified in the mixin
 	.o-topper__background,
@@ -356,7 +360,11 @@
 		color: oPrivateColorsMix($foreground, $color-name, 73);
 	}
 
-	@if $color-name == 'o3-color-palette-paper' or $color-name == 'o3-color-palette-wheat' {
+	@if $color-name ==
+		'o3-color-palette-paper' or
+		$color-name ==
+		'o3-color-palette-wheat'
+	{
 		.o-topper__opinion-genre,
 		.o-topper__topic,
 		.o-topper__columnist-name {
@@ -364,7 +372,9 @@
 			color: oPrivateFoundationGet('_o3-editorial-typography-topic-tag-color');
 
 			&:hover {
-				color: oPrivateFoundationGet('_o3-editorial-typography-topic-tag-hover-color');
+				color: oPrivateFoundationGet(
+					'_o3-editorial-typography-topic-tag-hover-color'
+				);
 			}
 		}
 	}

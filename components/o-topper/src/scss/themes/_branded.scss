@@ -49,9 +49,9 @@
 @mixin _oTopperThemeOpinion {
 	.o-topper__topic,
 	.o-topper__opinion-genre {
-		font-family: oPrivateFoundationGet('o3-typography-use-case-body-highlight-font-family');
-		font-size: oPrivateFoundationGet('o3-typography-use-case-body-highlight-font-size');
-		line-height: oPrivateFoundationGet('o3-typography-use-case-body-highlight-line-height');
+		font-family: oPrivateFoundationGet('o3-type-body-highlight-font-family');
+		font-size: oPrivateFoundationGet('o3-type-body-highlight-font-size');
+		line-height: oPrivateFoundationGet('o3-type-body-highlight-line-height');
 	}
 }
 

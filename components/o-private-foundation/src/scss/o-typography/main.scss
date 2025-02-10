@@ -58,19 +58,19 @@
 			$scale-item-key: 'negative#{$scale}';
 		}
 		font-family: '#{oPrivateFoundationGet('o3-font-family-#{$font}')}',
-		sans-serif;
+			sans-serif;
 		font-size: oPrivateFoundationGet(
-				'o3-font-size#{$scale-key}#{$scale-item-key}'
+			'o3-font-size#{$scale-key}#{$scale-item-key}'
 		);
 		line-height: oPrivateFoundationGet(
-				'o3-font-lineheight#{$scale-key}#{$scale-item-key}'
+			'o3-font-lineheight#{$scale-key}#{$scale-item-key}'
 		);
 	}
 
 	font-weight: if(
-			$weight,
-			oPrivateFoundationGet('o3-font-weight-#{$weight}'),
-			null
+		$weight,
+		oPrivateFoundationGet('o3-font-weight-#{$weight}'),
+		null
 	);
 }
 
@@ -137,23 +137,23 @@
 	// Standard link colours.
 	$base-color: oPrivateFoundationGet(#{$token-prefix + 'text'}, $sub-brand);
 	$hover-color: oPrivateFoundationGet(
-			#{$token-prefix + 'text-hover'},
-			$sub-brand
+		#{$token-prefix + 'text-hover'},
+		$sub-brand
 	);
 	$decoration-color: oPrivateFoundationGet(
-			#{$token-prefix + 'underline'},
-			$sub-brand
+		#{$token-prefix + 'underline'},
+		$sub-brand
 	);
 	$hover-decoration-color: oPrivateFoundationGet(
-			#{$token-prefix + 'underline-hover'},
-			$sub-brand
+		#{$token-prefix + 'underline-hover'},
+		$sub-brand
 	);
 
 	@include _oPrivateTypographyLinkTheme(
-			$base-color,
-			$decoration-color,
-			$hover-color,
-			$hover-decoration-color
+		$base-color,
+		$decoration-color,
+		$hover-color,
+		$hover-decoration-color
 	);
 }
 
@@ -197,7 +197,7 @@
 
 	$hover-decoration-color: map-get($theme, 'hover-decoration');
 	$hover-decoration-color: _oPrivateTypographyGetColourFrom(
-			$hover-decoration-color
+		$hover-decoration-color
 	);
 
 	// Validate required theme colours.
@@ -220,18 +220,18 @@
 	@if (not $hover-decoration-color) {
 		// TODO: replace oColorsMix
 		$hover-decoration-color: oColorsMix(
-				$base-color,
-				$context-color,
+			$base-color,
+			$context-color,
 			$percentage: 40
 		);
 	}
 
 	// Output theme colours.
 	@include _oPrivateTypographyLinkTheme(
-			$base-color,
-			$decoration-color,
-			$hover-color,
-			$hover-decoration-color
+		$base-color,
+		$decoration-color,
+		$hover-color,
+		$hover-decoration-color
 	);
 }
 
@@ -309,10 +309,16 @@
 			}
 
 			@if ($type == 'ordered') {
-				font-family: oPrivateFoundationGet('o3-typography-use-case-body-highlight-font-family');
-				font-size: oPrivateFoundationGet('o3-typography-use-case-body-highlight-font-size');
-				font-weight: oPrivateFoundationGet('o3-typography-use-case-body-highlight-font-weight');
-				line-height: oPrivateFoundationGet('o3-typography-use-case-body-highlight-line-height');
+				font-family: oPrivateFoundationGet(
+					'o3-type-body-highlight-font-family'
+				);
+				font-size: oPrivateFoundationGet('o3-type-body-highlight-font-size');
+				font-weight: oPrivateFoundationGet(
+					'o3-type-body-highlight-font-weight'
+				);
+				line-height: oPrivateFoundationGet(
+					'o3-type-body-highlight-line-height'
+				);
 				content: counter(item);
 				counter-increment: item;
 				font-feature-settings: 'tnum';
@@ -415,9 +421,9 @@
 	}
 	// If we still have a string, assume it's a palette colour name.
 	$theme-value: if(
-			type-of($theme-value) == 'string',
-			oPrivateFoundationGet('o3-color-palette-#{$theme-value}'),
-			$theme-value
+		type-of($theme-value) == 'string',
+		oPrivateFoundationGet('o3-color-palette-#{$theme-value}'),
+		$theme-value
 	);
 	@return $theme-value;
 }

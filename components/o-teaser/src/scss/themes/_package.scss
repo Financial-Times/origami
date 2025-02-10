@@ -24,7 +24,8 @@
 			content: '';
 			display: block;
 			width: 60px;
-			border-bottom: oPrivateSpacingByIncrement(1) solid oPrivateFoundationGet('o3-color-palette-claret-70');
+			border-bottom: oPrivateSpacingByIncrement(1) solid
+				oPrivateFoundationGet('o3-color-palette-claret-70');
 			margin-top: oPrivateSpacingByName('s1');
 		}
 	}
@@ -65,11 +66,15 @@
 		a:hover,
 		a:visited,
 		&:focus {
-			$special-report-color: oPrivateFoundationGet('o3-color-palette-claret-70');
-			$special-report-background: oPrivateFoundationGet('o3-color-palette-claret-70');
+			$special-report-color: oPrivateFoundationGet(
+				'o3-color-palette-claret-70'
+			);
+			$special-report-background: oPrivateFoundationGet(
+				'o3-color-palette-claret-70'
+			);
 			color: oPrivateColorsMix(
-					$special-report-color,
-					$special-report-background,
+				$special-report-color,
+				$special-report-background,
 				$percentage: 78
 			);
 		}
@@ -116,9 +121,9 @@
 
 		&__list-item,
 		&__landing-link {
-			font-family: oPrivateFoundationGet('o3-typography-use-case-body-base-font-family');
-			font-size: oPrivateFoundationGet('o3-typography-use-case-body-base-font-size');
-			font-weight: oPrivateFoundationGet('o3-typography-use-case-body-base-font-weight');
+			font-family: oPrivateFoundationGet('o3-type-body-base-font-family');
+			font-size: oPrivateFoundationGet('o3-type-body-base-font-size');
+			font-weight: oPrivateFoundationGet('o3-type-body-base-font-weight');
 			line-height: 20px;
 			padding: 12px 0;
 
@@ -142,19 +147,23 @@
 			&:hover,
 			&:visited,
 			&:focus {
-				$special-report-color: oPrivateFoundationGet('o3-color-palette-claret-70');
-				$special-report-background: oPrivateFoundationGet('o3-color-palette-claret-70');
+				$special-report-color: oPrivateFoundationGet(
+					'o3-color-palette-claret-70'
+				);
+				$special-report-background: oPrivateFoundationGet(
+					'o3-color-palette-claret-70'
+				);
 				color: oPrivateColorsMix(
-						$special-report-color,
-						$special-report-background,
+					$special-report-color,
+					$special-report-background,
 					$percentage: 78
 				);
 			}
 
 			&:after {
 				@include oPrivateIconsContent(
-						'arrow-right',
-						oPrivateFoundationGet('o3-color-palette-claret-70'),
+					'arrow-right',
+					oPrivateFoundationGet('o3-color-palette-claret-70'),
 					$size: 30
 				);
 				content: '';
@@ -167,16 +176,21 @@
 
 @mixin _oTeaserSpecialReportPackageList {
 	.package-teaser {
-		$package-special-report-background: oPrivateFoundationGet('o3-color-palette-claret-70');
-		$package-special-report-color: oPrivateColorsGetTextColor($package-special-report-background, 100);
+		$package-special-report-background: oPrivateFoundationGet(
+			'o3-color-palette-claret-70'
+		);
+		$package-special-report-color: oPrivateColorsGetTextColor(
+			$package-special-report-background,
+			100
+		);
 
 		&__list-item a {
 			color: oPrivateFoundationGet('o3-color-palette-white');
 
 			&:hover {
 				color: oPrivateColorsMix(
-						$package-special-report-color,
-						$package-special-report-background,
+					$package-special-report-color,
+					$package-special-report-background,
 					$percentage: 78
 				);
 			}
@@ -184,8 +198,8 @@
 
 		&__landing-link a {
 			color: oPrivateColorsMix(
-					$package-special-report-color,
-					$package-special-report-background,
+				$package-special-report-color,
+				$package-special-report-background,
 				$percentage: 80
 			);
 
@@ -206,7 +220,9 @@
 
 @mixin _oTeaserExtraPackageList {
 	.package-teaser {
-		$hero-extra-highlight-color: oPrivateFoundationGet('o3-color-palette-lemon');
+		$hero-extra-highlight-color: oPrivateFoundationGet(
+			'o3-color-palette-lemon'
+		);
 
 		&__list-item a {
 			color: oPrivateFoundationGet('o3-color-palette-white');
