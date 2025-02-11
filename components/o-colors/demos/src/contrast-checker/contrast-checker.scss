@@ -11,7 +11,6 @@
 @include oButtons();
 @import '@financial-times/o-overlay/main';
 @include oOverlay();
-
 @mixin swatchStyle() {
 	appearance: none;
 	border: 1px solid lightgrey;
@@ -25,6 +24,7 @@
 }
 
 @if not oBrandIs(whitelabel) {
+
 	:root {
 		--background: white;
 		--foreground: black;
@@ -78,16 +78,16 @@
 		grid-area: 1 / 4 / span 3;
 		width: 320px;
 
-		.o-tabs--buttontabs[data-o-tabs--js][role='tablist'] {
+		.o-tabs--buttontabs[data-o-tabs--js][role="tablist"] {
 			border-color: black;
 
-			[role='tab'] {
+			[role=tab] {
 				color: black;
 				border-color: black;
 				background-color: oColorsByName('white');
 			}
 
-			[role='tab'][aria-selected='true'] {
+			[role=tab][aria-selected=true] {
 				background-color: oColorsByName('black-10');
 
 				a {
@@ -95,7 +95,7 @@
 				}
 			}
 
-			[role='tab'][aria-selected='false'] a {
+			[role=tab][aria-selected=false] a {
 				font-weight: 400;
 			}
 		}
@@ -110,11 +110,12 @@
 			}
 		}
 
-		input[type='radio'] {
+		input[type=radio] { // stylelint-disable-line selector-no-qualifying-type
 			@include swatchStyle();
 
+			// stylelint-disable-next-line selector-no-qualifying-type
 			&.o-overlay-trigger,
-			&.trigger-input {
+			&.trigger-input { // stylelint-disable-line selector-no-qualifying-type
 				background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1%3Aplus?source=o-colors&width=24&height=24&tint=gray');
 			}
 		}
@@ -128,8 +129,7 @@
 			right: 20px;
 		}
 
-		// stylelint-disable selector-max-id
-		#add-mix {
+		#add-mix { //stylelint-disable-line selector-max-id
 			background-image: none;
 			font-size: inherit;
 			float: none;
@@ -141,10 +141,10 @@
 			padding: 0;
 		}
 
-		input[type='radio'] {
+		input[type=radio] { // stylelint-disable-line selector-no-qualifying-type
 			@include swatchStyle();
 
-			&[name='range'] {
+			&[name=range] { // stylelint-disable-line selector-no-qualifying-type
 				height: 48px;
 				width: 22px;
 			}
@@ -161,7 +161,7 @@
 	}
 
 	.contrast-info {
-		grid-area: 1 / 2 / auto / span 2;
+		grid-area: 1 / 2 / auto / span 2 ;
 		padding: 12px;
 		margin-top: 28px;
 		width: 320px;
@@ -189,7 +189,6 @@
 		}
 
 		.rating-result {
-
 			&--aaa,
 			&--aa {
 				color: oColorsMix('jade', 'black', 70);
@@ -228,4 +227,5 @@
 			color: inherit;
 		}
 	}
+
 }
