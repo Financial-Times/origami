@@ -51,23 +51,24 @@ There is no need to include `oEditorialTypography` mixin in your Sass files any 
 
 class name replacements are as follows:
 
-| oEditorialTypography                                               | o3-editorial-typography class            |
-| ------------------------------------------------------------------ | ---------------------------------------- |
-| o-editorial-typography-heading-level-1                             | o3-editorial-typography-headline         |
-| o-editorial-typography-heading-level-2                             | o3-editorial-typography-chapter          |
-| o-editorial-typography-heading-level-3                             | o3-editorial-typography-subheading       |
-| o-editorial-typography-heading-level-4                             | No direct replacement                    |
-| o-editorial-typography-heading-level-5                             | o3-editorial-typography-label            |
-| o-editorial-typography-body                                        | o3-editorial-typography-body             |
-| o-editorial-typography-list o-editorial-typography-list--unordered | o3-editorial-typography-list--unordered  |
-| o-editorial-typography-list o-editorial-typography-list--ordered   | o3-editorial-typography-list--ordered    |
-| o-editorial-typography-caption                                     | o3-editorial-typography-caption          |
-| o-editorial-typography-standfirst                                  | o3-editorial-typography-standfirst       |
-| o-editorial-typography-byline                                      | o3-editorial-typography-byline           |
-| o-editorial-typography-timestamp                                   | o3-editorial-typography-byline-timestamp |
-| o-editorial-typography-author                                      | o3-editorial-typography-byline-author    |
-| o-editorial-typography-topic                                       | o3-editorial-typography-topic-tag        |
-| o-editorial-typography-link                                        | o3-editorial-typography-link             |
+| oEditorialTypography                                               | o3-editorial-typography class                                                                   |
+|--------------------------------------------------------------------|-------------------------------------------------------------------------------------------------|
+| o-editorial-typography-heading-level-1                             | o3-editorial-typography-headline                                                                |
+| o-editorial-typography-heading-level-2                             | o3-editorial-typography-chapter                                                                 |
+| o-editorial-typography-heading-level-3                             | o3-editorial-typography-subheading                                                              |
+| o-editorial-typography-heading-level-4                             | No direct replacement                                                                           |
+| o-editorial-typography-heading-level-5                             | o3-editorial-typography-label                                                                   |
+| o-editorial-typography-body                                        | o3-editorial-typography-body                                                                    |
+| o-editorial-typography-list o-editorial-typography-list--unordered | o3-editorial-typography-list-unordered                                                          |
+| o-editorial-typography-list o-editorial-typography-list--ordered   | o3-editorial-typography-list-ordered                                                            |
+| o-editorial-typography-caption                                     | o3-editorial-typography-caption                                                                 |
+| o-editorial-typography-standfirst                                  | o3-editorial-typography-standfirst                                                              |
+| o-editorial-typography-byline                                      | Replace with o3-editorial-typography-byline-timestamp and o3-editorial-typography-byline-author |
+| o-editorial-typography-timestamp                                   | o3-editorial-typography-byline-timestamp                                                        |
+| o-editorial-typography-author                                      | o3-editorial-typography-byline-author                                                           |
+| o-editorial-typography-topic                                       | o3-editorial-typography-topic-tag                                                               |
+| o-editorial-typography-link                                        | No direct replacement                                                                           |
+| a                                                                  | b                                                                                               |
 
 #### oEditorialTypographyHeadline
 
@@ -258,14 +259,22 @@ First, remove the mixin and custom class from your Sass file:
 
 ```
 
-Then, replace the custom class with the `o3-editorial-typography-byline` class:
+Then, replace the custom class with the `o3-editorial-typography-byline` classes:
 
 ```diff
 -<div class="my-byline-wrapper">
 -  # byline content
 -</div>
-+<div class="o3-editorial-typography-byline">
-+  # byline content
++<div>
++				<a className="o3-editorial-typography-byline-author" href="#">
++					Joe Doe&nbsp;
++				</a>
++				<time
++					className="o3-editorial-typography-byline-timestamp"
++					dateTime="2019-10-11T20:51:54Z"
++					title="October 11 2019 9:51 pm">
++					October 11 2019
++				</time>
 +</div>
 ```
 
