@@ -1,3 +1,5 @@
+>  ⚠️ **NOTE:** o-icons has been replaced with [o3-foundation](../o3-foundation/README.md). Please see [Migration Guide](MIGRATION.md#migrating-from-v7-to-o3-foundation) for steps to upgrade.
+
 # o-icons
 
 Helper Sass for the [fticons](https://o2.origami.ft.com/?path=/story/o2-core_components-o-icons--icons&globals=backgrounds:!undefined) image set.
@@ -125,15 +127,16 @@ If you need to remove an icon from `o-icons` you run `node ./scripts/build-icon-
 
 ## Migration
 
-State | Major Version | Last Minor Release | Migration guide |
-:---: | :---: | :---: | :---:
-✨ active | 7 | N/A  | [migrate to v6](MIGRATION.md#migrating-from-v6-to-v7) |
-╳ deprecated | 6 | 6.3  | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
-╳ deprecated | 5 | 5.9  | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
-╳ deprecated | 4 | 4.5  | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
-╳ deprecated | 3 | 3.3 | - |
-╳ deprecated | 2 | 2.4 | - |
-╳ deprecated | 1 | 1.2 | - |
+State | Major Version | Last Minor Release |                         Migration guide                          |
+:---: |:-------------:| :---: |:----------------------------------------------------------------:
+✨ active |      o3       | N/A  | [migrate to o3](MIGRATION.md#migrating-from-v7-to-o3-foundation) |
+╳ deprecated |       7       | N/A  |      [migrate to v6](MIGRATION.md#migrating-from-v6-to-v7)       |
+╳ deprecated |       6       | 6.3  |      [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6)       |
+╳ deprecated |       5       | 5.9  |      [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5)       |
+╳ deprecated |       4       | 4.5  |      [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4)       |
+╳ deprecated |       3       | 3.3 |                                -                                 |
+╳ deprecated |       2       | 2.4 |                                -                                 |
+╳ deprecated |       1       | 1.2 |                                -                                 |
 
 ## Contact
 
