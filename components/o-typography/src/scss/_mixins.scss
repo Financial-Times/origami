@@ -290,7 +290,7 @@
 			}
 
 			@if $breakpoint != 'default' and $current-scale {
-				@include oPrivateGridRespondTo($breakpoint) {
+				@include oGridRespondTo($breakpoint) {
 					font-size: _oTypographyFontSizeFromScale($current-scale, 1, $font);
 					line-height: _oTypographyLineHeightFromScale($current-scale, $current-line-height, $font);
 				}
@@ -368,7 +368,7 @@
 					font-size: _oTypographyFontSizeFromScale($number, $progressive-font-adjust, $font);
 				}
 			} @else if($number) {
-				@include oPrivateGridRespondTo($breakpoint) {
+				@include oGridRespondTo($breakpoint) {
 					@if type-of($number) == list {
 						font-size: _oTypographyFontSizeFromScale(nth($number, 1), $progressive-font-adjust, $font);
 					} @else {
