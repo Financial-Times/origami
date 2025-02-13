@@ -18,7 +18,7 @@ Replace any sass mixins initialising o-normalise with the o3-foundation import.
 
 ```diff
 - @use '@financial-times/o-normalise';
-+ @import '@financial-times/o3-foundation'; //This will import all foundation components including normalise.
++ @import '@financial-times/o3-foundation/css/[your-brand].css'; //This will import all foundation components including normalise.
 - @include oNormalise();
 ```
 

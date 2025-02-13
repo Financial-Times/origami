@@ -99,7 +99,7 @@ Replace mixin uses with CSS Custom Properties. Refer to table below for mappings
 
 **$o-spacing-relative-units**
 
-There is no direct replacement in o3-foundation.
+There is no direct replacement in o3-foundation, remove this variable and review your page visually to ensure there are no unexpected results.
 
 **$o-spacing-names**
 
