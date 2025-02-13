@@ -37,7 +37,7 @@ To use specific fonts weights, use an apropriate typography use case:
 ```
 
 ```html
-<h1 class="o3-typography-use-case-lg"> <!-- Sets a bolder font weight and larger font size !-->
+<h1 class="o3-type-body-highlight"> <!-- Sets a bolder font weight for body copy -->
   The Financial Times
 </h1>
 ```
