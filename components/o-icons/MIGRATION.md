@@ -39,7 +39,7 @@ Replace utility class usages with CSS Custom Properties in classes:
 #### Mixins
 
 **oIconsContent**
-Replace mixins with CSS Custom Properties and additional css properties:
+Replace mixins with CSS Custom Properties and additional css properties. We recommend using 24px icons by default. Please consult the design team if there is a need to deviate:
 
 **Sass**
 ```diff
@@ -53,8 +53,8 @@ Replace mixins with CSS Custom Properties and additional css properties:
 -		$size: 32
 -	);
 + display: inline-block;
-+ width: 32px;
-+ height: 32px;
++ width: 24px;
++ height: 24px;
 + background-color: var(--o3-color-palette-black);
 + mask-image: var(--o3-icon-plus);
 + mask-repeat: no-repeat;
