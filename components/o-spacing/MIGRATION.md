@@ -65,7 +65,7 @@ Replace mixin uses with CSS Custom Properties. Refer to table below for mappings
 
 .my-class {
 -    padding: oSpacingByName('s1');
-+    padding: var(--o3-spacing-5xs); 
++    padding: var(--o3-spacing-5xs);
 }
 ```
 
@@ -76,7 +76,7 @@ Replace mixin uses with CSS Custom Properties. Refer to table below for mappings
 
 .my-class {
 -    padding: oSpacingByIncrement('1');
-+    padding: var(--o3-spacing-5xs); 
++    padding: var(--o3-spacing-5xs);
 }
 ```
 

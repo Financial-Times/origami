@@ -1,5 +1,3 @@
->  ⚠️ **NOTE:** o-grid has been replaced with [o3-foundation](../o3-foundation/README.md). Please see [Migration Guide](MIGRATION.md#migrating-from-v3-to-o3-foundation) for steps to upgrade.
-
 # o-grid
 
 A 12 column responsive, flexbox-based grid system for laying out documents, templates and components.
