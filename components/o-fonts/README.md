@@ -1,4 +1,4 @@
->  ⚠️ **NOTE:** o-fonts has been replaced with [o3-foundation](../o3-foundation/README.md). Please see [Migration Guide](MIGRATION.md#migrating-from-v5-to-origami-3) for steps to upgrade.
+> ⚠️ **NOTE:** o-fonts has been replaced with [o3-foundation](../o3-foundation/README.md). Please see [Migration Guide](MIGRATION.md#migrating-from-v5-to-o3-foundation@3) for steps to upgrade.
 
 # o-fonts [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
@@ -218,7 +218,7 @@ Note: font files are contained in a separate, private repository ([o-fonts-asset
 
 State | Major Version | Last Minor Release |                       Migration guide                        |
 :---: |:-------------:| :---: |:------------------------------------------------------------:
-✨ active |      o3       | N/A | [migrate to o3](MIGRATION.md#migrating-from-v5-to-origami-3) |
+✨ active |      o3       | N/A | [migrate to o3](MIGRATION.md#migrating-from-v5-to-o3-foundation@3) |
 ⚠ maintained |       5       | N/A |    [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5)     |
 ╳ deprecated  |       4       | 4.5 |    [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4)     |
 ╳ deprecated |       3       | 3.3 |    [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3)     |

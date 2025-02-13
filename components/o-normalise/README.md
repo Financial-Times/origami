@@ -1,4 +1,4 @@
->  ⚠️ **NOTE:** o-normalise has been replaced with [o3-foundation](../o3-foundation/README.md). Please see [Migration Guide](MIGRATION.md#migrating-from-v3-to-origami-3) for steps to upgrade.
+> ⚠️ **NOTE:** o-normalise has been replaced with [o3-foundation](../o3-foundation/README.md). Please see [Migration Guide](MIGRATION.md#migrating-from-v3-to-o3-foundation@3) for steps to upgrade.
 # o-normalise [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
 Foundation styles and standardised utilities
@@ -76,7 +76,7 @@ an issue on [o-utils](https://github.com/Financial-Times/o-utils/issues).
 
 |    State     | Major Version | Last Minor Release |                           Migration guide                           |
 |:------------:|:-------------:|:------------------:|:-------------------------------------------------------------------:|
-|   ✨ active   |      o3       |        N/A         | [migrate to Origami 3](MIGRATION.md#migrating-from-v3-to-origami-3) |
+|   ✨ active   |      o3       |        N/A         | [migrate to Origami 3](MIGRATION.md#migrating-from-v3-to-o3-foundation@3) |
 | ⚠ maintained |       3       |        N/A         |        [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3)        |
 | ╳ deprecated |       2       |        2.0         |        [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2)        |
 |      1       |      1.7      |        N/A         |                                                                     |

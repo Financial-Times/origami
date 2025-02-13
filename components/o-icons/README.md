@@ -1,4 +1,4 @@
->  ⚠️ **NOTE:** o-icons has been replaced with [o3-foundation](../o3-foundation/README.md). Please see [Migration Guide](MIGRATION.md#migrating-from-v7-to-o3-foundation) for steps to upgrade.
+> ⚠️ **NOTE:** o-icons has been replaced with [o3-foundation](../o3-foundation/README.md). Please see [Migration Guide](MIGRATION.md#migrating-from-v7-to-o3-foundation@3) for steps to upgrade.
 
 # o-icons
 
@@ -129,7 +129,7 @@ If you need to remove an icon from `o-icons` you run `node ./scripts/build-icon-
 
 State | Major Version | Last Minor Release |                         Migration guide                          |
 :---: |:-------------:| :---: |:----------------------------------------------------------------:
-✨ active |      o3       | N/A  | [migrate to o3](MIGRATION.md#migrating-from-v7-to-o3-foundation) |
+✨ active |      o3       | N/A  | [migrate to o3](MIGRATION.md#migrating-from-v7-to-o3-foundation@3) |
 ╳ deprecated |       7       | N/A  |      [migrate to v6](MIGRATION.md#migrating-from-v6-to-v7)       |
 ╳ deprecated |       6       | 6.3  |      [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6)       |
 ╳ deprecated |       5       | 5.9  |      [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5)       |

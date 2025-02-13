@@ -1,12 +1,12 @@
 ## Migration
 
-### Migrating from v3 to Origami 3
+### Migrating from v3 to o3-foundation@3
 
 o-spacing is now replaced by [o3-foundation](../o3-foundation/README.md).
 
 One of the major changes in Origami 3 is the removal of Sass, we now use plain CSS for Origami components.
 
-This guide will update to the latest version of o3-foundation (v3). Be sure to
+This guide will update to o3-foundation@3. Be sure to
 check [o3-foundation's migration guide](../o3-foundation/MIGRATION.md) for any further updates.
 
 To migrate o-spacing, ensure o3-foundation is installed:
@@ -99,7 +99,7 @@ Replace mixin uses with CSS Custom Properties. Refer to table below for mappings
 
 **$o-spacing-relative-units**
 
-There is no direct replacement in o3-foundartion.
+There is no direct replacement in o3-foundation.
 
 **$o-spacing-names**
 

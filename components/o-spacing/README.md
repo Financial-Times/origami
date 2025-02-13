@@ -1,4 +1,4 @@
->  ⚠️ **NOTE:** o-spacing has been replaced with [o3-foundation](../o3-foundation/README.md). Please see [Migration Guide](MIGRATION.md#migrating-from-v3-to-origami-3) for steps to upgrade.
+> ⚠️ **NOTE:** o-spacing has been replaced with [o3-foundation](../o3-foundation/README.md). Please see [Migration Guide](MIGRATION.md#migrating-from-v3-to-o3-foundation@3) for steps to upgrade.
 
 # o-spacing
 
@@ -136,7 +136,7 @@ We recommend users apply named spaces using the Sass function [oSpacingByName](#
 
 State | Major Version | Last Minor Release | Migration guide |
 :---: |:-------------:| :---: | :---:
-✨ active |      o3       | N/A | [migrate to Origami 3](MIGRATION.md#migrating-from-v3-to-origami-3)
+✨ active |      o3       | N/A | [migrate to Origami 3](MIGRATION.md#migrating-from-v3-to-o3-foundation@3)
 ⚠ maintained |       3       | N/A | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3)
 ╳ deprecated |       2       | 2.1 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
 ╳ deprecated |       1       | 1.0 | N/A |

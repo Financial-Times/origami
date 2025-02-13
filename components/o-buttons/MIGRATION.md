@@ -1,10 +1,10 @@
 # Migration Guide
 
-### Migrating from v7 to o3-button
+### Migrating from v7 to o3-button@3
 
 o-buttons is now replaced by [o3-button](../o3-button/README.md).
 
-This guide will update to the latest version of o3-button (v3). Be sure to
+This guide will update to o3-button@3. Be sure to
 check [o3-button's migration guide](../o3-button/MIGRATION.md) for any further updates.
 
 #### Themes

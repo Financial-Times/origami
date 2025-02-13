@@ -1,4 +1,4 @@
->  ⚠️ **NOTE:** o-buttons has been replaced with [o3-button](../o3-button/README.md). Please see [Migration Guide](MIGRATION.md#migrating-from-v7-to-o3-button) for steps to upgrade.
+> ⚠️ **NOTE:** o-buttons has been replaced with [o3-button](../o3-button/README.md). Please see [Migration Guide](MIGRATION.md#migrating-from-v7-to-o3-button@3) for steps to upgrade.
 
 # o-buttons
 
@@ -286,7 +286,7 @@ We recommend using `o-buttons` markup as this encourages CSS reuse and smaller b
 
 State | Major Version | Last Minor Release |                       Migration guide                        |
 :---: |:-------------:| :---: |:------------------------------------------------------------:
-✨ active |      o3       | N/A | [migrate to o3](MIGRATION.md#migrating-from-v7-to-o3-button) |
+✨ active |      o3       | N/A | [migrate to o3](MIGRATION.md#migrating-from-v7-to-o3-button@3) |
 ⚠ maintained |       7       | N/A |    [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7)     |
 ╳ deprecated |       6       | 6.2 |    [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6)     |
 ╳ deprecated |       5       | 5.16 |    [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5)     |

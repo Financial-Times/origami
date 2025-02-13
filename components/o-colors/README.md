@@ -1,4 +1,4 @@
->  ⚠️ **NOTE:** o-colors has been replaced with [o3-foundation](../o3-foundation/README.md). Please see [Migration Guide](MIGRATION.md#migrating-from-v3-to-origami-3) for steps to upgrade.
+> ⚠️ **NOTE:** o-colors has been replaced with [o3-foundation](../o3-foundation/README.md). Please see [Migration Guide](MIGRATION.md#migrating-from-v3-to-o3-foundation@3) for steps to upgrade.
 
 # o-colors [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
@@ -381,7 +381,7 @@ See [o-colors SassDoc](https://registry.origami.ft.com/components/o-colors/sassd
 
 |    State     | Major Version | Last Minor Release |                       Migration guide                        |
 | :----------: |:-------------:| :----------------: |:------------------------------------------------------------:|
-|  ✨ active   |      o3       |        N/A         | [migrate to o3](MIGRATION.md#migrating-from-v6-to-origami-3) |
+|  ✨ active   |      o3       |        N/A         | [migrate to o3](MIGRATION.md#migrating-from-v6-to-o3-foundation@3) |
 |  ⚠ maintained   |       6       |        N/A         |    [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6)     |
 | ╳ deprecated |       5       |        N/A         |    [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5)     |
 | ╳ deprecated |       4       |        4.10        |    [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4)     |
