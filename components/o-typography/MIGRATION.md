@@ -108,16 +108,14 @@ Headings use a BEM modifier to style the heading level:
 <h6 class="o-typography-heading-level-6">Heading 6</h6>
 ```
 
-Replace with:
+Replace with typography use cases where apropriate. Please consult with the design team to decide the best match for your context:
 
 **HTML**
 ```html
-<h1 class="o3-typography-h1">Heading 1</h1>
-<h2 class="o3-typography-h2">Heading 2</h2>
-<h3 class="o3-typography-h3">Heading 3</h3>
-<h4 class="o3-typography-h4">Heading 4</h4>
-<h5 class="o3-typography-h5">Heading 5</h5>
-<h6 class="o3-typography-h6">Heading 6</h6>
+<h1 class="o3-typography-use-case-title-lg">Welcome to Origami</h1>
+<h2 class="o3-typography-use-case-title-mdl">Our guidelines</h2>
+<h3 class="o3-typography-use-case-display-sm">What to expect in Origami 3</h3>
+
 ```
 
 ##### List
