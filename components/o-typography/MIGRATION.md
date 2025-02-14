@@ -26,9 +26,9 @@ E.g. An FT Core brand Link with inverse theming, brand and theme inherited from 
 ```
 #### Markup
 
-Update your markup to use the `o3-typography` JSX template ([o3-typography JSX documentation](https://o3.origami.ft.com/?path=/docs/core-o3-typography--jsx-documentation)) if your web application uses it.
+Replace `o-typography` classes in your HTML code with the `o3-typography` alternative described below.
 
-Alternatively, replace `o-typography` classes in your HTML code with the `o3-typography` alternative described below.
+Note that we now use two scales, see our [typography guidelines](https://origami-beta.ft.com/guides/typography/) for more information. We also recommend using use case classes where apropriate, and using scale tokens where there is not a close enough use case equivalent.
 
 ###### Body elements
 
@@ -51,9 +51,9 @@ Replace with:
 **HTML**
 
 ```html
-<p class="o3-typography-body">Body - Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+<p class="o3-typography-use-case-body-base">Body - Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 	<a href="#" class="o3-typography-link">Link</a>
-	a rem <strong class="o3-typography-bold">excepturi</strong>
+	a rem <strong class="o3-typography-use-case-body-highight">excepturi</strong>
 	consequuntur commodi dolores ad <em class="o3-typography-italic">laboriosam</em> qui odit </p>
 
 <figcaption class="o3-typography-caption">
@@ -61,22 +61,6 @@ Replace with:
 </figcaption>
 
 <footer class="o3-typography-footer">Footer such as copyright notice.</footer>
-```
-
-**JSX**
-
-```jsx
-import {Body, Link, Strong, Emphasis, Caption, Footer} from '@financial-times/o3-foundation';
-
-<Body>Body - Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-	<Link>Link</Link>
-	a rem <Strong>excepturi</Strong>
-	consequuntur commodi dolores ad <Emphasis>laboriosam</Emphasis> qui odit
-</Body>
-
-<Caption>John Doe</Caption>
-
-<Footer>Footer such as copyright notice.</Footer>
 ```
 
 ###### Wrapper
@@ -134,19 +118,6 @@ Replace with:
 <h4 class="o3-typography-h4">Heading 4</h4>
 <h5 class="o3-typography-h5">Heading 5</h5>
 <h6 class="o3-typography-h6">Heading 6</h6>
-```
-
-**JSX**
-
-```jsx
-import {Heading} from '@financial-times/o3-foundation';
-
-<Heading level={1}>Heading 1</Heading>
-<Heading level={2}>Heading 2</Heading>
-<Heading level={3}>Heading 3</Heading>
-<Heading level={4}>Heading 4</Heading>
-<Heading level={5}>Heading 5</Heading>
-<Heading level={6}>Heading 6</Heading>
 ```
 
 ##### List
