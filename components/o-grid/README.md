@@ -711,14 +711,15 @@ CSS must be included so JavaScript can retrieve layout information. If using [Sa
 
 ## Migration
 
-|     State     | Major Version | Last Minor Release | Migration guide |
-|:-------------:| :---: | :---: | :---: |
-|   ✨ active    | 6 | N/A  | [migrate to v5](MIGRATION.md#migrating-from-v5-to-v6) |
-| ⚠ maintained  | 5 | N/A  | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
-| ╳ deprecated  | 4 | 4.5  | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
-| ╳ deprecated  | 3 | 3.2 | - |
-| ╳ deprecated  | 2 | 2.4 | - |
-|  ╳ deprecated | 1 | 1.4 | - |
+|     State     | Major Version | Last Minor Release |                       Migration guide                        |
+|:-------------:|:-------------:| :---: |:------------------------------------------------------------:|
+|   ✨ active    |      o3       | N/A  | [migrate to o3](MIGRATION.md#migrating-from-v6-to-origami-3) |
+|   ⚠ maintained    |       6       | N/A  |    [migrate to v5](MIGRATION.md#migrating-from-v5-to-v6)     |
+| ╳ deprecated  |       5       | N/A  |    [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5)     |
+| ╳ deprecated  |       4       | 4.5  |    [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4)     |
+| ╳ deprecated  |       3       | 3.2 |                              -                               |
+| ╳ deprecated  |       2       | 2.4 |                              -                               |
+|  ╳ deprecated |       1       | 1.4 |                              -                               |
 
 ## Contact
 

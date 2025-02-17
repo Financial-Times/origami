@@ -1,3 +1,5 @@
+> ⚠️ **NOTE:** o-editorial-typography has been replaced with [o3-editorial-typography](../o3-editorial-typography/README.md). Please see [Migration Guide](MIGRATION.md#migrating-from-v3-to-o3-editorial-typography) for steps to upgrade.
+
 # o-editorial-typography
 
 _Typography styles for editorial content._
@@ -226,10 +228,12 @@ $o-editorial-typography-load-fonts: false;
 
 ## Migration
 
-State | Major Version | Last Minor Release | Migration guide |
-:---: | :---: | :---: | :---:
-✨ active | 2 | N/A | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
-⚠ maintained | 1 | 1.1 | N/A |
+State | Major Version | Last Minor Release |                                         Migration guide                                         |
+:---: |:-------------:| :---: |:-----------------------------------------------------------------------------------------------:
+✨ active |      o3       | N/A | [migrate to o3-editorial-typography](MIGRATION.md#migrating-from-v3-to-o3-editorial-typography) |
+⚠ maintained |       3       | N/A |                      [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3)                      |
+⚠ maintained |       2       | N/A |                      [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2)                      |
+⚠ maintained |       1       | 1.1 |                                               N/A                                               |
 
 ## Contact
 

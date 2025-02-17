@@ -1,5 +1,90 @@
 ## Migration Guide
 
+### Migrating from v3 to o3-foundation@3
+
+o-normalise is now replaced by [o3-foundation](../o3-foundation/README.md).
+
+One of the major changes in Origami 3 is the removal of Sass, we now use plain CSS for Origami components.
+
+This guide will update to o3-foundation@3. Be sure to check [o3-foundation's migration guide](../o3-foundation/MIGRATION.md) for any further updates.
+
+To migrate, ensure o3-foundation is installed.
+
+```bash
+npm i --save @financial-times/o3-foundation
+```
+
+Replace any sass mixins initialising o-normalise with the o3-foundation import.
+
+```diff
+- @use '@financial-times/o-normalise';
++ @import '@financial-times/o3-foundation/css/[your-brand].css'; //This will import all foundation components including normalise.
+- @include oNormalise();
+```
+
+Remove any other mixins from o-normalise and use the o3-foundation/normalise classes in HTML, or templating language instead:
+
+#### oNormaliseVisuallyHidden
+
+**Sass**
+```diff
+    .myClass {
+-    @include oNormaliseVisuallyHidden();
+    /* other styling */
+    }
+```
+**HTML**
+```html
+<div class="myClass o3-visually-hidden">
+  <p>My content</p>
+</div>
+```
+
+#### oNormaliseClearFix
+
+This has been removed in o3-foundation, and is rarely needed these days. This can be removed from your code.
+
+If you still need a clearfix solution, start a conversation on Slack in #origami-support.
+
+#### oNormaliseBoxSizing
+
+**Sass**
+```diff
+    .myclass {
+-        @include oNormaliseBoxSizing);
+         padding: 20px;
+         width: 300px;
+     }
+```
+**HTML**
+```html
+<div class="myClass o3-box-sizing-border-box">
+  <p>Content is sized by border box!</p>
+</div>
+```
+
+#### Focus States
+
+Focus states are provided as standard when importing o3-foundation.
+
+#### oNormaliseFocusApply and oNormaliseFocusContent
+
+Replace with classes in HTML
+
+**Sass**
+```diff
+button {
+-    @include oNormaliseFocusApply() {
+-    @include oNormaliseFocusContent();
+    /* other styles */
+}
+}
+```
+**HTML**
+```html
+<button class="o3-apply-focus-rings">My Button</button>
+```
+
 ### Migrating from v2 to v3
 
 V3 drops support for Bower and version 2 of the Origami Build Service.
