@@ -86,7 +86,7 @@ Then apply the brand data selector `data-o3-brand="[BRAND]"` on a container elem
 #### JSX
 
 ```jsx
-import { List } from '@financial-times/o3-foundation/cjs' // or esm;
+import { List } from '@financial-times/o3-foundation/cjs'; // or esm;
 
 <UnorderedList>
  <li>Item 1</li>
@@ -119,6 +119,16 @@ import {Wrapper} from '@financial-times/o3-foundation/cjs'; // or esm
 	<p>And so does this paragraphy of text.</p>
 	<h2>This gets styled also</h2>
 </Wrapper>;
+```
+
+### Highlight (Bold)
+
+Use typography use cases to style body content with bolder styles:
+
+```html
+<p class="o3-type-body-base">
+  This is <strong class="o3-type-body">really</strong> important.
+</p>
 ```
 
 ### Custom Properties
