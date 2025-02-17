@@ -51,18 +51,10 @@
 	$inner: index($layouts, 'inner');
 
 	.o-message {
-		font-family: oPrivateFoundationGet(
-			'o3-typography-use-case-body-base-font-family'
-		);
-		font-size: oPrivateFoundationGet(
-			'o3-typography-use-case-body-base-font-size'
-		);
-		font-weight: oPrivateFoundationGet(
-			'o3-typography-use-case-body-base-font-weight'
-		);
-		line-height: oPrivateFoundationGet(
-			'o3-typography-use-case-body-base-line-height'
-		);
+		font-family: oPrivateFoundationGet('o3-type-body-base-font-family');
+		font-size: oPrivateFoundationGet('o3-type-body-base-font-size');
+		font-weight: oPrivateFoundationGet('o3-type-body-base-font-weight');
+		line-height: oPrivateFoundationGet('o3-type-body-base-line-height');
 
 		.o-message__container {
 			@include oPrivateGridContainer($bleed: true);
@@ -91,35 +83,19 @@
 		}
 
 		.o-message__content-highlight {
-			font-family: oPrivateFoundationGet(
-				'o3-typography-use-case-body-highlight-font-family'
-			);
-			font-size: oPrivateFoundationGet(
-				'o3-typography-use-case-body-highlight-font-size'
-			);
-			font-weight: oPrivateFoundationGet(
-				'o3-typography-use-case-body-highlight-font-weight'
-			);
-			line-height: oPrivateFoundationGet(
-				'o3-typography-use-case-body-highlight-line-height'
-			);
+			font-family: oPrivateFoundationGet('o3-type-body-highlight-font-family');
+			font-size: oPrivateFoundationGet('o3-type-body-highlight-font-size');
+			font-weight: oPrivateFoundationGet('o3-type-body-highlight-font-weight');
+			line-height: oPrivateFoundationGet('o3-type-body-highlight-line-height');
 		}
 
 		.o-message__content-main a,
 		.o-message__content-additional a {
 			@include oPrivateTypographyLink();
-			font-family: oPrivateFoundationGet(
-				'o3-typography-use-case-body-base-font-family'
-			);
-			font-size: oPrivateFoundationGet(
-				'o3-typography-use-case-body-base-font-size'
-			);
-			font-weight: oPrivateFoundationGet(
-				'o3-typography-use-case-body-base-font-weight'
-			);
-			line-height: oPrivateFoundationGet(
-				'o3-typography-use-case-body-base-line-height'
-			);
+			font-family: oPrivateFoundationGet('o3-type-body-base-font-family');
+			font-size: oPrivateFoundationGet('o3-type-body-base-font-size');
+			font-weight: oPrivateFoundationGet('o3-type-body-base-font-weight');
+			line-height: oPrivateFoundationGet('o3-type-body-base-line-height');
 			border-width: 1px;
 			text-decoration-thickness: 1px;
 		}
@@ -139,18 +115,10 @@
 
 		.o-message__actions__secondary {
 			@include oPrivateTypographyLink();
-			font-family: oPrivateFoundationGet(
-				'o3-typography-use-case-body-base-font-family'
-			);
-			font-size: oPrivateFoundationGet(
-				'o3-typography-use-case-body-base-font-size'
-			);
-			font-weight: oPrivateFoundationGet(
-				'o3-typography-use-case-body-base-font-weight'
-			);
-			line-height: oPrivateFoundationGet(
-				'o3-typography-use-case-body-base-line-height'
-			);
+			font-family: oPrivateFoundationGet('o3-type-body-base-font-family');
+			font-size: oPrivateFoundationGet('o3-type-body-base-font-size');
+			font-weight: oPrivateFoundationGet('o3-type-body-base-font-weight');
+			line-height: oPrivateFoundationGet('o3-type-body-base-line-height');
 			white-space: nowrap;
 		}
 	}

@@ -9,23 +9,23 @@
 	}
 
 	.o-teaser__heading {
-		font-family: oPrivateFoundationGet('o3-typography-use-case-headline-sm-font-family');
-		font-size: oPrivateFoundationGet('o3-typography-use-case-headline-sm-font-size');
-		font-weight: oPrivateFoundationGet('o3-typography-use-case-headline-sm-font-weight');
-		line-height: oPrivateFoundationGet('o3-typography-use-case-headline-sm-line-height');
+		font-family: oPrivateFoundationGet('o3-type-headline-sm-font-family');
+		font-size: oPrivateFoundationGet('o3-type-headline-sm-font-size');
+		font-weight: oPrivateFoundationGet('o3-type-headline-sm-font-weight');
+		line-height: oPrivateFoundationGet('o3-type-headline-sm-line-height');
 	}
 
 	.o-teaser__standfirst {
-		font-family: oPrivateFoundationGet('o3-typography-use-case-body-base-font-family');
-		font-size: oPrivateFoundationGet('o3-typography-use-case-body-base-font-size');
-		font-weight: oPrivateFoundationGet('o3-typography-use-case-body-base-font-weight');
-		line-height: oPrivateFoundationGet('o3-typography-use-case-body-base-line-height');
+		font-family: oPrivateFoundationGet('o3-type-body-base-font-family');
+		font-size: oPrivateFoundationGet('o3-type-body-base-font-size');
+		font-weight: oPrivateFoundationGet('o3-type-body-base-font-weight');
+		line-height: oPrivateFoundationGet('o3-type-body-base-line-height');
 
 		@include oPrivateGridRespondTo('L') {
-			font-family: oPrivateFoundationGet('o3-typography-use-case-body-lg-font-family');
-			font-size: oPrivateFoundationGet('o3-typography-use-case-body-lg-font-size');
-			font-weight: oPrivateFoundationGet('o3-typography-use-case-body-lg-font-weight');
-			line-height: oPrivateFoundationGet('o3-typography-use-case-body-lg-line-height');
+			font-family: oPrivateFoundationGet('o3-type-body-lg-font-family');
+			font-size: oPrivateFoundationGet('o3-type-body-lg-font-size');
+			font-weight: oPrivateFoundationGet('o3-type-body-lg-font-weight');
+			line-height: oPrivateFoundationGet('o3-type-body-lg-line-height');
 		}
 		margin-top: oPrivateSpacingByName('s6');
 	}
@@ -100,7 +100,8 @@
 			width: 100%;
 			height: 50%;
 			border-left: 1px solid oPrivateFoundationGet('o3-color-palette-black-20');
-			border-bottom: 1px solid oPrivateFoundationGet('o3-color-palette-black-20');
+			border-bottom: 1px solid
+				oPrivateFoundationGet('o3-color-palette-black-20');
 		}
 
 		@include oPrivateGridRespondTo(S, L) {
@@ -151,7 +152,8 @@
 			width: 100%;
 			height: 50%;
 			border-left: 1px solid oPrivateFoundationGet('o3-color-palette-black-20');
-			border-bottom: 1px solid oPrivateFoundationGet('o3-color-palette-black-20');
+			border-bottom: 1px solid
+				oPrivateFoundationGet('o3-color-palette-black-20');
 		}
 	}
 }

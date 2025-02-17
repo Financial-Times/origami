@@ -1,8 +1,8 @@
 @mixin _oTopperAnchorLink {
-	font-family: oPrivateFoundationGet('o3-typography-use-case-body-base-font-family');
-	font-size: oPrivateFoundationGet('o3-typography-use-case-body-base-font-size');
-	font-weight: oPrivateFoundationGet('o3-typography-use-case-body-base-font-weight');
-	line-height: oPrivateFoundationGet('o3-typography-use-case-body-base-line-height');
+	font-family: oPrivateFoundationGet('o3-type-body-base-font-family');
+	font-size: oPrivateFoundationGet('o3-type-body-base-font-size');
+	font-weight: oPrivateFoundationGet('o3-type-body-base-font-weight');
+	line-height: oPrivateFoundationGet('o3-type-body-base-line-height');
 	display: inline-block;
 	width: 110px;
 	padding: 5px 0 0 10px;
@@ -37,9 +37,9 @@
 
 	%_o-topper__tag,
 	.o-topper__headline {
-		font-family: oPrivateFoundationGet('o3-typography-use-case-title-md-font-family');
+		font-family: oPrivateFoundationGet('o3-type-title-md-font-family');
 		font-size: oPrivateFoundationGet('o3-font-size-metric2-5');
-		font-weight: oPrivateFoundationGet('o3-typography-use-case-title-md-font-weight');
+		font-weight: oPrivateFoundationGet('o3-type-title-md-font-weight');
 		line-height: oPrivateFoundationGet('o3-font-lineheight-metric2-5');
 	}
 
