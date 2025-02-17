@@ -3,7 +3,7 @@
     "font": {
       "family": {
         "metric": {
-          "value": "metric 2 VF. sans-serif",
+          "value": "metric 2 VF, sans-serif",
           "type": "fontFamilies"
         },
         "financier-display": {
