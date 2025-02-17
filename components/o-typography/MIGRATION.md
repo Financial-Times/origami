@@ -112,9 +112,9 @@ Replace with typography use cases where apropriate. Please consult with the desi
 
 **HTML**
 ```html
-<h1 class="o3-typography-use-case-title-lg">Welcome to Origami</h1>
-<h2 class="o3-typography-use-case-title-mdl">Our guidelines</h2>
-<h3 class="o3-typography-use-case-display-sm">What to expect in Origami 3</h3>
+<h1 class="o3-type-title-lg">Welcome to Origami</h1>
+<h2 class="o3-type-title-mdl">Our guidelines</h2>
+<h3 class="o3-type-display-sm">What to expect in Origami 3</h3>
 
 ```
 
