@@ -55,6 +55,9 @@ Replace with:
 	<a href="#" class="o3-typography-link">Link</a>
 	a rem <strong class="o3-typography-use-case-body-highight">excepturi</strong>
 	consequuntur commodi dolores ad <em class="o3-typography-italic">laboriosam</em> qui odit </p>
+<p class="o3-type-body-base">Body - Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+	a rem <strong class="o3-type-body-highight">excepturi</strong>
+	consequuntur commodi dolores ad <em class="o3-type-body-content-emphasis">laboriosam</em> qui odit </p>
 
 <figcaption class="o3-typography-caption">
 	John Doe
