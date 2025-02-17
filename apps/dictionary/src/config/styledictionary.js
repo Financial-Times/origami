@@ -9,6 +9,10 @@ import {privatePrefix} from '../transforms/private-prefix.js';
 
 register(StyleDictionaryPackage);
 
+StyleDictionaryPackage.format
+
+const originalScssMapFlat = StyleDictionaryPackage.hooks.formats['scss/map-flat'];
+
 StyleDictionaryPackage.registerTransform({
 	name: 'name/origamiPrivatePrefix',
 	type: 'name',
@@ -43,6 +47,24 @@ StyleDictionaryPackage.registerTransform({
 	},
 	transform: tintGroup,
 });
+
+// Workaround to allow font families to be processed correctly by map-flat. From https://github.com/amzn/style-dictionary/issues/298#issuecomment-2173382666
+StyleDictionaryPackage.registerFormat({
+	name: 'origami/scss/map-flat',
+	format: (args) => {
+		const { dictionary } = args;
+		const fontFamilyTokens =
+			dictionary.allTokens.filter(({ type }) => type === 'fontFamily');
+		fontFamilyTokens.forEach((token) => {
+			const { value } = token;
+			// encase in interpolation so map value is treated as singular value
+			token.value = `#{${value}}`;
+		});
+
+		return originalScssMapFlat(args);
+	},
+});
+
 
 StyleDictionaryPackage.registerTransform({
 	name: 'value/figma-shadow-shorthand',

@@ -14,7 +14,7 @@ function sassConfigForBrand(brand) {
 		files: [
 			{
 				destination: `o-private-foundation/src/scss/tokens/${parentBrand}.scss`,
-				format: 'scss/map-flat',
+				format: 'origami/scss/map-flat',
 				options: {
 					outputReferences: false,
 				},
