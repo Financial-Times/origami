@@ -77,7 +77,6 @@
 }
 
 @mixin _oTeaserTagPrefix {
-	@debug oPrivateFoundationGet('o3-type-detail-font-family');
 	font-family: oPrivateFoundationGet('o3-type-detail-font-family');
 	font-size: oPrivateFoundationGet('o3-type-detail-font-size');
 	font-weight: oPrivateFoundationGet('o3-font-weight-semibold');
