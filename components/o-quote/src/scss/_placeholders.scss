@@ -95,7 +95,7 @@
 			// inherited depending on the context of the editorial blockquote.
 			// E.g. At the time of writing the font size of stories differed
 			// on article pages and live blogs by design.
-			font-family: '#{oPrivateFoundationGet('o3-font-family-georgia')}', serif;
+			font-family: oPrivateFoundationGet('o3-font-family-georgia');
 		}
 	}
 }

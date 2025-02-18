@@ -1,12 +1,12 @@
 .o3-editorial-typography-headline {
-	font-family: var(--o3-type-headline-sm-font-family), serif;
+	font-family: var(--o3-type-headline-sm-font-family);
 	font-size: var(--o3-type-headline-sm-font-size);
 	font-weight: var(--o3-type-headline-sm-font-weight);
 	line-height: var(--o3-type-headline-sm-line-height);
 }
 
 .o3-editorial-typography-display {
-	font-family: var(--o3-type-display-sm-font-family), serif;
+	font-family: var(--o3-type-display-sm-font-family);
 	font-size: var(--o3-type-display-sm-font-size);
 	font-weight: var(--o3-type-display-sm-font-weight);
 	line-height: var(--o3-type-display-sm-line-height);
@@ -22,21 +22,21 @@
 }
 
 .o3-editorial-typography-chapter {
-	font-family: var(--o3-type-title-lg-font-family), sans-serif;
+	font-family: var(--o3-type-title-lg-font-family);
 	font-size: var(--o3-type-title-lg-font-size);
 	font-weight: var(--o3-type-title-lg-font-weight);
 	line-height: var(--o3-type-title-lg-line-height);
 }
 
 .o3-editorial-typography-subheading {
-	font-family: var(--o3-type-title-md-font-family), sans-serif;
+	font-family: var(--o3-type-title-md-font-family);
 	font-size: var(--o3-type-title-md-font-size);
 	font-weight: var(--o3-type-title-md-font-weight);
 	line-height: var(--o3-type-title-md-line-height);
 }
 
 .o3-editorial-typography-label {
-	font-family: var(--o3-type-body-base-font-family), sans-serif;
+	font-family: var(--o3-type-body-base-font-family);
 	font-size: var(--o3-type-body-base-font-size);
 	font-weight: var(--o3-type-body-base-font-weight);
 	line-height: var(--o3-type-body-base-line-height);

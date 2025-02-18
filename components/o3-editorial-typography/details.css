@@ -1,5 +1,5 @@
 .o3-editorial-typography-topic-tag {
-	font-family: var(--o3-type-body-highlight-font-family), sans-serif;
+	font-family: var(--o3-type-body-highlight-font-family);
 	font-size: var(--o3-type-body-highlight-font-size);
 	font-weight: var(--o3-type-body-highlight-font-weight);
 	line-height: var(--o3-type-body-highlight-line-height);
@@ -31,14 +31,14 @@ a.o3-editorial-typography-topic-tag[data-o3-theme='inverse'] {
 }
 
 .o3-editorial-typography-standfirst {
-	font-family: var(--o3-type-body-lg-font-family), sans-serif;
+	font-family: var(--o3-type-body-lg-font-family);
 	font-size: var(--o3-type-body-lg-font-size);
 	font-weight: var(--o3-type-body-lg-font-weight);
 	line-height: var(--o3-type-body-lg-line-height);
 }
 
 .o3-editorial-typography-caption {
-	font-family: var(--o3-type-detail-font-family), sans-serif;
+	font-family: var(--o3-type-detail-font-family);
 	font-size: var(--o3-type-detail-font-size);
 	font-weight: var(--o3-type-detail-font-weight);
 	line-height: var(--o3-type-detail-line-height);
@@ -51,7 +51,7 @@ a.o3-editorial-typography-topic-tag[data-o3-theme='inverse'] {
 }
 
 .o3-editorial-typography-byline-author {
-	font-family: var(--o3-type-body-highlight-font-family), sans-serif;
+	font-family: var(--o3-type-body-highlight-font-family);
 	font-size: var(--o3-type-body-highlight-font-size);
 	font-weight: var(--o3-type-body-highlight-font-weight);
 	line-height: var(--o3-type-body-highlight-line-height);
@@ -83,14 +83,14 @@ a.o3-editorial-typography-byline-author[data-o3-theme='inverse'] {
 }
 
 .o3-editorial-typography-byline-location {
-	font-family: var(--o3-type-body-base-font-family), sans-serif;
+	font-family: var(--o3-type-body-base-font-family);
 	font-size: var(--o3-type-body-base-font-size);
 	font-weight: var(--o3-type-body-base-font-weight);
 	line-height: var(--o3-type-body-base-line-height);
 }
 
 .o3-editorial-typography-byline-timestamp {
-	font-family: var(--o3-type-label-font-family), sans-serif;
+	font-family: var(--o3-type-label-font-family);
 	font-size: var(--o3-type-label-font-size);
 	font-weight: var(--o3-type-label-font-weight);
 	line-height: var(--o3-type-label-line-height);
@@ -158,14 +158,14 @@ a.o3-editorial-typography-byline-author[data-o3-theme='inverse'] {
 }
 
 .o3-editorial-typography-pullquote__author {
-	font-family: var(--o3-type-body-highlight-font-family), sans-serif;
+	font-family: var(--o3-type-body-highlight-font-family);
 	font-size: var(--o3-type-body-highlight-font-size);
 	font-weight: var(--o3-type-body-highlight-font-weight);
 	line-height: var(--o3-type-body-highlight-line-height);
 }
 
 .o3-editorial-typography-blockquote__author {
-	font-family: var(--o3-type-label-font-family), sans-serif;
+	font-family: var(--o3-type-label-font-family);
 	font-size: var(--o3-type-label-font-size);
 	font-weight: var(--o3-type-label-font-weight);
 	line-height: var(--o3-type-label-line-height);
@@ -173,7 +173,7 @@ a.o3-editorial-typography-byline-author[data-o3-theme='inverse'] {
 }
 
 .o3-editorial-typography-blockquote__source {
-	font-family: var(--o3-type-detail-font-family), sans-serif;
+	font-family: var(--o3-type-detail-font-family);
 	font-size: var(--o3-type-detail-font-size);
 	font-weight: var(--o3-type-detail-font-weight);
 	line-height: var(--o3-type-detail-line-height);
@@ -195,7 +195,7 @@ a.o3-editorial-typography-byline-author[data-o3-theme='inverse'] {
 }
 
 .o3-editorial-typography-big-number__content {
-	font-family: var(--o3-type-body-base-font-family), sans-serif;
+	font-family: var(--o3-type-body-base-font-family);
 	font-size: var(--o3-type-body-base-font-size);
 	font-weight: var(--o3-type-body-base-font-weight);
 	line-height: var(--o3-type-body-base-line-height);
