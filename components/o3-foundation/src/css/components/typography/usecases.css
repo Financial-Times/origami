@@ -149,8 +149,7 @@
 :where(
 		[class~='o3-type-headline'],
 		[class~='o3-type-display'],
-		.o3-typography-wrapper > :where(h1, h2, h3, h4, h5, h6),
-
+		.o3-typography-wrapper > :where(h1, h2, h3, h4, h5, h6)
 	) {
 	color: var(--o3-color-use-case-heading-text);
 	[data-o3-theme='inverse']&,

@@ -106,8 +106,8 @@
 ///
 /// @param {String|Color} $color - The background colour of the focused element.
 @mixin oNormaliseFocusContentForElementColour($color) {
-	$black-contrast: oPrivateColorsGetContrastRatio($color, 'o3-color-palette-black');
-	$white-contrast: oPrivateColorsGetContrastRatio($color, 'o3-color-palette-white');
+	$black-contrast: oColorsGetContrastRatio($color, 'black');
+	$white-contrast: oColorsGetContrastRatio($color, 'white');
 	$shadow: if(
 		$black-contrast <= $white-contrast,
 		$_o-normalise-focus-ring,
