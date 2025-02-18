@@ -1,7 +1,7 @@
 @mixin _oHeaderDrawer() {
 	// added to the document element, see n-ui/layout
 	.o-header__drawer {
-		font-family: '#{oPrivateFoundationGet('o3-font-family-metric')}', sans-serif;
+		font-family: #{oPrivateFoundationGet('o3-font-family-metric')};
 		background-color: _oHeaderGet('drawer-background');
 		box-sizing: content-box;
 		transition: transform 0.5s cubic-bezier(1, 0, 0.5, 1.2);
