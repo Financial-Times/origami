@@ -58,7 +58,7 @@ StyleDictionaryPackage.registerFormat({
 		fontFamilyTokens.forEach((token) => {
 			const { value } = token;
 			// encase in interpolation so map value is treated as singular value
-			token.value = `#{${value}}`;
+			token.value = `(${value})`;
 		});
 
 		return originalScssMapFlat(args);
