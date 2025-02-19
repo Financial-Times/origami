@@ -5,9 +5,9 @@
 
 $tokens: (
   'do-not-use': rgba(0, 0, 0, 0),
-  'o3-font-family-metric': 'metric 2 VF',
-  'o3-font-family-financier-display': 'financier display VF',
-  'o3-font-family-georgia': georgia,
+  'o3-font-family-metric': ('metric 2 VF', sans-serif),
+  'o3-font-family-financier-display': ('financier display VF', serif),
+  'o3-font-family-georgia': (georgia, serif),
   'o3-font-weight-light': 300,
   'o3-font-weight-regular': 400,
   'o3-font-weight-medium': 500,
@@ -198,7 +198,7 @@ $tokens: (
   '_o3-tooltip-icon-info': url("data:image/svg+xml,%3Csvg%20width=%2224%22%20height=%2224%22%20viewBox=%220%200%2024%2024%22%20fill=%22none%22%20xmlns=%22http://www.w3.org/2000/svg%22%3E%0A%3Cpath%20fill-rule=%22evenodd%22%20clip-rule=%22evenodd%22%20d=%22M12%204C7.58172%204%204%207.58172%204%2012C4%2016.4183%207.58172%2020%2012%2020C16.4183%2020%2020%2016.4183%2020%2012C20%207.58172%2016.4183%204%2012%204ZM2%2012C2%206.47715%206.47715%202%2012%202C17.5228%202%2022%206.47715%2022%2012C22%2017.5228%2017.5228%2022%2012%2022C6.47715%2022%202%2017.5228%202%2012Z%22%20fill=%22black%22/%3E%0A%3Cpath%20d=%22M13.2948%2010.012V17.376H10.7188V10.012H13.2948ZM10.5508%207.99602C10.5508%207.58536%2010.6908%207.25402%2010.9708%207.00202C11.2601%206.75002%2011.6008%206.62402%2011.9928%206.62402C12.3941%206.62402%2012.7348%206.75002%2013.0148%207.00202C13.3041%207.25402%2013.4488%207.58536%2013.4488%207.99602C13.4488%208.40669%2013.3041%208.74269%2013.0148%209.00402C12.7348%209.25602%2012.3941%209.38202%2011.9928%209.38202C11.6008%209.38202%2011.2601%209.25602%2010.9708%209.00402C10.6908%208.74269%2010.5508%208.40669%2010.5508%207.99602Z%22%20fill=%22black%22/%3E%0A%3C/svg%3E"),
   '_o3-tooltip-icon-cross': url("data:image/svg+xml,%3Csvg%20width=%2224%22%20height=%2224%22%20viewBox=%220%200%2024%2024%22%20fill=%22none%22%20xmlns=%22http://www.w3.org/2000/svg%22%3E%0A%3Cpath%20fill-rule=%22evenodd%22%20clip-rule=%22evenodd%22%20d=%22M12%204C7.58172%204%204%207.58172%204%2012C4%2016.4183%207.58172%2020%2012%2020C16.4183%2020%2020%2016.4183%2020%2012C20%207.58172%2016.4183%204%2012%204ZM2%2012C2%206.47715%206.47715%202%2012%202C17.5228%202%2022%206.47715%2022%2012C22%2017.5228%2017.5228%2022%2012%2022C6.47715%2022%202%2017.5228%202%2012Z%22%20fill=%22black%22/%3E%0A%3Cpath%20d=%22M10.3257%2012.003L7.17969%208.90103L8.87369%207.20703L11.9977%2010.309L15.0997%207.20703L16.7937%208.90103L13.6917%2012.003L16.7937%2015.127L15.0997%2016.821L11.9977%2013.719L8.87369%2016.821L7.17969%2015.127L10.3257%2012.003Z%22%20fill=%22black%22/%3E%0A%3C/svg%3E"),
   // Use this style for large screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.
-  'o3-type-display-lg-font-family': 'financier display VF',
+  'o3-type-display-lg-font-family': ('financier display VF', serif),
   // Use this style for large screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.
   'o3-type-display-lg-font-weight': 800,
   // Use this style for large screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.
@@ -206,7 +206,7 @@ $tokens: (
   // Use this style for large screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.
   'o3-type-display-lg-line-height': 48px,
   // Use this style for medium screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.
-  'o3-type-display-md-font-family': 'financier display VF',
+  'o3-type-display-md-font-family': ('financier display VF', serif),
   // Use this style for medium screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.
   'o3-type-display-md-font-weight': 800,
   // Use this style for medium screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.
@@ -214,7 +214,7 @@ $tokens: (
   // Use this style for medium screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.
   'o3-type-display-md-line-height': 40px,
   // Use this style for small screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.
-  'o3-type-display-sm-font-family': 'financier display VF',
+  'o3-type-display-sm-font-family': ('financier display VF', serif),
   // Use this style for small screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.
   'o3-type-display-sm-font-weight': 800,
   // Use this style for small screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.
@@ -222,7 +222,7 @@ $tokens: (
   // Use this style for small screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.
   'o3-type-display-sm-line-height': 32px,
   // Use this style for large screens headlines in standard-sized teasers and text only toppers (eg. Opinion and News).
-  'o3-type-headline-lg-font-family': 'financier display VF',
+  'o3-type-headline-lg-font-family': ('financier display VF', serif),
   // Use this style for large screens headlines in standard-sized teasers and text only toppers (eg. Opinion and News).
   'o3-type-headline-lg-font-weight': 300,
   // Use this style for large screens headlines in standard-sized teasers and text only toppers (eg. Opinion and News).
@@ -230,7 +230,7 @@ $tokens: (
   // Use this style for large screens headlines in standard-sized teasers and text only toppers (eg. Opinion and News).
   'o3-type-headline-lg-line-height': 40px,
   // Use this style for medium screens headlines in smaller teasers and text only toppers (eg. Opinion and News).
-  'o3-type-headline-md-font-family': 'financier display VF',
+  'o3-type-headline-md-font-family': ('financier display VF', serif),
   // Use this style for medium screens headlines in smaller teasers and text only toppers (eg. Opinion and News).
   'o3-type-headline-md-font-weight': 300,
   // Use this style for medium screens headlines in smaller teasers and text only toppers (eg. Opinion and News).
@@ -238,7 +238,7 @@ $tokens: (
   // Use this style for medium screens headlines in smaller teasers and text only toppers (eg. Opinion and News).
   'o3-type-headline-md-line-height': 32px,
   // Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News).
-  'o3-type-headline-sm-font-family': 'financier display VF',
+  'o3-type-headline-sm-font-family': ('financier display VF', serif),
   // Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News).
   'o3-type-headline-sm-font-weight': 300,
   // Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News).
@@ -246,7 +246,7 @@ $tokens: (
   // Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News).
   'o3-type-headline-sm-line-height': 28px,
   // Use for the main page title H1 in functional pages such as account and settings. Use across all breakpoints.
-  'o3-type-title-lg-font-family': 'metric 2 VF',
+  'o3-type-title-lg-font-family': ('metric 2 VF', sans-serif),
   // Use for the main page title H1 in functional pages such as account and settings. Use across all breakpoints.
   'o3-type-title-lg-font-weight': 700,
   // Use for the main page title H1 in functional pages such as account and settings. Use across all breakpoints.
@@ -254,7 +254,7 @@ $tokens: (
   // Use for the main page title H1 in functional pages such as account and settings. Use across all breakpoints.
   'o3-type-title-lg-line-height': 32px,
   // Use this style as H3 or subtitles within the content body to break paragraphs, or for titles of components like forms, tables and cards across all breakpoints.
-  'o3-type-title-md-font-family': 'metric 2 VF',
+  'o3-type-title-md-font-family': ('metric 2 VF', sans-serif),
   // Use this style as H3 or subtitles within the content body to break paragraphs, or for titles of components like forms, tables and cards across all breakpoints.
   'o3-type-title-md-font-weight': 400,
   // Use this style as H3 or subtitles within the content body to break paragraphs, or for titles of components like forms, tables and cards across all breakpoints.
@@ -262,7 +262,7 @@ $tokens: (
   // Use this style as H3 or subtitles within the content body to break paragraphs, or for titles of components like forms, tables and cards across all breakpoints.
   'o3-type-title-md-line-height': 32px,
   // Use H6 for subtitles within the content body to break up paragraphs, and H2 for subheadings on stream pages or as subtitles for components such as forms, tables, and cards across all breakpoints.
-  'o3-type-title-sm-font-family': 'metric 2 VF',
+  'o3-type-title-sm-font-family': ('metric 2 VF', sans-serif),
   // Use H6 for subtitles within the content body to break up paragraphs, and H2 for subheadings on stream pages or as subtitles for components such as forms, tables, and cards across all breakpoints.
   'o3-type-title-sm-font-weight': 400,
   // Use H6 for subtitles within the content body to break up paragraphs, and H2 for subheadings on stream pages or as subtitles for components such as forms, tables, and cards across all breakpoints.
@@ -270,7 +270,7 @@ $tokens: (
   // Use H6 for subtitles within the content body to break up paragraphs, and H2 for subheadings on stream pages or as subtitles for components such as forms, tables, and cards across all breakpoints.
   'o3-type-title-sm-font-size': 20px,
   // Use primarily for the stand-first (introductory summary or highlight) in topper component, as larger body text in components, or section description.
-  'o3-type-body-lg-font-family': 'metric 2 VF',
+  'o3-type-body-lg-font-family': ('metric 2 VF', sans-serif),
   // Use primarily for the stand-first (introductory summary or highlight) in topper component, as larger body text in components, or section description.
   'o3-type-body-lg-font-weight': 400,
   // Use primarily for the stand-first (introductory summary or highlight) in topper component, as larger body text in components, or section description.
@@ -278,7 +278,7 @@ $tokens: (
   // Use primarily for the stand-first (introductory summary or highlight) in topper component, as larger body text in components, or section description.
   'o3-type-body-lg-line-height': 24px,
   // Use this style for the stand-first in teasers and as the default body copy style across components such as location in the byline.
-  'o3-type-body-base-font-family': 'metric 2 VF',
+  'o3-type-body-base-font-family': ('metric 2 VF', sans-serif),
   // Use this style for the stand-first in teasers and as the default body copy style across components such as location in the byline.
   'o3-type-body-base-font-weight': 400,
   // Use this style for the stand-first in teasers and as the default body copy style across components such as location in the byline.
@@ -286,7 +286,7 @@ $tokens: (
   // Use this style for the stand-first in teasers and as the default body copy style across components such as location in the byline.
   'o3-type-body-base-line-height': 24px,
   // Use this style for bold formatting in body copy or for small interactive elements, such as Topic tags and Author names.
-  'o3-type-body-highlight-font-family': 'metric 2 VF',
+  'o3-type-body-highlight-font-family': ('metric 2 VF', sans-serif),
   // Use this style for bold formatting in body copy or for small interactive elements, such as Topic tags and Author names.
   'o3-type-body-highlight-font-weight': 700,
   // Use this style for bold formatting in body copy or for small interactive elements, such as Topic tags and Author names.
@@ -294,7 +294,7 @@ $tokens: (
   // Use this style for bold formatting in body copy or for small interactive elements, such as Topic tags and Author names.
   'o3-type-body-highlight-line-height': 24px,
   // Use this style for caption in visual assets such as image and video and for small text elements, such as secondary metadata, caveats, or footnotes.
-  'o3-type-detail-font-family': 'metric 2 VF',
+  'o3-type-detail-font-family': ('metric 2 VF', sans-serif),
   // Use this style for caption in visual assets such as image and video and for small text elements, such as secondary metadata, caveats, or footnotes.
   'o3-type-detail-font-weight': 400,
   // Use this style for caption in visual assets such as image and video and for small text elements, such as secondary metadata, caveats, or footnotes.
@@ -302,7 +302,7 @@ $tokens: (
   // Use this style for caption in visual assets such as image and video and for small text elements, such as secondary metadata, caveats, or footnotes.
   'o3-type-detail-line-height': 20px,
   // Use this style for labels such as badges and metadata in teasers and toppers (e.g., "Live," "Premium," or the main timestamp). Avoid using full sentences.
-  'o3-type-label-font-family': 'metric 2 VF',
+  'o3-type-label-font-family': ('metric 2 VF', sans-serif),
   // Use this style for labels such as badges and metadata in teasers and toppers (e.g., "Live," "Premium," or the main timestamp). Avoid using full sentences.
   'o3-type-label-font-weight': 400,
   // Use this style for labels such as badges and metadata in teasers and toppers (e.g., "Live," "Premium," or the main timestamp). Avoid using full sentences.
@@ -312,7 +312,7 @@ $tokens: (
   // Use this style for labels such as badges and metadata in teasers and toppers (e.g., "Live," "Premium," or the main timestamp). Avoid using full sentences.
   'o3-type-label-text-case': uppercase,
   // Use this style only for the body copy of content pages, such as articles, live news and other content experience page.
-  'o3-type-body-content-base-font-family': Georgia,
+  'o3-type-body-content-base-font-family': (Georgia),
   // Use this style only for the body copy of content pages, such as articles, live news and other content experience page.
   'o3-type-body-content-base-font-weight': Regular,
   // Use this style only for the body copy of content pages, such as articles, live news and other content experience page.
@@ -320,7 +320,7 @@ $tokens: (
   // Use this style only for the body copy of content pages, such as articles, live news and other content experience page.
   'o3-type-body-content-base-line-height': 32px,
   // Use this style only for the body copy of content pages, such as articles, live news and other content experience page.
-  'o3-type-body-content-highlight-font-family': Georgia,
+  'o3-type-body-content-highlight-font-family': (Georgia),
   // Use this style only for the body copy of content pages, such as articles, live news and other content experience page.
   'o3-type-body-content-highlight-font-weight': Bold,
   // Use this style only for the body copy of content pages, such as articles, live news and other content experience page.
@@ -328,7 +328,7 @@ $tokens: (
   // Use this style only for the body copy of content pages, such as articles, live news and other content experience page.
   'o3-type-body-content-highlight-line-height': 32px,
   // Use this style only for the body copy of content pages, such as articles, live news and other content experience page.
-  'o3-type-body-content-emphasis-font-family': Georgia,
+  'o3-type-body-content-emphasis-font-family': (Georgia),
   // Use this style only for the body copy of content pages, such as articles, live news and other content experience page.
   'o3-type-body-content-emphasis-font-weight': Regular,
   // Use this style only for the body copy of content pages, such as articles, live news and other content experience page.
@@ -337,11 +337,11 @@ $tokens: (
   'o3-type-body-content-emphasis-line-height': 32px,
   // Use this style only for the body copy of content pages, such as articles, live news and other content experience page.
   'o3-type-body-content-emphasis-font-style': italic,
-  '_o3-editorial-typography-big-number-title-font-family': 'metric 2 VF',
+  '_o3-editorial-typography-big-number-title-font-family': ('metric 2 VF', sans-serif),
   '_o3-editorial-typography-big-number-title-font-weight': 700,
   '_o3-editorial-typography-big-number-title-font-size': 48px,
   '_o3-editorial-typography-big-number-title-line-height': 56px,
-  '_o3-editorial-typography-pullquote-content-font-family': 'metric 2 VF',
+  '_o3-editorial-typography-pullquote-content-font-family': ('metric 2 VF', sans-serif),
   '_o3-editorial-typography-pullquote-content-font-weight': 700,
   '_o3-editorial-typography-pullquote-content-font-size': 20px,
   '_o3-editorial-typography-pullquote-content-line-height': 28px,

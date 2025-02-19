@@ -60,9 +60,9 @@
   --o3-spacing-3xl: 80px;
   --o3-spacing-4xl: 96px;
   --o3-type-label-text-case: uppercase; /* Use this style for labels such as badges and metadata in teasers and toppers (e.g., "Live," "Premium," or the main timestamp). Avoid using full sentences. */
-  --o3-font-family-metric: 'metric 2 VF';
-  --o3-font-family-financier-display: 'financier display VF';
-  --o3-font-family-georgia: georgia;
+  --o3-font-family-metric: 'metric 2 VF', sans-serif;
+  --o3-font-family-financier-display: 'financier display VF', serif;
+  --o3-font-family-georgia: georgia, serif;
   --o3-font-weight-light: 300;
   --o3-font-weight-regular: 400;
   --o3-font-weight-medium: 500;

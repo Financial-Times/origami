@@ -3,19 +3,19 @@
     "font": {
       "family": {
         "metric": {
-          "value": "metric 2 VF",
+          "value": "metric 2 VF, sans-serif",
           "type": "fontFamilies"
         },
         "financier-display": {
-          "value": "financier display VF",
+          "value": "financier display VF, serif",
           "type": "fontFamilies"
         },
         "financier-text": {
-          "value": "financier text VF",
+          "value": "financier text VF, serif",
           "type": "fontFamilies"
         },
         "georgia": {
-          "value": "georgia",
+          "value": "georgia, serif",
           "type": "fontFamilies"
         }
       },

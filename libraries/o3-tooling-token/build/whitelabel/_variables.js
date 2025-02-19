@@ -1,8 +1,8 @@
 export default {
 	"o3-font-family-metric": {
 		"shortName": "metric",
-		"value": "metric 2 VF",
-		"originalValue": "metric 2 VF",
+		"value": "metric 2 VF, sans-serif",
+		"originalValue": "metric 2 VF, sans-serif",
 		"type": "fontFamily",
 		"attributes": {
 				"item": "family",
@@ -19,8 +19,8 @@ export default {
 },
 	"o3-font-family-financier-display": {
 		"shortName": "financier-display",
-		"value": "financier display VF",
-		"originalValue": "financier display VF",
+		"value": "financier display VF, serif",
+		"originalValue": "financier display VF, serif",
 		"type": "fontFamily",
 		"attributes": {
 				"item": "family",
@@ -37,8 +37,8 @@ export default {
 },
 	"o3-font-family-georgia": {
 		"shortName": "georgia",
-		"value": "georgia",
-		"originalValue": "georgia",
+		"value": "georgia, serif",
+		"originalValue": "georgia, serif",
 		"type": "fontFamily",
 		"attributes": {
 				"item": "family",
@@ -2240,7 +2240,7 @@ export default {
 },
 	"o3-type-display-lg-font-family": {
 		"shortName": "fontFamily",
-		"value": "financier display VF",
+		"value": "financier display VF, serif",
 		"originalValue": "{o3.font.family.financier-display}",
 		"type": "fontFamily",
 		"description": "Use this style for large screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.",
@@ -2316,7 +2316,7 @@ export default {
 },
 	"o3-type-display-md-font-family": {
 		"shortName": "fontFamily",
-		"value": "financier display VF",
+		"value": "financier display VF, serif",
 		"originalValue": "{o3.font.family.financier-display}",
 		"type": "fontFamily",
 		"description": "Use this style for medium screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.",
@@ -2392,7 +2392,7 @@ export default {
 },
 	"o3-type-display-sm-font-family": {
 		"shortName": "fontFamily",
-		"value": "financier display VF",
+		"value": "financier display VF, serif",
 		"originalValue": "{o3.font.family.financier-display}",
 		"type": "fontFamily",
 		"description": "Use this style for small screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.",
@@ -2468,7 +2468,7 @@ export default {
 },
 	"o3-type-headline-lg-font-family": {
 		"shortName": "fontFamily",
-		"value": "financier display VF",
+		"value": "financier display VF, serif",
 		"originalValue": "{o3.font.family.financier-display}",
 		"type": "fontFamily",
 		"description": "Use this style for large screens headlines in standard-sized teasers and text only toppers (eg. Opinion and News).",
@@ -2544,7 +2544,7 @@ export default {
 },
 	"o3-type-headline-md-font-family": {
 		"shortName": "fontFamily",
-		"value": "financier display VF",
+		"value": "financier display VF, serif",
 		"originalValue": "{o3.font.family.financier-display}",
 		"type": "fontFamily",
 		"description": "Use this style for medium screens headlines in smaller teasers and text only toppers (eg. Opinion and News).",
@@ -2620,7 +2620,7 @@ export default {
 },
 	"o3-type-headline-sm-font-family": {
 		"shortName": "fontFamily",
-		"value": "financier display VF",
+		"value": "financier display VF, serif",
 		"originalValue": "{o3.font.family.financier-display}",
 		"type": "fontFamily",
 		"description": "Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News).",
@@ -2696,7 +2696,7 @@ export default {
 },
 	"o3-type-title-lg-font-family": {
 		"shortName": "fontFamily",
-		"value": "metric 2 VF",
+		"value": "metric 2 VF, sans-serif",
 		"originalValue": "{o3.font.family.metric}",
 		"type": "fontFamily",
 		"description": "Use for the main page title H1 in functional pages such as account and settings. Use across all breakpoints.",
@@ -2772,7 +2772,7 @@ export default {
 },
 	"o3-type-title-md-font-family": {
 		"shortName": "fontFamily",
-		"value": "metric 2 VF",
+		"value": "metric 2 VF, sans-serif",
 		"originalValue": "{o3.font.family.metric}",
 		"type": "fontFamily",
 		"description": "Use this style as H3 or subtitles within the content body to break paragraphs, or for titles of components like forms, tables and cards across all breakpoints.",
@@ -2848,7 +2848,7 @@ export default {
 },
 	"o3-type-title-sm-font-family": {
 		"shortName": "fontFamily",
-		"value": "metric 2 VF",
+		"value": "metric 2 VF, sans-serif",
 		"originalValue": "{o3.font.family.metric}",
 		"type": "fontFamily",
 		"description": "Use H6 for subtitles within the content body to break up paragraphs, and H2 for subheadings on stream pages or as subtitles for components such as forms, tables, and cards across all breakpoints.",
@@ -2924,7 +2924,7 @@ export default {
 },
 	"o3-type-body-lg-font-family": {
 		"shortName": "fontFamily",
-		"value": "metric 2 VF",
+		"value": "metric 2 VF, sans-serif",
 		"originalValue": "{o3.font.family.metric}",
 		"type": "fontFamily",
 		"description": "Use primarily for the stand-first (introductory summary or highlight) in topper component, as larger body text in components, or section description.",
@@ -3000,7 +3000,7 @@ export default {
 },
 	"o3-type-body-base-font-family": {
 		"shortName": "fontFamily",
-		"value": "metric 2 VF",
+		"value": "metric 2 VF, sans-serif",
 		"originalValue": "{o3.font.family.metric}",
 		"type": "fontFamily",
 		"description": "Use this style for the stand-first in teasers and as the default body copy style across components such as location in the byline.",
@@ -3076,7 +3076,7 @@ export default {
 },
 	"o3-type-body-highlight-font-family": {
 		"shortName": "fontFamily",
-		"value": "metric 2 VF",
+		"value": "metric 2 VF, sans-serif",
 		"originalValue": "{o3.font.family.metric}",
 		"type": "fontFamily",
 		"description": "Use this style for bold formatting in body copy or for small interactive elements, such as Topic tags and Author names.",
@@ -3152,7 +3152,7 @@ export default {
 },
 	"o3-type-detail-font-family": {
 		"shortName": "fontFamily",
-		"value": "metric 2 VF",
+		"value": "metric 2 VF, sans-serif",
 		"originalValue": "{o3.font.family.metric}",
 		"type": "fontFamily",
 		"description": "Use this style for caption in visual assets such as image and video and for small text elements, such as secondary metadata, caveats, or footnotes.",
@@ -3228,7 +3228,7 @@ export default {
 },
 	"o3-type-label-font-family": {
 		"shortName": "fontFamily",
-		"value": "metric 2 VF",
+		"value": "metric 2 VF, sans-serif",
 		"originalValue": "{o3.font.family.metric}",
 		"type": "fontFamily",
 		"description": "Use this style for labels such as badges and metadata in teasers and toppers (e.g., \"Live,\" \"Premium,\" or the main timestamp). Avoid using full sentences.",

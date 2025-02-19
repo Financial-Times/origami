@@ -13,7 +13,7 @@
     font-size: var(--o3-font-size-negative-1);
     line-height: var(--o3-font-lineheight-negative-1);
     font-weight: var(--o3-font-weight-semibold);
-    font-family: var(--o3-font-family-metric), sans-serif;
+    font-family: var(--o3-font-family-metric);
 
     border: 1px solid var(--_o3-social-sign-in-border-color);
     border-radius: var(--o3-border-radius-1);
