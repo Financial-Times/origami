@@ -57,7 +57,7 @@
 		@if ($scale < 0) {
 			$scale-item-key: 'negative#{$scale}';
 		}
-		font-family: #{oPrivateFoundationGet('o3-font-family-#{$font}')};
+		font-family: oPrivateFoundationGet('o3-font-family-#{$font}');
 		font-size: oPrivateFoundationGet(
 			'o3-font-size#{$scale-key}#{$scale-item-key}'
 		);
