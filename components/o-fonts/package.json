@@ -1,32 +1,32 @@
 {
-  "name": "@financial-times/o-fonts",
-  "version": "5.3.5",
-  "description": "Loads CSS declarations for FT web fonts. Does not include font assets.",
-  "keywords": [
-    "font",
-    "web",
-    "fonts"
-  ],
-  "homepage": "https://registry.origami.ft.com/components/o-fonts",
-  "bugs": {
-    "url": "https://github.com/Financial-Times/origami/issues/new?labels=o-fonts,components",
-    "email": "origami.support@ft.com"
-  },
-  "license": "MIT",
-  "type": "module",
-  "scripts": {
-    "start": "npx serve ./demos/local",
-    "build": "bash ../../scripts/component/build.bash",
-    "test": "bash ../../scripts/component/test.bash",
-    "debug:js": "bash ../../scripts/component/debug-js.bash",
-    "lint": "bash ../../scripts/component/lint.bash",
-    "watch": "bash ../../scripts/component/watch.bash"
-  },
-  "peerDependencies": {
-    "@financial-times/o-brand": "^4.1.0"
-  },
-  "engines": {
-    "npm": ">7"
-  },
-  "private": false
+	"name": "@financial-times/o-fonts",
+	"version": "5.3.5",
+	"description": "Loads CSS declarations for FT web fonts. Does not include font assets.",
+	"keywords": [
+		"font",
+		"web",
+		"fonts"
+	],
+	"homepage": "https://registry.origami.ft.com/components/o-fonts",
+	"bugs": {
+		"url": "https://github.com/Financial-Times/origami/issues/new?labels=o-fonts,components",
+		"email": "origami.support@ft.com"
+	},
+	"license": "MIT",
+	"type": "module",
+	"scripts": {
+		"start": "npx serve ./demos/local",
+		"build": "bash ../../scripts/component/build.bash",
+		"test": "bash ../../scripts/component/test.bash",
+		"debug:js": "bash ../../scripts/component/debug-js.bash",
+		"lint": "bash ../../scripts/component/lint.bash",
+		"watch": "bash ../../scripts/component/watch.bash"
+	},
+	"peerDependencies": {
+		"@financial-times/o-brand": "^4.1.0"
+	},
+	"engines": {
+		"npm": ">7"
+	},
+	"private": false
 }
