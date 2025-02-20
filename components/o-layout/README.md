@@ -662,33 +662,6 @@ If your project does not use all layouts or other features provided by `o-layout
 - linked-headings (enables clickable / highlighted anchors on the page)
 - typography (enables body typography applied with the class `o-layout-typography`)
 
-**Fonts Option**
-
-By default fonts are output where the [`typography` feature](#feature-options) is enabled. To avoid outputting fonts set the `fonts` option to `false`. This may helpful in the case that:
-
-1. Your project already outputs standard font faces via `o-fonts`, or;
-2. You are using [custom fonts](https://github.com/Financial-Times/origami/tree/main/components/o-fonts#use-a-custom-font-family).
-
-```scss
-@include oLayout(
-	$opts: (
-		'layouts': (
-			'documentation',
-			'landing',
-			'query',
-			'bleed',
-		),
-		'features': (
-			'sidebar-nav',
-			'sticky-sidebar-container',
-			'linked-headings',
-			'typography',
-		),
-		'fonts': false,
-	)
-);
-```
-
 The landing layout supports an extra option, which sets a background image on the hero area:
 
 ```scss

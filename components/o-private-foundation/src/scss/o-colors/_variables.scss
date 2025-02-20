@@ -1,8 +1,3 @@
-/// Ensure default mixins are only called once
-/// @type Bool
-/// @access private
-$_o-pf-colors-is-initialised: false !default;
-
 /// A map to define default palette colours:
 /// A list of arguments for `oPrivateColorsSetColor`, except the project name.
 ///
@@ -53,12 +48,3 @@ $_o-pf-colors-palette: () !default;
 /// @access private
 /// @type Bool
 $_o-pf-colors-test-environment: false !default;
-
-/// Is the current execution context the oColors primary mixin?
-/// This can be helpful to know internally to provide alternate
-/// behaviour, e.g. reduce warning noise if a user is outputting
-/// all available styles – including deprecated styles – without
-/// necessarily using them directly.
-/// @access private
-/// @type Bool
-$_o-pf-colors-mixin-output: false !default;

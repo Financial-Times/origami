@@ -1,5 +1,3 @@
-@import '@financial-times/o-colors/main';
-
 @import 'src/scss/shadows';
 @import 'src/scss/variables';
 
@@ -12,10 +10,17 @@
 /// @example Output only timing css custom properties from o-visual-effect.
 ///     @include oVisualEffects($opts: ('timing-custom-properties': true))
 /// @access public
-@mixin oVisualEffects($opts: (
-	'shadows': ('ultralow', 'low', 'mid', 'high'),
-	'timing-custom-properties': true
-)) {
+@mixin oVisualEffects(
+	$opts: (
+		'shadows': (
+			'ultralow',
+			'low',
+			'mid',
+			'high',
+		),
+		'timing-custom-properties': true,
+	)
+) {
 	// Shadows.
 	$shadows: map-get($opts, 'shadows');
 	$ultralow: index($shadows, 'ultralow');
@@ -25,14 +30,13 @@
 	// Custom properties for timing functions.
 	$timing: map-get($opts, 'timing-custom-properties');
 
-	@if($timing) {
+	@if ($timing) {
 		:root {
 			--o-visual-effects-timing-slide: #{$o-visual-effects-timing-slide};
 			--o-visual-effects-timing-expand: #{$o-visual-effects-timing-expand};
 			--o-visual-effects-timing-fade: #{$o-visual-effects-timing-fade};
 		}
 	}
-
 
 	@if ($shadows) {
 		:root {
@@ -42,27 +46,25 @@
 		}
 	}
 
-
-	@if($ultralow) {
+	@if ($ultralow) {
 		.o-visual-effects-shadow-ultralow {
 			@include oVisualEffectsShadowContent('ultralow');
 		}
 	}
 
-	@if($low) {
+	@if ($low) {
 		.o-visual-effects-shadow-low {
 			@include oVisualEffectsShadowContent('low');
 		}
 	}
 
-
-	@if($mid) {
+	@if ($mid) {
 		.o-visual-effects-shadow-mid {
 			@include oVisualEffectsShadowContent('mid');
 		}
 	}
 
-	@if($high) {
+	@if ($high) {
 		.o-visual-effects-shadow-high {
 			@include oVisualEffectsShadowContent('high');
 		}

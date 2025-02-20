@@ -1,5 +1,10 @@
 @mixin _oTopperStandfirst {
-	@include oEditorialTypographyStandfirst();
+	color: oPrivateFoundationGet('o3-color-use-case-body-text');
+	font-family: oPrivateFoundationGet('o3-type-body-lg-font-family');
+	font-weight: oPrivateFoundationGet('o3-type-body-lg-font-weight');
+	font-size: oPrivateFoundationGet('o3-type-body-lg-font-size');
+	line-height: oPrivateFoundationGet('o3-type-body-lg-line-height');
+
 	opacity: 0.8;
 
 	> p {
@@ -91,7 +96,31 @@
 
 @include _oTopperDefineOnce(tag) {
 	%_o-topper__tag {
-		@include oEditorialTypographyTag($type: 'topic');
+		// Non-linked tags and author tags are the same colour as the body copy.
+		@if not is-superselector('a', '#{&}') {
+			color: oColorsByUsecase('body', 'text');
+		}
+
+		font-family: oPrivateFoundationGet('o3-type-body-highlight-font-family');
+		font-size: oPrivateFoundationGet('o3-type-body-highlight-font-size');
+		font-weight: oPrivateFoundationGet('o3-type-body-highlight-font-weight');
+		line-height: oPrivateFoundationGet('o3-type-body-highlight-line-height');
+
+		// Apply tag link styles only to anchor elements.
+		// e.g. `a.my-author-tag:hover`
+		// Tags which are links are highlighted with colour by default.
+		// But author tags are the same colour as body copy until hover.
+		$tag-link-selector: selector-unify('a', '#{&}');
+		@at-root #{$tag-link-selector} {
+			color: oPrivateFoundationGet('o3-color-palette-claret');
+
+			text-decoration: none;
+			border-bottom: 0;
+
+			&:hover {
+				color: oPrivateFoundationGet('o3-color-palette-claret-30');
+			}
+		}
 		color: unset;
 
 		@at-root a#{&} {

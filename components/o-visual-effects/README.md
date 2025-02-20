@@ -2,13 +2,13 @@
 
 This [Origami](http://origami.ft.com/) component provides CSS visual effects via a set of Sass variables and mixins.
 
--   [Usage](#usage)
--   [Markup](#markup)
--   [CSS Custom Properties](#css-custom-properties)
--   [Sass](#sass)
--   [Migration Guide](#migration-guide)
--   [Contact](#contact)
--   [Licence](#licence)
+- [Usage](#usage)
+- [Markup](#markup)
+- [CSS Custom Properties](#css-custom-properties)
+- [Sass](#sass)
+- [Migration Guide](#migration-guide)
+- [Contact](#contact)
+- [Licence](#licence)
 
 ## Usage
 
@@ -17,10 +17,11 @@ Check out [how to include Origami components in your project](https://origami.ft
 ## Markup
 
 `o-visual-effects` provides helper classes to style with different levels of box shadow:
--   `.o-visual-effects-shadow-ultralow`
--   `.o-visual-effects-shadow-low`
--   `.o-visual-effects-shadow-mid`
--   `.o-visual-effects-shadow-high`
+
+- `.o-visual-effects-shadow-ultralow`
+- `.o-visual-effects-shadow-low`
+- `.o-visual-effects-shadow-mid`
+- `.o-visual-effects-shadow-high`
 
 ```html
 <div class="o-visual-effects-shadow-high">Box content</div>
@@ -32,11 +33,12 @@ Check out [how to include Origami components in your project](https://origami.ft
 
 Build Service users may use CSS Custom Properties (CSS Variables) to apply consistent [timing functions](https://developer.mozilla.org/en-US/docs/Web/CSS/transition-timing-function) within custom CSS. The variables avalible are:
 
--   `--o-visual-effects-timing-slide`
--   `--o-visual-effects-timing-expand`
--   `--o-visual-effects-timing-fade`
+- `--o-visual-effects-timing-slide`
+- `--o-visual-effects-timing-expand`
+- `--o-visual-effects-timing-fade`
 
 E.g.
+
 ```css
 .transition--slide {
 	transition: all 0.5s var(--o-visual-effects-timing-slide);
@@ -54,6 +56,7 @@ E.g.
 CSS Custom Properties (CSS Variables) are also available for shadows.
 
 E.g.
+
 ```css
 .my-shadow {
 	box-shadow: var(--o-visual-effects-shadow-high);
@@ -71,9 +74,16 @@ To include all `o-visual-effects` css call the `oVisualEffects` mixin. This will
 `o-visual-effects` may also be output granularly. For example ommit the CSS custom properties if you are using Sass variables such as `$o-visual-effects-timing-slide` instead:
 
 ```scss
-@include oVisualEffects($opts: (
-	'shadows': ('ultralow', 'low', 'mid', 'high')
-));
+@include oVisualEffects(
+	$opts: (
+		'shadows': (
+			'ultralow',
+			'low',
+			'mid',
+			'high',
+		),
+	)
+);
 ```
 
 If you are not using `o-visual-effects` CSS, and instead are using other Sass mixins or variables directly there is no need to call `oVisualEffects`.
@@ -136,19 +146,19 @@ Output:
 
 ## Migration guide
 
-State | Major Version | Last Minor Release | Migration guide |
-:---: | :---: | :---: | :---:
-✨ active | 4 | N/A | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
-⚠ maintained | 3 | 3.0 | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
-╳ deprecated | 2 | 2.1 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
-╳ deprecated | 1 | 1.0 | N/A |
-
+|    State     | Major Version | Last Minor Release |                    Migration guide                    |
+| :----------: | :-----------: | :----------------: | :---------------------------------------------------: |
+| ⚠ maintained |       5       |        N/A         | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+| ╳ deprecated |       4       |        4.2         | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
+| ╳ deprecated |       3       |        3.0         | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+| ╳ deprecated |       2       |        2.1         | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+| ╳ deprecated |       1       |        1.0         |                          N/A                          |
 
 ## Contact
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-visual-effects/issues), visit [#origami-support](https://financialtimes.slack.com/messages/origami-support/) or email [Origami Support](mailto:origami-support@ft.com).
 
-***
+---
 
 ## Licence
 

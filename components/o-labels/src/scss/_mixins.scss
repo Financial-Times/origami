@@ -102,9 +102,6 @@
 /// o-labels markup. This should only be used where using o-labels markup is
 /// not possible.
 ///
-/// If outputting a timestamp in a non-label context see
-/// [o-editorial-typography](https://registry.origami.ft.com/components/o-editorial-typography).
-///
 /// @example Output a timestamp label with custom markup.
 ///    .my-timestamp-label {
 ///        @include oLabelsTimestampContent();
@@ -198,7 +195,10 @@
 	@if _oLabelsGet('text-color', $variant) {
 		color: _oLabelsGet('text-color', $variant);
 	} @else {
-		color: oPrivateColorsGetTextColor(_oLabelsGet('background-color', $variant), 100);
+		color: oPrivateColorsGetTextColor(
+			_oLabelsGet('background-color', $variant),
+			100
+		);
 	}
 
 	// Set the spacing

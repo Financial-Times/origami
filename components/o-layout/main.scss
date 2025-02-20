@@ -1,7 +1,5 @@
 @import '@financial-times/o-brand/main';
-@import '@financial-times/o-fonts/main';
 @import '@financial-times/o-private-foundation/main';
-@import '@financial-times/o-quote/main';
 
 @import 'src/scss/brand';
 @import 'src/scss/variables';
@@ -10,7 +8,7 @@
 @import 'src/scss/grid';
 @import 'src/scss/grid-areas';
 
-/// @param {Map} $opts - A map of configuration, with "layouts" ('documentation', 'landing', 'query', 'bleed'); "features" ('linked-headings', 'typography'); "hero-image" (an image for the background of the "hero" area); and `fonts` to customise whether font faces are output.
+/// @param {Map} $opts - A map of configuration, with "layouts" ('documentation', 'landing', 'query', 'bleed'); "features" ('linked-headings', 'typography'); "hero-image" (an image for the background of the "hero" area).
 @mixin oLayout(
 	$opts: (
 		'layouts': (
@@ -33,7 +31,6 @@
 
 	$layouts: map-get($opts, $key: 'layouts');
 	$features: map-get($opts, $key: 'features');
-	$fonts: map-get($opts, $key: 'fonts');
 	$linked-headings: index($features, 'linked-headings');
 	$typography: index($features, 'typography');
 	$nav: index($features, 'sidebar-nav');
@@ -50,10 +47,6 @@
 
 	// 	Typography.
 	@if ($typography) {
-		// By default fonts are output when typography is enabled.
-		@if ($fonts != false) {
-			@include oFonts();
-		}
 		@include _oLayoutTypography;
 	}
 	@if ($linked-headings) {
