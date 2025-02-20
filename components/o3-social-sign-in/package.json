@@ -1,6 +1,6 @@
 {
 	"name": "@financial-times/o3-social-sign-in",
-	"version": "2.0.0",
+	"version": "3.0.0",
 	"description": "Social sign-in buttons for third party-authentication flows.",
 	"main": "./cjs/socialSignIn.js",
 	"module": "./esm/socialSignIn.js",

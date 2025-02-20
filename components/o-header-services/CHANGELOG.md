@@ -1,5 +1,16 @@
 # Changelog
 
+## [7.0.0](https://github.com/Financial-Times/origami/compare/o-header-services-v6.0.0...o-header-services-v7.0.0) (2025-02-20)
+
+
+### ⚠ BREAKING CHANGES
+
+* 2025 o3 migration release, README/MIGRATION updates. ([#1970](https://github.com/Financial-Times/origami/issues/1970))
+
+### Features
+
+* 2025 o3 migration release, README/MIGRATION updates. ([#1970](https://github.com/Financial-Times/origami/issues/1970)) ([3be858a](https://github.com/Financial-Times/origami/commit/3be858a81a79c3f92c4dff8b4aab5c95b600c7ee))
+
 ## [6.0.0](https://github.com/Financial-Times/origami/compare/o-header-services-v5.5.4...o-header-services-v6.0.0) (2025-02-20)
 
 ### ⚠ BREAKING CHANGES
