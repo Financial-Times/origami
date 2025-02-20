@@ -57,7 +57,10 @@
 
 @mixin _oTopperOpinionGenre {
 	@extend %_o-topper__tag;
-	font-weight: oPrivateFoundationGet('o3-font-weight-regular');
+	font-family: oPrivateFoundationGet('o3-type-body-base-font-family');
+	font-size: oPrivateFoundationGet('o3-type-body-base-font-size');
+	font-weight: oPrivateFoundationGet('o3-type-body-base-font-weight');
+	line-height: oPrivateFoundationGet('o3-type-body-base-line-height');
 	color: oPrivateFoundationGet('o3-color-palette-oxford');
 }
 

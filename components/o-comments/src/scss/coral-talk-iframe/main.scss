@@ -9,6 +9,27 @@
 * This is not a normal use case of Origami styles.
 */
 
+@mixin _oCommentsTag() {
+	// Non-linked tags and author tags are the same colour as the body copy.
+	@if not is-superselector("a", "#{&}") {
+		color: oColorsByUsecase("body", "text");
+	}
+
+	font-weight: oPrivateFoundationGet("o3-font-weight-semibold");
+
+	// Apply tag link styles only to anchor elements.
+	// e.g. `a.my-author-tag:hover`
+	$tag-link-selector: selector-unify("a", "#{&}");
+	@at-root #{$tag-link-selector} {
+		text-decoration: none;
+		border-bottom: 0;
+
+		&:hover {
+			color: oPrivateFoundationGet("o3-color-palette-claret");
+		}
+	}
+}
+
 // stylelint-disable selector-class-pattern, declaration-no-important, selector-max-id
 @mixin _oCommentsTalkIframe {
 	#coral[data-user-not-signed-in="true"] {
@@ -73,21 +94,49 @@
 		--font-weight-primary-regular: 400;
 		--font-weight-secondary-regular: 400;
 
-		--palette-background-body: #{inspect(oPrivateFoundationGet("o3-color-palette-paper"))};
-		--palette-text-500: #{inspect(oPrivateFoundationGet("o3-color-palette-black-80"))};
-		--palette-error-400: #{inspect(oPrivateFoundationGet("o3-color-palette-claret-80"))};
-		--palette-error-800: #{inspect(oPrivateFoundationGet("o3-color-palette-claret-70"))};
-		--palette-error-900: #{inspect(oPrivateFoundationGet("o3-color-palette-claret-70"))};
-		--palette-error-500: #{inspect(oPrivateFoundationGet("o3-color-palette-claret-70"))};
-		--palette-success-500: #{inspect(oPrivateFoundationGet("o3-color-palette-teal-50"))};
-		--palette-success-400: #{inspect(oPrivateFoundationGet("o3-color-palette-teal-60"))};
-		--palette-grey-100: #{inspect(oPrivateFoundationGet("o3-color-palette-paper"))};
-		--palette-grey-200: #{inspect(oPrivateFoundationGet("o3-color-palette-paper"))};
+		--palette-background-body: #{inspect(
+				oPrivateFoundationGet("o3-color-palette-paper")
+			)};
+		--palette-text-500: #{inspect(
+				oPrivateFoundationGet("o3-color-palette-black-80")
+			)};
+		--palette-error-400: #{inspect(
+				oPrivateFoundationGet("o3-color-palette-claret-80")
+			)};
+		--palette-error-800: #{inspect(
+				oPrivateFoundationGet("o3-color-palette-claret-70")
+			)};
+		--palette-error-900: #{inspect(
+				oPrivateFoundationGet("o3-color-palette-claret-70")
+			)};
+		--palette-error-500: #{inspect(
+				oPrivateFoundationGet("o3-color-palette-claret-70")
+			)};
+		--palette-success-500: #{inspect(
+				oPrivateFoundationGet("o3-color-palette-teal-50")
+			)};
+		--palette-success-400: #{inspect(
+				oPrivateFoundationGet("o3-color-palette-teal-60")
+			)};
+		--palette-grey-100: #{inspect(
+				oPrivateFoundationGet("o3-color-palette-paper")
+			)};
+		--palette-grey-200: #{inspect(
+				oPrivateFoundationGet("o3-color-palette-paper")
+			)};
 
-		--palette-primary-400: #{inspect(oPrivateFoundationGet("o3-color-palette-teal-50"))};
-		--palette-primary-500: #{inspect(oPrivateFoundationGet("o3-color-palette-teal-50"))};
-		--palette-primary-600: #{inspect(oPrivateFoundationGet("o3-color-palette-teal-50"))};
-		--palette-primary-700: #{inspect(oPrivateFoundationGet("o3-color-palette-teal-50"))};
+		--palette-primary-400: #{inspect(
+				oPrivateFoundationGet("o3-color-palette-teal-50")
+			)};
+		--palette-primary-500: #{inspect(
+				oPrivateFoundationGet("o3-color-palette-teal-50")
+			)};
+		--palette-primary-600: #{inspect(
+				oPrivateFoundationGet("o3-color-palette-teal-50")
+			)};
+		--palette-primary-700: #{inspect(
+				oPrivateFoundationGet("o3-color-palette-teal-50")
+			)};
 
 		--font-size-1: calc(0.75rem * var(--ft-magnify));
 		--font-size-2: calc(0.875rem * var(--ft-magnify));
@@ -294,7 +343,7 @@
 		// comment author
 		.coral-comment-username span,
 		.coral-comment-inReplyToUsername {
-			@include oEditorialTypographyTag($type: "author");
+			@include _oCommentsTag();
 			font-size: 14px;
 
 			&:hover {
@@ -389,10 +438,13 @@
 		.coral-myComment-timestamp span,
 		.coral-comment-timestamp,
 		.coral-comment-timestamp span {
-			@include oEditorialTypographyTimestamp;
-			font-size: 12px;
+			color: oPrivateFoundationGet("o3-color-palette-black-60");
+			font-family: oPrivateFoundationGet("o3-type-label-font-family");
+			font-weight: oPrivateFoundationGet("o3-type-label-font-weight");
+			font-size: oPrivateFoundationGet("o3-type-label-font-size");
+			line-height: oPrivateFoundationGet("o3-type-label-line-height");
+			text-transform: oPrivateFoundationGet("o3-type-label-text-case");
 			margin-bottom: 0;
-			color: oPrivateFoundationGet("o3-color-palette-black-80");
 		}
 
 		// "staff" tag
@@ -403,7 +455,9 @@
 
 		// "featured comment" tag
 		.coral-comment-commentTag {
-			background-color: oPrivateFoundationGet("o3-color-palette-black") !important;
+			background-color: oPrivateFoundationGet(
+				"o3-color-palette-black"
+			) !important;
 			color: oPrivateFoundationGet("o3-color-palette-white") !important;
 			border-radius: 0;
 			border: 0 !important;
@@ -510,12 +564,12 @@
 
 		// replying to: <<user name>>
 		.coral-createReplyComment-replyToUsername {
-			@include oEditorialTypographyTag($type: "author");
+			@include _oCommentsTag();
 
 			font-size: 14px;
 
 			&:hover {
-				color: oPrivateFoundationGet('o3-color-use-case-body-text');
+				color: oPrivateFoundationGet("o3-color-use-case-body-text");
 			}
 		}
 
@@ -550,10 +604,12 @@
 		.coral-featuredComment-goToConversationButton {
 			@include oPrivateTypographyLink;
 
-			color: oPrivateFoundationGet('o3-color-use-case-link-text') !important;
+			color: oPrivateFoundationGet("o3-color-use-case-link-text") !important;
 
 			&:hover {
-				color: oPrivateFoundationGet('o3-color-use-case-link-text-hover') !important;
+				color: oPrivateFoundationGet(
+					"o3-color-use-case-link-text-hover"
+				) !important;
 			}
 		}
 

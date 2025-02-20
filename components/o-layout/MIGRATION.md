@@ -17,6 +17,10 @@ To upgrade, replace the following "o2" components with their "o3" equivalent:
 - [o-quote](../o-quote/MIGRATION.md)
 - [o-fonts](../o-fonts/MIGRATION.md)
 
+The `fonts` option of the `oLayout` mixin has been removed, as it is redundant. Variable fonts are always included. This is not a breaking change. You may remove this from your `oLayout` mixin call.
+
+The `blockquote` element is no longer styled by default. We do not believe this is used regularly. Please contact the Origami team for support if this is not the case.
+
 ## Migrating from v4 to v5
 
 Support for Bower and version 2 of the Origami Build Service have been removed.

@@ -10,7 +10,12 @@ $_o-labels-first-import: true !default;
 	}
 
 	%_o-labels-timestamp-typography {
-		@include oEditorialTypographyTimestamp();
+		color: oPrivateFoundationGet('o3-color-palette-black-60');
+		font-family: oPrivateFoundationGet('o3-type-label-font-family');
+		font-weight: oPrivateFoundationGet('o3-type-label-font-weight');
+		font-size: oPrivateFoundationGet('o3-type-label-font-size');
+		line-height: oPrivateFoundationGet('o3-type-label-line-height');
+		text-transform: oPrivateFoundationGet('o3-type-label-text-case');
 	}
 
 	// must come after %_o-labels-timestamp-typography

@@ -180,7 +180,8 @@
 		}
 
 		.o-topper__headline--large {
-			@include oEditorialTypographyDecorated();
+			position: relative; //so it appears above the full width background
+			margin-bottom: oPrivateSpacingByIncrement(4);
 			font-family: oPrivateFoundationGet('o3-type-display-sm-font-family');
 			font-size: oPrivateFoundationGet('o3-type-display-sm-font-size');
 			font-weight: oPrivateFoundationGet('o3-type-display-sm-font-weight');
@@ -199,8 +200,20 @@
 				font-weight: oPrivateFoundationGet('o3-type-display-lg-font-weight');
 				line-height: oPrivateFoundationGet('o3-type-display-lg-line-height');
 			}
-			position: relative; //so it appears above the full width background
-			margin-bottom: oPrivateSpacingByIncrement(4);
+
+			&:after {
+				content: '';
+				display: block;
+				// 18px Metric = 4px
+				// 48px FinancierDisplayWeb = 8px
+				border-bottom: calc(0.34ex + 1px) solid;
+				// 18px Metric = ~60px
+				// 48px FinancierDisplayWeb = ~180px
+				width: calc(7ch - 10px);
+				max-width: 100%;
+				// 20px assuming a 48px font size
+				padding-top: 0.416em;
+			}
 		}
 	}
 

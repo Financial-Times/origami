@@ -74,14 +74,6 @@
 			@include oPrivateTypographyList($type: 'ordered');
 		}
 
-		blockquote:not(.o-layout__unstyled-element) {
-			@include oQuoteStandard;
-			margin-bottom: oPrivateSpacingByIncrement(7);
-			cite {
-				@include oQuoteStandardCite();
-			}
-		}
-
 		figure img {
 			display: block;
 		}
@@ -137,7 +129,11 @@
 		li {
 			&:not(.o-layout__navigation-title) [aria-current='location'] {
 				color: oPrivateFoundationGet('o3-color-palette-teal-30');
-				background: oPrivateColorsMix('o3-color-palette-teal', 'o3-color-palette-white', 20);
+				background: oPrivateColorsMix(
+					'o3-color-palette-teal',
+					'o3-color-palette-white',
+					20
+				);
 			}
 
 			a {
@@ -249,7 +245,11 @@
 
 	@keyframes o-layout-linked-heading-fade {
 		0% {
-			background-color: oPrivateColorsMix('o3-color-palette-teal', 'o3-color-palette-white', 15);
+			background-color: oPrivateColorsMix(
+				'o3-color-palette-teal',
+				'o3-color-palette-white',
+				15
+			);
 		}
 		100% {
 			background-color: transparent;

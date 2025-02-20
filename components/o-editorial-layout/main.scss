@@ -1,5 +1,4 @@
 @import '@financial-times/o-private-foundation/main';
-@import '@financial-times/o-quote/main';
 @import '@financial-times/o-brand/main';
 
 @import 'src/scss/variables';
@@ -117,18 +116,8 @@
 			}
 
 			> blockquote {
-				@include oQuoteEditorial();
 				margin-bottom: oPrivateSpacingByIncrement(7);
 				max-width: oPrivateTypographyMaxLineWidth(75);
-
-				cite,
-				footer {
-					@include oQuoteEditorialCite();
-				}
-
-				footer > cite {
-					@include oQuoteEditorialCiteAuthor();
-				}
 			}
 		}
 

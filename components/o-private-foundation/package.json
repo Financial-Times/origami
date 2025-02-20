@@ -18,8 +18,7 @@
 	},
 	"browser": "main.js",
 	"peerDependencies": {
-		"@financial-times/o-brand": "^4.1.0",
-		"@financial-times/o-colors": "6.7.0"
+		"@financial-times/o-brand": "^4.1.0"
 	},
 	"devDependencies": {},
 	"engines": {
