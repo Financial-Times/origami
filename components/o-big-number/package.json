@@ -19,13 +19,13 @@
 		"watch": "bash ../../scripts/component/watch.bash"
 	},
 	"peerDependencies": {
-		"@financial-times/o-colors": "^6.7.0",
-		"@financial-times/o-spacing": "^3.2.5",
-		"@financial-times/o-typography": "^7.6.2"
+		"@financial-times/o-colors": "^6.5.0",
+		"@financial-times/o-spacing": "^3.0.0",
+		"@financial-times/o-typography": "^7.4.1"
 	},
 	"devDependencies": {
-		"@financial-times/o-fonts": "^5.3.5",
-		"@financial-times/o-normalise": "^3.3.2"
+		"@financial-times/o-fonts": "^5.2.0",
+		"@financial-times/o-normalise": "^3.3.0"
 	},
 	"engines": {
 		"npm": ">7"

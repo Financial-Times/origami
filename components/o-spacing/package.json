@@ -1,36 +1,36 @@
 {
-	"name": "@financial-times/o-spacing",
-	"version": "3.2.5",
-	"description": "Maintain consistent spaces across components and projects in accordance to our baseline grid and design guidelines.",
-	"keywords": [
-		"whitespace",
-		"spacing"
-	],
-	"homepage": "https://registry.origami.ft.com/components/o-spacing",
-	"bugs": {
-		"url": "https://github.com/Financial-Times/origami/issues/new?labels=o-spacing,components",
-		"email": "origami.support@ft.com"
-	},
-	"license": "MIT",
-	"type": "module",
-	"peerDependencies": {
-		"@financial-times/math": "^1.0.0"
-	},
-	"devDependencies": {
-		"@financial-times/o-colors": "^6.7.0",
-		"@financial-times/o-normalise": "^3.3.2",
-		"@financial-times/o-typography": "^7.6.2"
-	},
-	"scripts": {
-		"start": "npx serve ./demos/local",
-		"build": "bash ../../scripts/component/build.bash",
-		"test": "bash ../../scripts/component/test.bash",
-		"debug:js": "bash ../../scripts/component/debug-js.bash",
-		"lint": "bash ../../scripts/component/lint.bash",
-		"watch": "bash ../../scripts/component/watch.bash"
-	},
-	"engines": {
-		"npm": ">7"
-	},
-	"private": false
+  "name": "@financial-times/o-spacing",
+  "version": "3.2.5",
+  "description": "Maintain consistent spaces across components and projects in accordance to our baseline grid and design guidelines.",
+  "keywords": [
+    "whitespace",
+    "spacing"
+  ],
+  "homepage": "https://registry.origami.ft.com/components/o-spacing",
+  "bugs": {
+    "url": "https://github.com/Financial-Times/origami/issues/new?labels=o-spacing,components",
+    "email": "origami.support@ft.com"
+  },
+  "license": "MIT",
+  "type": "module",
+  "peerDependencies": {
+    "@financial-times/math": "^1.0.0"
+  },
+  "devDependencies": {
+    "@financial-times/o-colors": "^6.5.0",
+    "@financial-times/o-normalise": "^3.3.0",
+    "@financial-times/o-typography": "^7.4.1"
+  },
+  "scripts": {
+    "start": "npx serve ./demos/local",
+    "build": "bash ../../scripts/component/build.bash",
+    "test": "bash ../../scripts/component/test.bash",
+    "debug:js": "bash ../../scripts/component/debug-js.bash",
+    "lint": "bash ../../scripts/component/lint.bash",
+    "watch": "bash ../../scripts/component/watch.bash"
+  },
+  "engines": {
+    "npm": ">7"
+  },
+  "private": false
 }
