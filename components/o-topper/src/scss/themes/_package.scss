@@ -1,21 +1,28 @@
 @mixin _oTopperAnchorLink {
-	@include oTypographySans(0);
+	font-family: oPrivateFoundationGet('o3-type-body-base-font-family');
+	font-size: oPrivateFoundationGet('o3-type-body-base-font-size');
+	font-weight: oPrivateFoundationGet('o3-type-body-base-font-weight');
+	line-height: oPrivateFoundationGet('o3-type-body-base-line-height');
 	display: inline-block;
 	width: 110px;
 	padding: 5px 0 0 10px;
-	margin-top: oSpacingByName('s8');
-	border-top: 1px solid oColorsByUsecase('link', 'text');
-	border-left: 1px solid oColorsByUsecase('link', 'text');
+	margin-top: oPrivateSpacingByName('s8');
+	border-top: 1px solid oPrivateFoundationGet('o3-color-use-case-link-text');
+	border-left: 1px solid oPrivateFoundationGet('o3-color-use-case-link-text');
 	border-bottom-width: 0;
 	white-space: nowrap;
 	overflow: visible;
 
-	@include oGridRespondTo(S) {
+	@include oPrivateGridRespondTo(S) {
 		width: 140px;
 	}
 
 	&:after {
-		@include oIconsContent('arrow-down', oColorsByUsecase('link', 'text'), $size: 20);
+		@include oPrivateIconsContent(
+			'arrow-down',
+			oPrivateFoundationGet('o3-color-use-case-link-text'),
+			$size: 20
+		);
 		content: '';
 		display: block;
 		position: relative;
@@ -26,12 +33,14 @@
 }
 
 @mixin _oTopperThemePackage {
-	margin-bottom: oSpacingByIncrement(10);
+	margin-bottom: oPrivateSpacingByIncrement(10);
 
 	%_o-topper__tag,
 	.o-topper__headline {
-		@include oTypographySans(6);
-		font-weight: 400;
+		font-family: oPrivateFoundationGet('o3-type-title-md-font-family');
+		font-size: oPrivateFoundationGet('o3-font-size-metric2-5');
+		font-weight: oPrivateFoundationGet('o3-type-title-md-font-weight');
+		line-height: oPrivateFoundationGet('o3-font-lineheight-metric2-5');
 	}
 
 	.o-topper__headline {
@@ -44,19 +53,24 @@
 @mixin _oTopperThemePackageExtra {
 	.o-topper__package-sequence-id,
 	&.o-topper--package .o-topper__headline {
-		color: oColorsByName('lemon');
+		color: oPrivateFoundationGet('o3-color-palette-lemon');
 	}
 
 	.o-topper__anchor-link {
-		color: oColorsByName('lemon');
-		border-color: oColorsByName('lemon');
+		color: oPrivateFoundationGet('o3-color-palette-lemon');
+		border-color: oPrivateFoundationGet('o3-color-palette-lemon');
 
 		&:after {
-			@include oIconsContent('arrow-down', oColorsByName('lemon'), $size: null, $include-base-styles: false);
+			@include oPrivateIconsContent(
+				'arrow-down',
+				oPrivateFoundationGet('o3-color-palette-lemon'),
+				$size: null,
+				$include-base-styles: false
+			);
 		}
 
 		&:hover {
-			color: darken(oColorsByName('lemon'), 20%);
+			color: darken(oPrivateFoundationGet('o3-color-palette-lemon'), 20%);
 		}
 	}
 }
@@ -67,15 +81,20 @@
 	}
 
 	.o-topper__anchor-link {
-		border-color: oColorsByName('white');
-		color: oColorsByName('white');
+		border-color: oPrivateFoundationGet('o3-color-palette-white');
+		color: oPrivateFoundationGet('o3-color-palette-white');
 
 		&:after {
-			@include oIconsContent('arrow-down', oColorsByName('lemon'), $size: null, $include-base-styles: false);
+			@include oPrivateIconsContent(
+				'arrow-down',
+				oPrivateFoundationGet('o3-color-palette-lemon'),
+				$size: null,
+				$include-base-styles: false
+			);
 		}
 
 		&:hover {
-			color: darken(oColorsByName('white'), 20%);
+			color: darken(oPrivateFoundationGet('o3-color-palette-white'), 20%);
 		}
 	}
 }

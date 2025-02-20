@@ -3,7 +3,6 @@ import {useEffect, useState} from 'react';
 import './forms.scss';
 import javascript from '../main.js';
 import {TextInput} from '../src/tsx/o-forms';
-import {Button} from '../../o-buttons/src/tsx/button';
 
 const hideArg = {
 	table: {
@@ -22,7 +21,7 @@ export default {
 		highlightValid: {
 			if: {arg: 'errorMessage', truthy: false},
 		},
-		theme: hideArg
+		theme: hideArg,
 	},
 } as ComponentMeta<typeof TextInput>;
 
@@ -39,7 +38,7 @@ const Template: ComponentStory<typeof TextInput> = args => {
 			form.forEach(element => element.destroy());
 		};
 	}, []);
-	return <TextInput {...args} value={value} onChange={onChange}/>;
+	return <TextInput {...args} value={value} onChange={onChange} />;
 };
 
 export const OptionalText = Template.bind({});
@@ -91,7 +90,7 @@ SmallTextInput.args = {
 InputWithSuffix.args = {
 	title: 'Text input with suffix',
 	isOptional: true,
-	children: <Button label="Submit" type="secondary" size="big"/>,
+	children: <button className="demo-submit-button">Submit</button>,
 };
 
 InlineWithShrunkenTitle.args = {
@@ -104,7 +103,7 @@ InlineWithShrunkenTitle.args = {
 SmallInputWithSuffix.args = {
 	title: 'Small text input with suffix',
 	isSmall: true,
-	children: <Button label="Submit" type="secondary"/>,
+	children: <button className="demo-submit-small-button">Submit</button>,
 };
 
 PasswordInput.args = {

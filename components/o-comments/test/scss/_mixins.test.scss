@@ -10,7 +10,7 @@
 
 				@include contains($selector: false) {
 					.test-mixin .o-comments__staging-message-container {
-						margin-bottom: oSpacingByName('s2');
+						margin-bottom: oPrivateSpacingByName('s2');
 					}
 				}
 			}

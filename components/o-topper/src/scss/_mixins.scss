@@ -18,7 +18,7 @@
 	}
 }
 
-@mixin _oTopperThemes($themes,$colors) {
+@mixin _oTopperThemes($themes, $colors) {
 	@include _oTopperThemeElements($themes);
 
 	@if index($themes, 'basic') {
@@ -78,7 +78,9 @@
 		}
 	}
 
-	@if index($themes, 'full-bleed-image-center') or index($themes, 'full-bleed-image-left') {
+	@if index($themes, 'full-bleed-image-center') or
+		index($themes, 'full-bleed-image-left')
+	{
 		.o-topper--full-bleed-image-center,
 		.o-topper--full-bleed-image-left {
 			@include _oTopperThemeFullBleedImage;
@@ -111,9 +113,7 @@
 	// in use on ft.com / app already:
 	// https://financialtimes.atlassian.net/browse/CI-944
 	@if index($themes, 'news-package') {
-		.o-topper--news-package {
-			@include _oTopperThemeNewsPackage;
-		}
+		@error 'The news package topper theme no longer exists. Please speak to Origami if your project depends on this.';
 	}
 
 	@if index($themes, 'centered') {
@@ -121,7 +121,7 @@
 			@include _oTopperCentered;
 		}
 	}
-	
+
 	@if index($themes, 'deep-portrait') {
 		.o-topper--deep-portrait {
 			@include _oTopperThemeSplitTextPortraitLeft($colors);
@@ -157,14 +157,50 @@
 
 	@if index($elements, 'headline') {
 		.o-topper__headline {
-			@include oEditorialTypographyHeading($level: 1);
-			margin-bottom: oSpacingByIncrement(5);
+			margin: 0;
+			margin-bottom: oPrivateSpacingByIncrement(5);
+			font-family: oPrivateFoundationGet('o3-type-headline-sm-font-family');
+			font-size: oPrivateFoundationGet('o3-type-headline-sm-font-size');
+			font-weight: oPrivateFoundationGet('o3-type-headline-sm-font-weight');
+			line-height: oPrivateFoundationGet('o3-type-headline-sm-line-height');
+
+			@include oPrivateGridRespondTo('S') {
+				font-family: oPrivateFoundationGet('o3-type-headline-md-font-family');
+				font-size: oPrivateFoundationGet('o3-type-headline-md-font-size');
+				font-weight: oPrivateFoundationGet('o3-type-headline-md-font-weight');
+				line-height: oPrivateFoundationGet('o3-type-headline-md-line-height');
+			}
+
+			@include oPrivateGridRespondTo('L') {
+				font-family: oPrivateFoundationGet('o3-type-headline-lg-font-family');
+				font-size: oPrivateFoundationGet('o3-type-headline-lg-font-size');
+				font-weight: oPrivateFoundationGet('o3-type-headline-lg-font-weight');
+				line-height: oPrivateFoundationGet('o3-type-headline-lg-line-height');
+			}
 		}
 
 		.o-topper__headline--large {
-			@include oEditorialTypographyHeadline();
+			@include oEditorialTypographyDecorated();
+			font-family: oPrivateFoundationGet('o3-type-display-sm-font-family');
+			font-size: oPrivateFoundationGet('o3-type-display-sm-font-size');
+			font-weight: oPrivateFoundationGet('o3-type-display-sm-font-weight');
+			line-height: oPrivateFoundationGet('o3-type-display-sm-line-height');
+
+			@include oPrivateGridRespondTo('S') {
+				font-family: oPrivateFoundationGet('o3-type-display-md-font-family');
+				font-size: oPrivateFoundationGet('o3-type-display-md-font-size');
+				font-weight: oPrivateFoundationGet('o3-type-display-md-font-weight');
+				line-height: oPrivateFoundationGet('o3-type-display-md-line-height');
+			}
+
+			@include oPrivateGridRespondTo('L') {
+				font-family: oPrivateFoundationGet('o3-type-display-lg-font-family');
+				font-size: oPrivateFoundationGet('o3-type-display-lg-font-size');
+				font-weight: oPrivateFoundationGet('o3-type-display-lg-font-weight');
+				line-height: oPrivateFoundationGet('o3-type-display-lg-line-height');
+			}
 			position: relative; //so it appears above the full width background
-			margin-bottom: oSpacingByIncrement(4);
+			margin-bottom: oPrivateSpacingByIncrement(4);
 		}
 	}
 
@@ -243,6 +279,11 @@
 
 @mixin _oTopperColors($colors) {
 	@each $color in $colors {
+		$color: if(
+			$color == 'matisse',
+			'o3-color-palette-#{$color}-blue',
+			'o3-color-palette-#{$color}'
+		);
 		.o-topper--color-#{$color} {
 			@include _oTopperColor($color);
 		}
@@ -251,10 +292,14 @@
 
 // uses topper background colour to set background and pick contrasting text color
 @mixin _oTopperColor($color-name) {
-	$background: oColorsByName($color-name);
-	$foreground: oColorsGetTextColor($background, $opacity: 100);
-	$link-text-color: oColorsByUsecase('link', 'text');
-	$link-contrasts-with-background: oColorsGetContrastRatio($background, $link-text-color) > 4.5;
+	$background: oPrivateFoundationGet($color-name);
+	$foreground: oPrivateColorsGetTextColor($background, $opacity: 100);
+	$link-text-color: oPrivateFoundationGet('o3-color-use-case-link-text');
+	$link-contrasts-with-background: oPrivateColorsGetContrastRatio(
+			$background,
+			$link-text-color
+		)
+		> 4.5;
 	// include oTopperColor on a parent then extend this placeholder on a
 	// descendent to lend that descendent the color you specified in the mixin
 	.o-topper__background,
@@ -262,12 +307,11 @@
 		background-color: $background;
 	}
 
-
 	.o-topper__standfirst,
 	.o-topper__summary {
 		@if $link-contrasts-with-background {
 			a {
-				@include oTypographyLink();
+				@include oPrivateTypographyLink();
 			}
 		} @else {
 			a {
@@ -288,7 +332,7 @@
 	.o-topper__headline {
 		&::after {
 			border-bottom: 6px solid $foreground;
-			@include oGridRespondTo($from: L) {
+			@include oPrivateGridRespondTo($from: L) {
 				border-bottom-width: 8px;
 			}
 		}
@@ -307,54 +351,73 @@
 		color: $foreground;
 
 		&:hover {
-			color: oColorsMix($foreground, $color-name, 73);
+			color: oPrivateColorsMix($foreground, $color-name, 73);
 		}
 	}
-	
+
 	.o-topper__image-caption {
-		color: oColorsMix($foreground, $color-name, 73);
+		color: oPrivateColorsMix($foreground, $color-name, 73);
 	}
 
-	@if $color-name == 'paper' or $color-name == 'wheat' {
+	@if $color-name ==
+		'o3-color-palette-paper' or
+		$color-name ==
+		'o3-color-palette-wheat'
+	{
 		.o-topper__opinion-genre,
 		.o-topper__topic,
 		.o-topper__columnist-name {
-			color: oColorsByUsecase('tag-link', 'text');
+			$color: oPrivateFoundationGet('_o3-editorial-typography-topic-tag-color');
+			color: oPrivateFoundationGet('_o3-editorial-typography-topic-tag-color');
 
 			&:hover {
-				color: oColorsByUsecase('tag-link-hover', 'text');
+				color: oPrivateFoundationGet(
+					'_o3-editorial-typography-topic-tag-hover-color'
+				);
 			}
 		}
 	}
 
-	@if $color-name == 'sky' {
+	@if $color-name == 'o3-color-palette-sky' {
 		.o-topper__tags,
 		.o-topper__topic,
 		.o-topper__columnist-name {
-			color: oColorsByName('oxford');
+			color: oPrivateFoundationGet('o3-color-palette-oxford');
 
 			&:hover {
-				color: oColorsByName('black-80');
+				color: oPrivateFoundationGet('o3-color-palette-black-80');
 			}
 		}
 	}
 
-	@if $color-name == 'matisse' {
-		.o-topper__columnist-name {			
+	@if $color-name == 'o3-color-palette-matisse-blue' {
+		.o-topper__columnist-name {
 			&:hover {
-				color: oColorsMix($foreground, $color-name, 73);
+				color: oPrivateColorsMix($foreground, $color-name, 73);
 			}
 		}
 		:focus-visible {
-			outline-color: oColorsByName('white');
+			outline-color: oPrivateFoundationGet('o3-color-palette-white');
 		}
 	}
 }
 
 @mixin _oTopperAlignText($position) {
-	$mleft: ('left': 0, 'center': auto, 'right': auto);
-	$mright: ('left': auto, 'center': auto, 'right': 0);
-	$value: ('left': flex-start, 'center': center, 'right': flex-end);
+	$mleft: (
+		'left': 0,
+		'center': auto,
+		'right': auto,
+	);
+	$mright: (
+		'left': auto,
+		'center': auto,
+		'right': 0,
+	);
+	$value: (
+		'left': flex-start,
+		'center': center,
+		'right': flex-end,
+	);
 
 	.o-topper__headline--large {
 		&:after {
@@ -376,8 +439,11 @@
 @mixin _oTopperDefineOnce($label) {
 	@if not map-has-key($_o-topper-defined, $label) {
 		@content;
-		$_o-topper-defined: map-merge($_o-topper-defined, (
-			$label: true
-		)) !global;
+		$_o-topper-defined: map-merge(
+			$_o-topper-defined,
+			(
+				$label: true,
+			)
+		) !global;
 	}
 }

@@ -1,0 +1,12 @@
+@import './link.css';
+@import './list.css';
+@import './caption.css';
+@import './usecases.css';
+
+:root {
+	--o3-typography-max-line-width: 60ch;
+}
+
+:where([class^='o3-typography']) {
+	font-family: var(--o3-font-family-metric);
+}

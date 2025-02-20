@@ -10,7 +10,7 @@
 			"input": {
 				"type": "select",
 				"selected": "Option 1 (low chars: qgjpy)",
-				"options": [ "Option 2", "Option 3", "Option 4" ],
+				"options": ["Option 2", "Option 3", "Option 4"],
 				"id": "optional"
 			}
 		},
@@ -22,7 +22,7 @@
 			"input": {
 				"type": "select",
 				"selected": "Option 1",
-				"options": [ "Option 2", "Option 3", "Option 4" ],
+				"options": ["Option 2", "Option 3", "Option 4"],
 				"modifiers": [],
 				"id": "valid"
 			}
@@ -35,7 +35,7 @@
 			"input": {
 				"type": "select",
 				"selected": "",
-				"options": ["", "Option 1", "Option 2", "Option 3" ],
+				"options": ["", "Option 1", "Option 2", "Option 3"],
 				"modifiers": ["invalid"],
 				"error": "An example error. Try again.",
 				"id": "invalid"
@@ -50,7 +50,7 @@
 			"input": {
 				"type": "select",
 				"selected": "Option 1",
-				"options": [ "Option 2", "Option 3", "Option 4" ],
+				"options": ["Option 2", "Option 3", "Option 4"],
 				"id": "disabled"
 			}
 		},
@@ -62,8 +62,8 @@
 			"input": {
 				"type": "select",
 				"selected": "Option 1",
-				"options": [ "Option 2", "Option 3", "Option 4" ],
-				"modifiers": [ "small" ],
+				"options": ["Option 2", "Option 3", "Option 4"],
+				"modifiers": ["small"],
 				"id": "small"
 			}
 		},
@@ -76,7 +76,7 @@
 			"input": {
 				"type": "select",
 				"selected": "Option 1",
-				"options": [ "Option 2", "Option 3", "Option 4" ],
+				"options": ["Option 2", "Option 3", "Option 4"],
 				"id": "multiple"
 			}
 		},
@@ -89,9 +89,9 @@
 			"input": {
 				"type": "select",
 				"selected": "Option 1",
-				"options": [ "Option 2", "Option 3", "Option 4" ],
-				"modifiers": [ "suffix" ],
-				"button": "o-buttons o-buttons--secondary o-buttons--big",
+				"options": ["Option 2", "Option 3", "Option 4"],
+				"modifiers": ["suffix"],
+				"button": "demo-submit-button",
 				"id": "suffix"
 			}
 		},
@@ -103,9 +103,9 @@
 			"input": {
 				"type": "select",
 				"selected": "Option 1",
-				"options": [ "Option 2", "Option 3", "Option 4" ],
-				"modifiers": [ "suffix", "small" ],
-				"button": "o-buttons o-buttons--secondary",
+				"options": ["Option 2", "Option 3", "Option 4"],
+				"modifiers": ["suffix", "small"],
+				"button": "demo-submit-small-button",
 				"id": "small-suffix"
 			}
 		},
@@ -115,12 +115,12 @@
 			"title": {
 				"main": "Short title",
 				"prompt": "Long input",
-				"modifiers": [ "shrink"]
+				"modifiers": ["shrink"]
 			},
 			"input": {
 				"type": "select",
 				"selected": "Option 1",
-				"options": [ "Option 2", "Option 3", "Option 4" ],
+				"options": ["Option 2", "Option 3", "Option 4"],
 				"id": "short-title"
 			}
 		},
@@ -129,12 +129,12 @@
 			"inline-field": true,
 			"title": {
 				"main": "Vertically centered title",
-				"modifiers": [ "vertical-center" ]
+				"modifiers": ["vertical-center"]
 			},
 			"input": {
 				"type": "select",
 				"selected": "Option 1",
-				"options": [ "Option 2", "Option 3", "Option 4" ],
+				"options": ["Option 2", "Option 3", "Option 4"],
 				"id": "vertical-center"
 			}
 		},
@@ -149,7 +149,7 @@
 			"input": {
 				"type": "select",
 				"selected": "Option 1",
-				"options": [ "Option 2", "Option 3", "Option 4" ],
+				"options": ["Option 2", "Option 3", "Option 4"],
 				"id": "inline-multiple"
 			}
 		}

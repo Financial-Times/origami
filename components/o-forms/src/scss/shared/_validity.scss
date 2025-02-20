@@ -6,7 +6,10 @@
 	}
 
 	.o-forms-input--invalid {
-		*:invalid:not(:disabled), input:not(:disabled), textarea:not(:disabled), select:not(:disabled) {
+		*:invalid:not(:disabled),
+		input:not(:disabled),
+		textarea:not(:disabled),
+		select:not(:disabled) {
 			color: _oFormsGet('invalid-base');
 			border-color: _oFormsGet('invalid-base');
 
@@ -17,14 +20,13 @@
 		}
 
 		.o-forms-input__error {
-			@include oTypographySans(
-				$scale: -1,
-				$include-font-family: false
-			);
+			font-family: oPrivateFoundationGet('o3-type-body-base-font-family');
+			font-size: oPrivateFoundationGet('o3-type-body-base-font-size');
+			line-height: oPrivateFoundationGet('o3-type-body-base-line-height');
+			font-weight: oPrivateFoundationGet('o3-type-body-base-font-weight');
 			color: _oFormsGet('invalid-base');
 			display: block;
 			position: relative;
-			margin-top: $_o-forms-spacing-one;
 			margin-bottom: -$_o-forms-spacing-five;
 		}
 	}

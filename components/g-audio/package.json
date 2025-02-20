@@ -20,7 +20,7 @@
     "npm": ">7"
   },
   "peerDependencies": {
-    "@financial-times/o-icons": "^7.2.1"
+    "@financial-times/o-private-foundation": "0.0.0"
   },
   "private": false
 }

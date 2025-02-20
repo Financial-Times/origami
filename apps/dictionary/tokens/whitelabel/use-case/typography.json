@@ -1,124 +1,176 @@
 {
   "o3": {
-    "typography": {
-      "use-case": {
-        "body-standard": {
-          "value": {
-            "fontFamily": "{o3.font.family.metric}",
-            "fontWeight": "{o3.font.weight.regular}",
-            "fontSize": "{o3.font.size-metric2.0}",
-            "lineHeight": "{o3.font.lineheight-metric2.0}"
-          },
-          "type": "typography"
+    "type": {
+      "display-lg": {
+        "value": {
+          "fontFamily": "{o3.font.family.financier-display}",
+          "fontWeight": "{o3.font.weight.bold}",
+          "fontSize": "{o3.font.size.7}",
+          "lineHeight": "{o3.font.lineheight.7}"
         },
-        "body-big": {
-          "value": {
-            "fontFamily": "{o3.font.family.metric}",
-            "fontWeight": "{o3.font.weight.regular}",
-            "fontSize": "{o3.font.size-metric2.1}",
-            "lineHeight": "{o3.font.lineheight-metric2.1}"
-          },
-          "type": "typography"
+        "type": "typography",
+        "description": "Use this style for large screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages."
+      },
+      "display-md": {
+        "value": {
+          "fontFamily": "{o3.font.family.financier-display}",
+          "fontWeight": "{o3.font.weight.bold}",
+          "fontSize": "{o3.font.size.6}",
+          "lineHeight": "{o3.font.lineheight.6}"
         },
-        "body-small": {
-          "value": {
-            "fontFamily": "{o3.font.family.metric}",
-            "fontWeight": "{o3.font.weight.regular}",
-            "fontSize": "{o3.font.size-metric2.negative-1}",
-            "lineHeight": "{o3.font.lineheight-metric2.negative-1}"
-          },
-          "type": "typography"
+        "type": "typography",
+        "description": "Use this style for medium screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages."
+      },
+      "display-sm": {
+        "value": {
+          "fontFamily": "{o3.font.family.financier-display}",
+          "fontWeight": "{o3.font.weight.bold}",
+          "fontSize": "{o3.font.size.5}",
+          "lineHeight": "{o3.font.lineheight.5}"
         },
-        "body-small-caps": {
-          "value": {
-            "fontFamily": "{o3.font.family.metric}",
-            "fontWeight": "{o3.font.weight.regular}",
-            "fontSize": "{o3.font.size-metric2.negative-1}",
-            "lineHeight": "{o3.font.lineheight-metric2.negative-1}"
-          },
-          "type": "typography"
+        "type": "typography",
+        "description": "Use this style for small screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages."
+      },
+      "headline-lg": {
+        "value": {
+          "fontFamily": "{o3.font.family.financier-display}",
+          "fontWeight": "{o3.font.weight.light}",
+          "fontSize": "{o3.font.size.6}",
+          "lineHeight": "{o3.font.lineheight.6}"
         },
-        "body-small-bold": {
-          "value": {
-            "fontFamily": "{o3.font.family.metric}",
-            "fontWeight": "{o3.font.weight.semibold}",
-            "fontSize": "{o3.font.size-metric2.negative-1}",
-            "lineHeight": "{o3.font.lineheight-metric2.negative-1}"
-          },
-          "type": "typography"
+        "type": "typography",
+        "description": "Use this style for large screens headlines in standard-sized teasers and text only toppers (eg. Opinion and News)."
+      },
+      "headline-md": {
+        "value": {
+          "fontFamily": "{o3.font.family.financier-display}",
+          "fontWeight": "{o3.font.weight.light}",
+          "fontSize": "{o3.font.size.5}",
+          "lineHeight": "{o3.font.lineheight.5}"
         },
-        "footer": {
-          "value": {
-            "fontFamily": "{o3.font.family.metric}",
-            "fontWeight": "{o3.font.weight.regular}",
-            "fontSize": "{o3.font.size-metric2.0}",
-            "lineHeight": "{o3.font.lineheight-metric2.0}"
-          },
-          "type": "typography"
+        "type": "typography",
+        "description": "Use this style for medium screens headlines in smaller teasers and text only toppers (eg. Opinion and News)."
+      },
+      "headline-sm": {
+        "value": {
+          "fontFamily": "{o3.font.family.financier-display}",
+          "fontWeight": "{o3.font.weight.light}",
+          "fontSize": "{o3.font.size.3}",
+          "lineHeight": "{o3.font.lineheight.3}"
         },
-        "caption": {
-          "value": {
-            "fontFamily": "{o3.font.family.metric}",
-            "fontWeight": "{o3.font.weight.regular}",
-            "fontSize": "{o3.font.size-metric2.negative-2}",
-            "lineHeight": "{o3.font.lineheight-metric2.negative-2}"
-          },
-          "type": "typography"
+        "type": "typography",
+        "description": "Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News)."
+      },
+      "title-lg": {
+        "value": {
+          "fontFamily": "{o3.font.family.metric}",
+          "fontWeight": "{o3.font.weight.semibold}",
+          "fontSize": "{o3.font.size-metric2.4}",
+          "lineHeight": "{o3.font.lineheight-metric2.3}"
         },
-        "heading1": {
-          "value": {
-            "fontFamily": "{o3.font.family.metric}",
-            "fontWeight": "{o3.font.weight.semibold}",
-            "fontSize": "{o3.font.size-metric2.4}",
-            "lineHeight": "{o3.font.lineheight-metric2.4}"
-          },
-          "type": "typography"
+        "type": "typography",
+        "description": "Use for the main page title H1 in functional pages such as account and settings. Use across all breakpoints."
+      },
+      "title-md": {
+        "value": {
+          "fontFamily": "{o3.font.family.metric}",
+          "fontWeight": "{o3.font.weight.regular}",
+          "fontSize": "{o3.font.size-metric2.3}",
+          "lineHeight": "{o3.font.lineheight-metric2.3}"
         },
-        "heading2": {
-          "value": {
-            "fontFamily": "{o3.font.family.metric}",
-            "fontWeight": "{o3.font.weight.semibold}",
-            "fontSize": "{o3.font.size-metric2.3}",
-            "lineHeight": "{o3.font.lineheight-metric2.3}"
-          },
-          "type": "typography"
+        "type": "typography",
+        "description": "Use this style as H3 or subtitles within the content body to break paragraphs, or for titles of components like forms, tables and cards across all breakpoints."
+      },
+      "title-sm": {
+        "value": {
+          "fontFamily": "{o3.font.family.metric}",
+          "fontWeight": "{o3.font.weight.regular}",
+          "lineHeight": "{o3.font.lineheight-metric2.2}",
+          "fontSize": "{o3.font.size-metric2.2}"
         },
-        "heading3": {
-          "value": {
-            "fontFamily": "{o3.font.family.metric}",
-            "fontWeight": "{o3.font.weight.semibold}",
-            "fontSize": "{o3.font.size-metric2.2}",
-            "lineHeight": "{o3.font.lineheight-metric2.2}"
-          },
-          "type": "typography"
+        "type": "typography",
+        "description": "Use H6 for subtitles within the content body to break up paragraphs, and H2 for subheadings on stream pages or as subtitles for components such as forms, tables, and cards across all breakpoints."
+      },
+      "body-lg": {
+        "value": {
+          "fontFamily": "{o3.font.family.metric}",
+          "fontWeight": "{o3.font.weight.regular}",
+          "fontSize": "{o3.font.size-metric2.1}",
+          "lineHeight": "{o3.font.lineheight-metric2.1}"
         },
-        "heading4": {
-          "value": {
-            "fontFamily": "{o3.font.family.metric}",
-            "fontWeight": "{o3.font.weight.semibold}",
-            "fontSize": "{o3.font.size-metric2.1}",
-            "lineHeight": "{o3.font.lineheight-metric2.1}"
-          },
-          "type": "typography"
+        "type": "typography",
+        "description": "Use primarily for the stand-first (introductory summary or highlight) in topper component, as larger body text in components, or section description."
+      },
+      "body-base": {
+        "value": {
+          "fontFamily": "{o3.font.family.metric}",
+          "fontWeight": "{o3.font.weight.regular}",
+          "fontSize": "{o3.font.size-metric2.0}",
+          "lineHeight": "{o3.font.lineheight-metric2.0}"
         },
-        "heading5": {
-          "value": {
-            "fontFamily": "{o3.font.family.metric}",
-            "fontWeight": "{o3.font.weight.semibold}",
-            "fontSize": "{o3.font.size-metric2.0}",
-            "lineHeight": "{o3.font.lineheight-metric2.0}"
-          },
-          "type": "typography"
+        "type": "typography",
+        "description": "Use this style for the stand-first in teasers and as the default body copy style across components such as location in the byline."
+      },
+      "body-highlight": {
+        "value": {
+          "fontFamily": "{o3.font.family.metric}",
+          "fontWeight": "{o3.font.weight.semibold}",
+          "fontSize": "{o3.font.size-metric2.0}",
+          "lineHeight": "{o3.font.lineheight-metric2.0}"
         },
-        "heading6": {
-          "value": {
-            "fontFamily": "{o3.font.family.metric}",
-            "fontWeight": "{o3.font.weight.semibold}",
-            "fontSize": "{o3.font.size-metric2.negative-1}",
-            "lineHeight": "{o3.font.lineheight-metric2.negative-1}"
-          },
-          "type": "typography"
-        }
+        "type": "typography",
+        "description": "Use this style for bold formatting in body copy or for small interactive elements, such as Topic tags and Author names."
+      },
+      "detail": {
+        "value": {
+          "fontFamily": "{o3.font.family.metric}",
+          "fontWeight": "{o3.font.weight.regular}",
+          "fontSize": "{o3.font.size-metric2.negative-1}",
+          "lineHeight": "{o3.font.lineheight-metric2.negative-1}"
+        },
+        "type": "typography",
+        "description": "Use this style for caption in visual assets such as image and video and for small text elements, such as secondary metadata, caveats, or footnotes."
+      },
+      "label": {
+        "value": {
+          "fontFamily": "{o3.font.family.metric}",
+          "fontWeight": "{o3.font.weight.regular}",
+          "fontSize": "{o3.font.size-metric2.negative-1}",
+          "lineHeight": "{o3.font.lineheight-metric2.negative-1}",
+          "textCase": "uppercase"
+        },
+        "type": "typography",
+        "description": "Use this style for labels such as badges and metadata in teasers and toppers (e.g., \"Live,\" \"Premium,\" or the main timestamp). Avoid using full sentences."
+      },
+      "body-content-base": {
+        "value": {
+          "fontFamily": "Georgia",
+          "fontWeight": "Regular",
+          "fontSize": "{o3.font.size.2}",
+          "lineHeight": "{o3.font.lineheight.4}"
+        },
+        "type": "typography",
+        "description": "Use this style only for the body copy of content pages, such as articles, live news and other content experience page."
+      },
+      "body-content-highlight": {
+        "value": {
+          "fontFamily": "Georgia",
+          "fontWeight": "Bold",
+          "fontSize": "{o3.font.size.2}",
+          "lineHeight": "{o3.font.lineheight.4}"
+        },
+        "type": "typography",
+        "description": "Use this style only for the body copy of content pages, such as articles, live news and other content experience page."
+      },
+      "body-content-emphasis": {
+        "value": {
+          "fontFamily": "Georgia",
+          "fontWeight": "Italic",
+          "fontSize": "{o3.font.size.2}",
+          "lineHeight": "{o3.font.lineheight.4}"
+        },
+        "type": "typography",
+        "description": "Use this style only for the body copy of content pages, such as articles, live news and other content experience page."
       }
     }
   }

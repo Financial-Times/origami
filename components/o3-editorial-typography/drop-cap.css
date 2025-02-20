@@ -1,37 +1,8 @@
-/* Currently unsupported by brands,
-We intend to introduce this to future Specialist Titles */
-.o3-editorial-typography-body--drop-cap:first-letter {
-	font-family: var(--_o3-dropcap-font-family);
-	font-weight: var(--_o3-dropcap-font-weight);
-	font-size: var(--_o3-dropcap-font-size);
-	line-height: var(--_o3-dropcap-line-height);
+.o3-editorial-typography-drop-cap:first-letter {
+	font-family: var(--o3-font-family-metric);
+	font-weight: var(--o3-font-weight-light);
+	font-size: calc((108 / 16) * 1rem);
+	line-height: 0.82;
 	float: left;
 	margin-right: var(--o3-spacing-2xs);
-}
-
-.o3-editorial-typography-body--drop-cap {
-	--_o3-dropcap-font-family: var(
-		--_o3-editorial-typography-dropcap-m-font-family
-	);
-	--_o3-dropcap-font-size: var(--_o3-editorial-typography-dropcap-m-font-size);
-	--_o3-dropcap-font-weight: var(
-		--_o3-editorial-typography-dropcap-m-font-weight
-	);
-	--_o3-dropcap-line-height: var(
-		--_o3-editorial-typography-dropcap-m-line-height
-	);
-	@media screen and (min-width: 980px) {
-		--_o3-dropcap-font-family: var(
-			--_o3-editorial-typography-dropcap-l-font-family
-		);
-		--_o3-dropcap-font-size: var(
-			--_o3-editorial-typography-dropcap-l-font-size
-		);
-		--_o3-dropcap-font-weight: var(
-			--_o3-editorial-typography-dropcap-l-font-weight
-		);
-		--_o3-dropcap-line-height: var(
-			--_o3-editorial-typography-dropcap-l-line-height
-		);
-	}
 }

@@ -8,43 +8,55 @@
 }
 
 @mixin _oTopperSummary {
-	@include oTypographySans(1);
+	font-family: oPrivateFoundationGet('o3-type-body-base-font-family');
+	font-size: oPrivateFoundationGet('o3-type-body-base-font-size');
+	font-weight: oPrivateFoundationGet('o3-type-body-base-font-weight');
+	line-height: oPrivateFoundationGet('o3-type-body-base-line-height');
 	> ul {
-		padding: 0 oSpacingByIncrement(5);
+		padding: 0 oPrivateSpacingByIncrement(5);
 	}
 
 	> ul > li {
-		margin: oSpacingByName('s2') 0;
+		margin: oPrivateSpacingByName('s2') 0;
 	}
 }
 
-
 @mixin _oTopperSummaryBody {
 	h2 {
-		@include oTypographySans(0, $weight: 'semibold');
+		font-family: oPrivateFoundationGet('o3-type-body-highlight-font-family');
+		font-size: oPrivateFoundationGet('o3-type-body-highlight-font-size');
+		font-weight: oPrivateFoundationGet('o3-type-body-highlight-font-weight');
+		line-height: oPrivateFoundationGet('o3-type-body-highlight-line-height');
 		margin: 5px 0 0;
 	}
 
 	ul {
-		@include oTypographyList('unordered');
+		@include oPrivateTypographyList('unordered');
 		margin: 0px;
 
 		li:first-child {
 			margin-top: 0px;
 		}
 		li {
-			@include oTypographySans(1);
-			margin-top: oSpacingByName('s2');
+			font-family: oPrivateFoundationGet('o3-type-body-base-font-family');
+			font-size: oPrivateFoundationGet('o3-type-body-base-font-size');
+			font-weight: oPrivateFoundationGet('o3-type-body-base-font-weight');
+			line-height: oPrivateFoundationGet('o3-type-body-base-line-height');
+			margin-top: oPrivateSpacingByName('s2');
 			margin-bottom: 0;
 		}
 	}
 }
 
 @mixin _oTopperImageCredit {
-	@include oTypographySans(-2);
-	color: oColorsByName('white');
+	font-family: oPrivateFoundationGet('o3-type-detail-font-family');
+	font-size: oPrivateFoundationGet('o3-type-detail-font-size');
+	font-weight: oPrivateFoundationGet('o3-type-detail-font-weight');
+	line-height: oPrivateFoundationGet('o3-type-detail-line-height');
+
+	color: oPrivateFoundationGet('o3-color-palette-white');
 	position: absolute;
-	text-shadow: 1px 1px 1px oColorsByName('slate');
+	text-shadow: 1px 1px 1px oPrivateFoundationGet('o3-color-palette-slate');
 	text-align: right;
 	width: 100vw;
 	margin-left: 50%;
@@ -55,9 +67,12 @@
 }
 
 @mixin _oTopperImageCaption {
-	@include oTypographySans(-1);
+	font-family: oPrivateFoundationGet('o3-type-detail-font-family');
+	font-size: oPrivateFoundationGet('o3-type-detail-font-size');
+	font-weight: oPrivateFoundationGet('o3-type-detail-font-weight');
+	line-height: oPrivateFoundationGet('o3-type-detail-line-height');
 	padding: 10px 11px 0px;
-	@include oGridRespondTo(L) {
+	@include oPrivateGridRespondTo(L) {
 		padding-left: 18px;
 	}
 }
@@ -94,7 +109,7 @@
 }
 
 @mixin _oTopperColumnist {
-	margin-top: oSpacingByName('s4');
+	margin-top: oPrivateSpacingByName('s4');
 	text-transform: uppercase;
 }
 
@@ -104,7 +119,10 @@
 }
 
 @mixin _oTopperTags {
-	@include oTypographySans(0, $line-height: 28px, $include-font-family: false);
+	font-family: oPrivateFoundationGet('o3-type-body-base-font-family');
+	font-size: oPrivateFoundationGet('o3-type-body-base-font-size');
+	font-weight: oPrivateFoundationGet('o3-type-body-base-font-weight');
+	line-height: oPrivateFoundationGet('o3-type-body-base-line-height');
 	padding-bottom: 5px;
 }
 

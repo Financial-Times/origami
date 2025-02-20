@@ -7,25 +7,25 @@
 @include oNormalise();
 
 body {
-	font-family: MetricWeb, sans-serif;
+  font-family: MetricWeb, sans-serif;
 }
 
 .demo-video-container {
-	position: relative;
-	margin: 0 0 20px;
+  position: relative;
+  margin: 0 0 20px;
 }
 
 .demo-video-container--small {
-	width: 240px;
-	height: 135px;
+  width: 240px;
+  height: 135px;
 }
 
 .demo-video-container--medium {
-	width: 400px;
-	height: 225px;
+  width: 400px;
+  height: 225px;
 }
 
 .demo-video-container--large {
-	width: 640px;
-	height: 360px;
+  width: 640px;
+  height: 360px;
 }

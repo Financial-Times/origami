@@ -10,11 +10,11 @@
 	}
 
 	.o-header__container {
-		@include oGridContainer();
-		@include oNormaliseClearfix();
+		@include oPrivateGridContainer();
+		@include oPrivateNormaliseClearfix();
 	}
 
 	.o-header__visually-hidden {
-		@include oNormaliseVisuallyHidden;
+		@include oPrivateNormaliseVisuallyHidden;
 	}
 }

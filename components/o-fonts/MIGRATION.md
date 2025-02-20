@@ -1,5 +1,134 @@
 ## Migration guide
 
+### Migrating from v5 to o3-foundation@3
+
+o-fonts is now replaced by [o3-foundation](../o3-foundation/README.md).
+
+One of the major changes in Origami 3 is the removal of Sass, we now use plain CSS for Origami components.
+
+This guide will update to o3-foundation@3. Be sure to
+check [o3-foundation's migration guide](../o3-foundation/MIGRATION.md) for any further updates.
+
+#### Including fonts
+
+Fonts are now included when o3-foundation is imported. Usages of o-fonts mixins can be replaced with an import:
+
+```diff
+- @import '@financial-times/o-fonts/main';
++ @import '@financial-times/o3-foundation/[your-brand].css
+
+- @include oFonts();
+```
+
+o3-foundation introduces [Variable Fonts](https://fonts.google.com/knowledge/introducing_type/introducing_variable_fonts). These fonts have flexible weight, spacing, and italic controls. We have introduced [typography tokens](README.md#Typography) to help keep usage of these properties consistent across the FT.
+
+To use specific fonts weights, use an apropriate typography use case:
+
+```diff
+- @import '@financial-times/o-fonts/main';
++ @import '@financial-times/o3-foundation/[your-brand].css
+
+- @include oFonts($opts: (
+-	'recommended': true,
+-	'metric': (
+-		('weight': 'medium', 'style': 'normal')
+-	)
+- ));
+```
+
+```html
+<h1 class="o3-type-body-highlight"> <!-- Sets a bolder font weight for body copy -->
+  The Financial Times
+</h1>
+```
+
+#### Font Loading
+
+There is no way to overload the `font-display` property in Origami 3. By default, it remains `swap`. Please remove any usages of `$o-fonts-display`:
+
+```diff
+- $o-fonts-display: 'optional';
+- @import '@financial-times/o-fonts/main';
++ @import '@financial-times/o3-foundation/[your-brand].css
+
+- @include oFonts();
+```
+
+#### Custom font families
+
+There is no replacement for `oFontsDefineCustomFont` in Origami 3. Define custom fonts in your code using plain CSS if needed:
+
+```diff
+- @include oFontsDefineCustomFont('MyFont, sans', (
+- 	(weight: regular, style: normal),
+- 	(weight: bold, style: normal)
+- )) {
+- 	@font-face {
+- 		src: url('MyFont-Thin.woff2') format('woff2'), url('MyFont-Thin.woff') format('woff');
+- 		font-family: MyFont;
+- 		font-weight: 100;
+- 		font-style: normal;
+- 	}
+- 	@font-face {
+- 		src: url('MyFont-Bold.woff2') format('woff2'), url('MyFont-Bold.woff') format('woff');
+- 		font-family: MyFont;
+- 		font-weight: 700;
+- 		font-style: normal;
+- 	}
+- }
+
++	@font-face {
++		src: url('MyFont-Thin.woff2') format('woff2'), url('MyFont-Thin.woff') format('woff');
++		font-family: 'MyFont';
++		font-weight: 100;
++		font-style: normal;
++	}
++	@font-face {
++		src: url('MyFont-Bold.woff2') format('woff2'), url('MyFont-Bold.woff') format('woff');
++		font-family: 'MyFont';
++		font-weight: 700;
++		font-style: normal;
++	}
+```
+
+#### Mixins
+
+**oFontsGetFontFamilyWithFallbacks**
+
+Replace with CSS custom properties:
+
+```diff
+- font-family: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb);
++ font-family: var(--o3-font-family-financier-display)
+```
+
+**oFontsGetFontFamilyWithoutFallback**
+
+Replace with CSS custom properties:
+
+```diff
+- font-family: oFontsGetFontFamilyWithoutFallbacks(FinancierDisplayWeb);
++ font-family: var(--o3-font-family-financier-display)
+```
+
+**oFontsVariantExists**
+
+There is no replacement in Origami 3.
+
+**oFontsVariantIncluded**
+
+There is no replacement in Origami 3.
+
+#### Variables
+
+The following variables are not replaced in o3 foundation:
+
+* $o-fonts-path
+* $o-fonts-build-service-path
+* $o-fonts-self-host-path
+* $o-fonts-display
+* 
+
 ### Migrating from v4 to v5
 
 V5 has dropped support for use through Bower.

@@ -1,14 +1,14 @@
 /* eslint-env mocha */
 
-import { setViewport } from '@web/test-runner-commands';
-import { assert, waitUntil } from '@open-wc/testing';
+import {setViewport} from '@web/test-runner-commands';
+import {assert, waitUntil} from '@open-wc/testing';
 import sinon from 'sinon/pkg/sinon-esm.js';
 import Layout from '../src/js/layout.js';
-import { docs, docsWithSubHeading, query } from './helpers/fixtures.js';
+import {docs, docsWithSubHeading, query} from './helpers/fixtures.js';
 
 sinon.assert.expose(assert, {
 	includeFail: false,
-	prefix: ''
+	prefix: '',
 });
 
 describe('Layout', () => {
@@ -26,7 +26,6 @@ describe('Layout', () => {
 	});
 
 	describe('.init()', () => {
-
 		it('stores `documentationLayoutElement` in a `layoutEl` property', () => {
 			const layout = new Layout(documentationLayoutElement);
 			assert.strictEqual(layout.layoutEl, documentationLayoutElement);
@@ -39,31 +38,38 @@ describe('Layout', () => {
 				constructNav: true,
 				navHeadingSelector: 'h1, h2, h3',
 				linkHeadings: true,
-				linkedHeadingSelector: 'h1, h2, h3, h4, h5, h6'
+				linkedHeadingSelector: 'h1, h2, h3, h4, h5, h6',
 			});
 		});
 
 		it('constructs the documentation layout navigation by default', () => {
 			const layout = new Layout(documentationLayoutElement);
-			assert.strictEqual(layout.navHeadings.length, 2, `Expected to find two navigation headings but found ${layout.navHeadings.length}.`);
+			assert.strictEqual(
+				layout.navHeadings.length,
+				2,
+				`Expected to find two navigation headings but found ${layout.navHeadings.length}.`
+			);
 		});
 
 		it('constructs a nested navigation when a h3 (or lower) follows a h2', async () => {
-			await setViewport({ width: 1080, height: 100 });
+			await setViewport({width: 1080, height: 100});
 			document.body.innerHTML = docsWithSubHeading;
 			documentationLayoutElement = document.querySelector('.o-layout--docs');
 			new Layout(documentationLayoutElement, {
-				navHeadingSelector: 'h1, h2, h3, h4, h5, h6'
+				navHeadingSelector: 'h1, h2, h3, h4, h5, h6',
 			});
 			await waitUntil(
 				() => {
-					const link = documentationLayoutElement.querySelector('[href="#this-is-a-h1"]');
+					const link = documentationLayoutElement.querySelector(
+						'[href="#this-is-a-h1"]'
+					);
 					if (link) {
 						return link.getAttribute('aria-current') === 'location';
 					}
 				},
-				'the correct link never became listed as the current location', {
-					timeout: 2000
+				'the correct link never became listed as the current location',
+				{
+					timeout: 2000, // 2 seconds
 				}
 			);
 			assert.dom.equal(
@@ -74,38 +80,53 @@ describe('Layout', () => {
 
 		it('does not construct the navigation by default for the query layout', () => {
 			new Layout(queryLayoutElement);
-			assert.dom.equal(queryLayoutElement.querySelector('.o-layout__query-sidebar'), `<div class="o-layout-typography o-layout__query-sidebar"></div>`, 'Expected to find no navigation HTML within the query layout sidebar.');
+			assert.dom.equal(
+				queryLayoutElement.querySelector('.o-layout__query-sidebar'),
+				`<div class="o-layout-typography o-layout__query-sidebar"></div>`,
+				'Expected to find no navigation HTML within the query layout sidebar.'
+			);
 		});
 
-		it('constructs the navigation for the query layout when "constructNav" is explicit', (done) => {
+		it('constructs the navigation for the query layout when "constructNav" is explicit', done => {
 			new Layout(queryLayoutElement, {
-				constructNav: true
+				constructNav: true,
 			});
 			setTimeout(() => {
-				assert.ok(queryLayoutElement.querySelector('.o-layout__query-sidebar').innerHTML, 'Expected to find navigation HTML within the query layout sidebar.');
+				assert.ok(
+					queryLayoutElement.querySelector('.o-layout__query-sidebar')
+						.innerHTML,
+					'Expected to find navigation HTML within the query layout sidebar.'
+				);
 				done();
 			}, 100);
 		});
 
-		it('constructs the navigation headings with a custom selector set by the "navHeadingSelector" option', (done) => {
-			new Layout(documentationLayoutElement, { navHeadingSelector: 'h1' });
+		it('constructs the navigation headings with a custom selector set by the "navHeadingSelector" option', done => {
+			new Layout(documentationLayoutElement, {navHeadingSelector: 'h1'});
 			// allow for request animation frame
 			setTimeout(() => {
-				assert.ok(document.querySelector('.o-layout__navigation'), 'Expected to find a navigation element.');
+				assert.ok(
+					document.querySelector('.o-layout__navigation'),
+					'Expected to find a navigation element.'
+				);
 				done();
 			}, 100);
 		});
 
-		it('does not construct navigation when "constructNav" is set to false', (done) => {
-			new Layout(documentationLayoutElement, { constructNav: false });
+		it('does not construct navigation when "constructNav" is set to false', done => {
+			new Layout(documentationLayoutElement, {constructNav: false});
 			// allow for request animation frame
 			setTimeout(() => {
-				assert.notOk(document.querySelector('.o-layout__navigation'), null, 'Did not expect to find a navigation element.');
+				assert.notOk(
+					document.querySelector('.o-layout__navigation'),
+					null,
+					'Did not expect to find a navigation element.'
+				);
 				done();
 			}, 100);
 		});
 
-		it('updates `aria-current` on init for manually constructed navigation markup', (done) => {
+		it('updates `aria-current` on init for manually constructed navigation markup', done => {
 			// manually construct nav
 			const navMarkup = `
 				<nav class="o-layout__navigation">
@@ -130,7 +151,7 @@ describe('Layout', () => {
 				done(error);
 			}
 			// init layout, with `constructNav: false` as we created our own
-			new Layout(documentationLayoutElement, { constructNav: false });
+			new Layout(documentationLayoutElement, {constructNav: false});
 			// allow for request animation frame
 			setTimeout(() => {
 				// assert the current location has been updated on init
@@ -145,23 +166,50 @@ describe('Layout', () => {
 
 		it('constructs linkable headings by default', () => {
 			const layout = new Layout(documentationLayoutElement);
-			assert.strictEqual(layout.linkedHeadings.length, 2, 'Expected to find two linked heading.');
+			assert.strictEqual(
+				layout.linkedHeadings.length,
+				2,
+				'Expected to find two linked heading.'
+			);
 		});
 
 		it('does not construct linkable headings when "linkHeadings" is set to false', () => {
-			const layout = new Layout(documentationLayoutElement, { linkHeadings: false });
-			assert.strictEqual(layout.linkedHeadings.length, 0, 'Expected to find no linked headings.');
+			const layout = new Layout(documentationLayoutElement, {
+				linkHeadings: false,
+			});
+			assert.strictEqual(
+				layout.linkedHeadings.length,
+				0,
+				'Expected to find no linked headings.'
+			);
 		});
 
 		it('constructs linkable headings with a custom selector set by the "linkedHeadingSelector" option', () => {
-			const layout = new Layout(documentationLayoutElement, { linkedHeadingSelector: 'h1' });
-			assert.strictEqual(layout.linkedHeadings.length, 1, 'Expected to find one "h1" linked heading.');
+			const layout = new Layout(documentationLayoutElement, {
+				linkedHeadingSelector: 'h1',
+			});
+			assert.strictEqual(
+				layout.linkedHeadings.length,
+				1,
+				'Expected to find one "h1" linked heading.'
+			);
 		});
 
 		it('constructs the navigation independently of linked headings', () => {
-			const layout = new Layout(documentationLayoutElement, { navHeadingSelector: 'h1', linkedHeadingSelector: 'h2' });
-			assert.strictEqual(layout.linkedHeadings.length, 1, 'Expected to find only one "h2" linked heading.');
-			assert.strictEqual(layout.navHeadings.length, 1, 'Expected to find only one "h1" nav heading.');
+			const layout = new Layout(documentationLayoutElement, {
+				navHeadingSelector: 'h1',
+				linkedHeadingSelector: 'h2',
+			});
+			assert.strictEqual(
+				layout.linkedHeadings.length,
+				1,
+				'Expected to find only one "h2" linked heading.'
+			);
+			assert.strictEqual(
+				layout.navHeadings.length,
+				1,
+				'Expected to find only one "h1" nav heading.'
+			);
 		});
 
 		it('extracts options from the DOM', () => {
@@ -173,8 +221,10 @@ describe('Layout', () => {
 	});
 
 	describe('.constructNavFromDOM()', () => {
-		it('extracts headings from main content to construct sidebar navigation', (done) => {
-			const layout = new Layout(documentationLayoutElement, { constructNav: false });
+		it('extracts headings from main content to construct sidebar navigation', done => {
+			const layout = new Layout(documentationLayoutElement, {
+				constructNav: false,
+			});
 			const headingOneId = document.body.querySelector('h1').id;
 			const headingTwoId = document.body.querySelector('h2').id;
 			layout.constructNavFromDOM();
@@ -199,7 +249,7 @@ describe('Layout', () => {
 			mockLayoutEl.setAttribute('data-another-key', 'value');
 			mockLayoutEl.setAttribute('data-o-layout-foo', 'bar');
 			mockLayoutEl.setAttribute('data-o-layout-json', '{"foo": "bar"}');
-			mockLayoutEl.setAttribute('data-o-layout-json-single', '{\'foo\': \'bar\'}');
+			mockLayoutEl.setAttribute('data-o-layout-json-single', "{'foo': 'bar'}");
 			returnValue = Layout.getDataAttributes(mockLayoutEl);
 		});
 
@@ -225,17 +275,17 @@ describe('Layout', () => {
 			assert.strictEqual(returnValue.foo, 'bar');
 		});
 
-		it('parses the key as JSON if it\'s valid', () => {
+		it("parses the key as JSON if it's valid", () => {
 			assert.isObject(returnValue.json);
 			assert.deepEqual(returnValue.json, {
-				foo: 'bar'
+				foo: 'bar',
 			});
 		});
 
 		it('parses the key as JSON even if single quotes are used', () => {
 			assert.isObject(returnValue.jsonSingle);
 			assert.deepEqual(returnValue.jsonSingle, {
-				foo: 'bar'
+				foo: 'bar',
 			});
 		});
 	});

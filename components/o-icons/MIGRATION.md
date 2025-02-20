@@ -1,5 +1,120 @@
 ## Migration guide
 
+### Migrating from v7 to o3-foundation@3
+
+o-icons is now replaced by [o3-foundation](../o3-foundation/README.md).
+
+One of the major changes in Origami 3 is the removal of Sass, we now use plain CSS for Origami components.
+
+This guide will update to o3-foundation@3. Be sure to
+check [o3-foundation's migration guide](../o3-foundation/MIGRATION.md) for any further updates.
+
+#### Utility Classes
+
+Replace utility class usages with CSS Custom Properties in classes:
+
+**HTML**
+```diff
+- <span class="o-icons-icon o-icons-icon--arrow-down"></span>
++ <span class="icon-plus"></span>
+```
+
+**CSS**
+```css
+.icon-plus {
+	/* Create a square the size we want an icon */
+	display: inline-block;
+	width: 1rem;
+	height: 1rem;
+	/* Set the icon colour, In this case match the
+     current foreground text colour. */
+	background-color: currentColor;
+	/* Mask the square with an Origami icon. */
+	mask-image: var(--o3-icon-plus);
+	mask-repeat: no-repeat;
+	mask-size: contain;
+}
+```
+
+#### Mixins
+
+**oIconsContent**
+Replace mixins with CSS Custom Properties and additional css properties. We recommend using 24px icons by default. Please consult the design team if there is a need to deviate:
+
+**Sass**
+```diff
+- @import "@financial-times/o-icons/main";
+- @import "@financial-times/o-colors/main";
+
+.my-icon-plus {
+-	@include oIconsContent(
+-		$icon-name: 'plus',
+-		$color: oColorsByName('claret'),
+-		$size: 32
+-	);
++ display: inline-block;
++ width: 24px;
++ height: 24px;
++ background-color: var(--o3-color-palette-black);
++ mask-image: var(--o3-icon-plus);
++ mask-repeat: no-repeat;
++ mask-size: contain;
+}
+```
+
+**oIconsContentBaseStyles**
+
+Replace mixins with CSS Custom Properties and additional css properties.
+This approach can also be used to reduce duplication from use of `oIconsContent`.
+
+```diff
+.my-icon {
+-	@include oIconsContentBaseStyles();
++	display: inline-block;
++	width: 32px;
++	height: 32px;
++	background-color: var(--o3-color-palette-black);
++	mask-repeat: no-repeat;
++	mask-size: contain;
+}
+
+.my-icon--plus {
+-@include oIconsContent(
+-	$icon-name: 'plus',
+-	$color: oColorsByName('claret'),
+-	$size: 32,
+-	$include-base-styles: false // do not duplicate the base styles
+-);
++ mask-image: var(--o3-icon-plus);
+}
+```
+
+**CSS**
+```css
+.my-icon {
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	background-color: var(--o3-color-palette-black);
+	mask-repeat: no-repeat;
+	mask-size: contain;
+}
+
+.my-icon--plus {
+	mask-image: var(--o3-icon-plus);
+}
+
+.my-icon--chat {
+    mask-image: var(--o3-icon-chat);
+}
+```
+
+**HTML**
+```html
+<span class="my-icon my-icon--plus"></span>
+<span class="my-icon my-icon--chat"></span>
+```
+
 ### Migrating from v6 to v7
 
 

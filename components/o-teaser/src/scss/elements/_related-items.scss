@@ -3,19 +3,26 @@
 	list-style: disc outside;
 	padding-left: 30px;
 	margin: 0 0 20px;
-	border-left: 1px solid oColorsByName('black-20');
+	border-left: 1px solid oPrivateFoundationGet('o3-color-palette-black-20');
 
-	@include oGridRespondTo($until: M) {
+	@include oPrivateGridRespondTo($until: M) {
 		display: none;
 	}
 }
 
 /// Single related content item styles
 @mixin _oTeaserRelatedItem {
-	@include oTypographySans(
-		$scale: (default: (-1, 22px), L: (0, 24px)),
-		$include-font-family: false
-	);
+	font-family: oPrivateFoundationGet('o3-type-detail-font-family');
+	font-size: oPrivateFoundationGet('o3-type-detail-font-size');
+	font-weight: oPrivateFoundationGet('o3-type-detail-font-weight');
+	line-height: 22px;
+
+	@include oPrivateGridRespondTo('L') {
+		font-family: oPrivateFoundationGet('o3-type-body-base-font-family');
+		font-size: oPrivateFoundationGet('o3-type-body-base-font-size');
+		font-weight: oPrivateFoundationGet('o3-type-body-base-font-weight');
+		line-height: oPrivateFoundationGet('o3-type-body-base-line-height');
+	}
 	color: $_o-teaser-muted;
 
 	&:hover,
@@ -34,11 +41,15 @@
 	}
 
 	&.o-teaser__related-item--video a:after {
-		@include oIconsContent('play', oColorsByName('white'), $size: 13);
+		@include oPrivateIconsContent(
+			'play',
+			oPrivateFoundationGet('o3-color-palette-white'),
+			$size: 13
+		);
 		content: '';
 		position: relative;
 		top: 1px;
-		background-color: oColorsByName('black');
+		background-color: oPrivateFoundationGet('o3-color-palette-black');
 		margin-left: 5px;
 	}
 }

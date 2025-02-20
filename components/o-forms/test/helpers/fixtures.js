@@ -13,7 +13,7 @@ const validForm = `
 
 	<input id="hidden-demo" name="hidden-demo" type="hidden" value="123">
 
-	<input class="o-buttons o-buttons--secondary" type="submit">
+	<input class="demo-submit-button" type="submit">
 </form>
 `;
 
@@ -82,12 +82,10 @@ const invalidForm = `
 
 	<input id="hidden-demo" name="hidden-demo" type="hidden" value="123">
 
-	<input class="o-buttons o-buttons--secondary" type="submit">
+	<input class="demo-submit-button" type="submit">
 </form>
 `;
 
-
-export { validForm, invalidForm};
-
+export {validForm, invalidForm};
 
 export default invalidForm;

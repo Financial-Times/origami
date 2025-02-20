@@ -1,7 +1,7 @@
 ---
 const tokens = await import(`@financial-times/o3-tooling-token/icons.js`);
 
-const iconTokens = Object.entries(tokens.default).filter(([key, value]) => value.path[1] === 'icons' ).map(([key, value]) => {
+const iconTokens = Object.entries(tokens.default).filter(([key, value]) => value.path[1] === 'icon' ).map(([key, value]) => {
 	value.name = key;
 	return value;
 });
@@ -50,5 +50,9 @@ const iconTokensHaveDescription = Boolean(
 		align-items: center;
 		flex-direction: column;
 		white-space: nowrap;
+	}
+
+	.icon-preview__icon {
+			width: 24px;
 	}
 </style>

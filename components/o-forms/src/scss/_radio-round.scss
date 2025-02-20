@@ -1,14 +1,10 @@
-// sass-lint:disable selector-no-qualifying-type
 /// @access private
 /// @param {Boolean} $disabled Whether to output disabled state styling
 /// @output Styling for box-styled radio inputs
-@mixin _oFormsRadioRound(
-	$disabled: null,
-	$themes: (),
-) {
+@mixin _oFormsRadioRound($disabled: null, $themes: ()) {
 	.o-forms-input--radio-round {
 		.o-forms-input__label {
-			padding: $_o-forms-spacing-half 0 $_o-forms-spacing-half $_o-forms-spacing-controls;
+			padding: 0 0 0 $_o-forms-spacing-controls;
 			display: inline-block;
 
 			&:before,
@@ -36,17 +32,17 @@
 			}
 		}
 
-		input[type=radio] { // stylelint-disable-line selector-no-qualifying-type
+		input[type='radio'] {
 			@include _oFormsControlsBase($disabled);
 
-			&:checked + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
+			&:checked + .o-forms-input__label:before {
 				border-color: _oFormsGet('controls-base');
 			}
 
 			&:focus {
-				@include oNormaliseFocusUnsetContent();
-				& + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
-					@include oNormaliseFocusContent();
+				@include oPrivateNormaliseFocusUnsetContent();
+				& + .o-forms-input__label:before {
+					@include oPrivateNormaliseFocusContent();
 				}
 			}
 
@@ -56,24 +52,23 @@
 			// `:focus` fallback, however some of our supported browsers
 			// do not understand `@supports: selector()`.
 			@supports selector(:focus-visible) {
-				&:focus + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
-					@include oNormaliseFocusUnsetContent();
+				&:focus + .o-forms-input__label:before {
+					@include oPrivateNormaliseFocusUnsetContent();
 				}
 
 				&:focus-visible {
-					& + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
-						@include oNormaliseFocusContent();
+					& + .o-forms-input__label:before {
+						@include oPrivateNormaliseFocusContent();
 					}
 				}
 			}
 		}
 	}
 
-
 	@each $theme in $themes {
 		@if _oFormsSupports('#{$theme}') {
 			.o-forms-field--#{$theme} {
-				@include _oFormsRadioRoundThemeContent($theme)
+				@include _oFormsRadioRoundThemeContent($theme);
 			}
 		}
 	}
@@ -82,31 +77,34 @@
 /// Output styles required to set a checkbox theme.
 /// @param {String} $theme Theme to output
 @mixin _oFormsRadioRoundThemeContent($theme) {
-	color: _oFormsGet("default-text", $theme);
+	color: _oFormsGet('default-text', $theme);
 
 	.o-forms-input--radio-round {
-		input[type="radio"] {// stylelint-disable-line selector-no-qualifying-type
-			&:checked + .o-forms-input__label:before {// stylelint-disable-line selector-no-qualifying-type
-				border-color: _oFormsGet("controls-base", $theme);
+		input[type='radio'] {
+			&:checked + .o-forms-input__label:before {
+				border-color: _oFormsGet('controls-base', $theme);
 			}
 		}
 		.o-forms-input__label {
 			&:before {
-				border: 1px solid _oFormsGet("default-border", $theme);
+				border: 1px solid _oFormsGet('default-border', $theme);
 			}
 
 			&:after {
-				background-color: _oFormsGet("controls-base", $theme);
+				background-color: _oFormsGet('controls-base', $theme);
 			}
 		}
 	}
 
-	@if $theme and oColorsColorBrightness(_oFormsGet("default-text", $theme)) > 65% {
-		input[type="radio"] {// stylelint-disable-line selector-no-qualifying-type
+	@if $theme and
+		oPrivateColorsColorBrightness(_oFormsGet('default-text', $theme)) >
+		65%
+	{
+		input[type='radio'] {
 			&:focus {
-				@include oNormaliseFocusUnsetContent();
-				& + .o-forms-input__label:before {// stylelint-disable-line selector-no-qualifying-type
-					@include oNormaliseFocusContentInverse();
+				@include oPrivateNormaliseFocusUnsetContent();
+				& + .o-forms-input__label:before {
+					@include oPrivateNormaliseFocusContentInverse();
 				}
 			}
 
@@ -116,13 +114,13 @@
 			// `:focus` fallback, however some of our supported browsers
 			// do not understand `@supports: selector()`.
 			@supports selector(:focus-visible) {
-				&:focus + .o-forms-input__label:before {// stylelint-disable-line selector-no-qualifying-type
-					@include oNormaliseFocusUnsetContent();
+				&:focus + .o-forms-input__label:before {
+					@include oPrivateNormaliseFocusUnsetContent();
 				}
 
 				&:focus-visible {
-					& + .o-forms-input__label:before {// stylelint-disable-line selector-no-qualifying-type
-						@include oNormaliseFocusContentInverse();
+					& + .o-forms-input__label:before {
+						@include oPrivateNormaliseFocusContentInverse();
 					}
 				}
 			}

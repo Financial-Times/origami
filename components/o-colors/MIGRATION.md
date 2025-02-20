@@ -1,6 +1,13 @@
 ## Migration Guide
 
-### Migrating from v6 to o3-foundation
+### Migrating from v6 to o3-foundation@3
+
+o-colors is now replaced by [o3-foundation](../o3-foundation/README.md).
+
+One of the major changes in Origami 3 is the removal of Sass, we now use plain CSS for Origami components.
+
+This guide will update to `o3-foundation@3`. Be sure to
+check [o3-foundation's migration guide](../o3-foundation/MIGRATION.md) for any further updates.
 
 #### Mixins
 

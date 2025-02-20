@@ -1,10 +1,7 @@
 $o-video-is-silent: true !default;
 
-@import "@financial-times/o-colors/main";
-@import "@financial-times/o-icons/main";
+@import "@financial-times/o-private-foundation/main";
 @import "@financial-times/o-loading/main";
-@import "@financial-times/o-normalise/main";
-@import "@financial-times/o-typography/main";
 
 @import "src/scss/ads";
 @import "src/scss/base";
@@ -15,24 +12,36 @@ $o-video-is-silent: true !default;
 /// @access public
 /// @param {Map} $opts - ['attributes': ('ads', 'info', 'placeholder'), 	'sizes': ('small', 'medium', 'large')]
 /// Outputs all video styles
-@mixin oVideo($opts: (
-	'attributes': ('ads', 'info', 'placeholder'),
-	'sizes': ('small', 'medium', 'large')
-)) {
-	$attributes: map-get($opts, 'attributes');
-	$sizes: map-get($opts, 'sizes');
+@mixin oVideo(
+	$opts: (
+		"attributes": (
+			"ads",
+			"info",
+			"placeholder",
+		),
+		"sizes": (
+			"small",
+			"medium",
+			"large",
+		),
+	)
+) {
+	@include oPrivateFoundation();
+
+	$attributes: map-get($opts, "attributes");
+	$sizes: map-get($opts, "sizes");
 
 	@include _oVideoBase();
 
-	@if index($attributes, 'ads') {
+	@if index($attributes, "ads") {
 		@include _oVideoAds();
 	}
 
-	@if index($attributes, 'placeholder') {
+	@if index($attributes, "placeholder") {
 		@include _oVideoPlaceholder();
 	}
 
-	@if index($attributes, 'info') {
+	@if index($attributes, "info") {
 		@include _oVideoInfo($sizes);
 	}
 
@@ -40,7 +49,6 @@ $o-video-is-silent: true !default;
 }
 
 @if $o-video-is-silent == false {
-
 	@include oVideo();
 
 	$o-video-is-silent: true !global;

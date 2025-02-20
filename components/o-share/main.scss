@@ -1,13 +1,8 @@
 @import '@financial-times/math';
 @import '@financial-times/o-brand/main';
-@import '@financial-times/o-colors/main';
-@import '@financial-times/o-grid/main';
-@import '@financial-times/o-normalise/main';
-@import '@financial-times/o-spacing/main';
-@import '@financial-times/o-typography/main';
+@import '@financial-times/o-private-foundation/main';
 
 @import 'src/scss/variables';
-@import 'src/scss/color-use-cases';
 @import 'src/scss/brand';
 @import 'src/scss/mixins';
 
@@ -25,12 +20,18 @@
 ///       'vertical': true,
 ///       'inverse': true
 ///   ));
-@mixin oShare($opts: (
-	'icons': $_o-share-icons,
-	'sizes': ('small'),
-	'vertical': true,
-	'inverse': true
-)) {
+@mixin oShare(
+	$opts: (
+		'icons': $_o-share-icons,
+		'sizes': (
+			'small',
+		),
+		'vertical': true,
+		'inverse': true,
+	)
+) {
+	@include oPrivateFoundation();
+
 	$vertical-enabled: map-get($opts, 'vertical');
 	$inverse-enabled: map-get($opts, 'inverse');
 	// Default to an empty list if no icons are given.
@@ -41,7 +42,12 @@
 	$sizes: if($sizes, $sizes, ());
 
 	// Error if the global $system-code variable is not set.
-	@if (global-variable-exists('system-code') == false or type-of($system-code) != 'string') {
+	@if (
+		global-variable-exists('system-code') ==
+			false or
+			type-of($system-code) !=
+			'string'
+	) {
 		@error 'A global "$system-code" Sass variable must be set to a valid [Bizops system code](https://biz-ops.in.ft.com/list/Systems).';
 	}
 
@@ -74,9 +80,10 @@
 		padding: 0;
 		background-color: transparent;
 		background-repeat: no-repeat;
-		border: $o-share-border-size $o-share-border-style oColorsByUsecase('o-share/default-icon', 'border');
+		border: $o-share-border-size $o-share-border-style
+				oPrivateFoundationGet('o3-color-palette-black-50');
 		// undo browser default anchor tag styles
-		color: oColorsByUsecase('o-share/default-icon', 'text');
+		color: oPrivateFoundationGet('o3-color-palette-black');
 		text-decoration: none;
 		// add z-index on hover or focus so the border of the icon is
 		// always displayed over the border of the next icon
@@ -94,16 +101,15 @@
 	}
 
 	.o-share__text {
-		@include oTypographySans($scale: -1);
+		@include oPrivateTypographySans($scale: -1);
 		text-align: center;
 	}
 
 	// Icon text is visually hidden by default without the class
 	// `.o-share__action--labelled`.
 	.o-share__action:not(.o-share__action--labelled) .o-share__text {
-		@include oNormaliseVisuallyHidden();
+		@include oPrivateNormaliseVisuallyHidden();
 	}
-
 
 	@if index($sizes, 'small') != null {
 		.o-share--small {
@@ -128,7 +134,7 @@
 			}
 			.o-share__text {
 				// Horizontal space is tight for vertical share labels.
-				@include oTypographySans($scale: -2, $include-font-family: false);
+				@include oPrivateTypographySans($scale: -1);
 				word-wrap: anywhere;
 				overflow-wrap: anywhere;
 			}

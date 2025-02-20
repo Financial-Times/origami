@@ -2,13 +2,16 @@
 /// @param {Boolean} $disabled Whether to output disabled state styling
 /// @output base styles for select, textarea and text input
 @mixin _oFormsInputBase($disabled) {
-	font-family: inherit;
-	font-size: inherit;
+	font-family: oPrivateFoundationGet('o3-font-family-metric');
+	font-size: oPrivateFoundationGet('o3-font-size-metric2-1');
+	line-height: oPrivateFoundationGet('o3-font-lineheight-metric2-1');
 	background-color: _oFormsGet('default-background');
 	border: $_o-forms-border;
+	border-radius: oPrivateFoundationGet('o3-border-radius-1');
 	box-sizing: border-box;
-	min-height: $_o-forms-spacing-ten;
-	padding: $_o-forms-spacing-two;
+	min-height: $_o-forms-spacing-eleven;
+	padding: oPrivateFoundationGet('o3-spacing-4xs')
+		oPrivateFoundationGet('o3-spacing-2xs');
 	width: 100%;
 
 	@if $disabled {
@@ -39,11 +42,10 @@
 @mixin _oFormsInputSmall($element) {
 	&.o-forms-input--small {
 		#{$element} {
-			@include oTypographySans(
-				$scale: -1,
-				$line-height: 1.65,
-				$include-font-family: false
-			);
+			font-family: oPrivateFoundationGet('o3-type-body-base-font-family');
+			font-size: oPrivateFoundationGet('o3-type-body-base-font-size');
+			line-height: oPrivateFoundationGet('o3-type-body-base-line-height');
+			font-weight: oPrivateFoundationGet('o3-type-body-base-font-weight');
 			min-height: $_o-forms-spacing-seven;
 			padding: 0 $_o-forms-spacing-two;
 		}

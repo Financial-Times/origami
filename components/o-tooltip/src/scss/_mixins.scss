@@ -4,9 +4,9 @@
 /// @example Output a custom tooltip theme named "my-product-modifier" with a slate background, and white foreground. Outputs a class 'o-tooltip--my-product-modifier'
 /// 	// Outputs CSS class "o-tooltip--my-product-modifier"
 /// 	@include oTooltipAddTheme('my-product-modifier', (
-/// 		'background-color': oColorsByName('slate'),
-/// 		'foreground-color': oColorsByName('white'),
-/// 		'close-foreground-color': oColorsByName('white') // optional
+/// 		'background-color': oPrivateFoundationGet('o3-color-palette-slate'),
+/// 		'foreground-color': oPrivateFoundationGet('o3-color-palette-white'),
+/// 		'close-foreground-color': oPrivateFoundationGet('o3-color-palette-white') // optional
 /// 	));
 /// @access public
 @mixin oTooltipAddTheme($name, $opts) {
@@ -42,9 +42,9 @@
 /// 	@include _oTooltipThemeContent('inverse');
 /// @example Output styles for a custom variant
 /// 	@include _oTooltipThemeContent((
-/// 		'background-color': oColorsByName('slate'),
-/// 		'foreground-color': oColorsByName('white'),
-/// 		'close-foreground-color': oColorsByName('white') // optional
+/// 		'background-color': oPrivateFoundationGet('o3-color-palette-slate'),
+/// 		'foreground-color': oPrivateFoundationGet('o3-color-palette-white'),
+/// 		'close-foreground-color': oPrivateFoundationGet('o3-color-palette-white') // optional
 /// 	));
 /// @see {oTooltipAddTheme}
 /// @access public
@@ -77,7 +77,7 @@
 	}
 
 	.o-tooltip-close {
-		@include oIconsContent(
+		@include oPrivateIconsContent(
 			'cross',
 			$close-foreground-color,
 			$size: 20px,

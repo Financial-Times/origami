@@ -6,14 +6,14 @@ export interface ButtonProps {
 	fluid?: boolean;
 	theme?: 'inverse' | 'mono';
 	icon?:
-		| 'arrow-left'
-		| 'arrow-right'
+		| 'chevron-left'
+		| 'chevron-right'
 		| 'upload'
 		| 'tick'
 		| 'plus'
-		| 'arrow-down'
-		| 'arrow-up'
-		| 'edit-outlined'
+		| 'chevron-down'
+		| 'chevron-up'
+		| 'edit'
 		| 'download'
 		| 'search'
 		| 'refresh'
@@ -53,7 +53,6 @@ export type Ellipsis = Pick<ButtonProps, 'theme'> & {
 		[attribute: string]: string | boolean;
 	};
 };
-
 
 // ButtonGroup types
 export interface ButtonGroupProps {

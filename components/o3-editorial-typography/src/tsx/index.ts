@@ -1,8 +1,6 @@
-import {Headline} from './headline';
-import {Body} from './body';
+import {Heading} from './heading';
 import {Summary} from './summary';
 export * from './detail';
 export * from './list';
-export * from './link';
 
-export {Headline, Body, Summary};
+export {Heading, Summary};

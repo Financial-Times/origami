@@ -1,4 +1,4 @@
-@import '@financial-times/o-icons/main';
+@import '@financial-times/o-private-foundation/main';
 @import 'src/scss/variables';
 
 /// Output all gAudio features
@@ -25,7 +25,7 @@
 		}
 	
 		.g-audio--playbutton:before {
-			@include oIconsContent('play', $g-audio-button-color, 25);
+			@include oPrivateIconsContent('play', $g-audio-button-color, 25);
 			content: '';
 			font-size: 0.8em;
 			margin: -3px $g-audio-horz-padding-inline;
@@ -33,7 +33,7 @@
 		}
 	
 		&.g-audio-pause .g-audio--playbutton:before {
-			@include oIconsContent('pause', $g-audio-button-color, 25);
+			@include oPrivateIconsContent('pause', $g-audio-button-color, 25);
 			content: '';
 			font-size: 0.8em;
 			margin: -3px $g-audio-horz-padding-inline;

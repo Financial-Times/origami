@@ -1,9 +1,9 @@
-$_o-forms-error-summary-foreground-color: oColorsMix(
-	'black',
+$_o-forms-error-summary-foreground-color: oPrivateColorsMix(
+	'o3-color-palette-black',
 	_oFormsGet('invalid-base'),
 	$percentage: 12.5
 );
-$_o-forms-error-summary-background-color: oColorsMix(
+$_o-forms-error-summary-background-color: oPrivateColorsMix(
 	_oFormsGet('invalid-base'),
 	$percentage: 10
 );
@@ -21,19 +21,21 @@ $_o-forms-alert-icon-right-padding: $_o-forms-spacing-two;
 /// @output styles for error summary
 @mixin _oFormsErrorSummary() {
 	.o-forms__error-summary {
-		@include oTypographySans($scale: 0);
+		font-family: oPrivateFoundationGet('o3-type-body-base-font-family');
+		font-size: oPrivateFoundationGet('o3-type-body-base-font-size');
+		line-height: oPrivateFoundationGet('o3-type-body-base-line-height');
+		font-weight: oPrivateFoundationGet('o3-type-body-base-font-weight');
 		background-color: $_o-forms-error-summary-background-color;
 		margin-bottom: $_o-forms-spacing-four;
 		padding: $_o-forms-spacing-three;
 		position: relative;
 		padding-left: calc(
-			$_o-forms-alert-icon-left-padding +
-			$_o-forms-true-alert-icon-size +
-			$_o-forms-alert-icon-right-padding
+			$_o-forms-alert-icon-left-padding + $_o-forms-true-alert-icon-size +
+				$_o-forms-alert-icon-right-padding
 		);
 
 		&:before {
-			@include oIconsContent(
+			@include oPrivateIconsContent(
 				$icon-name: 'warning-alt',
 				$color: $_o-forms-error-summary-foreground-color,
 				$size: $_o-forms-alert-icon-size
@@ -51,10 +53,10 @@ $_o-forms-alert-icon-right-padding: $_o-forms-spacing-two;
 			top: calc($_o-forms-spacing-three + 0.1rem);
 		}
 		.o-forms__error-summary__heading {
-			@include oTypographySans(
-				$weight: 'semibold',
-				$include-font-family: false
-			);
+			font-family: oPrivateFoundationGet('o3-type-body-highlight-font-family');
+			font-size: oPrivateFoundationGet('o3-type-body-highlight-font-size');
+			line-height: oPrivateFoundationGet('o3-type-body-highlight-line-height');
+			font-weight: oPrivateFoundationGet('o3-type-body-highlight-font-weight');
 			color: $_o-forms-error-summary-foreground-color;
 			margin: 0 0 $_o-forms-spacing-one;
 		}
@@ -74,9 +76,15 @@ $_o-forms-alert-icon-right-padding: $_o-forms-spacing-two;
 			}
 
 			.o-forms__error-summary__item-overview {
-				@include oTypographySans(
-					$weight: 'semibold',
-					$include-font-family: false
+				font-family: oPrivateFoundationGet(
+					'o3-type-body-highlight-font-family'
+				);
+				font-size: oPrivateFoundationGet('o3-type-body-highlight-font-size');
+				line-height: oPrivateFoundationGet(
+					'o3-type-body-highlight-line-height'
+				);
+				font-weight: oPrivateFoundationGet(
+					'o3-type-body-highlight-font-weight'
 				);
 			}
 		}

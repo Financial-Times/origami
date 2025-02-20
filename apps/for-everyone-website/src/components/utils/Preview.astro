@@ -3,7 +3,7 @@ import {resolve as pathResolve} from 'path';
 import {readFile} from 'node:fs/promises';
 import {format} from 'prettier';
 import {renderToString} from 'react-dom/server';
-import {Tabs, TabItem, Code} from '@astrojs/starlight/components';
+import PreviewFrame from './PreviewFrame.astro';
 
 const {component} = Astro.props;
 const mark = component?.previewMarkers?.mark;
@@ -35,46 +35,9 @@ const componentHTML =
 		parser: 'html',
 		htmlWhitespaceSensitivity: 'ignore',
 	}));
-
-const uniqueID = 'switcher-' + Math.random().toString(36).substring(7);
 ---
 
-<div class="not-content">
-	<div class="slide-switch">
-		<label class="switch-label" for={uniqueID}>Show code</label>
-		<label class="switch">
-			<input class="sliding-switch" id={uniqueID} type="checkbox" />
-			<span class="slider round"></span>
-		</label>
-	</div>
-
-	<div class="component-preview-wrapper">
-		<div class={`not-content component-preview visible ${uniqueID}`}>
-			<component.preview />
-		</div>
-	</div>
-
-	<div class={`code-preview ${uniqueID}`}>
-		<div>
-			<Tabs syncKey="code">
-				{
-					componentJSX && (
-						<TabItem label="JSX">
-							<Code code={componentJSX} lang="jsx" wrap={true} {mark} />
-						</TabItem>
-					)
-				}
-				{
-					componentHTML && (
-						<TabItem label="HTML">
-							<Code code={componentHTML} lang="html" wrap={true} {mark} />
-						</TabItem>
-					)
-				}
-			</Tabs>
-		</div>
-	</div>
-</div>
+<PreviewFrame html={componentHTML} jsx={componentJSX} component={component.preview} {mark} />
 
 <script>
 	const checkBoxElelements = document.querySelectorAll('.sliding-switch');

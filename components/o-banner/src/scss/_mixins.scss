@@ -41,31 +41,37 @@
 }
 
 @mixin _oBannerOuter {
-	@include oVisualEffectsShadowContent('high');
+	@include oPrivateVisualEffectsShadowContent('high');
 	background: _oBannerGet('background-color');
 	color: _oBannerGet('text-color');
 	border-bottom: $_o-banner-brand-border solid transparent;
 }
 
 @mixin _oBannerInner {
-	@include oTypographySans($scale: 2);
+	font-family: oPrivateFoundationGet('o3-type-body-lg-font-family');
+	font-size: oPrivateFoundationGet('o3-type-body-lg-font-size');
+	line-height: oPrivateFoundationGet('o3-type-body-lg-line-height');
+	font-weight: oPrivateFoundationGet('o3-type-body-lg-font-weight');
 	-webkit-font-smoothing: antialiased;
 	position: relative;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	max-width: map-get($o-grid-layouts, XL);
+	max-width: map-get($o-pf-grid-layouts, XL);
 	margin: 0 auto;
 	padding: $_o-banner-spacing 0;
 	padding-bottom: $_o-banner-spacing - $_o-banner-brand-border;
 	box-sizing: border-box;
 
-	@include oGridRespondTo($until: S) {
-		@include oTypographySans($scale: 0);
+	@include oPrivateGridRespondTo($until: S) {
+		font-family: oPrivateFoundationGet('o3-type-body-base-font-family');
+		font-size: oPrivateFoundationGet('o3-type-body-base-font-size');
+		line-height: oPrivateFoundationGet('o3-type-body-base-line-height');
+		font-weight: oPrivateFoundationGet('o3-type-body-base-font-weight');
 		display: block;
 		padding: $_o-banner-spacing;
 		padding-bottom: $_o-banner-spacing - $_o-banner-brand-border;
-		padding-top: oSpacingByIncrement(7);
+		padding-top: oPrivateSpacingByIncrement(7);
 	}
 }
 
@@ -84,9 +90,12 @@
 	h4,
 	h5,
 	h6 {
-		@include oTypographySans($scale: 3, $weight: 'semibold');
+		font-family: oPrivateFoundationGet('o3-type-title-lg-font-family');
+		font-size: oPrivateFoundationGet('o3-type-title-lg-font-size');
+		line-height: oPrivateFoundationGet('o3-type-title-lg-line-height');
+		font-weight: oPrivateFoundationGet('o3-type-title-lg-font-weight');
 		margin-top: 0;
-		margin-bottom: oSpacingByName('s1');
+		margin-bottom: oPrivateSpacingByName('s1');
 	}
 	p {
 		margin-top: 0;
@@ -94,37 +103,34 @@
 	}
 	b,
 	strong {
-		@include oTypographySans($weight: 'semibold', $include-font-family: false);
+		@include oPrivateTypographySans($weight: 'semibold');
 	}
 	> ul {
-		@include oTypographyList('unordered');
-		margin-top: oSpacingByName('s3');
+		@include oPrivateTypographyList('unordered');
+		margin-top: oPrivateSpacingByName('s3');
 		margin-bottom: 0;
 
-		li {
-			@include oTypographySans($scale: 2, $line-height: oSpacingByIncrement(7));
-		}
 		li:before {
 			color: inherit;
 		}
 	}
 	a {
-		@include oTypographyLink();
+		@include oPrivateTypographyLink();
 	}
 
-	@include oGridRespondTo($until: S) {
+	@include oPrivateGridRespondTo($until: S) {
 		padding: 0;
 	}
 }
 
 @mixin _oBannerContentLong {
-	@include oGridRespondTo($until: M) {
+	@include oPrivateGridRespondTo($until: M) {
 		display: none;
 	}
 }
 
 @mixin _oBannerContentShort {
-	@include oGridRespondTo($from: M) {
+	@include oPrivateGridRespondTo($from: M) {
 		display: none;
 	}
 }
@@ -142,56 +148,64 @@
 		content: '';
 		display: block;
 		width: 100px;
-		margin-top: oSpacingByName('s2');
-		margin-bottom: oSpacingByName('s4');
+		margin-top: oPrivateSpacingByName('s2');
+		margin-bottom: oPrivateSpacingByName('s4');
 
 		// Color is set separately for easier overriding later
-		border-bottom: oSpacingByIncrement(2) solid;
+		border-bottom: 0.6ex solid;
 		border-color: _oBannerGet('heading-rule-color');
 	}
 }
 
 @mixin _oBannerActions {
-	@include oTypographySans($scale: 2);
+	font-family: oPrivateFoundationGet('o3-type-body-lg-font-family');
+	font-size: oPrivateFoundationGet('o3-type-body-lg-font-size');
+	line-height: oPrivateFoundationGet('o3-type-body-lg-line-height');
+	font-weight: oPrivateFoundationGet('o3-type-body-lg-font-weight');
 	display: flex;
 	align-items: center;
 
-	@include oGridRespondTo($until: S) {
+	@include oPrivateGridRespondTo($until: S) {
 		flex-direction: column;
 		align-items: flex-start;
-		margin-top: oSpacingByName('s6');
+		margin-top: oPrivateSpacingByName('s6');
 	}
 }
 
 @mixin _oBannerAction {
 	padding-right: $_o-banner-spacing;
 
-	@include oGridRespondTo($until: S) {
+	@include oPrivateGridRespondTo($until: S) {
 		padding-right: 0;
 	}
 }
 
 @mixin _oBannerActionSecondary {
-	@include oGridRespondTo($until: S) {
+	@include oPrivateGridRespondTo($until: S) {
 		margin-top: div($_o-banner-spacing, 4);
 	}
 }
 
 @mixin _oBannerButton {
-	@include oButtonsContent((
-		'size': 'big',
-		'type': 'primary',
-		'theme': (
+	@include oPrivateButtonsContentWithThemeOverride(
+		$opts: (
+			'size': 'big',
+			'type': 'primary',
+		),
+		$theme-override: (
 			'color': _oBannerGet('button-background-color'),
-			'context': _oBannerGet('background-color')
+			'context': _oBannerGet('background-color'),
 		)
-	));
+	);
 	white-space: nowrap;
 }
 
 @mixin _oBannerLink {
-	@include oTypographyLink();
-	@include oTypographySans($scale: 0);
+	@include oPrivateTypographyLink();
+	font-family: oPrivateFoundationGet('o3-type-body-base-font-family');
+	font-size: oPrivateFoundationGet('o3-type-body-base-font-size');
+	line-height: oPrivateFoundationGet('o3-type-body-base-line-height');
+	font-weight: oPrivateFoundationGet('o3-type-body-base-font-weight');
 	white-space: nowrap;
 	&:focus,
 	&:focus-visible {
@@ -200,7 +214,11 @@
 }
 
 @mixin _oBannerCloseButton {
-	@include oIconsContent('cross', _oBannerGet('text-color'), $size: $_o-banner-close-button-size);
+	@include oPrivateIconsContent(
+		'cross',
+		_oBannerGet('text-color'),
+		$size: $_o-banner-close-button-size
+	);
 	// start: undo button styles
 	appearance: none;
 	color: inherit;
@@ -210,7 +228,9 @@
 	cursor: pointer;
 	outline: inherit;
 	// end: undo button styles
-	$close-button-position: calc((#{$_o-banner-spacing} - #{$_o-banner-close-button-size}) / 2);
+	$close-button-position: calc(
+		(#{$_o-banner-spacing} - #{$_o-banner-close-button-size}) / 2
+	);
 	display: block;
 	position: absolute;
 	right: $close-button-position;
@@ -226,12 +246,11 @@
 ///   @include oBannerAddTheme('marketing');
 /// @example scss - Custom banner theme
 ///   @include oBannerAddTheme('bubblegum', (
-///       background-color: oColorsMix('candy', 'white', 75),
-///       text-color: oColorsByName('oxford-90')
+///       background-color: oPrivateColorsMix('candy', 'white', 75),
+///       text-color: oPrivateFoundationGet('o3-color-palette-oxford-90')
 ///   ));
 /// @access public
 @mixin oBannerAddTheme($theme-name, $opts: null) {
-
 	// If we have a custom config, we use that instead of one of the
 	// preconfigured themes
 	$variant: if($opts, $opts, $theme-name);

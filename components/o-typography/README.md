@@ -1,3 +1,5 @@
+>  ⚠️ **NOTE:** o-typography has been replaced with [o3-foundation](../o3-foundation/README.md). Please see [Migration Guide](MIGRATION.md#migrating-from-v7-to-o3-foundation) for steps to upgrade.
+
 # o-typography
 
 Typographical styles for FT branded sites.
@@ -538,15 +540,16 @@ This is likely due to the server sending the fonts having misconfigured Cross Or
 
 ## Migration guide
 
-State | Major Version | Last Minor Release | Migration guide |
-:---: | :---: | :---: | :---:
-✨ active | 7 | N/A | [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7) |
-⚠ maintained | 6 | 6.4.6 | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
-╳ deprecated | 5 | 5.12 | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
-╳ deprecated | 4 | 4.3 | - |
-╳ deprecated | 3 | 3.3 | - |
-╳ deprecated | 2 | 2.0 | - |
-╳ deprecated | 1 | 1.16 | - |
+State | Major Version | Last Minor Release |                         Migration guide                          |
+:---: |:-------------:| :---: |:----------------------------------------------------------------:
+✨ active |      o3       | N/A | [migrate to o3](MIGRATION.md#migrating-from-v7-to-o3-foundation) |
+⚠ maintained  |       7       | N/A |      [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7)       |
+╳ deprecated |       6       | 6.4.6 |      [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6)       |
+╳ deprecated |       5       | 5.12 |      [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5)       |
+╳ deprecated |       4       | 4.3 |                                -                                 |
+╳ deprecated |       3       | 3.3 |                                -                                 |
+╳ deprecated |       2       | 2.0 |                                -                                 |
+╳ deprecated |       1       | 1.16 |                                -                                 |
 
 
 ## Contact

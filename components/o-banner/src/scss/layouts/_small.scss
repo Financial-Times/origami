@@ -2,22 +2,24 @@
 	width: 100%;
 	margin: 0;
 
-	@include oGridRespondTo(S) {
-		width: oGridColspan(8);
+	@include oPrivateGridRespondTo(S) {
+		width: oPrivateGridColspan(8);
 		margin: div($_o-banner-spacing, 2);
 	}
 
-	@include oGridRespondTo(M) {
-		width: oGridColspan(7);
+	@include oPrivateGridRespondTo(M) {
+		width: oPrivateGridColspan(7);
 	}
 
-	@include oGridRespondTo(L) {
-		width: oGridColspan(6);
+	@include oPrivateGridRespondTo(L) {
+		width: oPrivateGridColspan(6);
 	}
 
-	@include oGridRespondTo(XL) {
-		width: div(map-get($o-grid-layouts, XL), 2); // width is 50% grid
-		left: calc((100vw - #{map-get($o-grid-layouts, XL)}) / 2); // ((viewport - grid width) / 2)
+	@include oPrivateGridRespondTo(XL) {
+		width: div(map-get($o-pf-grid-layouts, XL), 2); // width is 50% grid
+		left: calc(
+			(100vw - #{map-get($o-pf-grid-layouts, XL)}) / 2
+		); // ((viewport - grid width) / 2)
 	}
 }
 
@@ -27,17 +29,24 @@
 }
 
 @mixin _oBannerSmallInner {
-	@include oVisualEffectsShadowContent('high');
-	@include oTypographySans($scale: 2);
+	@include oPrivateVisualEffectsShadowContent('high');
+	font-family: oPrivateFoundationGet('o3-type-body-lg-font-family');
+	font-size: oPrivateFoundationGet('o3-type-body-lg-font-size');
+	line-height: oPrivateFoundationGet('o3-type-body-lg-line-height');
+	font-weight: oPrivateFoundationGet('o3-type-body-lg-font-weight');
 	background: _oBannerGet('background-color');
 	display: block;
 	padding: $_o-banner-spacing;
-	padding-top: oSpacingByIncrement(7);
+	padding-top: oPrivateSpacingByIncrement(7);
 	max-width: none;
 }
 
 @mixin _oBannerSmallContent {
 	padding: 0;
+	font-family: oPrivateFoundationGet('o3-type-body-base-font-family');
+	font-size: oPrivateFoundationGet('o3-type-body-base-font-size');
+	line-height: oPrivateFoundationGet('o3-type-body-base-line-height');
+	font-weight: oPrivateFoundationGet('o3-type-body-base-font-weight');
 
 	h1,
 	h2,
@@ -46,10 +55,12 @@
 	h5,
 	h6,
 	ul li {
-		@include oTypographySans($scale: 2);
+		font-family: oPrivateFoundationGet('o3-type-body-lg-font-family');
+		font-size: oPrivateFoundationGet('o3-type-body-lg-font-size');
+		line-height: oPrivateFoundationGet('o3-type-body-lg-line-height');
+		font-weight: oPrivateFoundationGet('o3-type-body-lg-font-weight');
 	}
-	@include oGridRespondTo($until: M) {
-		&,
+	@include oPrivateGridRespondTo($until: M) {
 		h1,
 		h2,
 		h3,
@@ -57,14 +68,20 @@
 		h5,
 		h6,
 		ul li {
-			@include oTypographySans($scale: 0);
+			font-family: oPrivateFoundationGet('o3-type-body-highlight-font-family');
+			font-size: oPrivateFoundationGet('o3-type-body-highlight-font-size');
+			line-height: oPrivateFoundationGet('o3-type-body-highlight-line-height');
+			font-weight: oPrivateFoundationGet('o3-type-body-highlight-font-weight');
 		}
 	}
 }
 
 @mixin _oBannerSmallHeading {
-	@include oTypographySans($scale: 4);
 	padding-right: $_o-banner-spacing;
+	font-family: oPrivateFoundationGet('o3-type-title-md-font-family');
+	font-size: oPrivateFoundationGet('o3-type-title-md-font-size');
+	line-height: oPrivateFoundationGet('o3-type-title-md-line-height');
+	font-weight: oPrivateFoundationGet('o3-type-title-md-font-weight');
 
 	h1,
 	h2,
@@ -72,28 +89,20 @@
 	h4,
 	h5,
 	h6 {
-		@include oTypographySans($scale: 4, $weight: 'semibold');
-	}
-	@include oGridRespondTo($until: M) {
-		&,
-		h1,
-		h2,
-		h3,
-		h4,
-		h5,
-		h6 {
-			@include oTypographySans($scale: 3);
-		}
+		font-family: oPrivateFoundationGet('o3-type-title-lg-font-family');
+		font-size: oPrivateFoundationGet('o3-type-title-lg-font-size');
+		line-height: oPrivateFoundationGet('o3-type-title-lg-line-height');
+		font-weight: oPrivateFoundationGet('o3-type-title-lg-font-weight');
 	}
 }
 
 @mixin _oBannerSmallActions {
-	margin-top: oSpacingByName('s6');
+	margin-top: oPrivateSpacingByName('s6');
 
-	@include oGridRespondTo($until: M) {
+	@include oPrivateGridRespondTo($until: M) {
 		flex-direction: column;
 		align-items: flex-start;
-		margin-top: oSpacingByName('s6');
+		margin-top: oPrivateSpacingByName('s6');
 	}
 }
 
@@ -102,7 +111,7 @@
 }
 
 @mixin _oBannerSmallActionSecondary {
-	@include oGridRespondTo($until: M) {
+	@include oPrivateGridRespondTo($until: M) {
 		margin-top: div($_o-banner-spacing, 4);
 	}
 }

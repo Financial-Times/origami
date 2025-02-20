@@ -1,8 +1,8 @@
 @mixin _oTopperBase {
 	//Basic topper uses the same grid columns as an article, so things can line up.
 	@include _oTopperArticleGrid();
-	margin-bottom: oSpacingByIncrement(5);
-	@include oGridRespondTo(L) {
+	margin-bottom: oPrivateSpacingByIncrement(5);
+	@include oPrivateGridRespondTo(L) {
 		grid-template-rows: 20px min-content 60px min-content 20px;
 	}
 }
@@ -16,8 +16,8 @@
 }
 
 @mixin _oTopperBasic {
-	@include oGridRespondTo($until: L) {
-		margin-top: oSpacingByName('s2');
+	@include oPrivateGridRespondTo($until: L) {
+		margin-top: oPrivateSpacingByName('s2');
 	}
 }
 
@@ -48,7 +48,7 @@
 @mixin _oTopperReadNext {
 	display: none;
 
-	@include oGridRespondTo(L) {
+	@include oPrivateGridRespondTo(L) {
 		display: block;
 	}
 

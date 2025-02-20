@@ -1,16 +1,22 @@
 @mixin _oTeaserPartnerContent {
-	color: oColorsByName('black');
+	color: oPrivateFoundationGet('o3-color-palette-black');
 
 	.o-teaser__meta {
-		@include oTypographySans($scale: -1, $weight: 'semibold');
+		font-family: oPrivateFoundationGet('o3-type-detail-font-family');
+		font-size: oPrivateFoundationGet('o3-type-detail-font-size');
+		font-weight: oPrivateFoundationGet('o3-font-weight-semibold');
+		line-height: oPrivateFoundationGet('o3-type-detail-line-height');
 		color: $_o-teaser-muted;
-		margin-bottom: oSpacingByName('s3');
+		margin-bottom: oPrivateSpacingByName('s3');
 	}
 
 	.o-teaser__promoted-prefix {
-		@include oTypographySans($scale: 0, $include-font-family: false);
+		font-family: oPrivateFoundationGet('o3-type-label-font-family');
+		font-size: oPrivateFoundationGet('o3-type-label-font-size');
+		font-weight: oPrivateFoundationGet('o3-font-weight-semibold');
+		line-height: oPrivateFoundationGet('o3-type-label-line-height');
 		text-transform: uppercase;
-		color: oColorsByName('matisse');
+		color: oPrivateFoundationGet('o3-color-palette-matisse-blue');
 		display: block;
 	}
 

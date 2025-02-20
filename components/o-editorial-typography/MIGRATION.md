@@ -1,38 +1,45 @@
 # Migration
 
-## Migrating from v2 to o3-editorial-typography
+## Migrating from v3 to o3-editorial-typography
 
 ### Themes and brands
 
-`o-editorial-typography` has been replaced by `o3-editorial-typography`. Brands are now applied using parent data attribute `data-o3-brand`. Currently supported brands for `o3-editorial-typography` are `core` and `sustainable-views`.
+`o-editorial-typography` has been replaced by `o3-editorial-typography`. Brands are now applied using parent data
+attribute `data-o3-brand`. Currently supported brands for `o3-editorial-typography` are `core` and `sustainable-views`.
 
-New typography also supports inverse theme that can be placed on the parent element or on the element itself with `data-o3-theme="inverse"`.
+New typography also supports inverse theme that can be placed on the parent element or on the element itself
+with `data-o3-theme="inverse"`.
 
 e.g. Core brand with inverse theme will have following markup:
 
 ```html
+
 <div data-o3-brand="core" data-o3-theme="inverse">
- <h1 class="o3-editorial-typography__headline">Heading</h1>
+	<h1 class="o3-editorial-typography__headline">Heading</h1>
 </div>
 ```
 
 e.g Sustainable Views brand with inverse theme specifically applied on the element will have following markup:
 
 ```html
+
 <div data-o3-brand="sustainable-views">
- <!-- OTHER HTML -->
- <h1 class="o3-editorial-typography__headline" data-o3-theme="inverse">
-  Heading
- </h1>
- <!-- OTHER HTML -->
+	<!-- OTHER HTML -->
+	<h1 class="o3-editorial-typography__headline" data-o3-theme="inverse">
+		Heading
+	</h1>
+	<!-- OTHER HTML -->
 </div>
 ```
 
 ### Markup
 
-`o3-editorial-typography` includes a JSX template for typography for React users. We recommend using JSX templates instead of copy-pasting HTML markup where possible, though both approaches are supported.
+`o3-editorial-typography` includes a JSX template for typography for React users. We recommend using JSX templates
+instead of copy-pasting HTML markup where possible, though both approaches are supported.
 
-See [Storybook for full o3-editorial-typography JSX documentation](https://o3.origami.ft.com?path=/docs/core-o3-editorial-typography--jsx-documentation). If you choose not to use the `o3-editorial-typography` JSX template, ensure you update your HTML following the [oEditorialTypography mixin guide](#oEditorialTypography).
+See [Storybook for full o3-editorial-typography JSX documentation](https://o3.origami.ft.com?path=/docs/core-o3-editorial-typography--jsx-documentation).
+If you choose not to use the `o3-editorial-typography` JSX template, ensure you update your HTML following
+the [oEditorialTypography mixin guide](#oEditorialTypography).
 
 #### Mixins
 
@@ -45,33 +52,36 @@ To migrate each mixin first import `o3-editorial-typography` css. For example:
 
 #### oEditorialTypography
 
-`oEditorialTypography` mixin was used to include all o-editorial-typography CSS. `o3-editorial-typography` includes all o-editorial-typography CSS by default and can be used by applying correct class names.
+`oEditorialTypography` mixin was used to include all o-editorial-typography CSS. `o3-editorial-typography` includes all
+o-editorial-typography CSS by default and can be used by applying correct class names.
 
-There is no need to include `oEditorialTypography` mixin in your Sass files any more. Using new class names replaced mixins that output css.
+There is no need to include `oEditorialTypography` mixin in your Sass files any more. Using new class names replaced
+mixins that output css.
 
 class name replacements are as follows:
 
-| oEditorialTypography                                               | o3-editorial-typography class            |
-| ------------------------------------------------------------------ | ---------------------------------------- |
-| o-editorial-typography-heading-level-1                             | o3-editorial-typography-headline         |
-| o-editorial-typography-heading-level-2                             | o3-editorial-typography-chapter          |
-| o-editorial-typography-heading-level-3                             | o3-editorial-typography-subheading       |
-| o-editorial-typography-heading-level-4                             | No direct replacement                    |
-| o-editorial-typography-heading-level-5                             | o3-editorial-typography-label            |
-| o-editorial-typography-body                                        | o3-editorial-typography-body             |
-| o-editorial-typography-list o-editorial-typography-list--unordered | o3-editorial-typography-list--unordered  |
-| o-editorial-typography-list o-editorial-typography-list--ordered   | o3-editorial-typography-list--ordered    |
-| o-editorial-typography-caption                                     | o3-editorial-typography-caption          |
-| o-editorial-typography-standfirst                                  | o3-editorial-typography-standfirst       |
-| o-editorial-typography-byline                                      | o3-editorial-typography-byline           |
-| o-editorial-typography-timestamp                                   | o3-editorial-typography-byline-timestamp |
-| o-editorial-typography-author                                      | o3-editorial-typography-byline-author    |
-| o-editorial-typography-topic                                       | o3-editorial-typography-topic-tag        |
-| o-editorial-typography-link                                        | o3-editorial-typography-link             |
+| oEditorialTypography                                               | o3-editorial-typography class                                                                  |
+|--------------------------------------------------------------------|------------------------------------------------------------------------------------------------|
+| o-editorial-typography-heading-level-1                             | o3-editorial-typography-headline                                                               |
+| o-editorial-typography-heading-level-2                             | o3-editorial-typography-chapter                                                                |
+| o-editorial-typography-heading-level-4                             | No direct replacement<strong>*</strong>                                                        |
+| o-editorial-typography-heading-level-5                             | o3-editorial-typography-label                                                                  |
+| o-editorial-typography-body                                        | o3-editorial-typography-body                                                                   |
+| o-editorial-typography-list o-editorial-typography-list--unordered | o3-editorial-typography-list-unordered                                                         |
+| o-editorial-typography-list o-editorial-typography-list--ordered   | o3-editorial-typography-list-ordered                                                           |
+| o-editorial-typography-caption                                     | o3-editorial-typography-caption                                                                |
+| o-editorial-typography-standfirst                                  | o3-editorial-typography-standfirst                                                             |
+| o-editorial-typography-byline                                      | Replace with o3-editorial-typography-byline-timestamp and o3-editorial-typography-byline-author |
+| o-editorial-typography-timestamp                                   | o3-editorial-typography-byline-timestamp                                                       |
+| o-editorial-typography-author                                      | o3-editorial-typography-byline-author                                                          |
+| o-editorial-typography-topic                                       | o3-editorial-typography-topic-tag                                                              |
+| o-editorial-typography-link                                        | o3-typography-use-case-body-content-highlight                                                  |
+***Note:** Please contact the Origami team to discuss best migration path where no replacement for a heading style is available.
 
 #### oEditorialTypographyHeadline
 
-This mixin outputs large headline text. This style has high visual prominence. To replace the usage of this mixin, replace custom class names with exported class from `o3-editorial-typography`.
+This mixin outputs large headline text. This style has high visual prominence. To replace the usage of this mixin,
+replace custom class names with exported class from `o3-editorial-typography`.
 
 First, remove the mixin and custom class from your Sass file:
 
@@ -85,7 +95,7 @@ Then, replace the custom class with the `o3-editorial-typography-headline-large`
 
 ```html
 <h1 class="my-headline">
- Don't settle for black and white
+	Don't settle for black and white
 </h1>
 ```
 
@@ -93,13 +103,15 @@ becomes:
 
 ```html
 <h1 class="o3-editorial-typography-headline-large">
- Don't settle for black and white
+	Don't settle for black and white
 </h1>
 ```
 
 #### oEditorialTypographyHeading
 
-This mixin outputs header elements from level 1 to 5. This mixin has been replaced by a set of classes that are more semantic and have better visual hierarchy. To remove the mixin, replace custom class names with exported class from `o3-editorial-typography`.
+This mixin outputs header elements from level 1 to 5. This mixin has been replaced by a set of classes that are more
+semantic and have better visual hierarchy. To remove the mixin, replace custom class names with exported class
+from `o3-editorial-typography`.
 
 First remove the mixin and custom class from your Sass file:
 
@@ -118,7 +130,9 @@ First remove the mixin and custom class from your Sass file:
 -}
 ```
 
-Then, replace the custom class with the `o3-editorial-typography-headline`, `o3-editorial-typography-chapter`, `o3-editorial-typography-subheading`, or `o3-editorial-typography-label` class:
+Then, replace the custom class with
+the `o3-editorial-typography-headline`, `o3-editorial-typography-chapter`, `o3-editorial-typography-subheading`,
+or `o3-editorial-typography-label` class:
 
 ```html
 <h1 class="my-heading-1">Heading level 1</h1>
@@ -137,11 +151,13 @@ becomes:
 <h3 class="o3-editorial-typography-label">Heading level 5</h3>
 ```
 
-o3-editorial-typography also improves semantic html markup by using the correct heading level for the content. And we recommend using the correct heading level for the content.
+o3-editorial-typography also improves semantic html markup by using the correct heading level for the content. And we
+recommend using the correct heading level for the content.
 
 #### oEditorialTypographyBody
 
-This mixin outputs body text styles. To replace the usage of this mixin, replace custom class names with exported class from `o3-editorial-typography`.
+This mixin outputs body text styles. To replace the usage of this mixin, replace custom class names with exported class
+from `o3-editorial-typography`.
 
 First, remove the mixin and custom class from your Sass file:
 
@@ -160,7 +176,8 @@ Then, replace the custom class with the `o3-editorial-typography-body` class:
 
 #### oEditorialTypographyList
 
-This mixin outputs list styles. Mixin can be removed once markup is updated with the correct class names. Users used this mixin to output ordered and unordered list styles in their custom classes.
+This mixin outputs list styles. Mixin can be removed once markup is updated with the correct class names. Users used
+this mixin to output ordered and unordered list styles in their custom classes.
 
 First, remove the mixin from your Sass file:
 
@@ -178,7 +195,8 @@ First, remove the mixin from your Sass file:
 -}
 ```
 
-Then, replace the custom class with the `o3-editorial-typography-list--ordered` or `o3-editorial-typography-list--unordered` class:
+Then, replace the custom class with the `o3-editorial-typography-list--ordered`
+or `o3-editorial-typography-list--unordered` class:
 
 ```diff
 -<div class="o-editorial-typography-body">
@@ -199,7 +217,8 @@ Then, replace the custom class with the `o3-editorial-typography-list--ordered` 
 
 #### oEditorialTypographyCaption
 
-This mixin outputs caption text styles. To replace the usage of this mixin, replace custom class names with exported class from `o3-editorial-typography`.
+This mixin outputs caption text styles. To replace the usage of this mixin, replace custom class names with exported
+class from `o3-editorial-typography`.
 
 first, remove the mixin and custom class from your Sass file:
 
@@ -228,7 +247,8 @@ Then, replace the custom class with the `o3-editorial-typography-caption` class:
 
 #### oEditorialTypographyStandFirst
 
-This mixin outputs standfirst text. To replace the usage of this mixin, replace custom class names with exported class from `o3-editorial-typography`.
+This mixin outputs standfirst text. To replace the usage of this mixin, replace custom class names with exported class
+from `o3-editorial-typography`.
 
 First, remove the mixin and custom class from your Sass file:
 
@@ -247,7 +267,8 @@ Then, replace the custom class with the `o3-editorial-typography-standfirst` cla
 
 #### oEditorialTypographyByline
 
-This mixin outputs byline text styles. To replace usage of this mixin, replace custom class names with exported class from `o3-editorial-typography`.
+This mixin outputs byline text styles. To replace usage of this mixin, replace custom class names with exported class
+from `o3-editorial-typography`.
 
 First, remove the mixin and custom class from your Sass file:
 
@@ -258,20 +279,29 @@ First, remove the mixin and custom class from your Sass file:
 
 ```
 
-Then, replace the custom class with the `o3-editorial-typography-byline` class:
+Then, replace the custom class with the `o3-editorial-typography-byline` classes:
 
 ```diff
 -<div class="my-byline-wrapper">
 -  # byline content
 -</div>
-+<div class="o3-editorial-typography-byline">
-+  # byline content
++<div>
++				<a className="o3-editorial-typography-byline-author" href="#">
++					Joe Doe&nbsp;
++				</a>
++				<time
++					className="o3-editorial-typography-byline-timestamp"
++					dateTime="2019-10-11T20:51:54Z"
++					title="October 11 2019 9:51 pm">
++					October 11 2019
++				</time>
 +</div>
 ```
 
 #### oEditorialTypographyTimestamp
 
-This mixin outputs timestamp text styles. To replace the usage of this mixin, replace custom class names with exported class from `o3-editorial-typography`.
+This mixin outputs timestamp text styles. To replace the usage of this mixin, replace custom class names with exported
+class from `o3-editorial-typography`.
 
 First, remove the mixin and custom class from your Sass file:
 
@@ -290,7 +320,8 @@ Then, replace the custom class with the `o3-editorial-typography-byline-timestam
 
 #### oEditorialTypographyTag
 
-This mixin outputs tag text styles. To replace usage of this mixin, replace custom class names with exported class from `o3-editorial-typography`.
+This mixin outputs tag text styles. To replace usage of this mixin, replace custom class names with exported class
+from `o3-editorial-typography`.
 
 First, remove the mixin and custom class from your Sass file:
 
@@ -326,8 +357,59 @@ There is no direct replacement for `oEditorialTypographyDecorated` mixin.
 
 `$o-editorial-typography-load-fonts` is no longer needed and font are loaded from `o3-foundation` component.
 
+## Migrating from v2 to v3
+
+### Replace editorial body and link components
+
+We have deleted the editorial `Body` JSX component, and replaced it with more generic "content-body\*" typography use-cases, provided by `o3-foundation`. We have also removed the `o3-editorial-typography-link` class and `Link` component. Link styles are applied by `o3-foundation`, against any anchor `a` element by default.
+
+```diff
+-	<p class="o3-editorial-typography-body">An article by <a class="o3-editorial-typography-link" href="https://ft.com/">The Financial Times</a></p>.
++	<p class="o3-type-body-content-base">An article by <a href="https://ft.com/">The Financial Times</a></p>.
+```
+
+```diff
+-import {Body, Link} from '@financial-times/o3-editorial-typography/cjs'; // or /esm
+-
+-<Body>
+-	An article by
+-	<Link href="https://ft.com/">The Financial Times</Link>.
+-</Body>;
++	<p class="o3-type-body-content-base">An article by <a href="https://ft.com/">The Financial Times</a></p>.
+```
+
+If using a drop cap replace `o3-editorial-typography-body--drop-cap` with `o3-editorial-typography-drop-cap`.
+
+```diff
+-	<p class="o3-editorial-typography-body o3-editorial-typography-body--drop-cap">An article by <a class="o3-editorial-typography-link" href="https://ft.com/">The Financial Times</a></p>.
++	<p class="o3-type-body-content-base o3-editorial-typography-drop-cap">An article by <a href="https://ft.com/">The Financial Times</a></p>.
+```
+
+### Rename heading large
+
+o3-editorial-typography v3 refines component naming according to the design team.
+
+- We have renamed the `Headline` JSX component to `Heading`.
+- The "headline large" heading is renamed "display".
+
+Update your markup accordingly.
+
+```diff
++<h1 class="o3-editorial-typography-display" data-o3-editorial-underline="true">
+-<h1 class="o3-editorial-typography-headline-large" data-o3-editorial-underline="true">
+    <span>Don’t settle for black and white</span>
+</h1>
+```
+
+```diff
++<Heading underline={true} type="display">
+-<Headline underline={true} type="headline-large">
+  Don’t settle for black and white
+</Headline>
+```
+
 ## Migrating from v1 to v2
 
-V2 drops support for Bower and version 2 of Origami Build Service.
+If you are using `v1.2.3`, there is nothing to do. If you are using `v1.2.2` or earlier, ensure you upgrade `@financial-times/o3-foundation` to `v2` first before updating `@financial-times/o3-editorial-foundation`.
 
-Follow [the migration guide on the Origami website](https://origami.ft.com/documentation/tutorials/bower-to-npm/).
+A breaking change was accidentally released in v1.2.3 but went unnoticed for a significant period of time. As it may have been fixed by end users, it may not be something we can safely revert in a subsequent patch. A v2 major release followed without significant additional changes.

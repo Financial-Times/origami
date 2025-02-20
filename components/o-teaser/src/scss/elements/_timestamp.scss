@@ -1,11 +1,16 @@
 /// Timestamp base styles
 @mixin _oTeaserTimestamp {
-	@include oLabelsTimestampContent();
+	font-family: oPrivateFoundationGet('o3-type-label-font-family');
+	font-size: oPrivateFoundationGet('o3-type-label-font-size');
+	font-weight: oPrivateFoundationGet('o3-type-label-font-weight');
+	line-height: oPrivateFoundationGet('o3-type-label-line-height');
+	text-transform: oPrivateFoundationGet('o3-type-label-text-case');
+	color: $_o-teaser-muted;
 	display: block;
 	// Moves timestamp to the bottom when stretched modifier is used
 	margin-top: auto;
 	// and ensures there is always some gap above
-	padding-top: oSpacingByName('s4');
+	padding-top: oPrivateSpacingByName('s4');
 }
 
 /// Timestamp variant styles adding coloured prefixes.
@@ -14,34 +19,67 @@
 @mixin _oTeaserTimestampVariants {
 	// Output o-labels indicators.
 	.o-teaser__timestamp {
-		@include oLabelsIndicatorContent($opts: ('block': true));
+		@include oLabelsIndicatorContent(
+			$opts: (
+				'block': true,
+			)
+		);
 	}
 
 	.o-teaser__timestamp--new {
-		@include oLabelsIndicatorContent($opts: ('block': true, 'modifier': 'new'));
+		@include oLabelsIndicatorContent(
+			$opts: (
+				'block': true,
+				'modifier': 'new',
+			)
+		);
 	}
 
 	.o-teaser__timestamp--updated {
-		@include oLabelsIndicatorContent($opts: ('block': true, 'modifier': 'updated'));
+		@include oLabelsIndicatorContent(
+			$opts: (
+				'block': true,
+				'modifier': 'updated',
+			)
+		);
 	}
 
 	// @deprecated - o-teaser__timestamp--inprogress has been replaced by o-teaser__timestamp--live
 	// https://github.com/Financial-Times/o-teaser/issues/173
 	.o-teaser__timestamp--inprogress,
-	.o-teaser__timestamp--live {
-		@include oLabelsIndicatorContent($opts: ('block': true, 'modifier': 'live'));
+	.o-teaser__timestamp--live,
+	.o-teaser__timestamp.o-teaser__timestamp--live {
+		@include oLabelsIndicatorContent(
+			$opts: (
+				'block': true,
+				'modifier': 'live',
+			)
+		);
 	}
 
 	.o-teaser__timestamp--closed {
-		@include oLabelsIndicatorContent($opts: ('block': true, 'modifier': 'closed'));
+		@include oLabelsIndicatorContent(
+			$opts: (
+				'block': true,
+				'modifier': 'closed',
+			)
+		);
 	}
 
 	.o-teaser__timestamp-prefix {
-		@include oLabelsIndicatorContent($opts: ('element': 'status'));
+		@include oLabelsIndicatorContent(
+			$opts: (
+				'element': 'status',
+			)
+		);
 	}
 
 	.o-teaser__timestamp-date {
-		@include oLabelsIndicatorContent($opts: ('element': 'timestamp'));
+		@include oLabelsIndicatorContent(
+			$opts: (
+				'element': 'timestamp',
+			)
+		);
 	}
 
 	// Output modifiers for custom, teaser specific indicator styles.

@@ -28,16 +28,17 @@
 	
 
 	@each $color-name in $colors {
+		$color-name: if($color-name == 'matisse', 'o3-color-palette-#{$color-name}-blue', 'o3-color-palette-#{$color-name}');
 		&.o-topper--color-#{$color-name} {
-			$background: oColorsByName($color-name);
-			$foreground: oColorsGetTextColor($background, $opacity: 100);
+			$background: oPrivateFoundationGet($color-name);
+			$foreground: oPrivateColorsGetTextColor($background, $opacity: 100);
 			.o-topper__content--text-shadow{
 				@if $foreground == white{
 					text-shadow: 2px 3px 4px rgba(18,18,18,0.4);
 				}
 			}
 			.o-topper__content--background-box {
-				padding: oSpacingByName('s4');
+				padding: oPrivateSpacingByName('s4');
 				background-color: if($foreground == white, rgb(18,18,18,0.67), rgb(255,255,255,0.7));
 			}
 		}
@@ -53,32 +54,32 @@
 		grid-row: 1 /span 2;
 	}
 	&.o-topper--full-bleed-image-center {
-		@include oGridRespondTo(S) {
+		@include oPrivateGridRespondTo(S) {
 			@include _oTopperAlignText(center);
 		}
 	}
 
 
-	@include oGridRespondTo( $until:S) {
+	@include oPrivateGridRespondTo( $until:S) {
 		.o-topper__content {
 			width:100%;
-		  	margin: 0 0 oSpacingByName('s6');
+		  	margin: 0 0 oPrivateSpacingByName('s6');
 		  	padding: 20px;
 		}
 	}
 
-	@include oGridRespondTo($from:S , $until:M) {
+	@include oPrivateGridRespondTo($from:S , $until:M) {
 		.o-topper__content {
 			width:75%;
 		}
 	}
-	@include oGridRespondTo($from:M , $until:L) {
+	@include oPrivateGridRespondTo($from:M , $until:L) {
 		.o-topper__content {
 			width:50%;
 		}
 	}
 
-	@include oGridRespondTo(L) {
+	@include oPrivateGridRespondTo(L) {
 		grid-template-rows: 66vw 1fr;
 
 		.o-topper__content {
@@ -98,6 +99,6 @@
 
 	.o-topper__image-caption {
 		background-color: transparent;
-		color: oColorsByName("black-70");
+		color: oPrivateFoundationGet("o3-color-palette-black-70");
 	}
 }

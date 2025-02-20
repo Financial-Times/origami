@@ -14,6 +14,11 @@ const toolingFormat = ({dictionary}) => {
 					originalValue: token.original.value,
 					type,
 					description: token.description,
+					attributes: {
+						item: token.attributes.item,
+						subitem: token.attributes.subitem,
+						state: token.attributes.state,
+					},
 					origamiKeys: token.origamiKeys,
 					path: token.path,
 					origamiTint: token.origamiTint,

@@ -1,0 +1,71 @@
+.o3-editorial-typography-headline {
+	font-family: var(--o3-type-headline-sm-font-family);
+	font-size: var(--o3-type-headline-sm-font-size);
+	font-weight: var(--o3-type-headline-sm-font-weight);
+	line-height: var(--o3-type-headline-sm-line-height);
+}
+
+.o3-editorial-typography-display {
+	font-family: var(--o3-type-display-sm-font-family);
+	font-size: var(--o3-type-display-sm-font-size);
+	font-weight: var(--o3-type-display-sm-font-weight);
+	line-height: var(--o3-type-display-sm-line-height);
+}
+
+.o3-editorial-typography-display[data-o3-editorial-underline]::after {
+	content: '';
+	display: block;
+	width: 182px;
+	max-width: 100%;
+	padding-top: var(--o3-spacing-xs);
+	border-bottom: var(--o3-spacing-4xs) solid;
+}
+
+.o3-editorial-typography-chapter {
+	font-family: var(--o3-type-title-lg-font-family);
+	font-size: var(--o3-type-title-lg-font-size);
+	font-weight: var(--o3-type-title-lg-font-weight);
+	line-height: var(--o3-type-title-lg-line-height);
+}
+
+.o3-editorial-typography-subheading {
+	font-family: var(--o3-type-title-md-font-family);
+	font-size: var(--o3-type-title-md-font-size);
+	font-weight: var(--o3-type-title-md-font-weight);
+	line-height: var(--o3-type-title-md-line-height);
+}
+
+.o3-editorial-typography-label {
+	font-family: var(--o3-type-body-base-font-family);
+	font-size: var(--o3-type-body-base-font-size);
+	font-weight: var(--o3-type-body-base-font-weight);
+	line-height: var(--o3-type-body-base-line-height);
+}
+
+@media (min-width: 740px) {
+	.o3-editorial-typography-headline {
+		font-size: var(--o3-type-headline-md-font-size);
+		font-weight: var(--o3-type-headline-md-font-weight);
+		line-height: var(--o3-type-headline-md-line-height);
+	}
+
+	.o3-editorial-typography-display {
+		font-size: var(--o3-type-display-md-font-size);
+		font-weight: var(--o3-type-display-md-font-weight);
+		line-height: var(--o3-type-display-md-line-height);
+	}
+}
+
+@media (min-width: 980px) {
+	.o3-editorial-typography-headline {
+		font-size: var(--o3-type-headline-lg-font-size);
+		font-weight: var(--o3-type-headline-lg-font-weight);
+		line-height: var(--o3-type-headline-lg-line-height);
+	}
+
+	.o3-editorial-typography-display {
+		font-size: var(--o3-type-display-lg-font-size);
+		font-weight: var(--o3-type-display-lg-font-weight);
+		line-height: var(--o3-type-display-lg-line-height);
+	}
+}

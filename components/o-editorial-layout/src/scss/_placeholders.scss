@@ -8,12 +8,12 @@
 	// - match body
 	%_o-editorial-layout-list {
 		@extend %_o-editorial-layout-body;
-		@include oEditorialTypographyList();
+		margin: 0;
 	}
 	// h1
 	// - small margin below by default
 	%_o-editorial-layout-heading-1 {
-		margin-bottom: oSpacingByName('s1');
+		margin-bottom: oPrivateSpacingByName('s1');
 		margin-top: 0;
 	}
 	// h2
@@ -22,8 +22,8 @@
 	%_o-editorial-layout-heading-2 {
 		// Break typical spacing rules with a bottom margin of 14px, which does
 		// not align to the 4px baseline grid, as requested by the design team.
-		margin-bottom: oSpacingGetBaselineValue() * 3.5;
-		margin-top: oSpacingByName('s8');
+		margin-bottom: oPrivateSpacingGetBaselineValue() * 3.5;
+		margin-top: oPrivateSpacingByName('s8');
 	}
 	// h3 & h4
 	// - medium margin below by default
@@ -31,19 +31,19 @@
 	%_o-editorial-layout-heading-4 {
 		// Break typical spacing rules with a bottom margin of 14px, which does
 		// not align to the 4px baseline grid, as requested by the design team.
-		margin-bottom: oSpacingGetBaselineValue() * 3.5;
+		margin-bottom: oPrivateSpacingGetBaselineValue() * 3.5;
 		margin-top: 0;
 	}
 	// h5
 	// - small margin below by default
 	%_o-editorial-layout-heading-5 {
-		margin-bottom: oSpacingByName('s1');
+		margin-bottom: oPrivateSpacingByName('s1');
 		margin-top: 0;
 	}
 	// body
 	// - medium margin below by default
 	%_o-editorial-layout-body {
-		margin-bottom: oSpacingByName('s6');
+		margin-bottom: oPrivateSpacingByName('s6');
 		margin-top: 0;
 	}
 
@@ -56,7 +56,7 @@
 	%_o-editorial-layout-heading-4,
 	%_o-editorial-layout-heading-5 {
 		& + %_o-editorial-layout-body {
-			margin-top: oSpacingByName('s1');
+			margin-top: oPrivateSpacingByName('s1');
 		}
 
 		& + figure,
@@ -64,7 +64,7 @@
 		& + ol,
 		& + aside,
 		& + div {
-			margin-top: oSpacingByIncrement(4);
+			margin-top: oPrivateSpacingByIncrement(4);
 		}
 	}
 }

@@ -1,0 +1,428 @@
+/// @see _oPrivateTypographyFor
+@mixin oPrivateTypographySans(
+	$scale: null,
+	$line-height: null,
+	$weight: null,
+	$style: null
+) {
+	$font: 'metric';
+	@include _oPrivateTypographyFor($font, $scale, $line-height, $weight, $style);
+}
+
+/// @see _oPrivateTypographyFor
+@mixin oPrivateTypographySerif(
+	$scale: null,
+	$line-height: null,
+	$weight: null,
+	$style: null
+) {
+	$font: 'georgia';
+	@include _oPrivateTypographyFor($font, $scale, $line-height, $weight, $style);
+}
+
+/// @see _oPrivateTypographyFor
+@mixin oPrivateTypographyDisplay(
+	$scale: null,
+	$line-height: null,
+	$weight: null,
+	$style: null
+) {
+	$font: 'financier-display';
+	@include _oPrivateTypographyFor($font, $scale, $line-height, $weight, $style);
+}
+
+/// @param {Number} $scale [null] - a scale number to output a font-size and line-height property
+/// @param {Number} $line-height [null] - custom line-height value to use instead of the scale's default
+/// @param {Null | String} $weight [null] - output a font-weight property, e.g. 'bold', 'semibold'
+/// @param {Null | String} $style [null] - output a font-style property, e.g. 'italic'
+@mixin _oPrivateTypographyFor(
+	$font,
+	$scale: null,
+	$line-height: null,
+	$weight: null,
+	$style: null
+) {
+	@if $scale {
+		// The font scale to use. o3 includes multiple scales.
+		// Adjust scale down, to support migrating from
+		// Metric2 to Metric. Metric2 renders larger for the same font-size.
+		$scale-key: '-'; // Default scale
+		@if ($font == 'metric') {
+			$scale-key: '-metric2-'; // Metric2 scale
+			$scale: $scale - 1;
+		}
+
+		// The font scale number as a key.
+		$scale-item-key: '#{$scale}';
+		@if ($scale < 0) {
+			$scale-item-key: 'negative#{$scale}';
+		}
+		font-family: oPrivateFoundationGet('o3-font-family-#{$font}');
+		font-size: oPrivateFoundationGet(
+			'o3-font-size#{$scale-key}#{$scale-item-key}'
+		);
+		line-height: oPrivateFoundationGet(
+			'o3-font-lineheight#{$scale-key}#{$scale-item-key}'
+		);
+	}
+
+	font-weight: if(
+		$weight,
+		oPrivateFoundationGet('o3-font-weight-#{$weight}'),
+		null
+	);
+}
+
+@mixin oPrivateTypographyCaption {
+	@include oPrivateTypographySans($scale: -1);
+	margin-top: oPrivateFoundationGet('o3-spacing-4xs');
+	margin-bottom: 0;
+	color: oPrivateFoundationGet('o3-color-use-case-body-text');
+}
+
+/// Output link styles.
+///
+/// @example Output the styles for a standard link.
+///     .my-link {
+///     	@include oPrivateTypographyLink();
+///     }
+///
+/// @example Output a Origami supported theme.
+///     .my-inverse-link {
+///     	@include oPrivateTypographyLink($theme: 'inverse');
+///     }
+///
+/// @param {String|Null} $theme [null] - An Origami theme to change the look of a link.
+@mixin oPrivateTypographyLink($theme: null) {
+	$underline-size: 0.25ex; // 2px for 18px MetricWeb
+
+	&[target='_blank'] {
+		// Visually hidden content is positioned absolutely. Position relative on the anchor means the hidden
+		// content is positioned relative to the anchor element. This ensures it is clipped by the overflow
+		// property of an ancestor; otherwise the pseudo element which contains the hidden content will not
+		// be clipped by the overflow of any ancestor between it and its containing block.
+		// https://drafts.csswg.org/css2/#visufx
+		position: relative;
+
+		&:after {
+			@include oPrivateNormaliseVisuallyHidden();
+			content: '(opens a new window)';
+		}
+	}
+
+	// Output base styles shared by all links.
+	text-decoration: none;
+	cursor: pointer;
+	border-bottom: $underline-size solid;
+
+	@supports (text-decoration-thickness: $underline-size) {
+		border-bottom: 0;
+		text-decoration-thickness: $underline-size; //sass-lint:disable-line no-misspelled-properties
+		text-decoration-line: underline;
+	}
+
+	// Colours for theme
+	// Professional is a theme in o2 and a brand in o3.
+	// Map "professional" themes to a brand to fetch tokens.
+	$sub-brand: null;
+	@if ($theme == 'professional' or $theme == 'professional-inverse') {
+		$sub-brand: 'professional';
+	}
+
+	$token-prefix: 'o3-color-use-case-link-';
+	@if ($theme == 'professional-inverse') {
+		$token-prefix: 'o3-color-use-case-link-inverse-';
+	}
+	// Standard link colours.
+	$base-color: oPrivateFoundationGet(#{$token-prefix + 'text'}, $sub-brand);
+	$hover-color: oPrivateFoundationGet(
+		#{$token-prefix + 'text-hover'},
+		$sub-brand
+	);
+	$decoration-color: oPrivateFoundationGet(
+		#{$token-prefix + 'underline'},
+		$sub-brand
+	);
+	$hover-decoration-color: oPrivateFoundationGet(
+		#{$token-prefix + 'underline-hover'},
+		$sub-brand
+	);
+
+	@include _oPrivateTypographyLinkTheme(
+		$base-color,
+		$decoration-color,
+		$hover-color,
+		$hover-decoration-color
+	);
+}
+
+/// Output link styles.
+///
+/// @example Output a custom, claret coloured link to go on the default background colour (paper for the core brand, white otherwise).
+///     .my-claret-link {
+///     	@include oPrivateTypographyLink();
+///     	@include oPrivateTypographyLinkThemeOverride($theme: (
+///     		'base': 'claret',
+///     		'hover': 'claret-30',
+///     	));
+///     }
+///
+/// @example Output a custom, lemon coloured link to go on a slate background.
+///     .my-inverse-link {
+///      	@include oPrivateTypographyLink();
+///     	@include oPrivateTypographyLinkThemeOverride($theme: (
+///     		'base': 'lemon',
+///     		'hover': 'lemon-30',
+///     		'context': 'slate',
+///     	));
+///     }
+///
+/// @param {Map} $theme - A custom theme to change the look of a link, with colours for properties `base` (the main link colour), `hover` (the links over colour), and optional `context` key. Context is the colour the link will be placed on, it defaults to the page background (paper for the core brand, white otherwise).
+@mixin oPrivateTypographyLinkThemeOverride($theme) {
+	$base-color: map-get($theme, 'base');
+	$base-color: _oPrivateTypographyGetColourFrom($base-color);
+
+	$hover-color: map-get($theme, 'hover');
+	$hover-color: _oPrivateTypographyGetColourFrom($hover-color);
+
+	$context-color: map-get($theme, 'context');
+	$context-color: _oPrivateTypographyGetColourFrom($context-color);
+	@if (not $context-color) {
+		$context-color: oPrivateFoundationGet('o3-color-use-case-page-background');
+	}
+
+	$decoration-color: map-get($theme, 'base-decoration');
+	$decoration-color: _oPrivateTypographyGetColourFrom($decoration-color);
+
+	$hover-decoration-color: map-get($theme, 'hover-decoration');
+	$hover-decoration-color: _oPrivateTypographyGetColourFrom(
+		$hover-decoration-color
+	);
+
+	// Validate required theme colours.
+	@if (type-of($base-color) != 'color') {
+		@error 'A custom link theme must have a `base` property with a colour or palette colour name e.g. `claret`. But found #{$base-color}.';
+	}
+	@if (type-of($hover-color) != 'color') {
+		@error 'A custom link theme must have a `hover` property with a color or palette colour name e.g. `claret`. But found #{$hover-color}.';
+	}
+	@if (type-of($context-color) != 'color') {
+		@error 'A custom link theme may optionally have a `context` property with a color or palette colour name, to indicate the colour of the page behind the link, e.g. `null` or `paper`. But found #{$context-color}.';
+	}
+
+	// Generate optional theme colours.
+	@if (not $decoration-color) {
+		// TODO: replace oColorsMix
+		$decoration-color: oColorsMix($base-color, $context-color, $percentage: 20);
+	}
+
+	@if (not $hover-decoration-color) {
+		// TODO: replace oColorsMix
+		$hover-decoration-color: oColorsMix(
+			$base-color,
+			$context-color,
+			$percentage: 40
+		);
+	}
+
+	// Output theme colours.
+	@include _oPrivateTypographyLinkTheme(
+		$base-color,
+		$decoration-color,
+		$hover-color,
+		$hover-decoration-color
+	);
+}
+
+/// Apply theme colours to a link.
+/// @param {Color} $base-color - The main link colour.
+/// @param {Color} $decoration-color - The colour of the underline.
+/// @param {Color} $hover-color - The link colour on hover.
+/// @param {Color} $hover-decoration-color - The colour of the underline on hover.
+@mixin _oPrivateTypographyLinkTheme(
+	$base-color,
+	$decoration-color,
+	$hover-color,
+	$hover-decoration-color
+) {
+	color: $base-color;
+
+	border-bottom: 0;
+	text-decoration-color: $decoration-color;
+
+	&:hover {
+		color: $hover-color;
+		text-decoration-color: $hover-decoration-color;
+	}
+
+	&:focus {
+		color: $hover-color;
+		text-decoration-color: transparent;
+	}
+}
+
+/// Output styles for lists.
+/// Styles child `li` elements. Apply to a
+/// containing list element such as `ul` or `ol`.
+/// Does not output font styles, these are
+/// inherited.
+///
+/// @example Output the styles for an unordered list.
+///     .my-unordered-list {
+///     	@include oPrivateTypographyList('unordered');
+///     }
+///
+/// @param {String|Null} $type [null] - "ordered", "unordered", or null for just the base styles shared by all lists
+@mixin oPrivateTypographyList($type: null) {
+	// Undo browser defaults.
+	margin: 0 0 oPrivateFoundationGet('o3-spacing-s');
+	padding: 0;
+	list-style: none;
+
+	// Reset number counter for new ordered list.
+	@if ($type == 'ordered') {
+		counter-reset: item;
+	}
+	> li {
+		position: relative;
+		// Undo browser default.
+		margin: 0;
+		// Allow space for 2-3 numbers for both ordered and unordered lists,
+		// so content aligns between both list types.
+		padding-left: calc(2ch + #{oPrivateFoundationGet('o3-spacing-5xs')});
+
+		&:before {
+			@include oPrivateTypographySans();
+			display: inline-block;
+			position: absolute;
+			left: 0;
+			transform-origin: center left;
+
+			@if ($type == 'unordered') {
+				content: '\2022'; // dot character
+				color: inherit;
+				// 28px marker given a parent font-size of 18px
+				transform: scale(#{div(28, 18)});
+				// magic number to center marker
+				margin-top: #{div(28, 18) * -0.16ch};
+			}
+
+			@if ($type == 'ordered') {
+				font-family: oPrivateFoundationGet(
+					'o3-type-body-highlight-font-family'
+				);
+				font-size: oPrivateFoundationGet('o3-type-body-highlight-font-size');
+				font-weight: oPrivateFoundationGet(
+					'o3-type-body-highlight-font-weight'
+				);
+				line-height: oPrivateFoundationGet(
+					'o3-type-body-highlight-line-height'
+				);
+				content: counter(item);
+				counter-increment: item;
+				font-feature-settings: 'tnum';
+				// 16px marker given a parent font-size of 18px
+				transform: scale(#{div(16, 18)});
+				// magic number to make marker flush to the left
+				margin-left: #{div(16, 18) * -0.16ch};
+			}
+		}
+	}
+}
+
+/// Returns a maximum line width based on the given scale
+///
+/// @param {Number} $optimal-characters-per-line - number of the characters per line
+/// @returns {String} maximum line width in ch
+@function oPrivateTypographyMaxLineWidth($optimal-characters-per-line: 65) {
+	// a ch unit represents the width of the glyph "0"
+	// it's a wide glyph so we'll reduce the ch value by an arbitrary amount
+	// to bring our characters per line closer to the requested number on average
+	$magic-number: 0.75;
+	@return $optimal-characters-per-line * $magic-number * 1ch;
+}
+
+/// Body text styles
+@mixin oPrivateTypographyBody() {
+	@include oPrivateTypographySans(1);
+	margin: 0 0 oPrivateSpacingByName('s6');
+	color: oPrivateFoundationGet('o3-color-use-case-body-text');
+}
+
+/// Output styles for page headings.
+/// @example Output heading level 1 styles.
+///     h1 {
+///     	@include oPrivateTypographyHeading($level: 1);
+///     }
+/// @example Output heading level 5 styles.
+///     h5 {
+///     	@include oPrivateTypographyHeading($level: 5);
+///     }
+/// @param {Number} $level - The heading level 1-5.
+@mixin oPrivateTypographyHeading($level) {
+	$headings: (
+		'heading-level-one',
+		'heading-level-two',
+		'heading-level-three',
+		'heading-level-four',
+		'heading-level-five',
+		'heading-level-six'
+	);
+
+	@if (type-of($level) != 'number' or $level < 1 or $level > 6) {
+		@error 'Heading level must be a Number 1-6. Found #{inspect($level)}.';
+	}
+
+	$heading-key: nth($headings, $level);
+
+	$heading-levels-with-attributes: (
+		'heading-level-one': (
+			'scale': 5,
+			'weight': 'semibold',
+		),
+		'heading-level-two': (
+			'scale': 4,
+			'weight': 'semibold',
+		),
+		'heading-level-three': (
+			'scale': 3,
+			'weight': 'semibold',
+		),
+		'heading-level-four': (
+			'scale': 2,
+			'weight': 'semibold',
+		),
+		'heading-level-five': (
+			'scale': 1,
+			'weight': 'semibold',
+		),
+		'heading-level-six': (
+			'scale': 0,
+			'weight': 'semibold',
+		),
+	);
+
+	$heading-attributes: map-get($heading-levels-with-attributes, $heading-key);
+	@include oTypographySans(
+		$scale: map-get($heading-attributes, 'scale'),
+		$weight: map-get($heading-attributes, 'weight')
+	);
+	color: oPrivateFoundationGet('o3-color-use-case-body-text');
+	margin: 0 0 oPrivateSpacingByName('s4');
+}
+
+/// A string representation of a hex value should be treated as a colour.
+/// @param {String|Color|Null} $theme-value - A colour or palette colour name.
+/// @return {Color|Null} - A colour, or pass through null.
+@function _oPrivateTypographyGetColourFrom($theme-value) {
+	@if (type-of($theme-value) == 'string') {
+		$theme-value: unquote($theme-value);
+	}
+	// If we still have a string, assume it's a palette colour name.
+	$theme-value: if(
+		type-of($theme-value) == 'string',
+		oPrivateFoundationGet('o3-color-palette-#{$theme-value}'),
+		$theme-value
+	);
+	@return $theme-value;
+}

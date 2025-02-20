@@ -1,23 +1,33 @@
 /// Styles for large teasers.
 /// Also form the basis of styles for hero teasers
 @mixin _oTeaserLarge {
-	@include oNormaliseClearfix;
+	@include oPrivateNormaliseClearfix;
 
 	.o-teaser__content {
-		padding: oGridGutter(M);
-		border: 1px solid oColorsByUsecase('o-teaser/base', 'border');
+		padding: oPrivateGridGutter(M);
+		border: 1px solid oPrivateFoundationGet('o3-color-palette-black-20');
 	}
 
 	.o-teaser__heading {
-		@include oTypographyDisplay($scale: 3);
+		font-family: oPrivateFoundationGet('o3-type-headline-sm-font-family');
+		font-size: oPrivateFoundationGet('o3-type-headline-sm-font-size');
+		font-weight: oPrivateFoundationGet('o3-type-headline-sm-font-weight');
+		line-height: oPrivateFoundationGet('o3-type-headline-sm-line-height');
 	}
 
 	.o-teaser__standfirst {
-		@include oTypographySans(
-			$scale: (default: (1, 24px), L: (2, 24px)),
-			$include-font-family: false
-		);
-		margin-top: oSpacingByName('s6');
+		font-family: oPrivateFoundationGet('o3-type-body-base-font-family');
+		font-size: oPrivateFoundationGet('o3-type-body-base-font-size');
+		font-weight: oPrivateFoundationGet('o3-type-body-base-font-weight');
+		line-height: oPrivateFoundationGet('o3-type-body-base-line-height');
+
+		@include oPrivateGridRespondTo('L') {
+			font-family: oPrivateFoundationGet('o3-type-body-lg-font-family');
+			font-size: oPrivateFoundationGet('o3-type-body-lg-font-size');
+			font-weight: oPrivateFoundationGet('o3-type-body-lg-font-weight');
+			line-height: oPrivateFoundationGet('o3-type-body-lg-line-height');
+		}
+		margin-top: oPrivateSpacingByName('s6');
 	}
 }
 
@@ -26,11 +36,11 @@
 /// in medium-large, and portrait from large up
 @mixin _oTeaserLargeWithImage {
 	.o-teaser__content {
-		@include oGridRespondTo($until: S) {
+		@include oPrivateGridRespondTo($until: S) {
 			border-bottom: 0;
 		}
 
-		@include oGridRespondTo(S, L) {
+		@include oPrivateGridRespondTo(S, L) {
 			position: relative;
 			float: left;
 			border-right: 0;
@@ -43,20 +53,20 @@
 				height: 100%;
 				width: 25%;
 				display: block;
-				border: 1px solid oColorsByUsecase('o-teaser/base', 'border');
+				border: 1px solid oPrivateFoundationGet('o3-color-palette-black-20');
 				border-left: 0;
 			}
 		}
 
-		@include oGridRespondTo(S, M) {
+		@include oPrivateGridRespondTo(S, M) {
 			width: 60%;
 		}
 
-		@include oGridRespondTo(M, L) {
+		@include oPrivateGridRespondTo(M, L) {
 			width: 70%;
 		}
 
-		@include oGridRespondTo(L) {
+		@include oPrivateGridRespondTo(L) {
 			border-bottom: 0;
 		}
 	}
@@ -69,7 +79,7 @@
 		position: relative;
 		z-index: 1;
 
-		@include oGridRespondTo(M, L) {
+		@include oPrivateGridRespondTo(M, L) {
 			max-width: 220px;
 		}
 	}
@@ -89,11 +99,12 @@
 			display: block;
 			width: 100%;
 			height: 50%;
-			border-left: 1px solid oColorsByUsecase('o-teaser/base', 'border');
-			border-bottom: 1px solid oColorsByUsecase('o-teaser/base', 'border');
+			border-left: 1px solid oPrivateFoundationGet('o3-color-palette-black-20');
+			border-bottom: 1px solid
+				oPrivateFoundationGet('o3-color-palette-black-20');
 		}
 
-		@include oGridRespondTo(S, L) {
+		@include oPrivateGridRespondTo(S, L) {
 			float: right;
 			margin-top: 0;
 			padding-left: 0;
@@ -103,11 +114,11 @@
 			}
 		}
 
-		@include oGridRespondTo(S, M) {
+		@include oPrivateGridRespondTo(S, M) {
 			width: 40%;
 		}
 
-		@include oGridRespondTo(M, L) {
+		@include oPrivateGridRespondTo(M, L) {
 			width: 30%;
 		}
 	}
@@ -140,8 +151,9 @@
 			display: block;
 			width: 100%;
 			height: 50%;
-			border-left: 1px solid oColorsByUsecase('o-teaser/base', 'border');
-			border-bottom: 1px solid oColorsByUsecase('o-teaser/base', 'border');
+			border-left: 1px solid oPrivateFoundationGet('o3-color-palette-black-20');
+			border-bottom: 1px solid
+				oPrivateFoundationGet('o3-color-palette-black-20');
 		}
 	}
 }
@@ -163,7 +175,7 @@
 			height: 100%;
 			width: 25%;
 			display: block;
-			border: 1px solid oColorsByUsecase('o-teaser/base', 'border');
+			border: 1px solid oPrivateFoundationGet('o3-color-palette-black-20');
 			border-left: 0;
 		}
 	}

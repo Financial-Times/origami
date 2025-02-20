@@ -1,26 +1,22 @@
 .o3-button {
 	--_o3-button-min-width: 80px;
-	--_o3-button-min-height: 40px;
+	--_o3-button-min-height: 44px;
 
 	--_o3-button-block-padding: var(--o3-spacing-4xs);
 	--_o3-button-inline-padding-start: var(--o3-spacing-2xs);
 	--_o3-button-inline-padding-end: var(--o3-spacing-2xs);
-
-	--_o3-button-font-size: var(--o3-font-size-metric2-negative-1);
-	--_o3-button-lineheight: var(--o3-font-lineheight-metric2-negative-1);
 
 	--_o3-button-border-size: 1px;
 	--_o3-icon-size: calc(
 		var(--_o3-button-min-height) - (var(--_o3-button-block-padding) * 2)
 	);
 
-	--_o3-button-font-weight: var(--o3-font-weight-semibold);
-
 	min-width: var(--_o3-button-min-width);
 	/* Width based on content by default, until set to `inital` */
 	--o3-button-fluid: ;
 	width: var(--o3-button-fluid, 100%);
 	min-height: var(--_o3-button-min-height);
+	border-radius: var(--o3-border-radius-1);
 	padding: 0 var(--_o3-button-inline-padding-end) 0
 		var(--_o3-button-inline-padding-start);
 	display: inline-flex;
@@ -28,10 +24,10 @@
 	justify-content: center;
 	box-sizing: border-box;
 	vertical-align: middle;
-	font-size: var(--_o3-button-font-size);
-	line-height: var(--_o3-button-lineheight);
-	font-weight: var(--_o3-button-font-weight);
-	font-family: var(--o3-font-family-metric), sans-serif;
+	font-family: var(--o3-type-body-highlight-font-family);
+	font-size: var(--o3-type-body-highlight-font-size);
+	line-height: var(--o3-type-body-highlight-line-height);
+	font-weight: var(--o3-type-body-highlight-font-weight);
 	border: var(--_o3-button-border-size) solid transparent;
 	text-align: center;
 	text-decoration: none;
@@ -308,8 +304,9 @@
 	--_o3-button-inline-padding-end: var(--o3-spacing-4xs);
 	--_o3-button-block-padding: var(--o3-spacing-5xs);
 
-	--_o3-button-font-size: var(--o3-font-size-negative-2);
-	--_o3-button-lineheight: var(--o3-font-lineheight-negative-2);
+	/* Non-standard font size for small buttons. */
+	font-size: var(--o3-font-size-negative-2);
+	line-height: var(--o3-font-lineheight-negative-2);
 }
 
 /* PAGINATION */
@@ -391,6 +388,17 @@
 
 .o3-button-group > .o3-button + .o3-button {
 	margin-left: calc(var(--_o3-button-border-size) * -1);
+	border-radius: 0;
+}
+.o3-button-group > .o3-button:first-of-type {
+	border-radius: 0;
+	border-top-left-radius: var(--o3-border-radius-1);
+	border-bottom-left-radius: var(--o3-border-radius-1);
+}
+.o3-button-group > .o3-button:last-of-type {
+	border-radius: 0;
+	border-top-right-radius: var(--o3-border-radius-1);
+	border-bottom-right-radius: var(--o3-border-radius-1);
 }
 
 /* BUTTON ICON  */
@@ -412,11 +420,10 @@
 	https://drafts.csswg.org/css-color/#valdef-color-buttontext
  */
 @media (forced-colors: active) {
-	/* stylelint-disable-next-line selector-no-qualifying-type */
 	button.o3-button-icon::before {
 		background-color: ButtonText;
 	}
-	/* stylelint-disable-next-line selector-no-qualifying-type */
+
 	a.o3-button-icon::before {
 		background-color: LinkText;
 	}
@@ -454,42 +461,39 @@
 }
 
 .o3-button-icon.o3-button-icon--cross::before {
-	--o3-button-icon: var(--o3-icons-ft-icon-cross);
+	--o3-button-icon: var(--o3-icon-cross);
 }
-
 .o3-button-icon.o3-button-icon--upload::before {
-	--o3-button-icon: var(--o3-icons-ft-icon-upload);
+	--o3-button-icon: var(--o3-icon-upload);
 }
 .o3-button-icon.o3-button-icon--tick::before {
-	--o3-button-icon: var(--o3-icons-ft-icon-tick);
+	--o3-button-icon: var(--o3-icon-tick);
 }
 .o3-button-icon.o3-button-icon--search::before {
-	--o3-button-icon: var(--o3-icons-ft-icon-search);
+	--o3-button-icon: var(--o3-icon-search);
 }
 .o3-button-icon.o3-button-icon--plus::before {
-	--o3-button-icon: var(--o3-icons-ft-icon-plus);
+	--o3-button-icon: var(--o3-icon-plus);
 }
 
 .o3-button-icon.o3-button-icon--download::before {
-	--o3-button-icon: var(--o3-icons-ft-icon-download);
+	--o3-button-icon: var(--o3-icon-download);
 }
-.o3-button-icon.o3-button-icon--arrow-up::before {
-	--o3-button-icon: var(--o3-icons-ft-icon-arrow-up);
+.o3-button-icon.o3-button-icon--chevron-up::before {
+	--o3-button-icon: var(--o3-icon-chevron-up);
 }
-.o3-button-icon.o3-button-icon--arrow-down::before {
-	--o3-button-icon: var(--o3-icons-ft-icon-arrow-down);
+.o3-button-icon.o3-button-icon--chevron-down::before {
+	--o3-button-icon: var(--o3-icon-chevron-down);
 }
-.o3-button-icon.o3-button-icon--arrow-right::before {
-	--o3-button-icon: var(--o3-icons-ft-icon-arrow-right);
+.o3-button-icon.o3-button-icon--chevron-right::before {
+	--o3-button-icon: var(--o3-icon-chevron-right);
 }
-.o3-button-icon.o3-button-icon--arrow-left::before {
-	--o3-button-icon: var(--o3-icons-ft-icon-arrow-left);
+.o3-button-icon.o3-button-icon--chevron-left::before {
+	--o3-button-icon: var(--o3-icon-chevron-left);
 }
-
-.o3-button-icon.o3-button-icon--edit-outlined::before {
-	--o3-button-icon: var(--o3-icons-ft-icon-edit-outlined);
+.o3-button-icon.o3-button-icon--edit::before {
+	--o3-button-icon: var(--o3-icon-edit);
 }
-
 .o3-button-icon.o3-button-icon--refresh::before {
-	--o3-button-icon: var(--o3-icons-ft-icon-refresh);
+	--o3-button-icon: var(--o3-icon-refresh);
 }

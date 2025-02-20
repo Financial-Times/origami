@@ -1,13 +1,9 @@
 import sassTrue from 'sass-true'
 import dartSass from 'sass'
-import nodeSass from 'node-sass'
 
 describe('sass', () => {
   context('dart-sass', function() {
     runTestsWith(dartSass)
-  })
-  context('node-sass', function() {
-    runTestsWith(nodeSass)
   })
 })
 

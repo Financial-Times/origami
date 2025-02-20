@@ -3,15 +3,16 @@
 ///@param {String} $side — left or right rule to be styled
 /// @access private
 @mixin _oLayoutRule($side: 'left') {
-	border-#{$side}: 2px solid oColorsByName('teal');
-	padding-#{$side}: oSpacingByName('s3');
+	border-#{$side}: 2px solid oPrivateFoundationGet('o3-color-palette-teal-50');
+	padding-#{$side}: oPrivateSpacingByName('s3');
 }
 
 /// Base styling for the layout content
 /// @access private
-@mixin _oLayoutTypography () {
+@mixin _oLayoutTypography() {
 	.o-layout-typography {
-		@include oTypographySans($scale: 1, $line-height: 1.4);
+		@include oPrivateTypographySans($scale: 1);
+		line-height: 1.4;
 
 		p:not(.o-layout__unstyled-element),
 		a:not(.o-layout__unstyled-element),
@@ -27,36 +28,37 @@
 		}
 
 		p:not(.o-layout__unstyled-element) {
-			@include oTypographyBody;
-			@include oTypographySans($scale: 1, $line-height: 1.4);
+			@include oPrivateTypographyBody();
+			@include oPrivateTypographySans($scale: 1);
+			line-height: 1.4;
 		}
 
 		a:not(.o-layout__unstyled-element) {
-			@include oTypographyLink();
+			@include oPrivateTypographyLink();
 		}
 
 		h1:not(.o-layout__unstyled-element) {
-			@include oTypographyHeading($level: 1);
+			@include oPrivateTypographyHeading($level: 1);
 		}
 
 		h2:not(.o-layout__unstyled-element) {
-			@include oTypographyHeading($level: 2);
+			@include oPrivateTypographyHeading($level: 2);
 		}
 
 		h3:not(.o-layout__unstyled-element) {
-			@include oTypographyHeading($level: 3);
+			@include oPrivateTypographyHeading($level: 3);
 		}
 
 		h4:not(.o-layout__unstyled-element) {
-			@include oTypographyHeading($level: 4);
+			@include oPrivateTypographyHeading($level: 4);
 		}
 
 		h5:not(.o-layout__unstyled-element) {
-			@include oTypographyHeading($level: 5);
+			@include oPrivateTypographyHeading($level: 5);
 		}
 
 		h6:not(.o-layout__unstyled-element) {
-			@include oTypographyHeading($level: 6);
+			@include oPrivateTypographyHeading($level: 6);
 		}
 
 		aside:not(.o-layout__unstyled-element) {
@@ -64,22 +66,17 @@
 			align-self: flex-start;
 		}
 
-		ol:not(.o-layout__unstyled-element),
 		ul:not(.o-layout__unstyled-element) {
-			@include oTypographyList();
-		}
-
-		ul:not(.o-layout__unstyled-element) {
-			@include oTypographyList($type: 'unordered', $include-base-styles: false);
+			@include oPrivateTypographyList($type: 'unordered');
 		}
 
 		ol:not(.o-layout__unstyled-element) {
-			@include oTypographyList($type: 'ordered', $include-base-styles: false);
+			@include oPrivateTypographyList($type: 'ordered');
 		}
 
 		blockquote:not(.o-layout__unstyled-element) {
 			@include oQuoteStandard;
-			margin-bottom: oSpacingByIncrement(7);
+			margin-bottom: oPrivateSpacingByIncrement(7);
 			cite {
 				@include oQuoteStandardCite();
 			}
@@ -90,12 +87,15 @@
 		}
 
 		figcaption:not(.o-layout__unstyled-element) {
-			@include oTypographyCaption();
+			@include oPrivateTypographySans($scale: -1);
+			margin-top: oPrivateSpacingByName('s2');
+			margin-bottom: 0;
+			color: oPrivateFoundationGet('o3-color-use-case-body-text');
 		}
 
 		figure,
 		table {
-			margin: 0 0 oSpacingByName('s4');
+			margin: 0 0 oPrivateSpacingByName('s4');
 		}
 	}
 }
@@ -106,7 +106,7 @@
 /// @access private
 @mixin _oLayoutNavigation($query-layout) {
 	.o-layout__navigation {
-		@include oGridRespondTo($from: M) {
+		@include oPrivateGridRespondTo($from: M) {
 			position: sticky;
 			top: $_o-layout-gutter;
 			max-height: 100vh;
@@ -127,22 +127,22 @@
 	.o-layout__navigation > ol {
 		border: 0;
 		text-align: left;
-		margin: 0 0 oSpacingByIncrement(7); // matches `oTypographyBody`
+		margin: 0 0 oPrivateSpacingByIncrement(7); // matches typography body
 
-		@include oGridRespondTo($from: M) {
+		@include oPrivateGridRespondTo($from: M) {
 			text-align: right;
 			margin-top: $_o-layout-gutter;
 		}
 
 		li {
-			&:not(.o-layout__navigation-title) [aria-current="location"] {
-				color: oColorsByName('teal-30');
-				background: oColorsMix('teal', 'white', 20);
+			&:not(.o-layout__navigation-title) [aria-current='location'] {
+				color: oPrivateFoundationGet('o3-color-palette-teal-30');
+				background: oPrivateColorsMix('o3-color-palette-teal', 'o3-color-palette-white', 20);
 			}
 
 			a {
-				@include oTypographySans(1);
-				@include oTypographyLink();
+				@include oPrivateTypographySans(1);
+				@include oPrivateTypographyLink();
 				display: inline-block;
 				padding: 0.4em 1em;
 				// Where supported `overflow-wrap: anywhere` is better than
@@ -154,9 +154,9 @@
 				@supports (overflow-wrap: anywhere) {
 					word-break: normal;
 				}
-				border-color: oColorsByName('teal');
+				border-color: oPrivateFoundationGet('o3-color-palette-teal-50');
 				border-left: 2px solid;
-				@include oGridRespondTo($from: M) {
+				@include oPrivateGridRespondTo($from: M) {
 					border-left: 0 solid;
 					border-right: 2px solid;
 				}
@@ -164,23 +164,22 @@
 
 			// Remove standard Origami link decoration styles.
 			// This is in its own declaration to ensure correct
-			// source order after compilation because `oTypographyLink`
-			// uses `@supports`
+			// source order.
 			a {
 				border-bottom: inherit;
 				text-decoration: none;
 			}
 
-			&.o-layout__navigation-title a { // stylelint-disable-line selector-no-qualifying-type
-				@include oTypographySans($weight: 'semibold', $include-font-family: false);
-				@include oGridRespondTo($from: M) {
+			&.o-layout__navigation-title a {
+				@include oPrivateTypographySans($weight: 'semibold');
+				@include oPrivateGridRespondTo($from: M) {
 					border: 0;
 				}
 			}
 
 			// For sub-nav headings, where there is no parent anchor.
 			span {
-				@include oTypographySans(1);
+				@include oPrivateTypographySans(1);
 				display: inline-block;
 				padding: 0.4em 1em;
 			}
@@ -190,7 +189,7 @@
 	// Style sub-nav items.
 	.o-layout__navigation ul li:not(.o-layout__navigation-title) ul a,
 	.o-layout__navigation ol li:not(.o-layout__navigation-title) ol a {
-		border-color: rgba(oColorsByName('teal'), 0.4);
+		border-color: rgba(oPrivateFoundationGet('o3-color-palette-teal-50'), 0.4);
 	}
 
 	@if $query-layout {
@@ -211,9 +210,8 @@
 /// Linked Heading
 /// Outputs styles for the linked headings
 /// @access private
-@mixin _oLayoutLinkedHeading () {
+@mixin _oLayoutLinkedHeading() {
 	.o-layout__linked-heading:not(.o-layout__unstyled-element) {
-
 		padding-right: 1.5ch; // for the octothorpe
 
 		// Increased specificity needed to counteract
@@ -227,7 +225,7 @@
 		}
 
 		.o-layout__linked-heading__label {
-			color: oColorsGetColorFor(link, text);
+			color: oPrivateFoundationGet('o3-color-use-case-link-text');
 			display: none;
 			user-select: none;
 			font-weight: normal;
@@ -244,15 +242,14 @@
 		&:target .o-layout__linked-heading__link {
 			animation-delay: 0;
 			animation-duration: 5s;
-			animation-timing-function: $o-visual-effects-timing-fade;
+			animation-timing-function: $o-pf-visual-effects-timing-fade;
 			animation-name: o-layout-linked-heading-fade;
 		}
-
 	}
 
 	@keyframes o-layout-linked-heading-fade {
 		0% {
-			background-color: oColorsMix('teal', 'white', 15);
+			background-color: oPrivateColorsMix('o3-color-palette-teal', 'o3-color-palette-white', 15);
 		}
 		100% {
 			background-color: transparent;

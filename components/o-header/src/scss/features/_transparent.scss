@@ -9,32 +9,49 @@
 		}
 
 		.o-header__top-icon-link--menu:before {
-			@include oIconsContent('hamburger', _oHeaderGet('header-icon', $from: 'transparent'), $size: null, $include-base-styles: false);
+			@include oPrivateIconsContent(
+				'hamburger',
+				_oHeaderGet('header-icon', $from: 'transparent'),
+				$size: null,
+				$include-base-styles: false
+			);
 		}
 
 		.o-header__top-link--search:before {
-			@include oIconsContent('search', _oHeaderGet('header-icon', $from: 'transparent'), $size: null, $include-base-styles: false);
+			@include oPrivateIconsContent(
+				'search',
+				_oHeaderGet('header-icon', $from: 'transparent'),
+				$size: null,
+				$include-base-styles: false
+			);
 		}
 
 		.o-header__top-icon-link--myft:before {
-			@include _oHeaderBrandImage('brand-myft', _oHeaderGet('header-icon', $from: 'transparent'), 52);
+			@include _oHeaderBrandImage(
+				'brand-myft',
+				_oHeaderGet('header-icon', $from: 'transparent'),
+				52
+			);
 		}
 
 		.o-header__top-logo {
-			@include _oHeaderBrandImage('brand-ft-masthead', _oHeaderGet('header-icon', $from: 'transparent'), 500);
+			@include _oHeaderBrandImage(
+				'brand-ft-masthead',
+				_oHeaderGet('header-icon', $from: 'transparent'),
+				500
+			);
 		}
 
 		.o-header__drawer-button,
 		.o-header__top-button,
 		.o-header__nav-button {
-			@include oButtonsContent(
+			@include oPrivateButtonsContent(
 				(
 					'type': 'primary',
-					'theme': 'inverse'
-				),
-				$include-base-styles: false,
-				$include-base-icon-styles: false
+					'theme': 'inverse',
+				)
 			);
+			border-radius: 0;
 		}
 
 		.o-header__nav-link,
@@ -54,7 +71,10 @@
 
 			&--highlight:after,
 			&[aria-current]:after {
-				background-color: _oHeaderGet('link-highlight-text', $from: 'transparent');
+				background-color: _oHeaderGet(
+					'link-highlight-text',
+					$from: 'transparent'
+				);
 			}
 		}
 	}

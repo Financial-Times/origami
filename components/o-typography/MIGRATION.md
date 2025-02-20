@@ -1,6 +1,11 @@
 ## Migration guide
 
-### Migrating from v7 to o3-typography
+### Migrating from v7 to o3-foundation
+
+o-typography is now replaced by [o3-foundation](../o3-foundation/README.md).
+
+This guide will update to the latest version of o3-foundation (v3). Be sure to
+check [o3-foundation's migration guide](../o3-foundation/MIGRATION.md) for any further updates.
 
 #### Themes
 
@@ -21,9 +26,9 @@ E.g. An FT Core brand Link with inverse theming, brand and theme inherited from 
 ```
 #### Markup
 
-Update your markup to use the `o3-typography` JSX template ([o3-typography JSX documentation](https://o3.origami.ft.com/?path=/docs/core-o3-typography--jsx-documentation)) if your web application uses it.
+Replace `o-typography` classes in your HTML code with the `o3-typography` alternative described below.
 
-Alternatively, replace `o-typography` classes in your HTML code with the `o3-typography` alternative described below.
+Note that we now use two scales, see our [typography guidelines](https://origami-beta.ft.com/guides/typography/) for more information. We also recommend using use case classes where apropriate, and using scale tokens where there is not a close enough use case equivalent.
 
 ###### Body elements
 
@@ -46,32 +51,19 @@ Replace with:
 **HTML**
 
 ```html
-<p class="o3-typography-body">Body - Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+<p class="o3-typography-use-case-body-base">Body - Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 	<a href="#" class="o3-typography-link">Link</a>
-	a rem <strong class="o3-typography-bold">excepturi</strong>
+	a rem <strong class="o3-typography-use-case-body-highight">excepturi</strong>
 	consequuntur commodi dolores ad <em class="o3-typography-italic">laboriosam</em> qui odit </p>
+<p class="o3-type-body-base">Body - Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+	a rem <strong class="o3-type-body-highight">excepturi</strong>
+	consequuntur commodi dolores ad <em class="o3-type-body-content-emphasis">laboriosam</em> qui odit </p>
 
 <figcaption class="o3-typography-caption">
 	John Doe
 </figcaption>
 
 <footer class="o3-typography-footer">Footer such as copyright notice.</footer>
-```
-
-**JSX**
-
-```jsx
-import {Body, Link, Strong, Emphasis, Caption, Footer} from '@financial-times/o3-typography';
-
-<Body>Body - Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-	<Link>Link</Link>
-	a rem <Strong>excepturi</Strong>
-	consequuntur commodi dolores ad <Emphasis>laboriosam</Emphasis> qui odit
-</Body>
-
-<Caption>John Doe</Caption>
-
-<Footer>Footer such as copyright notice.</Footer>
 ```
 
 ###### Wrapper
@@ -98,7 +90,7 @@ Replace with:
 **JSX**
 
 ```jsx
-import {Wrapper} from '@financial-times/o3-typography';
+import {Wrapper} from '@financial-times/o3-foundation';
 
 <Wrapper>
 	<h1>Heading</h1>
@@ -119,29 +111,14 @@ Headings use a BEM modifier to style the heading level:
 <h6 class="o-typography-heading-level-6">Heading 6</h6>
 ```
 
-Replace with:
+Replace with typography use cases where apropriate. Please consult with the design team to decide the best match for your context:
 
 **HTML**
 ```html
-<h1 class="o3-typography-h1">Heading 1</h1>
-<h2 class="o3-typography-h2">Heading 2</h2>
-<h3 class="o3-typography-h3">Heading 3</h3>
-<h4 class="o3-typography-h4">Heading 4</h4>
-<h5 class="o3-typography-h5">Heading 5</h5>
-<h6 class="o3-typography-h6">Heading 6</h6>
-```
+<h1 class="o3-type-title-lg">Welcome to Origami</h1>
+<h2 class="o3-type-title-mdl">Our guidelines</h2>
+<h3 class="o3-type-display-sm">What to expect in Origami 3</h3>
 
-**JSX**
-
-```jsx
-import {Heading} from '@financial-times/o3-typography';
-
-<Heading level={1}>Heading 1</Heading>
-<Heading level={2}>Heading 2</Heading>
-<Heading level={3}>Heading 3</Heading>
-<Heading level={4}>Heading 4</Heading>
-<Heading level={5}>Heading 5</Heading>
-<Heading level={6}>Heading 6</Heading>
 ```
 
 ##### List
@@ -177,7 +154,7 @@ Replace with:
 **JSX**
 
 ```jsx
-import {UnorderedList, OrderedList } from '@financial-times/o3-typography';
+import {UnorderedList, OrderedList } from '@financial-times/o3-foundation';
 
 <UnorderedList>
 	<li>List item</li>

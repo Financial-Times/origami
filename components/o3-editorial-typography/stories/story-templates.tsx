@@ -1,38 +1,30 @@
 import {
-	Headline as HeadlineTsx,
-	Body as BodyTsx,
+	Heading as HeadingTsx,
 	Summary as SummaryTsx,
-	Caption as CaptionTsx,
 	StandFirst as StandFirstTsx,
+	Caption as CaptionTsx,
 	TopicTag as TopicTagTsx,
 	Quote as QuoteTsx,
 	BigNumber as BigNumberTsx,
 	Byline as BylineTsx,
 	List as ListTsx,
-	Link as LinkTsx,
 } from '../src/tsx/index';
 
 import type {StoryObj, Meta} from '@storybook/react';
 import type {
-	HeadlineProps,
-	BodyProps,
+	HeadingProps,
 	SummaryProps,
 	QuoteProps,
 	BigNumberProps,
 	BylineProps,
 	DetailProps,
 	TopicTagProps,
-	LinkProps,
 } from '../src/types';
 
 type StoryObjNoArgs = Omit<StoryObj, 'args'>;
 
-type HeadlineStory = StoryObjNoArgs & {
-	args: Omit<HeadlineProps, 'children'> & {content: string};
-};
-
-type BodyStory = StoryObjNoArgs & {
-	args: Omit<BodyProps, 'children'> & {content: string};
+type Headings = StoryObjNoArgs & {
+	args: Omit<HeadingProps, 'children'> & {content: string};
 };
 
 type SummaryStory = StoryObjNoArgs & {
@@ -59,13 +51,6 @@ type BylineStory = StoryObjNoArgs & {
 	args: Omit<BylineProps, 'children'> & {brand?: string};
 };
 
-type LinkStory = StoryObjNoArgs & {
-	args: Omit<LinkProps, 'children' | 'anchorAttributes'> & {
-		content: string;
-		openInNewTab: boolean;
-	};
-};
-
 const TemplateSBConfig: Meta = {
 	argTypes: {
 		theme: {
@@ -77,16 +62,16 @@ const TemplateSBConfig: Meta = {
 	},
 	parameters: {
 		design: {
-			type: 'figma'
-		}
-	}
+			type: 'figma',
+		},
+	},
 };
 
-const HeadlineTemplate: StoryObj = {
+const HeadingTemplate: StoryObj = {
 	argTypes: {
 		...TemplateSBConfig.argTypes,
 		type: {
-			options: ['headline-large', 'headline', 'subheading', 'chapter', 'label'],
+			options: ['display', 'headline', 'subheading', 'chapter', 'label'],
 			control: {
 				type: 'radio',
 			},
@@ -95,20 +80,11 @@ const HeadlineTemplate: StoryObj = {
 			control: {
 				type: 'boolean',
 			},
-			if: {arg: 'type', eq: 'headline-large'},
+			if: {arg: 'type', eq: 'display'},
 		},
 	},
 	render: args => {
-		return <HeadlineTsx {...args}>{args.content}</HeadlineTsx>;
-	},
-};
-
-const BodyTemplate: StoryObj = {
-	argTypes: {
-		...TemplateSBConfig.argTypes,
-	},
-	render: args => {
-		return <BodyTsx {...args}>{args.content}</BodyTsx>;
+		return <HeadingTsx {...args}>{args.content}</HeadingTsx>;
 	},
 };
 
@@ -235,56 +211,19 @@ const ListTemplate: StoryObj = {
 	render: args => {
 		return (
 			<div id="component-wrapper" style={{padding: '20px'}}>
-				<BodyTsx>
-					<ListTsx {...args} />
-				</BodyTsx>
+				<ListTsx {...args} />
 			</div>
 		);
 	},
 };
 
-const LinkTemplate: StoryObj = {
-	argTypes: {
-		...TemplateSBConfig.argTypes,
-		openInNewTab: {
-			control: {
-				type: 'boolean',
-			},
-		},
-	},
-	render: args => {
-		if (args.openInNewTab) {
-			args.anchorTarget = '_blank';
-		}
-		return (
-			<BodyTsx theme={args.theme}>
-				We have a &nbsp;
-				<LinkTsx {...args}>{args.content}</LinkTsx>
-				&nbsp; style. Links may open in a new window/tab but we &nbsp;
-				<LinkTsx {...args} anchorTarget="_blank">
-					recommend against it
-				</LinkTsx>
-				&nbsp; in most cases.
-			</BodyTsx>
-		);
-	},
-};
-export const Heading: HeadlineStory = {
-	...HeadlineTemplate,
+export const Heading: Headings = {
+	...HeadingTemplate,
 	args: {
 		content: 'Don’t settle for black and white',
 		theme: 'standard',
-		type: 'headline-large',
+		type: 'display',
 		underline: true,
-	},
-};
-
-export const Body: BodyStory = {
-	...BodyTemplate,
-	args: {
-		content:
-			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet earum libero at voluptatum illum facere totam architecto eum porro exercitationem, ea, accusamus quia? Repellat beatae similique ab? Reprehenderit, ullam quae?',
-		theme: 'standard',
 	},
 };
 
@@ -358,15 +297,5 @@ export const List: StoryObj = {
 			'Sed feugiat turpis at massa tristique.',
 			'Curabitu r accumsan elit luctus.',
 		],
-	},
-};
-
-export const Link: LinkStory = {
-	...LinkTemplate,
-	args: {
-		content: 'standard link',
-		theme: 'standard',
-		openInNewTab: false,
-		href: 'https://origami.ft.com',
 	},
 };
