@@ -29,7 +29,7 @@
 
 					@include contains($selector: false) {
 						.o-labels--big {
-							padding: calc(8px #{-} 1px) calc(8px #{-} 1px);
+							padding: calc(#{'8px - 1px'}) calc(#{'8px - 1px'});
 						}
 					}
 				}
