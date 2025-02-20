@@ -5,11 +5,11 @@
 		margin: 0;
 		padding-top: 0px;
 		padding-bottom: 0px;
-		padding-left: oPrivateSpacingByName('s4');
+		padding-left: oSpacingByName('s4');
 
 		p {
 			margin-top: 0;
-			margin-bottom: oPrivateSpacingByName('s4');
+			margin-bottom: oSpacingByName('s4');
 			&:last-child {
 				margin-bottom: 0;
 			}
@@ -21,29 +21,29 @@
 @if $_o-quote-first-import == true {
 	%_o-quote-blockquote {
 		position: relative;
-		border-left: 4px solid oPrivateFoundationGet('o3-color-palette-black-90');
-		color: oPrivateFoundationGet('o3-color-palette-black');
+		border-left: 4px solid oColorsByName('black-90');
+		color: oColorsByName('black');
 
 		a {
-			@include oPrivateTypographyLink();
+			@include oTypographyLink;
 		}
 	}
 
 	%_o-quote-blockquote-cite {
 		// Output weight and style to override browser defaults.
-		@include oPrivateTypographySans(
+		@include oTypographySans(
 			$scale: 1,
 			$weight: 'regular',
 			$style: 'normal'
 		);
 		a {
-			@include oPrivateTypographyLink();
+			@include oTypographyLink;
 		}
 	}
 
 	%_o-quote-blockquote-author {
 		// Output weight and style to override browser defaults.
-		@include oPrivateTypographySans(
+		@include oTypographySans(
 			$scale: 0,
 			$weight: 'semibold',
 			$style: 'normal'
@@ -57,11 +57,13 @@
 	%_o-quote-blockquote-standard {
 		padding-top: 0px;
 		padding-bottom: 0px;
-		padding-left: oPrivateSpacingByName('s4');
+		padding-left: oSpacingByName('s4');
 
 		p {
-			@include oPrivateTypographyBody();
-			margin-bottom: oPrivateSpacingByName('s4');
+			@include oTypographyBody();
+			// repeated margin as `oTypographyBody`
+			// outputs a margin property
+			margin-bottom: oSpacingByName('s4');
 			&:last-child {
 				margin-bottom: 0;
 			}
@@ -74,9 +76,9 @@
 	%_o-quote-blockquote-editorial {
 		&:before {
 			$icon-size: 36px;
-			@include oPrivateIconsContent(
+			@include oIconsContent(
 				$icon-name: 'speech-left',
-				$color: oPrivateFoundationGet('o3-color-palette-black-90'),
+				$color: oColorsByName('black-90'),
 				$size: $icon-size
 			);
 			content: '';
@@ -84,9 +86,7 @@
 			position: relative;
 			left: -$icon-whitespace;
 			margin-top: -$icon-whitespace;
-			margin-bottom: calc(
-				#{oPrivateSpacingByName('s4')} - #{$icon-whitespace * 2}
-			);
+			margin-bottom: calc(#{oSpacingByName('s4')} - #{$icon-whitespace * 2});
 		}
 
 		p {
@@ -95,7 +95,7 @@
 			// inherited depending on the context of the editorial blockquote.
 			// E.g. At the time of writing the font size of stories differed
 			// on article pages and live blogs by design.
-			font-family: oPrivateFoundationGet('o3-font-family-georgia');
+			@include oTypographySerif();
 		}
 	}
 }
