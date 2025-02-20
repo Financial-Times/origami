@@ -26,17 +26,17 @@
 	},
 	"peerDependencies": {
 		"@financial-times/o-brand": "^4.1.0",
-		"@financial-times/o-private-foundation": "0.0.0"
+		"@financial-times/o-private-foundation": "^1.0.0"
 	},
 	"devDependencies": {
-		"@financial-times/o-buttons": "^7.8.0",
-		"@financial-times/o-footer-services": "^4.2.0",
-		"@financial-times/o-forms": "^9.9.0",
-		"@financial-times/o-header-services": "^5.2.0",
-		"@financial-times/o-normalise": "^3.3.0",
-		"@financial-times/o-syntax-highlight": "^4.2.0",
-		"@financial-times/o-table": "^9.2.0",
-		"@financial-times/o-tabs": "^8.1.3"
+		"@financial-times/o-buttons": "^7.9.2",
+		"@financial-times/o-footer-services": "^5.0.0",
+		"@financial-times/o-forms": "^10.0.0",
+		"@financial-times/o-header-services": "^6.0.0",
+		"@financial-times/o-normalise": "^3.3.2",
+		"@financial-times/o-syntax-highlight": "^5.0.0",
+		"@financial-times/o-table": "^10.0.0",
+		"@financial-times/o-tabs": "^9.0.0"
 	},
 	"engines": {
 		"npm": ">7"

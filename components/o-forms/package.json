@@ -30,14 +30,14 @@
 	"peerDependencies": {
 		"@financial-times/math": "^1.0.0",
 		"@financial-times/o-brand": "^4.1.0",
-		"@financial-times/o-grid": "^6.0.0",
-		"@financial-times/o-loading": "^5.0.0",
-		"@financial-times/o-private-foundation": "0.0.0",
+		"@financial-times/o-grid": "^6.1.8",
+		"@financial-times/o-loading": "^6.0.0",
+		"@financial-times/o-private-foundation": "^1.0.0",
 		"@financial-times/o-utils": "^2.2.0"
 	},
 	"devDependencies": {
 		"@financial-times/o-colors": "^6.7.0",
-		"@financial-times/o-normalise": "^3.3.0"
+		"@financial-times/o-normalise": "^3.3.2"
 	},
 	"engines": {
 		"npm": ">7"

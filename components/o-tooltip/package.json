@@ -31,15 +31,15 @@
 	},
 	"peerDependencies": {
 		"@financial-times/o-brand": "^4.2.1",
-		"@financial-times/o-overlay": "^4.0.0",
-		"@financial-times/o-private-foundation": "0.0.0",
-		"@financial-times/o-viewport": "^5.0.0"
+		"@financial-times/o-overlay": "^5.0.0",
+		"@financial-times/o-private-foundation": "^1.0.0",
+		"@financial-times/o-viewport": "^5.1.2"
 	},
 	"devDependencies": {
-		"@financial-times/o-buttons": "^7.8.0",
-		"@financial-times/o-colors": "^6.5.0",
-		"@financial-times/o-fonts": "^5",
-		"@financial-times/o-normalise": "^3.3.0"
+		"@financial-times/o-buttons": "^7.9.2",
+		"@financial-times/o-colors": "^6.7.0",
+		"@financial-times/o-fonts": "^5.3.5",
+		"@financial-times/o-normalise": "^3.3.2"
 	},
 	"engines": {
 		"npm": ">7"
