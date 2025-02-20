@@ -7,8 +7,12 @@
 				}
 
 				@include contains() {
-					$expected-vertical-padding: calc(#{oPrivateSpacingByName('s1')} - #{1px});
-					$expected-horizontal-padding: calc(#{oPrivateSpacingByName('s2')} - #{1px});
+					$expected-vertical-padding: calc(
+						#{oPrivateSpacingByName('s1')} - #{1px}
+					);
+					$expected-horizontal-padding: calc(
+						#{oPrivateSpacingByName('s2')} - #{1px}
+					);
 					padding: $expected-vertical-padding $expected-horizontal-padding;
 				}
 			}
@@ -24,11 +28,8 @@
 					}
 
 					@include contains($selector: false) {
-						$expected-vertical-padding: calc(#{oSpacingByName('s2')} - #{1px});
-						$expected-horizontal-padding: calc(#{oSpacingByName('s2')} - #{1px});
-
 						.o-labels--big {
-							padding: $expected-vertical-padding $expected-horizontal-padding;
+							padding: calc(8px #{-} 1px) calc(8px #{-} 1px);
 						}
 					}
 				}
@@ -63,14 +64,17 @@
 				@include assert() {
 					@include output($selector: false) {
 						.o-example-label {
-							@include oLabelsContent($opts: ('size': 'small',
-								));
+							@include oLabelsContent(
+								$opts: (
+									'size': 'small',
+								)
+							);
 						}
 					}
 
 					@include expect($selector: false) {
 						.o-example-label {
-							font-family: "metric 2 VF", sans-serif;
+							font-family: 'metric 2 VF', sans-serif;
 							font-size: 12px;
 							line-height: 16px;
 							line-height: 1; // stylelint-disable-line declaration-block-no-duplicate-properties
@@ -87,15 +91,17 @@
 			@include assert() {
 				@include output() {
 					.o-example-label {
-						@include oLabelsContent($opts: ('state': 'content-commercial',
-							));
+						@include oLabelsContent(
+							$opts: (
+								'state': 'content-commercial',
+							)
+						);
 					}
 				}
 
 				@include expect() {
 					.o-example-label {
-						background-color: rgb(0, 127.50102, 64.16718);
-						; // #008040
+						background-color: rgb(0, 127.50102, 64.16718); // #008040
 						color: white;
 					}
 				}
@@ -108,7 +114,13 @@
 			@include assert() {
 				@include output() {
 					.o-example-label {
-						@include oLabelsContent($opts: ('state': ('background-color': hotpink)));
+						@include oLabelsContent(
+							$opts: (
+								'state': (
+									'background-color': hotpink,
+								),
+							)
+						);
 					}
 				}
 
@@ -127,9 +139,12 @@
 			@include assert() {
 				@include output($selector: false) {
 					.o-example-label {
-						@include oLabelsContent($opts: ('size': 'small',
+						@include oLabelsContent(
+							$opts: (
+								'size': 'small',
 								'state': 'content-commercial',
-							));
+							)
+						);
 					}
 				}
 
@@ -137,7 +152,7 @@
 					.o-example-label {
 						background-color: rgb(0, 127.50102, 64.16718); // #008040
 						color: white;
-						font-family: "metric 2 VF", sans-serif;
+						font-family: 'metric 2 VF', sans-serif;
 						font-size: 12px;
 						line-height: 16px;
 						line-height: 1; // stylelint-disable-line declaration-block-no-duplicate-properties
@@ -152,8 +167,11 @@
 		@include it('outputs fundamental label styles required by all labels') {
 			@include assert() {
 				@include output() {
-					@include oLabelsContent($opts: ('base': true,
-						));
+					@include oLabelsContent(
+						$opts: (
+							'base': true,
+						)
+					);
 				}
 
 				@include contains() {
