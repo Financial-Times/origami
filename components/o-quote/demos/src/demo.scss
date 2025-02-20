@@ -1,12 +1,11 @@
 @import "./../../main";
 @import '@financial-times/o-fonts/main';
-
 @include oFonts();
 @import '@financial-times/o-normalise/main';
 @include oNormalise();
 
 body {
-  padding: 1.5rem;
+	padding: 1.5rem;
 }
 
 @include oQuote();
