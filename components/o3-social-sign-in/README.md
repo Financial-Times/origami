@@ -3,10 +3,10 @@
 A button for social sign-in providers.
 
 - [o3-social-sign-in](#o3-social-sign-in)
-    - [Markup](#markup)
-    - [Migration](#migration)
-    - [Contact](#contact)
-    - [Licence](#licence)
+  - [Markup](#markup)
+  - [Migration](#migration)
+  - [Contact](#contact)
+  - [Licence](#licence)
 
 ## Markup
 
@@ -15,22 +15,21 @@ o3-social-sign-in supports [JSX templates for React users](#jsx), or direct HTML
 Two providers are supported: Google and Apple. We recommend you follow their guides to integrate `o3-social-sign-on` to
 their sign-in flows:
 
-* [Displaying Sign in with Apple buttons on the web](https://developer.apple.com/documentation/sign_in_with_apple/displaying_sign_in_with_apple_buttons_on_the_web)
-* [Building a custom Google Sign-In button](https://developers.google.com/identity/sign-in/web/build-button)
+- [Displaying Sign in with Apple buttons on the web](https://developer.apple.com/documentation/sign_in_with_apple/displaying_sign_in_with_apple_buttons_on_the_web)
+- [Building a custom Google Sign-In button](https://developers.google.com/identity/sign-in/web/build-button)
 
 ```html
-
 <button
-        id="appleid-signin"
-        class="o3-social-sign-in-button o3-social-sign-in-button--apple"
+	id="appleid-signin"
+	class="o3-social-sign-in-button o3-social-sign-in-button--apple"
 >
-  <span class="o3-social-sign-in-button__copy">Sign in with Apple</span>
+	<span class="o3-social-sign-in-button__copy">Sign in with Apple</span>
 </button>
 <button
-        id="gSignInWrapper"
-        class="o3-social-sign-in-button o3-social-sign-in-button--google"
+	id="gSignInWrapper"
+	class="o3-social-sign-in-button o3-social-sign-in-button--google"
 >
-  <span class="o3-social-sign-in-button__copy">Sign in with Google</span>
+	<span class="o3-social-sign-in-button__copy">Sign in with Google</span>
 </button>
 ```
 
@@ -43,6 +42,7 @@ When using the TSX component, ids will automatically be set. For Apple sign in, 
 Google it is `gSignInWrapper`.
 
 By default, the TSX component will display the button with default copy. Use the `text` property to customise it:
+
 ```tsx
 <SocialSignIn provider="apple" text="Register with Apple" />
 <SocialSignIn provider="google" text="Register with Google" />
@@ -51,15 +51,16 @@ By default, the TSX component will display the button with default copy. Use the
 ### Properties
 
 | Property   | Values             | Description                                                                                                                            |
-|------------|--------------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| ---------- | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
 | `provider` | `apple`, `google`  | Styles the button according to the sign in provider's design                                                                           |
-| `text`      | Any `string` value | (Optional) Lets users override copy with custom content. If no string is provided then `Sign in with <provider>` will display instead. |
+| `text`     | Any `string` value | (Optional) Lets users override copy with custom content. If no string is provided then `Sign in with <provider>` will display instead. |
 
 ## Migration
 
-|  State   | Major Version | Last Minor Release | Migration guide |
-|:--------:|:-------------:|:------------------:|:---------------:|
-| ✨ active |       1       |        N/A         |       N/A       |
+|    State     | Major Version | Last Minor Release |                    Migration guide                    |
+| :----------: | :-----------: | :----------------: | :---------------------------------------------------: |
+|  ✨ active   |       2       |        2.0         | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+| ╳ deprecated |       1       |        1.1         |                           -                           |
 
 ## Contact
 

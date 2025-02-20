@@ -1,8 +1,25 @@
 ## Migration Guide
 
+### Migrating from v4 to v5
+
+This major release introduces a new design language and visually breaking changes. This includes mobile optimised typography, icons, and buttons. It also removes peer dependencies from deprecated "o2" components.
+
+To upgrade, replace the following "o2" components with their "o3" equivalent:
+
+- [o-normalise](../o-normalise/MIGRATION.md)
+- [o-spacing](../o-spacing/MIGRATION.md)
+- [o-colors](../o-colors/MIGRATION.md)
+- [o-icons](../o-icons/MIGRATION.md)
+- [o-buttons](../o-buttons/MIGRATION.md)
+- [o-typography](../o-typography/MIGRATION.md)
+- [o-editorial-typography](../o-editorial-typography/MIGRATION.md)
+- [o-big-number](../o-big-number/MIGRATION.md)
+- [o-quote](../o-quote/MIGRATION.md)
+- [o-fonts](../o-fonts/MIGRATION.md)
+
 ### Migrating from v3 to v4
 
-The sass variable named `$o-teaser-collection-is-silent` has had its default value changed from `false` to `true. This means no CSS will be output when `o-teaser-collection`  is imported. Include the `oTeaserCollection` primary mixin to output `o-teaser-collection` CSS.
+The sass variable named `$o-teaser-collection-is-silent` has had its default value changed from `false` to `true. This means no CSS will be output when `o-teaser-collection` is imported. Include the`oTeaserCollection`primary mixin to output`o-teaser-collection` CSS.
 
 Support for Bower and version 2 of the Origami Build Service have been removed.
 
@@ -15,11 +32,13 @@ Confirm the `o-teaser-collection__heading--inverse` modifier is used with `o-tea
 `oTeaserCollection` has changed, it now outputs all `o-teaser-collection` css by default. See the [README](./README.md) for `oTeaserCollection` options to include css granularly.
 
 #### Renamed Mixins
+
 - `oTeaserCollectionHeading` has been renamed `oTeaserCollectionContentHeading` to indicate it has no top level selector. It now excepts an `$opts` map to include parts of the heading more granularly (such as styles for a child anchor tag). See the README for more details.
 
 #### Removed Mixins
 
 If your project uses these mixins replace with a single call to `oTeaserCollection` instead. See the README for `oTeaserCollection` options.
+
 - oTeaserCollectionAssassination
 - oTeaserCollectionStream
 - oTeaserCollectionFrontPage
@@ -33,8 +52,8 @@ If your project uses these mixins replace with a single call to `oTeaserCollecti
 - oTeaserCollectionMidSlice
 - oTeaserCollectionTopStandalone
 
-
 `oTeaserCollectionHeadingLink` has also been removed. If your project is using this mixin to avoid outputting the heading border (divider) use `oTeaserCollectionContentHeading` without the `divider` or `sizes` option. This will output the base heading styles plus the child anchor styles, without the divider.
+
 ```diff
 .my-heading {
 -   // Custom styles replicating the collection heading.
@@ -47,6 +66,7 @@ If your project uses these mixins replace with a single call to `oTeaserCollecti
 ```
 
 `oTeaserCollectionHeadingBorderTypography` has been removed. Replace with a call to `oTeaserCollectionContentHeading` without the `anchor` option.
+
 ```diff
 .my-heading {
 -   @include oTeaserCollectionHeadingBorderTypography;
@@ -69,6 +89,6 @@ its dependencies. See [the Bower config for these](./bower.json).
 
 ### Migrating from v1 to v2
 
-- Deprecated classname `.o-teaser-collection--top-top-stories` has now been removed. __Resolution__ Please use `.o-teaser-collection--top-standalone` instead.
+- Deprecated classname `.o-teaser-collection--top-top-stories` has now been removed. **Resolution** Please use `.o-teaser-collection--top-standalone` instead.
 - Styles for `.o-teaser-collection--stream .o-teaser__action` have been removed.
 - The o-colors and o-typography dependencies have been bumped to the latest major. These will create bower conflicts which should be resolved by updating to the newest release of o-colors and o-typography.

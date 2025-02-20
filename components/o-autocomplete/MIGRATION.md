@@ -1,6 +1,6 @@
-# Migration Guide
+## Migration Guide
 
-## Migrating from v2 to v3
+### Migrating from v1 to v2
 
 This major release introduces a new design language and visually breaking changes. This includes mobile optimised typography, icons, and buttons. It also removes peer dependencies from deprecated "o2" components.
 
@@ -16,11 +16,3 @@ To upgrade, replace the following "o2" components with their "o3" equivalent:
 - [o-big-number](../o-big-number/MIGRATION.md)
 - [o-quote](../o-quote/MIGRATION.md)
 - [o-fonts](../o-fonts/MIGRATION.md)
-
-### Migrating from v1 to v2
-
-Support for Bower and version 2 of the Origami Build Service have been removed.
-
-CSS is also now wrapped into a `gAudio` mixin.
-
-Follow [the migration guide on the Origami website](https://origami.ft.com/documentation/tutorials/bower-to-npm/).

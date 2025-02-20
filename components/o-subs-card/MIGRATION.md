@@ -1,10 +1,28 @@
 # Migration Guide
 
+## Migrating from v6 to v7
+
+This major release introduces a new design language and visually breaking changes. This includes mobile optimised typography, icons, and buttons. It also removes peer dependencies from deprecated "o2" components.
+
+To upgrade, replace the following "o2" components with their "o3" equivalent:
+
+- [o-normalise](../o-normalise/MIGRATION.md)
+- [o-spacing](../o-spacing/MIGRATION.md)
+- [o-colors](../o-colors/MIGRATION.md)
+- [o-icons](../o-icons/MIGRATION.md)
+- [o-buttons](../o-buttons/MIGRATION.md)
+- [o-typography](../o-typography/MIGRATION.md)
+- [o-editorial-typography](../o-editorial-typography/MIGRATION.md)
+- [o-big-number](../o-big-number/MIGRATION.md)
+- [o-quote](../o-quote/MIGRATION.md)
+- [o-fonts](../o-fonts/MIGRATION.md)
+
 ## Migrating from v5 to v6
 
 The "more/less" toggle has been updated to use a `button` element instead of a `div` to improve keyboard accessibility.
 
 To upgrade, replace the "read more" `div` tag with a `button` tag in your markup.
+
 ```diff
 - <div class='o-subs-card__read-more'>Read more</div>
 + <button class='o-subs-card__read-more'></button>
@@ -12,6 +30,7 @@ To upgrade, replace the "read more" `div` tag with a `button` tag in your markup
 
 The button copy is added dynamically, and now includes hidden text to provide screen reader users more context based on the title of the card e.g. `Read more about Print`.
 A new CSS class has been added to have visually hidden elements but to be used for screen reader users.
+
 ```
 .o-subs-card-visually-hidden {
     @include oNormaliseVisuallyHidden;
@@ -21,6 +40,7 @@ A new CSS class has been added to have visually hidden elements but to be used f
 ## Migrating from v4 to v5
 
 The mixin `oSubsCard` has been renamed to `oSubsCardBase`.
+
 ```diff
 - @include oSubsCard;
 + @include oSubsCardBase;
@@ -29,7 +49,7 @@ The mixin `oSubsCard` has been renamed to `oSubsCardBase`.
 A "primary mixin" has been added named `oSubsCard`. The primary mixin outputs all component CSS when no arguments are given.
 
 ```scss
-@import '@financial-times/o-subs-card/main';
+@import "@financial-times/o-subs-card/main";
 @include oSubsCard();
 ```
 
@@ -112,6 +132,7 @@ The markup has been rearranged, and some classes have been removed.
 		</div>
 + </div>
 ```
+
 - There is now a container to wrap all cards in.
 - The `<img>` tag has been removed.
 - The charge value has been moved into a `div` of its down and has been moved below the 'select' button.

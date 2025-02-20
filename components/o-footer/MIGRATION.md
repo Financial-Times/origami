@@ -1,5 +1,22 @@
 # Migration guide
 
+## Migrating from v9 to v10
+
+This major release introduces a new design language and visually breaking changes. This includes mobile optimised typography, icons, and buttons. It also removes peer dependencies from deprecated "o2" components.
+
+To upgrade, replace the following "o2" components with their "o3" equivalent:
+
+- [o-normalise](../o-normalise/MIGRATION.md)
+- [o-spacing](../o-spacing/MIGRATION.md)
+- [o-colors](../o-colors/MIGRATION.md)
+- [o-icons](../o-icons/MIGRATION.md)
+- [o-buttons](../o-buttons/MIGRATION.md)
+- [o-typography](../o-typography/MIGRATION.md)
+- [o-editorial-typography](../o-editorial-typography/MIGRATION.md)
+- [o-big-number](../o-big-number/MIGRATION.md)
+- [o-quote](../o-quote/MIGRATION.md)
+- [o-fonts](../o-fonts/MIGRATION.md)
+
 ## Migrating from v8 to v9
 
 Markup has been updated to support 2 extra columns of links, one for Community Events and another for "More from the FT Group". All nav items are now behind a dropdown on mobile devices.
@@ -7,13 +24,16 @@ Markup has been updated to support 2 extra columns of links, one for Community E
 Update `o-footer` markup in your project according to the README and component demos. The changes are as follows:
 
 1. Each `o-footer__matrix-link` element must now include a child element `o-footer__matrix-link__copy`.
+
 ```diff
 <a class="o-footer__matrix-link" href="#">
 +        <span class="o-footer__matrix-link__copy"><!-- link 1 --></span>
 -        <!-- link 1 -->
 </a>
 ```
-2. The markup for the "More from the FT Group" link has changed. It has been moved inside the `nav` element alongside other links, within  it's matrix group. Unlike other matrix title elements there is an extra class `o-footer__matrix-title--link`, to indicate the title contains a link. The link itself also has an extra class `o-footer__matrix-link--more`, which applies the right arrow, etc. Note in the diff below some classes such as `o-footer__more-from-ft` are deleted.
+
+2. The markup for the "More from the FT Group" link has changed. It has been moved inside the `nav` element alongside other links, within it's matrix group. Unlike other matrix title elements there is an extra class `o-footer__matrix-title--link`, to indicate the title contains a link. The link itself also has an extra class `o-footer__matrix-link--more`, which applies the right arrow, etc. Note in the diff below some classes such as `o-footer__more-from-ft` are deleted.
+
 ```diff
 <!-- ... more o-footer markup ...  -->
 <nav>
@@ -58,6 +78,7 @@ Origami components now require a `$system-code` variable is set by the project, 
 The mixin `oFooter` has been updated. By default it now outputs all o-footer styles. To upgrade explicitly include the styles your project needs using the options `$opts` map:
 
 `oFooter` previously included the complex "matrix" navigation structure with dark theme by default:
+
 ```diff
 -@include oFooter;
 +@include oFooter($opts: (
@@ -67,6 +88,7 @@ The mixin `oFooter` has been updated. By default it now outputs all o-footer sty
 ```
 
 Instead of setting `$theme` update the `theme` key in the options map:
+
 ```diff
 -@include oFooter($theme: 'light');
 +@include oFooter($opts: (
@@ -76,6 +98,7 @@ Instead of setting `$theme` update the `theme` key in the options map:
 ```
 
 Instead of turning off output for the matrix of links by setting `$simple: true`, do not set the `matrix` option:
+
 ```diff
 - @include oFooter($simple: true);
 +@include oFooter($opts: (
@@ -84,6 +107,7 @@ Instead of turning off output for the matrix of links by setting `$simple: true`
 ```
 
 To remove the default margin set the `margin` option to false (alternatively set the top margin value):
+
 ```diff
 - @include oFooter($margin: false);
 +@include oFooter($opts: (
@@ -91,17 +115,9 @@ To remove the default margin set the `margin` option to false (alternatively set
 +));
 ```
 
-The following Sass mixins have been removed and must not be used. Instead use the `oFooter` mixin with related options:
-    - `oFooterBrandImage`
-    - `oFooterMatrix`
-    - `oFooterThemeDark`
-    - `oFooterThemeLight`
+The following Sass mixins have been removed and must not be used. Instead use the `oFooter` mixin with related options: - `oFooterBrandImage` - `oFooterMatrix` - `oFooterThemeDark` - `oFooterThemeLight`
 
-The following Sass variables have been removed without a direct replacement. Please contact the Origami team if your project relies on these:
-    - `$o-footer-image-base-url`
-    - `$o-footer-image-service-version`
-    - `$o-footer-matrix`
-    - `$o-footer-spacing-unit`
+The following Sass variables have been removed without a direct replacement. Please contact the Origami team if your project relies on these: - `$o-footer-image-base-url` - `$o-footer-image-service-version` - `$o-footer-matrix` - `$o-footer-spacing-unit`
 
 All custom o-footer [colours and colour usecases](https://github.com/Financial-Times/o-footer/blob/v6.1.4/src/scss/_colors.scss) have also been removed. Please contact Origami if your project requires these colours.
 
@@ -110,12 +126,11 @@ All custom o-footer [colours and colour usecases](https://github.com/Financial-T
 V5 -> V6 introduces the new majors of o-colors and o-typography. Updating to this new version will mean updating any other components that you have which are using o-colors and o-typography. There are no other breaking changes in this release.
 
 ## Migrating from v4 to v5
+
 Version 5 has significant markup changes compared to version 4. If you want to upgrade, the best option is to look at the demos: [footer](https://github.com/Financial-Times/o-footer/blob/master/demos/src/footer.mustache) and [simple footer](https://github.com/Financial-Times/o-footer/blob/master/demos/src/simple-footer.mustache).
 If you don't want to upgrade, some superficial visual changes have been back-ported to a minor version on 4.x.x.
 
-
 ## Migrating from v3 to v4
-
 
 Note that o-footer v4 relies on o-grid v4.
 

@@ -1,5 +1,22 @@
 # Migration guide
 
+## Migrating from v4 to v5
+
+This major release introduces a new design language and visually breaking changes. This includes mobile optimised typography, icons, and buttons. It also removes peer dependencies from deprecated "o2" components.
+
+To upgrade, replace the following "o2" components with their "o3" equivalent:
+
+- [o-normalise](../o-normalise/MIGRATION.md)
+- [o-spacing](../o-spacing/MIGRATION.md)
+- [o-colors](../o-colors/MIGRATION.md)
+- [o-icons](../o-icons/MIGRATION.md)
+- [o-buttons](../o-buttons/MIGRATION.md)
+- [o-typography](../o-typography/MIGRATION.md)
+- [o-editorial-typography](../o-editorial-typography/MIGRATION.md)
+- [o-big-number](../o-big-number/MIGRATION.md)
+- [o-quote](../o-quote/MIGRATION.md)
+- [o-fonts](../o-fonts/MIGRATION.md)
+
 ## Migrating from v3 to v4
 
 Support for Bower and version 2 of the Origami Build Service have been removed.
@@ -51,16 +68,22 @@ In addition `theme` no longer accepts an array. Instead pass a single `theme` ('
 The main sass mixin, `oBanner`, no longer takes a custom class as an argument. Themes have been split into layouts ('small', 'compact') and themes ('marketing', 'product'). These are passed as part of the `$opts` map, as so:
 
 ```scss
-@include oBanner($opts: (
-	'themes': ('small'),
-	'layouts': ('compact'),
-))
+@include oBanner(
+	$opts: (
+		'themes': (
+			'small',
+		),
+		'layouts': (
+			'compact',
+		),
+	)
+);
 ```
 
 The `themes` option used to take a map or the word 'all', but as 'all' is the default, one can get that effect by not specifying anything.
 
 ```scss
-@include oBanner()
+@include oBanner();
 ```
 
 All other mixins have been removed, you'll need to update your code to use the documented `o-banner` classes.
@@ -68,6 +91,7 @@ All other mixins have been removed, you'll need to update your code to use the d
 #### Colour Usecases
 
 The following colour usecases have been removed. Please contact the Origami team if your project relied on these:
+
 - o-banner
 - o-banner-button
 - o-banner-button-active
@@ -86,7 +110,6 @@ The following colour usecases have been removed. Please contact the Origami team
 - o-banner-product-link
 - o-banner-product-close
 - o-banner-product-heading-rule
-
 
 ## Migrating from v1 to v2
 

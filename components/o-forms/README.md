@@ -1010,18 +1010,19 @@ myForm.setState('saving', 'my-radio-box', {
 
 ## Migration guide
 
-|    State     | Major Version | Last Minor Release |                    Migration guide                    |
-| :----------: | :-----------: | :----------------: | :---------------------------------------------------: |
-|  ✨ active   |       9       |        N/A         | [migrate to v9](MIGRATION.md#migrating-from-v8-to-v9) |
-| ⚠ maintained |       8       |        8.5         | [migrate to v8](MIGRATION.md#migrating-from-v7-to-v8) |
-| ╳ deprecated |       7       |        7.1         | [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7) |
-| ╳ deprecated |       6       |        6.0         | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
-| ╳ deprecated |       5       |        5.11        | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
-| ╳ deprecated |       4       |        4.1         | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
-| ╳ deprecated |       3       |        3.5         | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
-| ╳ deprecated |       2       |        2.0         | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
-| ╳ deprecated |       1       |        1.0         |     [migrate to v1](MIGRATION.md#migrating-to-v1)     |
-| ╳ deprecated |       0       |        0.13        |                          N/A                          |
+|    State     | Major Version | Last Minor Release |                     Migration guide                     |
+| :----------: | :-----------: | :----------------: | :-----------------------------------------------------: |
+| ⚠ maintained |      10       |        9.12        | [migrate to v10](MIGRATION.md#migrating-from-v9-to-v10) |
+| ╳ deprecated |       9       |        N/A         |  [migrate to v9](MIGRATION.md#migrating-from-v8-to-v9)  |
+| ╳ deprecated |       8       |        8.5         |  [migrate to v8](MIGRATION.md#migrating-from-v7-to-v8)  |
+| ╳ deprecated |       7       |        7.1         |  [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7)  |
+| ╳ deprecated |       6       |        6.0         |  [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6)  |
+| ╳ deprecated |       5       |        5.11        |  [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5)  |
+| ╳ deprecated |       4       |        4.1         |  [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4)  |
+| ╳ deprecated |       3       |        3.5         |  [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3)  |
+| ╳ deprecated |       2       |        2.0         |  [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2)  |
+| ╳ deprecated |       1       |        1.0         |      [migrate to v1](MIGRATION.md#migrating-to-v1)      |
+| ╳ deprecated |       0       |        0.13        |                           N/A                           |
 
 ## Contact
 

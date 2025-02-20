@@ -63,40 +63,55 @@ To output all `o-footer-services` CSS call `oFooterServices()`.
 @include oFooterServices();
 ```
 
-To keep your CSS bundle size small, include  `o-footer-services` features granularly using the `opts` argument.
+To keep your CSS bundle size small, include `o-footer-services` features granularly using the `opts` argument.
 E.g. to output styles for the dark theme with a project logo, but without the default icon link to Github:
 
 ```scss
-@include oFooterServices($opts: (
-	'logo': 'ftlogo-v1:origami',
-	'icons': ('slack'),
-	'themes': ('dark'),
-));
+@include oFooterServices(
+	$opts: (
+		'logo': 'ftlogo-v1:origami',
+		'icons': (
+			'slack',
+		),
+		'themes': (
+			'dark',
+		),
+	)
+);
 ```
+
 All options include:
 
-| Option      | Description                                                                                                                                               | Brand support                |
-|-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
-| logo        | A logo from the [image service](https://github.com/Financial-Times/origami-image-service.) to include in the footer (e.g. `ftlogo-v1:origami`).           | core, internal, whitelabel |
-| icons       | A list of [social share](https://registry.origami.ft.com/components/social-images) icons to include links for, defaults to '('slack', 'github')`.         | core, internal, whitelabel |
-| brand-strip | Whether to include styles for the brand strip at the bottom of the footer, "a Nikkei company".                                                            | core, internal, whitelabel |
-| themes      | A list of themes to include. Currently the only theme is `dark`, which is only supported by the core brand.                                             | core                       |
-
+| Option      | Description                                                                                                                                       | Brand support              |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
+| logo        | A logo from the [image service](https://github.com/Financial-Times/origami-image-service.) to include in the footer (e.g. `ftlogo-v1:origami`).   | core, internal, whitelabel |
+| icons       | A list of [social share](https://registry.origami.ft.com/components/social-images) icons to include links for, defaults to '('slack', 'github')`. | core, internal, whitelabel |
+| brand-strip | Whether to include styles for the brand strip at the bottom of the footer, "a Nikkei company".                                                    | core, internal, whitelabel |
+| themes      | A list of themes to include. Currently the only theme is `dark`, which is only supported by the core brand.                                       | core                       |
 
 Your project should call `oFooterServices` once, and add to the `opts` argument when new features are needed. However, if `oFooterServices` is called multiple times, for example for code splitting across multiple bundles, the `$include-base-styles` argument may be set to `false` to omit fundamental base styles required by all options.
+
 ```scss
 // Output o-footer-services with no icons.
-@include oFooterServices($opts: (
-	'logo': 'ftlogo-v1:origami',
-	'icons': ()
-));
+@include oFooterServices(
+	$opts: (
+		'logo': 'ftlogo-v1:origami',
+		'icons': (),
+	)
+);
 
 // Include o-footer-services icons separately,
 // without repeating base styles output above.
 // This is *not* recommended.
-@include oFooterServices($opts: (
-	'icons': ('slack', 'github')
-), $include-base-styles: false);
+@include oFooterServices(
+	$opts: (
+		'icons': (
+			'slack',
+			'github',
+		),
+	),
+	$include-base-styles: false
+);
 ```
 
 ### Customisation
@@ -108,25 +123,30 @@ $o-brand: whitelabel;
 @import '@financial-times/o-footer-services/main';
 
 // Customise o-footer-services colours
-@include oFooterServicesCustomize((
-	'text-color': rgb(73, 0, 39),
-	'background-color': rgb(251, 238, 240),
-	'border-color': hotpink,
-	'link-color': rgb(156, 4, 85),
-	'link-hover-color': rgb(156, 4, 85),
-	'legal-text-color': rgb(214, 73, 148),
-	'brand-background-color': oColorsByName('black'),
-	'brand-foreground-color': oColorsByName('white'),
-));
+@include oFooterServicesCustomize(
+	(
+		'text-color': rgb(73, 0, 39),
+		'background-color': rgb(251, 238, 240),
+		'border-color': hotpink,
+		'link-color': rgb(156, 4, 85),
+		'link-hover-color': rgb(156, 4, 85),
+		'legal-text-color': rgb(214, 73, 148),
+		'brand-background-color': oColorsByName('black'),
+		'brand-foreground-color': oColorsByName('white'),
+	)
+);
 
 // Output o-footer-services css
-@include oFooterServices($opts: (
-	'logo': 'ftlogo-v1:origami',
-	'icons': ()
-));
+@include oFooterServices(
+	$opts: (
+		'logo': 'ftlogo-v1:origami',
+		'icons': (),
+	)
+);
 ```
 
 Available brand variables include:
+
 - `text-color`: The default text colour.
 - `background-color`: The background colour.
 - `border-color`: The border colour used around and within the footer.
@@ -136,23 +156,23 @@ Available brand variables include:
 - `brand-background-color`: The background colour of the brand strip, at the bottom of the footer, "a Nikkei company".
 - `brand-foreground-color`: The foreground colour for the logo in the brand strip, at the bottom of the footer, "a Nikkei company".
 
-
 ## Migration guide
 
-State | Major Version | Last Minor Release | Migration guide |
-:---: | :---: | :---: | :---:
-✨ active | 4 | N/A | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
-⚠ maintained | 3 | N/A | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
-╳ deprecated | 2 | 2.2.0 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
-╳ deprecated | 1 | 1.0.2 | N/A |
+|    State     | Major Version | Last Minor Release |                    Migration guide                    |
+| :----------: | :-----------: | :----------------: | :---------------------------------------------------: |
+| ⚠ maintained |       5       |        N/A         | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+| ╳ deprecated |       4       |        4.2         | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
+| ╳ deprecated |       3       |         -          | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+| ╳ deprecated |       2       |       2.2.0        | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+| ╳ deprecated |       1       |       1.0.2        |                           -                           |
 
-***
+---
 
 ## Contact
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-footer-services/issues), visit [#origami-support](https://financialtimes.slack.com/messages/origami-support/) or email [Origami Support](mailto:origami-support@ft.com).
 
-***
+---
 
 ## Licence
 

@@ -1,14 +1,14 @@
 # Migration Guide
 
-### Migrating from v5 to v6
+## Migrating from v5 to v6
 
-We have introduced a `t` format symbol that renders a full ft-style time 10:43pm for the time. 
+We have introduced a `t` format symbol that renders a full ft-style time 10:43pm for the time.
 
-Custom formats which use the string 't' will no longer render as a string literal "t". 
+Custom formats which use the string 't' will no longer render as a string literal "t".
 
-To add the literal 't' update the custom date format string from `t` to `\t`. 
+To add the literal 't' update the custom date format string from `t` to `\t`.
 
-**Before** 
+**Before**
 
 ```
 <time data-o-component="o-date" class="o-date" datetime="Tue Mar 21 2023 10:38:05 GMT+0000 (Greenwich Mean Time)" data-o-date-format="d MMM yyyy, t" title="March 21 2023 10:38 am" data-o-date-js="">21 Mar 2023, t</time>
