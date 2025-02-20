@@ -22,15 +22,15 @@
 	},
 	"peerDependencies": {
 		"@financial-times/o-brand": "^4.1.0",
-		"@financial-times/o-icons": "^7.0.0",
-		"@financial-times/o-normalise": "^3.3.0",
-		"@financial-times/o-colors": "^6.5.0",
-		"@financial-times/o-typography": "^7.4.1"
+		"@financial-times/o-icons": "^7.8.0",
+		"@financial-times/o-normalise": "^3.3.2",
+		"@financial-times/o-colors": "^6.7.0",
+		"@financial-times/o-typography": "^7.6.2"
 	},
 	"devDependencies": {
-		"@financial-times/o-fonts": "^5.2.0",
-		"@financial-times/o-colors": "^6.5.0",
-		"@financial-times/o-normalise": "^3.3.0"
+		"@financial-times/o-fonts": "^5.3.5",
+		"@financial-times/o-colors": "^6.7.0",
+		"@financial-times/o-normalise": "^3.3.2"
 	},
 	"engines": {
 		"npm": ">7"
