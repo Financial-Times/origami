@@ -1,6 +1,6 @@
 {
 	"name": "@financial-times/o-multi-select",
-	"version": "2.2.7",
+	"version": "3.0.0",
 	"description": "Multi select component",
 	"keywords": [
 		"form",

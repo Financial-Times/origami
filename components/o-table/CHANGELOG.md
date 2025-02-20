@@ -1,5 +1,16 @@
 # Changelog
 
+## [10.0.0](https://github.com/Financial-Times/origami/compare/o-table-v9.3.5...o-table-v10.0.0) (2025-02-20)
+
+
+### ⚠ BREAKING CHANGES
+
+* 2025 o3 migration release, README/MIGRATION updates. ([#1970](https://github.com/Financial-Times/origami/issues/1970))
+
+### Features
+
+* 2025 o3 migration release, README/MIGRATION updates. ([#1970](https://github.com/Financial-Times/origami/issues/1970)) ([3be858a](https://github.com/Financial-Times/origami/commit/3be858a81a79c3f92c4dff8b4aab5c95b600c7ee))
+
 ## [9.3.5](https://github.com/Financial-Times/origami/compare/o-table-v9.3.4...o-table-v9.3.5) (2024-08-21)
 
 

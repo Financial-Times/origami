@@ -1,6 +1,6 @@
 {
 	"name": "@financial-times/o3-tooltip",
-	"version": "2.0.1",
+	"version": "3.0.0",
 	"description": "Provides a viewport-aware tooltip for annotating or or highlighting other aspects of a product's UI",
 	"keywords": [
 		"tooltip",
