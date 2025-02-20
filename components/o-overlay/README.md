@@ -206,10 +206,11 @@ _o-overlays will throw an error if the options aren't set correctly._
 
 |    State     | Major Version | Last Minor Release |                    Migration guide                    |
 | :----------: | :-----------: | :----------------: | :---------------------------------------------------: |
-|  ✨ active   |       4       |        N/A         | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
-| ⚠ maintained |       3       |        3.1         | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
-| ⚠ maintained |       2       |        2.7         | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
-| ╳ deprecated |       1       |       1.17.0       |                          N/A                          |
+| ⚠ maintained |       5       |        N/A         | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+| ╳ deprecated |       4       |        4.2         | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
+| ╳ deprecated |       3       |        3.1         | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+| ╳ deprecated |       2       |        2.7         | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+| ╳ deprecated |       1       |        1.17        |                           -                           |
 
 ## Contact
 

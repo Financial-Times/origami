@@ -3,23 +3,23 @@
 Social media buttons.
 
 - [o-share ](#o-share-)
-	- [Overview](#overview)
-	- [Usage](#usage)
-	- [Markup](#markup)
-		- [Small](#small)
-			- [Open In A New Tab](#open-in-a-new-tab)
-			- [Text Labels](#text-labels)
-			- [Custom Actions](#custom-actions)
-	- [Sass](#sass)
-		- [Colour Usecases](#colour-usecases)
-	- [JavaScript](#javascript)
-		- [Events](#events)
-			- [oShare.ready](#oshareready)
-			- [oShare.open](#oshareopen)
-	- [TSX Template](#tsx-template)
-	- [Migration guide](#migration-guide)
-	- [Contact](#contact)
-	- [Licence](#licence)
+  - [Overview](#overview)
+  - [Usage](#usage)
+  - [Markup](#markup)
+    - [Small](#small)
+      - [Open In A New Tab](#open-in-a-new-tab)
+      - [Text Labels](#text-labels)
+      - [Custom Actions](#custom-actions)
+  - [Sass](#sass)
+    - [Colour Usecases](#colour-usecases)
+  - [JavaScript](#javascript)
+    - [Events](#events)
+      - [oShare.ready](#oshareready)
+      - [oShare.open](#oshareopen)
+  - [TSX Template](#tsx-template)
+  - [Migration guide](#migration-guide)
+  - [Contact](#contact)
+  - [Licence](#licence)
 
 ## Overview
 
@@ -40,18 +40,20 @@ Include the [complete markup, available in the Origami registry](https://registr
 ```html
 <!-- see the registry demos for full markup -->
 <div data-o-component="o-share" class="o-share">
- <ul>
-  <!-- a share to X action example -->
-  <!-- href tag is not shown, see the registry demos for full markup  -->
-  <li class="o-share__action">
-   <a class="o-share__icon o-share__icon--x"
-    href="#x-link-here"
-    rel="noopener">
-    <span class="o-share__text">X</span>
-   </a>
-  </li>
-  <!-- more o-share actions -->
- </ul>
+	<ul>
+		<!-- a share to X action example -->
+		<!-- href tag is not shown, see the registry demos for full markup  -->
+		<li class="o-share__action">
+			<a
+				class="o-share__icon o-share__icon--x"
+				href="#x-link-here"
+				rel="noopener"
+			>
+				<span class="o-share__text">X</span>
+			</a>
+		</li>
+		<!-- more o-share actions -->
+	</ul>
 </div>
 ```
 
@@ -94,15 +96,20 @@ Form markup is allowed within the `o-share__action` label to to handle custom sh
 ```html
 <!-- see the registry demos for full markup -->
 <li class="o-share__action o-share__action--labelled">
-  <!-- demo only: forms with a submit button may be used for custom actions -->
-  <form method="post" action="#">
-    <button type="submit" class="o-share__icon o-share__icon--share" title="[Describe your custom action]" aria-label="[Describe your custom action]">
-      <span class="o-share__icon__image">
-        <!-- custom svg icon -->
-      </span>
-      <span class="o-share__text" data-variant-label="">Custom Action</span>
-    </button>
-  </form>
+	<!-- demo only: forms with a submit button may be used for custom actions -->
+	<form method="post" action="#">
+		<button
+			type="submit"
+			class="o-share__icon o-share__icon--share"
+			title="[Describe your custom action]"
+			aria-label="[Describe your custom action]"
+		>
+			<span class="o-share__icon__image">
+				<!-- custom svg icon -->
+			</span>
+			<span class="o-share__text" data-variant-label="">Custom Action</span>
+		</button>
+	</form>
 </li>
 ```
 
@@ -125,11 +132,23 @@ We recommend passing the `oShare` mixin an optional argument `$opts`, to specify
 For example:
 
 ```scss
-@include oShare($opts: (
- 'sizes': ('small'), // output styles for a small variation of o-share i.e. o-share--small
- 'vertical': true, // output styles for a vertical o-share i.e. o-share--vertical
- 'icons': ('x', 'facebook', 'whatsapp') // output styles for select share icons
-));
+@include oShare(
+	$opts: (
+		'sizes': (
+			'small',
+		),
+		// output styles for a small variation of o-share i.e. o-share--small
+		'vertical': true,
+		// output styles for a vertical o-share i.e. o-share--vertical
+		'icons':
+			(
+				'x',
+				'facebook',
+				'whatsapp',
+			)
+			// output styles for select share icons,,,,,,,
+	)
+);
 ```
 
 All `$opts` options include:
@@ -152,17 +171,17 @@ All `$opts` options include:
 
 `o-share` sets custom colour usecases for matching the colour of share buttons. These usecases are limited, for example they do not provide colours for the inverse variant, and not recommended for new projects (it is possible to output custom icons using the `oShare` mixin, without matching colours).
 
-| Usecase                           | Property                 | Uses                                                                                                   |
-|-----------------------------------|--------------------------|--------------------------------------------------------------------------------------------------------|
-| `o-share/default-icon`            | background, border, text | Default colours, used by icons without a state (e.g. before hover).                                    |
-| `o-share/ft-icon`                 | background, border, text | Colours to highlight FT icon social buttons like email (e.g. on hover).                                |
+| Usecase                           | Property                 | Uses                                                                                             |
+| --------------------------------- | ------------------------ | ------------------------------------------------------------------------------------------------ |
+| `o-share/default-icon`            | background, border, text | Default colours, used by icons without a state (e.g. before hover).                              |
+| `o-share/ft-icon`                 | background, border, text | Colours to highlight FT icon social buttons like email (e.g. on hover).                          |
 | `o-share/[social-icon-name]-icon` | background, border, text | Colours to highlight social buttons with a brand, like Twitter (e.g. `o-share/x-icon` on hover). |
 
 Use the [oColorsByUsecase mixin from o-colors](https://registry.origami.ft.com/components/o-colors/sassdoc?brand=core#function-ocolorsbyusecase) to retrieve custom colour usecases set by o-share.
 
 ```scss
 .my-icon:hover {
- background-color: oColorsByUsecase('o-share/ft-icon', 'background');
+	background-color: oColorsByUsecase('o-share/ft-icon', 'background');
 }
 ```
 
@@ -172,7 +191,9 @@ To instantiate the JavaScript:
 
 ```javascript
 import oShare from '@financial-times/o-share';
-var oShareInstance = new oShare(document.querySelector('[data-o-component=o-share]'));
+var oShareInstance = new oShare(
+	document.querySelector('[data-o-component=o-share]')
+);
 ```
 
 The markup will be generated for that instance of `o-share`.
@@ -182,8 +203,8 @@ You can also instantiate all instances in your page by running `oShare.init` whi
 Alternatively, an `o.DOMContentLoaded` event can be dispatched on the `document` to run `#init()`:
 
 ```js
-document.addEventListener("DOMContentLoaded", function() {
- document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
+document.addEventListener('DOMContentLoaded', function () {
+	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
 });
 ```
 
@@ -219,35 +240,34 @@ The event provides the following properties:
 `o-share` component publishes TSX templates to NPM and can be consumed by importing tsx template from our source directory:
 
 ```jsx
-import { Share } from "@financial-times/o-share/src/tsx/share";
-import { ShareIcon } from "@financial-times/o-share/src/tsx/shareIcon";
+import {Share} from '@financial-times/o-share/src/tsx/share';
+import {ShareIcon} from '@financial-times/o-share/src/tsx/shareIcon';
 
 <Share {...ShareProps}>
- <ShareIcon {...ShareIconProps} />
-</Share>
-
+	<ShareIcon {...ShareIconProps} />
+</Share>;
 ```
 
 The prop Types for each component:
 
 ```ts
 interface ShareProps {
- small?: boolean;
- vertical?: boolean;
- inverse?: boolean;
+	small?: boolean;
+	vertical?: boolean;
+	inverse?: boolean;
 }
 
 interface ShareIconProps {
- icon: "x" | "facebook" | "linkedin" | "whatsapp";
- urlProps: {
-  url: string;
-  title: string;
-  titleExtra: string;
-  summary: string;
-  relatedXAccounts: string;
- };
- showLabel?: boolean;
- label?: string;
+	icon: 'x' | 'facebook' | 'linkedin' | 'whatsapp';
+	urlProps: {
+		url: string;
+		title: string;
+		titleExtra: string;
+		summary: string;
+		relatedXAccounts: string;
+	};
+	showLabel?: boolean;
+	label?: string;
 }
 ```
 
@@ -255,24 +275,25 @@ TSX template doesn't import styles and doesn't initialise javaScript by itself. 
 
 ## Migration guide
 
-|    State     | Major Version | Last Minor Release |                    Migration guide                    |
-|:------------:|:-------------:|:------------------:|:-----------------------------------------------------:|
-| ✨ active    |       9       |        N/A         | [migrate to v10](MIGRATION.md#migrating-from-v9-to-v10) |
-| ⚠ maintained |       9       |        9.0         | [migrate to v9](MIGRATION.md#migrating-from-v8-to-v9) |
-| ╳ deprecated |       8       |        8.3         | [migrate to v8](MIGRATION.md#migrating-from-v7-to-v8) |
-| ╳ deprecated |       7       |        7.6         | [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7) |
-| ╳ deprecated |       6       |        6.5         | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
-| ╳ deprecated |       5       |        5.0         | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
-| ╳ deprecated |       4       |        4.0         | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
-| ╳ deprecated |       3       |        3.0         | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
-| ╳ deprecated |       2       |        2.1         |                           -                           |
-| ╳ deprecated |       1       |        1.7         |                           -                           |
+|    State     | Major Version | Last Minor Release |                     Migration guide                     |
+| :----------: | :-----------: | :----------------: | :-----------------------------------------------------: |
+| ⚠ maintained |      11       |        N/A         | [migrate to 11](MIGRATION.md#migrating-from-v10-to-11)  |
+| ╳ deprecated |      10       |        10.0        | [migrate to v10](MIGRATION.md#migrating-from-v9-to-v10) |
+| ╳ deprecated |       9       |        9.0         |  [migrate to v9](MIGRATION.md#migrating-from-v8-to-v9)  |
+| ╳ deprecated |       8       |        8.3         |  [migrate to v8](MIGRATION.md#migrating-from-v7-to-v8)  |
+| ╳ deprecated |       7       |        7.6         |  [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7)  |
+| ╳ deprecated |       6       |        6.5         |  [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6)  |
+| ╳ deprecated |       5       |        5.0         |  [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5)  |
+| ╳ deprecated |       4       |        4.0         |  [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4)  |
+| ╳ deprecated |       3       |        3.0         |  [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3)  |
+| ╳ deprecated |       2       |        2.1         |                            -                            |
+| ╳ deprecated |       1       |        1.7         |                            -                            |
 
 ## Contact
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-share/issues), visit [#origami-support](https://financialtimes.slack.com/messages/origami-support/) or email [Origami Support](mailto:origami-support@ft.com).
 
-***
+---
 
 ## Licence
 

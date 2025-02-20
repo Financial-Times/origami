@@ -1,4 +1,21 @@
-# Migration
+# Migration Guide
+
+## Migrating from v8 to v9
+
+This major release introduces a new design language and visually breaking changes. This includes mobile optimised typography, icons, and buttons. It also removes peer dependencies from deprecated "o2" components.
+
+To upgrade, replace the following "o2" components with their "o3" equivalent:
+
+- [o-normalise](../o-normalise/MIGRATION.md)
+- [o-spacing](../o-spacing/MIGRATION.md)
+- [o-colors](../o-colors/MIGRATION.md)
+- [o-icons](../o-icons/MIGRATION.md)
+- [o-buttons](../o-buttons/MIGRATION.md)
+- [o-typography](../o-typography/MIGRATION.md)
+- [o-editorial-typography](../o-editorial-typography/MIGRATION.md)
+- [o-big-number](../o-big-number/MIGRATION.md)
+- [o-quote](../o-quote/MIGRATION.md)
+- [o-fonts](../o-fonts/MIGRATION.md)
 
 ## Migrating from v7 to v8
 
@@ -30,8 +47,14 @@ The component no longer uses `ul` and `li` elements and instead uses `div` and `
 E.G.
 
 This is the old html:
+
 ```html
-<ul data-o-component="o-tabs" class="o-tabs" role="tablist" data-o-tabs-update-url>
+<ul
+	data-o-component="o-tabs"
+	class="o-tabs"
+	role="tablist"
+	data-o-tabs-update-url
+>
 	<li role="tab"><a href="#tabContent1">Tab 1</a></li>
 	<li role="tab"><a href="#tabContent2">Tab 2</a></li>
 	<li role="tab"><a href="#tabContent3">Tab 3</a></li>
@@ -39,8 +62,14 @@ This is the old html:
 ```
 
 And this is the new html:
+
 ```html
-<div data-o-component="o-tabs" class="o-tabs" role="tablist" data-o-tabs-update-url>
+<div
+	data-o-component="o-tabs"
+	class="o-tabs"
+	role="tablist"
+	data-o-tabs-update-url
+>
 	<a role="tab" href="#tabContent1">Tab 1</a>
 	<a role="tab" href="#tabContent2">Tab 2</a>
 	<a role="tab" href="#tabContent3">Tab 3</a>

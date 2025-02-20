@@ -384,9 +384,11 @@ import {Heading} from '@financial-times/o3-editorial-typography/cjs';
 
 ## Migration
 
-|   State   | Major Version | Last Minor Release | Migration guide |
-| :-------: | :-----------: | :----------------: | :-------------: |
-| ✨ active |       1       |        N/A         |       N/A       |
+|    State     | Major Version | Last Minor Release |                    Migration guide                    |
+| :----------: | :-----------: | :----------------: | :---------------------------------------------------: |
+|  ✨ active   |       3       |        N/A         | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+| ╳ deprecated |       2       |        2.3         | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+| ╳ deprecated |       1       |         -          |                          N/A                          |
 
 ## Contact
 

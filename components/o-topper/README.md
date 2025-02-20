@@ -1,6 +1,7 @@
 # o-topper
 
 This component is used for styling the topper sections of an article.
+
 - [Usage](#usage)
 - [Markup](#markup)
 - [Sass](#sass)
@@ -20,12 +21,17 @@ The basic markup structure for a topper will look something like this:
 <div class="o-topper o-topper--basic o-topper--color-o3-color-palette-paper">
 	<div class="o-topper__content">
 		<div class="o-topper__tags">
-			<a href="https://www.ft.com/german-election" class="o-topper__topic">German election</a>
+			<a href="https://www.ft.com/german-election" class="o-topper__topic"
+				>German election</a
+			>
 		</div>
 		<h1 class="o-topper__headline">
 			Merkel reaches ‘grand coalition’ breakthrough with Social Democrats
 		</h1>
-		<div class="o-topper__standfirst">Move raises hopes of end to political deadlock that has gripped Germany since September</div>
+		<div class="o-topper__standfirst">
+			Move raises hopes of end to political deadlock that has gripped Germany
+			since September
+		</div>
 	</div>
 
 	<div class="o-topper__background"></div>
@@ -36,23 +42,23 @@ Toppers support a wide array of [elements](#supported-elements) and can be custo
 
 ### Supported elements
 
-| Element                     | Use case                                                                                           |
-|-----------------------------|----------------------------------------------------------------------------------------------------|
-| `.o-topper__content`        | Main content area of topper. Required parent of all elements except `__visual` and `__background`. |
-| `.o-topper__tags`           | Wrapper element for the article concept tag elements `__brand`, `__topic` and `__opinion-genre`.   |
-| `.o-topper__brand`          | A concept tag that represents a brand, e.g. "The Big Read".                                        |
-| `.o-topper__topic`          | A concept tag that represents a topic or generic concept.                                          |
-| `.o-topper__opinion-genre`  | A concept tag that represents the abstract Opinion genre.                                          |
-| `.o-topper__columnist`      | Wrapper element for `__columnist-name`. Should be placed below the headline and standfirst.        |
-| `.o-topper__columnist-name` | Represents the columnist that wrote an Opinion genre article.                                      |
-| `.o-topper__headline`       | The main headline of the article.                                                                  |
-| `.o-topper__standfirst`     | A short introduction to the article.                                                               |
-| `.o-topper__background`     | Element used to display the editorially-chosen colored background of the topper. Must be empty.    |
-| `.o-topper__visual`         | Wrapper for the visual elements `__picture` and `__image`. Should be a `<figure>` tag.             |
-| `.o-topper__picture`        | A `<picture>` tag visual element.                                                                  |
-| `.o-topper__image`          | An `<img>` tag visual element, usually used as fallback for a `<picture>`.                         |
+| Element                     | Use case                                                                                                                                                                                                                                           |
+| --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `.o-topper__content`        | Main content area of topper. Required parent of all elements except `__visual` and `__background`.                                                                                                                                                 |
+| `.o-topper__tags`           | Wrapper element for the article concept tag elements `__brand`, `__topic` and `__opinion-genre`.                                                                                                                                                   |
+| `.o-topper__brand`          | A concept tag that represents a brand, e.g. "The Big Read".                                                                                                                                                                                        |
+| `.o-topper__topic`          | A concept tag that represents a topic or generic concept.                                                                                                                                                                                          |
+| `.o-topper__opinion-genre`  | A concept tag that represents the abstract Opinion genre.                                                                                                                                                                                          |
+| `.o-topper__columnist`      | Wrapper element for `__columnist-name`. Should be placed below the headline and standfirst.                                                                                                                                                        |
+| `.o-topper__columnist-name` | Represents the columnist that wrote an Opinion genre article.                                                                                                                                                                                      |
+| `.o-topper__headline`       | The main headline of the article.                                                                                                                                                                                                                  |
+| `.o-topper__standfirst`     | A short introduction to the article.                                                                                                                                                                                                               |
+| `.o-topper__background`     | Element used to display the editorially-chosen colored background of the topper. Must be empty.                                                                                                                                                    |
+| `.o-topper__visual`         | Wrapper for the visual elements `__picture` and `__image`. Should be a `<figure>` tag.                                                                                                                                                             |
+| `.o-topper__picture`        | A `<picture>` tag visual element.                                                                                                                                                                                                                  |
+| `.o-topper__image`          | An `<img>` tag visual element, usually used as fallback for a `<picture>`.                                                                                                                                                                         |
 | `.o-topper__image-credit`   | Element showing credit/copyright for the `__picture` or `__image`, where no image caption is given. If an image caption is provided alongside credit/copyright information use `.o-topper__image-caption` instead. Should be a `<figcaption>` tag. |
-| `.o-topper__image-caption`   | Element showing caption and credit/copyright together for the `__picture` or `__image`. Should be a `<figcaption>` tag. |
+| `.o-topper__image-caption`  | Element showing caption and credit/copyright together for the `__picture` or `__image`. Should be a `<figcaption>` tag.                                                                                                                            |
 
 ### Themes
 
@@ -89,10 +95,10 @@ These colors affect the background of the `.o-topper__background` and `.o-topper
 
 ### Modifiers
 
-| Modifier                                | Use case                                                                                           |
-|-----------------------------------------|----------------------------------------------------------------------------------------------------|
-| `.o-topper__content--background-box`    | Create a background box around the element `.o-topper__content`. The background colour of the box  |
-|                                         | will be defined based on the background of the topper                                              |
+| Modifier                             | Use case                                                                                          |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------- |
+| `.o-topper__content--background-box` | Create a background box around the element `.o-topper__content`. The background colour of the box |
+|                                      | will be defined based on the background of the topper                                             |
 
 ## Sass
 
@@ -106,66 +112,78 @@ To include all o-topper CSS include `oTopper`:
 To include o-topper styles granularly specify which elements, themes, and colours to output styles for using the options `$opts` argument:
 
 ```scss
-@include oTopper($opts: (
-	'themes': (
-		'branded', // .o-topper--branded
-		'opinion', // .o-topper--opinion
-		'has-headshot', // .o-topper--has-headshot
-		'full-bleed-offset',
-		'split-text-left',
-		'split-text-center',
-		'full-bleed-image-center',
-		'full-bleed-image-left',
-		'package',
-		'package-extra',
-		'package-extra-wide',
-		'package-special-report',
-		'right-rail',
-		'centered',
-		'deep-landscape',
-	),
-	'elements': (
-		'content', // .o-topper__content
-		'visual', // .o-topper__visual
-		'background', // .o-topper__background
-		'headline',
-		'headline--large',
-		'summary',
-		'standfirst',
-		'summary--body',
-		'tags',
-		'columnist',
-		'columnist-name',
-		'brand',
-		'topic',
-		'read-next',
-		'image',
-		'image-credit',
-		'image-caption'
-	),
-	'colors': (
-		'o3-color-palette-white', // .o-topper--color-o3-color-palette-white
-		'o3-color-palette-black', // .o-topper--color-o3-color-palette-black
-		'o3-color-palette-claret',
-		'o3-color-palette-oxford',
-		'o3-color-palette-paper',
-		'o3-color-palette-slate',
-		'o3-color-palette-wheat',
-		'o3-color-palette-crimson',
-		'o3-color-palette-sky',
+@include oTopper(
+	$opts: (
+		'themes': (
+			'branded',
+			// .o-topper--branded
+			'opinion',
+			// .o-topper--opinion
+			'has-headshot',
+			// .o-topper--has-headshot
+			'full-bleed-offset',
+			'split-text-left',
+			'split-text-center',
+			'full-bleed-image-center',
+			'full-bleed-image-left',
+			'package',
+			'package-extra',
+			'package-extra-wide',
+			'package-special-report',
+			'right-rail',
+			'centered',
+			'deep-landscape',
+		),
+		'elements': (
+			'content',
+			// .o-topper__content
+			'visual',
+			// .o-topper__visual
+			'background',
+			// .o-topper__background
+			'headline',
+			'headline--large',
+			'summary',
+			'standfirst',
+			'summary--body',
+			'tags',
+			'columnist',
+			'columnist-name',
+			'brand',
+			'topic',
+			'read-next',
+			'image',
+			'image-credit',
+			'image-caption',
+		),
+		'colors': (
+			'o3-color-palette-white',
+			// .o-topper--color-o3-color-palette-white
+			'o3-color-palette-black',
+			// .o-topper--color-o3-color-palette-black
+			'o3-color-palette-claret',
+			'o3-color-palette-oxford',
+			'o3-color-palette-paper',
+			'o3-color-palette-slate',
+			'o3-color-palette-wheat',
+			'o3-color-palette-crimson',
+			'o3-color-palette-sky',
+		),
 	)
-));
+);
 ```
+
 ## Migration
 
-State | Major Version | Last Minor Release | Migration guide |
-:---: | :---: | :---: | :---:
-✨ active | 6 | N/A  | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
-⚠ maintained | 5 | N/A  | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
-╳ deprecated | 4 | 4.0  | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
-╳ deprecated | 3 | 3.1  | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
-╳ deprecated | 2 | 2.7  | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
-╳ deprecated | 1 | 1.2  | - |
+|    State     | Major Version | Last Minor Release |                    Migration guide                    |
+| :----------: | :-----------: | :----------------: | :---------------------------------------------------: |
+| ⚠ maintained |       7       |        N/A         | [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7) |
+| ╳ deprecated |       6       |        6.0         | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
+| ╳ deprecated |       5       |         -          | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+| ╳ deprecated |       4       |        4.0         | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
+| ╳ deprecated |       3       |        3.1         | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+| ╳ deprecated |       2       |        2.7         | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+| ╳ deprecated |       1       |        1.2         |                           -                           |
 
 ## Contact
 

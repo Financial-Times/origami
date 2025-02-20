@@ -1,5 +1,22 @@
 ## Migration Guide
 
+### Migrating from v4 to v5
+
+This major release introduces a new design language and visually breaking changes. This includes mobile optimised typography, icons, and buttons. It also removes peer dependencies from deprecated "o2" components.
+
+To upgrade, replace the following "o2" components with their "o3" equivalent:
+
+- [o-normalise](../o-normalise/MIGRATION.md)
+- [o-spacing](../o-spacing/MIGRATION.md)
+- [o-colors](../o-colors/MIGRATION.md)
+- [o-icons](../o-icons/MIGRATION.md)
+- [o-buttons](../o-buttons/MIGRATION.md)
+- [o-typography](../o-typography/MIGRATION.md)
+- [o-editorial-typography](../o-editorial-typography/MIGRATION.md)
+- [o-big-number](../o-big-number/MIGRATION.md)
+- [o-quote](../o-quote/MIGRATION.md)
+- [o-fonts](../o-fonts/MIGRATION.md)
+
 ### Migrating from v3 to v4
 
 V4 has dropped support for use through Bower. If you have been using Bower, you will need to follow the [bower to npm migration guide](https://origami.ft.com/documentation/tutorials/bower-to-npm/).
@@ -8,7 +25,6 @@ When using Sass, you will need to add `node_modules` to your `includePath` as we
 
 - Update your code to use the fully qualified package name, i.e.: `@import "@financial-times/o-brand/main"`, or
 - Also add `node_modules/@financial-times` to the Sass include path
-
 
 ### Migrating from v2 to v3
 
@@ -38,6 +54,7 @@ The main change is how to output syntax-specific styling:
 ```
 
 The primary mixin requires an `$opts` parameter that accepts a 'languages' list. That list can contains any or all of the following:
+
 - 'bash'
 - 'css'
 - 'diff'

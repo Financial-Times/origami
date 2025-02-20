@@ -6,9 +6,9 @@ Accessible, content-aware component for expanding and collapsing content.
 - [Markup](#markup)
 - [Sass](#sass)
 - [JavaScript](#javascript)
-	- [Construction](#construction)
-	- [Custom expander](#custom-expander)
-	- [Events](#events)
+  - [Construction](#construction)
+  - [Custom expander](#custom-expander)
+  - [Events](#events)
 - [Migration](#migration)
 - [Contact](#contact)
 - [Licence](#licence)
@@ -19,7 +19,7 @@ Check out [how to include Origami components in your project](https://origami.ft
 
 ## Markup
 
-The  `o-expander` component has a content element `o-expander__content` (the DOM to expand and collapse) and toggle elements `o-expander__toggle` (the triggers to toggle the expander).
+The `o-expander` component has a content element `o-expander__content` (the DOM to expand and collapse) and toggle elements `o-expander__toggle` (the triggers to toggle the expander).
 
 - `o-expander__toggle` and `o-expander__content` can be put anywhere within `o-expander` as long as `o-expander__toggle` is not contained within `o-expander__content`.
 - `o-expander__toggle` should be placed on a button or anchor element for keyboard accessibility.
@@ -32,7 +32,9 @@ The  `o-expander` component has a content element `o-expander__content` (the DOM
 	</div>
 	<button class="o-expander__toggle">
 		Toggle
-		<span class="o-expander__visually-hidden">(content will be added above button)</span>
+		<span class="o-expander__visually-hidden"
+			>(content will be added above button)</span
+		>
 	</button>
 </div>
 ```
@@ -196,16 +198,15 @@ Set `data-o-expander-toggle-state="aria"` to update the toggle aria attributes b
 
 ## Sass
 
-
 Default expander styles hide the toggle until the expander is initialised successfully, so no content is obscured if JavaScript fails. When toggled the expander hides and shows content immediately. To include all `o-expander` CSS use the `oExpander` mixin.
 
 ```scss
-	@include oExpander();
+@include oExpander();
 ```
+
 If using the height expander, also set your `max-height`. See [Height Expander](#height-expander) for an example.
 
 _For animation and other more complex styles don't include opinionated o-expander CSS. Instead create a [custom expander](#custom-expander) with totally custom styles._
-
 
 ## JavaScript
 
@@ -214,12 +215,14 @@ No JavaScript will run automatically unless you are using the Build Service. You
 ### Construction
 
 If you have set up your expander declaratively, use the following to initialise all expanders on the page with the `data-o-component="o-expander"` attribute:
+
 ```js
 import Expander from '@financial-times/o-expander';
 Expander.init();
 ```
 
 Or initialise a specific declarative expander:
+
 ```js
 import Expander from '@financial-times/o-expander';
 const myExpanderElement = document.querySelector('my-expander');
@@ -227,12 +230,13 @@ const myExpander = new Expander(myExpanderElement);
 ```
 
 All declarative options set via [Markup](#markup) may also be passed as an `opts` object. See the [options section](#options) for a full list. e.g:
+
 ```js
 import Expander from '@financial-times/o-expander';
 const myExpanderElement = document.querySelector('my-expander');
 const myExpander = new Expander(myExpanderElement, {
 	shrinkTo: 4,
-	itemSelecor: 'p'
+	itemSelecor: 'p',
 });
 ```
 
@@ -241,7 +245,7 @@ const myExpander = new Expander(myExpanderElement, {
 All the following can be passed to JavaScript or may be set declaratively via [Markup](#markup) as data-attributes (hyphenated and prefixed by `o-expander` e.g. `data-o-expander-shrink-to="height"`):
 
 - `shrinkTo` `[height]`: The expander collapse method, "height", "hidden", or a number of items.
-- `itemSelector` `[li]`: A selector for items to count when  `shrinkTo` is set to a number, relative to `.o-expander__content`.
+- `itemSelector` `[li]`: A selector for items to count when `shrinkTo` is set to a number, relative to `.o-expander__content`.
 - `expandedToggleText` `[less|fewer]`: Toggle text for when the expander is collapsed. Defaults to "fewer", or "less" when `shrinkTo` is "height", or "hidden" when `shrinkTo` is "hidden".
 - `collapsedToggleText` `[more]`: Toggle text for when the expander is collapsed. Defaults to "more", or "show" when `shrinkTo` is "hidden".
 - `toggleState` `[all|aria|none]`: How to update the expander toggles: "all" to update text and aria-expanded attributes, "aria" to update only aria-expanded attributes, "none" to avoid updating toggles on click.
@@ -267,8 +271,8 @@ const myCustomExpander = Expander.createCustom(myExpanderElement, {
 		inactive: 'my-expander--inactive', // Added to the expander element if the expander doesn't need to contract/expand.
 		expanded: 'my-expander__content--expanded', // Added to the content element when expanded.
 		collapsed: 'my-expander__content--collapsed', // Added to the content element when collapsed.
-		collapsibleItem: 'my-expander__collapsible-item' // Added to item elements which are hidden when collapsed.
-	}
+		collapsibleItem: 'my-expander__collapsible-item', // Added to item elements which are hidden when collapsed.
+	},
 });
 ```
 
@@ -284,20 +288,21 @@ o-expander fires the following events, which always fire before any repainting/l
 
 ## Migration
 
-State | Major Version | Last Minor Release | Migration guide |
-:---: | :---: | :---: | :---:
-✨ active | 6 | N/A  | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
-⚠ maintained | 5 | 5.0.11  | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
-╳ deprecated | 4 | 4.7  | - |
-╳ deprecated | 3 | 3.0  | - |
-╳ deprecated | 2 | 2.0 | - |
-╳ deprecated | 1 | 1.4 | - |
+|    State     | Major Version | Last Minor Release |                    Migration guide                    |
+| :----------: | :-----------: | :----------------: | :---------------------------------------------------: |
+| ⚠ maintained |       7       |        N/A         | [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7) |
+| ╳ deprecated |       6       |        6.3         | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
+| ╳ deprecated |       5       |        5.0         | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+| ╳ deprecated |       4       |        4.7         |                           -                           |
+| ╳ deprecated |       3       |        3.0         |                           -                           |
+| ╳ deprecated |       2       |        2.0         |                           -                           |
+| ╳ deprecated |       1       |        1.4         |                           -                           |
 
 ## Contact
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-expander/issues), visit [#origami-support](https://financialtimes.slack.com/messages/origami-support/) or email [Origami Support](mailto:origami-support@ft.com).
 
-***
+---
 
 ## Licence
 

@@ -26,9 +26,16 @@ The basic markup structure for a teaser will look something like this:
 <div class="o-teaser o-teaser--small">
 	<div class="o-teaser__content">
 		<a href="#" class="o-teaser__tag">World</a>
-		<h2 class="o-teaser__heading"><a href="#">Japan sells negative yield 10-year bonds</a></h2>
+		<h2 class="o-teaser__heading">
+			<a href="#">Japan sells negative yield 10-year bonds</a>
+		</h2>
 		<div class="o-teaser__timestamp">
-			<time data-o-component="o-date" class="o-teaser__timestamp-date" datetime="2016-02-29T12:35:48Z">2016-02-29T12:35:48Z</time>
+			<time
+				data-o-component="o-date"
+				class="o-teaser__timestamp-date"
+				datetime="2016-02-29T12:35:48Z"
+				>2016-02-29T12:35:48Z</time
+			>
 		</div>
 	</div>
 </div>
@@ -38,14 +45,13 @@ Optionally include the [o-date](https://registry.origami.ft.com/components/o-dat
 
 Teasers support a wide array of [elements](#supported-elements) and can be customised using several [themes](#themes) and should be used as required. For a full list of examples including example markup, see [o-teaser in the Registry](http://registry.origami.ft.com/components/o-teaser).
 
-
 ### Images
 
 To add an image to a teaser, you should use the following markup structure:
 
 ```html
 <div class="o-teaser__image-container">
-	<img src="{image-src}" class="o-teaser__image" alt="{alt text}"/>
+	<img src="{image-src}" class="o-teaser__image" alt="{alt text}" />
 </div>
 ```
 
@@ -54,11 +60,10 @@ To support lazy-loading of images you can use the `o-teaser__image-placeholder` 
 ```html
 <div class="o-teaser__image-container">
 	<div class="o-teaser__image-placeholder">
-		<img src="{image-src}" class="o-teaser__image" alt="{alt text}"/>
+		<img src="{image-src}" class="o-teaser__image" alt="{alt text}" />
 	</div>
 </div>
 ```
-
 
 ### Supported elements
 
@@ -78,10 +83,10 @@ The following elements are supported by default:
 .o-teaser__related-item     # A single item of a related content list
 ```
 
-
 ## Sass
 
 To include styles for all teasers call `oTeaser`:
+
 ```scss
 @import '@financial-times/o-teaser/main';
 
@@ -91,10 +96,19 @@ To include styles for all teasers call `oTeaser`:
 Teasers are made up of various elements (e.g. heading, standfirst, timestamp) and a series of themes (e.g. small, large, video). Pass a list of `elements` and `themes` in an options `$opts` argument to include only the styles you need:
 
 ```scss
-@include oTeaser($opts:(
-	'elements': ('default', 'images'),
-	'themes': ('small', 'large', 'video')
-));
+@include oTeaser(
+	$opts: (
+		'elements': (
+			'default',
+			'images',
+		),
+		'themes': (
+			'small',
+			'large',
+			'video',
+		),
+	)
+);
 ```
 
 Elements are specified via groups, they include:
@@ -168,23 +182,23 @@ Uses the `o-teaser--audio` modifier.
 
 [View example on the Registry](http://registry.origami.ft.com/components/o-teaser#demo-audio)
 
-
 ## Migration guide
 
-State | Major Version | Last Minor Release | Migration guide |
-:---: | :---: | :---: | :---:
-✨ active | 6 | N/A  | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
-⚠ maintained | 5 | 5.2  | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
-╳ deprecated | 4 | 4.0  | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
-╳ deprecated | 3 | 3.5  | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
-╳ deprecated | 2 | 2.5  | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
-╳ deprecated | 1 | 1.9 | - |
+|    State     | Major Version | Last Minor Release |                    Migration guide                    |
+| :----------: | :-----------: | :----------------: | :---------------------------------------------------: |
+| ⚠ maintained |       7       |        N/A         | [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7) |
+| ╳ deprecated |       6       |        6.4         | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
+| ╳ deprecated |       5       |        5.2         | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+| ╳ deprecated |       4       |        4.0         | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
+| ╳ deprecated |       3       |        3.5         | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+| ╳ deprecated |       2       |        2.5         | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+| ╳ deprecated |       1       |        1.9         |                           -                           |
 
 ## Contact
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-teaser/issues), visit [#origami-support](https://financialtimes.slack.com/messages/origami-support/) or email [Origami Support](mailto:origami-support@ft.com).
 
-***
+---
 
 ## Licence
 

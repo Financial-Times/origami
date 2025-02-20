@@ -1,4 +1,21 @@
-# Migration
+# Migration Guide
+
+## Migrating from v5 to v6
+
+This major release introduces a new design language and visually breaking changes. This includes mobile optimised typography, icons, and buttons. It also removes peer dependencies from deprecated "o2" components.
+
+To upgrade, replace the following "o2" components with their "o3" equivalent:
+
+- [o-normalise](../o-normalise/MIGRATION.md)
+- [o-spacing](../o-spacing/MIGRATION.md)
+- [o-colors](../o-colors/MIGRATION.md)
+- [o-icons](../o-icons/MIGRATION.md)
+- [o-buttons](../o-buttons/MIGRATION.md)
+- [o-typography](../o-typography/MIGRATION.md)
+- [o-editorial-typography](../o-editorial-typography/MIGRATION.md)
+- [o-big-number](../o-big-number/MIGRATION.md)
+- [o-quote](../o-quote/MIGRATION.md)
+- [o-fonts](../o-fonts/MIGRATION.md)
 
 ## Migrating from v4 to v5
 
@@ -17,8 +34,8 @@ its dependencies. See [the Bower config for these](./bower.json).
 ## Migrating from v2 to v3
 
 - `o-layout` supports the internal brand only, so your project must set its brand to the internal brand:
-	- If using SASS, set the variable `$o-brand: 'internal';` before importing any Origami component.
-	- If using the Origami Build Service, add the brand parameter to your CSS URL `?o-layout@^3.0.0&brand=internal`.
+  - If using SASS, set the variable `$o-brand: 'internal';` before importing any Origami component.
+  - If using the Origami Build Service, add the brand parameter to your CSS URL `?o-layout@^3.0.0&brand=internal`.
 
 ### Markup Changes
 

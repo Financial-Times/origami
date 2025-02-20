@@ -21,6 +21,7 @@ It should not be used to re-share content, for this use [o-share](https://regist
 ## Socials
 
 Social icons currently supported include:
+
 - twitter
 - facebook
 - linkedin
@@ -31,23 +32,24 @@ Social icons currently supported include:
 
 `o-social-share` markup consists of a containing section with label, to group social media links in a landmark. Within the container is 1 or more social media links `o-social-follow-icon`. A visually hidden label identifies the icon to users of assistive technologies such as screen readers.
 
-
 The following example shows a single Facebook link.
-```html
-<section class="o-social-follow"  aria-label="Follow on social media">
 
+```html
+<section class="o-social-follow" aria-label="Follow on social media">
 	<a href="#" class="o-social-follow-icon o-social-follow-icon--facebook">
 		<span class="o-social-follow-icon__label">on facebook</span>
 	</a>
-
 </section>
 ```
 
 The next example shows multiple social media links.
+
 ```html
 <section class="o-social-follow" aria-label="Follow on social media">
 	<a href="#" class="o-social-follow-icon o-social-follow-icon--twitter">
-		<span class="o-social-follow-icon__label">on X, formerly know as Twitter</span>
+		<span class="o-social-follow-icon__label"
+			>on X, formerly know as Twitter</span
+		>
 	</a>
 	<a href="#" class="o-social-follow-icon o-social-follow-icon--facebook">
 		<span class="o-social-follow-icon__label">on facebook</span>
@@ -101,19 +103,35 @@ Call `oSocialFollow` to output all `o-social-follow` styles.
 We recommend passing the `oSocialFollow` mixin an optional argument `$opts`, to specify styles granularly and keep your CSS bundle small.
 
 For example:
+
 ```scss
-@include oSocialFollow($opts: (
-	'icons': ('twitter', 'facebook', 'linkedin', 'youtube', 'instagram'),
-	'standalone': true,
-	'themes': ('inverse')
-));
+@include oSocialFollow(
+	$opts: (
+		'icons': (
+			'twitter',
+			'facebook',
+			'linkedin',
+			'youtube',
+			'instagram',
+		),
+		'standalone': true,
+		'themes': (
+			'inverse',
+		),
+	)
+);
 ```
+
+|    State     | Major Version | Last Minor Release |                    Migration guide                    |
+| :----------: | :-----------: | :----------------: | :---------------------------------------------------: |
+| ⚠ maintained |       2       |        n/a         | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+| ╳ deprecated |       1       |        1.0         |                          N/A                          |
 
 ## Contact
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-social-follow/issues), visit [#origami-support](https://financialtimes.slack.com/messages/origami-support/) or email [Origami Support](mailto:origami-support@ft.com).
 
-***
+---
 
 ## Licence
 

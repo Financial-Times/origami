@@ -21,8 +21,15 @@ Use the following HTML to get a full-width FT affiliation ribbon. This should be
 <div class="o-ft-affiliate-ribbon">
 	<div class="o-ft-affiliate-ribbon__container">
 		<div class="o-ft-affiliate-ribbon__row">
-			<a class="o-ft-affiliate-ribbon__logo" href="https://www.ft.com/" title="The Financial Times" target="_blank">
-				<span class="o-ft-affiliate-ribbon__visually-hidden">A service from the Financial Times</span>
+			<a
+				class="o-ft-affiliate-ribbon__logo"
+				href="https://www.ft.com/"
+				title="The Financial Times"
+				target="_blank"
+			>
+				<span class="o-ft-affiliate-ribbon__visually-hidden"
+					>A service from the Financial Times</span
+				>
 			</a>
 		</div>
 	</div>
@@ -34,25 +41,26 @@ Use the following HTML to get a full-width FT affiliation ribbon. This should be
 Call the primary mixin `oFtAffiliateRibbon` to include all CSS for the o-ft-affiliate-ribbon component:
 
 ```scss
-	@import '@financial-times/o-ft-affiliate-ribbon/main';
-	@include oFtAffiliateRibbon();
+@import '@financial-times/o-ft-affiliate-ribbon/main';
+@include oFtAffiliateRibbon();
 ```
 
 ## Migration guide
 
-State | Major Version | Last Minor Release | Migration guide |
-:---: | :---: | :---: | :---:
-✨ active | 5 | N/A | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
-⚠ maintained | 4 | 4.0.4 | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
-╳ deprecated | 3 | 3.1 | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
-╳ deprecated | 2 | 2.0 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
-╳ deprecated | 1 | 1.0 | - |
+|    State     | Major Version | Last Minor Release |                    Migration guide                    |
+| :----------: | :-----------: | :----------------: | :---------------------------------------------------: |
+| ⚠ maintained |       6       |        N/A         | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
+| ╳ deprecated |       5       |        5.2         | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+| ╳ deprecated |       4       |        4.0         | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
+| ╳ deprecated |       3       |        3.1         | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+| ╳ deprecated |       2       |        2.0         | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+| ╳ deprecated |       1       |        1.0         |                           -                           |
 
 ## Contact
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-ft-affiliate-ribbon/issues), visit [#origami-support](https://financialtimes.slack.com/messages/origami-support/) or email [Origami Support](mailto:origami-support@ft.com).
 
-***
+---
 
 ## Licence
 

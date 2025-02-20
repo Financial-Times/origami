@@ -23,14 +23,12 @@ The markup for a stepped progress element is as follows. Markup is commented for
 Base class and attribute hook for JavaScript
 -->
 <div class="o-stepped-progress" data-o-component="o-stepped-progress">
-
 	<!--
 	The steps live in an ordered list, which ensures that assistive
 	technology can read this appropriately. Also if CSS does not load
 	then a sensible fallback is in place
 	-->
 	<ol class="o-stepped-progress__steps">
-
 		<!--
 		Each step lives inside a list item. This item does not need any
 		classes applied. The following modifiers are available to indicate
@@ -40,23 +38,25 @@ Base class and attribute hook for JavaScript
 		  - error: a step that something went wrong with
 		-->
 		<li>
-
 			<!--
 			The step itself is either an anchor or span element. We encourage
 			using an anchor for completed and current steps, as this offers a
 			better experience for screen readers - all of the text inside is
 			read as one block rather than each span separately.
 			-->
-			<a href="/step-1" class="o-stepped-progress__step o-stepped-progress__step--complete">
+			<a
+				href="/step-1"
+				class="o-stepped-progress__step o-stepped-progress__step--complete"
+			>
 				<span class="o-stepped-progress__label">
-
 					<!--
 					The o-stepped-progress__status element is required to make
 					the step label accessible for assistive technology, older
 					browsers, and when CSS fails to load. This element is
 					visually hidden otherwise
 					-->
-					Example Completed Step <span class="o-stepped-progress__status">(completed)</span>
+					Example Completed Step
+					<span class="o-stepped-progress__status">(completed)</span>
 				</span>
 			</a>
 		</li>
@@ -66,9 +66,13 @@ Base class and attribute hook for JavaScript
 		and including accessible text in the label
 		-->
 		<li>
-			<a href="/step-2" class="o-stepped-progress__step o-stepped-progress__step--current">
+			<a
+				href="/step-2"
+				class="o-stepped-progress__step o-stepped-progress__step--current"
+			>
 				<span class="o-stepped-progress__label">
-					Example Current Step <span class="o-stepped-progress__status">(current step)</span>
+					Example Current Step
+					<span class="o-stepped-progress__status">(current step)</span>
 				</span>
 			</a>
 		</li>
@@ -81,12 +85,9 @@ Base class and attribute hook for JavaScript
 		-->
 		<li>
 			<span class="o-stepped-progress__step">
-				<span class="o-stepped-progress__label">
-					Example Future Step
-				</span>
+				<span class="o-stepped-progress__label"> Example Future Step </span>
 			</span>
 		</li>
-
 	</ol>
 </div>
 ```
@@ -133,6 +134,7 @@ Once you have stepped progress instances, you can interact with them using the m
 There is [full API documentation available in the Origami Registry](https://registry.origami.ft.com/components/o-stepped-progress/jsdoc).
 
 ## Sass
+
 To output all styles call `@include oSteppedProgress();` in your Sass:
 
 ```scss
@@ -161,38 +163,38 @@ The `oSteppedProgress` mixin is used to output base styles as well as styles for
 If you wish to specify a subset of themes to output styles for, you can pass in an `$opts` parameter (see [themes](#themes) for available options):
 
 ```scss
-@include oSteppedProgress($opts: (
-	'themes': (
-		'heavy'
+@include oSteppedProgress(
+	$opts: (
+		'themes': (
+			'heavy',
+		),
 	)
-));
+);
 ```
 
 There is [full Sass documentation available in the Origami Registry](https://registry.origami.ft.com/components/o-stepped-progress/sassdoc).
-
 
 ### Themes
 
 This table outlines all of the possible themes you can request in the [`oSteppedProgress` mixin](#mixin-osteppedprogress):
 
-| Theme  | Description                               | Brand support |
-|--------|-------------------------------------------|---------------|
-| heavy  | Label with heavier lines and larger type. | internal      |
-
+| Theme | Description                               | Brand support |
+| ----- | ----------------------------------------- | ------------- |
+| heavy | Label with heavier lines and larger type. | internal      |
 
 ## Migration guide
 
-State | Major Version | Last Minor Release | Migration guide |
-:---: | :---: | :---: | :---:
-✨ active | 4 | N/A | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
-⚠ maintained | 3 | 3.2 | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
-╳ deprecated | 2 | 2.0 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
-╳ deprecated | 1 | 1.0 | N/A |
+|    State     | Major Version | Last Minor Release |                    Migration guide                    |
+| :----------: | :-----------: | :----------------: | :---------------------------------------------------: |
+| ⚠ maintained |       5       |        N/A         | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+| ╳ deprecated |       4       |        4.0         | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
+| ╳ deprecated |       3       |        3.2         | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+| ╳ deprecated |       2       |        2.0         | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+| ╳ deprecated |       1       |        1.0         |                          N/A                          |
 
 ## Contact
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-stepped-progress/issues), visit [#origami-support](https://financialtimes.slack.com/messages/origami-support/) or email [Origami Support](mailto:origami-support@ft.com).
-
 
 ## Licence
 

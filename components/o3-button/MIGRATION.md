@@ -2,7 +2,9 @@
 
 ## Migrating from v2 to v3
 
-o3-button v3 introduces renamed icons, with an updated api to match. It also includes some potentially visually breaking changes.
+This major release introduces a new design language and visually breaking changes. This includes mobile optimised typography, icons, and buttons.
+
+To upgrade, first ensure peer dependencies including `o3-foundation` are upgraded.
 
 ### Rename icons
 

@@ -127,7 +127,7 @@ Use typography use cases to style body content with bolder styles:
 
 ```html
 <p class="o3-type-body-base">
-  This is <strong class="o3-type-body">really</strong> important.
+	This is <strong class="o3-type-body">really</strong> important.
 </p>
 ```
 
@@ -260,7 +260,7 @@ See our documentation website for a [full list of spacing tokens](https://origam
 
 ### Grid
 
->  ⚠️ **NOTE:** Grid is experimental and open to change without notice. Please contact the Origami team before using.
+> ⚠️ **NOTE:** Grid is experimental and open to change without notice. Please contact the Origami team before using.
 
 The `o3-grid` system, provided by `o3-foundation`, standardises usage of grid across ft. The `o3-grid` is responsive on different screen sizes and differs from [`o-grid`](https://o2.origami.ft.com/?path=/docs/o2-core_components-o-grid-readme--docs) component. For more detailed guidelines on grid system check our documentation for [`o3-grid`](https://origami-beta.ft.com/guides/grid/).
 
@@ -349,9 +349,11 @@ For advanced usage `o3-foundation` provides CSS Custom Properties for grid that 
 
 ## Migration
 
-|   State   | Major Version | Last Minor Release | Migration guide |
-| :-------: | :-----------: | :----------------: | :-------------: |
-| ✨ active |       1       |        N/A         |       N/A       |
+|    State     | Major Version | Last Minor Release |                    Migration guide                    |
+| :----------: | :-----------: | :----------------: | :---------------------------------------------------: |
+|  ✨ active   |       3       |        N/A         | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+| ╳ deprecated |       2       |        2.3         | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+| ╳ deprecated |       1       |         -          |                          N/A                          |
 
 ## Contact
 

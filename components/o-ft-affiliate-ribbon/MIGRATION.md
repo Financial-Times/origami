@@ -1,5 +1,22 @@
 ## Migration guide
 
+### Migrating from v5 to v6
+
+This major release introduces a new design language and visually breaking changes. This includes mobile optimised typography, icons, and buttons. It also removes peer dependencies from deprecated "o2" components.
+
+To upgrade, replace the following "o2" components with their "o3" equivalent:
+
+- [o-normalise](../o-normalise/MIGRATION.md)
+- [o-spacing](../o-spacing/MIGRATION.md)
+- [o-colors](../o-colors/MIGRATION.md)
+- [o-icons](../o-icons/MIGRATION.md)
+- [o-buttons](../o-buttons/MIGRATION.md)
+- [o-typography](../o-typography/MIGRATION.md)
+- [o-editorial-typography](../o-editorial-typography/MIGRATION.md)
+- [o-big-number](../o-big-number/MIGRATION.md)
+- [o-quote](../o-quote/MIGRATION.md)
+- [o-fonts](../o-fonts/MIGRATION.md)
+
 ### Migrating from v4 to v5
 
 Support for Bower and version 2 of the Origami Build Service have been removed.
@@ -13,10 +30,12 @@ Origami components now require a `$system-code` Sass variable is set by the proj
 v4 removes the mixin `oFtAffiliateRibbonVisuallyHidden`. Replace with the o-normalise mixin [oNormaliseVisuallyHidden](https://registry.origami.ft.com/components/o-normalise/sassdoc). The mixin `oFtAffiliateRibbonBrandImage` has also been removed, there is no replacement, please contact the Origami team if your project has a usecase for this mixin.
 
 Custom colours and colour usecases have also been removed from the palette and should not be used. Please contact Origami if your project does have a usecase for these however:
+
 - removed colour: affiliate-ribbon-text
 - removed usecases: ribbon-background, ribbon-text, ribbon-logo
 
 The following Sass variables were unused and removed. Do not set these in your project:
+
 - o-ft-affiliate-ribbon-image-base-url
 - o-ft-affiliate-ribbon-image-service-version
 

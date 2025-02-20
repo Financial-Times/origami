@@ -60,7 +60,7 @@ This one has a little plus or a tick icon. You'd be advised to include the `data
 ## JavaScript
 
 ```js
-import ConceptButton from "@financial-times/ft-concept-button";
+import ConceptButton from '@financial-times/ft-concept-button';
 ```
 
 ### Options
@@ -105,7 +105,12 @@ export interface ConceptButtonProps {
 	// descriptive label for button
 	ariaLabel?: string;
 	// button theme
-	theme?: 'standard' | 'inverse' | 'opinion' | 'monochrome' | 'inverse-monochrome';
+	theme?:
+		| 'standard'
+		| 'inverse'
+		| 'opinion'
+		| 'monochrome'
+		| 'inverse-monochrome';
 	// button type (the follow type has an icon)
 	type?: 'concept' | 'follow';
 	// whether the button is currently pressed
@@ -114,3 +119,10 @@ export interface ConceptButtonProps {
 	extraButtonProps: any;
 }
 ```
+
+## Migration
+
+|    State     | Major Version | Last Minor Release |                    Migration guide                    |
+| :----------: | :-----------: | :----------------: | :---------------------------------------------------: |
+| ⚠ maintained |       2       |        N/A         | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+| ╳ deprecated |       1       |        1.3         |                          N/A                          |

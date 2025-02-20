@@ -1,4 +1,21 @@
-# Migration
+# Migration Guide
+
+## Migrating from v6 to v7
+
+This major release introduces a new design language and visually breaking changes. This includes mobile optimised typography, icons, and buttons. It also removes peer dependencies from deprecated "o2" components.
+
+To upgrade, replace the following "o2" components with their "o3" equivalent:
+
+- [o-normalise](../o-normalise/MIGRATION.md)
+- [o-spacing](../o-spacing/MIGRATION.md)
+- [o-colors](../o-colors/MIGRATION.md)
+- [o-icons](../o-icons/MIGRATION.md)
+- [o-buttons](../o-buttons/MIGRATION.md)
+- [o-typography](../o-typography/MIGRATION.md)
+- [o-editorial-typography](../o-editorial-typography/MIGRATION.md)
+- [o-big-number](../o-big-number/MIGRATION.md)
+- [o-quote](../o-quote/MIGRATION.md)
+- [o-fonts](../o-fonts/MIGRATION.md)
 
 ## Migrating from v5 to v6
 
@@ -16,7 +33,7 @@ its dependencies. See [the Bower config for these](./bower.json).
 
 ## Migrating from v3 to v4
 
-- The `oLabels` mixin parameters have been changed, and all of the  mixins have changed significantly. See the [Sass documentation](README.md#sass) for how to use the new and updated mixins
+- The `oLabels` mixin parameters have been changed, and all of the mixins have changed significantly. See the [Sass documentation](README.md#sass) for how to use the new and updated mixins
   - The following states have been removed. The decision to remove was based on a search of the various codebases using o-labels, if you need one of the removed states then please contact us and we'll add it back:
     - `active`: This state has been removed entirely
     - `brand`: This state has been removed entirely

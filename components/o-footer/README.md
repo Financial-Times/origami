@@ -21,13 +21,23 @@ _See [o-footer-services](https://registry.origami.ft.com/components/o-footer-ser
 The basic structure of a simple footer has a theme and includes legal links, a copyright notice, and a logo. The demo on the component page does not use real navigation data as it may become out of date. See the [Origami Navigation Service](https://www.ft.com/__origami/service/navigation) to populate `o-footer` markup with real navigation data. The Origami Navigation Service is a JSON API which provides navigation structures for use across FT websites.
 
 ```html
-<footer class="o-footer o-footer--theme-dark" data-o-component="o-footer" data-o-footer--no-js="">
+<footer
+	class="o-footer o-footer--theme-dark"
+	data-o-component="o-footer"
+	data-o-footer--no-js=""
+>
 	<div class="o-footer__container">
 		<div>
 			<ul class="o-footer__legal-links">
-				<li><a href="#"><!-- legal link 1--></a></li>
-				<li><a href="#"><!-- legal link 2--></a></li>
-				<li><a href="#"><!-- legal link 3--></a></li>
+				<li>
+					<a href="#"><!-- legal link 1--></a>
+				</li>
+				<li>
+					<a href="#"><!-- legal link 2--></a>
+				</li>
+				<li>
+					<a href="#"><!-- legal link 3--></a>
+				</li>
 			</ul>
 		</div>
 		<div class="o-footer__copyright">
@@ -62,9 +72,12 @@ A more complex footer with a matrix of links is also supported. Add a row `o-foo
 The width of the columns and the way they collapse on smaller viewports may be controlled by adding a modifier class to each group `o-footer__matrix-group--[NUMBER]`. Where `NUMBER` is the number of columns in a row on desktop (1, 2, 4, or 6).
 
 ```html
-<footer class="o-footer o-footer--theme-dark" data-o-component="o-footer" data-o-footer--no-js="">
+<footer
+	class="o-footer o-footer--theme-dark"
+	data-o-component="o-footer"
+	data-o-footer--no-js=""
+>
 	<div class="o-footer__container">
-
 		<div class="o-footer__row">
 			<nav class="o-footer__matrix" role="navigation" aria-label="Useful links">
 				<div class="o-footer__matrix-group o-footer__matrix-group--1">
@@ -73,12 +86,12 @@ The width of the columns and the way they collapse on smaller viewports may be c
 					</h3>
 					<div class="o-footer__matrix-content" id="o-footer-section-0">
 						<div class="o-footer__matrix-column">
-								<a class="o-footer__matrix-link" href="#">
-									<span class="o-footer__matrix-link__copy"><!-- link 1 --></span>
-								</a>
-								<a class="o-footer__matrix-link" href="#">
-									<span class="o-footer__matrix-link__copy"><!-- link 2 --></span>
-								</a>
+							<a class="o-footer__matrix-link" href="#">
+								<span class="o-footer__matrix-link__copy"><!-- link 1 --></span>
+							</a>
+							<a class="o-footer__matrix-link" href="#">
+								<span class="o-footer__matrix-link__copy"><!-- link 2 --></span>
+							</a>
 						</div>
 					</div>
 				</div>
@@ -104,27 +117,31 @@ The width of the columns and the way they collapse on smaller viewports may be c
 						Services
 					</h3>
 					<div class="o-footer__matrix-content" id="o-footer-section-2">
-							<div class="o-footer__matrix-column">
-								<a class="o-footer__matrix-link" href="#">
-									<span class="o-footer__matrix-link__copy"><!-- link 1 --></span>
-								</a>
-								<a class="o-footer__matrix-link" href="#">
-									<span class="o-footer__matrix-link__copy"><!-- link 2 --></span>
-								</a>
-							</div>
-							<div class="o-footer__matrix-column">
-								<a class="o-footer__matrix-link" href="#">
-									<span class="o-footer__matrix-link__copy"><!-- link 3 --></span>
-								</a>
-								<a class="o-footer__matrix-link" href="#">
-									<span class="o-footer__matrix-link__copy"><!-- link 4 --></span>
-								</a>
-							</div>
+						<div class="o-footer__matrix-column">
+							<a class="o-footer__matrix-link" href="#">
+								<span class="o-footer__matrix-link__copy"><!-- link 1 --></span>
+							</a>
+							<a class="o-footer__matrix-link" href="#">
+								<span class="o-footer__matrix-link__copy"><!-- link 2 --></span>
+							</a>
+						</div>
+						<div class="o-footer__matrix-column">
+							<a class="o-footer__matrix-link" href="#">
+								<span class="o-footer__matrix-link__copy"><!-- link 3 --></span>
+							</a>
+							<a class="o-footer__matrix-link" href="#">
+								<span class="o-footer__matrix-link__copy"><!-- link 4 --></span>
+							</a>
+						</div>
 					</div>
 				</div>
 				<div class="o-footer__matrix-group o-footer__matrix-group--1">
 					<h3 class="o-footer__matrix-title o-footer__matrix-title--link">
-						<a class ='o-footer__matrix-link o-footer__matrix-link--more' id="o-footer-section-5" href="#">
+						<a
+							class="o-footer__matrix-link o-footer__matrix-link--more"
+							id="o-footer-section-5"
+							href="#"
+						>
 							<span class="o-footer__matrix-link__copy"><!-- link  --></span>
 						</a>
 					</h3>
@@ -164,18 +181,28 @@ To output just the footer styles you need pass an options `$opts` map. The map a
 - `margin`: A [length](https://developer.mozilla.org/en-US/docs/Web/CSS/length) to set a custom top margin for o-footer.
 
 E.g. include only the dark theme for a simple footer of legal links:
+
 ```scss
-@include oFooter($opts: (
-	'themes': ('dark')
-));
+@include oFooter(
+	$opts: (
+		'themes': (
+			'dark',
+		),
+	)
+);
 ```
 
 E.g. include only the dark theme for a complex footer with a matrix of site links:
+
 ```scss
-@include oFooter($opts: (
-	'themes': ('dark'),
-	'matrix': true
-));
+@include oFooter(
+	$opts: (
+		'themes': (
+			'dark',
+		),
+		'matrix': true,
+	)
+);
 ```
 
 ## JavaScript
@@ -194,30 +221,31 @@ const ofooter = new oFooter();
 ### Firing an oDomContentLoaded event
 
 ```js
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
 });
 ```
 
 ## Migration guide
 
-State | Major Version | Last Minor Release | Migration guide |
-:---: | :---: | :---: | :---:
-✨ active | 9 | N/A | [migrate to v9](MIGRATION.md#migrating-from-v8-to-v9) |
-⚠ maintained | 8 | N/A | [migrate to v8](MIGRATION.md#migrating-from-v7-to-v8) |
-⚠ maintained | 7 | 7.0.12 | [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7) |
-╳ deprecated | 6 | 6.1 | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
-╳ deprecated | 5 | 5.4 | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
-╳ deprecated | 4 | 4.1 | - |
-╳ deprecated | 3 | 3.2 | - |
-╳ deprecated | 2 | 2.0 | - |
-╳ deprecated | 1 | 1.16 | - |
+|    State     | Major Version | Last Minor Release |                     Migration guide                     |
+| :----------: | :-----------: | :----------------: | :-----------------------------------------------------: |
+| ⚠ maintained |      10       |        N/A         | [migrate to v10](MIGRATION.md#migrating-from-v9-to-v10) |
+| ╳ deprecated |       9       |        9.2         |  [migrate to v9](MIGRATION.md#migrating-from-v8-to-v9)  |
+| ╳ deprecated |       8       |        N/A         |  [migrate to v8](MIGRATION.md#migrating-from-v7-to-v8)  |
+| ╳ deprecated |       7       |       7.0.12       |  [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7)  |
+| ╳ deprecated |       6       |        6.1         |  [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6)  |
+| ╳ deprecated |       5       |        5.4         |  [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5)  |
+| ╳ deprecated |       4       |        4.1         |                            -                            |
+| ╳ deprecated |       3       |        3.2         |                            -                            |
+| ╳ deprecated |       2       |        2.0         |                            -                            |
+| ╳ deprecated |       1       |        1.16        |                            -                            |
 
 ## Contact
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-footer/issues), visit [#origami-support](https://financialtimes.slack.com/messages/origami-support/) or email [Origami Support](mailto:origami-support@ft.com).
 
-***
+---
 
 ## Licence
 

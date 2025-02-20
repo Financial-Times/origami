@@ -31,10 +31,12 @@ This HTML demonstrates the declarative way to instantiate o-banner. If you are u
 <div class="o-banner" data-o-component="o-banner">
 	<div class="o-banner__outer">
 		<div class="o-banner__inner" data-o-banner-inner="">
-
 			<!-- Content to display on larger screens -->
 			<div class="o-banner__content o-banner__content--long">
-				<p>Try the new compact homepage. A list view of today's homepage with fewer images.</p>
+				<p>
+					Try the new compact homepage. A list view of today's homepage with
+					fewer images.
+				</p>
 			</div>
 
 			<!-- Content to display on smaller screens -->
@@ -51,7 +53,6 @@ This HTML demonstrates the declarative way to instantiate o-banner. If you are u
 					<a href="#" class="o-banner__link">Give feedback</a>
 				</div>
 			</div>
-
 		</div>
 	</div>
 </div>
@@ -64,7 +65,10 @@ Variable content based on screen size as well as the link after the button are o
 	<div class="o-banner__outer">
 		<div class="o-banner__inner" data-o-banner-inner="">
 			<div class="o-banner__content">
-				<p>Try the new compact homepage. A list view of today's homepage with fewer images.</p>
+				<p>
+					Try the new compact homepage. A list view of today's homepage with
+					fewer images.
+				</p>
 			</div>
 			<div class="o-banner__actions">
 				<div class="o-banner__action">
@@ -149,12 +153,13 @@ If you wish to create a banner from scratch with no existing DOM elements, you c
 ```js
 import Banner from '@financial-times/o-banner';
 const myBanner = new Banner(null, {
-	contentLong: 'Try the new compact homepage. A list view of today\'s homepage with fewer images.',
+	contentLong:
+		"Try the new compact homepage. A list view of today's homepage with fewer images.",
 	contentShort: 'Try the new compact homepage.',
 	buttonLabel: 'Try it now',
 	buttonUrl: '#try-button',
 	linkLabel: 'Give feedback',
-	linkUrl: '#feedback-link'
+	linkUrl: '#feedback-link',
 });
 ```
 
@@ -192,7 +197,7 @@ There are several options used to change the appearance or behaviour of o-banner
 
 Include the "primary mixin"`oBanner` to output all `o-banner` styles for all banner variants.
 
-```scss
+````scss
 @import 'o-banner/main';
 
 @include oBanner();```
@@ -204,7 +209,7 @@ To output styles only for the variants of `o-banner` your project uses, the "pri
 	'layouts': ('small', 'compact'),
 	'themes': ('marketing', 'product', 'professional-inverse')
 ));
-```
+````
 
 If you call the mixin without arguments you will get all the built-in themes:
 
@@ -222,16 +227,14 @@ o-banner supports different layouts:
 In the markup, these can be applied as classes alongside the `o-banner` class. They are exposed as modifiers:
 
 ```html
-<div class="o-banner o-banner--small">
-	...
-</div>
+<div class="o-banner o-banner--small">...</div>
 ```
 
 In the JavaScript, use the `layout` [option](#options):
 
 ```js
 const myBanner = new oBanner({
-	layout: 'small'
+	layout: 'small',
 });
 ```
 
@@ -246,16 +249,14 @@ o-banner is themeable which may be used in combination with a [layout](#layouts)
 In the markup, these can be applied as classes alongside the `o-banner` class. They are exposed as modifiers:
 
 ```html
-<div class="o-banner o-banner--marketing">
-	...
-</div>
+<div class="o-banner o-banner--marketing">...</div>
 ```
 
 In the JavaScript, use the `theme` [option](#options):
 
 ```js
 const myBanner = new oBanner({
-	theme: 'marketing'
+	theme: 'marketing',
 });
 ```
 
@@ -264,10 +265,13 @@ const myBanner = new oBanner({
 The `oBannerAddTheme` mixin can be used to create and output styles for a custom banner theme. This allows you to alter colours and backgrounds completely:
 
 ```scss
-@include oBannerAddTheme('bubblegum', (
-	background-color: oColorsMix('candy', 'white', 75),
-	text-color: oColorsByName('oxford-90')
-));
+@include oBannerAddTheme(
+	'bubblegum',
+	(
+		background-color: oColorsMix('candy', 'white', 75),
+		text-color: oColorsByName('oxford-90'),
+	)
+);
 ```
 
 The above Sass will output CSS like this:
@@ -281,9 +285,7 @@ The above Sass will output CSS like this:
 You can add this new class to your banner element, either in the HTML:
 
 ```html
-<div class="o-banner o-banner--bubblegum">
-	...
-</div>
+<div class="o-banner o-banner--bubblegum">...</div>
 ```
 
 or via the `theme` option in JavaScript:
@@ -300,34 +302,34 @@ const myBanner = new Banner(null, {
 You can change a lot of aspects of a banner's visual appearance. When using the `oBannerAddTheme` mixin, you can specify the following properties:
 
 | Property                  | Required? | Type      | Description                                                                                                                                                                                |
-|---------------------------|-----------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `background-color`        | Yes       | Colour*   | Sets the banner background colour                                                                                                                                                          |
-| `text-color`              | Yes       | Colour*   | Sets the banner's text colour                                                                                                                                                              |
+| ------------------------- | --------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `background-color`        | Yes       | Colour\*  | Sets the banner background colour                                                                                                                                                          |
+| `text-color`              | Yes       | Colour\*  | Sets the banner's text colour                                                                                                                                                              |
 | `background-image`        | No        | String    | Sets the banner background image, this should be a URL. Defaults to no background                                                                                                          |
 | `background-position`     | No        | CSS value | Sets the banner background position, this can be any valid [`background-position` value](https://developer.mozilla.org/en-US/docs/Web/CSS/background-position). Defaults to `bottom right` |
 | `background-repeat`       | No        | CSS Value | Sets the banner background repeat, this can be any valid [`background-repeat` value](https://developer.mozilla.org/en-US/docs/Web/CSS/background-repeat). Defaults to `no-repeat`          |
-| `button-background-color` | No        | Colour*   | Sets the banner's primary action button colour. Defaults to the value of the `text-color` property                                                                                         |
-| `button-type`             | No        | String        | Sets the banner's button type, this can be either `primary` or `secondary`. Defaults to `primary`                                                                                      |
-| `heading-rule-color`      | No        | Colour*   | Sets the banner's heading rule colour, the line that appears below the heading. Defaults to the value of the `text-color` property                                                         |
-| `link-text-color`         | No        | Colour*   | Sets the banner's link text colour, both in the banner content and the secondary action. Defaults to the value of the `text-color` property                                                |
+| `button-background-color` | No        | Colour\*  | Sets the banner's primary action button colour. Defaults to the value of the `text-color` property                                                                                         |
+| `button-type`             | No        | String    | Sets the banner's button type, this can be either `primary` or `secondary`. Defaults to `primary`                                                                                          |
+| `heading-rule-color`      | No        | Colour\*  | Sets the banner's heading rule colour, the line that appears below the heading. Defaults to the value of the `text-color` property                                                         |
+| `link-text-color`         | No        | Colour\*  | Sets the banner's link text colour, both in the banner content and the secondary action. Defaults to the value of the `text-color` property                                                |
 
 \* When a type of Colour is required, please specify a colour value and not an o-colors name. If you with to use an o-colors colour, then you can pass in `oColorsByName('<NAME>')`, replacing `<NAME>` with your desired color.
 
-
 ## Migration
 
-State | Major Version | Last Minor Release | Migration guide |
-:---: | :---: | :---: | :---:
-✨ active | 4 | N/A | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
-⚠ maintained | 3 | 3.4 | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
-╳ deprecated | 2 | 2.3 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
-╳ deprecated | 1 | 1.7 | N/A |
+|    State     | Major Version | Last Minor Release |                    Migration guide                    |
+| :----------: | :-----------: | :----------------: | :---------------------------------------------------: |
+| ⚠ maintained |       5       |        N/A         | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+| ╳ deprecated |       4       |        4.5         | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
+| ╳ deprecated |       3       |        3.4         | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+| ╳ deprecated |       2       |        2.3         | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+| ╳ deprecated |       1       |        1.7         |                          N/A                          |
 
 ## Contact
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-banner/issues), visit [#origami-support](https://financialtimes.slack.com/messages/origami-support/) or email [Origami Support](mailto:origami-support@ft.com).
 
-***
+---
 
 ## Licence
 

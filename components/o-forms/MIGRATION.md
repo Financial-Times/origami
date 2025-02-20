@@ -1,5 +1,22 @@
 ## Migration Guide
 
+### Migrating from v9 to v10
+
+This major release introduces a new design language and visually breaking changes. This includes mobile optimised typography, icons, and buttons. It also removes peer dependencies from deprecated "o2" components.
+
+To upgrade, replace the following "o2" components with their "o3" equivalent:
+
+- [o-normalise](../o-normalise/MIGRATION.md)
+- [o-spacing](../o-spacing/MIGRATION.md)
+- [o-colors](../o-colors/MIGRATION.md)
+- [o-icons](../o-icons/MIGRATION.md)
+- [o-buttons](../o-buttons/MIGRATION.md)
+- [o-typography](../o-typography/MIGRATION.md)
+- [o-editorial-typography](../o-editorial-typography/MIGRATION.md)
+- [o-big-number](../o-big-number/MIGRATION.md)
+- [o-quote](../o-quote/MIGRATION.md)
+- [o-fonts](../o-fonts/MIGRATION.md)
+
 ### Migrating from v8 to v9
 
 Support for Bower and version 2 of the Origami Build Service have been removed.
@@ -25,12 +42,12 @@ The dependencies for this component have all been updated to the latest major ve
 If you have any conflicts while installing this version, you'll need to first update
 its dependencies. See [the Bower config for these](./bower.json).
 
-
 ### Migrating from v6 to v7
 
 Version 7 introduces a complete redesign to the `o-forms` markup, Sass and JavaScript API, and makes small design changes and additions.
 
 All Sass mixins have been removed, and have been replaced with two public mixins:
+
 - `oForms()`
 - `oFormsAddCustom()`
 
@@ -55,6 +72,7 @@ The following example would output small text inputs and regular checkboxes:
 ```
 
 The customisation mixin outputs a custom modifier, and can be applied as follows:
+
 ```diff
 -.o-forms__radio-button.o-forms__radio-button--my-theme {
 -	@include oFormsRadioButtonsStyledTheme($theme: $my-theme);
@@ -70,6 +88,7 @@ The customisation mixin outputs a custom modifier, and can be applied as follows
 ```
 
 The markup has been changed entirely to accommodate the following structure:
+
 ```
 ┌— field container (.o-forms-field) —————┐
 |      (one of div or label)             |
@@ -87,38 +106,41 @@ The markup has been changed entirely to accommodate the following structure:
 ```
 
 The root `o-forms` class is no longer used. Instead, there are modifiers for each type of container (field, title, input) illustrated above, and some modifiers that only work for specific inputs:
+
 - Field container modifiers:
-	- `.o-forms-field--optional`
-	- `.o-forms-field--inline`
-	- `.o-forms-field--inverse`
+  - `.o-forms-field--optional`
+  - `.o-forms-field--inline`
+  - `.o-forms-field--inverse`
 - Title container modifiers:
-	- `.o-forms-title`
-	- `.o-forms-title--shrink`
-	- `.o-forms-title--vertical-center`
+  - `.o-forms-title`
+  - `.o-forms-title--shrink`
+  - `.o-forms-title--vertical-center`
 - Input container modifiers:
-	- `.o-forms-input--pseudo-radio-box`
-	- `.o-forms-input--checkbox`
-	- `.o-forms-input--date`
-	- `.o-forms-input--inline`
-	- `.o-forms-input--invalid`
-	- `.o-forms-input--radio-box`
-	- `.o-forms-input--radio-round`
-	- `.o-forms-input--select`
-	- `.o-forms-input--text-area`
-	- `.o-forms-input--password`
-	- `.o-forms-input--text`
-	- `.o-forms-input--toggle`
-	- `.o-forms-input--valid`
+  - `.o-forms-input--pseudo-radio-box`
+  - `.o-forms-input--checkbox`
+  - `.o-forms-input--date`
+  - `.o-forms-input--inline`
+  - `.o-forms-input--invalid`
+  - `.o-forms-input--radio-box`
+  - `.o-forms-input--radio-round`
+  - `.o-forms-input--select`
+  - `.o-forms-input--text-area`
+  - `.o-forms-input--password`
+  - `.o-forms-input--text`
+  - `.o-forms-input--toggle`
+  - `.o-forms-input--valid`
 
 Unlike with the previous `o-forms` class no `max-width` is set, as this was often overridden by projects based on context. Place your form field elements within a containing element or set your own `max-width`.
 
 Note that in some cases the above modifiers must be used to recreate previously default behaviour. The inline input titles now require the `o-forms-title--vertical-center` class to vertically with the input, where the label is short and prompt text has not been provided.
 
 The JavaScript for `o-forms` now accepts two options:
+
 - `useBrowserValidation`: whether to use the browsers validtion and error messages. Defaults to `false`
 - `errorSummary`: whether to display a summary of invalid fields on form submit. Defaults to `true`
 
 ### Migrating from v5 to v6
+
 Version 6 uses a new major version of o-loading. Make sure your project is compatible with o-loading@3.0.0
 
 ### Migrating from v4 to v5
@@ -126,42 +148,48 @@ Version 6 uses a new major version of o-loading. Make sure your project is compa
 Version 5 makes some design improvements including tightening up the spacing around checkboxes and radio buttons. It also provides many [new mixins](#sass) to make it easier to output `o-forms` features granularly.
 
 #### Checkboxes & Radios
+
 - Wrap groups of checkboxes and radios in `.o-forms__group` for correct vertical spacing.
 - `oFormsRadioCheckbox` no longer outputs all styles for checkboxes and radios, only what is shared between them. Use `oFormsRadioCheckboxFeatures` instead.
 - It is no longer possible to modify the complete selector of radios, checkboxes, or their labels. The base `.o-forms` class may still be updated using the `$class` argument.
 
 #### Prefix, Suffix
+
 - Prefixes have been removed entirely. We recommend using additional label information and feedback in form validation instead.
 - Suffix buttons now use standard `o-buttons` styling.
 - Check your uses of suffixs still display correctly. In the case of button suffixes it may be necessary to apply the extra `o-buttons` classes `.o-buttons--secondary` and `.o-buttons--big`.
 - The mixins `oFormsAffixButton`, `oFormsAffixCheckbox`, `oFormsPrefixSuffix` have been removed. Use `oFormsSuffixFeature` for suffix classes including the affix wrapper (as documented above).
 
 #### Toggles
+
 - `.o-forms__checkbox-toggle` has been renamed `.o-forms__toggle`.
 - The `oFormsCheckboxToggleSize` mixin has been removed due to lack of use.
 
 #### Wrappers and Messages
+
 - Wrappers have been renamed to sections. Their class names have also been updated to conform to the BEM naming convention (as optional containers their name should not contain `__` as they are not elements of a block).
-	- `.o-forms__wrapper` becomes `.o-forms-section`.
-	- `.o-forms__wrapper--highlight` becomes `.o-forms-section--highlight`.
-	- `.o-forms__wrapper--error` which becomes `.o-forms-section--error`.
-	- The `oFormsMessage` mixin now only outputs minimal message styles, uses should be replaced with `oFormsSectionFeature`.
+  - `.o-forms__wrapper` becomes `.o-forms-section`.
+  - `.o-forms__wrapper--highlight` becomes `.o-forms-section--highlight`.
+  - `.o-forms__wrapper--error` which becomes `.o-forms-section--error`.
+  - The `oFormsMessage` mixin now only outputs minimal message styles, uses should be replaced with `oFormsSectionFeature`.
 - Messages are now child elements of a section and must not be used independently.
-	- Wrap messages within a form section `.o-forms-section` if they are not already. They should be the first child of the section.
-	- Remove the class `.o-forms__message--error`. A message now infers that it is an error message based on its parent section `.o-forms-section--error`.
+  - Wrap messages within a form section `.o-forms-section` if they are not already. They should be the first child of the section.
+  - Remove the class `.o-forms__message--error`. A message now infers that it is an error message based on its parent section `.o-forms-section--error`.
 
 #### Other changes
+
 - `oFormsFullWidth` has been removed. Use `oFormsWideFeature` for classes to remove form max width restrictions.
 - There is a new dependancy on `o-icons`. Build your project to confirm that it is compatible.
 
 Please [contact us](#contact) if you have any queries.
 
 ### Migrating from v3 to v4
-- A dependency on [o-typography](http://github.com/financial-times/o-typography) v5 has been introduced. This will break any builds that use o-typography <v5. __Resolution__: Update to o-typography v5.
+
+- A dependency on [o-typography](http://github.com/financial-times/o-typography) v5 has been introduced. This will break any builds that use o-typography <v5. **Resolution**: Update to o-typography v5.
 - The o-colors dependency has been updated to `^4`. This could create bower conflicts which should be resolved by updating to the newest release of o-colors.
 - The design for o-forms has changed in v4. This could create issues on your pages which make use of o-forms. Ensure that the updated design does not break the layout on your webpage.
 
-----
+---
 
 ### Migrating from v2 to v3
 
@@ -192,7 +220,6 @@ An example of the changes should be:
 ```
 
 Any modifier classes like `o-forms--error` have remained the same.
-
 
 ### Migrating to v1
 

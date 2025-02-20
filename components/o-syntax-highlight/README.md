@@ -6,7 +6,7 @@ A syntax highlighter for Origami-supported documentation that wraps [PrismJs](ht
 - [Overview](#overview)
 - [Markup](#markup)
 - [JavaScript](#javascript)
-	- [Construction](#construction)
+  - [Construction](#construction)
 - [Sass](#sass)
 - [Troubleshooting](#troubleshooting)
 - [Migration guide](#migration-guide)
@@ -29,8 +29,9 @@ o-syntax-highlight works with a single class. As long as this class is present i
 **`<pre>` is whitespace sensitive, so it is important to follow the markup to get the correct spacing for your syntax.**
 
 Every language has its own set of styles — in order to highlight html for example, you would need:
+
 ```html
-<div class="demo" data-o-component='o-syntax-highlight'>
+<div class="demo" data-o-component="o-syntax-highlight">
 	<pre tabindex="0">
 		<code class="o-syntax-highlight--json">
 <!-- everything in this element will be highlighted, including this comment! -->
@@ -46,10 +47,11 @@ Every language has its own set of styles — in order to highlight html for exam
 	"numbers": 1
 }</code>
 		</pre>
-	</div>
+</div>
 ```
 
 The same is true for all other available languages:
+
 - Javascript: `o-syntax-highlight--js` _or_ `o-syntax-highlight--javascript`
 - HTML: `o-syntax-highlight--html`
 - CSS: `o-syntax-highlight--css`
@@ -59,8 +61,9 @@ The same is true for all other available languages:
 - DIFF: `o-syntax-highlight--diff`
 
 It is worth pointing out that the wrapper can hold any html elements. So long as all of the code blocks within the wrapper are written as described above, o-syntax-highlight will ignore everything else.
+
 ```html
-<div class="demo" data-o-component='o-syntax-highlight'>
+<div class="demo" data-o-component="o-syntax-highlight">
 	<div class="example">
 		<p></p>
 		<p></p>
@@ -79,6 +82,7 @@ However, when highlighting `HTML`, there is a caveat.
 Because of the way in which the `<code>` tag works, if you want to highlight markup **which has already been declared**, you will have to replace and `<` with `&lt;` in order for the markup to be read as a string instead of actual HTML.
 
 For example:
+
 ```
 <pre tabindex="0">
 	<code class="o-syntax-highlight--html">
@@ -101,6 +105,7 @@ You must either construct an `o-syntax-highlight` object or fire the `o.DOMConte
 ### Construction
 
 In order to use `o-syntax-highlight` with already declared markup, you can use:
+
 ```js
 import oSyntaxHighlight from '@financial-times/o-syntax-highlight';
 oSyntaxHighlight.init();
@@ -110,7 +115,9 @@ If you are initialising the component imperatively, you will need to supply a st
 
 ```js
 import oSyntaxHighlight from '@financial-times/o-syntax-highlight';
-const highlighter = new oSyntaxHighlight('code to highlight', { language: 'html'});
+const highlighter = new oSyntaxHighlight('code to highlight', {
+	language: 'html',
+});
 
 myElement.innerHTML = highlighter.tokenise();
 ```
@@ -124,15 +131,20 @@ You can include highlighting for all languages by calling:
 ```
 
 You can also be more specific about which languages you would like styling output for by using an `$opts` map:
+
 ```scss
-	@include oSyntaxHighlight($opts: (
+@include oSyntaxHighlight(
+	$opts: (
 		'languages': (
 			'html',
-			'json'
-		)
-	));
+			'json',
+		),
+	)
+);
 ```
+
 `o-syntax-highlight` accepts the following options:
+
 - 'bash'
 - 'css'
 - 'diff'
@@ -142,7 +154,6 @@ You can also be more specific about which languages you would like styling outpu
 - 'scss' _or_ 'sass'
 - 'yaml'
 
-
 ## Troubleshooting
 
 ### How do I use Marked to convert Markdown files to HTML with o-syntax-highlight code blocks?
@@ -151,17 +162,17 @@ When using [Marked](https://www.npmjs.com/package/marked) it is possible to over
 
 ## Migration guide
 
-State | Major Version | Last Minor Release | Migration guide |
-:---: | :---: | :---: | :---:
-✨ active | 3 | N/A | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
-⚠ maintained | 3 | 3.0 | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
-╳ deprecated | 2 | 2.1 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
-╳ deprecated | 1 | 1.6.4 | N/A |
+|    State     | Major Version | Last Minor Release |                    Migration guide                    |
+| :----------: | :-----------: | :----------------: | :---------------------------------------------------: |
+| ⚠ maintained |       5       |        N/A         | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+| ╳ deprecated |       4       |        4.2         | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
+| ╳ deprecated |       3       |        3.0         | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+| ╳ deprecated |       2       |        2.1         | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+| ╳ deprecated |       1       |       1.6.4        |                           -                           |
 
 ## Contact
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-syntax-highlight/issues), visit [#origami-support](https://financialtimes.slack.com/messages/origami-support/) or email [Origami Support](mailto:origami-support@ft.com).
-
 
 ## Licence
 

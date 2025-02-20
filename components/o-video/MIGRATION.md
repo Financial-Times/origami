@@ -1,5 +1,21 @@
-
 # Migration Guide
+
+## Migrating from v7 to v8
+
+This major release introduces a new design language and visually breaking changes. This includes mobile optimised typography, icons, and buttons. It also removes peer dependencies from deprecated "o2" components.
+
+To upgrade, replace the following "o2" components with their "o3" equivalent:
+
+- [o-normalise](../o-normalise/MIGRATION.md)
+- [o-spacing](../o-spacing/MIGRATION.md)
+- [o-colors](../o-colors/MIGRATION.md)
+- [o-icons](../o-icons/MIGRATION.md)
+- [o-buttons](../o-buttons/MIGRATION.md)
+- [o-typography](../o-typography/MIGRATION.md)
+- [o-editorial-typography](../o-editorial-typography/MIGRATION.md)
+- [o-big-number](../o-big-number/MIGRATION.md)
+- [o-quote](../o-quote/MIGRATION.md)
+- [o-fonts](../o-fonts/MIGRATION.md)
 
 ## Migrating from v6 to v7
 
@@ -56,7 +72,7 @@ Version 4 introduces the new majors of `o-colors`, `o-loading`, and `o-typograph
 
 The `videoSource` and `captionsUrl` options no longer exist. Captions can be toggled on or off by using the `showCaptions` boolean. This defaults to `true`, so if the video data (now gotten from the [next-media-api](https://github.com/Financial-Times/next-media-api)) contains captions, then the component will present them to the user.
 
-Since 3.0, if `showCaptions` is *true*, calling `addVideo()` directly will throw an error. This is due to the fact the component needs to source the `captionsUrl` first. Either leave `autorender` as *true* or call `init()` instead.
+Since 3.0, if `showCaptions` is _true_, calling `addVideo()` directly will throw an error. This is due to the fact the component needs to source the `captionsUrl` first. Either leave `autorender` as _true_ or call `init()` instead.
 
 In the previous version, the call to the API could be skipped by using the `data` option, passing in a response from `next-video-api`. This option can still be used, but the data will now need to match a `next-media-api` response – [see an example](https://next-media-api.ft.com/v1/eebe9cb5-8d4c-3bd7-8dd9-50e869e2f526).
 
@@ -91,7 +107,6 @@ The `placeholdertitle` property no longer exists, it has been replaced by `place
 ```
 
 The `optimumwidth` property is no longer used for the video width, it is now only used for the poster image width. To choose an optimum video width you can use the new property `optimumvideowidth`.
-
 
 ```diff
 <div class="video-container">

@@ -1,4 +1,22 @@
 # Migration guide
+
+## Migrating from v6 to v7
+
+This major release introduces a new design language and visually breaking changes. This includes mobile optimised typography, icons, and buttons. It also removes peer dependencies from deprecated "o2" components.
+
+To upgrade, replace the following "o2" components with their "o3" equivalent:
+
+- [o-normalise](../o-normalise/MIGRATION.md)
+- [o-spacing](../o-spacing/MIGRATION.md)
+- [o-colors](../o-colors/MIGRATION.md)
+- [o-icons](../o-icons/MIGRATION.md)
+- [o-buttons](../o-buttons/MIGRATION.md)
+- [o-typography](../o-typography/MIGRATION.md)
+- [o-editorial-typography](../o-editorial-typography/MIGRATION.md)
+- [o-big-number](../o-big-number/MIGRATION.md)
+- [o-quote](../o-quote/MIGRATION.md)
+- [o-fonts](../o-fonts/MIGRATION.md)
+
 ## Migrating from v5 to v6
 
 `o-topper` no longer includes JavaScript to select the correct topper for JSON-formatted FT articles and flags. This helper was deeply tied to the FT.com content store, and included hardcoded UUIDs and business logic beyond the scope of Origami. Origami components focus on providing reusable user interfaces – without business logic assumptions which could limit their use outside specific groups or use-cases.
@@ -10,6 +28,7 @@ To migrate, replace `o-topper` JavaScript with [`n-map-content-to-topper`](https
 +import mapContentToTopper from '@financial-times/n-map-content-to-topper';
 const topper = mapContentToTopper(ftArticle, flags);
 ```
+
 ## Migrating from v4 to v5
 
 The velvet topper (previously used to indicate life and arts) has been removed.
@@ -89,8 +108,8 @@ All other mixins have been removed. Instead make a single `oTopper`, with releva
 - `oTopperColors`
 - `oTopperColor`
 
-
 E.g to include all styles:
+
 ```diff
 -$o-topper-is-silent: false;
 -@import 'o-topper/main';
@@ -100,6 +119,7 @@ E.g to include all styles:
 ```
 
 E.g to include only base styles and some themes:
+
 ```diff
 -.o-topper--branded {
 -	@include _oTopperThemeBranded;

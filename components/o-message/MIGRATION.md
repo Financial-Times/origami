@@ -1,5 +1,22 @@
 ## Migration Guide
 
+### Migrating from v5 to v6
+
+This major release introduces a new design language and visually breaking changes. This includes mobile optimised typography, icons, and buttons. It also removes peer dependencies from deprecated "o2" components.
+
+To upgrade, replace the following "o2" components with their "o3" equivalent:
+
+- [o-normalise](../o-normalise/MIGRATION.md)
+- [o-spacing](../o-spacing/MIGRATION.md)
+- [o-colors](../o-colors/MIGRATION.md)
+- [o-icons](../o-icons/MIGRATION.md)
+- [o-buttons](../o-buttons/MIGRATION.md)
+- [o-typography](../o-typography/MIGRATION.md)
+- [o-editorial-typography](../o-editorial-typography/MIGRATION.md)
+- [o-big-number](../o-big-number/MIGRATION.md)
+- [o-quote](../o-quote/MIGRATION.md)
+- [o-fonts](../o-fonts/MIGRATION.md)
+
 ### Migrating from v4 to v5
 
 Support for Bower and version 2 of the Origami Build Service have been removed.
@@ -26,6 +43,7 @@ It removes layout modifiers. State modifiers stay the same.
 ```
 
 All oMessage mixins have been made private. The option to add custom classnames has been removed. And the main Sass mixin has been changed to accept only one argument, namely `$opts`:
+
 ```diff
 -@include oMessage($class: 'my message', $types: ('alert-inner'), $status: ('error'))
 +@include oMessage($opts: (
@@ -36,6 +54,7 @@ All oMessage mixins have been made private. The option to add custom classnames 
 ```
 
 All colour use cases have been removed from the palette in favour of branding-specific colours.
+
 ```diff
 -black-crimson-12.5
 -paper-crimson-90
@@ -50,6 +69,7 @@ The JS for `o-message` now requires the `type` and `state` to be supplied in the
 
 This major includes a change in markup and a new type of message, namely the 'notice' message.
 The following changes have been made to the markup:
+
 ```diff
 <div class="o-message o-message--alert o-message--error" data-o-component="o-message">
 	<div class="o-message__container">

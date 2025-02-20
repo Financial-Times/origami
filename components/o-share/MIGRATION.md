@@ -1,5 +1,22 @@
 # Migration guide
 
+## Migrating from v10 to v11
+
+This major release introduces a new design language and visually breaking changes. This includes mobile optimised typography, icons, and buttons. It also removes peer dependencies from deprecated "o2" components.
+
+To upgrade, replace the following "o2" components with their "o3" equivalent:
+
+- [o-normalise](../o-normalise/MIGRATION.md)
+- [o-spacing](../o-spacing/MIGRATION.md)
+- [o-colors](../o-colors/MIGRATION.md)
+- [o-icons](../o-icons/MIGRATION.md)
+- [o-buttons](../o-buttons/MIGRATION.md)
+- [o-typography](../o-typography/MIGRATION.md)
+- [o-editorial-typography](../o-editorial-typography/MIGRATION.md)
+- [o-big-number](../o-big-number/MIGRATION.md)
+- [o-quote](../o-quote/MIGRATION.md)
+- [o-fonts](../o-fonts/MIGRATION.md)
+
 ## Migrating from v9 to v10
 
 o-share v10 replaces the "Twitter" brand for "X". As this is a major change due to inlined SVG markup, we have also decided to update the o-share API to remove references to "Twitter". To migrate make the following changes.
@@ -17,12 +34,15 @@ If your project is using Sass and the `oShare` mixin to selectively include soci
     'inverse': true
 ));
 ```
+
 ### Update your markup
 
 Update your markup according to whether your project is using o-share TSX templates or copying HTML directly.
+
 #### Copying HTML
 
 If copying component HTML, update:
+
 1. The share icon class name.
 2. The icon SVG.
 3. The share text description.
@@ -42,13 +62,16 @@ To do this, obtain the full markup required from [the o-share demos](https://reg
   </span>
 </a>
 ```
+
 #### TSX templates
 
 If using TSX templates:
+
 1. Replace any "twitter" icon for "x".
 2. Update your `urlProps` to remove Twitter references.
-  - The key `relatedTwitterAccounts` becomes `relatedXAccounts`
-  - We recommend referring to "X, formally known as Twitter" in title and summary text descriptions for now.
+
+- The key `relatedTwitterAccounts` becomes `relatedXAccounts`
+- We recommend referring to "X, formally known as Twitter" in title and summary text descriptions for now.
 
 ```diff
 <Share {...shareProps}>
@@ -64,7 +87,7 @@ If using TSX templates:
 
 o-share v9 incudes a number of changes to improve accessibility. To migrate follow these steps and see below for more details:
 
-* o-share no longer provides client side JavaScript to generate markup. New markup can be copied from the [Origami registry](https://registry.origami.ft.com/components/o-share) or [StoryBook](https://origami.ft.com/storybook/) via the `HTML` tab.
+- o-share no longer provides client side JavaScript to generate markup. New markup can be copied from the [Origami registry](https://registry.origami.ft.com/components/o-share) or [StoryBook](https://origami.ft.com/storybook/) via the `HTML` tab.
 
 ### Inlined SVG icons
 
@@ -72,18 +95,18 @@ Icons in version 9 use inline SVGs. In order to use them with `o-share`, we reco
 
 ```html
 <li class="o-share__action">
-   <a
-    class="o-share__icon o-share__icon--{{className}}"
-    href="{{link}}"
-    rel="noopener"
-   >
-    <div class="o-share__icon__image">
-    <!-- SVG code -->
-    </div>
-    <span class="o-share__text">
-     Share {{title}} on {{name}} (opens a new window)
-    </span>
-   </a>
+	<a
+		class="o-share__icon o-share__icon--{{className}}"
+		href="{{link}}"
+		rel="noopener"
+	>
+		<div class="o-share__icon__image">
+			<!-- SVG code -->
+		</div>
+		<span class="o-share__text">
+			Share {{title}} on {{name}} (opens a new window)
+		</span>
+	</a>
 </li>
 ```
 
@@ -92,15 +115,16 @@ Icons in version 9 use inline SVGs. In order to use them with `o-share`, we reco
 Usage of `o-share` with client side Javascript initialisation is now deprecated. Projects that use this will no longer work:
 
 ```html
-<div data-o-component="o-share"
- class="o-share"
- data-o-share-links="{{links}}"
- data-o-share-url="{{url}}"
- data-o-share-title="{{title}}"
- data-o-share-titleExtra="{{titleExtra}}"
- data-o-share-summary="{{summary}}"
- data-o-share-location="{{locationOfShareComponent}}">
-</div>
+<div
+	data-o-component="o-share"
+	class="o-share"
+	data-o-share-links="{{links}}"
+	data-o-share-url="{{url}}"
+	data-o-share-title="{{title}}"
+	data-o-share-titleExtra="{{titleExtra}}"
+	data-o-share-summary="{{summary}}"
+	data-o-share-location="{{locationOfShareComponent}}"
+></div>
 ```
 
 Instead use full markup of the component:
@@ -108,18 +132,20 @@ Instead use full markup of the component:
 ```html
 <!-- see the registry demos for full markup -->
 <div data-o-component="o-share" class="o-share">
- <ul>
-  <!-- a share to twitter action example -->
-  <!-- href tag is not shown, see the registry demos for full markup  -->
-  <li class="o-share__action">
-   <a class="o-share__icon o-share__icon--twitter"
-    href="#twitter-link-here"
-    rel="noopener">
-    <span class="o-share__text">Twitter</span>
-   </a>
-  </li>
-  <!-- more o-share actions -->
- </ul>
+	<ul>
+		<!-- a share to twitter action example -->
+		<!-- href tag is not shown, see the registry demos for full markup  -->
+		<li class="o-share__action">
+			<a
+				class="o-share__icon o-share__icon--twitter"
+				href="#twitter-link-here"
+				rel="noopener"
+			>
+				<span class="o-share__text">Twitter</span>
+			</a>
+		</li>
+		<!-- more o-share actions -->
+	</ul>
 </div>
 ```
 
@@ -187,7 +213,7 @@ The following usecases have been removed. Please contact the Origami Team if you
 The variable `$o-share-colors` is now private ans must not be used. Instead use colour usecases, e.g:
 
 ```scss
-$twitter-color: oColorsByName('facebook', $from: 'o-share')
+$twitter-color: oColorsByName('facebook', $from: 'o-share');
 ```
 
 ### Mixins

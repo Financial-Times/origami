@@ -3,9 +3,9 @@
 o-tooltip is a component usually used for annotating or highlighting bits of user interface.
 
 - [Usage](#usage)
-	- [Markup](#markup)
-	- [JavaScript](#javascript)
-	- [Sass](#sass)
+  - [Markup](#markup)
+  - [JavaScript](#javascript)
+  - [Sass](#sass)
 - [Customisation](#customisation)
 - [Migration guide](#migration-guide)
 - [Contact](#contact)
@@ -20,31 +20,33 @@ Check out [how to include Origami components in your project](https://origami.ft
 This HTML demonstrates the declarative way to instantiate o-tooltip. If you are using the Build Service or firing your own `o.DOMContentLoaded` event, this is all you need to create a tooltip.
 
 ```html
-<div class='demo-tooltip-target' id="declarative-tooltip-target">
+<div class="demo-tooltip-target" id="declarative-tooltip-target">
 	A bit of UI to annotate
 </div>
 
-<div data-o-component="o-tooltip"
+<div
+	data-o-component="o-tooltip"
 	data-o-tooltip-position="below"
 	data-o-tooltip-target="declarative-tooltip-target"
-	data-o-tooltip-show-on-construction=true
-	id="my-tooltip-element">
-	<div class='o-tooltip-content'>
-		Some text to go in the tooltip
-	</div>
+	data-o-tooltip-show-on-construction="true"
+	id="my-tooltip-element"
+>
+	<div class="o-tooltip-content">Some text to go in the tooltip</div>
 </div>
 ```
 
 This HTML is an example of the imperative alternative:
+
 ```html
-<div class='demo-tooltip-container'>
-	<button class='o-buttons o-buttons--big imperative-tooltip-target'>
+<div class="demo-tooltip-container">
+	<button class="o-buttons o-buttons--big imperative-tooltip-target">
 		Button description text/icon
 	</button>
 </div>
 ```
 
 Attributes can be set declaratively, or passed in on instantiation in an options object. A full list of data attributes:
+
 - `data-o-tooltip-target`: Required. An ID selector for the target of the tooltip (the thing it points to)
 - `data-o-tooltip-position`: Optional. The preferred position of the tooltip relative to the target. Can be one of `above`, `below`, `left`, `right`. If there isn't room to render the tooltip where the option passed in would render it, this value is flipped (above becomes below, left becomes right). Defaults to below. You can also specify a different position per viewport width ('default', 'S', 'M', 'L', 'XL') eg data-o-tooltip-position-s="left". The position will fall back to the default in data-o-tooltip-position, otherwise 'below'.
 - `data-o-tooltip-show-on-construction`: Optional. Boolean value. Set to true if you want the tooltip to be rendered immediately after it is constructed. Defaults to false.
@@ -64,30 +66,33 @@ Attributes can be set declaratively, or passed in on instantiation in an options
 To apply a theme declaratively add the class `o-tooltip o-tooltip--[theme name]` to your markup. E.g. to output a tooltip for the professional theme:
 
 ```html
-<div class='demo-tooltip-target' id="declarative-tooltip-target">
+<div class="demo-tooltip-target" id="declarative-tooltip-target">
 	A bit of UI to annotate
 </div>
 
-<div data-o-component="o-tooltip"
+<div
+	data-o-component="o-tooltip"
 	class="o-tooltip o-tooltip--professional"
 	data-o-tooltip-position="below"
 	data-o-tooltip-target="declarative-tooltip-target"
-	data-o-tooltip-show-on-construction=true
-	id="my-tooltip-element">
-	<div class='o-tooltip-content'>
-		Some text to go in the tooltip
-	</div>
+	data-o-tooltip-show-on-construction="true"
+	id="my-tooltip-element"
+>
+	<div class="o-tooltip-content">Some text to go in the tooltip</div>
 </div>
 ```
 
 You may also set a theme imperatively using the JavaScript API.
+
 ### JavaScript
 
 No code will run automatically unless you are using the Build Service.
 You must either construct an `o-tooltip` object or fire an `o.DOMContentLoaded` event, which oTooltip listens for.
 
 #### Constructing an o-tooltip
+
 If you have setup your tooltip declaratively, the following applies:
+
 ```js
 import Tooltip from '@financial-times/o-tooltip';
 const tooltipEl = Document.getElementById('my-tooltip-element');
@@ -103,8 +108,8 @@ const opts = {
 	target: 'tooltip-target-imperative',
 	content: 'Click to save to somewhere',
 	showOnConstruction: true,
-	position: 'right'
-}
+	position: 'right',
+};
 
 const tooltip = new Tooltip(tooltipEl, opts);
 ```
@@ -125,8 +130,8 @@ const opts = {
 	content: 'Click to save to somewhere',
 	showOnConstruction: true,
 	position: 'above',
-	appendToBody: true
-}
+	appendToBody: true,
+};
 const tooltip = new Tooltip(tooltipEl, opts);
 ```
 
@@ -135,7 +140,7 @@ _Note! this property can only be used only when constructing the tooltip declara
 #### Firing an oDomContentLoaded event
 
 ```js
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
 });
 ```
@@ -159,49 +164,59 @@ The `oTooltip` mixin is used to output tooltip selectors and styles. This output
 ```
 
 You may also choose to output tooltips for only specific themes:
+
 ```scss
-@include oTooltip($opts: ('professional'));
+@include oTooltip(
+	$opts: (
+		'professional',
+	)
+);
 ```
 
 There is [full Sass documentation available in the Origami Registry](https://registry.origami.ft.com/components/o-tooltip/sassdoc).
+
 ## Custom Themes
 
 Include the `oTooltipAddTheme` mixin to output a custom tooltip theme. The mixin accepts a name for your theme and a map of options:
 
 - `name`: The name of your theme. This is used for the modifier class output `o-tooltip--[name]`.
 - `opts`: A map of options for your theme.
-	- `background-color`: The background color for your tooltip.
-	- `foreground-color`: The foreground/text color for your tooltip.
-	- `close-foreground-color` (optional): The colour of the close button. If not set the `foreground-color` is used.
+  - `background-color`: The background color for your tooltip.
+  - `foreground-color`: The foreground/text color for your tooltip.
+  - `close-foreground-color` (optional): The colour of the close button. If not set the `foreground-color` is used.
 
 The following example shows how to add a custom theme named "my-product-modifier", with a slate background and white foreground. Instead of "my-product-modifier" choose a descriptive name that includes your project name, so it's clear where the custom theme is added.
 
 ```scss
 // Outputs CSS class o-tooltip--my-product-modifier.
 // Uses an o-colors function to fetch Origami colour values.
-@include oTooltipAddTheme('my-product-modifier', (
-	'background-color': oColorsByName('slate'),
-	'foreground-color': oColorsByName('white')
-));
+@include oTooltipAddTheme(
+	'my-product-modifier',
+	(
+		'background-color': oColorsByName('slate'),
+		'foreground-color': oColorsByName('white'),
+	)
+);
 ```
 
 This will output a CSS class `o-tooltip--[name]`. Add this class to your tooltip to view your custom theme.
 
 ## Migration Guide
 
-| State | Major Version | Last Minor Release | Migration guide |
-| :---: | :---: | :---: | :---: |
-| ✨ active | 5 | N/A | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
-| ⚠︎ maintained | 4 | 4.1 | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
-| ╳ deprecated | 3 | 3.5 | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
-| ╳ deprecated | 2 | 2.3.7 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
-| ╳ deprecated | 1 | 1.1.1 | N/A |
+|     State     | Major Version | Last Minor Release |                    Migration guide                    |
+| :-----------: | :-----------: | :----------------: | :---------------------------------------------------: |
+| ⚠︎ maintained |       6       |        N/A         | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
+| ╳ deprecated  |       5       |        5.4         | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+| ╳ deprecated  |       4       |        4.1         | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
+| ╳ deprecated  |       3       |        3.5         | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+| ╳ deprecated  |       2       |       2.3.7        | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+| ╳ deprecated  |       1       |       1.1.1        |                          N/A                          |
 
 ## Contact
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-tooltip/issues), visit [#origami-support](https://financialtimes.slack.com/messages/origami-support/) or email [Origami Support](mailto:origami-support@ft.com).
 
-***
+---
 
 ## Licence
 

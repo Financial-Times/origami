@@ -103,9 +103,10 @@ To use `o-header` setup a [core and enhanced experience](https://origami.ft.com/
 
 |    State     | Major Version | Last Minor Release |                     Migration guide                      |
 | :----------: | :-----------: | :----------------: | :------------------------------------------------------: |
-|  ✨ active   |      13       |        N/A         | [migrate to v13](MIGRATION.md#migrating-from-v12-to-v13) |
-| ⚠ maintained |      12       |        N/A         | [migrate to v12](MIGRATION.md#migrating-from-v11-to-v12) |
-| ⚠ maintained |      11       |        N/A         | [migrate to v11](MIGRATION.md#migrating-from-v10-to-v11) |
+| ⚠ maintained |      14       |        N/A         | [migrate to v14](MIGRATION.md#migrating-from-v13-to-v14) |
+| ╳ deprecated |      13       |        13.1        | [migrate to v13](MIGRATION.md#migrating-from-v12-to-v13) |
+| ╳ deprecated |      12       |        N/A         | [migrate to v12](MIGRATION.md#migrating-from-v11-to-v12) |
+| ╳ deprecated |      11       |        N/A         | [migrate to v11](MIGRATION.md#migrating-from-v10-to-v11) |
 | ╳ deprecated |      10       |        N/A         | [migrate to v10](MIGRATION.md#migrating-from-v9-to-v10)  |
 | ╳ deprecated |       9       |        N/A         |  [migrate to v9](MIGRATION.md#migrating-from-v8-to-v9)   |
 | ╳ deprecated |       8       |        8.6         |  [migrate to v8](MIGRATION.md#migrating-from-v7-to-v8)   |

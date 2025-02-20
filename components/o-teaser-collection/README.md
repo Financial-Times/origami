@@ -31,14 +31,14 @@ Teaser collections can be arranged using [o-grid](http://registry.origami.ft.com
 
 ```html
 <div class="o-teaser-collection o-teaser-collection--numbered">
-	<h2 class="o-teaser-collection__heading o-teaser-collection__heading--full-width">Most read</h2>
+	<h2
+		class="o-teaser-collection__heading o-teaser-collection__heading--full-width"
+	>
+		Most read
+	</h2>
 	<ol class="o-teaser-collection__items">
-		<li class="o-teaser-collection__item">
-			teaser goes here
-		</li>
-		<li class="o-teaser-collection__item">
-			teaser goes here
-		</li>
+		<li class="o-teaser-collection__item">teaser goes here</li>
+		<li class="o-teaser-collection__item">teaser goes here</li>
 	</ol>
 </div>
 ```
@@ -58,32 +58,44 @@ To include all styles call the `oTeaserCollection` mixin.
 `o-teaser-collection` css may be included granularly by passing options to the `oTeaserCollection` mixin.
 
 ```scss
-@include oTeaserCollection($opts: (
-	'collections': ('special'), // o-teaser-collection--special
-	'headings': ('inverse'), // o-teaser-collection__heading--inverse
-	'items': ('stretched') // o-teaser-collection__item--stretched
-));
+@include oTeaserCollection(
+	$opts: (
+		'collections': (
+			'special',
+		),
+		// o-teaser-collection--special
+		'headings':
+			(
+				'inverse',
+			),
+		// o-teaser-collection__heading--inverse
+		'items':
+			(
+				'stretched',
+			)
+			// o-teaser-collection__item--stretched,,,,,,,,
+	)
+);
 ```
 
 Options include:
 
-| Key                 | Possible Values                                                                                                                       | Classes Output  |
-|---------------------|---------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| collections         | 'horizontal', 'special', 'numbered', 'big-story', 'assassination', 'assassination-related', 'mid-slice', 'stream', 'top-standalone'   | `o-teaser-collection--[option]`. Apply to `o-teaser-collection`, e.g. `class="o-teaser-collection o-teaser-collection--horizontal"`                                  |
-| headings            | 'inverse', 'full-width', 'half-width', 'small'                                                                                        | `o-teaser-collection__heading--[option]`. Apply to `o-teaser-collection__heading`, e.g. `class="o-teaser-collection__heading o-teaser-collection__heading--inverse"` |
-| items               | 'stretched'                                                                                                                           | `o-teaser-collection__item--[option]`. Apply to `o-teaser-collection__item`, e.g. `o-teaser-collection__item o-teaser-collection__item--stretched`                   |
-
+| Key         | Possible Values                                                                                                                     | Classes Output                                                                                                                                                       |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| collections | 'horizontal', 'special', 'numbered', 'big-story', 'assassination', 'assassination-related', 'mid-slice', 'stream', 'top-standalone' | `o-teaser-collection--[option]`. Apply to `o-teaser-collection`, e.g. `class="o-teaser-collection o-teaser-collection--horizontal"`                                  |
+| headings    | 'inverse', 'full-width', 'half-width', 'small'                                                                                      | `o-teaser-collection__heading--[option]`. Apply to `o-teaser-collection__heading`, e.g. `class="o-teaser-collection__heading o-teaser-collection__heading--inverse"` |
+| items       | 'stretched'                                                                                                                         | `o-teaser-collection__item--[option]`. Apply to `o-teaser-collection__item`, e.g. `o-teaser-collection__item o-teaser-collection__item--stretched`                   |
 
 Use `o-teaser-collection--numbered` to number the list of teasers in the collection, see an [example in the registry](http://registry.origami.ft.com/components/o-teaser-collection).
 
 Use `o-teaser-collection--special` to add a darker background across the full width of the containing relative element, see an [example in the registry](http://registry.origami.ft.com/components/o-teaser-collection).
-
 
 ### Headings
 
 To include heading styles output `o-teaser-collection__heading` classes using the `oTeaserCollection` mixin as described above. If your component or project would like to replicate only some parts of the heading style use `oTeaserCollectionContentHeading`.
 
 For example, to replicate only the basic heading style pass an empty map:
+
 ```scss
 .my-heading {
 	@include oTeaserCollectionContentHeading($opts: ());
@@ -91,39 +103,45 @@ For example, to replicate only the basic heading style pass an empty map:
 ```
 
 To replicate the header fully, but without the size modifiers such as `o-teaser-collection__heading--full-width`:
+
 ```scss
 .my-heading {
-	@include oTeaserCollectionContentHeading($opts: (
-		'anchor': true, // Include child anchor styles `.my-heading > a`
-		'divider': true, // Include the top border styles.
-		'sizes': () // Do not output size modifiers such as `.my-heading--small`.
-	));
+	@include oTeaserCollectionContentHeading(
+		$opts: (
+			'anchor': true,
+			// Include child anchor styles `.my-heading > a`
+			'divider': true,
+			// Include the top border styles.
+			'sizes': ()
+				// Do not output size modifiers such as `.my-heading--small`.,,,,,,,,
+		)
+	);
 }
 ```
 
 `oTeaserCollectionContentHeading` options include:
 
-| Key       | Possible Values                                 | Description                                                                  |
-|-----------|-------------------------------------------------|-------------------------------------------------------------------------------|
-| anchor    | Boolean                                         | Output styles for a nested anchor tag, for a collection heading with a link.  |
-| divider   | Boolean                                         | Output styles for a divider (border) above the collection heading.            |
-| sizes     | 'inverse', 'full-width', 'half-width', 'small'  | Output modifier classes for different sizes headings e.g. `my-heading--small`.|
-
+| Key     | Possible Values                                | Description                                                                    |
+| ------- | ---------------------------------------------- | ------------------------------------------------------------------------------ |
+| anchor  | Boolean                                        | Output styles for a nested anchor tag, for a collection heading with a link.   |
+| divider | Boolean                                        | Output styles for a divider (border) above the collection heading.             |
+| sizes   | 'inverse', 'full-width', 'half-width', 'small' | Output modifier classes for different sizes headings e.g. `my-heading--small`. |
 
 ## Migration guide
 
-State | Major Version | Last Minor Release | Migration guide |
-:---: | :---: | :---: | :---:
-✨ active | 4 | N/A | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
-⚠ maintained | 3 | 3.0 | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
-╳ deprecated | 2 | 2.3 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
-╳ deprecated | 1 | 1.2 | N/A |
+|    State     | Major Version | Last Minor Release |                    Migration guide                    |
+| :----------: | :-----------: | :----------------: | :---------------------------------------------------: |
+| ⚠ maintained |       5       |        N/A         | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+| ╳ deprecated |       4       |        4.2         | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
+| ╳ deprecated |       3       |        3.0         | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+| ╳ deprecated |       2       |        2.3         | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+| ╳ deprecated |       1       |        1.2         |                           -                           |
 
 ## Contact
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-teaser-collection/issues), visit [#origami-support](https://financialtimes.slack.com/messages/origami-support/) or email [Origami Support](mailto:origami-support@ft.com).
 
-***
+---
 
 ## Licence
 

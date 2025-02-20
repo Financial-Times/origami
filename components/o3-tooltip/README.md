@@ -26,23 +26,23 @@ Below are examples of how to use `<o3-tooltip-onboarding>` and `<o3-tooltip-togg
 ```html
 <!-- <o3-tooltip-onboarding> -->
 <div data-o3-brand="[your brand]">
- <button
-  id="demo-o3-tooltip-id"
-  class="o3-button o3-button--secondary o3-button--big demo-tooltip-target"
-  aria-describedby="demo-o3-tooltip-content"
- >
-  Share
- </button>
- <o3-tooltip-onboarding
-  role="tooltip"
-  placement="top"
-  target-id="demo-o3-tooltip-id"
-  class="o3-tooltip"
-  content="Tool tip content that is quite long, Tool tip content that is quite long, Tool tip content that is quite long"
-  title="Title"
-  content-id="demo-o3-tooltip-content"
- >
- </o3-tooltip-onboarding>
+	<button
+		id="demo-o3-tooltip-id"
+		class="o3-button o3-button--secondary o3-button--big demo-tooltip-target"
+		aria-describedby="demo-o3-tooltip-content"
+	>
+		Share
+	</button>
+	<o3-tooltip-onboarding
+		role="tooltip"
+		placement="top"
+		target-id="demo-o3-tooltip-id"
+		class="o3-tooltip"
+		content="Tool tip content that is quite long, Tool tip content that is quite long, Tool tip content that is quite long"
+		title="Title"
+		content-id="demo-o3-tooltip-content"
+	>
+	</o3-tooltip-onboarding>
 </div>
 ```
 
@@ -51,14 +51,14 @@ Below are examples of how to use `<o3-tooltip-onboarding>` and `<o3-tooltip-togg
 ```html
 <!-- <o3-tooltip-toggle> -->
 <div data-o3-brand="[your brand]">
- <o3-tooltip-toggle
-  placement="bottom"
-  class="o3-tooltip"
-  content="click the button to see the tooltip"
-  title="Title"
-  info-label="more information"
- >
- </o3-tooltip-toggle> 
+	<o3-tooltip-toggle
+		placement="bottom"
+		class="o3-tooltip"
+		content="click the button to see the tooltip"
+		title="Title"
+		info-label="more information"
+	>
+	</o3-tooltip-toggle>
 </div>
 ```
 
@@ -86,8 +86,8 @@ To style `o3-tooltip` import brand specific css, this varies depending on your p
 
 ```jsx
 import {
- TooltipOnboarding,
- TooltipToggle,
+	TooltipOnboarding,
+	TooltipToggle,
 } from '@financial-times/o3-tooltip/cjs';
 
 import '@financial-times/o3-tooltip'; // import the JavaScript needed for custom elements on client side
@@ -95,11 +95,11 @@ import '@financial-times/o3-tooltip'; // import the JavaScript needed for custom
 import '@finacial-times/o3-tooltip/css/[your brand].css'; // tooltip styling
 
 <div className="o3-brand-[your brand]">
- <button id="target" aria-describedby="contentId">
-  Target element
- </button>
- <TooltipOnboarding {...props} />;
- <TooltipToggle {...props} />
+	<button id="target" aria-describedby="contentId">
+		Target element
+	</button>
+	<TooltipOnboarding {...props} />;
+	<TooltipToggle {...props} />
 </div>;
 ```
 
@@ -109,18 +109,18 @@ The `TooltipOnboarding` JSX element accepts the following `props`:
 
 ```ts
 type Placement =
- | 'top'
- | 'bottom'
- | 'left'
- | 'right'
- | 'top-start'
- | 'top-end'
- | 'bottom-start'
- | 'bottom-end'
- | 'left-start'
- | 'left-end'
- | 'right-start'
- | 'right-end';
+	| 'top'
+	| 'bottom'
+	| 'left'
+	| 'right'
+	| 'top-start'
+	| 'top-end'
+	| 'bottom-start'
+	| 'bottom-end'
+	| 'left-start'
+	| 'left-end'
+	| 'right-start'
+	| 'right-end';
 ```
 
 |   Prop    |    type     | required | default |             description             |
@@ -139,18 +139,20 @@ The `ToggleTooltip` JSX element accepts the following `props`:
 type Placement = 'top' | 'bottom' | 'left' | 'right';
 ```
 
-|   Prop    |    type     | required |      default       |       description        |
-| :-------: | :---------: | :------: | :----------------: | :----------------------: |
-|  content  |   string    |   true   |         -          |  Content of the tooltip  |
-|   title   |   string    |  false   |         -          |   Title of the tooltip   |
-| placement | `Placement` |  false   |       'top'        | Placement of the tooltip |
-| infoLabel |   string    |   false   | more information | Label for screen readers |
+|   Prop    |    type     | required |     default      |       description        |
+| :-------: | :---------: | :------: | :--------------: | :----------------------: |
+|  content  |   string    |   true   |        -         |  Content of the tooltip  |
+|   title   |   string    |  false   |        -         |   Title of the tooltip   |
+| placement | `Placement` |  false   |      'top'       | Placement of the tooltip |
+| infoLabel |   string    |  false   | more information | Label for screen readers |
 
 ## Migration Guide
 
-|   State   | Major Version | Last Minor Release | Migration guide |
-| :-------: | :-----------: | :----------------: | :-------------: |
-| ✨ active |       0       |       0.0.1        |       N/A       |
+|    State     | Major Version | Last Minor Release |                    Migration guide                    |
+| :----------: | :-----------: | :----------------: | :---------------------------------------------------: |
+|  ✨ active   |       3       |        N/A         | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+| ╳ deprecated |       2       |        2.3         |                           -                           |
+| ╳ deprecated |       1       |         -          |                          N/A                          |
 
 ## Contact
 

@@ -38,10 +38,10 @@ To create an audio player inline with text:
 
 ```html
 <span class="g-audio">
-  Bring to the table win-win survival
-  <audio controls>
-    <source src="demo.mp3" type="audio/mpeg">
-  </audio>
+	Bring to the table win-win survival
+	<audio controls>
+		<source src="demo.mp3" type="audio/mpeg" />
+	</audio>
 </span>
 ```
 
@@ -49,19 +49,20 @@ To create an audio player between paragraphs of text (in development):
 
 ```html
 <span class="g-audio g-audio--block">
-  Podcasting operational change management
-  <audio controls>
-    <source src="demo2.mp3" type="audio/mpeg">
-  </audio>
+	Podcasting operational change management
+	<audio controls>
+		<source src="demo2.mp3" type="audio/mpeg" />
+	</audio>
 </span>
 ```
 
 ## Migration
 
-State | Major Version | Last Minor Release | Migration guide |
-:---: | :---: | :---: | :---:
-✨ active | 2 | N/A | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
-⚠ maintained | 1 | 1.0.7 | N/A |
+|    State     | Major Version | Last Minor Release |                    Migration guide                    |
+| :----------: | :-----------: | :----------------: | :---------------------------------------------------: |
+| ⚠ maintained |       3       |        N/A         | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+| ╳ deprecated |       2       |        2.0         | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+| ╳ deprecated |       1       |       1.0.7        |                          N/A                          |
 
 ## Licence
 
