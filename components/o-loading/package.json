@@ -1,38 +1,38 @@
 {
-  "name": "@financial-times/o-loading",
-  "version": "6.0.0",
-  "description": "A visual loading indicator, available in two colours and four sizes",
-  "keywords": [
-    "loading",
-    "spinner",
-    "wait",
-    "loader"
-  ],
-  "homepage": "https://registry.origami.ft.com/components/o-loading",
-  "bugs": {
-    "url": "https://github.com/Financial-Times/origami/issues/new?labels=o-loading,components",
-    "email": "origami.support@ft.com"
-  },
-  "license": "MIT",
-  "type": "module",
-  "scripts": {
-    "start": "npx serve ./demos/local",
-    "build": "bash ../../scripts/component/build.bash",
-    "test": "bash ../../scripts/component/test.bash",
-    "debug:js": "bash ../../scripts/component/debug-js.bash",
-    "lint": "bash ../../scripts/component/lint.bash",
-    "watch": "bash ../../scripts/component/watch.bash"
-  },
-  "peerDependencies": {
-    "@financial-times/o-brand": "^4.1.0",
-    "@financial-times/o-private-foundation": "0.0.0",
-    "@financial-times/sass-mq": "^5.0.2"
-  },
-  "devDependencies": {
-    "@financial-times/o-colors": "^6.5.0"
-  },
-  "engines": {
-    "npm": ">7"
-  },
-  "private": false
+	"name": "@financial-times/o-loading",
+	"version": "6.0.0",
+	"description": "A visual loading indicator, available in two colours and four sizes",
+	"keywords": [
+		"loading",
+		"spinner",
+		"wait",
+		"loader"
+	],
+	"homepage": "https://registry.origami.ft.com/components/o-loading",
+	"bugs": {
+		"url": "https://github.com/Financial-Times/origami/issues/new?labels=o-loading,components",
+		"email": "origami.support@ft.com"
+	},
+	"license": "MIT",
+	"type": "module",
+	"scripts": {
+		"start": "npx serve ./demos/local",
+		"build": "bash ../../scripts/component/build.bash",
+		"test": "bash ../../scripts/component/test.bash",
+		"debug:js": "bash ../../scripts/component/debug-js.bash",
+		"lint": "bash ../../scripts/component/lint.bash",
+		"watch": "bash ../../scripts/component/watch.bash"
+	},
+	"peerDependencies": {
+		"@financial-times/o-brand": "^4.1.0",
+		"@financial-times/o-private-foundation": "^1.0.0",
+		"@financial-times/sass-mq": "^5.0.2"
+	},
+	"devDependencies": {
+		"@financial-times/o-colors": "^6.7.0"
+	},
+	"engines": {
+		"npm": ">7"
+	},
+	"private": false
 }

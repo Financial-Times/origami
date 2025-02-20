@@ -1,35 +1,35 @@
 {
-  "name": "@financial-times/o-syntax-highlight",
-  "version": "5.0.0",
-  "description": "A syntax highlighter for Origami-supported documentation that wraps PrismJs",
-  "keywords": [
-    "syntax",
-    "highlight"
-  ],
-  "homepage": "https://registry.origami.ft.com/components/o-syntax-highlight",
-  "bugs": {
-    "url": "https://github.com/Financial-Times/origami/issues/new?labels=o-syntax-highlight,components",
-    "email": "origami.support@ft.com"
-  },
-  "license": "MIT",
-  "type": "module",
-  "browser": "main.js",
-  "scripts": {
-    "start": "npx serve ./demos/local",
-    "build": "bash ../../scripts/component/build.bash",
-    "test": "bash ../../scripts/component/test.bash",
-    "debug:js": "bash ../../scripts/component/debug-js.bash",
-    "lint": "bash ../../scripts/component/lint.bash",
-    "watch": "bash ../../scripts/component/watch.bash"
-  },
-  "dependencies": {
-    "prismjs": "^1.27.0"
-  },
-  "peerDependencies": {
-    "@financial-times/o-private-foundation": "0.0.0"
-  },
-  "engines": {
-    "npm": ">7"
-  },
-  "private": false
+	"name": "@financial-times/o-syntax-highlight",
+	"version": "5.0.0",
+	"description": "A syntax highlighter for Origami-supported documentation that wraps PrismJs",
+	"keywords": [
+		"syntax",
+		"highlight"
+	],
+	"homepage": "https://registry.origami.ft.com/components/o-syntax-highlight",
+	"bugs": {
+		"url": "https://github.com/Financial-Times/origami/issues/new?labels=o-syntax-highlight,components",
+		"email": "origami.support@ft.com"
+	},
+	"license": "MIT",
+	"type": "module",
+	"browser": "main.js",
+	"scripts": {
+		"start": "npx serve ./demos/local",
+		"build": "bash ../../scripts/component/build.bash",
+		"test": "bash ../../scripts/component/test.bash",
+		"debug:js": "bash ../../scripts/component/debug-js.bash",
+		"lint": "bash ../../scripts/component/lint.bash",
+		"watch": "bash ../../scripts/component/watch.bash"
+	},
+	"dependencies": {
+		"prismjs": "^1.27.0"
+	},
+	"peerDependencies": {
+		"@financial-times/o-private-foundation": "^1.0.0"
+	},
+	"engines": {
+		"npm": ">7"
+	},
+	"private": false
 }

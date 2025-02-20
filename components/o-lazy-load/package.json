@@ -1,32 +1,32 @@
 {
-  "name": "@financial-times/o-lazy-load",
-  "description": "Provides lazy loading functionality for images, pictures, iframes, and more. It is powered by the Intersection Observer API to detect when the visibility of elements changes.",
-  "browser": "main.js",
-  "type": "module",
-  "engines": {
-    "npm": ">7"
-  },
-  "keywords": [
-    "lazy",
-    "loading",
-    "images"
-  ],
-  "peerDependencies": {
-    "@financial-times/math": "^1.0.0"
-  },
-  "scripts": {
-    "start": "npx serve ./demos/local",
-    "build": "bash ../../scripts/component/build.bash",
-    "test": "bash ../../scripts/component/test.bash",
-    "debug:js": "bash ../../scripts/component/debug-js.bash",
-    "lint": "bash ../../scripts/component/lint.bash",
-    "watch": "bash ../../scripts/component/watch.bash"
-  },
-  "version": "3.1.3",
-  "homepage": "https://registry.origami.ft.com/components/o-lazy-load",
-  "bugs": {
-    "url": "https://github.com/Financial-Times/origami/issues/new?labels=o-lazy-load,components",
-    "email": "origami.support@ft.com"
-  },
-  "private": false
+	"name": "@financial-times/o-lazy-load",
+	"description": "Provides lazy loading functionality for images, pictures, iframes, and more. It is powered by the Intersection Observer API to detect when the visibility of elements changes.",
+	"browser": "main.js",
+	"type": "module",
+	"engines": {
+		"npm": ">7"
+	},
+	"keywords": [
+		"lazy",
+		"loading",
+		"images"
+	],
+	"peerDependencies": {
+		"@financial-times/math": "^1.0.0"
+	},
+	"scripts": {
+		"start": "npx serve ./demos/local",
+		"build": "bash ../../scripts/component/build.bash",
+		"test": "bash ../../scripts/component/test.bash",
+		"debug:js": "bash ../../scripts/component/debug-js.bash",
+		"lint": "bash ../../scripts/component/lint.bash",
+		"watch": "bash ../../scripts/component/watch.bash"
+	},
+	"version": "3.1.3",
+	"homepage": "https://registry.origami.ft.com/components/o-lazy-load",
+	"bugs": {
+		"url": "https://github.com/Financial-Times/origami/issues/new?labels=o-lazy-load,components",
+		"email": "origami.support@ft.com"
+	},
+	"private": false
 }

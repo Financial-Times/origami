@@ -1,26 +1,26 @@
 {
-  "name": "@financial-times/g-audio",
-  "version": "3.0.0",
-  "description": "IG audio player component",
-  "keywords": [
-    "audio"
-  ],
-  "browser": "main.js",
-  "type": "module",
-  "scripts": {
-    "start": "npx serve ./demos/local",
-    "build": "bash ../../scripts/component/build.bash",
-    "test": "bash ../../scripts/component/test.bash",
-    "debug:js": "bash ../../scripts/component/debug-js.bash",
-    "lint": "bash ../../scripts/component/lint.bash",
-    "watch": "bash ../../scripts/component/watch.bash"
-  },
-  "engines": {
-    "node": "18.18.2",
-    "npm": ">7"
-  },
-  "peerDependencies": {
-    "@financial-times/o-private-foundation": "0.0.0"
-  },
-  "private": false
+	"name": "@financial-times/g-audio",
+	"version": "3.0.0",
+	"description": "IG audio player component",
+	"keywords": [
+		"audio"
+	],
+	"browser": "main.js",
+	"type": "module",
+	"scripts": {
+		"start": "npx serve ./demos/local",
+		"build": "bash ../../scripts/component/build.bash",
+		"test": "bash ../../scripts/component/test.bash",
+		"debug:js": "bash ../../scripts/component/debug-js.bash",
+		"lint": "bash ../../scripts/component/lint.bash",
+		"watch": "bash ../../scripts/component/watch.bash"
+	},
+	"engines": {
+		"node": "18.18.2",
+		"npm": ">7"
+	},
+	"peerDependencies": {
+		"@financial-times/o-private-foundation": "^1.0.0"
+	},
+	"private": false
 }

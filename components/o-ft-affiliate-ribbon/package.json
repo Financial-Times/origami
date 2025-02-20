@@ -1,35 +1,35 @@
 {
-  "name": "@financial-times/o-ft-affiliate-ribbon",
-  "version": "6.0.0",
-  "description": "A ribbon denoting affiliation with the FT. This ribbon should be used in products that are owned by the Financial Times but have a separate brand identity to the company.",
-  "keywords": [
-    "footer",
-    "ribbon",
-    "ft affiliation"
-  ],
-  "homepage": "https://registry.origami.ft.com/components/o-ft-affiliate-ribbon",
-  "bugs": {
-    "url": "https://github.com/Financial-Times/origami/issues/new?labels=o-ft-affiliate-ribbon,components",
-    "email": "origami.support@ft.com"
-  },
-  "license": "MIT",
-  "type": "module",
-  "scripts": {
-    "start": "npx serve ./demos/local",
-    "build": "bash ../../scripts/component/build.bash",
-    "test": "bash ../../scripts/component/test.bash",
-    "debug:js": "bash ../../scripts/component/debug-js.bash",
-    "lint": "bash ../../scripts/component/lint.bash",
-    "watch": "bash ../../scripts/component/watch.bash"
-  },
-  "peerDependencies": {
-    "@financial-times/o-private-foundation": "^0.0.0"
-  },
-  "devDependencies": {
-    "@financial-times/o-normalise": "^3.3.0"
-  },
-  "engines": {
-    "npm": ">7"
-  },
-  "private": false
+	"name": "@financial-times/o-ft-affiliate-ribbon",
+	"version": "6.0.0",
+	"description": "A ribbon denoting affiliation with the FT. This ribbon should be used in products that are owned by the Financial Times but have a separate brand identity to the company.",
+	"keywords": [
+		"footer",
+		"ribbon",
+		"ft affiliation"
+	],
+	"homepage": "https://registry.origami.ft.com/components/o-ft-affiliate-ribbon",
+	"bugs": {
+		"url": "https://github.com/Financial-Times/origami/issues/new?labels=o-ft-affiliate-ribbon,components",
+		"email": "origami.support@ft.com"
+	},
+	"license": "MIT",
+	"type": "module",
+	"scripts": {
+		"start": "npx serve ./demos/local",
+		"build": "bash ../../scripts/component/build.bash",
+		"test": "bash ../../scripts/component/test.bash",
+		"debug:js": "bash ../../scripts/component/debug-js.bash",
+		"lint": "bash ../../scripts/component/lint.bash",
+		"watch": "bash ../../scripts/component/watch.bash"
+	},
+	"peerDependencies": {
+		"@financial-times/o-private-foundation": "^1.0.0"
+	},
+	"devDependencies": {
+		"@financial-times/o-normalise": "^3.3.2"
+	},
+	"engines": {
+		"npm": ">7"
+	},
+	"private": false
 }
