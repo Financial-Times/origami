@@ -403,7 +403,7 @@
 	);
 
 	$heading-attributes: map-get($heading-levels-with-attributes, $heading-key);
-	@include oTypographySans(
+	@include oPrivateTypographySans(
 		$scale: map-get($heading-attributes, 'scale'),
 		$weight: map-get($heading-attributes, 'weight')
 	);
