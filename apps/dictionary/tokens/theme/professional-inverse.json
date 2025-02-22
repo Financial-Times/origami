@@ -1,0 +1,95 @@
+{
+  "o3": {
+    "color": {
+      "use-case": {
+        "link": {
+          "text": {
+            "@": {
+              "value": "{o3.color.palette.mint}",
+              "type": "color"
+            },
+            "hover": {
+              "value": "{o3.color.palette.mint-70}",
+              "type": "color"
+            },
+            "focus": {
+              "value": "#8fb3a1",
+              "type": "color"
+            }
+          },
+          "underline": {
+            "@": {
+              "value": "{o3.color.palette.mint}",
+              "type": "color"
+            },
+            "hover": {
+              "value": "{o3.color.palette.mint-70}",
+              "type": "color"
+            },
+            "focus": {
+              "value": "{o3.color.palette.black}",
+              "type": "color"
+            }
+          }
+        },
+        "button": {
+          "primary": {
+            "background": {
+              "value": "{o3.color.palette.mint}",
+              "type": "color"
+            },
+            "text": {
+              "value": "{o3.color.palette.slate}",
+              "type": "color"
+            },
+            "hover": {
+              "background": {
+                "value": "{o3.color.use-case.button.primary.background}",
+                "type": "color",
+                "$extensions": {
+                  "studio.tokens": {
+                    "modify": {
+                      "type": "darken",
+                      "value": "{o3.color.modifier.20}",
+                      "space": "lch"
+                    }
+                  }
+                }
+              }
+            },
+            "focus": {
+              "background": {
+                "value": "{o3.color.use-case.button.primary.background}",
+                "type": "color",
+                "$extensions": {
+                  "studio.tokens": {
+                    "modify": {
+                      "type": "darken",
+                      "value": "{o3.color.modifier.20}",
+                      "space": "lch"
+                    }
+                  }
+                }
+              }
+            },
+            "active": {
+              "background": {
+                "value": "{o3.color.use-case.button.primary.background}",
+                "type": "color",
+                "$extensions": {
+                  "studio.tokens": {
+                    "modify": {
+                      "type": "darken",
+                      "value": "{o3.color.modifier.40}",
+                      "space": "lch"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
