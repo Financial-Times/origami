@@ -13,56 +13,56 @@ $tokens: (
   'o3-font-weight-medium': 500,
   'o3-font-weight-semibold': 700,
   'o3-font-weight-bold': 800,
-  'o3-font-lineheight-0': 20px,
-  'o3-font-lineheight-1': 20px,
-  'o3-font-lineheight-2': 24px,
-  'o3-font-lineheight-3': 28px,
-  'o3-font-lineheight-4': 32px,
-  'o3-font-lineheight-5': 32px,
-  'o3-font-lineheight-6': 40px,
-  'o3-font-lineheight-7': 48px,
-  'o3-font-lineheight-8': 56px,
-  'o3-font-lineheight-9': 72px,
-  'o3-font-lineheight-10': 84px,
-  'o3-font-lineheight-negative-2': 16px,
-  'o3-font-lineheight-negative-1': 16px,
-  'o3-font-size-0': 16px,
-  'o3-font-size-1': 18px,
-  'o3-font-size-2': 20px,
-  'o3-font-size-3': 24px,
-  'o3-font-size-4': 28px,
-  'o3-font-size-5': 32px,
-  'o3-font-size-6': 40px,
-  'o3-font-size-7': 48px,
-  'o3-font-size-8': 56px,
-  'o3-font-size-9': 72px,
-  'o3-font-size-10': 84px,
-  'o3-font-size-negative-2': 12px,
-  'o3-font-size-negative-1': 14px,
-  'o3-font-lineheight-metric2-0': 24px,
-  'o3-font-lineheight-metric2-1': 24px,
-  'o3-font-lineheight-metric2-2': 28px,
-  'o3-font-lineheight-metric2-3': 32px,
-  'o3-font-lineheight-metric2-4': 32px,
-  'o3-font-lineheight-metric2-5': 40px,
-  'o3-font-lineheight-metric2-6': 48px,
-  'o3-font-lineheight-metric2-7': 56px,
-  'o3-font-lineheight-metric2-8': 72px,
-  'o3-font-lineheight-metric2-9': 84px,
-  'o3-font-lineheight-metric2-negative-2': 16px,
-  'o3-font-lineheight-metric2-negative-1': 20px,
-  'o3-font-size-metric2-0': 16px,
-  'o3-font-size-metric2-1': 18px,
-  'o3-font-size-metric2-2': 20px,
-  'o3-font-size-metric2-3': 24px,
-  'o3-font-size-metric2-4': 28px,
-  'o3-font-size-metric2-5': 32px,
-  'o3-font-size-metric2-6': 40px,
-  'o3-font-size-metric2-7': 48px,
-  'o3-font-size-metric2-8': 64px,
-  'o3-font-size-metric2-9': 72px,
-  'o3-font-size-metric2-negative-2': 12px,
-  'o3-font-size-metric2-negative-1': 14px,
+  'o3-font-lineheight-0': 1.25rem,
+  'o3-font-lineheight-1': 1.25rem,
+  'o3-font-lineheight-2': 1.5rem,
+  'o3-font-lineheight-3': 1.75rem,
+  'o3-font-lineheight-4': 2rem,
+  'o3-font-lineheight-5': 2rem,
+  'o3-font-lineheight-6': 2.5rem,
+  'o3-font-lineheight-7': 3rem,
+  'o3-font-lineheight-8': 3.5rem,
+  'o3-font-lineheight-9': 4.5rem,
+  'o3-font-lineheight-10': 5.25rem,
+  'o3-font-lineheight-negative-2': 1rem,
+  'o3-font-lineheight-negative-1': 1rem,
+  'o3-font-size-0': 1rem,
+  'o3-font-size-1': 1.125rem,
+  'o3-font-size-2': 1.25rem,
+  'o3-font-size-3': 1.5rem,
+  'o3-font-size-4': 1.75rem,
+  'o3-font-size-5': 2rem,
+  'o3-font-size-6': 2.5rem,
+  'o3-font-size-7': 3rem,
+  'o3-font-size-8': 3.5rem,
+  'o3-font-size-9': 4.5rem,
+  'o3-font-size-10': 5.25rem,
+  'o3-font-size-negative-2': 0.75rem,
+  'o3-font-size-negative-1': 0.875rem,
+  'o3-font-lineheight-metric2-0': 1.5rem,
+  'o3-font-lineheight-metric2-1': 1.5rem,
+  'o3-font-lineheight-metric2-2': 1.75rem,
+  'o3-font-lineheight-metric2-3': 2rem,
+  'o3-font-lineheight-metric2-4': 2rem,
+  'o3-font-lineheight-metric2-5': 2.5rem,
+  'o3-font-lineheight-metric2-6': 3rem,
+  'o3-font-lineheight-metric2-7': 3.5rem,
+  'o3-font-lineheight-metric2-8': 4.5rem,
+  'o3-font-lineheight-metric2-9': 5.25rem,
+  'o3-font-lineheight-metric2-negative-2': 1rem,
+  'o3-font-lineheight-metric2-negative-1': 1.25rem,
+  'o3-font-size-metric2-0': 1rem,
+  'o3-font-size-metric2-1': 1.125rem,
+  'o3-font-size-metric2-2': 1.25rem,
+  'o3-font-size-metric2-3': 1.5rem,
+  'o3-font-size-metric2-4': 1.75rem,
+  'o3-font-size-metric2-5': 2rem,
+  'o3-font-size-metric2-6': 2.5rem,
+  'o3-font-size-metric2-7': 3rem,
+  'o3-font-size-metric2-8': 4rem,
+  'o3-font-size-metric2-9': 4.5rem,
+  'o3-font-size-metric2-negative-2': 0.75rem,
+  'o3-font-size-metric2-negative-1': 0.875rem,
   'o3-focus-use-case-ring-inner': 0px 0px 0px 4px #ffffff,
   'o3-focus-use-case-ring-outer': 0px 0px 0px 8px #000000,
   'o3-focus-use-case-ring-inverse-inner': 0px 0px 0px 4px #000000,
@@ -181,18 +181,18 @@ $tokens: (
   '_o3-button-ghost-inverse-active-background': #ffffff,
   '_o3-button-ghost-inverse-active-color': #000000,
   '_o3-button-ghost-inverse-active-border': rgba(255, 255, 255, 0),
-  'o3-spacing-5xs': 4px,
-  'o3-spacing-4xs': 8px,
-  'o3-spacing-3xs': 12px,
-  'o3-spacing-2xs': 16px,
-  'o3-spacing-xs': 20px,
-  'o3-spacing-s': 24px,
-  'o3-spacing-m': 32px,
-  'o3-spacing-l': 40px,
-  'o3-spacing-xl': 48px,
-  'o3-spacing-2xl': 64px,
-  'o3-spacing-3xl': 80px,
-  'o3-spacing-4xl': 96px,
+  'o3-spacing-5xs': 0.25rem,
+  'o3-spacing-4xs': 0.5rem,
+  'o3-spacing-3xs': 0.75rem,
+  'o3-spacing-2xs': 1rem,
+  'o3-spacing-xs': 1.25rem,
+  'o3-spacing-s': 1.5rem,
+  'o3-spacing-m': 2rem,
+  'o3-spacing-l': 2.5rem,
+  'o3-spacing-xl': 3rem,
+  'o3-spacing-2xl': 4rem,
+  'o3-spacing-3xl': 5rem,
+  'o3-spacing-4xl': 6rem,
   '_o3-tooltip-background-color': #ffffff,
   '_o3-tooltip-text-color': #1a1a1a,
   '_o3-tooltip-icon-info': url("data:image/svg+xml,%3Csvg%20width=%2224%22%20height=%2224%22%20viewBox=%220%200%2024%2024%22%20fill=%22none%22%20xmlns=%22http://www.w3.org/2000/svg%22%3E%0A%3Cpath%20fill-rule=%22evenodd%22%20clip-rule=%22evenodd%22%20d=%22M12%204C7.58172%204%204%207.58172%204%2012C4%2016.4183%207.58172%2020%2012%2020C16.4183%2020%2020%2016.4183%2020%2012C20%207.58172%2016.4183%204%2012%204ZM2%2012C2%206.47715%206.47715%202%2012%202C17.5228%202%2022%206.47715%2022%2012C22%2017.5228%2017.5228%2022%2012%2022C6.47715%2022%202%2017.5228%202%2012Z%22%20fill=%22black%22/%3E%0A%3Cpath%20d=%22M13.2948%2010.012V17.376H10.7188V10.012H13.2948ZM10.5508%207.99602C10.5508%207.58536%2010.6908%207.25402%2010.9708%207.00202C11.2601%206.75002%2011.6008%206.62402%2011.9928%206.62402C12.3941%206.62402%2012.7348%206.75002%2013.0148%207.00202C13.3041%207.25402%2013.4488%207.58536%2013.4488%207.99602C13.4488%208.40669%2013.3041%208.74269%2013.0148%209.00402C12.7348%209.25602%2012.3941%209.38202%2011.9928%209.38202C11.6008%209.38202%2011.2601%209.25602%2010.9708%209.00402C10.6908%208.74269%2010.5508%208.40669%2010.5508%207.99602Z%22%20fill=%22black%22/%3E%0A%3C/svg%3E"),
@@ -202,113 +202,113 @@ $tokens: (
   // Use this style for large screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.
   'o3-type-display-lg-font-weight': 800,
   // Use this style for large screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.
-  'o3-type-display-lg-font-size': 48px,
+  'o3-type-display-lg-font-size': 3rem,
   // Use this style for large screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.
-  'o3-type-display-lg-line-height': 48px,
+  'o3-type-display-lg-line-height': 3rem,
   // Use this style for medium screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.
   'o3-type-display-md-font-family': ('financier display VF', serif),
   // Use this style for medium screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.
   'o3-type-display-md-font-weight': 800,
   // Use this style for medium screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.
-  'o3-type-display-md-font-size': 40px,
+  'o3-type-display-md-font-size': 2.5rem,
   // Use this style for medium screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.
-  'o3-type-display-md-line-height': 40px,
+  'o3-type-display-md-line-height': 2.5rem,
   // Use this style for small screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.
   'o3-type-display-sm-font-family': ('financier display VF', serif),
   // Use this style for small screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.
   'o3-type-display-sm-font-weight': 800,
   // Use this style for small screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.
-  'o3-type-display-sm-font-size': 32px,
+  'o3-type-display-sm-font-size': 2rem,
   // Use this style for small screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.
-  'o3-type-display-sm-line-height': 32px,
+  'o3-type-display-sm-line-height': 2rem,
   // Use this style for large screens headlines in standard-sized teasers and text only toppers (eg. Opinion and News).
   'o3-type-headline-lg-font-family': ('financier display VF', serif),
   // Use this style for large screens headlines in standard-sized teasers and text only toppers (eg. Opinion and News).
   'o3-type-headline-lg-font-weight': 300,
   // Use this style for large screens headlines in standard-sized teasers and text only toppers (eg. Opinion and News).
-  'o3-type-headline-lg-font-size': 40px,
+  'o3-type-headline-lg-font-size': 2.5rem,
   // Use this style for large screens headlines in standard-sized teasers and text only toppers (eg. Opinion and News).
-  'o3-type-headline-lg-line-height': 40px,
+  'o3-type-headline-lg-line-height': 2.5rem,
   // Use this style for medium screens headlines in smaller teasers and text only toppers (eg. Opinion and News).
   'o3-type-headline-md-font-family': ('financier display VF', serif),
   // Use this style for medium screens headlines in smaller teasers and text only toppers (eg. Opinion and News).
   'o3-type-headline-md-font-weight': 300,
   // Use this style for medium screens headlines in smaller teasers and text only toppers (eg. Opinion and News).
-  'o3-type-headline-md-font-size': 32px,
+  'o3-type-headline-md-font-size': 2rem,
   // Use this style for medium screens headlines in smaller teasers and text only toppers (eg. Opinion and News).
-  'o3-type-headline-md-line-height': 32px,
+  'o3-type-headline-md-line-height': 2rem,
   // Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News).
   'o3-type-headline-sm-font-family': ('financier display VF', serif),
   // Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News).
   'o3-type-headline-sm-font-weight': 300,
   // Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News).
-  'o3-type-headline-sm-font-size': 24px,
+  'o3-type-headline-sm-font-size': 1.5rem,
   // Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News).
-  'o3-type-headline-sm-line-height': 28px,
+  'o3-type-headline-sm-line-height': 1.75rem,
   // Use for the main page title H1 in functional pages such as account and settings. Use across all breakpoints.
   'o3-type-title-lg-font-family': ('metric 2 VF', sans-serif),
   // Use for the main page title H1 in functional pages such as account and settings. Use across all breakpoints.
   'o3-type-title-lg-font-weight': 700,
   // Use for the main page title H1 in functional pages such as account and settings. Use across all breakpoints.
-  'o3-type-title-lg-font-size': 28px,
+  'o3-type-title-lg-font-size': 1.75rem,
   // Use for the main page title H1 in functional pages such as account and settings. Use across all breakpoints.
-  'o3-type-title-lg-line-height': 32px,
+  'o3-type-title-lg-line-height': 2rem,
   // Use this style as H3 or subtitles within the content body to break paragraphs, or for titles of components like forms, tables and cards across all breakpoints.
   'o3-type-title-md-font-family': ('metric 2 VF', sans-serif),
   // Use this style as H3 or subtitles within the content body to break paragraphs, or for titles of components like forms, tables and cards across all breakpoints.
   'o3-type-title-md-font-weight': 400,
   // Use this style as H3 or subtitles within the content body to break paragraphs, or for titles of components like forms, tables and cards across all breakpoints.
-  'o3-type-title-md-font-size': 24px,
+  'o3-type-title-md-font-size': 1.5rem,
   // Use this style as H3 or subtitles within the content body to break paragraphs, or for titles of components like forms, tables and cards across all breakpoints.
-  'o3-type-title-md-line-height': 32px,
+  'o3-type-title-md-line-height': 2rem,
   // Use H6 for subtitles within the content body to break up paragraphs, and H2 for subheadings on stream pages or as subtitles for components such as forms, tables, and cards across all breakpoints.
   'o3-type-title-sm-font-family': ('metric 2 VF', sans-serif),
   // Use H6 for subtitles within the content body to break up paragraphs, and H2 for subheadings on stream pages or as subtitles for components such as forms, tables, and cards across all breakpoints.
   'o3-type-title-sm-font-weight': 400,
   // Use H6 for subtitles within the content body to break up paragraphs, and H2 for subheadings on stream pages or as subtitles for components such as forms, tables, and cards across all breakpoints.
-  'o3-type-title-sm-line-height': 28px,
+  'o3-type-title-sm-line-height': 1.75rem,
   // Use H6 for subtitles within the content body to break up paragraphs, and H2 for subheadings on stream pages or as subtitles for components such as forms, tables, and cards across all breakpoints.
-  'o3-type-title-sm-font-size': 20px,
+  'o3-type-title-sm-font-size': 1.25rem,
   // Use primarily for the stand-first (introductory summary or highlight) in topper component, as larger body text in components, or section description.
   'o3-type-body-lg-font-family': ('metric 2 VF', sans-serif),
   // Use primarily for the stand-first (introductory summary or highlight) in topper component, as larger body text in components, or section description.
   'o3-type-body-lg-font-weight': 400,
   // Use primarily for the stand-first (introductory summary or highlight) in topper component, as larger body text in components, or section description.
-  'o3-type-body-lg-font-size': 18px,
+  'o3-type-body-lg-font-size': 1.125rem,
   // Use primarily for the stand-first (introductory summary or highlight) in topper component, as larger body text in components, or section description.
-  'o3-type-body-lg-line-height': 24px,
+  'o3-type-body-lg-line-height': 1.5rem,
   // Use this style for the stand-first in teasers and as the default body copy style across components such as location in the byline.
   'o3-type-body-base-font-family': ('metric 2 VF', sans-serif),
   // Use this style for the stand-first in teasers and as the default body copy style across components such as location in the byline.
   'o3-type-body-base-font-weight': 400,
   // Use this style for the stand-first in teasers and as the default body copy style across components such as location in the byline.
-  'o3-type-body-base-font-size': 16px,
+  'o3-type-body-base-font-size': 1rem,
   // Use this style for the stand-first in teasers and as the default body copy style across components such as location in the byline.
-  'o3-type-body-base-line-height': 24px,
+  'o3-type-body-base-line-height': 1.5rem,
   // Use this style for bold formatting in body copy or for small interactive elements, such as Topic tags and Author names.
   'o3-type-body-highlight-font-family': ('metric 2 VF', sans-serif),
   // Use this style for bold formatting in body copy or for small interactive elements, such as Topic tags and Author names.
   'o3-type-body-highlight-font-weight': 700,
   // Use this style for bold formatting in body copy or for small interactive elements, such as Topic tags and Author names.
-  'o3-type-body-highlight-font-size': 16px,
+  'o3-type-body-highlight-font-size': 1rem,
   // Use this style for bold formatting in body copy or for small interactive elements, such as Topic tags and Author names.
-  'o3-type-body-highlight-line-height': 24px,
+  'o3-type-body-highlight-line-height': 1.5rem,
   // Use this style for caption in visual assets such as image and video and for small text elements, such as secondary metadata, caveats, or footnotes.
   'o3-type-detail-font-family': ('metric 2 VF', sans-serif),
   // Use this style for caption in visual assets such as image and video and for small text elements, such as secondary metadata, caveats, or footnotes.
   'o3-type-detail-font-weight': 400,
   // Use this style for caption in visual assets such as image and video and for small text elements, such as secondary metadata, caveats, or footnotes.
-  'o3-type-detail-font-size': 14px,
+  'o3-type-detail-font-size': 0.875rem,
   // Use this style for caption in visual assets such as image and video and for small text elements, such as secondary metadata, caveats, or footnotes.
-  'o3-type-detail-line-height': 20px,
+  'o3-type-detail-line-height': 1.25rem,
   // Use this style for labels such as badges and metadata in teasers and toppers (e.g., "Live," "Premium," or the main timestamp). Avoid using full sentences.
   'o3-type-label-font-family': ('metric 2 VF', sans-serif),
   // Use this style for labels such as badges and metadata in teasers and toppers (e.g., "Live," "Premium," or the main timestamp). Avoid using full sentences.
   'o3-type-label-font-weight': 400,
   // Use this style for labels such as badges and metadata in teasers and toppers (e.g., "Live," "Premium," or the main timestamp). Avoid using full sentences.
-  'o3-type-label-font-size': 14px,
+  'o3-type-label-font-size': 0.875rem,
   // Use this style for labels such as badges and metadata in teasers and toppers (e.g., "Live," "Premium," or the main timestamp). Avoid using full sentences.
-  'o3-type-label-line-height': 20px,
+  'o3-type-label-line-height': 1.25rem,
   // Use this style for labels such as badges and metadata in teasers and toppers (e.g., "Live," "Premium," or the main timestamp). Avoid using full sentences.
   'o3-type-label-text-case': uppercase,
   // Use this style only for the body copy of content pages, such as articles, live news and other content experience page.
@@ -316,35 +316,35 @@ $tokens: (
   // Use this style only for the body copy of content pages, such as articles, live news and other content experience page.
   'o3-type-body-content-base-font-weight': Regular,
   // Use this style only for the body copy of content pages, such as articles, live news and other content experience page.
-  'o3-type-body-content-base-font-size': 20px,
+  'o3-type-body-content-base-font-size': 1.25rem,
   // Use this style only for the body copy of content pages, such as articles, live news and other content experience page.
-  'o3-type-body-content-base-line-height': 32px,
+  'o3-type-body-content-base-line-height': 2rem,
   // Use this style only for the body copy of content pages, such as articles, live news and other content experience page.
   'o3-type-body-content-highlight-font-family': (Georgia),
   // Use this style only for the body copy of content pages, such as articles, live news and other content experience page.
   'o3-type-body-content-highlight-font-weight': Bold,
   // Use this style only for the body copy of content pages, such as articles, live news and other content experience page.
-  'o3-type-body-content-highlight-font-size': 20px,
+  'o3-type-body-content-highlight-font-size': 1.25rem,
   // Use this style only for the body copy of content pages, such as articles, live news and other content experience page.
-  'o3-type-body-content-highlight-line-height': 32px,
+  'o3-type-body-content-highlight-line-height': 2rem,
   // Use this style only for the body copy of content pages, such as articles, live news and other content experience page.
   'o3-type-body-content-emphasis-font-family': (Georgia),
   // Use this style only for the body copy of content pages, such as articles, live news and other content experience page.
   'o3-type-body-content-emphasis-font-weight': Regular,
   // Use this style only for the body copy of content pages, such as articles, live news and other content experience page.
-  'o3-type-body-content-emphasis-font-size': 20px,
+  'o3-type-body-content-emphasis-font-size': 1.25rem,
   // Use this style only for the body copy of content pages, such as articles, live news and other content experience page.
-  'o3-type-body-content-emphasis-line-height': 32px,
+  'o3-type-body-content-emphasis-line-height': 2rem,
   // Use this style only for the body copy of content pages, such as articles, live news and other content experience page.
   'o3-type-body-content-emphasis-font-style': italic,
   '_o3-editorial-typography-big-number-title-font-family': ('metric 2 VF', sans-serif),
   '_o3-editorial-typography-big-number-title-font-weight': 700,
-  '_o3-editorial-typography-big-number-title-font-size': 48px,
-  '_o3-editorial-typography-big-number-title-line-height': 56px,
+  '_o3-editorial-typography-big-number-title-font-size': 3rem,
+  '_o3-editorial-typography-big-number-title-line-height': 3.5rem,
   '_o3-editorial-typography-pullquote-content-font-family': ('metric 2 VF', sans-serif),
   '_o3-editorial-typography-pullquote-content-font-weight': 700,
-  '_o3-editorial-typography-pullquote-content-font-size': 20px,
-  '_o3-editorial-typography-pullquote-content-line-height': 28px,
+  '_o3-editorial-typography-pullquote-content-font-size': 1.25rem,
+  '_o3-editorial-typography-pullquote-content-line-height': 1.75rem,
   '_o3-editorial-typography-topic-tag-color': #333333,
   '_o3-editorial-typography-topic-tag-inverse-color': #ffffff,
   '_o3-editorial-typography-topic-tag-hover-color': #000000,
@@ -359,7 +359,7 @@ $tokens: (
   '_o3-editorial-typography-byline-timestamp-inverse-color': #cccccc,
   '_o3-form-input-border': 1.5px solid #b3b3b3,
   '_o3-form-input-border-error': 1.5px solid #cc0000,
-  '_o3-form-input-border-radius': 2px,
+  '_o3-form-input-border-radius': 0.125rem,
   '_o3-form-error-summary-background-color': rgba(204, 0, 0, 0.14),
   '_o3-form-icon-error': url("data:image/svg+xml,%3Csvg%20viewBox=%220%200%2024%2024%22%20fill=%22none%22%20xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cpath%20d=%22M17.4528%2011.25C17.4528%2010.9739%2017.229%2010.75%2016.9528%2010.75H7.04718C6.77104%2010.75%206.54718%2010.9739%206.54718%2011.25V12.75C6.54718%2013.0261%206.77104%2013.25%207.04718%2013.25H16.9528C17.229%2013.25%2017.4528%2013.0261%2017.4528%2012.75V11.25Z%22%20fill=%22black%22/%3E%3Cpath%20fill-rule=%22evenodd%22%20clip-rule=%22evenodd%22%20d=%22M22%2012C22%2017.5228%2017.5228%2022%2012%2022C6.47715%2022%202%2017.5228%202%2012C2%206.47715%206.47715%202%2012%202C17.5228%202%2022%206.47715%2022%2012ZM20%2012C20%2016.4183%2016.4183%2020%2012%2020C7.58172%2020%204%2016.4183%204%2012C4%207.58172%207.58172%204%2012%204C16.4183%204%2020%207.58172%2020%2012Z%22%20fill=%22black%22/%3E%3C/svg%3E"),
   '_o3-form-color-use-case-background': #ffffff,
@@ -374,9 +374,9 @@ $tokens: (
   '_o3-form-color-use-case-selected-active': #4d4d4d,
   '_o3-form-color-use-case-selected-disabled': #cccccc,
   // for default radius on interactive elements
-  'o3-border-radius-1': 2px,
+  'o3-border-radius-1': 0.125rem,
   // for the outer radius of interactive elements that have both inner and outer boundaries as in box radio button 
-  'o3-border-radius-2': 4px,
+  'o3-border-radius-2': 0.25rem,
   'o3-icon-at': url("data:image/svg+xml,%3Csvg%20viewBox=%220%200%201024%201024%22%20fill=%22none%22%20xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cpath%20fill-rule=%22evenodd%22%20clip-rule=%22evenodd%22%20d=%22M575.9%20171.2H448.1C295.172%20171.2%20171.2%20295.172%20171.2%20448.1V575.9C171.2%20728.828%20295.172%20852.8%20448.1%20852.8H575.9C602.384%20852.8%20628%20849.082%20652.254%20842.139C666.869%20837.955%20682.4%20848.337%20682.4%20863.539V906.347C682.4%20915.701%20676.313%20924.023%20667.26%20926.376C638.075%20933.963%20607.459%20938%20575.9%20938H448.1C248.118%20938%2086%20775.882%2086%20575.9V448.1C86%20248.118%20248.118%2086%20448.1%2086H575.9C775.882%2086%20938%20248.118%20938%20448.1V597.197C937.999%20679.542%20871.245%20746.297%20788.9%20746.297C732.022%20746.297%20682.584%20714.45%20657.443%20667.614C619.373%20703.21%20568.231%20725%20512%20725C394.363%20725%20299%20629.637%20299%20512C299%20394.363%20394.363%20299%20512%20299C559.951%20299%20604.201%20314.845%20639.8%20341.584C639.808%20329.828%20649.341%20320.3%20661.1%20320.3H703.7C715.464%20320.3%20725%20329.836%20725%20341.6V597.215C725.009%20632.498%20753.615%20661.097%20788.9%20661.097C824.185%20661.097%20852.791%20632.48%20852.8%20597.197V448.1C852.8%20295.172%20728.828%20171.2%20575.9%20171.2ZM639.8%20512C639.8%20441.418%20582.582%20384.2%20512%20384.2C441.418%20384.2%20384.2%20441.418%20384.2%20512C384.2%20582.582%20441.418%20639.8%20512%20639.8C582.582%20639.8%20639.8%20582.582%20639.8%20512Z%22%20fill=%22black%22/%3E%3C/svg%3E"),
   'o3-icon-book': url("data:image/svg+xml,%3Csvg%20viewBox=%220%200%201024%201024%22%20fill=%22none%22%20xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cpath%20fill-rule=%22evenodd%22%20clip-rule=%22evenodd%22%20d=%22M512%20871.126C517.342%20871.133%20522.536%20870.12%20527.357%20868.248L881.8%20742.492C890.312%20739.472%20896%20731.419%20896%20722.387L896%20158.218C896%20143.485%20881.419%20133.186%20867.533%20138.113L512%20264.256L156.467%20138.113C142.581%20133.186%20128%20143.485%20128%20158.218L128%20722.387C128%20731.419%20133.688%20739.472%20142.2%20742.492L496.643%20868.248C501.463%20870.12%20506.658%20871.133%20512%20871.126ZM554.667%20768.013L810.667%20677.185L810.667%20248.834L554.667%20339.663L554.667%20768.013ZM469.333%20768.013L469.333%20339.663L213.333%20248.834L213.333%20677.185L469.333%20768.013Z%22%20fill=%22black%22/%3E%3C/svg%3E"),
   'o3-icon-bookmark-filled': url("data:image/svg+xml,%3Csvg%20viewBox=%220%200%201024%201024%22%20fill=%22none%22%20xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cpath%20fill-rule=%22evenodd%22%20clip-rule=%22evenodd%22%20d=%22M256%20106.667C256%2094.8852%20265.551%2085.334%20277.333%2085.334H746.667C758.449%2085.334%20768%2094.8853%20768%20106.667V904.837C768%20923.843%20745.021%20933.361%20731.582%20919.922L512.354%20700.694C512.158%20700.499%20511.842%20700.499%20511.646%20700.694L292.418%20919.922C278.979%20933.361%20256%20923.843%20256%20904.837V106.667Z%22%20fill=%22black%22/%3E%3C/svg%3E"),
