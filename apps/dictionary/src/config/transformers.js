@@ -1,5 +1,5 @@
 const transformers = [
-	'size/px',
+	'size/pxToRem',
 	'ts/descriptionToComment',
 	'color/css',
 	'ts/color/modifiers',
