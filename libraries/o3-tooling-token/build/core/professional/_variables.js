@@ -2209,7 +2209,7 @@ export default {
 },
 	"o3-spacing-5xs": {
 		"shortName": "5xs",
-		"value": "4px",
+		"value": "0.25rem",
 		"originalValue": "4px",
 		"type": "dimension",
 		"attributes": {
@@ -2225,7 +2225,7 @@ export default {
 },
 	"o3-spacing-4xs": {
 		"shortName": "4xs",
-		"value": "8px",
+		"value": "0.5rem",
 		"originalValue": "8px",
 		"type": "dimension",
 		"attributes": {
@@ -2241,7 +2241,7 @@ export default {
 },
 	"o3-spacing-3xs": {
 		"shortName": "3xs",
-		"value": "12px",
+		"value": "0.75rem",
 		"originalValue": "12px",
 		"type": "dimension",
 		"attributes": {
@@ -2257,7 +2257,7 @@ export default {
 },
 	"o3-spacing-2xs": {
 		"shortName": "2xs",
-		"value": "16px",
+		"value": "1rem",
 		"originalValue": "16px",
 		"type": "dimension",
 		"attributes": {
@@ -2273,7 +2273,7 @@ export default {
 },
 	"o3-spacing-xs": {
 		"shortName": "xs",
-		"value": "20px",
+		"value": "1.25rem",
 		"originalValue": "20px",
 		"type": "dimension",
 		"attributes": {
@@ -2289,7 +2289,7 @@ export default {
 },
 	"o3-spacing-s": {
 		"shortName": "s",
-		"value": "24px",
+		"value": "1.5rem",
 		"originalValue": "24px",
 		"type": "dimension",
 		"attributes": {
@@ -2305,7 +2305,7 @@ export default {
 },
 	"o3-spacing-m": {
 		"shortName": "m",
-		"value": "32px",
+		"value": "2rem",
 		"originalValue": "32px",
 		"type": "dimension",
 		"attributes": {
@@ -2321,7 +2321,7 @@ export default {
 },
 	"o3-spacing-l": {
 		"shortName": "l",
-		"value": "40px",
+		"value": "2.5rem",
 		"originalValue": "40px",
 		"type": "dimension",
 		"attributes": {
@@ -2337,7 +2337,7 @@ export default {
 },
 	"o3-spacing-xl": {
 		"shortName": "xl",
-		"value": "48px",
+		"value": "3rem",
 		"originalValue": "48px",
 		"type": "dimension",
 		"attributes": {
@@ -2353,7 +2353,7 @@ export default {
 },
 	"o3-spacing-2xl": {
 		"shortName": "2xl",
-		"value": "64px",
+		"value": "4rem",
 		"originalValue": "64px",
 		"type": "dimension",
 		"attributes": {
@@ -2369,7 +2369,7 @@ export default {
 },
 	"o3-spacing-3xl": {
 		"shortName": "3xl",
-		"value": "80px",
+		"value": "5rem",
 		"originalValue": "80px",
 		"type": "dimension",
 		"attributes": {
@@ -2385,7 +2385,7 @@ export default {
 },
 	"o3-spacing-4xl": {
 		"shortName": "4xl",
-		"value": "96px",
+		"value": "6rem",
 		"originalValue": "96px",
 		"type": "dimension",
 		"attributes": {
@@ -2439,7 +2439,7 @@ export default {
 },
 	"o3-type-display-lg-font-size": {
 		"shortName": "fontSize",
-		"value": "48px",
+		"value": "3rem",
 		"originalValue": "{o3.font.size.7}",
 		"type": "dimension",
 		"description": "Use this style for large screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.",
@@ -2458,7 +2458,7 @@ export default {
 },
 	"o3-type-display-lg-line-height": {
 		"shortName": "lineHeight",
-		"value": "48px",
+		"value": "3rem",
 		"originalValue": "{o3.font.lineheight.7}",
 		"type": "number",
 		"description": "Use this style for large screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.",
@@ -2515,7 +2515,7 @@ export default {
 },
 	"o3-type-display-md-font-size": {
 		"shortName": "fontSize",
-		"value": "40px",
+		"value": "2.5rem",
 		"originalValue": "{o3.font.size.6}",
 		"type": "dimension",
 		"description": "Use this style for medium screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.",
@@ -2534,7 +2534,7 @@ export default {
 },
 	"o3-type-display-md-line-height": {
 		"shortName": "lineHeight",
-		"value": "40px",
+		"value": "2.5rem",
 		"originalValue": "{o3.font.lineheight.6}",
 		"type": "number",
 		"description": "Use this style for medium screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.",
@@ -2591,7 +2591,7 @@ export default {
 },
 	"o3-type-display-sm-font-size": {
 		"shortName": "fontSize",
-		"value": "32px",
+		"value": "2rem",
 		"originalValue": "{o3.font.size.5}",
 		"type": "dimension",
 		"description": "Use this style for small screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.",
@@ -2610,7 +2610,7 @@ export default {
 },
 	"o3-type-display-sm-line-height": {
 		"shortName": "lineHeight",
-		"value": "32px",
+		"value": "2rem",
 		"originalValue": "{o3.font.lineheight.5}",
 		"type": "number",
 		"description": "Use this style for small screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages.",
@@ -2667,7 +2667,7 @@ export default {
 },
 	"o3-type-headline-lg-font-size": {
 		"shortName": "fontSize",
-		"value": "40px",
+		"value": "2.5rem",
 		"originalValue": "{o3.font.size.6}",
 		"type": "dimension",
 		"description": "Use this style for large screens headlines in standard-sized teasers and text only toppers (eg. Opinion and News).",
@@ -2686,7 +2686,7 @@ export default {
 },
 	"o3-type-headline-lg-line-height": {
 		"shortName": "lineHeight",
-		"value": "40px",
+		"value": "2.5rem",
 		"originalValue": "{o3.font.lineheight.6}",
 		"type": "number",
 		"description": "Use this style for large screens headlines in standard-sized teasers and text only toppers (eg. Opinion and News).",
@@ -2743,7 +2743,7 @@ export default {
 },
 	"o3-type-headline-md-font-size": {
 		"shortName": "fontSize",
-		"value": "32px",
+		"value": "2rem",
 		"originalValue": "{o3.font.size.5}",
 		"type": "dimension",
 		"description": "Use this style for medium screens headlines in smaller teasers and text only toppers (eg. Opinion and News).",
@@ -2762,7 +2762,7 @@ export default {
 },
 	"o3-type-headline-md-line-height": {
 		"shortName": "lineHeight",
-		"value": "32px",
+		"value": "2rem",
 		"originalValue": "{o3.font.lineheight.5}",
 		"type": "number",
 		"description": "Use this style for medium screens headlines in smaller teasers and text only toppers (eg. Opinion and News).",
@@ -2819,7 +2819,7 @@ export default {
 },
 	"o3-type-headline-sm-font-size": {
 		"shortName": "fontSize",
-		"value": "24px",
+		"value": "1.5rem",
 		"originalValue": "{o3.font.size.3}",
 		"type": "dimension",
 		"description": "Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News).",
@@ -2838,7 +2838,7 @@ export default {
 },
 	"o3-type-headline-sm-line-height": {
 		"shortName": "lineHeight",
-		"value": "28px",
+		"value": "1.75rem",
 		"originalValue": "{o3.font.lineheight.3}",
 		"type": "number",
 		"description": "Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News).",
@@ -2895,7 +2895,7 @@ export default {
 },
 	"o3-type-title-lg-font-size": {
 		"shortName": "fontSize",
-		"value": "28px",
+		"value": "1.75rem",
 		"originalValue": "{o3.font.size-metric2.4}",
 		"type": "dimension",
 		"description": "Use for the main page title H1 in functional pages such as account and settings. Use across all breakpoints.",
@@ -2914,7 +2914,7 @@ export default {
 },
 	"o3-type-title-lg-line-height": {
 		"shortName": "lineHeight",
-		"value": "32px",
+		"value": "2rem",
 		"originalValue": "{o3.font.lineheight-metric2.3}",
 		"type": "number",
 		"description": "Use for the main page title H1 in functional pages such as account and settings. Use across all breakpoints.",
@@ -2971,7 +2971,7 @@ export default {
 },
 	"o3-type-title-md-font-size": {
 		"shortName": "fontSize",
-		"value": "24px",
+		"value": "1.5rem",
 		"originalValue": "{o3.font.size-metric2.3}",
 		"type": "dimension",
 		"description": "Use this style as H3 or subtitles within the content body to break paragraphs, or for titles of components like forms, tables and cards across all breakpoints.",
@@ -2990,7 +2990,7 @@ export default {
 },
 	"o3-type-title-md-line-height": {
 		"shortName": "lineHeight",
-		"value": "32px",
+		"value": "2rem",
 		"originalValue": "{o3.font.lineheight-metric2.3}",
 		"type": "number",
 		"description": "Use this style as H3 or subtitles within the content body to break paragraphs, or for titles of components like forms, tables and cards across all breakpoints.",
@@ -3047,7 +3047,7 @@ export default {
 },
 	"o3-type-title-sm-line-height": {
 		"shortName": "lineHeight",
-		"value": "28px",
+		"value": "1.75rem",
 		"originalValue": "{o3.font.lineheight-metric2.2}",
 		"type": "number",
 		"description": "Use H6 for subtitles within the content body to break up paragraphs, and H2 for subheadings on stream pages or as subtitles for components such as forms, tables, and cards across all breakpoints.",
@@ -3066,7 +3066,7 @@ export default {
 },
 	"o3-type-title-sm-font-size": {
 		"shortName": "fontSize",
-		"value": "20px",
+		"value": "1.25rem",
 		"originalValue": "{o3.font.size-metric2.2}",
 		"type": "dimension",
 		"description": "Use H6 for subtitles within the content body to break up paragraphs, and H2 for subheadings on stream pages or as subtitles for components such as forms, tables, and cards across all breakpoints.",
@@ -3123,7 +3123,7 @@ export default {
 },
 	"o3-type-body-lg-font-size": {
 		"shortName": "fontSize",
-		"value": "18px",
+		"value": "1.125rem",
 		"originalValue": "{o3.font.size-metric2.1}",
 		"type": "dimension",
 		"description": "Use primarily for the stand-first (introductory summary or highlight) in topper component, as larger body text in components, or section description.",
@@ -3142,7 +3142,7 @@ export default {
 },
 	"o3-type-body-lg-line-height": {
 		"shortName": "lineHeight",
-		"value": "24px",
+		"value": "1.5rem",
 		"originalValue": "{o3.font.lineheight-metric2.1}",
 		"type": "number",
 		"description": "Use primarily for the stand-first (introductory summary or highlight) in topper component, as larger body text in components, or section description.",
@@ -3199,7 +3199,7 @@ export default {
 },
 	"o3-type-body-base-font-size": {
 		"shortName": "fontSize",
-		"value": "16px",
+		"value": "1rem",
 		"originalValue": "{o3.font.size-metric2.0}",
 		"type": "dimension",
 		"description": "Use this style for the stand-first in teasers and as the default body copy style across components such as location in the byline.",
@@ -3218,7 +3218,7 @@ export default {
 },
 	"o3-type-body-base-line-height": {
 		"shortName": "lineHeight",
-		"value": "24px",
+		"value": "1.5rem",
 		"originalValue": "{o3.font.lineheight-metric2.0}",
 		"type": "number",
 		"description": "Use this style for the stand-first in teasers and as the default body copy style across components such as location in the byline.",
@@ -3275,7 +3275,7 @@ export default {
 },
 	"o3-type-body-highlight-font-size": {
 		"shortName": "fontSize",
-		"value": "16px",
+		"value": "1rem",
 		"originalValue": "{o3.font.size-metric2.0}",
 		"type": "dimension",
 		"description": "Use this style for bold formatting in body copy or for small interactive elements, such as Topic tags and Author names.",
@@ -3294,7 +3294,7 @@ export default {
 },
 	"o3-type-body-highlight-line-height": {
 		"shortName": "lineHeight",
-		"value": "24px",
+		"value": "1.5rem",
 		"originalValue": "{o3.font.lineheight-metric2.0}",
 		"type": "number",
 		"description": "Use this style for bold formatting in body copy or for small interactive elements, such as Topic tags and Author names.",
@@ -3351,7 +3351,7 @@ export default {
 },
 	"o3-type-detail-font-size": {
 		"shortName": "fontSize",
-		"value": "14px",
+		"value": "0.875rem",
 		"originalValue": "{o3.font.size-metric2.negative-1}",
 		"type": "dimension",
 		"description": "Use this style for caption in visual assets such as image and video and for small text elements, such as secondary metadata, caveats, or footnotes.",
@@ -3370,7 +3370,7 @@ export default {
 },
 	"o3-type-detail-line-height": {
 		"shortName": "lineHeight",
-		"value": "20px",
+		"value": "1.25rem",
 		"originalValue": "{o3.font.lineheight-metric2.negative-1}",
 		"type": "number",
 		"description": "Use this style for caption in visual assets such as image and video and for small text elements, such as secondary metadata, caveats, or footnotes.",
@@ -3427,7 +3427,7 @@ export default {
 },
 	"o3-type-label-font-size": {
 		"shortName": "fontSize",
-		"value": "14px",
+		"value": "0.875rem",
 		"originalValue": "{o3.font.size-metric2.negative-1}",
 		"type": "dimension",
 		"description": "Use this style for labels such as badges and metadata in teasers and toppers (e.g., \"Live,\" \"Premium,\" or the main timestamp). Avoid using full sentences.",
@@ -3446,7 +3446,7 @@ export default {
 },
 	"o3-type-label-line-height": {
 		"shortName": "lineHeight",
-		"value": "20px",
+		"value": "1.25rem",
 		"originalValue": "{o3.font.lineheight-metric2.negative-1}",
 		"type": "number",
 		"description": "Use this style for labels such as badges and metadata in teasers and toppers (e.g., \"Live,\" \"Premium,\" or the main timestamp). Avoid using full sentences.",
@@ -3522,7 +3522,7 @@ export default {
 },
 	"o3-type-body-content-base-font-size": {
 		"shortName": "fontSize",
-		"value": "20px",
+		"value": "1.25rem",
 		"originalValue": "{o3.font.size.2}",
 		"type": "dimension",
 		"description": "Use this style only for the body copy of content pages, such as articles, live news and other content experience page.",
@@ -3541,7 +3541,7 @@ export default {
 },
 	"o3-type-body-content-base-line-height": {
 		"shortName": "lineHeight",
-		"value": "32px",
+		"value": "2rem",
 		"originalValue": "{o3.font.lineheight.4}",
 		"type": "number",
 		"description": "Use this style only for the body copy of content pages, such as articles, live news and other content experience page.",
@@ -3598,7 +3598,7 @@ export default {
 },
 	"o3-type-body-content-highlight-font-size": {
 		"shortName": "fontSize",
-		"value": "20px",
+		"value": "1.25rem",
 		"originalValue": "{o3.font.size.2}",
 		"type": "dimension",
 		"description": "Use this style only for the body copy of content pages, such as articles, live news and other content experience page.",
@@ -3617,7 +3617,7 @@ export default {
 },
 	"o3-type-body-content-highlight-line-height": {
 		"shortName": "lineHeight",
-		"value": "32px",
+		"value": "2rem",
 		"originalValue": "{o3.font.lineheight.4}",
 		"type": "number",
 		"description": "Use this style only for the body copy of content pages, such as articles, live news and other content experience page.",
@@ -3674,7 +3674,7 @@ export default {
 },
 	"o3-type-body-content-emphasis-font-size": {
 		"shortName": "fontSize",
-		"value": "20px",
+		"value": "1.25rem",
 		"originalValue": "{o3.font.size.2}",
 		"type": "dimension",
 		"description": "Use this style only for the body copy of content pages, such as articles, live news and other content experience page.",
@@ -3693,7 +3693,7 @@ export default {
 },
 	"o3-type-body-content-emphasis-line-height": {
 		"shortName": "lineHeight",
-		"value": "32px",
+		"value": "2rem",
 		"originalValue": "{o3.font.lineheight.4}",
 		"type": "number",
 		"description": "Use this style only for the body copy of content pages, such as articles, live news and other content experience page.",
@@ -3875,7 +3875,7 @@ export default {
 },
 	"o3-font-lineheight-0": {
 		"shortName": "0",
-		"value": "20px",
+		"value": "1.25rem",
 		"originalValue": "20",
 		"type": "lineHeights",
 		"attributes": {
@@ -3893,7 +3893,7 @@ export default {
 },
 	"o3-font-lineheight-1": {
 		"shortName": "1",
-		"value": "20px",
+		"value": "1.25rem",
 		"originalValue": "20",
 		"type": "lineHeights",
 		"attributes": {
@@ -3911,7 +3911,7 @@ export default {
 },
 	"o3-font-lineheight-2": {
 		"shortName": "2",
-		"value": "24px",
+		"value": "1.5rem",
 		"originalValue": "24",
 		"type": "lineHeights",
 		"attributes": {
@@ -3929,7 +3929,7 @@ export default {
 },
 	"o3-font-lineheight-3": {
 		"shortName": "3",
-		"value": "28px",
+		"value": "1.75rem",
 		"originalValue": "28",
 		"type": "lineHeights",
 		"attributes": {
@@ -3947,7 +3947,7 @@ export default {
 },
 	"o3-font-lineheight-4": {
 		"shortName": "4",
-		"value": "32px",
+		"value": "2rem",
 		"originalValue": "32",
 		"type": "lineHeights",
 		"attributes": {
@@ -3965,7 +3965,7 @@ export default {
 },
 	"o3-font-lineheight-5": {
 		"shortName": "5",
-		"value": "32px",
+		"value": "2rem",
 		"originalValue": "32",
 		"type": "lineHeights",
 		"attributes": {
@@ -3983,7 +3983,7 @@ export default {
 },
 	"o3-font-lineheight-6": {
 		"shortName": "6",
-		"value": "40px",
+		"value": "2.5rem",
 		"originalValue": "40",
 		"type": "lineHeights",
 		"attributes": {
@@ -4001,7 +4001,7 @@ export default {
 },
 	"o3-font-lineheight-7": {
 		"shortName": "7",
-		"value": "48px",
+		"value": "3rem",
 		"originalValue": "48",
 		"type": "lineHeights",
 		"attributes": {
@@ -4019,7 +4019,7 @@ export default {
 },
 	"o3-font-lineheight-8": {
 		"shortName": "8",
-		"value": "56px",
+		"value": "3.5rem",
 		"originalValue": "56",
 		"type": "lineHeights",
 		"attributes": {
@@ -4037,7 +4037,7 @@ export default {
 },
 	"o3-font-lineheight-9": {
 		"shortName": "9",
-		"value": "72px",
+		"value": "4.5rem",
 		"originalValue": "72",
 		"type": "lineHeights",
 		"attributes": {
@@ -4055,7 +4055,7 @@ export default {
 },
 	"o3-font-lineheight-10": {
 		"shortName": "10",
-		"value": "84px",
+		"value": "5.25rem",
 		"originalValue": "84",
 		"type": "lineHeights",
 		"attributes": {
@@ -4073,7 +4073,7 @@ export default {
 },
 	"o3-font-lineheight-negative-2": {
 		"shortName": "negative-2",
-		"value": "16px",
+		"value": "1rem",
 		"originalValue": "16",
 		"type": "lineHeights",
 		"attributes": {
@@ -4091,7 +4091,7 @@ export default {
 },
 	"o3-font-lineheight-negative-1": {
 		"shortName": "negative-1",
-		"value": "16px",
+		"value": "1rem",
 		"originalValue": "16",
 		"type": "lineHeights",
 		"attributes": {
@@ -4109,7 +4109,7 @@ export default {
 },
 	"o3-font-size-0": {
 		"shortName": "0",
-		"value": "16px",
+		"value": "1rem",
 		"originalValue": "16",
 		"type": "fontSize",
 		"attributes": {
@@ -4127,7 +4127,7 @@ export default {
 },
 	"o3-font-size-1": {
 		"shortName": "1",
-		"value": "18px",
+		"value": "1.125rem",
 		"originalValue": "18",
 		"type": "fontSize",
 		"attributes": {
@@ -4145,7 +4145,7 @@ export default {
 },
 	"o3-font-size-2": {
 		"shortName": "2",
-		"value": "20px",
+		"value": "1.25rem",
 		"originalValue": "20",
 		"type": "fontSize",
 		"attributes": {
@@ -4163,7 +4163,7 @@ export default {
 },
 	"o3-font-size-3": {
 		"shortName": "3",
-		"value": "24px",
+		"value": "1.5rem",
 		"originalValue": "24",
 		"type": "fontSize",
 		"attributes": {
@@ -4181,7 +4181,7 @@ export default {
 },
 	"o3-font-size-4": {
 		"shortName": "4",
-		"value": "28px",
+		"value": "1.75rem",
 		"originalValue": "28",
 		"type": "fontSize",
 		"attributes": {
@@ -4199,7 +4199,7 @@ export default {
 },
 	"o3-font-size-5": {
 		"shortName": "5",
-		"value": "32px",
+		"value": "2rem",
 		"originalValue": "32",
 		"type": "fontSize",
 		"attributes": {
@@ -4217,7 +4217,7 @@ export default {
 },
 	"o3-font-size-6": {
 		"shortName": "6",
-		"value": "40px",
+		"value": "2.5rem",
 		"originalValue": "40",
 		"type": "fontSize",
 		"attributes": {
@@ -4235,7 +4235,7 @@ export default {
 },
 	"o3-font-size-7": {
 		"shortName": "7",
-		"value": "48px",
+		"value": "3rem",
 		"originalValue": "48",
 		"type": "fontSize",
 		"attributes": {
@@ -4253,7 +4253,7 @@ export default {
 },
 	"o3-font-size-8": {
 		"shortName": "8",
-		"value": "56px",
+		"value": "3.5rem",
 		"originalValue": "56",
 		"type": "fontSize",
 		"attributes": {
@@ -4271,7 +4271,7 @@ export default {
 },
 	"o3-font-size-9": {
 		"shortName": "9",
-		"value": "72px",
+		"value": "4.5rem",
 		"originalValue": "72",
 		"type": "fontSize",
 		"attributes": {
@@ -4289,7 +4289,7 @@ export default {
 },
 	"o3-font-size-10": {
 		"shortName": "10",
-		"value": "84px",
+		"value": "5.25rem",
 		"originalValue": "84",
 		"type": "fontSize",
 		"attributes": {
@@ -4307,7 +4307,7 @@ export default {
 },
 	"o3-font-size-negative-2": {
 		"shortName": "negative-2",
-		"value": "12px",
+		"value": "0.75rem",
 		"originalValue": "12",
 		"type": "fontSize",
 		"attributes": {
@@ -4325,7 +4325,7 @@ export default {
 },
 	"o3-font-size-negative-1": {
 		"shortName": "negative-1",
-		"value": "14px",
+		"value": "0.875rem",
 		"originalValue": "14",
 		"type": "fontSize",
 		"attributes": {
@@ -4343,7 +4343,7 @@ export default {
 },
 	"o3-font-lineheight-metric2-0": {
 		"shortName": "0",
-		"value": "24px",
+		"value": "1.5rem",
 		"originalValue": "24",
 		"type": "lineHeights",
 		"attributes": {
@@ -4361,7 +4361,7 @@ export default {
 },
 	"o3-font-lineheight-metric2-1": {
 		"shortName": "1",
-		"value": "24px",
+		"value": "1.5rem",
 		"originalValue": "24",
 		"type": "lineHeights",
 		"attributes": {
@@ -4379,7 +4379,7 @@ export default {
 },
 	"o3-font-lineheight-metric2-2": {
 		"shortName": "2",
-		"value": "28px",
+		"value": "1.75rem",
 		"originalValue": "28",
 		"type": "lineHeights",
 		"attributes": {
@@ -4397,7 +4397,7 @@ export default {
 },
 	"o3-font-lineheight-metric2-3": {
 		"shortName": "3",
-		"value": "32px",
+		"value": "2rem",
 		"originalValue": "32",
 		"type": "lineHeights",
 		"attributes": {
@@ -4415,7 +4415,7 @@ export default {
 },
 	"o3-font-lineheight-metric2-4": {
 		"shortName": "4",
-		"value": "32px",
+		"value": "2rem",
 		"originalValue": "32",
 		"type": "lineHeights",
 		"attributes": {
@@ -4433,7 +4433,7 @@ export default {
 },
 	"o3-font-lineheight-metric2-5": {
 		"shortName": "5",
-		"value": "40px",
+		"value": "2.5rem",
 		"originalValue": "40",
 		"type": "lineHeights",
 		"attributes": {
@@ -4451,7 +4451,7 @@ export default {
 },
 	"o3-font-lineheight-metric2-6": {
 		"shortName": "6",
-		"value": "48px",
+		"value": "3rem",
 		"originalValue": "48",
 		"type": "lineHeights",
 		"attributes": {
@@ -4469,7 +4469,7 @@ export default {
 },
 	"o3-font-lineheight-metric2-7": {
 		"shortName": "7",
-		"value": "56px",
+		"value": "3.5rem",
 		"originalValue": "56",
 		"type": "lineHeights",
 		"attributes": {
@@ -4487,7 +4487,7 @@ export default {
 },
 	"o3-font-lineheight-metric2-8": {
 		"shortName": "8",
-		"value": "72px",
+		"value": "4.5rem",
 		"originalValue": "72",
 		"type": "lineHeights",
 		"attributes": {
@@ -4505,7 +4505,7 @@ export default {
 },
 	"o3-font-lineheight-metric2-9": {
 		"shortName": "9",
-		"value": "84px",
+		"value": "5.25rem",
 		"originalValue": "84",
 		"type": "lineHeights",
 		"attributes": {
@@ -4523,7 +4523,7 @@ export default {
 },
 	"o3-font-lineheight-metric2-negative-2": {
 		"shortName": "negative-2",
-		"value": "16px",
+		"value": "1rem",
 		"originalValue": "16",
 		"type": "lineHeights",
 		"attributes": {
@@ -4541,7 +4541,7 @@ export default {
 },
 	"o3-font-lineheight-metric2-negative-1": {
 		"shortName": "negative-1",
-		"value": "20px",
+		"value": "1.25rem",
 		"originalValue": "20",
 		"type": "lineHeights",
 		"attributes": {
@@ -4559,7 +4559,7 @@ export default {
 },
 	"o3-font-size-metric2-0": {
 		"shortName": "0",
-		"value": "16px",
+		"value": "1rem",
 		"originalValue": "16",
 		"type": "fontSize",
 		"attributes": {
@@ -4577,7 +4577,7 @@ export default {
 },
 	"o3-font-size-metric2-1": {
 		"shortName": "1",
-		"value": "18px",
+		"value": "1.125rem",
 		"originalValue": "18",
 		"type": "fontSize",
 		"attributes": {
@@ -4595,7 +4595,7 @@ export default {
 },
 	"o3-font-size-metric2-2": {
 		"shortName": "2",
-		"value": "20px",
+		"value": "1.25rem",
 		"originalValue": "20",
 		"type": "fontSize",
 		"attributes": {
@@ -4613,7 +4613,7 @@ export default {
 },
 	"o3-font-size-metric2-3": {
 		"shortName": "3",
-		"value": "24px",
+		"value": "1.5rem",
 		"originalValue": "24",
 		"type": "fontSize",
 		"attributes": {
@@ -4631,7 +4631,7 @@ export default {
 },
 	"o3-font-size-metric2-4": {
 		"shortName": "4",
-		"value": "28px",
+		"value": "1.75rem",
 		"originalValue": "28",
 		"type": "fontSize",
 		"attributes": {
@@ -4649,7 +4649,7 @@ export default {
 },
 	"o3-font-size-metric2-5": {
 		"shortName": "5",
-		"value": "32px",
+		"value": "2rem",
 		"originalValue": "32",
 		"type": "fontSize",
 		"attributes": {
@@ -4667,7 +4667,7 @@ export default {
 },
 	"o3-font-size-metric2-6": {
 		"shortName": "6",
-		"value": "40px",
+		"value": "2.5rem",
 		"originalValue": "40",
 		"type": "fontSize",
 		"attributes": {
@@ -4685,7 +4685,7 @@ export default {
 },
 	"o3-font-size-metric2-7": {
 		"shortName": "7",
-		"value": "48px",
+		"value": "3rem",
 		"originalValue": "48",
 		"type": "fontSize",
 		"attributes": {
@@ -4703,7 +4703,7 @@ export default {
 },
 	"o3-font-size-metric2-8": {
 		"shortName": "8",
-		"value": "64px",
+		"value": "4rem",
 		"originalValue": "64",
 		"type": "fontSize",
 		"attributes": {
@@ -4721,7 +4721,7 @@ export default {
 },
 	"o3-font-size-metric2-9": {
 		"shortName": "9",
-		"value": "72px",
+		"value": "4.5rem",
 		"originalValue": "72",
 		"type": "fontSize",
 		"attributes": {
@@ -4739,7 +4739,7 @@ export default {
 },
 	"o3-font-size-metric2-negative-2": {
 		"shortName": "negative-2",
-		"value": "12px",
+		"value": "0.75rem",
 		"originalValue": "12",
 		"type": "fontSize",
 		"attributes": {
@@ -4757,7 +4757,7 @@ export default {
 },
 	"o3-font-size-metric2-negative-1": {
 		"shortName": "negative-1",
-		"value": "14px",
+		"value": "0.875rem",
 		"originalValue": "14",
 		"type": "fontSize",
 		"attributes": {
@@ -4982,7 +4982,7 @@ export default {
 },
 	"o3-border-radius-1": {
 		"shortName": "1",
-		"value": "2px",
+		"value": "0.125rem",
 		"originalValue": "2",
 		"type": "dimension",
 		"description": "for default radius on interactive elements",
@@ -4999,7 +4999,7 @@ export default {
 },
 	"o3-border-radius-2": {
 		"shortName": "2",
-		"value": "4px",
+		"value": "0.25rem",
 		"originalValue": "4",
 		"type": "dimension",
 		"description": "for the outer radius of interactive elements that have both inner and outer boundaries as in box radio button ",
