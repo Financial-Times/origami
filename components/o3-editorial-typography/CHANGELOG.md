@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.1](https://github.com/Financial-Times/origami/compare/o3-editorial-typography-v3.0.0...o3-editorial-typography-v3.0.1) (2025-02-24)
+
+
+### Bug Fixes
+
+* use correct weight on block quote author ([#1978](https://github.com/Financial-Times/origami/issues/1978)) ([467b55b](https://github.com/Financial-Times/origami/commit/467b55b41ddfecd0f7e3c926d548b7bd24855aeb))
+
 ## [3.0.0](https://github.com/Financial-Times/origami/compare/o3-editorial-typography-v2.0.1...o3-editorial-typography-v3.0.0) (2025-02-20)
 
 ### ⚠ BREAKING CHANGES
