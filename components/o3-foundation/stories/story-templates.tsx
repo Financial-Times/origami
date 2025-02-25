@@ -145,7 +145,7 @@ export const WrapperStory = {
 					<li>List ordered</li>
 				</ol>
 
-				<footer>Footer such as copyright notice.</footer>
+				<figcaption>This is a caption</figcaption>
 			</Wrapper>
 		);
 	},
