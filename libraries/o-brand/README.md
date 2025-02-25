@@ -55,6 +55,15 @@ $o-brand: internal; // Defined in the product using branded Origami components.
 $chosen-brand: oBrandIs('internal'); // true
 $chosen-brand: oBrandIs('core'); // false
 ```
+### oBrandGetCurrent
+
+This function returns the current brand, or the default brand if not set.
+
+```scss
+$o-brand: internal; // Defined in the product using branded Origami components.
+
+$chosen-brand: oBrandGetCurrent('internal'); // internal
+```
 
 ### oBrandDefine
 
