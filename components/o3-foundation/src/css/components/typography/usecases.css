@@ -91,6 +91,7 @@
 }
 
 /* DETAIL / LABEL */
+.o3-typography-wrapper > figcaption,
 .o3-type-detail {
 	font-family: var(--o3-type-detail-font-family);
 	font-size: var(--o3-type-detail-font-size);
@@ -135,7 +136,7 @@
 		[class~='type-body'],
 		.o3-type-detail,
 		.o3-type-highlight,
-		.o3-typography-wrapper > p
+		.o3-typography-wrapper > :is(p, figcaption)
 	) {
 	color: var(--o3-color-use-case-body-text);
 	[data-o3-theme='inverse']&,
