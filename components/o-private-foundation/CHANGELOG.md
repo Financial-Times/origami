@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/Financial-Times/origami/compare/o-private-foundation-v1.0.1...o-private-foundation-v1.0.2) (2025-02-25)
+
+
+### Bug Fixes
+
+* Ensure o-private-foundation depends on the latest version of o-brand to access oBrandGetCurrent ([d2c7aa5](https://github.com/Financial-Times/origami/commit/d2c7aa5346b3a2461b5ba99175117e11cb17e1aa))
+
 ## [1.0.1](https://github.com/Financial-Times/origami/compare/o-private-foundation-v1.0.0...o-private-foundation-v1.0.1) (2025-02-24)
 
 
