@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.2.3](https://github.com/Financial-Times/origami/compare/o-brand-v4.2.2...o-brand-v4.2.3) (2025-02-25)
+
+
+### Bug Fixes
+
+* Add oBrandGetCurrent to return the current brand ([#1983](https://github.com/Financial-Times/origami/issues/1983)) ([550edee](https://github.com/Financial-Times/origami/commit/550edee7906142fbd93d1cf56e36245945316754))
+
 ## [4.2.2](https://github.com/Financial-Times/origami/compare/o-brand-v4.2.1...o-brand-v4.2.2) (2023-10-27)
 
 

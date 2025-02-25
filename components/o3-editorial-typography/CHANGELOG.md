@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.2](https://github.com/Financial-Times/origami/compare/o3-editorial-typography-v3.0.1...o3-editorial-typography-v3.0.2) (2025-02-25)
+
+
+### Bug Fixes
+
+* use same colour on editorial typography bullets as text ([#1980](https://github.com/Financial-Times/origami/issues/1980)) ([f3cc6b3](https://github.com/Financial-Times/origami/commit/f3cc6b306185d074d169f59ac30599eec96b5fe8))
+
 ## [3.0.1](https://github.com/Financial-Times/origami/compare/o3-editorial-typography-v3.0.0...o3-editorial-typography-v3.0.1) (2025-02-24)
 
 
