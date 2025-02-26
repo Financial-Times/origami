@@ -1,7 +1,6 @@
 @import '@financial-times/o-private-foundation/main';
 
 @import '@financial-times/o-brand/main';
-@import '@financial-times/o-icons/main';
 
 @import './src/scss/variables';
 @import 'src/scss/brand';
@@ -91,7 +90,11 @@
 			position: relative;
 
 			&:hover {
-				background-color: oPrivateColorsMix('o3-color-palette-black', 'o3-color-palette-white', 25);
+				background-color: oPrivateColorsMix(
+					'o3-color-palette-black',
+					'o3-color-palette-white',
+					25
+				);
 				color: initial;
 			}
 
@@ -102,7 +105,11 @@
 
 		.o-multi-select-option__selected {
 			color: initial;
-			background-color: oPrivateColorsMix('o3-color-palette-black', 'o3-color-palette-white', 15);
+			background-color: oPrivateColorsMix(
+				'o3-color-palette-black',
+				'o3-color-palette-white',
+				15
+			);
 
 			span {
 				@include oPrivateIconsContent(
