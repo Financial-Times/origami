@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/Financial-Times/origami/compare/o-private-foundation-v1.0.2...o-private-foundation-v1.0.3) (2025-02-26)
+
+
+### Bug Fixes
+
+* remove o-colors usages in o-private-foundation ([#1991](https://github.com/Financial-Times/origami/issues/1991)) ([700edef](https://github.com/Financial-Times/origami/commit/700edefb23d1a5b51a153ba053d65b6f2b057d75))
+
 ## [1.0.2](https://github.com/Financial-Times/origami/compare/o-private-foundation-v1.0.1...o-private-foundation-v1.0.2) (2025-02-25)
 
 
