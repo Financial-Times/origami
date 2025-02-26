@@ -212,13 +212,11 @@
 
 	// Generate optional theme colours.
 	@if (not $decoration-color) {
-		// TODO: replace oColorsMix
-		$decoration-color: oColorsMix($base-color, $context-color, $percentage: 20);
+		$decoration-color: oPrivateColorsMix($base-color, $context-color, $percentage: 20);
 	}
 
 	@if (not $hover-decoration-color) {
-		// TODO: replace oColorsMix
-		$hover-decoration-color: oColorsMix(
+		$hover-decoration-color: oPrivateColorsMix(
 			$base-color,
 			$context-color,
 			$percentage: 40
