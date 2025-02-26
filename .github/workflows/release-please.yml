@@ -13,12 +13,12 @@ jobs:
           token: ${{ secrets.ORIGAMI_GITHUB_TOKEN }}
           command: manifest
           monorepo-tags: true
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         if: ${{ steps.release.outputs.releases_created }}
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v4
         with:
           cache: 'npm'
-          node-version: 18
+          node-version: 22
           registry-url: 'https://registry.npmjs.org'
         if: ${{ steps.release.outputs.releases_created }}
       - run: npm ci

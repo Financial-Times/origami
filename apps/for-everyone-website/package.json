@@ -11,7 +11,7 @@
 		"send-newsletter": "node src/helpers/email-newsletter.js"
 	},
 	"engines": {
-		"node": "18.18.2",
+		"node": "22.2.0",
 		"npm": "10.2.1"
 	},
 	"private": true,

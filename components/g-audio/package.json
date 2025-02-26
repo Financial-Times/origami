@@ -16,7 +16,6 @@
 		"watch": "bash ../../scripts/component/watch.bash"
 	},
 	"engines": {
-		"node": "18.18.2",
 		"npm": ">7"
 	},
 	"peerDependencies": {
