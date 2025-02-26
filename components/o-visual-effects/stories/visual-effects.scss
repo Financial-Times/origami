@@ -1,20 +1,21 @@
-@import "@financial-times/o-visual-effects/main";
-@import "@financial-times/o-normalise/main";
-@import "@financial-times/o-buttons/main";
-@import "@financial-times/o-spacing/main";
-@import "@financial-times/o-typography/main";
-@import "@financial-times/o-fonts/main";
-@import "@financial-times/o-colors/main";
+@import '@financial-times/o-visual-effects/main';
+@import '@financial-times/o-normalise/main';
+@import '@financial-times/o-buttons/main';
+@import '@financial-times/o-spacing/main';
+@import '@financial-times/o-typography/main';
+@import '@financial-times/o-fonts/main';
 
 @include oNormalise();
 @include oFonts();
 @include oVisualEffects();
 
 .demo-button {
-	@include oButtonsContent((
-		'size': 'big',
-		'type': 'primary',
-	));
+	@include oButtonsContent(
+		(
+			'size': 'big',
+			'type': 'primary',
+		)
+	);
 	margin-right: oSpacingByName('s8');
 	float: left;
 }
@@ -30,7 +31,8 @@
 	}
 	width: var(--demo-size);
 	height: var(--demo-size);
-	transition: all var(--demo-transition-duration) var(--demo-transition-timing-function);
+	transition: all var(--demo-transition-duration)
+		var(--demo-transition-timing-function);
 	display: inline-block;
 }
 
