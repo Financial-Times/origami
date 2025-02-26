@@ -1,5 +1,13 @@
 # Changelog
 
+## [15.0.1](https://github.com/Financial-Times/origami/compare/o-header-v15.0.0...o-header-v15.0.1) (2025-02-26)
+
+
+### Bug Fixes
+
+* Remove unused o-icons import ([6f1c178](https://github.com/Financial-Times/origami/commit/6f1c1784382b7eec8ff78c4593d42ccf23f3da89))
+* round non-navigational buttons on o-header ([#1986](https://github.com/Financial-Times/origami/issues/1986)) ([8c71231](https://github.com/Financial-Times/origami/commit/8c712311dff42e95d6374b2a8493ff15bad7478a))
+
 ## [15.0.0](https://github.com/Financial-Times/origami/compare/o-header-v14.1.0...o-header-v15.0.0) (2025-02-20)
 
 ### ⚠ BREAKING CHANGES
