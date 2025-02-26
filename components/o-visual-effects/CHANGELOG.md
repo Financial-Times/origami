@@ -1,5 +1,13 @@
 # Changelog
 
+## [5.0.1](https://github.com/Financial-Times/origami/compare/o-visual-effects-v5.0.0...o-visual-effects-v5.0.1) (2025-02-26)
+
+
+### Bug Fixes
+
+* Remove o-colors references ([b7d8c6a](https://github.com/Financial-Times/origami/commit/b7d8c6a3d5d01c03c37cc8e0d57fa40f06361d38))
+* Remove unused o-buttons reference ([1be12a8](https://github.com/Financial-Times/origami/commit/1be12a809a44421541412363671445477454656a))
+
 ## [4.2.2](https://github.com/Financial-Times/origami/compare/o-visual-effects-v4.2.1...o-visual-effects-v4.2.2) (2023-10-27)
 
 

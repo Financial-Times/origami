@@ -1,5 +1,13 @@
 # Changelog
 
+## [7.0.1](https://github.com/Financial-Times/origami/compare/o-teaser-v7.0.0...o-teaser-v7.0.1) (2025-02-26)
+
+
+### Bug Fixes
+
+* Remove unused o-buttons reference ([1be12a8](https://github.com/Financial-Times/origami/commit/1be12a809a44421541412363671445477454656a))
+* Remove unused o-icons iSass imports ([e8b105f](https://github.com/Financial-Times/origami/commit/e8b105fa887fbc50e5030fb1f398989df290046b))
+
 ## [7.0.0](https://github.com/Financial-Times/origami/compare/o-teaser-v6.4.1...o-teaser-v7.0.0) (2025-02-20)
 
 ### ⚠ BREAKING CHANGES
