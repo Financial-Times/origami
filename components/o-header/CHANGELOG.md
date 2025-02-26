@@ -1,5 +1,12 @@
 # Changelog
 
+## [15.0.2](https://github.com/Financial-Times/origami/compare/o-header-v15.0.1...o-header-v15.0.2) (2025-02-26)
+
+
+### Bug Fixes
+
+* bump o-private-foundation version ([#1993](https://github.com/Financial-Times/origami/issues/1993)) ([2f3b870](https://github.com/Financial-Times/origami/commit/2f3b8701256e4a5d91b1bfea6a2ed3b9046913e5))
+
 ## [15.0.1](https://github.com/Financial-Times/origami/compare/o-header-v15.0.0...o-header-v15.0.1) (2025-02-26)
 
 
