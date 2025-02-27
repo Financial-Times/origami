@@ -6,7 +6,7 @@ import javascript from '../main.js';
 import {Form, GenericInput} from '@financial-times/o-forms/src/tsx/Form';
 
 export default {
-	title: 'Components/o-multi-select',
+	title: 'Maintained/o-multi-select',
 	component: MultiSelect,
 	parameters: {},
 	args: {},

@@ -1,5 +1,5 @@
 export default {
-	title: 'Components/o-teaser-collection/Collection mid slice',
+	title: 'Maintained/o-teaser-collection/Collection mid slice',
 	args: {},
 	parameters: {
 		html: {},

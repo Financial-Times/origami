@@ -5,7 +5,7 @@ import javascript from '../main';
 import './message.scss';
 
 export default {
-	title: 'Components/o-message',
+	title: 'Maintained/o-message',
 	component: AlertMessage,
 	parameters: {},
 	args: {
@@ -25,7 +25,7 @@ export default {
 } as ComponentMeta<typeof AlertMessage>;
 
 const innerDecorator = Story => (
-	<div className='demo-inner-message'>{Story()}</div>
+	<div className="demo-inner-message">{Story()}</div>
 );
 
 const AlertStory = args => {

@@ -2,9 +2,9 @@ import {Body, List, ListItem} from '../src/tsx/typography';
 import './typography.scss';
 
 export default {
-	title: 'Components/o-typography',
+	title: 'Deprecated/o-typography',
 	component: List,
-    args: {},
+	args: {},
 	parameters: {
 		design: {
 			type: 'figma',
@@ -18,18 +18,25 @@ export default {
 };
 
 const items = ['Apples', 'Bananas', 'Oranges', 'Pears', 'Tangelos'];
-const Story = args => <Body>
-    <List {...args} children={args.items.map(item => <ListItem key={item}>{item}</ListItem>)} />
-</Body>;
+const Story = args => (
+	<Body>
+		<List
+			{...args}
+			children={args.items.map(item => (
+				<ListItem key={item}>{item}</ListItem>
+			))}
+		/>
+	</Body>
+);
 
 export const UnorderedList = Story.bind({});
 UnorderedList.args = {
 	items,
-	ordered: false
+	ordered: false,
 };
 
 export const OrderedList = Story.bind({});
 OrderedList.args = {
 	items,
-    ordered: true
+	ordered: true,
 };

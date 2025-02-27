@@ -1,5 +1,5 @@
 export default {
-	title: 'Components/o-topper/Package Series Landing Page Topper',
+	title: 'Maintained/o-topper/Package Series Landing Page Topper',
 	args: {},
 	parameters: {
 		html: {},

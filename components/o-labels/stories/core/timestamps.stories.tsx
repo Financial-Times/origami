@@ -2,11 +2,14 @@ import ODate from '@financial-times/o-date/main';
 import {Date as DateTSX} from '@financial-times/o-date/src/tsx/date';
 import type {Meta, Story} from '@storybook/react';
 import {useEffect} from 'react';
-import {TimestampLabel as OTimestampLabel, TimestampLabelProps} from '../../src/tsx/label';
+import {
+	TimestampLabel as OTimestampLabel,
+	TimestampLabelProps,
+} from '../../src/tsx/label';
 import '../labels.scss';
 
 export default {
-	title: 'Components/o-labels',
+	title: 'Maintained/o-labels',
 	component: OTimestampLabel,
 	argTypes: {
 		inverse: {control: 'boolean', defaultValue: false},
@@ -14,7 +17,9 @@ export default {
 	},
 } as Meta<TimestampLabelProps>;
 
-export const TimestampLabel: Story<TimestampLabelProps & {dateTime: Date}> = args => {
+export const TimestampLabel: Story<
+	TimestampLabelProps & {dateTime: Date}
+> = args => {
 	useEffect(() => {
 		let dates = ODate.init();
 		return function cleanup() {
@@ -23,10 +28,12 @@ export const TimestampLabel: Story<TimestampLabelProps & {dateTime: Date}> = arg
 		};
 	});
 
-	const dateString = new Date(args.dateTime).toISOString()
-	return <OTimestampLabel {...args} >
-		<DateTSX dateTime={dateString} />
-	</OTimestampLabel>;
+	const dateString = new Date(args.dateTime).toISOString();
+	return (
+		<OTimestampLabel {...args}>
+			<DateTSX dateTime={dateString} />
+		</OTimestampLabel>
+	);
 };
 
 TimestampLabel.args = {

@@ -8,7 +8,7 @@ import {data} from './data.js';
 oForms.init();
 
 export default {
-	title: 'Components/o-autocomplete',
+	title: 'Maintained/o-autocomplete',
 	parameters: {
 		html: {},
 	},

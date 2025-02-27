@@ -1,5 +1,5 @@
 export default {
-	title: 'Components/o-teaser-collection/Collection horizontal',
+	title: 'Maintained/o-teaser-collection/Collection horizontal',
 	args: {},
 	parameters: {
 		html: {},

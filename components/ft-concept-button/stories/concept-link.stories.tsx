@@ -2,7 +2,7 @@ import {ConceptLink as ConceptLinkTemplate} from '../src/tsx/concept-button';
 import './concept-button.scss';
 
 export default {
-	title: 'Components/ft-concept-button',
+	title: 'Maintained/ft-concept-button',
 	component: ConceptLinkTemplate,
 	parameters: {
 		design: {
@@ -24,9 +24,7 @@ export default {
 };
 
 const ConceptLinkStory = args => {
-	return (
-		<ConceptLinkTemplate {...args} />
-	);
+	return <ConceptLinkTemplate {...args} />;
 };
 
 export const ConceptPillLink = ConceptLinkStory.bind({});

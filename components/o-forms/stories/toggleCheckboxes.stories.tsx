@@ -10,12 +10,12 @@ const hideArg = {
 	},
 };
 export default {
-	title: 'Components/o-forms/toggle-checkboxes',
+	title: 'Maintained/o-forms/toggle-checkboxes',
 	component: Checkboxes,
 	argTypes: {
 		children: hideArg,
-		theme: hideArg
-	}
+		theme: hideArg,
+	},
 } as ComponentMeta<typeof Checkboxes>;
 
 const Template: ComponentStory<typeof Checkboxes> = args => {

@@ -2,9 +2,9 @@ import {P, Span, Sup, Sub, Strong, Em, Link} from '../src/tsx/typography';
 import './typography.scss';
 
 export default {
-	title: 'Components/o-typography',
+	title: 'Deprecated/o-typography',
 	component: P,
-    args: {},
+	args: {},
 	parameters: {
 		design: {
 			type: 'figma',
@@ -17,13 +17,20 @@ export default {
 	},
 };
 
-const Story = args => <>
-    <P {...args}>
-        <Span weight='bold'>Body</Span> - Lorem ipsum dolor sit amet, consectetur adipisicing elit. <Link href="#">Link</Link> a rem <Strong>excepturi</Strong> consequuntur commodi dolores ad <Em>laboriosam</Em> qui odit ipsum distinctio quos laborum dolore magnam iure rerum, enim deleniti saepe sunt.
-    </P>
-    <P {...args}>
-        Lorem ipsum dolor sit amet<Sup>Sup</Sup>, consectetur adipisicing elit<Sub>Sub</Sub>. <Link href="#">Link Necessitatibus asperiores</Link>.
-    </P>
-</>;
+const Story = args => (
+	<>
+		<P {...args}>
+			<Span weight="bold">Body</Span> - Lorem ipsum dolor sit amet, consectetur
+			adipisicing elit. <Link href="#">Link</Link> a rem{' '}
+			<Strong>excepturi</Strong> consequuntur commodi dolores ad{' '}
+			<Em>laboriosam</Em> qui odit ipsum distinctio quos laborum dolore magnam
+			iure rerum, enim deleniti saepe sunt.
+		</P>
+		<P {...args}>
+			Lorem ipsum dolor sit amet<Sup>Sup</Sup>, consectetur adipisicing elit
+			<Sub>Sub</Sub>. <Link href="#">Link Necessitatibus asperiores</Link>.
+		</P>
+	</>
+);
 
 export const Body = Story.bind({});

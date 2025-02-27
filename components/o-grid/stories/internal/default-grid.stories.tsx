@@ -1,5 +1,5 @@
 export default {
-	title: 'Components/o-grid/Default Grid',
+	title: 'Maintained/o-grid/Default Grid',
 	args: {},
 	parameters: {
 		html: {},
