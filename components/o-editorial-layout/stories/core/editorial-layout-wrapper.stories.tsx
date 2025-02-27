@@ -1,11 +1,11 @@
-import {ComponentMeta} from "@storybook/react";
-import {EditorialLayoutWrapper} from "../../src/tsx/editorial-layout-wrapper";
+import {ComponentMeta} from '@storybook/react';
+import {EditorialLayoutWrapper} from '../../src/tsx/editorial-layout-wrapper';
 import './editorialLayout.scss';
-import {EditorialLayoutHeading} from "../../src/tsx/editorial-layout-heading";
-import {EditorialLayoutBody} from "../../src/tsx/editorial-layout-body";
+import {EditorialLayoutHeading} from '../../src/tsx/editorial-layout-heading';
+import {EditorialLayoutBody} from '../../src/tsx/editorial-layout-body';
 
 export default {
-	title: 'Components/o-editorial-layout',
+	title: 'Maintained/o-editorial-layout',
 	component: EditorialLayoutWrapper,
 } as ComponentMeta<typeof EditorialLayoutWrapper>;
 
@@ -45,7 +45,11 @@ const WrapperTemplate = () => {
 				Veritatis dicta veniam odit provident rerum aperiam ipsa ducimus
 				architecto voluptate optio, perferendis quidem beatae magnam ut est
 				facilis,
-				<strong><i>quos vitae<sup>sup</sup> neque facere</i></strong>
+				<strong>
+					<i>
+						quos vitae<sup>sup</sup> neque facere
+					</i>
+				</strong>
 				quisquam. Culpa animi, recusandae tempore maxime incidunt molestias,
 				dolore nulla facilis porro illo mollitia consectetur modi ex iusto
 				exercitationem dolorem voluptates nostrum nisi fuga laboriosam sequi
@@ -100,7 +104,9 @@ const WrapperTemplate = () => {
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo,
 					quaerat!
 				</p>
-				<footer><cite>Lorem, ipsum dolor.</cite></footer>
+				<footer>
+					<cite>Lorem, ipsum dolor.</cite>
+				</footer>
 			</blockquote>
 
 			<p>
@@ -195,8 +201,12 @@ export const WrapperWithNestedElements = WrapperTemplate.bind({});
 const ContentBodyMarginsTemplate = () => {
 	return (
 		<>
-			<EditorialLayoutHeading headingLevel='1'>heading 1</EditorialLayoutHeading>
-			<EditorialLayoutHeading headingLevel='2'>heading 2</EditorialLayoutHeading>
+			<EditorialLayoutHeading headingLevel="1">
+				heading 1
+			</EditorialLayoutHeading>
+			<EditorialLayoutHeading headingLevel="2">
+				heading 2
+			</EditorialLayoutHeading>
 
 			<EditorialLayoutBody>
 				Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex velit beatae
@@ -226,31 +236,35 @@ const ContentBodyMarginsTemplate = () => {
 			<EditorialLayoutBody>
 				Veritatis dicta veniam odit provident rerum aperiam ipsa ducimus
 				architecto voluptate optio, perferendis quidem beatae magnam ut est
-				facilis, quos vitae neque facere quisquam. Culpa animi, recusandae tempore
-				maxime incidunt molestias, dolore nulla facilis porro illo mollitia
-				consectetur modi ex iusto exercitationem dolorem voluptates nostrum nisi
-				fuga laboriosam sequi beatae! Incidunt doloremque commodi ipsam adipisci!
-				Officiis quod eum aliquam molestiae facere beatae nisi nam esse veniam
-				delectus dolore harum suscipit, odit voluptatibus officia temporibus
-				ducimus! Officia cumque voluptates ipsa saepe perferendis ab impedit
-				labore, tempore, deserunt ducimus at? Doloremque ea consequatur temporibus
-				nisi nulla! Vero laudantium quas molestiae commodi deleniti.
+				facilis, quos vitae neque facere quisquam. Culpa animi, recusandae
+				tempore maxime incidunt molestias, dolore nulla facilis porro illo
+				mollitia consectetur modi ex iusto exercitationem dolorem voluptates
+				nostrum nisi fuga laboriosam sequi beatae! Incidunt doloremque commodi
+				ipsam adipisci! Officiis quod eum aliquam molestiae facere beatae nisi
+				nam esse veniam delectus dolore harum suscipit, odit voluptatibus
+				officia temporibus ducimus! Officia cumque voluptates ipsa saepe
+				perferendis ab impedit labore, tempore, deserunt ducimus at? Doloremque
+				ea consequatur temporibus nisi nulla! Vero laudantium quas molestiae
+				commodi deleniti.
 			</EditorialLayoutBody>
 			<EditorialLayoutBody>
-				Expedita error placeat soluta odit modi. Voluptatem, illum neque inventore
-				hic voluptatum, esse optio recusandae numquam nostrum magni, quibusdam
-				animi earum tenetur sit eius perspiciatis. Quas quidem atque id? Est
-				architecto exercitationem, voluptate sint beatae repudiandae vitae neque
-				nostrum, ut tempora eligendi blanditiis saepe praesentium delectus omnis
-				molestiae quibusdam aliquam rerum deleniti molestias quas, maiores
-				consequatur reprehenderit! Dolores libero tempore incidunt dolorem
-				distinctio! Sapiente, repellat, dicta reiciendis velit in illo ducimus
-				ullam, laborum nam obcaecati mollitia nulla. Saepe ipsa fugit fuga non
-				nihil praesentium commodi dolorem nesciunt, ducimus quod deleniti aperiam
-				vel distinctio cumque dicta dolor pariatur enim dolore illum.
+				Expedita error placeat soluta odit modi. Voluptatem, illum neque
+				inventore hic voluptatum, esse optio recusandae numquam nostrum magni,
+				quibusdam animi earum tenetur sit eius perspiciatis. Quas quidem atque
+				id? Est architecto exercitationem, voluptate sint beatae repudiandae
+				vitae neque nostrum, ut tempora eligendi blanditiis saepe praesentium
+				delectus omnis molestiae quibusdam aliquam rerum deleniti molestias
+				quas, maiores consequatur reprehenderit! Dolores libero tempore incidunt
+				dolorem distinctio! Sapiente, repellat, dicta reiciendis velit in illo
+				ducimus ullam, laborum nam obcaecati mollitia nulla. Saepe ipsa fugit
+				fuga non nihil praesentium commodi dolorem nesciunt, ducimus quod
+				deleniti aperiam vel distinctio cumque dicta dolor pariatur enim dolore
+				illum.
 			</EditorialLayoutBody>
 
-			<EditorialLayoutHeading headingLevel='3'>heading 3</EditorialLayoutHeading>
+			<EditorialLayoutHeading headingLevel="3">
+				heading 3
+			</EditorialLayoutHeading>
 
 			<EditorialLayoutBody>
 				Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex velit beatae
@@ -280,18 +294,21 @@ const ContentBodyMarginsTemplate = () => {
 			<EditorialLayoutBody>
 				Veritatis dicta veniam odit provident rerum aperiam ipsa ducimus
 				architecto voluptate optio, perferendis quidem beatae magnam ut est
-				facilis, quos vitae neque facere quisquam. Culpa animi, recusandae tempore
-				maxime incidunt molestias, dolore nulla facilis porro illo mollitia
-				consectetur modi ex iusto exercitationem dolorem voluptates nostrum nisi
-				fuga laboriosam sequi beatae! Incidunt doloremque commodi ipsam adipisci!
-				Officiis quod eum aliquam molestiae facere beatae nisi nam esse veniam
-				delectus dolore harum suscipit, odit voluptatibus officia temporibus
-				ducimus! Officia cumque voluptates ipsa saepe perferendis ab impedit
-				labore, tempore, deserunt ducimus at? Doloremque ea consequatur temporibus
-				nisi nulla! Vero laudantium quas molestiae commodi deleniti.
+				facilis, quos vitae neque facere quisquam. Culpa animi, recusandae
+				tempore maxime incidunt molestias, dolore nulla facilis porro illo
+				mollitia consectetur modi ex iusto exercitationem dolorem voluptates
+				nostrum nisi fuga laboriosam sequi beatae! Incidunt doloremque commodi
+				ipsam adipisci! Officiis quod eum aliquam molestiae facere beatae nisi
+				nam esse veniam delectus dolore harum suscipit, odit voluptatibus
+				officia temporibus ducimus! Officia cumque voluptates ipsa saepe
+				perferendis ab impedit labore, tempore, deserunt ducimus at? Doloremque
+				ea consequatur temporibus nisi nulla! Vero laudantium quas molestiae
+				commodi deleniti.
 			</EditorialLayoutBody>
 
-			<EditorialLayoutHeading headingLevel='4'>heading 4</EditorialLayoutHeading>
+			<EditorialLayoutHeading headingLevel="4">
+				heading 4
+			</EditorialLayoutHeading>
 
 			<EditorialLayoutBody>
 				Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex velit beatae
@@ -319,7 +336,9 @@ const ContentBodyMarginsTemplate = () => {
 				hic inventore dolorum laudantium ullam, aspernatur explicabo?
 			</EditorialLayoutBody>
 
-			<EditorialLayoutHeading headingLevel='5'>heading 5</EditorialLayoutHeading>
+			<EditorialLayoutHeading headingLevel="5">
+				heading 5
+			</EditorialLayoutHeading>
 
 			<EditorialLayoutBody>
 				Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex velit beatae
@@ -334,6 +353,6 @@ const ContentBodyMarginsTemplate = () => {
 				illum voluptatibus. Explicabo perferendis voluptas consequuntur ea.
 			</EditorialLayoutBody>
 		</>
-	)
-}
+	);
+};
 export const ContentBodyMargins = ContentBodyMarginsTemplate.bind({});

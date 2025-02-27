@@ -22,7 +22,7 @@ const themeControl =
 		: hideArg;
 
 export default {
-	title: 'Components/o-forms/radio-buttons',
+	title: 'Maintained/o-forms/radio-buttons',
 	component: RadioBtns,
 	argTypes: {
 		children: hideArg,

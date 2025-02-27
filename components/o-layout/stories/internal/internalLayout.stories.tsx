@@ -1,34 +1,34 @@
-import { ComponentMeta, Story } from "@storybook/react";
+import {ComponentMeta, Story} from '@storybook/react';
 import {
 	DefaultLayout as Layout,
 	LandingLayout,
 	QueryLayout,
-} from "../../src/tsx/layout";
-import { HeaderWithTitleSection } from "@financial-times/o-header-services/stories/header-services.stories";
-import { OverviewSections, ArticleList } from "../../src/tsx/landingPartials";
-import "../layout.scss";
-import javascript from "../../main.js";
-import Table from "@financial-times/o-table/main";
-import SyntaxHighlight from "@financial-times/o-syntax-highlight/main";
-import Tabs from "@financial-times/o-tabs/main";
-import Forms from "@financial-times/o-forms/main";
-import { useEffect, ComponentProps } from "react";
+} from '../../src/tsx/layout';
+import {HeaderWithTitleSection} from '@financial-times/o-header-services/stories/header-services.stories';
+import {OverviewSections, ArticleList} from '../../src/tsx/landingPartials';
+import '../layout.scss';
+import javascript from '../../main.js';
+import Table from '@financial-times/o-table/main';
+import SyntaxHighlight from '@financial-times/o-syntax-highlight/main';
+import Tabs from '@financial-times/o-tabs/main';
+import Forms from '@financial-times/o-forms/main';
+import {useEffect, ComponentProps} from 'react';
 import {
 	overviewActionElements,
 	overviewElements,
 	articleList,
 	DemoHero,
 	QueryLayout as QueryLayoutData,
-} from "./fixtures";
-import { DemoFooter } from "../fixtures";
-import { AdditionalSbProps, defaultControlsToProps } from "../layout.stories";
+} from './fixtures';
+import {DemoFooter} from '../fixtures';
+import {AdditionalSbProps, defaultControlsToProps} from '../layout.stories';
 
 type LandingStoryProps = ComponentProps<typeof LandingLayout> &
 	AdditionalSbProps;
 type QueryStoryProps = ComponentProps<typeof QueryLayout> & AdditionalSbProps;
 
 export default {
-	title: "Components/o-layout",
+	title: 'Maintained/o-layout',
 	component: Layout,
 	parameters: {},
 	args: {
@@ -36,13 +36,13 @@ export default {
 		headerControls: HeaderWithTitleSection.args,
 	},
 	argTypes: {
-		mainContent: { control: { disable: true } },
-		footer: { control: { disable: true } },
-		header: { control: { disable: true } },
-		bleed: { control: { disable: true } },
-		queryHeading: { control: { disable: true } },
-		querySideBar: { control: { disable: true } },
-		asideSideBar: { control: { disable: true } },
+		mainContent: {control: {disable: true}},
+		footer: {control: {disable: true}},
+		header: {control: {disable: true}},
+		bleed: {control: {disable: true}},
+		queryHeading: {control: {disable: true}},
+		querySideBar: {control: {disable: true}},
+		asideSideBar: {control: {disable: true}},
 	},
 } as ComponentMeta<typeof Layout>;
 
@@ -96,10 +96,10 @@ LandingLayoutWithHero.args = {
 
 LandingLayoutWithHero.parameters = {
 	controls: {
-		include: ['headerControls']
+		include: ['headerControls'],
 	},
 	layout: 'fullscreen',
-}
+};
 
 export const LandingLayoutWithArticleList: Story<LandingStoryProps> =
 	LandingLayoutStory.bind({});
@@ -120,10 +120,10 @@ LandingLayoutWithArticleList.args = {
 
 LandingLayoutWithArticleList.parameters = {
 	controls: {
-		include: ['headerControls']
+		include: ['headerControls'],
 	},
 	layout: 'fullscreen',
-}
+};
 
 export const QueryLayoutDemo: Story<QueryStoryProps> = args => {
 	useEffect(() => {
@@ -141,7 +141,7 @@ export const QueryLayoutDemo: Story<QueryStoryProps> = args => {
 	return <QueryLayout {...args} />;
 };
 
-QueryLayoutDemo.storyName = "Query Layout";
+QueryLayoutDemo.storyName = 'Query Layout';
 QueryLayoutDemo.args = {
 	...QueryLayoutData,
 	constructNav: false,
@@ -149,7 +149,6 @@ QueryLayoutDemo.args = {
 
 QueryLayoutDemo.parameters = {
 	controls: {
-		include: ['headerControls', 'constructNav']
-	}
-}
-
+		include: ['headerControls', 'constructNav'],
+	},
+};

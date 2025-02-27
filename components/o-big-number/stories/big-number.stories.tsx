@@ -2,7 +2,7 @@ import './big-number.scss';
 import {BigNumber} from '../src/tsx/big-number';
 
 export default {
-	title: 'Components/o-big-number',
+	title: 'Deprecated/o-big-number',
 	component: BigNumber,
 	args: {},
 	parameters: {

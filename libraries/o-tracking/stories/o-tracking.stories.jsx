@@ -1,5 +1,5 @@
 export default {
-	title: "Brandless/o-tracking"
+	title: "Maintained/o-tracking"
 };
 
 export const NoJavascript = () => {

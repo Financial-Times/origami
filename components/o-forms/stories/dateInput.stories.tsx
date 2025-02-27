@@ -11,12 +11,12 @@ const hideArg = {
 };
 
 export default {
-	title: 'Components/o-forms/date-input',
+	title: 'Maintained/o-forms/date-input',
 	component: DateInput,
 	argTypes: {
 		onChange: hideArg,
 		values: hideArg,
-    theme: hideArg
+		theme: hideArg,
 	},
 } as ComponentMeta<typeof DateInput>;
 

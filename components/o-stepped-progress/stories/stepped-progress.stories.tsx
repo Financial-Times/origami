@@ -4,7 +4,7 @@ import './stepped-progress.scss';
 import javascript from '@financial-times/o-stepped-progress';
 
 export default {
-	title: 'Components/o-stepped-progress',
+	title: 'Maintained/o-stepped-progress',
 	component: SteppedProgress,
 	parameters: {
 		design: {

@@ -1,12 +1,12 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
-import "./ft-affiliate-ribbon.scss";
-import { FtAffiliateRibbon } from "../src/tsx/ft-affiliate-ribbon";
+import {ComponentMeta, ComponentStory} from '@storybook/react';
+import './ft-affiliate-ribbon.scss';
+import {FtAffiliateRibbon} from '../src/tsx/ft-affiliate-ribbon';
 
 export default {
-	title: "Components/o-ft-affiliate-ribbon",
+	title: 'Maintained/o-ft-affiliate-ribbon',
 	component: FtAffiliateRibbon,
 	parameters: {
-		layout: "fullscreen",
+		layout: 'fullscreen',
 	},
 } as ComponentMeta<typeof FtAffiliateRibbon>;
 
@@ -15,4 +15,4 @@ export const FtAffiliateRibbonStory: ComponentStory<
 > = () => {
 	return <FtAffiliateRibbon />;
 };
-FtAffiliateRibbonStory.storyName = "Default FT Affiliate Ribbon";
+FtAffiliateRibbonStory.storyName = 'Default FT Affiliate Ribbon';

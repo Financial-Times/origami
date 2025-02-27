@@ -16,7 +16,7 @@ defaultDateTimeObj.setHours(new Date().getHours() - 6);
 const defaultDateTime = defaultDateTimeObj.getTime();
 
 export default {
-	title: 'Components/o-date',
+	title: 'Maintained/o-date',
 	component: ODate,
 	argTypes: {
 		dateTime: {control: 'date', defaultValue: defaultDateTime},
@@ -33,18 +33,15 @@ export default {
 			],
 		},
 		textCase: {
-			options: [
-				null,
-				'sentence'
-			],
+			options: [null, 'sentence'],
 			control: {
 				type: 'select',
 				labels: {
-					'null': 'Default',
-					'sentence': 'Sentence'
+					null: 'Default',
+					sentence: 'Sentence',
 				},
-			}
-		}
+			},
+		},
 	},
 	parameters: {controls: {sort: 'requiredFirst'}},
 } as ComponentMeta<typeof ODate>;

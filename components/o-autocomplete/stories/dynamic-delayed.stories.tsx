@@ -6,7 +6,7 @@ import oAutoComplete from '../main.js';
 import {debounce} from '@financial-times/o-utils';
 
 export default {
-	title: 'Components/o-autocomplete',
+	title: 'Maintained/o-autocomplete',
 	parameters: {
 		html: {},
 	},

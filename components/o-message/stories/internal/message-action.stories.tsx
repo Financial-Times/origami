@@ -5,7 +5,7 @@ import javascript from '../../main';
 import '../message.scss';
 
 export default {
-	title: 'Components/o-message',
+	title: 'Maintained/o-message',
 	component: ActionMessage,
 	parameters: {},
 	args: {

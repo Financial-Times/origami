@@ -4,7 +4,7 @@ import './expander.scss';
 import {useEffect} from 'react';
 
 export default {
-	title: 'Components/o-expander',
+	title: 'Maintained/o-expander',
 	component: Expander,
 	parameters: {
 		html: {},

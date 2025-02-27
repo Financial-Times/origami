@@ -1,6 +1,6 @@
 export default {
 	title:
-		'Components/o-teaser-collection/Responsive Heading full width on desktop ',
+		'Maintained/o-teaser-collection/Responsive Heading full width on desktop ',
 	args: {},
 	parameters: {
 		html: {},

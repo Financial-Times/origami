@@ -4,7 +4,7 @@ import javascript from '../main';
 import './cookie-message.scss';
 
 export default {
-	title: 'Components/o-cookie-message',
+	title: 'Maintained/o-cookie-message',
 	component: CookieMessage,
 	args: {},
 	parameters: {

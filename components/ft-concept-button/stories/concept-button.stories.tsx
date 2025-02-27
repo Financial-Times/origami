@@ -3,7 +3,7 @@ import {useArgs} from '@storybook/client-api';
 import './concept-button.scss';
 
 export default {
-	title: 'Components/ft-concept-button',
+	title: 'Maintained/ft-concept-button',
 	component: ConceptButton,
 	// @deprecated The concept pill is a candidate for deprecation.
 	// They were only ever intended as use as links button use a
@@ -15,7 +15,7 @@ export default {
 		'ConceptPill',
 		'OpinionPill',
 		'InversePill',
-		'MonochromePill'
+		'MonochromePill',
 	],
 	parameters: {
 		design: {

@@ -2,9 +2,9 @@ import {Heading} from '../src/tsx/typography';
 import './typography.scss';
 
 export default {
-	title: 'Components/o-typography',
+	title: 'Deprecated/o-typography',
 	component: Heading,
-    args: {},
+	args: {},
 	parameters: {
 		design: {
 			type: 'figma',
@@ -17,12 +17,14 @@ export default {
 	},
 };
 
-export const UIHeadings = args => <>
-	<Heading level={1} copy={args.copy || 'Heading level 1'} />
-	<Heading level={2} copy={args.copy || 'Heading level 2'} />
-	<Heading level={3} copy={args.copy || 'Heading level 3'} />
-	<Heading level={4} copy={args.copy || 'Heading level 4'} />
-	<Heading level={5} copy={args.copy || 'Heading level 5'} />
-	<Heading level={6} copy={args.copy || 'Heading level 6'} />
-</>;
-UIHeadings.args = {copy: '' };
+export const UIHeadings = args => (
+	<>
+		<Heading level={1} copy={args.copy || 'Heading level 1'} />
+		<Heading level={2} copy={args.copy || 'Heading level 2'} />
+		<Heading level={3} copy={args.copy || 'Heading level 3'} />
+		<Heading level={4} copy={args.copy || 'Heading level 4'} />
+		<Heading level={5} copy={args.copy || 'Heading level 5'} />
+		<Heading level={6} copy={args.copy || 'Heading level 6'} />
+	</>
+);
+UIHeadings.args = {copy: ''};

@@ -3,7 +3,7 @@ import {ButtonGroup} from '../src/tsx/group';
 import './button.scss';
 
 export default {
-	title: 'Components/o-buttons',
+	title: 'Deprecated/o-buttons',
 	component: ButtonGroup,
 	args: {},
 	parameters: {
@@ -13,20 +13,28 @@ export default {
 	},
 };
 
-const ButtonGroupStory = args => <ButtonGroup>
-	{args.buttons.map((buttonProps, index) => <Button {...buttonProps} key={index}/>)}
-</ButtonGroup>;
+const ButtonGroupStory = args => (
+	<ButtonGroup>
+		{args.buttons.map((buttonProps, index) => (
+			<Button {...buttonProps} key={index} />
+		))}
+	</ButtonGroup>
+);
 
 export const GroupedButtons = ButtonGroupStory.bind({});
 GroupedButtons.args = {
-	buttons: [{
-		label: 'button one',
-		type: 'secondary',
-	}, {
-		label: 'button two',
-		type: 'secondary',
-	}, {
-		label: 'button three',
-		type: 'secondary',
-	}]
+	buttons: [
+		{
+			label: 'button one',
+			type: 'secondary',
+		},
+		{
+			label: 'button two',
+			type: 'secondary',
+		},
+		{
+			label: 'button three',
+			type: 'secondary',
+		},
+	],
 };

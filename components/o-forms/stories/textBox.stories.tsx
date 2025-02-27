@@ -11,7 +11,7 @@ const hideArg = {
 };
 
 export default {
-	title: 'Components/o-forms/text-box',
+	title: 'Maintained/o-forms/text-box',
 	component: TextInput,
 	argTypes: {
 		onChange: hideArg,

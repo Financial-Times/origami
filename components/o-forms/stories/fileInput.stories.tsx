@@ -11,11 +11,11 @@ const hideArg = {
 };
 
 export default {
-	title: 'Components/o-forms/file-input',
+	title: 'Maintained/o-forms/file-input',
 	component: FileInput,
 	argTypes: {
 		value: hideArg,
-		theme: hideArg
+		theme: hideArg,
 	},
 } as ComponentMeta<typeof FileInput>;
 

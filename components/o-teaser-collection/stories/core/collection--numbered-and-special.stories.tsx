@@ -1,5 +1,5 @@
 export default {
-	title: 'Components/o-teaser-collection/Collection numbered and special',
+	title: 'Maintained/o-teaser-collection/Collection numbered and special',
 	args: {},
 	parameters: {
 		html: {},

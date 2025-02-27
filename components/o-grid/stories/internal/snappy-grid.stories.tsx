@@ -1,5 +1,5 @@
 export default {
-	title: 'Components/o-grid/Snappy Grid',
+	title: 'Maintained/o-grid/Snappy Grid',
 	args: {},
 	parameters: {
 		html: {},

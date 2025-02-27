@@ -11,7 +11,7 @@ const hideArg = {
 };
 
 export default {
-	title: 'Components/o-forms/select-box',
+	title: 'Maintained/o-forms/select-box',
 	component: Select,
 	argTypes: {
 		onChange: hideArg,

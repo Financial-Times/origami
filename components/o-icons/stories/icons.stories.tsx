@@ -4,7 +4,7 @@ import {Icon} from '../src/tsx/icon';
 import './icons.scss';
 
 export default {
-	title: 'Components/o-icons',
+	title: 'Deprecated/o-icons',
 	component: Icon,
 	argTypes: {
 		icon: {
