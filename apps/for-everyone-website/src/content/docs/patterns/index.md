@@ -1,8 +1,6 @@
 ---
 title: Patterns Introduction
-description: Guidelines on component usage within broader user interface patterns.
+description: What is an Origami pattern?
 ---
 
-This is a work in progress. Watch this space! Our main site remains at [origami.ft.com](https://origami.ft.com/). Contact the Origami time at [#design-system-guild](https://financialtimes.enterprise.slack.com/archives/C01481FKWA2) with any questions, feedback, or comments.
-
-
+A pattern combines a collection of components, or defines design guidelines for their use, to achieve an outcome. E.g. A pattern to implement pagination; design guidelines on UI to collect a date for an event vs. a date for a birthday.
