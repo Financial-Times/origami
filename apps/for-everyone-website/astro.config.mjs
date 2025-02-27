@@ -115,6 +115,7 @@ export default defineConfig({
 					label: 'Components (o3)',
 					autogenerate: {
 						directory: 'components',
+						collapsed: true,
 					},
 				},
 				{
