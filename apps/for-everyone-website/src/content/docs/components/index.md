@@ -1,8 +1,14 @@
 ---
 title: Components Introduction
-description: A reference of components
+description: What is an Origami component?
 ---
 
-This is a work in progress. Watch this space! Our main site remains at [origami.ft.com](https://origami.ft.com/). Contact the Origami time at [#design-system-guild](https://financialtimes.enterprise.slack.com/archives/C01481FKWA2) with any questions, feedback, or comments.
+A component is a self contained piece of user interface, from buttons to tables. These may be brought together like building blocks to create new [patterns](/patterns) and products. Allowing the team to focus on where their product adds unique value.
 
+In the past, Origami considered "o3-button" a component. In reality this is a "package" of multiple components and pattens, e.g:
 
+- Primary button
+- Secondary button
+- Ghost button
+- Grouped buttons
+- Pagination
