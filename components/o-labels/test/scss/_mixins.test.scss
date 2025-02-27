@@ -75,8 +75,8 @@
 					@include expect($selector: false) {
 						.o-example-label {
 							font-family: 'metric 2 VF', sans-serif;
-							font-size: 12px;
-							line-height: 16px;
+							font-size: 0.75rem;
+							line-height: 1rem;
 							line-height: 1; // stylelint-disable-line declaration-block-no-duplicate-properties
 							padding: calc(#{2px} - #{1px}) calc(#{4px} - #{1px});
 						}
@@ -153,8 +153,8 @@
 						background-color: rgb(0, 127.50102, 64.16718); // #008040
 						color: white;
 						font-family: 'metric 2 VF', sans-serif;
-						font-size: 12px;
-						line-height: 16px;
+						font-size: 0.75rem;
+						line-height: 1rem;
 						line-height: 1; // stylelint-disable-line declaration-block-no-duplicate-properties
 						padding: calc(#{2px} - #{1px}) calc(#{4px} - #{1px});
 					}
