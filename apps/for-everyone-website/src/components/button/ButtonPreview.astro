@@ -3,6 +3,7 @@ import * as Fluid from './preview/Fluid';
 import * as IconOnly from './preview/Icons-IconOnly';
 import * as WithIcon from './preview/Icons-WithIcon';
 import * as Small from './preview/Sizes-Small';
+import * as Standard from './preview/Themes-Standard';
 import * as Inverse from './preview/Themes-Inverse';
 import * as Mono from './preview/Themes-Mono';
 import * as Ghost from './preview/Types-Ghost';
@@ -17,6 +18,7 @@ const {previewFile, componentProps, brand} = Astro.props;
 const storybookId = `${brand}-o3-button--button`
 
 let component = Primary;
+let themes = ['standard', 'inverse', 'mono'];
 
 switch (previewFile) {
 	case 'Fluid':
@@ -31,11 +33,17 @@ switch (previewFile) {
 	case 'Sizes-Small':
 		component = Small;
 		break;
+	case 'Themes-Standard':
+		component = Standard;
+		themes = [];
+		break;
 	case 'Themes-Inverse':
 		component = Inverse;
+		themes = [];
 		break;
 	case 'Themes-Mono':
 		component = Mono;
+		themes = [];
 		break;
 	case 'Types-Ghost':
 		component = Ghost;
@@ -47,6 +55,6 @@ switch (previewFile) {
 ---
 
 <div>
-	<Preview {component} />
+	<Preview {component} 	themes={themes}/>
 	<FigmaSbLinks {storybookId} sbPathParams={componentProps} />
 </div>

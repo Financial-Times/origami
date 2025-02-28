@@ -1,20 +1,21 @@
 ---
 import {Tabs, TabItem, Code} from '@astrojs/starlight/components';
 
-const {component: Component, html, jsx, mark} = Astro.props;
+const {component: Component, html, jsx, mark, themes} = Astro.props;
 const uniqueID = 'switcher-' + Math.random().toString(36).substring(7);
 ---
 
 <div class="not-content">
 	<div class="slide-switch">
-		<label>
-			Theme:
-			<select name="theme" class="theme-selector" id={`${uniqueID}`}>
-				<option value="standard">Standard</option>
-				<option value="inverse">Inverse</option>
-				<option value="mono">Mono</option>
-			</select>
-		</label>
+		{themes.length > 0 &&
+			<label>
+				Theme:
+				<select name="theme" class="theme-selector" id={`${uniqueID}`}>
+					{themes.map((theme) =>
+						<option class="theme-selector__option" value={theme}>{theme}</option>)}
+				</select>
+			</label>
+		}
 		<label class="switch-label" for={uniqueID}>Show code</label>
 		<label class="switch">
 			<input class="sliding-switch" id={uniqueID} type="checkbox" />
