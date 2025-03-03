@@ -7,6 +7,6 @@ const {brand} = Astro.props;
 const storybookId = `${brand}-o3-foundation-o3-typography-heading--heading-story`
 ---
 <>
-	<Preview component={HeadingPreview} />
+	<Preview component={HeadingPreview} themes={['standard', 'inverse']} />
 	<FigmaSbLinks {storybookId} />
 </>

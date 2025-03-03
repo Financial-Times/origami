@@ -7,5 +7,5 @@ const brand = Astro.props.brand || 'core';
 const storybookIdStandFirst = `${brand}-o3-editorial-typography--stand-first`;
 ---
 
-<Preview component={StandFirstPreview} />
+<Preview component={StandFirstPreview} themes={['standard', 'inverse']} />
 <FigmaSbLinks storybookId={storybookIdStandFirst} />

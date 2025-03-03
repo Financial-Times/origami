@@ -7,5 +7,5 @@ const brand = Astro.props.brand || 'core';
 const storybookIdCaption = `${brand}-o3-editorial-typography--caption`;
 ---
 
-<Preview component={CaptionPreview} />
+<Preview component={CaptionPreview} themes={['standard', 'inverse']} />
 <FigmaSbLinks storybookId={storybookIdCaption} />

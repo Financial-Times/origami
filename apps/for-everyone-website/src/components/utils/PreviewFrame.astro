@@ -1,7 +1,7 @@
 ---
 import {Tabs, TabItem, Code} from '@astrojs/starlight/components';
 
-const {component: Component, html, jsx, mark, themes} = Astro.props;
+const {component: Component, html, jsx, mark, themes= []} = Astro.props;
 const uniqueID = 'switcher-' + Math.random().toString(36).substring(7);
 ---
 
