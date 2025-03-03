@@ -37,7 +37,7 @@ jobs:
         with:
           fetch-depth: 0
       - uses: volta-cli/action@v4
-      - uses: actions/cache@v2
+      - uses: actions/cache@v4
         with:
           volta-version: "1.0.8"
           path: ~/.npm
@@ -90,7 +90,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: volta-cli/action@v4
-      - uses: actions/cache@v2
+      - uses: actions/cache@v4
         with:
           volta-version: "1.0.8"
           path: ~/.npm
