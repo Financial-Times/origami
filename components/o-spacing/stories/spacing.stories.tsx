@@ -1,10 +1,9 @@
 import './spacing.scss';
 import {SpacingDemo} from './spacing-demo';
 
-
 export default {
-	title: 'Components/o-spacing',
-    component: SpacingDemo,
+	title: 'Deprecated/o-spacing',
+	component: SpacingDemo,
 	parameters: {
 		guidelines: {},
 		html: {},
@@ -13,5 +12,5 @@ export default {
 
 export const Spacing = SpacingDemo.bind({});
 Spacing.args = {
-    name: 'm12'
+	name: 'm12',
 };

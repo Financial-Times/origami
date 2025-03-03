@@ -12,17 +12,17 @@ const hideArg = {
 
 const Brand = process.env.ORIGAMI_STORYBOOK_BRAND;
 const themeControl =
-	Brand === "core"
+	Brand === 'core'
 		? {
 				control: {
-					type: "select",
+					type: 'select',
 				},
-				options: [undefined, "professional", "professional-inverse", "ft-live"],
+				options: [undefined, 'professional', 'professional-inverse', 'ft-live'],
 		  }
 		: hideArg;
 
 export default {
-	title: 'Components/o-forms/box-radio-buttons',
+	title: 'Maintained/o-forms/box-radio-buttons',
 	component: RadioBtnsBox,
 	args: {},
 	argTypes: {
@@ -51,54 +51,54 @@ export const StateBoxRadioButton = Template.bind({});
 
 BoxRadioButton.args = {
 	children: [
-		<RadioBtn name="default" value="Daily" checked/>,
-		<RadioBtn name="default" value="Weekly"/>,
+		<RadioBtn name="default" value="Daily" checked />,
+		<RadioBtn name="default" value="Weekly" />,
 	],
 	title: 'Box style radio buttons',
 	description: 'Optional prompt text',
-	isOptional: true
+	isOptional: true,
 };
 
 NegativeHighlight.args = {
 	children: [
-		<RadioBtn name="default" value="Yes"/>,
-		<RadioBtn name="default" value="No" checked isNegative/>,
+		<RadioBtn name="default" value="Yes" />,
+		<RadioBtn name="default" value="No" checked isNegative />,
 	],
 	title: 'Negative highlight',
-	description: 'Requires a modifier on the label'
+	description: 'Requires a modifier on the label',
 };
 
 MultipleBoxRadioButton.args = {
 	children: [
-		<RadioBtn name="default" value="Daily"/>,
-		<RadioBtn name="default" value="Weekly" checked/>,
-		<RadioBtn name="default" value="Monthly"/>,
+		<RadioBtn name="default" value="Daily" />,
+		<RadioBtn name="default" value="Weekly" checked />,
+		<RadioBtn name="default" value="Monthly" />,
 	],
-	title: 'Multiple box-styled radio buttons'
+	title: 'Multiple box-styled radio buttons',
 };
 
 DisabledBoxRadioButton.args = {
 	children: [
-		<RadioBtn name="default" value="Daily" checked disabled/>,
-		<RadioBtn name="default" value="Weekly" checked disabled/>,
+		<RadioBtn name="default" value="Daily" checked disabled />,
+		<RadioBtn name="default" value="Weekly" checked disabled />,
 	],
-	title: 'Disabled box-styled radio buttons'
+	title: 'Disabled box-styled radio buttons',
 };
 ErrorBoxRadioButton.args = {
 	children: [
-		<RadioBtn name="default" value="Yes"/>,
-		<RadioBtn name="default" value="No"/>,
+		<RadioBtn name="default" value="Yes" />,
+		<RadioBtn name="default" value="No" />,
 	],
 	title: 'Error box-style radio buttons',
-	errorMessage: 'An example error. Try again.'
+	errorMessage: 'An example error. Try again.',
 };
 
 StateBoxRadioButton.args = {
 	children: [
-		<RadioBtn name="default" value="Daily" checked/>,
-		<RadioBtn name="default" value="Weekly"/>,
+		<RadioBtn name="default" value="Daily" checked />,
+		<RadioBtn name="default" value="Weekly" />,
 	],
 	title: 'Stateful Box Button',
 	description: 'Also available with icon only',
-	state: 'saving'
+	state: 'saving',
 };

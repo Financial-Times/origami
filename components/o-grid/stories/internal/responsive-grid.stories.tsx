@@ -1,5 +1,5 @@
 export default {
-	title: 'Components/o-grid/Responsive Grid',
+	title: 'Maintained/o-grid/Responsive Grid',
 	args: {},
 	parameters: {
 		html: {},

@@ -2,9 +2,9 @@ import {Link} from '../src/tsx/typography';
 import './typography.scss';
 
 export default {
-	title: 'Components/o-typography',
+	title: 'Deprecated/o-typography',
 	component: Link,
-    args: {},
+	args: {},
 	parameters: {
 		design: {
 			type: 'figma',
@@ -22,5 +22,5 @@ const Story = args => <Link {...args} />;
 export const StandardLink = Story.bind({});
 StandardLink.args = {
 	children: 'link to another page',
-	href: '#'
+	href: '#',
 };

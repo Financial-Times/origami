@@ -3,7 +3,7 @@ import {TopBanner} from '../src/tsx/top-banner';
 import './top-banner.scss';
 
 export default {
-	title: 'Components/o-top-banner',
+	title: 'Maintained/o-top-banner',
 	component: TopBanner,
 	parameters: {},
 	args: {},
@@ -11,24 +11,26 @@ export default {
 
 const TopBannerStory = args => <TopBanner {...args} />;
 
-export const NewWorldTopBanner: ComponentStory<typeof TopBanner> = TopBannerStory.bind({});
+export const NewWorldTopBanner: ComponentStory<typeof TopBanner> =
+	TopBannerStory.bind({});
 NewWorldTopBanner.args = {
 	heading: 'Make sense of it all.',
 	content: 'Become an FT subscriber. Pay annually and save 20%',
-	primaryAction:  {
+	primaryAction: {
 		copy: 'Subscribe now',
 		url: '#',
 	},
-	theme:'new-world'
+	theme: 'new-world',
 };
 
-export const InverseProfessionalTopBanner: ComponentStory<typeof TopBanner> = TopBannerStory.bind({});
+export const InverseProfessionalTopBanner: ComponentStory<typeof TopBanner> =
+	TopBannerStory.bind({});
 InverseProfessionalTopBanner.args = {
 	heading: 'You can now access Workspace',
 	content: 'Only available with your FT Professional subscription',
-	primaryAction:  {
+	primaryAction: {
 		copy: 'Visit Workspace',
 		url: '#',
 	},
-	theme:'professional-inverse'
+	theme: 'professional-inverse',
 };

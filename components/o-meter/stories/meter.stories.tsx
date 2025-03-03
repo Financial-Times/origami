@@ -6,7 +6,7 @@ import './meter.scss';
 import {higherIsBetterDemoData, lowerIsBetterDemoData} from './meterData';
 
 export default {
-	title: 'Components/o-meter',
+	title: 'Maintained/o-meter',
 	component: Meter,
 	args: {
 		min: 0,

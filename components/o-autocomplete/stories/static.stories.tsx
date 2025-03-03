@@ -5,7 +5,7 @@ import '@financial-times/o-forms';
 import {useEffect} from 'react';
 
 export default {
-	title: 'Components/o-autocomplete',
+	title: 'Maintained/o-autocomplete',
 	parameters: {
 		html: {},
 	},

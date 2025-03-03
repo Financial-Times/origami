@@ -1,5 +1,5 @@
 export default {
-	title: 'Components/o-editorial-typography/Headline Large',
+	title: 'Deprecated/o-editorial-typography/Headline Large',
 	args: {},
 	parameters: {
 		html: {},

@@ -4,7 +4,7 @@ import javascript from '../main';
 import './banner.scss';
 
 export default {
-	title: 'Components/o-banner',
+	title: 'Maintained/o-banner',
 	component: Banner,
 	args: {},
 	parameters: {
@@ -35,7 +35,7 @@ Default.args = {
 	content:
 		"Try the new compact homepage. A list view of today's homepage with fewer images.",
 	abbreviatedContent: 'Try it now',
-	navigationLabel: "Try the new homepage",
+	navigationLabel: 'Try the new homepage',
 	showCloseButton: true,
 	closeButtonLabel: 'Close',
 	primaryAction: {
@@ -60,7 +60,7 @@ FormPrimaryAction.args = {
 	content:
 		"Try the new compact homepage. A list view of today's homepage with fewer images.",
 	abbreviatedContent: 'Try it now',
-	navigationLabel: "Try the new homepage",
+	navigationLabel: 'Try the new homepage',
 	showCloseButton: true,
 	closeButtonLabel: 'Close',
 	primaryAction: {
@@ -89,7 +89,7 @@ Small.args = {
 	content:
 		"Try the new compact homepage. A list view of today's homepage with fewer images.",
 	abbreviatedContent: 'Try it now',
-	navigationLabel: "Try the new homepage",
+	navigationLabel: 'Try the new homepage',
 	showCloseButton: true,
 	closeButtonLabel: 'Close',
 	primaryAction: {
@@ -114,7 +114,7 @@ Compact.args = {
 	content:
 		"Try the new compact homepage. A list view of today's homepage with fewer images.",
 	abbreviatedContent: 'Try it now',
-	navigationLabel: "Try the new homepage",
+	navigationLabel: 'Try the new homepage',
 	showCloseButton: true,
 	closeButtonLabel: 'Close',
 	primaryAction: {
@@ -139,7 +139,7 @@ Marketing.args = {
 	content:
 		"Try the new compact homepage. A list view of today's homepage with fewer images.",
 	abbreviatedContent: 'Try it now',
-	navigationLabel: "Try the new homepage",
+	navigationLabel: 'Try the new homepage',
 	showCloseButton: true,
 	closeButtonLabel: 'Close',
 	primaryAction: {
@@ -161,7 +161,7 @@ Product.args = {
 	content:
 		"Try the new compact homepage. A list view of today's homepage with fewer images.",
 	abbreviatedContent: 'Try it now',
-	navigationLabel: "Try the new homepage",
+	navigationLabel: 'Try the new homepage',
 	showCloseButton: true,
 	closeButtonLabel: 'Close',
 	primaryAction: {

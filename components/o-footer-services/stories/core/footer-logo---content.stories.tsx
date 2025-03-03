@@ -1,5 +1,5 @@
 export default {
-	title: 'Components/o-footer-services/Footer Logo and Content',
+	title: 'Maintained/o-footer-services/Footer Logo and Content',
 	args: {},
 	parameters: {
 		html: {},

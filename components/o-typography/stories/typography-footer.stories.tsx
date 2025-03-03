@@ -2,9 +2,9 @@ import {Footer as FooterComponent} from '../src/tsx/typography';
 import './typography.scss';
 
 export default {
-	title: 'Components/o-typography',
+	title: 'Deprecated/o-typography',
 	component: FooterComponent,
-    args: {},
+	args: {},
 	parameters: {
 		design: {
 			type: 'figma',
@@ -17,4 +17,6 @@ export default {
 	},
 };
 
-export const Footer = args => <FooterComponent {...args}>Footer such as copyright notice.</FooterComponent>;
+export const Footer = args => (
+	<FooterComponent {...args}>Footer such as copyright notice.</FooterComponent>
+);

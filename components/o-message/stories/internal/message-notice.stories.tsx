@@ -13,14 +13,14 @@ import {
 import '../message.scss';
 
 export default {
-	title: 'Components/o-message',
+	title: 'Maintained/o-message',
 	component: NoticeMessage,
 	argTypes: {
 		state: {
 			options: ['inform', 'feedback', 'warning', 'warning-light'],
 		},
 	},
-	...ComponentDescription
+	...ComponentDescription,
 };
 
 export {
@@ -32,4 +32,4 @@ export {
 	NoticeInnerWarning,
 	NoticeFeedback,
 	NoticeInnerFeedback,
-}
+};

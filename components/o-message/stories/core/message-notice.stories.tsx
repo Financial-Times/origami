@@ -4,24 +4,19 @@ import {
 	NoticeInform,
 	NoticeInnerInform,
 	NoticeFeedback,
-	NoticeInnerFeedback
+	NoticeInnerFeedback,
 } from '../shared/message-notice';
 import '../message.scss';
 
 export default {
-	title: 'Components/o-message',
+	title: 'Maintained/o-message',
 	component: NoticeMessage,
 	argTypes: {
 		state: {
 			options: ['inform', 'feedback'],
 		},
 	},
-	...ComponentDescription
+	...ComponentDescription,
 };
 
-export {
-	NoticeInform,
-	NoticeInnerInform,
-	NoticeFeedback,
-	NoticeInnerFeedback
-}
+export {NoticeInform, NoticeInnerInform, NoticeFeedback, NoticeInnerFeedback};

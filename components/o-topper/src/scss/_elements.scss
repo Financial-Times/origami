@@ -98,7 +98,7 @@
 	%_o-topper__tag {
 		// Non-linked tags and author tags are the same colour as the body copy.
 		@if not is-superselector('a', '#{&}') {
-			color: oColorsByUsecase('body', 'text');
+			color: oPrivateFoundationGet('o3-color-use-case-body-text');
 		}
 
 		font-family: oPrivateFoundationGet('o3-type-body-highlight-font-family');

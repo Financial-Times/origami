@@ -1,19 +1,19 @@
-import { ComponentMeta, Story } from "@storybook/react";
-import { useEffect, ComponentProps } from "react";
+import {ComponentMeta, Story} from '@storybook/react';
+import {useEffect, ComponentProps} from 'react';
 
-import { HeaderWithTitleSection } from "@financial-times/o-header-services/stories/header-services.stories";
-import Table from "@financial-times/o-table/main";
-import SyntaxHighlight from "@financial-times/o-syntax-highlight/main";
-import Tabs from "@financial-times/o-tabs/main";
-import Forms from "@financial-times/o-forms/main";
+import {HeaderWithTitleSection} from '@financial-times/o-header-services/stories/header-services.stories';
+import Table from '@financial-times/o-table/main';
+import SyntaxHighlight from '@financial-times/o-syntax-highlight/main';
+import Tabs from '@financial-times/o-tabs/main';
+import Forms from '@financial-times/o-forms/main';
 
-import { DefaultLayout as Layout, DocsLayout } from "../src/tsx/layout";
-import javascript from "../main.js";
-import "./layout.scss";
-import { DemoFooter, DemoMainContent } from "./fixtures";
+import {DefaultLayout as Layout, DocsLayout} from '../src/tsx/layout';
+import javascript from '../main.js';
+import './layout.scss';
+import {DemoFooter, DemoMainContent} from './fixtures';
 
 export type AdditionalSbProps = {
-	headerControls: { title: string };
+	headerControls: {title: string};
 	mainControls: string;
 	footerControls: string;
 	heroMuted?: boolean;
@@ -26,7 +26,7 @@ type DocsLayoutStoryProps = ComponentProps<typeof DocsLayout> &
 	AdditionalSbProps;
 
 export default {
-	title: "Components/o-layout",
+	title: 'Maintained/o-layout',
 	component: Layout,
 	parameters: {},
 	args: {
@@ -35,11 +35,11 @@ export default {
 		headerControls: HeaderWithTitleSection.args,
 	},
 	argTypes: {
-		mainContent: { control: { disable: true } },
-		footer: { control: { disable: true } },
-		header: { control: { disable: true } },
+		mainContent: {control: {disable: true}},
+		footer: {control: {disable: true}},
+		header: {control: {disable: true}},
 	},
-	excludeStories: ["defaultControlsToProps"],
+	excludeStories: ['defaultControlsToProps'],
 } as ComponentMeta<typeof Layout>;
 
 export function defaultControlsToProps(args) {
@@ -65,9 +65,9 @@ DefaultLayout.args = {
 
 DefaultLayout.parameters = {
 	controls: {
-		include: ['headerControls', 'bleed']
-	}
-}
+		include: ['headerControls', 'bleed'],
+	},
+};
 
 export const DocumentationLayout: Story<DocsLayoutStoryProps> = args => {
 	useEffect(() => {
@@ -96,11 +96,11 @@ export const DocumentationLayout: Story<DocsLayoutStoryProps> = args => {
 };
 DocumentationLayout.args = {
 	constructNav: true,
-	customNavHeadingSelector: "",
+	customNavHeadingSelector: '',
 };
 
 DocumentationLayout.parameters = {
 	controls: {
-		include: ['headerControls', 'constructNav']
-	}
-}
+		include: ['headerControls', 'constructNav'],
+	},
+};

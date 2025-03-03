@@ -21,7 +21,7 @@ const LanguageMapping = {
 };
 
 export default {
-	title: 'Components/o-syntax-highlight',
+	title: 'Maintained/o-syntax-highlight',
 	component: SyntaxHighlightBlock,
 	parameters: {},
 	args: {},

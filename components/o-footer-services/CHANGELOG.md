@@ -1,5 +1,13 @@
 # Changelog
 
+## [5.0.1](https://github.com/Financial-Times/origami/compare/o-footer-services-v5.0.0...o-footer-services-v5.0.1) (2025-02-26)
+
+
+### Bug Fixes
+
+* Remove unused o-buttons reference ([1be12a8](https://github.com/Financial-Times/origami/commit/1be12a809a44421541412363671445477454656a))
+* Remove unused o-icons iSass imports ([e8b105f](https://github.com/Financial-Times/origami/commit/e8b105fa887fbc50e5030fb1f398989df290046b))
+
 ## [5.0.0](https://github.com/Financial-Times/origami/compare/o-footer-services-v4.2.8...o-footer-services-v5.0.0) (2025-02-20)
 
 ### ⚠ BREAKING CHANGES

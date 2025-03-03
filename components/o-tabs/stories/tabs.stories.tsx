@@ -4,10 +4,9 @@ import javascript from '../main';
 import './tabs.scss';
 
 export default {
-	title: 'Components/o-tabs',
+	title: 'Maintained/o-tabs',
 	component: Tabs,
-	args: {
-	},
+	args: {},
 	parameters: {
 		guidelines: {},
 		html: {},
@@ -20,7 +19,7 @@ const Story = args => {
 		return function cleanup() {
 			tabs = Array.isArray(tabs) ? tabs : [tabs];
 			tabs.forEach(tab => tab.destroy());
-		}
+		};
 	}, [args.updateUrlHash]);
 	return <Tabs {...args} />;
 };
@@ -31,51 +30,51 @@ Default.args = {
 		{
 			heading: 'Tab 1',
 			content: 'Tab content 1',
-			id: 'demo-tab-1'
+			id: 'demo-tab-1',
 		},
 		{
 			heading: 'Tab 2',
 			content: 'Tab content 2',
-			id: 'demo-tab-2'
+			id: 'demo-tab-2',
 		},
 		{
 			heading: 'Tab 3',
 			content: 'Tab content 3',
-			id: 'demo-tab-3'
-		}
+			id: 'demo-tab-3',
+		},
 	],
 	type: 'secondary',
 	theme: '',
 	size: '',
-	updateUrlHash: true
+	updateUrlHash: true,
 };
 
 export const Inverse = Story.bind({});
 Inverse.parameters = {
-	origamiBackground: 'slate'
+	origamiBackground: 'slate',
 };
 Inverse.args = {
 	tabs: [
 		{
 			heading: 'Tab 1',
 			content: 'Tab content 1',
-			id: 'demo-tab-1'
+			id: 'demo-tab-1',
 		},
 		{
 			heading: 'Tab 2',
 			content: 'Tab content 2',
-			id: 'demo-tab-2'
+			id: 'demo-tab-2',
 		},
 		{
 			heading: 'Tab 3',
 			content: 'Tab content 3',
-			id: 'demo-tab-3'
-		}
+			id: 'demo-tab-3',
+		},
 	],
 	type: 'secondary',
 	theme: 'inverse',
 	size: '',
-	updateUrlHash: true
+	updateUrlHash: true,
 };
 
 export const Big = Story.bind({});
@@ -84,21 +83,21 @@ Big.args = {
 		{
 			heading: 'Tab 1',
 			content: 'Tab content 1',
-			id: 'demo-tab-1'
+			id: 'demo-tab-1',
 		},
 		{
 			heading: 'Tab 2',
 			content: 'Tab content 2',
-			id: 'demo-tab-2'
+			id: 'demo-tab-2',
 		},
 		{
 			heading: 'Tab 3',
 			content: 'Tab content 3',
-			id: 'demo-tab-3'
-		}
+			id: 'demo-tab-3',
+		},
 	],
 	type: 'secondary',
 	theme: '',
 	size: 'big',
-	updateUrlHash: true
+	updateUrlHash: true,
 };

@@ -21,7 +21,7 @@ argTypes.customSlot = {
 };
 
 export default {
-	title: 'Components/o-teaser',
+	title: 'Maintained/o-teaser',
 	component: Teaser,
 	parameters: {},
 } as ComponentMeta<typeof Teaser>;

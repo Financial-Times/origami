@@ -99,6 +99,13 @@ export default defineConfig({
 					},
 				},
 				{
+					label: 'Contribution',
+					collapsed: true,
+					autogenerate: {
+						directory: 'contribution',
+					},
+				},
+				{
 					label: 'Foundations (o3)',
 					autogenerate: {
 						directory: 'guides',
@@ -108,6 +115,7 @@ export default defineConfig({
 					label: 'Components (o3)',
 					autogenerate: {
 						directory: 'components',
+						collapsed: true,
 					},
 				},
 				{

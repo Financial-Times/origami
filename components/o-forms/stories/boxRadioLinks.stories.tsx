@@ -12,11 +12,11 @@ const hideArg = {
 };
 
 export default {
-	title: 'Components/o-forms/pseudo-box-radio-links',
+	title: 'Maintained/o-forms/pseudo-box-radio-links',
 	component: RadioBoxLinks,
 	argTypes: {
 		children: hideArg,
-    theme: hideArg,
+		theme: hideArg,
 		...demoArgs,
 	},
 } as ComponentMeta<typeof RadioBoxLinks>;
