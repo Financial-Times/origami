@@ -21,7 +21,7 @@ const TypeUsecaseTokensByItem = Object.groupBy(TypeUsecaseTokens, (token) => tok
             <h3>{key}</h3>
             <p>{tokens[0].description}</p>
 
-            <PreviewFrame html={`<span class="o3-type-${key}">Make sense of it all</span>`} mark={`class="o3-type-${key}`} />
+            <PreviewFrame themes={['standard', 'inverse']} html={`<span class="o3-type-${key}">Make sense of it all</span>`} mark={`class="o3-type-${key}`} />
 
             <table class="color-table">
                 <thead>

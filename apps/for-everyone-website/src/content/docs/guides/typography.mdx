@@ -177,10 +177,13 @@ Label styles are smaller, utilitarian styles, used for very small text within bo
 The link style can be applied inline (within a paragraph or body text) or standalone. The inline links inherit the text properties of the body it is in. Its focus style follows the global Origami focus for single ring element.
 
 This example shows a link within copy that uses `body-base`.
-<PreviewFrame html={`<span class="o3-type-body-base">Make <a href="#">sense of</a> it all.</span>`} mark={`a href`} />
+<PreviewFrame themes={['standard', 'inverse']}
+							html={`<span class="o3-type-body-base">Make <a href="#">sense of</a> it all.</span>`} mark={`a href`} />
 
 Here is another example which shows a link within `body-content-base`.
-<PreviewFrame html={`<span class="o3-type-body-content-base">Make <a href="#">sense of</a> it all.</span>`} mark={`a href`} />
+<PreviewFrame themes={['standard', 'inverse']}
+							html={`<span class="o3-type-body-content-base">Make <a href="#">sense of</a> it all.</span>`}
+							mark={`a href`} />
 
 ## UI Components
 
@@ -215,13 +218,17 @@ Lists allow users to view two or more individual, but related, text items groupe
     ### Body
     For article body use the [`body-content` typography use-case](#body-content) as above.
 
-	<PreviewFrame html={`<span class="o3-type-body-content-base">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet earum libero at voluptatum <strong>highlight</strong> illum facere totam architecto eum porro exercitationem, ea, <em>emphasis</em> accusamus quia? Repellat beatae similique ab? Reprehenderit, ullam quae?`} mark={`o3-type-body-content-base`} />
+	<PreviewFrame themes={['standard', 'inverse']}
+								html={`<span class="o3-type-body-content-base">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet earum libero at voluptatum <strong>highlight</strong> illum facere totam architecto eum porro exercitationem, ea, <em>emphasis</em> accusamus quia? Repellat beatae similique ab? Reprehenderit, ullam quae?`}
+								mark={`o3-type-body-content-base`} />
 
 	### Drop Cap
 
 	Use for stylistic emphasis on the first letter of an article.
 
-	<PreviewFrame html={`<span class="o3-type-body-content-base o3-editorial-typography-drop-cap">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet earum libero at voluptatum <strong>highlight</strong> illum facere totam architecto eum porro exercitationem, ea, <em>emphasis</em> accusamus quia? Repellat beatae similique ab? Reprehenderit, ullam quae?`} mark={`o3-editorial-typography-drop-cap`} />
+	<PreviewFrame themes={['standard', 'inverse']}
+								html={`<span class="o3-type-body-content-base o3-editorial-typography-drop-cap">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet earum libero at voluptatum <strong>highlight</strong> illum facere totam architecto eum porro exercitationem, ea, <em>emphasis</em> accusamus quia? Repellat beatae similique ab? Reprehenderit, ullam quae?`}
+								mark={`o3-editorial-typography-drop-cap`} />
 
     ### Quotes
 
