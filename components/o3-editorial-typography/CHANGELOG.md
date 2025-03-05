@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.0](https://github.com/Financial-Times/origami/compare/o3-editorial-typography-v3.0.2...o3-editorial-typography-v3.1.0) (2025-03-05)
+
+
+### Features
+
+* Update colours with a new `support-text` use-case and corrected SV colours ([cd2d83f](https://github.com/Financial-Times/origami/commit/cd2d83fdf1e6644369e462b37c60524db79bf07e))
+
 ## [3.0.2](https://github.com/Financial-Times/origami/compare/o3-editorial-typography-v3.0.1...o3-editorial-typography-v3.0.2) (2025-02-25)
 
 

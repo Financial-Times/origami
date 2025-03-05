@@ -1,6 +1,6 @@
 {
 	"name": "@financial-times/o-private-foundation",
-	"version": "1.0.4",
+	"version": "1.1.0",
 	"description": "Foundation components for use in Origami components only.",
 	"keywords": [],
 	"homepage": "https://registry.origami.ft.com/components/o-private-foundation",
