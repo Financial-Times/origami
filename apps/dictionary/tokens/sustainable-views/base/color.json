@@ -104,6 +104,10 @@
           "value": "#807973ff",
           "type": "color"
         },
+        "black-70": {
+          "value": "#4d4d4d",
+          "type": "color"
+        },
         "teal-40": {
           "value": "#0a5e66ff",
           "type": "color"
