@@ -9,6 +9,8 @@ function ButtonPreview() {
 		</>
 	);
 }
+
+export const themes = {};
 export const filePath = 'src/components/button/preview/Themes-Mono.tsx';
 
 export {ButtonPreview as preview};

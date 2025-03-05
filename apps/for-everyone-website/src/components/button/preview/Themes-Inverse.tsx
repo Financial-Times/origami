@@ -9,5 +9,7 @@ function ButtonPreview() {
 		</>
 	);
 }
+
+export const themes = {};
 export const filePath = 'src/components/button/preview/Themes-Inverse.tsx';
 export {ButtonPreview as preview};

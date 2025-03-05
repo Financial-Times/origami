@@ -2,7 +2,7 @@
 import * as Component from './preview/Group-Buttons.tsx'
 import Preview from '../utils/Preview.astro';
 import FigmaSbLinks from '../utils/FigmaSbLinks.astro';
-import { getButtonThemeForBrand } from './getButtonThemeForBrand';
+import {buttonThemes} from './getButtonThemeForBrand';
 
 const {brand} = Astro.props;
 
@@ -10,6 +10,6 @@ const storybookId = `${brand}-o3-button--grouped-buttons`;
 ---
 
 <div>
-	<Preview component={Component} themes={getButtonThemeForBrand[brand]} />
+	<Preview component={Component} themes={buttonThemes[brand] || []} />
 	<FigmaSbLinks {storybookId} />
 </div>
