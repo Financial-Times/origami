@@ -37,13 +37,15 @@
 	appearance: none;
 }
 
-.o3-button[disabled] {
+.o3-button[disabled],
+.o3-button[aria-disabled=true] {
 	pointer-events: none;
 	opacity: 0.4;
 	cursor: default;
 }
 
-.o3-button[disabled].o3-button--hide-disabled {
+.o3-button[disabled].o3-button--hide-disabled,
+.o3-button[aria-disabled=true].o3-button--hide-disabled {
 	visibility: hidden;
 }
 
