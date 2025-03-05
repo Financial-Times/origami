@@ -1,5 +1,5 @@
 import {Button} from '@financial-times/o3-button';
-import {buttonThemes} from '../getButtonThemeForBrand.ts';
+import {buttonThemes} from '../buttonThemes.ts';
 
 function ButtonPreview() {
 	return (
