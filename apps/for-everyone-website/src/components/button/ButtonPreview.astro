@@ -9,16 +9,16 @@ import * as Mono from './preview/Themes-Mono';
 import * as Ghost from './preview/Types-Ghost';
 import * as Primary from './preview/Types-Primary';
 import * as Secondary from './preview/Types-Secondary';
-
+import { getButtonThemeForBrand } from './getButtonThemeForBrand';
 import Preview from '../utils/Preview.astro';
 import FigmaSbLinks from '../utils/FigmaSbLinks.astro';
 
 const {previewFile, componentProps, brand} = Astro.props;
 
-const storybookId = `${brand}-o3-button--button`
+const storybookId = `${brand}-o3-button--button`;
 
 let component = Primary;
-let themes = ['standard', 'inverse', 'mono'];
+let themes = getButtonThemeForBrand[brand] || [];
 
 switch (previewFile) {
 	case 'Fluid':
@@ -55,6 +55,6 @@ switch (previewFile) {
 ---
 
 <div>
-	<Preview {component} 	themes={themes}/>
+	<Preview {component} themes={themes} />
 	<FigmaSbLinks {storybookId} sbPathParams={componentProps} />
 </div>
