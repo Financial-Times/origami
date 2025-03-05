@@ -371,6 +371,28 @@ export default {
 		"css": "--o3-color-palette-black-50",
 		"figma": "o3/color/palette/black-50"
 },
+	"o3-color-palette-black-70": {
+		"shortName": "black-70",
+		"value": "#4d4d4d",
+		"originalValue": "#4d4d4d",
+		"type": "color",
+		"attributes": {
+				"item": "palette",
+				"subitem": "black-70"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"black-70"
+		],
+		"origamiTint": {
+				"base": "black",
+				"value": "70"
+		},
+		"css": "--o3-color-palette-black-70",
+		"figma": "o3/color/palette/black-70"
+},
 	"o3-color-palette-teal-40": {
 		"shortName": "teal-40",
 		"value": "#0a5e66",
@@ -622,6 +644,26 @@ export default {
 		],
 		"css": "--o3-color-use-case-muted-text",
 		"figma": "o3/color/use-case/muted/text"
+},
+	"o3-color-use-case-support-text": {
+		"shortName": "text",
+		"value": "#4d4d4d",
+		"originalValue": "{o3.color.palette.black-70}",
+		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "support",
+				"state": "text"
+		},
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"support",
+				"text"
+		],
+		"css": "--o3-color-use-case-support-text",
+		"figma": "o3/color/use-case/support/text"
 },
 	"o3-color-use-case-muted-inverse-text": {
 		"shortName": "text",
@@ -890,7 +932,7 @@ export default {
 },
 	"o3-color-use-case-error-background": {
 		"shortName": "error-background",
-		"value": "#cc0000",
+		"value": "rgba(204, 0, 0, 0.06)",
 		"originalValue": "rgba(204,0,0,0.06)",
 		"type": "color",
 		"attributes": {
