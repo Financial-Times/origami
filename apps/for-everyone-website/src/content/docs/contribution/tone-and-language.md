@@ -1,6 +1,8 @@
 ---
 title: Tone & language
 description: Origami has a 'Plain English' language guide, which helps us to communicate effectively with our users.
+sidebar:
+  order: 20
 ---
 
 Origami is designed to serve users from a number of different backgrounds, working with a variety of different projects.

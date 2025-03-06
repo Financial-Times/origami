@@ -2,7 +2,7 @@
 title: Requests & Contribution
 description: How to contribute to Origami
 sidebar:
-  order: 13
+  order: 10
 ---
 
 Origami is a collective project and we welcome contributions from all of our users. There are a number of ways that you can contribute, and we provide tooling and processes to help you do that.
