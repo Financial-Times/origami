@@ -8,8 +8,9 @@ import {TemplateSBConfig} from './sb-story-config';
 type ButtonStory = Omit<StoryObj, 'args'> & {
 	args: ButtonProps & {disabled: Boolean};
 };
+
 type LinkButtonStory = Omit<StoryObj, 'args'> & {
-	args: LinkButtonProps & {disabled: Boolean};
+	args: LinkButtonProps & {ariaDisabled: Boolean};
 };
 type ButtonGroupStory = Omit<StoryObj, 'args'> & {
 	args: {
@@ -17,9 +18,7 @@ type ButtonGroupStory = Omit<StoryObj, 'args'> & {
 	};
 };
 
-export type TemplateType = StoryObj & {
-	render: (args) => JSX.Element;
-};
+export type TemplateType = StoryObj;
 
 const ButtonTemplate: TemplateType = {
 	...TemplateSBConfig,
@@ -31,7 +30,7 @@ const ButtonTemplate: TemplateType = {
 const LinkButtonTemplate: TemplateType = {
 	...TemplateSBConfig,
 	render: args => {
-		return <LinkButton {...args} attributes={{disabled: args.disabled}} />;
+		return <LinkButton {...args} attributes={{'aria-disabled': args['aria-disabled']}} />;
 	},
 };
 
@@ -74,7 +73,7 @@ export const LinkAsButton: LinkButtonStory = {
 		label: 'Link button',
 		type: 'secondary',
 		href: '#',
-		disabled: false,
+		['aria-disabled']: false,
 	},
 };
 

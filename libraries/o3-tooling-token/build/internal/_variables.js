@@ -1064,6 +1064,26 @@ export default {
 		"css": "--o3-color-use-case-body-text",
 		"figma": "o3/color/use-case/body/text"
 },
+	"o3-color-use-case-support-text": {
+		"shortName": "text",
+		"value": "#4d4d4d",
+		"originalValue": "{o3.color.palette.black-70}",
+		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "support",
+				"state": "text"
+		},
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"support",
+				"text"
+		],
+		"css": "--o3-color-use-case-support-text",
+		"figma": "o3/color/use-case/support/text"
+},
 	"o3-color-use-case-body-inverse-text": {
 		"shortName": "text",
 		"value": "#ffffff",
@@ -1288,7 +1308,7 @@ export default {
 },
 	"o3-color-use-case-error-background": {
 		"shortName": "error-background",
-		"value": "#cc0000",
+		"value": "rgba(204, 0, 0, 0.06)",
 		"originalValue": "rgba(204,0,0,0.06)",
 		"type": "color",
 		"attributes": {
