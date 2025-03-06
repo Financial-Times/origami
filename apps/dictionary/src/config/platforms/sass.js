@@ -1,12 +1,12 @@
 import path from 'node:path';
-import {sharedTransformers} from '../transformers.js';
+import {webTransformers} from '../transformers.js';
 
 function sassConfigForBrand(brand) {
 	const parentBrand = brand.split('/').slice(-1);
 	return {
 		transformGroup: 'scss',
 		transforms: [
-			...sharedTransformers,
+			...webTransformers,
 			'value/figma-shadow-shorthand',
 			'value/transformSVG',
 		],

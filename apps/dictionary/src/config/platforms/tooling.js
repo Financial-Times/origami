@@ -5,7 +5,7 @@ function toolingConfigForBrand(brand) {
 	const parentBrand = brand.split('/').slice(-1);
 	return {
 		transformGroup: 'js',
-		transforms: [...toolingTransformers, 'Origami/tintGroup'],
+		transforms: toolingTransformers,
 		buildPath: path.join(
 			process.cwd(),
 			'../../libraries/o3-tooling-token/build/'

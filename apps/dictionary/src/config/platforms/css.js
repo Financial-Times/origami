@@ -1,5 +1,5 @@
 import path from 'node:path';
-import {sharedTransformers} from '../transformers.js';
+import {webTransformers} from '../transformers.js';
 import components from '../components.js';
 import {outputReferencesTransformed} from 'style-dictionary/utils';
 
@@ -8,7 +8,7 @@ function cssConfigForBrand(brand) {
 	return {
 		transformGroup: 'css',
 		transforms: [
-			...sharedTransformers,
+			...webTransformers,
 			'value/figma-shadow-shorthand',
 			'value/transformSVG',
 		],
