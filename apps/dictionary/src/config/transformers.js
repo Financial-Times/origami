@@ -1,5 +1,4 @@
-const transformers = [
-	'size/pxToRem',
+const baseTransformers = [
 	'ts/descriptionToComment',
 	'color/css',
 	'ts/color/modifiers',
@@ -7,4 +6,18 @@ const transformers = [
 	'name/origamiPrivatePrefix',
 ];
 
-export {transformers as sharedTransformers};
+const transformers = [
+	...baseTransformers,
+	'size/pxToRem',
+];
+
+const toolingTransformers = [
+	'size/px',
+	// 'size/remToPx',
+	...baseTransformers,
+]
+
+export {
+	transformers as sharedTransformers,
+	toolingTransformers,
+};
