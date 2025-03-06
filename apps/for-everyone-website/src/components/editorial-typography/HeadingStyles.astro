@@ -27,7 +27,7 @@ const storybookIdLabel = `${brand}-o3-editorial-typography--label`;
 	</a>. Applies the <a href="#headline">headline typography use-cases</a> in one responsive style.
 </p>
 
-<Preview component={HeadlinePreview} />
+<Preview component={HeadlinePreview} themes={['standard', 'inverse']} />
 <FigmaSbLinks storybookId={storybookIdHeadline} />
 
 <h4>Lower Headings</h4>
@@ -40,14 +40,14 @@ const storybookIdLabel = `${brand}-o3-editorial-typography--label`;
 
 <p>For in-page titles / chapters.</p>
 
-<Preview component={Chapter} />
+<Preview component={Chapter} themes={['standard', 'inverse']} />
 <FigmaSbLinks storybookId={storybookIdChapter} />
 
 <h5>Subheading</h5>
 
 <p>For in-page sub-titles / sub-headings.</p>
 
-<Preview component={Subheading} />
+<Preview component={Subheading} themes={['standard', 'inverse']} />
 <FigmaSbLinks storybookId={storybookIdSubheading} />
 
 <h5>Label</h5>
@@ -57,5 +57,5 @@ const storybookIdLabel = `${brand}-o3-editorial-typography--label`;
 	above a chapter.
 </p>
 
-<Preview component={Label} />
+<Preview component={Label} themes={['standard', 'inverse']} />
 <FigmaSbLinks storybookId={storybookIdLabel} />

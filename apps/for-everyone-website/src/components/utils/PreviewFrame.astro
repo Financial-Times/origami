@@ -1,12 +1,21 @@
 ---
 import {Tabs, TabItem, Code} from '@astrojs/starlight/components';
 
-const {component: Component, html, jsx, mark} = Astro.props;
+const {component: Component, html, jsx, mark, themes= []} = Astro.props;
 const uniqueID = 'switcher-' + Math.random().toString(36).substring(7);
 ---
 
 <div class="not-content">
 	<div class="slide-switch">
+		{themes.length > 0 &&
+			<label>
+				Theme:
+				<select name="theme" class="theme-selector" id={`${uniqueID}`}>
+					{themes.map((theme) =>
+						<option class="theme-selector__option" value={theme}>{theme}</option>)}
+				</select>
+			</label>
+		}
 		<label class="switch-label" for={uniqueID}>Show code</label>
 		<label class="switch">
 			<input class="sliding-switch" id={uniqueID} type="checkbox" />
@@ -16,7 +25,9 @@ const uniqueID = 'switcher-' + Math.random().toString(36).substring(7);
 
 	<div class="component-preview-wrapper">
 		<div class={`not-content component-preview visible ${uniqueID}`}>
-			{Component ? <Component /> : <Fragment set:html={html} />}
+			{Component ?
+				<Component /> :
+				<Fragment set:html={html} />}
 		</div>
 	</div>
 
@@ -43,12 +54,13 @@ const uniqueID = 'switcher-' + Math.random().toString(36).substring(7);
 </div>
 
 <script>
+	//TODO: can we refactor query selectors here so both checkboxElements and themeSelector work off one query?
 	const checkBoxElelements = document.querySelectorAll('.sliding-switch');
 	checkBoxElelements.forEach(el => {
 		el.addEventListener('change', () => {
 			const elId = el.id;
 			const componentPreveiw = document.querySelector(
-				`.component-preview.${elId}`
+				`.component-preview.${elId}`,
 			);
 			const codePreview = document.querySelector(`.code-preview.${elId}`);
 			if ((el as HTMLInputElement).checked) {
@@ -60,132 +72,150 @@ const uniqueID = 'switcher-' + Math.random().toString(36).substring(7);
 			}
 		});
 	});
+
+	const themeSelectorElements = document.querySelectorAll('.theme-selector');
+
+	themeSelectorElements.forEach((el) => {
+		el.addEventListener('change', () => {
+			const elId = el.id;
+			console.log(el.value);
+			document.querySelector(`.component-preview.${elId}`).setAttribute('data-o3-theme', el.value);
+		});
+	});
+
 </script>
 
 <style>
-	/* The switch - the box around the slider */
-	.switch {
-		position: relative;
-		display: inline-block;
-		width: 36px;
-		height: 20px;
-	}
+    /* The switch - the box around the slider */
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 36px;
+        height: 20px;
+    }
 
-	/* Hide default HTML checkbox BUT KEEP OUTLINE WHEN SELECTED WITH TAB KEY! */
-	.switch input {
-		width: 36px;
-		height: 22px;
-		appearance: none;
-		-moz-appearance: none;
-		-webkit-appearance: none;
-		vertical-align: text-bottom;
-	}
+    /* Hide default HTML checkbox BUT KEEP OUTLINE WHEN SELECTED WITH TAB KEY! */
+    .switch input {
+        width: 36px;
+        height: 22px;
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        vertical-align: text-bottom;
+    }
 
-	/* HIDE THE CHECKBOX COMPLETELY ON IOS */
-	@supports (-webkit-touch-callout: none) {
-		.switch input {
-			opacity: 0;
-		}
-	}
+    /* HIDE THE CHECKBOX COMPLETELY ON IOS */
+    @supports (-webkit-touch-callout: none) {
+        .switch input {
+            opacity: 0;
+        }
+    }
 
-	/* The slider */
-	.slider {
-		position: absolute;
-		cursor: pointer;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		width: 36px;
-		background-color: #ccc;
-		-webkit-transition: 0.4s;
-		transition: 0.4s;
-	}
+    /* The slider */
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 36px;
+        background-color: #ccc;
+        -webkit-transition: 0.4s;
+        transition: 0.4s;
+    }
 
-	.slider:before {
-		position: absolute;
-		content: '';
-		height: 16px;
-		width: 16px;
-		left: 2px;
-		bottom: 2px;
-		background-color: white;
-		-webkit-transition: 0.4s;
-		transition: 0.4s;
-	}
+    .slider:before {
+        position: absolute;
+        content: '';
+        height: 16px;
+        width: 16px;
+        left: 2px;
+        bottom: 2px;
+        background-color: white;
+        -webkit-transition: 0.4s;
+        transition: 0.4s;
+    }
 
-	input:checked + .slider {
-		background-color: var(--o3-color-palette-teal);
-	}
+    input:checked + .slider {
+        background-color: var(--o3-color-palette-teal);
+    }
 
-	input:focus + .slider {
-		box-shadow: 0 0 1px var(--o3-color-palette-teal);
-	}
+    input:focus + .slider {
+        box-shadow: 0 0 1px var(--o3-color-palette-teal);
+    }
 
-	input:checked + .slider:before {
-		-webkit-transform: translateX(16px);
-		-ms-transform: translateX(16px);
-		transform: translateX(16px);
-	}
+    input:checked + .slider:before {
+        -webkit-transform: translateX(16px);
+        -ms-transform: translateX(16px);
+        transform: translateX(16px);
+    }
 
-	/* Rounded sliders */
-	.slider.round {
-		border-radius: 16px;
-	}
+    /* Rounded sliders */
+    .slider.round {
+        border-radius: 16px;
+    }
 
-	.slider.round:before {
-		border-radius: 50%;
-	}
+    .slider.round:before {
+        border-radius: 50%;
+    }
 
-	/* LABEL ADDED BY BRIAN */
-	.switch-label {
-		display: inline;
-		font-size: 14px;
-		font-weight: 500;
-		padding-right: 8px;
-		vertical-align: top;
-	}
-	.slide-switch {
-		display: flex;
-		align-items: center;
-		justify-content: flex-end;
-		white-space: nowrap;
-		margin-right: 40px;
-	}
+    /* LABEL ADDED BY BRIAN */
+    .switch-label {
+        display: inline;
+        font-size: 14px;
+        font-weight: 500;
+        padding-right: 8px;
+        vertical-align: top;
+    }
 
-	.code-preview,
-	.component-preview {
-		display: none;
-	}
+    .slide-switch {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        white-space: nowrap;
+        margin-right: 40px;
+        gap: 8px;
+    }
 
-	.code-preview {
-		padding: 0.5rem;
-		width: 100%;
-	}
+    .code-preview,
+    .component-preview {
+        display: none;
+    }
 
-	.code-preview > div {
-		flex-grow: 1;
-	}
+    .code-preview {
+        padding: 0.5rem;
+        width: 100%;
+    }
 
-	.component-preview-wrapper {
-	}
+    .code-preview > div {
+        flex-grow: 1;
+    }
 
-	.component-preview {
-		padding: 4rem;
-		gap: 1rem;
-		justify-content: var(--preview-justify, center);
-		align-items: center;
-		background-image: url('/assets/images/utils/dot.svg');
-		background-repeat: repeat;
-		background-size: 1.5rem;
-		background-color: var(--o3-color-use-case-page-background);
-		margin: 0.5rem;
-		resize: both;
-		border-radius: 0.33rem;
-		border: 1px solid var(--o3-color-palette-black-40);
-	}
+    .component-preview-wrapper {
+    }
 
-	.visible {
-		display: var(--preview-display, flex);
-	}
+    .component-preview {
+        padding: 4rem;
+        gap: 1rem;
+        justify-content: var(--preview-justify, center);
+        align-items: center;
+        background-image: url('/assets/images/utils/dot.svg');
+        background-repeat: repeat;
+        background-size: 1.5rem;
+        background-color: var(--o3-color-use-case-page-background);
+        margin: 0.5rem;
+        resize: both;
+        border-radius: 0.33rem;
+        border: 1px solid var(--o3-color-palette-black-40);
+
+        &[data-o3-theme='inverse'] {
+            background-color: var(--o3-color-use-case-page-inverse-background);
+        }
+    }
+
+
+    .visible {
+        display: var(--preview-display, flex);
+    }
 </style>

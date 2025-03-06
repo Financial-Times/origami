@@ -4,12 +4,12 @@ function ButtonPreview() {
 	return (
 		<>
 			<meta itemProp="@preview" />
-			<Button label="Hello" type="primary" theme="inverse" />
+			<Button label="Hello" type="primary"/>
 			<meta itemProp="@preview" />
 		</>
 	);
 }
 
 export const themes = {};
-export const filePath = 'src/components/button/preview/Themes-Inverse.tsx';
+export const filePath = 'src/components/button/preview/Themes-Standard.tsx';
 export {ButtonPreview as preview};

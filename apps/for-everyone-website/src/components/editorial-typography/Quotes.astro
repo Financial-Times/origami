@@ -16,7 +16,7 @@ const storybookId = `${brand}-o3-editorial-typography--quote`;
 			<p>
 				For direct quotations of an author's words from other sources. It’s usually indented from the main body of text.
 			</p>
-			<Preview component={BlockComponent} />
+			<Preview component={BlockComponent} themes={['standard', 'inverse']} />
 			<FigmaSbLinks {storybookId} />
 		</>
 	)
@@ -27,6 +27,6 @@ const storybookId = `${brand}-o3-editorial-typography--quote`;
 	Pull quote is used to highlight important points within a body of text. It is usually placed within the body of the text and left-aligned.
 </p>
 
-<Preview component={PullComponent} />
+<Preview component={PullComponent} themes={['standard', 'inverse']} />
 
 <FigmaSbLinks {storybookId} />
