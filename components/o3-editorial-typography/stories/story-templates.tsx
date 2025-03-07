@@ -180,13 +180,9 @@ const BylineTemplate: StoryObj = {
 		return (
 			<BylineTsx {...args}>
 				<a className="o3-editorial-typography-byline-author" href="#">
-					Joe Doe&nbsp;
+					Joe Doe
 				</a>
-				{args.brand != 'sustainable-views' ? (
-					<span className="o3-editorial-typography-byline-location">
-						in London&nbsp;
-					</span>
-				) : null}
+				{''} in London {''}
 				<time
 					className="o3-editorial-typography-byline-timestamp"
 					dateTime="2019-10-11T20:51:54Z"

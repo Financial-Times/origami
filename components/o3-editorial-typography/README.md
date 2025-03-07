@@ -202,10 +202,8 @@ Author name is usually an anchor but does not have to be if there is no page to 
 
 ```html
 <div class="o3-editorial-typography-byline">
-	<a class="o3-editorial-typography-byline-author" href="#">Joe Doe</a>
-	&nbsp;
-	<span class="o3-editorial-typography-byline-location">in London</span>
-	&nbsp;
+	<a class="o3-editorial-typography-byline-author" href="#">Joe Doe</a> in
+	London
 	<time
 		class="o3-editorial-typography-byline-timestamp"
 		datetime="2019-10-11T20:51:54Z"
@@ -224,9 +222,7 @@ import {Byline} from '@financial-times/o3-editorial-typography/cjs'; // or /esm
 	<a className="o3-editorial-typography-byline-author" href="#">
 		Joe Doe
 	</a>
-	&nbsp;
-	<span className="o3-editorial-typography-byline-location">in London</span>
-	&nbsp;
+	{''} in London {''}
 	<time
 		className="o3-editorial-typography-byline-timestamp"
 		dateTime="2019-10-11T20:51:54Z"

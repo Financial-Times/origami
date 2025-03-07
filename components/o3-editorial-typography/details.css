@@ -1,202 +1,202 @@
 .o3-editorial-typography-topic-tag {
-    font-family: var(--o3-type-body-highlight-font-family);
-    font-size: var(--o3-type-body-highlight-font-size);
-    font-weight: var(--o3-type-body-highlight-font-weight);
-    line-height: var(--o3-type-body-highlight-line-height);
+	font-family: var(--o3-type-body-highlight-font-family);
+	font-size: var(--o3-type-body-highlight-font-size);
+	font-weight: var(--o3-type-body-highlight-font-weight);
+	line-height: var(--o3-type-body-highlight-line-height);
 }
 
 a.o3-editorial-typography-topic-tag {
-    color: var(
-            --o3-editorial-typography-topic-tag-color,
-            var(--_o3-editorial-typography-topic-tag-color)
-    );
-    text-decoration: none;
+	color: var(
+		--o3-editorial-typography-topic-tag-color,
+		var(--_o3-editorial-typography-topic-tag-color)
+	);
+	text-decoration: none;
 
-    &:hover {
-        color: var(
-                --o3-editorial-typography-topic-tag-hover-color,
-                var(--_o3-editorial-typography-topic-tag-hover-color)
-        );
-    }
+	&:hover {
+		color: var(
+			--o3-editorial-typography-topic-tag-hover-color,
+			var(--_o3-editorial-typography-topic-tag-hover-color)
+		);
+	}
 }
 
 [data-o3-theme='inverse'] a.o3-editorial-typography-topic-tag,
 a.o3-editorial-typography-topic-tag[data-o3-theme='inverse'] {
-    --o3-editorial-typography-topic-tag-color: var(
-            --_o3-editorial-typography-topic-tag-inverse-color
-    );
-    --o3-editorial-typography-topic-tag-hover-color: var(
-            --_o3-editorial-typography-topic-tag-hover-inverse-color
-    );
+	--o3-editorial-typography-topic-tag-color: var(
+		--_o3-editorial-typography-topic-tag-inverse-color
+	);
+	--o3-editorial-typography-topic-tag-hover-color: var(
+		--_o3-editorial-typography-topic-tag-hover-inverse-color
+	);
 }
 
 .o3-editorial-typography-standfirst {
-    font-family: var(--o3-type-body-lg-font-family);
-    font-size: var(--o3-type-body-lg-font-size);
-    font-weight: var(--o3-type-body-lg-font-weight);
-    line-height: var(--o3-type-body-lg-line-height);
+	font-family: var(--o3-type-body-lg-font-family);
+	font-size: var(--o3-type-body-lg-font-size);
+	font-weight: var(--o3-type-body-lg-font-weight);
+	line-height: var(--o3-type-body-lg-line-height);
 }
 
 .o3-editorial-typography-caption {
-    font-family: var(--o3-type-detail-font-family);
-    font-size: var(--o3-type-detail-font-size);
-    font-weight: var(--o3-type-detail-font-weight);
-    line-height: var(--o3-type-detail-line-height);
-    color: var(--_o3-editorial-typography-caption-color);
+	font-family: var(--o3-type-detail-font-family);
+	font-size: var(--o3-type-detail-font-size);
+	font-weight: var(--o3-type-detail-font-weight);
+	line-height: var(--o3-type-detail-line-height);
+	color: var(--_o3-editorial-typography-caption-color);
 }
 
 [data-o3-theme='inverse'] .o3-editorial-typography-caption,
 .o3-editorial-typography-caption[data-o3-theme='inverse'] {
-    color: var(--_o3-editorial-typography-caption-inverse-color);
+	color: var(--_o3-editorial-typography-caption-inverse-color);
 }
 
 .o3-editorial-typography-byline-author {
-    font-family: var(--o3-type-body-highlight-font-family);
-    font-size: var(--o3-type-body-highlight-font-size);
-    font-weight: var(--o3-type-body-highlight-font-weight);
-    line-height: var(--o3-type-body-highlight-line-height);
+	font-family: var(--o3-type-body-highlight-font-family);
+	font-size: var(--o3-type-body-highlight-font-size);
+	font-weight: var(--o3-type-body-highlight-font-weight);
+	line-height: var(--o3-type-body-highlight-line-height);
 }
 
 a.o3-editorial-typography-byline-author {
-    color: var(
-            --o3-editorial-typography-byline-author-color,
-            var(--_o3-editorial-typography-byline-author-color)
-    );
-    text-decoration: none;
+	color: var(
+		--o3-editorial-typography-byline-author-color,
+		var(--_o3-editorial-typography-byline-author-color)
+	);
+	text-decoration: none;
 
-    &:hover {
-        color: var(
-                --o3-editorial-typography-byline-author-hover-color,
-                var(--_o3-editorial-typography-byline-author-hover-color)
-        );
-    }
+	&:hover {
+		color: var(
+			--o3-editorial-typography-byline-author-hover-color,
+			var(--_o3-editorial-typography-byline-author-hover-color)
+		);
+	}
 }
 
 [data-o3-theme='inverse'] a.o3-editorial-typography-byline-author,
 a.o3-editorial-typography-byline-author[data-o3-theme='inverse'] {
-    --o3-editorial-typography-byline-author-color: var(
-            --_o3-editorial-typography-byline-author-inverse-color
-    );
-    --o3-editorial-typography-byline-author-hover-color: var(
-            --_o3-editorial-typography-byline-author-hover-inverse-color
-    );
+	--o3-editorial-typography-byline-author-color: var(
+		--_o3-editorial-typography-byline-author-inverse-color
+	);
+	--o3-editorial-typography-byline-author-hover-color: var(
+		--_o3-editorial-typography-byline-author-hover-inverse-color
+	);
 }
 
-.o3-editorial-typography-byline-location {
-    font-family: var(--o3-type-body-base-font-family);
-    font-size: var(--o3-type-body-base-font-size);
-    font-weight: var(--o3-type-body-base-font-weight);
-    line-height: var(--o3-type-body-base-line-height);
+.o3-editorial-typography-byline {
+	font-family: var(--o3-type-body-base-font-family);
+	font-size: var(--o3-type-body-base-font-size);
+	font-weight: var(--o3-type-body-base-font-weight);
+	line-height: var(--o3-type-body-base-line-height);
 }
 
 .o3-editorial-typography-byline-timestamp {
-    font-family: var(--o3-type-label-font-family);
-    font-size: var(--o3-type-label-font-size);
-    font-weight: var(--o3-type-label-font-weight);
-    line-height: var(--o3-type-label-line-height);
-    text-transform: uppercase;
-    color: var(--_o3-editorial-typography-byline-timestamp);
+	font-family: var(--o3-type-label-font-family);
+	font-size: var(--o3-type-label-font-size);
+	font-weight: var(--o3-type-label-font-weight);
+	line-height: var(--o3-type-label-line-height);
+	text-transform: uppercase;
+	color: var(--_o3-editorial-typography-byline-timestamp);
 }
 
 [data-o3-theme='inverse'] .o3-editorial-typography-byline-timestamp,
 .o3-editorial-typography-byline-timestamp[data-o3-theme='inverse'] {
-    color: var(--_o3-editorial-typography-byline-timestamp-inverse);
+	color: var(--_o3-editorial-typography-byline-timestamp-inverse);
 }
 
 .o3-editorial-typography-pullquote {
-    font-family: var(--_o3-editorial-typography-pullquote-content-font-family),
-    sans-serif;
-    font-size: var(--_o3-editorial-typography-pullquote-content-font-size);
-    font-weight: var(--_o3-editorial-typography-pullquote-content-font-weight);
-    line-height: var(--_o3-editorial-typography-pullquote-content-line-height);
-    color: var(--_o3-editorial-typography-pullquote-color);
+	font-family: var(--_o3-editorial-typography-pullquote-content-font-family),
+		sans-serif;
+	font-size: var(--_o3-editorial-typography-pullquote-content-font-size);
+	font-weight: var(--_o3-editorial-typography-pullquote-content-font-weight);
+	line-height: var(--_o3-editorial-typography-pullquote-content-line-height);
+	color: var(--_o3-editorial-typography-pullquote-color);
 }
 
 .o3-editorial-typography-blockquote {
-    border-left: var(--o3-spacing-5xs) solid;
-    padding-left: var(--o3-spacing-2xs);
-    font-family: var(--_o3-body-font-family);
-    font-weight: var(--_o3-body-font-weight);
-    font-size: var(--_o3-body-font-size);
-    line-height: var(--_o3-body-line-height);
+	border-left: var(--o3-spacing-5xs) solid;
+	padding-left: var(--o3-spacing-2xs);
+	font-family: var(--_o3-body-font-family);
+	font-weight: var(--_o3-body-font-weight);
+	font-size: var(--_o3-body-font-size);
+	line-height: var(--_o3-body-line-height);
 }
 
 .o3-editorial-typography-pullquote,
 .o3-editorial-typography-blockquote {
-    &::before {
-        --_o3-editorial-typography-quote-icon-size: 36px;
-        content: '';
-        width: var(--_o3-editorial-typography-quote-icon-size);
-        height: var(--_o3-editorial-typography-quote-icon-size);
-        mask-image: var(--o3-icon-quote-left);
-        mask-repeat: no-repeat;
-        mask-size: contain;
-        display: inline-block;
-        background-color: currentColor;
-        color: var(--_o3-editorial-typography-quote-icon-color);
-    }
+	&::before {
+		--_o3-editorial-typography-quote-icon-size: 36px;
+		content: '';
+		width: var(--_o3-editorial-typography-quote-icon-size);
+		height: var(--_o3-editorial-typography-quote-icon-size);
+		mask-image: var(--o3-icon-quote-left);
+		mask-repeat: no-repeat;
+		mask-size: contain;
+		display: inline-block;
+		background-color: currentColor;
+		color: var(--_o3-editorial-typography-quote-icon-color);
+	}
 }
 
 .o3-editorial-typography-pullquote > p,
 .o3-editorial-typography-blockquote > p {
-    margin-top: 0;
-    margin: var(--o3-spacing-2xs) 0;
+	margin-top: 0;
+	margin: var(--o3-spacing-2xs) 0;
 }
 
 .o3-editorial-typography-pullquote__author,
 .o3-editorial-typography-blockquote__author {
-    margin-bottom: var(--o3-spacing-5xs);
-    color: var(--_o3-editorial-typography-pullquote-color);
+	margin-bottom: var(--o3-spacing-5xs);
+	color: var(--_o3-editorial-typography-pullquote-color);
 }
 
 .o3-editorial-typography-pullquote__author,
 .o3-editorial-typography-pullquote__source,
 .o3-editorial-typography-blockquote__author,
 .o3-editorial-typography-blockquote__source {
-    display: block;
-    font-style: normal;
+	display: block;
+	font-style: normal;
 }
 
 .o3-editorial-typography-pullquote__author {
-    font-family: var(--o3-type-body-highlight-font-family);
-    font-size: var(--o3-type-body-highlight-font-size);
-    font-weight: var(--o3-type-body-highlight-font-weight);
-    line-height: var(--o3-type-body-highlight-line-height);
+	font-family: var(--o3-type-body-highlight-font-family);
+	font-size: var(--o3-type-body-highlight-font-size);
+	font-weight: var(--o3-type-body-highlight-font-weight);
+	line-height: var(--o3-type-body-highlight-line-height);
 }
 
 .o3-editorial-typography-blockquote__author {
-    font-family: var(--o3-type-body-highlight-font-family);
-    font-size: var(--o3-type-body-highlight-font-size);
-    font-weight: var(--o3-type-body-highlight-font-weight);
-    line-height: var(--o3-type-body-highlight-line-height);
-    text-transform: var(--o3-type-label-text-case);
+	font-family: var(--o3-type-body-highlight-font-family);
+	font-size: var(--o3-type-body-highlight-font-size);
+	font-weight: var(--o3-type-body-highlight-font-weight);
+	line-height: var(--o3-type-body-highlight-line-height);
+	text-transform: var(--o3-type-label-text-case);
 }
 
 .o3-editorial-typography-blockquote__source {
-    font-family: var(--o3-type-detail-font-family);
-    font-size: var(--o3-type-detail-font-size);
-    font-weight: var(--o3-type-detail-font-weight);
-    line-height: var(--o3-type-detail-line-height);
+	font-family: var(--o3-type-detail-font-family);
+	font-size: var(--o3-type-detail-font-size);
+	font-weight: var(--o3-type-detail-font-weight);
+	line-height: var(--o3-type-detail-line-height);
 }
 
 .o3-editorial-typography-big-number,
 .o3-editorial-typography-big-number > div {
-    display: block;
-    unicode-bidi: isolate;
+	display: block;
+	unicode-bidi: isolate;
 }
 
 .o3-editorial-typography-big-number__title {
-    font-family: var(--_o3-editorial-typography-big-number-title-font-family),
-    sans-serif;
-    font-size: var(--_o3-editorial-typography-big-number-title-font-size);
-    font-weight: var(--_o3-editorial-typography-big-number-title-font-weight);
-    line-height: var(--_o3-editorial-typography-big-number-title-line-height);
-    margin: 0 0 var(--o3-spacing-5xs);
+	font-family: var(--_o3-editorial-typography-big-number-title-font-family),
+		sans-serif;
+	font-size: var(--_o3-editorial-typography-big-number-title-font-size);
+	font-weight: var(--_o3-editorial-typography-big-number-title-font-weight);
+	line-height: var(--_o3-editorial-typography-big-number-title-line-height);
+	margin: 0 0 var(--o3-spacing-5xs);
 }
 
 .o3-editorial-typography-big-number__content {
-    font-family: var(--o3-type-body-base-font-family);
-    font-size: var(--o3-type-body-base-font-size);
-    font-weight: var(--o3-type-body-base-font-weight);
-    line-height: var(--o3-type-body-base-line-height);
+	font-family: var(--o3-type-body-base-font-family);
+	font-size: var(--o3-type-body-base-font-size);
+	font-weight: var(--o3-type-body-base-font-weight);
+	line-height: var(--o3-type-body-base-line-height);
 }
