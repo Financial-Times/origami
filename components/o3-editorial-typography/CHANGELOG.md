@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.1](https://github.com/Financial-Times/origami/compare/o3-editorial-typography-v3.1.0...o3-editorial-typography-v3.1.1) (2025-03-07)
+
+
+### Bug Fixes
+
+* Remove `o3-editorial-typography-byline-location`. ([#2012](https://github.com/Financial-Times/origami/issues/2012)) ([3b6e734](https://github.com/Financial-Times/origami/commit/3b6e734754bd4a60afba7609ce81f3b5ab316acf))
+
 ## [3.1.0](https://github.com/Financial-Times/origami/compare/o3-editorial-typography-v3.0.2...o3-editorial-typography-v3.1.0) (2025-03-05)
 
 
