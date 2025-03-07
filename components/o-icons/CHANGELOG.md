@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.9.0](https://github.com/Financial-Times/origami/compare/o-icons-v7.8.0...o-icons-v7.9.0) (2025-03-07)
+
+
+### Features
+
+* Backport new icons radar, dashboard, and highlight ([434ffb2](https://github.com/Financial-Times/origami/commit/434ffb2a8e7f723754f2e47131ca970c4918147c))
+
 ## [7.8.0](https://github.com/Financial-Times/origami/compare/o-icons-v7.7.2...o-icons-v7.8.0) (2024-04-17)
 
 
