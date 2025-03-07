@@ -1,0 +1,65 @@
+---
+title: Brands
+description: How to add new brand support to Origami
+sidebar:
+  order: 30
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+<Aside>This page is currently intended for the core Origami team's reference.</Aside>
+
+Origami supports multiple brands. This page provides a high level overview of the steps required to add support for a new brand. It assumes a substantial amount of knowledge including:
+- Design tokens
+- Token Studio
+- Style Dictionary
+- Figma
+- Origami tooling and commands
+
+## Reference
+
+- Brand support is powered by [design tokens](https://www.designtokens.org/glossary/).
+- Design tokens are managed with [Token Studio](https://tokens.studio/), a Figma plugin. We have a limited number of Pro licenses for core contributors.
+- Design tokens are transformed to code using [Style Dictionary](https://styledictionary.com/).
+
+## Create your Figma Library
+
+1. Duplicate the [Whitelabel Origami Figma library](<https://www.figma.com/design/5ATknbGociZMlnNXX4sy4f/Whitelabel---Origami-(o3)?m=auto>) and apply your brand's name.
+1. Update the library cover with your brand's name and status.
+
+## Define your design tokens
+
+1. Create a new Figma branch `define-[brand-name]-tokens`.
+1. Open the [Token Studio Figma plugin](https://tokens.studio/) and pull tokens from `main`.
+1. Duplicate the `whitelabel` token set and rename with your brand's name. You may find this easier to do using the JSON view within Token Studio.
+1. Set token values to suit your brand and update token descriptions where necessary.
+   - Tokens must retain their meaning across brands, but examples may vary.
+   - All `whitelabel` tokens must be implemented by your brand.
+   - You must not add new tokens to the system without considering its impact on other brands, except for the addition of base colour tokens to represent your colour palette.
+1. Create a new branch in Token Studio from `main`. Match the `define-[brand-name]-tokens` Figma branch name. Token Studio will then create a matching branch name in Github.
+1. Push your tokens in Token Studio (to Github).
+1. When the tokens have built successfully and been approved in Github, these will be merged to the `main` branch, and will become available on the `main` branch in Token Studio. In the meantime, you may use this branch to implement the tokens in your Figma library.
+
+## Implement tokens in your Figma Library
+
+1. [Apply tokens](https://docs.tokens.studio/tokens/applying-tokens) in your Figma library using Token Studio.
+1. If any Figma component in the library do not update for your brand as you expect, use the [Token Studio Inspect tool](https://docs.tokens.studio/inspect/multi-inspect) to discover why.
+   - If your brand is missing a component token, define that token and push changes through Token Studio.
+   - If the component was not created using tokens correctly, update the component in the [Whitelabel Origami Figma library](<https://www.figma.com/design/5ATknbGociZMlnNXX4sy4f/Whitelabel---Origami-(o3)?m=auto>) to avoid this issue in the future. Do this by creating a branch and submitting for review. When complete, copy the updated component to your library and reapply your brand tokens.
+1. When your tokens are merged to `main` in Github, you may switch your branch in Token Studio to `main`.
+1. Submit your Figma branch for review.
+1. Publish your library.
+
+## Implement tokens in code
+
+1. Checkout the branch in git `define-[brand-name]-tokens`, from the [origami repo](`define-[brand-name]-tokens`).
+1. Generate code for the new brand using Style Dictionary.
+1. Update components to support your new brand.
+   1. Add Storybook boilerplate to all supported components of the brand.
+   1. Create a `src/css/brands/[brand-name].css` file in each supported component.
+   1. Use a `feat` commit to trigger a minor feature release.
+
+## Add to the Origami website
+1. [Add your new brand to the website](https://github.com/Financial-Times/origami/tree/main/apps/for-everyone-website#add-a-new-brand).
+1. Add any unique guidelines for your brand.
+1. Open a PR for review.
