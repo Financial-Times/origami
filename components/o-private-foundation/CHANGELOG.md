@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.0](https://github.com/Financial-Times/origami/compare/o-private-foundation-v1.1.0...o-private-foundation-v1.2.0) (2025-03-07)
+
+
+### Features
+
+* Add new icons radar, dashboard, and highlight ([4734c10](https://github.com/Financial-Times/origami/commit/4734c1037d5a1e7e310761c15771d0dfa9d3f59a))
+* Backport new icons radar, dashboard, and highlight ([434ffb2](https://github.com/Financial-Times/origami/commit/434ffb2a8e7f723754f2e47131ca970c4918147c))
+
 ## [1.1.0](https://github.com/Financial-Times/origami/compare/o-private-foundation-v1.0.4...o-private-foundation-v1.1.0) (2025-03-05)
 
 
