@@ -13,8 +13,8 @@ const transformers = [
 
 const toolingTransformers = [
 	'size/px',
-	'Origami/tintGroup',
 	...baseTransformers,
+	'Origami/tintGroup',
 ]
 
 export {

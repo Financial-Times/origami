@@ -256,6 +256,10 @@ export default {
 				"palette",
 				"black-5"
 		],
+		"origamiTint": {
+				"base": "black",
+				"value": "5"
+		},
 		"css": "--o3-color-palette-black-5",
 		"figma": "o3/color/palette/black-5"
 },
@@ -274,6 +278,10 @@ export default {
 				"palette",
 				"black-10"
 		],
+		"origamiTint": {
+				"base": "black",
+				"value": "10"
+		},
 		"css": "--o3-color-palette-black-10",
 		"figma": "o3/color/palette/black-10"
 },
@@ -292,6 +300,10 @@ export default {
 				"palette",
 				"black-20"
 		],
+		"origamiTint": {
+				"base": "black",
+				"value": "20"
+		},
 		"css": "--o3-color-palette-black-20",
 		"figma": "o3/color/palette/black-20"
 },
@@ -310,6 +322,10 @@ export default {
 				"palette",
 				"black-30"
 		],
+		"origamiTint": {
+				"base": "black",
+				"value": "30"
+		},
 		"css": "--o3-color-palette-black-30",
 		"figma": "o3/color/palette/black-30"
 },
@@ -328,6 +344,10 @@ export default {
 				"palette",
 				"black-40"
 		],
+		"origamiTint": {
+				"base": "black",
+				"value": "40"
+		},
 		"css": "--o3-color-palette-black-40",
 		"figma": "o3/color/palette/black-40"
 },
@@ -346,6 +366,10 @@ export default {
 				"palette",
 				"black-50"
 		],
+		"origamiTint": {
+				"base": "black",
+				"value": "50"
+		},
 		"css": "--o3-color-palette-black-50",
 		"figma": "o3/color/palette/black-50"
 },
@@ -364,6 +388,10 @@ export default {
 				"palette",
 				"black-60"
 		],
+		"origamiTint": {
+				"base": "black",
+				"value": "60"
+		},
 		"css": "--o3-color-palette-black-60",
 		"figma": "o3/color/palette/black-60"
 },
@@ -382,6 +410,10 @@ export default {
 				"palette",
 				"black-70"
 		],
+		"origamiTint": {
+				"base": "black",
+				"value": "70"
+		},
 		"css": "--o3-color-palette-black-70",
 		"figma": "o3/color/palette/black-70"
 },
@@ -400,6 +432,10 @@ export default {
 				"palette",
 				"black-80"
 		],
+		"origamiTint": {
+				"base": "black",
+				"value": "80"
+		},
 		"css": "--o3-color-palette-black-80",
 		"figma": "o3/color/palette/black-80"
 },
@@ -418,6 +454,10 @@ export default {
 				"palette",
 				"black-90"
 		],
+		"origamiTint": {
+				"base": "black",
+				"value": "90"
+		},
 		"css": "--o3-color-palette-black-90",
 		"figma": "o3/color/palette/black-90"
 },
@@ -436,6 +476,10 @@ export default {
 				"palette",
 				"oxford-30"
 		],
+		"origamiTint": {
+				"base": "oxford",
+				"value": "30"
+		},
 		"css": "--o3-color-palette-oxford-30",
 		"figma": "o3/color/palette/oxford-30"
 },
@@ -454,6 +498,10 @@ export default {
 				"palette",
 				"oxford-40"
 		],
+		"origamiTint": {
+				"base": "oxford",
+				"value": "40"
+		},
 		"css": "--o3-color-palette-oxford-40",
 		"figma": "o3/color/palette/oxford-40"
 },
@@ -472,6 +520,10 @@ export default {
 				"palette",
 				"oxford-50"
 		],
+		"origamiTint": {
+				"base": "oxford",
+				"value": "50"
+		},
 		"css": "--o3-color-palette-oxford-50",
 		"figma": "o3/color/palette/oxford-50"
 },
@@ -490,6 +542,10 @@ export default {
 				"palette",
 				"oxford-60"
 		],
+		"origamiTint": {
+				"base": "oxford",
+				"value": "60"
+		},
 		"css": "--o3-color-palette-oxford-60",
 		"figma": "o3/color/palette/oxford-60"
 },
@@ -508,6 +564,10 @@ export default {
 				"palette",
 				"oxford-70"
 		],
+		"origamiTint": {
+				"base": "oxford",
+				"value": "70"
+		},
 		"css": "--o3-color-palette-oxford-70",
 		"figma": "o3/color/palette/oxford-70"
 },
@@ -526,6 +586,10 @@ export default {
 				"palette",
 				"oxford-80"
 		],
+		"origamiTint": {
+				"base": "oxford",
+				"value": "80"
+		},
 		"css": "--o3-color-palette-oxford-80",
 		"figma": "o3/color/palette/oxford-80"
 },
@@ -544,6 +608,10 @@ export default {
 				"palette",
 				"oxford-90"
 		],
+		"origamiTint": {
+				"base": "oxford",
+				"value": "90"
+		},
 		"css": "--o3-color-palette-oxford-90",
 		"figma": "o3/color/palette/oxford-90"
 },
@@ -562,6 +630,10 @@ export default {
 				"palette",
 				"oxford-100"
 		],
+		"origamiTint": {
+				"base": "oxford",
+				"value": "100"
+		},
 		"css": "--o3-color-palette-oxford-100",
 		"figma": "o3/color/palette/oxford-100"
 },
@@ -580,6 +652,10 @@ export default {
 				"palette",
 				"teal-20"
 		],
+		"origamiTint": {
+				"base": "teal",
+				"value": "20"
+		},
 		"css": "--o3-color-palette-teal-20",
 		"figma": "o3/color/palette/teal-20"
 },
@@ -598,6 +674,10 @@ export default {
 				"palette",
 				"teal-30"
 		],
+		"origamiTint": {
+				"base": "teal",
+				"value": "30"
+		},
 		"css": "--o3-color-palette-teal-30",
 		"figma": "o3/color/palette/teal-30"
 },
@@ -616,6 +696,10 @@ export default {
 				"palette",
 				"teal-40"
 		],
+		"origamiTint": {
+				"base": "teal",
+				"value": "40"
+		},
 		"css": "--o3-color-palette-teal-40",
 		"figma": "o3/color/palette/teal-40"
 },
@@ -634,6 +718,10 @@ export default {
 				"palette",
 				"teal-50"
 		],
+		"origamiTint": {
+				"base": "teal",
+				"value": "50"
+		},
 		"css": "--o3-color-palette-teal-50",
 		"figma": "o3/color/palette/teal-50"
 },
@@ -652,6 +740,10 @@ export default {
 				"palette",
 				"teal-60"
 		],
+		"origamiTint": {
+				"base": "teal",
+				"value": "60"
+		},
 		"css": "--o3-color-palette-teal-60",
 		"figma": "o3/color/palette/teal-60"
 },
@@ -670,6 +762,10 @@ export default {
 				"palette",
 				"teal-70"
 		],
+		"origamiTint": {
+				"base": "teal",
+				"value": "70"
+		},
 		"css": "--o3-color-palette-teal-70",
 		"figma": "o3/color/palette/teal-70"
 },
@@ -688,6 +784,10 @@ export default {
 				"palette",
 				"teal-80"
 		],
+		"origamiTint": {
+				"base": "teal",
+				"value": "80"
+		},
 		"css": "--o3-color-palette-teal-80",
 		"figma": "o3/color/palette/teal-80"
 },
@@ -706,6 +806,10 @@ export default {
 				"palette",
 				"teal-90"
 		],
+		"origamiTint": {
+				"base": "teal",
+				"value": "90"
+		},
 		"css": "--o3-color-palette-teal-90",
 		"figma": "o3/color/palette/teal-90"
 },
@@ -724,6 +828,10 @@ export default {
 				"palette",
 				"teal-100"
 		],
+		"origamiTint": {
+				"base": "teal",
+				"value": "100"
+		},
 		"css": "--o3-color-palette-teal-100",
 		"figma": "o3/color/palette/teal-100"
 },

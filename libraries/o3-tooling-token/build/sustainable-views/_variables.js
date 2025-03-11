@@ -342,6 +342,10 @@ export default {
 				"palette",
 				"black-90"
 		],
+		"origamiTint": {
+				"base": "black",
+				"value": "90"
+		},
 		"css": "--o3-color-palette-black-90",
 		"figma": "o3/color/palette/black-90"
 },
@@ -360,6 +364,10 @@ export default {
 				"palette",
 				"black-50"
 		],
+		"origamiTint": {
+				"base": "black",
+				"value": "50"
+		},
 		"css": "--o3-color-palette-black-50",
 		"figma": "o3/color/palette/black-50"
 },
@@ -378,6 +386,10 @@ export default {
 				"palette",
 				"black-70"
 		],
+		"origamiTint": {
+				"base": "black",
+				"value": "70"
+		},
 		"css": "--o3-color-palette-black-70",
 		"figma": "o3/color/palette/black-70"
 },
@@ -396,6 +408,10 @@ export default {
 				"palette",
 				"teal-40"
 		],
+		"origamiTint": {
+				"base": "teal",
+				"value": "40"
+		},
 		"css": "--o3-color-palette-teal-40",
 		"figma": "o3/color/palette/teal-40"
 },
@@ -414,6 +430,10 @@ export default {
 				"palette",
 				"teal-20"
 		],
+		"origamiTint": {
+				"base": "teal",
+				"value": "20"
+		},
 		"css": "--o3-color-palette-teal-20",
 		"figma": "o3/color/palette/teal-20"
 },
@@ -432,6 +452,10 @@ export default {
 				"palette",
 				"black-30"
 		],
+		"origamiTint": {
+				"base": "black",
+				"value": "30"
+		},
 		"css": "--o3-color-palette-black-30",
 		"figma": "o3/color/palette/black-30"
 },
@@ -450,6 +474,10 @@ export default {
 				"palette",
 				"black-10"
 		],
+		"origamiTint": {
+				"base": "black",
+				"value": "10"
+		},
 		"css": "--o3-color-palette-black-10",
 		"figma": "o3/color/palette/black-10"
 },
