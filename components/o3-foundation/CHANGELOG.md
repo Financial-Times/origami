@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.2](https://github.com/Financial-Times/origami/compare/o3-foundation-v3.2.1...o3-foundation-v3.2.2) (2025-03-11)
+
+
+### Bug Fixes
+
+* exclude anchor tags from type color selectors ([#2019](https://github.com/Financial-Times/origami/issues/2019)) ([bf56825](https://github.com/Financial-Times/origami/commit/bf568257aee2de6c86992e2894ece49be7cf5647))
+
 ## [3.2.1](https://github.com/Financial-Times/origami/compare/o3-foundation-v3.2.0...o3-foundation-v3.2.1) (2025-03-11)
 
 
