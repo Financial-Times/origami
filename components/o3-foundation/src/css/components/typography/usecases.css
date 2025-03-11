@@ -132,7 +132,7 @@
 
 /* Default body colours */
 
-:where(
+:where(:not(a)):where(
 		[class^='o3-type-body'],
 		.o3-type-detail,
 		.o3-type-label,
@@ -140,7 +140,8 @@
 		.o3-typography-wrapper > :is(p, figcaption)
 	) {
 	color: var(--o3-color-use-case-body-text);
-	[data-o3-theme='inverse']&,
+
+	[data-o3-theme='inverse'] &,
 	:where([data-o3-theme='inverse']) & {
 		color: var(--o3-color-use-case-body-inverse-text);
 	}
@@ -148,14 +149,14 @@
 
 /* Default heading colours */
 
-:where(
+:where(:not(a)):where(
 		[class^='o3-type-headline'],
 		[class^='o3-type-display'],
-		[class^='o3-type-title'],
-		.o3-typography-wrapper > :where(h1, h2, h3, h4, h5, h6)
+		[class^='o3-type-title']
 	) {
 	color: var(--o3-color-use-case-heading-text);
-	[data-o3-theme=inverse]&,
+
+	[data-o3-theme=inverse] &,
 	:where([data-o3-theme=inverse]) & {
 		color: var(--o3-color-use-case-heading-inverse-text);
 	}
@@ -173,6 +174,7 @@
 	display: inline-block;
 	margin-bottom: -1em;
 }
+
 .o3-typography-wrapper > sup,
 .o3-typography-wrapper > p sup,
 .o3-type-body-base > sup,

@@ -129,6 +129,10 @@ export const WrapperStory = {
 					<a href="#">Link Necessitatibus asperiores</a>
 				</p>
 
+				<a className="o3-type-body-base" href="#">
+					Link by itself.
+				</a>
+
 				<p>
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
 					aspernatur aut corporis eius. Neque consequuntur commodi consectetur
