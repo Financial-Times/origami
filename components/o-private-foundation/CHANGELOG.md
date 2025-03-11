@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/Financial-Times/origami/compare/o-private-foundation-v1.2.0...o-private-foundation-v1.2.1) (2025-03-11)
+
+
+### Bug Fixes
+
+* fix broken volume icons ([06e58e6](https://github.com/Financial-Times/origami/commit/06e58e6c64ac160a93b2ac1f26a1ad8b48cd6e99))
+
 ## [1.2.0](https://github.com/Financial-Times/origami/compare/o-private-foundation-v1.1.0...o-private-foundation-v1.2.0) (2025-03-07)
 
 
