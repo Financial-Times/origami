@@ -1,5 +1,6 @@
 import Stream from './stream.js';
 import Count from './count.js';
+import auth from './utils/auth.js';
 
 class Comments {
 	constructor (rootEl, opts) {
@@ -90,3 +91,4 @@ class Comments {
 }
 
 export default Comments;
+export { auth };
