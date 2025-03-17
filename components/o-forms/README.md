@@ -197,7 +197,7 @@ To create a select input use a [single input](#single-input-fields) field struct
 
 #### Other single inputs
 
-For text-like input types where `o-forms` does not provide a specific modifier class the `o-forms-input--text` modifier may be used. [_See more examples in the Origami Storybook._](https://o2.origami.ft.com/?path=/story/o2-core_components-o-forms-text-box--optional-text&globals=backgrounds:!undefined)
+For text-like input types where `o-forms` does not provide a specific modifier class the `o-forms-input--text` modifier may be used. [_See more examples in the Origami Storybook._](https://o2.origami.ft.com/?path=/story/o2-core_maintained-o-forms-text-box--optional-text&globals=backgrounds:!undefined)
 
 E.g. to create an email input use a [single input](#single-input-fields) field structure, with an `o-forms-input--text` modifier class on the `o-forms-input` element and an input type of `type="email"`.
 
@@ -303,7 +303,7 @@ Round radio inputs support 3 themes.
 - **professional-inverse**: For round radios with the inverse FT Professional theme, set `o-forms-field--professional-inverse` on the field element.
 - **ft-live**: For round radios with the FT Live theme, add `o-forms-field--ft-live` on the field element.
 
-[_See radio buttons in Storybook_](https://o2.origami.ft.com/?path=/story/o2-core_components-o-forms-radio-buttons--radio-button&globals=backgrounds:!undefined)
+[_See radio buttons in Storybook_](https://o2.origami.ft.com/?path=/story/o2-core_maintained-o-forms-radio-buttons--radio-button&globals=backgrounds:!undefined)
 
 ##### Box radio inputs
 

@@ -15,7 +15,7 @@ These o2 packages do not have an o3 alternative yet, and may be used alongside o
 ### o-grid
 
 - **Status: Maintained**
-- [Storybook: o-grid](https://o2.origami.ft.com/?path=/story/o2-core_components-o-grid)
+- [Storybook: o-grid](https://o2.origami.ft.com/?path=/docs/o2-core_maintained-o-grid-readme--docs)
 - [Figma: FT.com Grid](<https://www.figma.com/file/Lqva9v140ngCrFG4BbgAjp/%F0%9F%92%A0-FT.com-Grid---Origami-(o2)?type=design>)
 
 ### o-tooltip
@@ -24,253 +24,253 @@ o-tooltip is a component usually used for annotating or highlighting areas of us
 
 - **Status: Maintained**
 - Alternative: o3-tooltip. Consider [o3 tooltip components](../../components/tooltip/) for onboarding of toggle tips.
-- [Storybook: o-tooltip](https://o2.origami.ft.com/?path=/story/o2-core_components-o-tooltip)
+- [Storybook: o-tooltip](https://o2.origami.ft.com/?path=/docs/o2-core_maintained-o-tooltip-readme--docs)
 - [Figma: FT-UI-Library / Tooltip](<https://www.figma.com/file/MyHQ1qdwYyek5IBdhEEaND/%F0%9F%92%A0-FT-UI-Library---Origami-(o2)?type=design&node-id=130-0&mode=design>) (incomplete)
 
 ### o-loading
 
 - **Status: Maintained**
-- [Storybook: o-loading](https://o2.origami.ft.com/?path=/story/o2-core_components-o-loading)
+- [Storybook: o-loading](https://o2.origami.ft.com/?path=/docs/o2-core_maintained-o-loading-readme--docs)
 - Figma: -
 
 ### o-overlay
 
 - **Status: Maintained**
-- [Storybook: o-overlay](https://o2.origami.ft.com/?path=/story/o2-core_components-o-overlay)
+- [Storybook: o-overlay](https://o2.origami.ft.com/?path=/docs/o2-core_maintained-o-overlay-readme--docs)
 - Figma: -
 
 ### o-forms
 
 - **Status: Maintained**
-- [Storybook: o-forms](https://o2.origami.ft.com/?path=/story/o2-core_components-o-forms)
+- [Storybook: o-forms](https://o2.origami.ft.com/?path=/docs/o2-core_maintained-o-forms-readme--docs)
 - Figma: -
 
 ### o-labels
 
 - **Status: Maintained**
-- [Storybook: o-labels](https://o2.origami.ft.com/?path=/story/o2-core_components-o-labels)
+- [Storybook: o-labels](https://o2.origami.ft.com/?path=/docs/o2-core_maintained-o-labels-readme--docs)
 - Figma: -
 
 ### o-message
 
 - **Status: Maintained**
-- [Storybook: o-message](https://o2.origami.ft.com/?path=/story/o2-core_components-o-message)
+- [Storybook: o-message](https://o2.origami.ft.com/?path=/docs/o2-core_maintained-o-message-readme--docs)
 - Figma: -
 
 ### ft-concept-button
 
 - **Status: Maintained**
-- [Storybook: ft-concept-button](https://o2.origami.ft.com/?path=/story/o2-core_components-ft-concept-button)
+- [Storybook: ft-concept-button](https://o2.origami.ft.com/?path=/docs/o2-core_maintained-ft-concept-button-readme--docs)
 - Figma: -
 
 ### o-share
 
 - **Status: Maintained**
-- [Storybook: o-share](https://o2.origami.ft.com/?path=/story/o2-core_components-o-share)
+- [Storybook: o-share](https://o2.origami.ft.com/?path=/docs/o2-core_maintained-o-share-readme--docs)
 - Figma: -
 
 ### o-teaser
 
 - **Status: Maintained**
-- [Storybook: o-teaser](https://o2.origami.ft.com/?path=/story/o2-core_components-o-teaser)
+- [Storybook: o-teaser](https://o2.origami.ft.com/?path=/docs/o2-core_maintained-o-teaser-readme--docs)
 - Figma: -
 
 ### o-footer
 
 - **Status: Maintained**
-- [Storybook: o-footer](https://o2.origami.ft.com/?path=/story/o2-core_components-o-footer)
+- [Storybook: o-footer](https://o2.origami.ft.com/?path=/docs/o2-core_maintained-o-footer-readme--docs)
 - Figma: -
 
 ### o-topper
 
 - **Status: Maintained**
-- [Storybook: o-topper](https://o2.origami.ft.com/?path=/story/o2-core_components-o-topper)
+- [Storybook: o-topper](https://o2.origami.ft.com/?path=/docs/o2-core_maintained-o-topper-readme--docs)
 - Figma: -
 
 ### o-header
 
 - **Status: Maintained**
-- [Storybook: o-header](https://o2.origami.ft.com/?path=/story/o2-core_components-o-header)
+- [Storybook: o-header](https://o2.origami.ft.com/?path=/docs/o2-core_maintained-o-header-readme--docs)
 - Figma: -
 
 ### o-tabs
 
 - **Status: Maintained**
-- [Storybook: o-tabs](https://o2.origami.ft.com/?path=/story/o2-core_components-o-tabs)
+- [Storybook: o-tabs](https://o2.origami.ft.com/?path=/docs/o2-core_maintained-o-tabs-readme--docs)
 - Figma: -
 
 ### g-audio
 
 - **Status: Maintained**
-- [Storybook: g-audio](https://o2.origami.ft.com/?path=/story/o2-core_components-g-audio)
+- [Storybook: g-audio](https://o2.origami.ft.com/?path=/docs/o2-core_maintained-g-audio-readme--docs)
 - Figma: -
 
 ### n-notification
 
 - **Status: Maintained**
-- [Storybook: n-notification](https://o2.origami.ft.com/?path=/story/o2-core_components-n-notification)
+- [Storybook: n-notification](https://o2.origami.ft.com/?path=/docs/o2-core_maintained-n-notification-readme--docs)
 - Figma: -
 
 ### o-meter
 
 - **Status: Maintained**
-- [Storybook: o-meter](https://o2.origami.ft.com/?path=/story/o2-internal_components-o-meter)
+- [Storybook: o-meter](https://o2.origami.ft.com/?path=/docs/o2-internal_maintained-o-meter-readme--docs)
 - Figma: -
 
 ### o-audio
 
 - **Status: Maintained**
-- [Storybook: o-audio](https://o2.origami.ft.com/?path=/story/o2-core_components-o-audio)
+- [Storybook: o-audio](https://o2.origami.ft.com/?path=/docs/o2-core_maintained-o-audio-readme--docs)
 - Figma: -
 
 ### o-multi-select
 
 - **Status: Maintained**
-- [Storybook: o-multi-select](https://o2.origami.ft.com/?path=/story/o2-core_components-o-multi-select)
+- [Storybook: o-multi-select](https://o2.origami.ft.com/?path=/docs/o2-core_maintained-o-multi-select-readme--docs)
 - Figma: -
 
 ### o-autocomplete
 
 - **Status: Maintained**
-- [Storybook: o-autocomplete](https://o2.origami.ft.com/?path=/story/o2-core_components-o-autocomplete)
+- [Storybook: o-autocomplete](https://o2.origami.ft.com/?path=/docs/o2-core_maintained-o-autocomplete-readme--docs)
 - Figma: -
 
 ### o-banner
 
 - **Status: Maintained**
-- [Storybook: o-banner](https://o2.origami.ft.com/?path=/story/o2-core_components-o-banner)
+- [Storybook: o-banner](https://o2.origami.ft.com/?path=/docs/o2-core_maintained-o-banner-readme--docs)
 - Figma: -
 
 ### o-social-follow
 
 - **Status: Maintained**
-- [Storybook: o-social-follow](https://o2.origami.ft.com/?path=/story/o2-core_components-o-social-follow)
+- [Storybook: o-social-follow](https://o2.origami.ft.com/?path=/docs/o2-core_maintained-o-social-follow-readme--docs)
 - Figma: -
 
 ### o-comments
 
 - **Status: Maintained**
-- [Storybook: o-comments](https://o2.origami.ft.com/?path=/story/o2-core_components-o-comments)
+- [Storybook: o-comments](https://o2.origami.ft.com/?path=/docs/o2-core_maintained-o-comments-readme--docs)
 - Figma: -
 
 ### o-cookie-message
 
 - **Status: Maintained**
-- [Storybook: o-cookie-message](https://o2.origami.ft.com/?path=/story/o2-core_components-o-cookie-message)
+- [Storybook: o-cookie-message](https://o2.origami.ft.com/?path=/docs/o2-core_maintained-o-cookie-message-readme--docs)
 - Figma: -
 
 ### o-stepped-progress
 
 - **Status: Maintained**
-- [Storybook: o-stepped-progress](https://o2.origami.ft.com/?path=/story/o2-core_components-o-stepped-progress)
+- [Storybook: o-stepped-progress](https://o2.origami.ft.com/?path=/docs/o2-core_maintained-o-stepped-progress-readme--docs)
 - Figma: -
 
 ### o-date
 
 - **Status: Maintained**
-- [Storybook: o-date](https://o2.origami.ft.com/?path=/story/o2-core_components-o-date)
+- [Storybook: o-date](https://o2.origami.ft.com/?path=/docs/o2-core_maintained-o-date-readme--docs)
 - Figma: -
 
 ### o-subs-card
 
 - **Status: Maintained**
-- [Storybook: o-subs-card](https://o2.origami.ft.com/?path=/story/o2-core_components-o-subs-card)
+- [Storybook: o-subs-card](https://o2.origami.ft.com/?path=/docs/o2-core_maintained-o-subs-card-readme--docs)
 - Figma: -
 
 ### o-editorial-layout
 
 - **Status: Maintained**
-- [Storybook: o-editorial-layout](https://o2.origami.ft.com/?path=/story/o2-core_components-o-editorial-layout)
+- [Storybook: o-editorial-layout](https://o2.origami.ft.com/?path=/docs/o2-core_maintained-o-editorial-layout-readme--docs)
 - Figma: -
 
 ### o-syntax-highlight
 
 - **Status: Maintained**
-- [Storybook: o-syntax-highlight](https://o2.origami.ft.com/?path=/story/o2-core_components-o-syntax-highlight)
+- [Storybook: o-syntax-highlight](https://o2.origami.ft.com/?path=/docs/o2-core_maintained-o-syntax-highlight-readme--docs)
 - Figma: -
 
 ### o-table
 
 - **Status: Maintained**
-- [Storybook: o-table](https://o2.origami.ft.com/?path=/story/o2-core_components-o-table)
+- [Storybook: o-table](https://o2.origami.ft.com/?path=/docs/o2-core_maintained-o-table-readme--docs)
 - Figma: -
 
 ### o-expander
 
 - **Status: Maintained**
-- [Storybook: o-expander](https://o2.origami.ft.com/?path=/story/o2-core_components-o-expander)
+- [Storybook: o-expander](https://o2.origami.ft.com/?path=/docs/o2-core_maintained-o-expander-readme--docs)
 - Figma: -
 
 ### o-teaser-collection
 
 - **Status: Maintained**
-- [Storybook: o-teaser-collection](https://o2.origami.ft.com/?path=/story/o2-core_components-o-teaser-collection)
+- [Storybook: o-teaser-collection](https://o2.origami.ft.com/?path=/docs/o2-core_maintained-o-teaser-collection-readme--docs)
 - Figma: -
 
 ### o-footer-services
 
 - **Status: Maintained**
-- [Storybook: o-footer-services](https://o2.origami.ft.com/?path=/story/o2-core_components-o-footer-services)
+- [Storybook: o-footer-services](https://o2.origami.ft.com/?path=/docs/o2-core_maintained-o-footer-services-readme--docs)
 - Figma: -
 
 ### o-toggle
 
 - **Status: Maintained**
-- [Storybook: o-toggle](https://o2.origami.ft.com/?path=/story/o2-core_components-o-toggle)
+- [Storybook: o-toggle](https://o2.origami.ft.com/?path=/docs/o2-core_maintained-o-toggle-readme--docs)
 - Figma: -
 
 ### o-ft-affiliate-ribbon
 
 - **Status: Maintained**
-- [Storybook: o-ft-affiliate-ribbon](https://o2.origami.ft.com/?path=/story/o2-core_components-o-ft-affiliate-ribbon)
+- [Storybook: o-ft-affiliate-ribbon](https://o2.origami.ft.com/?path=/docs/o2-core_maintained-o-ft-affiliate-ribbon-readme--docs)
 - Figma: -
 
 ### o-top-banner
 
 - **Status: Maintained**
-- [Storybook: o-top-banner](https://o2.origami.ft.com/?path=/story/o2-core_components-o-top-banner)
+- [Storybook: o-top-banner](https://o2.origami.ft.com/?path=/docs/o2-core_maintained-o-top-banner-readme--docs)
 - Figma: -
 
 ### o-header-services
 
 - **Status: Maintained**
-- [Storybook: o-header-services](https://o2.origami.ft.com/?path=/story/o2-core_components-o-header-services)
+- [Storybook: o-header-services](https://o2.origami.ft.com/?path=/docs/o2-core_maintained-o-header-services-readme--docs)
 - Figma: -
 
 ### o-video
 
 - **Status: Maintained**
-- [Storybook: o-video](https://o2.origami.ft.com/?path=/story/o2-core_components-o-video)
+- [Storybook: o-video](https://o2.origami.ft.com/?path=/docs/o2-core_maintained-o-video-readme--docs)
 - Figma: -
 
 ### o-viewport
 
 - **Status: Maintained**
-- [Storybook: o-viewport](https://o2.origami.ft.com/?path=/docs/o2-core_brandless-o-viewport-readme--docs)
+- [Storybook: o-viewport](https://o2.origami.ft.com/?path=/docs/o2-core_maintained-o-viewport-readme--docs)
 - Figma: -
 
 ### o-visual-effects
 
 - **Status: Maintained**
-- [Storybook: o-visual-effects](https://o2.origami.ft.com/?path=/story/o2-core_components-o-visual-effects)
+- [Storybook: o-visual-effects](https://o2.origami.ft.com/?path=/docs/o2-core_maintained-o-visual-effects-readme--docs)
 - Figma: -
 
 ### o-layout
 
 - **Status: Maintained**
-- [Storybook: o-layout](https://o2.origami.ft.com/?path=/story/o2-core_components-o-layout)
+- [Storybook: o-layout](https://o2.origami.ft.com/?path=/docs/o2-core_maintained-o-layout-readme--docs)
 - Figma: -
 
 ### o-lazy-load
 
 - **Status: Maintained**
-- [Storybook: o-lazy-load](https://o2.origami.ft.com/?path=/story/o2-core_components-o-lazy-load)
+- [Storybook: o-lazy-load](http://o2.origami.ft.com/?path=/docs/o2-core_maintained-o-lazy-load-readme--docs)
 - Figma: n/a
 
 ### o-tracking
 
 - **Status: Maintained**
-- [Storybook: o-tracking](https://o2.origami.ft.com/?path=/docs/brandless-o-tracking-readme--docs)
+- [Storybook: o-tracking](https://o2.origami.ft.com/?path=/docs/o2-core_maintained-o-tracking-readme--docs)
 - Figma: n/a
 
 ## Deprecated
@@ -283,7 +283,7 @@ o-colors provides tools to work with colours, including definitions for the FT's
 
 - **Status: Deprecated**
 - [Migrate to: o3-foundation](https://github.com/Financial-Times/origami/blob/main/components/o-colors/MIGRATION.md)
-- [Storybook: o-colors](https://o2.origami.ft.com/?path=/story/o2-core_components-o-colors)
+- [Storybook: o-colors](https://o2.origami.ft.com/?path=/docs/o2-core_deprecated-o-colors-readme--docs)
 - [Figma: Ft.com-Foundations / Colors](<https://www.figma.com/file/NtRRxJdOxBO4mM0B3Fxv7M/%F0%9F%92%A0-Ft.com-Foundations---Origami-(o2)?type=design&node-id=0-1&mode=design>) (incomplete)
 
 ### o-fonts
@@ -292,14 +292,14 @@ o-fonts includes font faces to include FT's custom fonts, Metric, FinancierDispl
 
 - **Status: Deprecated**
 - [Migrate to: o3-foundation](https://github.com/Financial-Times/origami/blob/main/components/o-fonts/MIGRATION.md)
-- [Storybook: o-fonts](https://o2.origami.ft.com/?path=/story/o2-core_components-o-fonts-metric--metric)
+- [Storybook: o-fonts](https://o2.origami.ft.com/?path=/docs/o2-core_deprecated-o-fonts-readme--docs)
 - Figma: n/a
 
 ### o-spacing
 
 - **Status: Deprecated**
 - [Migrate to: o3-foundation](https://github.com/Financial-Times/origami/blob/main/components/o-spacing/MIGRATION.md)
-- [Storybook: o-spacing](https://o2.origami.ft.com/?path=/story/o2-core_components-o-spacing)
+- [Storybook: o-spacing](https://o2.origami.ft.com/?path=/docs/o2-core_deprecated-o-spacing-readme--docs)
 - [Figma: FT-UI-Library / Spacing](<https://www.figma.com/file/MyHQ1qdwYyek5IBdhEEaND/%F0%9F%92%A0-FT-UI-Library---Origami-(o2)?type=design&node-id=0-2169&mode=design>) (incomplete)
 
 ### o-buttons
@@ -308,7 +308,7 @@ o-buttons includes styles for primary, secondary, and ghost buttons with theme s
 
 - **Status: Deprecated**
 - [Migrate to: o3-button](https://github.com/Financial-Times/origami/blob/main/components/o-buttons/MIGRATION.md)
-- [Storybook: o-buttons](https://o2.origami.ft.com/?path=/story/o2-core_components-o-buttons--big-button)
+- [Storybook: o-buttons](https://o2.origami.ft.com/?path=/docs/o2-core_deprecated-o-buttons-readme--docs)
 - [Figma: FT-UI-Library / Buttons](<https://www.figma.com/file/MyHQ1qdwYyek5IBdhEEaND/%F0%9F%92%A0-FT-UI-Library---Origami-(o2)?type=design&node-id=0-915&mode=design>) (incomplete)
 
 ### o-icons
@@ -317,7 +317,7 @@ o-icons provides an FT icon set and tools to apply them to digital products.
 
 - **Status: Deprecated**
 - [Migrate to: o3-foundation](https://github.com/Financial-Times/origami/blob/main/components/o-icons/MIGRATION.md)
-- [Storybook: o-icons](https://o2.origami.ft.com/?path=/story/o2-core_components-o-icons)
+- [Storybook: o-icons](https://o2.origami.ft.com/?path=/docs/o2-core_deprecated-o-icons-readme--docs)
 - [Figma: FT-UI-Library / Iconography](<https://www.figma.com/file/MyHQ1qdwYyek5IBdhEEaND/%F0%9F%92%A0-FT-UI-Library---Origami-(o2)?type=design&node-id=0-1498&mode=design>)
 
 ### o-normalise
@@ -326,7 +326,7 @@ Foundation styles and basic utility CSS, e.g. for cross browser consistency; to 
 
 - **Status: Deprecated**
 - [Migrate to: o3-foundation](https://github.com/Financial-Times/origami/blob/main/components/o-normalise/MIGRATION.md)
-- [Storybook: o-normalise](https://o2.origami.ft.com/?path=/story/o2-core_components-o-normalise)
+- [Storybook: o-normalise](https://o2.origami.ft.com/?path=/docs/o2-core_deprecated-o-normalise-readme--docs)
 - Figma: n/a
 
 ### o-typography
@@ -335,26 +335,26 @@ o-typography provides typographical fundamentals such as font scales, vertical r
 
 - **Status: Deprecated**
 - [Migrate to: o3-foundation](https://github.com/Financial-Times/origami/blob/main/components/o-typography/MIGRATION.md)
-- [Storybook: o-typography](https://o2.origami.ft.com/?path=/story/o2-core_components-o-typography)
+- [Storybook: o-typography](https://o2.origami.ft.com/?path=/docs/o2-core_deprecated-o-typography-readme--docs)
 - [Figma: FT-UI-Library / Typography](<https://www.figma.com/file/NtRRxJdOxBO4mM0B3Fxv7M/%F0%9F%92%A0-Ft.com-Foundations---Origami-(o2)?type=design&node-id=3-2&mode=design>) (incomplete)
 
 ### o-editorial-typography
 
 - **Status: Deprecated**
 - [Migrate to: o3-editorial-typography](https://github.com/Financial-Times/origami/blob/main/components/o-editorial-typography/MIGRATION.md)
-- [Storybook: o-editorial-typography](https://o2.origami.ft.com/?path=/story/o2-core_components-o-editorial-typography)
+- [Storybook: o-editorial-typography](https://o2.origami.ft.com/?path=/docs/o2-core_deprecated-o-editorial-typography-readme--docs)
 - Figma: -
 
 ### o-quote
 
 - **Status: Deprecated**
 - [Migrate to: o3-editorial-typography](https://github.com/Financial-Times/origami/blob/main/components/o-quote/MIGRATION.md)
-- [Storybook: o-quote](https://o2.origami.ft.com/?path=/story/o2-core_components-o-quote)
+- [Storybook: o-quote](https://o2.origami.ft.com/?path=/docs/o2-core_deprecated-o-quote-readme--docs)
 - Figma: -
 
 ### o-big-number
 
 - **Status: Deprecated**
 - [Migrate to: o3-editorial-typography](https://github.com/Financial-Times/origami/blob/main/components/o-big-number/MIGRATION.md)
-- [Storybook: o-big-number](https://o2.origami.ft.com/?path=/story/o2-core_components-o-big-number)
+- [Storybook: o-big-number](https://o2.origami.ft.com/?path=/docs/o2-core_deprecated-o-big-number-readme--docs)
 - Figma: -

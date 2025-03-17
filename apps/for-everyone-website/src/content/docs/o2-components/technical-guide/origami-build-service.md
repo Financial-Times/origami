@@ -33,9 +33,9 @@ E.g. To include [o-footer](https://o2-core.origami.ft.com/?path=/docs/components
 ></script>
 ```
 
-Then copy HTML for your component from [Storybook](https://o2.origami.ft.com/?path=/story/o2-core_components-o-footer-dark-theme--darktheme&globals=backgrounds:!undefined). To do so, find a component in the sidebar that meets your needs and then select the "HTML" tab.
+Then copy HTML for your component from [Storybook](https://o2.origami.ft.com/?path=/story/o2-core_maintained-o-footer-dark-theme--darktheme&globals=backgrounds:!undefined). To do so, find a component in the sidebar that meets your needs and then select the "HTML" tab.
 
-Components also include a markup section in their [README file](https://o2.origami.ft.com/?path=/docs/o2-core_components-o-footer-readme--docs#markup) which describes their HTML structure and possible modifications. This is also available for each component from the [Storybook](https://o2.origami.ft.com/?path=/story/o2-core_components-o-footer-dark-theme--darktheme&globals=backgrounds:!undefined) sidebar.
+Components also include a markup section in their [README file](https://o2.origami.ft.com/?path=/docs/o2-core_maintained-o-footer-readme--docs#markup) which describes their HTML structure and possible modifications. This is also available for each component from the [Storybook](https://o2.origami.ft.com/?path=/story/o2-core_components-o-footer-dark-theme--darktheme&globals=backgrounds:!undefined) sidebar.
 
 ```html
 <footer
