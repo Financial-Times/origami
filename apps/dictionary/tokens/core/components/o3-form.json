@@ -13,7 +13,7 @@
           },
           "error": {
             "value": {
-              "color": "{o3.color.use-case.error}",
+              "color": "{o3.color.use-case.error-foreground}",
               "width": "1.5px",
               "style": "solid"
             },

@@ -141,20 +141,20 @@
             "type": "color"
           }
         },
-        "error-text": {
-          "value": "#972217",
-          "type": "color"
-        },
         "error-background": {
           "value": "#F7EBE5",
           "type": "color"
         },
-        "success-text": {
-          "value": "#00572C",
+        "error-foreground": {
+          "value": "#972217",
           "type": "color"
         },
         "success-background": {
           "value": "#D7F0D1",
+          "type": "color"
+        },
+        "success-foreground": {
+          "value": "#00572C",
           "type": "color"
         }
       }
