@@ -130,11 +130,11 @@
           }
         },
         "error-background": {
-          "value": "#F7EBE5",
+          "value": "rgba(204,0,0,0.06)",
           "type": "color"
         },
         "error-foreground": {
-          "value": "#972217",
+          "value": "{o3.color.palette.crimson}",
           "type": "color"
         },
         "success-background": {
