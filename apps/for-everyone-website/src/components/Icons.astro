@@ -1,7 +1,7 @@
 ---
 const tokens = await import(`@financial-times/o3-tooling-token/icons.js`);
 
-const iconTokens = Object.entries(tokens.default).filter(([key, value]) => value.path[1] === 'icon' ).map(([key, value]) => {
+const iconTokens = Object.entries(tokens.default).filter(([key, value]) => value.path[1] === 'icon').map(([key, value]) => {
 	value.name = key;
 	return value;
 });
@@ -9,38 +9,39 @@ const iconTokens = Object.entries(tokens.default).filter(([key, value]) => value
 const iconTokensHaveDescription = Boolean(
 	iconTokens.find(
 		token =>
-			typeof token.description === 'string' && token.description.trim() !== ''
-	)
+			typeof token.description === 'string' && token.description.trim() !== '',
+	),
 );
 ---
 
 <table class="spacing-table">
 	<thead>
-		<tr>
-			<th class="name">icon</th>
-			<th>css</th>
-			{iconTokensHaveDescription && <th>description</th>}
-		</tr>
+	<tr>
+		<th class="name">icon</th>
+		<th>css</th>
+		{iconTokensHaveDescription &&
+			<th>description</th>}
+	</tr>
 	</thead>
 	<tbody>
-		{
-			iconTokens.map(token => {
-				return (
-					<tr>
-						<td>
+	{
+		iconTokens.map(token => {
+			return (
+				<tr>
+					<td>
 							<span class="icon-preview">
-								<span class="icon-preview__icon">
-									<Fragment set:html={token.originalValue} />
+								<span class="icon-preview__icon" style=`mask-image: var(${token.css})`>
 								</span>
 								{token.shortName}
 							</span>
-						</td>
-						<td>{token.css}</td>
-						{iconTokensHaveDescription && <td>{token.description}</td>}
-					</tr>
-				);
-			})
-		}
+					</td>
+					<td>{token.css}</td>
+					{iconTokensHaveDescription &&
+						<td>{token.description}</td>}
+				</tr>
+			);
+		})
+	}
 	</tbody>
 </table>
 
@@ -53,6 +54,11 @@ const iconTokensHaveDescription = Boolean(
 	}
 
 	.icon-preview__icon {
-			width: 24px;
+		display: inline-block;
+		width: 24px;
+		height: 24px;
+		background-color: currentColor;
+		mask-repeat: no-repeat;
+		mask-size: contain;
 	}
 </style>
