@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.2](https://github.com/Financial-Times/origami/compare/o-private-foundation-v1.2.1...o-private-foundation-v1.2.2) (2025-03-19)
+
+
+### Bug Fixes
+
+* Improve SVG encoding when embedded in CSS ([676b641](https://github.com/Financial-Times/origami/commit/676b64101d79ffa1c7cf4c2c7c7302b9c1e17b54))
+
 ## [1.2.1](https://github.com/Financial-Times/origami/compare/o-private-foundation-v1.2.0...o-private-foundation-v1.2.1) (2025-03-11)
 
 
