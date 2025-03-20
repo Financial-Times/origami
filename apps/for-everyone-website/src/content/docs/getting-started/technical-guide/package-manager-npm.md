@@ -167,7 +167,7 @@ export default function Home() {
 }
 ```
 
-Although out of scope for this introduction, care must also be taken when working with [objects as properties and events](https://custom-elements-everywhere.com/). This will be [resolved in React 19](https://github.com/facebook/react/issues/11347#issuecomment-2027508811).
+Although out of scope for this introduction, care must also be taken when working with [objects as properties and events](https://custom-elements-everywhere.com/). This has been fixed in React 19.
 
 ## Figma Dev Mode
 
