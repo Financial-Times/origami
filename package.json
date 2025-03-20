@@ -52,6 +52,7 @@
 		"@lwc/eslint-plugin-lwc": "^1.1.1",
 		"@open-wc/testing": "^3.0.3",
 		"@storybook/addon-docs": "^7.4.0",
+		"@storybook/blocks": "^7.6.20",
 		"@testing-library/dom": "^8.0.0",
 		"@testing-library/user-event": "^13.1.9",
 		"chai": "^4.3.4",
