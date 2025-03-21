@@ -88,6 +88,21 @@ If you need the count as a value, use the `getCount` method which returns an int
 Comments.getCount("article-id").then(count => console.log(count));
 ```
 
+#### auth
+
+If you just want to log someone into Coral but don't want to render the whole stream, the authorisation step is exported as `auth`
+
+```js
+import { auth } from '@financial-times/o-comments';
+
+export default async ({ useStaging = true }: { useStaging: boolean }) =>
+  auth.fetchJsonWebToken({
+    useStagingEnvironment: useStaging,
+    onlySubscribers: true,
+  });
+
+```
+
 ### Use staging environment
 
 Add the following attribute to the markup to use Coral staging environment:
