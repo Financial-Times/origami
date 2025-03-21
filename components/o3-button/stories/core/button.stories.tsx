@@ -30,7 +30,7 @@ export const LinkAsButton = ButtonStories.LinkAsButton;
 export const GroupedButtons = ButtonStories.GroupedButtons;
 export const Pagination = PaginationTemplate;
 Pagination.parameters = {
-	design:  {
+	design: {
 		type: 'figma',
 		url: links['core-o3-button--pagination'].figma,
 	},
