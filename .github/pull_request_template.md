@@ -2,7 +2,11 @@
 
 ## Issue ticket number and link
 
+[OR-xxxx](https://financialtimes.atlassian.net/browse/OR-xxxx)
+
 ## Link to Figma designs
+
+[Figma: Name](https://www.figma.com/design/path/to/your/figma/sharing/link)
 
 ## Checklist before requesting a review
 
