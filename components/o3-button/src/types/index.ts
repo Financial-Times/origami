@@ -4,7 +4,7 @@ export interface ButtonProps {
 	type: 'primary' | 'secondary' | 'ghost';
 	size?: 'small' | '';
 	fluid?: boolean;
-	theme?: 'inverse' | 'mono';
+	theme?: 'inverse' | 'mono' | 'neutral';
 	icon?:
 		| 'chevron-left'
 		| 'chevron-right'
@@ -17,7 +17,8 @@ export interface ButtonProps {
 		| 'download'
 		| 'search'
 		| 'refresh'
-		| 'cross';
+		| 'cross'
+		| 'link';
 	iconOnly?: boolean;
 	visuallyHideDisabled?: boolean;
 	attributes?: {

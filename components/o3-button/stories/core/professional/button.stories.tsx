@@ -18,7 +18,7 @@ export default {
 	],
 	argTypes: Object.assign(ButtonStories.Button.argTypes, {
 		theme: {
-			options: ['standard', 'inverse'],
+			options: ['standard', 'inverse', 'neutral'],
 			mapping: {
 				standard: '',
 				inverse: 'inverse',
@@ -30,18 +30,16 @@ export default {
 		design: {
 			type: 'figma',
 			url: links['core-professional-o3-button--button'].figma,
-
-		}
+		},
 	},
 } as Meta;
-
 
 export const Button = ButtonStories.Button;
 export const LinkAsButton = ButtonStories.LinkAsButton;
 export const GroupedButtons = ButtonStories.GroupedButtons;
 export const Pagination = PaginationTemplate;
 Pagination.parameters = {
-	design:  {
+	design: {
 		type: 'figma',
 		url: links['core-professional-o3-button--pagination'].figma,
 	},
