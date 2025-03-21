@@ -74,7 +74,6 @@ export const Pagination: PaginationStory = {
 		nextPager: {
 			href: '#next',
 			label: 'next results',
-			attributes: {'data-hello': 'next'},
 		},
 	},
 };
