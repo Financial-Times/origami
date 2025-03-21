@@ -499,3 +499,6 @@
 .o3-button-icon.o3-button-icon--refresh::before {
 	--o3-button-icon: var(--o3-icon-refresh);
 }
+.o3-button-icon.o3-button-icon--calendar::before {
+	--o3-button-icon: var(--o3-icon-calendar);
+}
