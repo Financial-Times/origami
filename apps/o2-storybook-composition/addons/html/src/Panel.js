@@ -1,5 +1,5 @@
 import React, {useMemo} from 'react';
-import {useAddonState, useChannel, useParameter} from '@storybook/api';
+import {useAddonState, useChannel, useParameter} from '@storybook/manager-api';
 import {AddonPanel} from '@storybook/components';
 import {ADDON_ID, EVENTS, PARAM_KEY} from './constants';
 import {PanelContent} from './components/PanelContent';

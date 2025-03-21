@@ -1,5 +1,5 @@
 import {ConceptButton} from '../src/tsx/concept-button';
-import {useArgs} from '@storybook/client-api';
+import {useArgs} from '@storybook/preview-api';
 import './concept-button.scss';
 
 export default {

@@ -40,7 +40,7 @@
 		"husky": "^5.1.3",
 		"jest": "^28.1.3",
 		"mock-stdin": "^1.0.0",
-		"prettier": "^2.2.1",
+		"prettier": "^3.2.1",
 		"pretty-quick": "^3.1.0",
 		"ts-jest": "^28.0.8",
 		"ts-node": "^10.9.1",

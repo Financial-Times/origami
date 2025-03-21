@@ -1,48 +1,48 @@
 {
-  "name": "o3-storybook",
-  "version": "0.0.1",
-  "description": "Storybook for o3 components",
-  "main": "index.js",
-  "scripts": {
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "../../scripts/build-o3-deps.sh && storybook build",
-    "chromatic": "chromatic"
-  },
-  "private": true,
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@chromatic-com/storybook": "^1.4.0",
-    "@storybook/addon-a11y": "^8.1.2",
-    "@storybook/addon-designs": "^8.0.0",
-    "@storybook/addon-essentials": "^8.1.2",
-    "@storybook/addon-docs": "^8.1.2",
-    "@storybook/addon-interactions": "^8.1.2",
-    "@storybook/addon-links": "^8.1.2",
-    "@storybook/addon-styling-webpack": "^1.0.0",
-    "@storybook/addon-webpack5-compiler-swc": "^1.0.2",
-    "@storybook/blocks": "^8.3.4",
-    "@storybook/preview-api": "^8.1.2",
-    "@storybook/react": "^8.1.2",
-    "@storybook/react-webpack5": "^8.1.2",
-    "@storybook/test": "^8.1.2",
-    "@storybook/test-runner": "^0.17.0",
-    "@whitespace/storybook-addon-html": "^6.0.4",
-    "autoprefixer": "^10.4.15",
-    "chromatic": "^11.3.0",
-    "css-loader": "^7.0.0",
-    "postcss": "^8.4.29",
-    "postcss-loader": "^8.1.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "storybook": "^8.1.2",
-    "style-loader": "^3.3.3",
-    "typescript": "^5.2.2"
-  },
-  "volta": {
-    "node": "18.20.3"
-  },
-  "peerDependencies": {
-    "@financial-times/o3-figma-sb-links": "^0.0.0"
-  }
+	"name": "o3-storybook",
+	"version": "0.0.1",
+	"description": "Storybook for o3 components",
+	"main": "index.js",
+	"scripts": {
+		"storybook": "storybook dev -p 6006",
+		"build-storybook": "../../scripts/build-o3-deps.sh && storybook build",
+		"chromatic": "chromatic"
+	},
+	"private": true,
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@chromatic-com/storybook": "^1.4.0",
+		"@storybook/addon-a11y": "^8.1.2",
+		"@storybook/addon-designs": "^8.2.1",
+		"@storybook/addon-essentials": "^8.1.2",
+		"@storybook/addon-docs": "^8.1.2",
+		"@storybook/addon-interactions": "^8.1.2",
+		"@storybook/addon-links": "^8.1.2",
+		"@storybook/addon-styling-webpack": "^1.0.1",
+		"@storybook/addon-webpack5-compiler-swc": "^1.0.2",
+		"@storybook/blocks": "^8.6.7",
+		"@storybook/preview-api": "^8.1.2",
+		"@storybook/react": "^8.1.2",
+		"@storybook/react-webpack5": "^8.1.2",
+		"@storybook/test": "^8.1.2",
+		"@storybook/test-runner": "^0.17.0",
+		"@whitespace/storybook-addon-html": "^6.1.1",
+		"autoprefixer": "^10.4.15",
+		"chromatic": "^11.3.0",
+		"css-loader": "^7.0.0",
+		"postcss": "^8.4.29",
+		"postcss-loader": "^8.1.1",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"storybook": "^8.1.2",
+		"style-loader": "^3.3.3",
+		"typescript": "^5.2.2"
+	},
+	"volta": {
+		"node": "18.20.3"
+	},
+	"peerDependencies": {
+		"@financial-times/o3-figma-sb-links": "^0.0.0"
+	}
 }

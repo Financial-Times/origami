@@ -1,4 +1,4 @@
-import {makeDecorator, useChannel} from '@storybook/addons';
+import {makeDecorator, useChannel} from '@storybook/manager-api';
 import {EVENTS} from './constants';
 
 export const withHTML = makeDecorator({
