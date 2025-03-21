@@ -1,22 +1,22 @@
-import React, {useState, useEffect, createElement} from "react"
-import {renderToStaticMarkup} from "react-dom/server"
-import {addons, types} from "@storybook/addons"
-import {DocsWrapper, DocsContent} from "@storybook/components"
-import marksy from "marksy"
-import {Prism as SyntaxHighlighter} from "react-syntax-highlighter"
-import "./style.scss"
-import syntaxStyle from "./syntax-style.js"
-import slugger from "github-slugger"
+import React, {useState, useEffect, createElement} from 'react';
+import {renderToStaticMarkup} from 'react-dom/server';
+import {addons, types} from '@storybook/manager-api';
+import {DocsWrapper, DocsContent} from '@storybook/components';
+import marksy from 'marksy';
+import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter';
+import './style.scss';
+import syntaxStyle from './syntax-style.js';
+import slugger from 'github-slugger';
 
 function textContent(node) {
-	if (["string", "number"].includes(typeof node)) {
-		return String(node)
+	if (['string', 'number'].includes(typeof node)) {
+		return String(node);
 	}
 	if (node instanceof Array) {
-		return node.map(textContent).join("")
+		return node.map(textContent).join('');
 	}
-	if (typeof node === "object" && node) {
-		return textContent(node.props.children)
+	if (typeof node === 'object' && node) {
+		return textContent(node.props.children);
 	}
 }
 
@@ -56,10 +56,10 @@ const compile = marksy({
 			</a>
 		),
 	},
-})
+});
 
 function makeMarkdownTab({api, title, filename}) {
-	let tabName = filename.toLowerCase()
+	let tabName = filename.toLowerCase();
 	addons.add(`origami/component-md/${tabName}`, {
 		title,
 		type: types.TAB,
@@ -67,31 +67,31 @@ function makeMarkdownTab({api, title, filename}) {
 		match: ({viewMode}) => viewMode == tabName,
 		paramKey: tabName,
 		render: ({active}) => {
-			let loading = "loading..."
-			let [content, setContent] = useState(loading)
-			let path = api.getCurrentParameter("fileName")
+			let loading = 'loading...';
+			let [content, setContent] = useState(loading);
+			let path = api.getCurrentParameter('fileName');
 			useEffect(() => {
 				if (!active || !path) {
-					setContent(loading)
-					return
+					setContent(loading);
+					return;
 				}
 
-				let nameMatch = path.match(/\/components\/([^/]+)\//)
+				let nameMatch = path.match(/\/components\/([^/]+)\//);
 				if (!nameMatch) {
-					setContent(loading)
-					return
+					setContent(loading);
+					return;
 				}
-				let [, component] = nameMatch
-				let tree = loading
+				let [, component] = nameMatch;
+				let tree = loading;
 				try {
-					tree = require(`../../../../components/${component}/${filename}.md`)
+					tree = require(`../../../../components/${component}/${filename}.md`);
 				} catch (error) {
-					setContent(`could not load ${filename}.md for ${component}`)
+					setContent(`could not load ${filename}.md for ${component}`);
 				}
-				setContent(compile(tree).tree)
-			}, [active, path])
+				setContent(compile(tree).tree);
+			}, [active, path]);
 
-			if (!active || !path) return null
+			if (!active || !path) return null;
 
 			return (
 				<DocsWrapper>
@@ -99,13 +99,13 @@ function makeMarkdownTab({api, title, filename}) {
 						<main className="readme o-typography-wrapper">{content}</main>
 					</DocsContent>
 				</DocsWrapper>
-			)
+			);
 		},
-	})
+	});
 }
 
-addons.register("origami/component-md", api => {
-	makeMarkdownTab({api, title: "README", filename: "README"})
-	makeMarkdownTab({api, title: "Migration guide", filename: "MIGRATION"})
-	makeMarkdownTab({api, title: "Changelog", filename: "CHANGELOG"})
-})
+addons.register('origami/component-md', api => {
+	makeMarkdownTab({api, title: 'README', filename: 'README'});
+	makeMarkdownTab({api, title: 'Migration guide', filename: 'MIGRATION'});
+	makeMarkdownTab({api, title: 'Changelog', filename: 'CHANGELOG'});
+});
