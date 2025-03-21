@@ -932,7 +932,7 @@ export default {
 },
 	"o3-color-use-case-error-background": {
 		"shortName": "error-background",
-		"value": "rgba(204, 0, 0, 0.06)",
+		"value": "#cc0000",
 		"originalValue": "rgba(204,0,0,0.06)",
 		"type": "color",
 		"attributes": {

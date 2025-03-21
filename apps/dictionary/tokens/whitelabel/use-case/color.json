@@ -132,12 +132,16 @@
           "value": "rgba(204,0,0,0.06)",
           "type": "color"
         },
-        "error-text": {
+        "error-foreground": {
           "value": "{o3.color.palette.crimson}",
           "type": "color"
         },
-        "error": {
-          "value": "{o3.color.palette.crimson}",
+        "success-background": {
+          "value": "#D7F0D1",
+          "type": "color"
+        },
+        "success-foreground": {
+          "value": "#00572C",
           "type": "color"
         }
       }

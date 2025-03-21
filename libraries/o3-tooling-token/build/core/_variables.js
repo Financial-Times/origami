@@ -1937,8 +1937,8 @@ export default {
 },
 	"o3-color-use-case-error-background": {
 		"shortName": "error-background",
-		"value": "rgba(204, 0, 0, 0.06)",
-		"originalValue": "rgba(204,0,0,0.06)",
+		"value": "#f7ebe5",
+		"originalValue": "#F7EBE5",
 		"type": "color",
 		"attributes": {
 				"item": "use-case",
@@ -1953,41 +1953,59 @@ export default {
 		"css": "--o3-color-use-case-error-background",
 		"figma": "o3/color/use-case/error-background"
 },
-	"o3-color-use-case-error-text": {
-		"shortName": "error-text",
-		"value": "#cc0000",
-		"originalValue": "{o3.color.palette.crimson}",
+	"o3-color-use-case-error-foreground": {
+		"shortName": "error-foreground",
+		"value": "#972217",
+		"originalValue": "#972217",
 		"type": "color",
 		"attributes": {
 				"item": "use-case",
-				"subitem": "error-text"
+				"subitem": "error-foreground"
 		},
 		"path": [
 				"o3",
 				"color",
 				"use-case",
-				"error-text"
+				"error-foreground"
 		],
-		"css": "--o3-color-use-case-error-text",
-		"figma": "o3/color/use-case/error-text"
+		"css": "--o3-color-use-case-error-foreground",
+		"figma": "o3/color/use-case/error-foreground"
 },
-	"o3-color-use-case-error": {
-		"shortName": "error",
-		"value": "#cc0000",
-		"originalValue": "{o3.color.palette.crimson}",
+	"o3-color-use-case-success-background": {
+		"shortName": "success-background",
+		"value": "#d7f0d1",
+		"originalValue": "#D7F0D1",
 		"type": "color",
 		"attributes": {
 				"item": "use-case",
-				"subitem": "error"
+				"subitem": "success-background"
 		},
 		"path": [
 				"o3",
 				"color",
 				"use-case",
-				"error"
+				"success-background"
 		],
-		"css": "--o3-color-use-case-error",
-		"figma": "o3/color/use-case/error"
+		"css": "--o3-color-use-case-success-background",
+		"figma": "o3/color/use-case/success-background"
+},
+	"o3-color-use-case-success-foreground": {
+		"shortName": "success-foreground",
+		"value": "#00572c",
+		"originalValue": "#00572C",
+		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "success-foreground"
+		},
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"success-foreground"
+		],
+		"css": "--o3-color-use-case-success-foreground",
+		"figma": "o3/color/use-case/success-foreground"
 },
 	"o3-spacing-5xs": {
 		"shortName": "5xs",
