@@ -270,7 +270,34 @@ p {
 }
 ```
 
-For uses of `oTypographySans` with options, use the equivalent css rules directly. Note that there are multiple font scales in o3. Use the Metric font scale `--o3-font-size-metric2-[scale]` where the font family is set to `--o3-font-family-metric`. E.g:
+
+
+For uses of `oTypographySans` with options, please consult with the design team to decide the best match for your context.
+
+**Sass**
+```scss
+p {
+	@include oTypographySans($scale: 1,
+	$weight: 'semibold',
+	$style: 'italic');
+}
+```
+
+**CSS**
+```css
+p {
+	font-family: var(--o3-font-family-metric); // outputs: 'Metric VF', sans
+	font-size: var(--o3-type-body-base-font-size);
+	line-height: var(--o3-type-body-base-line-height);
+	font-weight: var(--o3-type-body-base-font-weight);
+}
+```
+
+For all other scale uses, use the equivalent css rules directly. Note that there are multiple font scales in o3. Use the Metric font scale `--o3-font-size-metric2-[scale]` where the font family is set to `--o3-font-family-metric`.
+
+**NOTE:** When migrating the scale option in `oTypographySans`, the value used with `--o3-font-family-metric` must be offset by -1 to preserve the same sizing and line height.
+
+E.g:
 
 **Sass**
 ```scss
@@ -287,8 +314,8 @@ Replace with:
 ```css
 p {
 	font-family: var(--o3-font-family-metric); // outputs: 'Metric VF', sans
-	font-size: var(--o3-font-size-metric2-1);
-	line-height: var(--o3-font-lineheight-metric2-1);
+	font-size: var(--o3-font-size-metric2-0);
+	line-height: var(--o3-font-lineheight-metric2-0);
 	font-weight: var(--o3-font-weight-semibold);
 	font-style: italic;
 }

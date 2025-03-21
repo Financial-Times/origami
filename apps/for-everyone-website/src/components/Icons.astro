@@ -29,8 +29,7 @@ const iconTokensHaveDescription = Boolean(
 					<tr>
 						<td>
 							<span class="icon-preview">
-								<span class="icon-preview__icon">
-									<Fragment set:html={token.originalValue} />
+								<span class="icon-preview__icon" style={`--preview-icon: var(${token.css})`}>
 								</span>
 								{token.shortName}
 							</span>
@@ -53,6 +52,13 @@ const iconTokensHaveDescription = Boolean(
 	}
 
 	.icon-preview__icon {
-			width: 24px;
+		display: inline-block;
+		width: 24px;
+		height: 24px;
+		background-color: currentColor;
+		mask-image: var(--preview-icon);
+		mask-repeat: no-repeat;
+		mask-size: contain;
 	}
+
 </style>

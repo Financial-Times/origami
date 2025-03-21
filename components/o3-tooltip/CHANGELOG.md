@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.1](https://github.com/Financial-Times/origami/compare/o3-tooltip-v3.0.0...o3-tooltip-v3.0.1) (2025-03-19)
+
+
+### Bug Fixes
+
+* Improve SVG encoding when embedded in CSS ([676b641](https://github.com/Financial-Times/origami/commit/676b64101d79ffa1c7cf4c2c7c7302b9c1e17b54))
+
 ## [3.0.0](https://github.com/Financial-Times/origami/compare/o3-tooltip-v2.0.1...o3-tooltip-v3.0.0) (2025-02-20)
 
 ### ⚠ BREAKING CHANGES
