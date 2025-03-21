@@ -1,12 +1,10 @@
 ## Describe your changes
 
-## Issue ticket number and link
+## Additional context
 
-[OR-xxxx](https://financialtimes.atlassian.net/browse/OR-xxxx)
-
-## Link to Figma designs
-
-[Figma: Name](https://www.figma.com/design/path/to/your/figma/sharing/link)
+| JIRA ticket                                                    | Figma design                                                                |
+| -------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| [OR-xxxx](https://financialtimes.atlassian.net/browse/OR-xxxx) | [Figma: Name](https://www.figma.com/design/path/to/your/figma/sharing/link) |
 
 ## Checklist before requesting a review
 
