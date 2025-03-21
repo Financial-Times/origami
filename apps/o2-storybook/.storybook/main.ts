@@ -29,8 +29,10 @@ const config: StorybookConfig = {
 			const storiesForBrand = brands.includes(brand)
 				? await globby(
 						[
-							`${componentDirectory}/stories/*.stories.@(mdx|js|jsx|ts|tsx)`,
+							`${componentDirectory}/stories/*.stories.@(js|jsx|ts|tsx)`,
+							`${componentDirectory}/stories/*.mdx`,
 							`${componentDirectory}/stories/${brand}/*.stories.@(mdx|js|jsx|ts|tsx)`,
+							`${componentDirectory}/stories/${brand}/*.mdx`,
 						],
 						{
 							gitignore: false,
@@ -93,11 +95,26 @@ const config: StorybookConfig = {
 			},
 		},
 		'../../o2-storybook-composition/addons/html/src/preset',
+		'@storybook/addon-webpack5-compiler-swc',
 	],
 	framework: {
 		name: '@storybook/react-webpack5',
-		options: {},
+		options: {
+			builder: {
+				useSWC: true,
+			},
+		},
 	},
+	// Configures SWC compiler to import React automatically in story files
+	swc: () => ({
+		jsc: {
+			transform: {
+				react: {
+					runtime: 'automatic',
+				},
+			},
+		},
+	}),
 	docs: {
 		autodocs: 'tag',
 	},
