@@ -21,7 +21,6 @@ const ButtonPaginationTemplate: TemplateType = {
 		controls: {include: ['theme']},
 	},
 	render: args => {
-
 		const [{pages}, updateArgs] = useArgs();
 		const currentPageSelection = pages.find(
 			(page: PageType) => page.current
@@ -75,6 +74,7 @@ export const Pagination: PaginationStory = {
 		nextPager: {
 			href: '#next',
 			label: 'next results',
+			attributes: {'data-hello': 'next'},
 		},
 	},
 };

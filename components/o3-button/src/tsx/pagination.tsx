@@ -187,14 +187,23 @@ export function ButtonPagination({
 
 	const classNames = ['o3-button-pagination'];
 
+	const mandatedPreviousAttributes = {
+		disabled: firstPageIsSelected,
+		...(!firstPageIsSelected && {onClick: previousPager.onClick}),
+	};
+
+	const mandatedNextAttributes = {
+		disabled: lastPageIsSelected,
+		...(!lastPageIsSelected && {onClick: nextPager.onClick}),
+	};
+
 	return (
 		<div className={classNames.join(' ')}>
 			<PreviousTag
-				attributes={
-					firstPageIsSelected
-						? {disabled: true}
-						: {onClick: previousPager.onClick}
-				}
+				attributes={{
+					...previousPager.attributes,
+					...mandatedPreviousAttributes,
+				}}
 				href={previousPager.href}
 				label={previousPager.label}
 				icon={'chevron-left'}
@@ -205,9 +214,7 @@ export function ButtonPagination({
 			{paginationElements}
 
 			<NextTag
-				attributes={
-					lastPageIsSelected ? {disabled: true} : {onClick: nextPager.onClick}
-				}
+				attributes={{...nextPager.attributes, ...mandatedNextAttributes}}
 				href={nextPager.href}
 				label={nextPager.label}
 				icon={'chevron-right'}
