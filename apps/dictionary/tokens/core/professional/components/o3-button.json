@@ -399,6 +399,14 @@
           }
         },
         "neutral" : {
+          "background": {
+            "value": "{o3.color.palette.paper}",
+            "type": "color"
+          },
+          "border": {
+            "value": "{o3.color.palette.paper}",
+            "type": "color"
+          },
           "color": {
             "value": "{o3.color.use-case.body.text}",
             "type": "color"
@@ -445,6 +453,7 @@
               "type": "color"
             }
           }
+        }
       }
     }
   }
