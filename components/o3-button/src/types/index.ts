@@ -17,7 +17,8 @@ export interface ButtonProps {
 		| 'download'
 		| 'search'
 		| 'refresh'
-		| 'cross';
+		| 'cross'
+		| 'calendar';
 	iconOnly?: boolean;
 	visuallyHideDisabled?: boolean;
 	attributes?: {
