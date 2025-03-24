@@ -38,14 +38,14 @@
 }
 
 .o3-button[disabled],
-.o3-button[aria-disabled=true] {
+.o3-button[aria-disabled='true'] {
 	pointer-events: none;
 	opacity: 0.4;
 	cursor: default;
 }
 
 .o3-button[disabled].o3-button--hide-disabled,
-.o3-button[aria-disabled=true].o3-button--hide-disabled {
+.o3-button[aria-disabled='true'].o3-button--hide-disabled {
 	visibility: hidden;
 }
 
@@ -498,4 +498,7 @@
 }
 .o3-button-icon.o3-button-icon--refresh::before {
 	--o3-button-icon: var(--o3-icon-refresh);
+}
+.o3-button-icon.o3-button-icon--link::before {
+	--o3-button-icon: var(--o3-icon-link);
 }
