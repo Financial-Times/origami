@@ -47,6 +47,9 @@ export interface ButtonPaginationPager {
 	label: string;
 	href?: string;
 	onClick?: any;
+	attributes?: {
+		[attribute: string]: string | boolean;
+	};
 }
 
 export type Ellipsis = Pick<ButtonProps, 'theme'> & {
