@@ -19,6 +19,7 @@ export interface ButtonProps {
 		| 'refresh'
 		| 'cross'
 		| 'link';
+		| 'calendar';
 	iconOnly?: boolean;
 	visuallyHideDisabled?: boolean;
 	attributes?: {

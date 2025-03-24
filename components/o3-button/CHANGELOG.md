@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.0](https://github.com/Financial-Times/origami/compare/o3-button-v3.1.0...o3-button-v3.2.0) (2025-03-24)
+
+
+### Features
+
+* calendar as default icon ([bed6436](https://github.com/Financial-Times/origami/commit/bed643655aa38dce01cb0d797a726751a5a0301c))
+
 ## [3.1.0](https://github.com/Financial-Times/origami/compare/o3-button-v3.0.1...o3-button-v3.1.0) (2025-03-21)
 
 

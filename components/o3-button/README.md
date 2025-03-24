@@ -131,6 +131,7 @@ A limited number of button icons are available. Limiting the number of icons kee
 - search
 - refresh
 - cross
+- calendar
 
 ```html
 <button

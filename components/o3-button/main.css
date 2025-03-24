@@ -502,3 +502,6 @@
 .o3-button-icon.o3-button-icon--link::before {
 	--o3-button-icon: var(--o3-icon-link);
 }
+.o3-button-icon.o3-button-icon--calendar::before {
+	--o3-button-icon: var(--o3-icon-calendar);
+}
