@@ -39,7 +39,7 @@ const config: StorybookConfig = {
 							expandDirectories: false,
 							deep: 1,
 						}
-				  )
+					)
 				: [];
 			storyPaths.push(...storiesForBrand.map(storyPath => `../${storyPath}`));
 		}
@@ -50,7 +50,6 @@ const config: StorybookConfig = {
 		'@storybook/addon-links',
 		'@storybook/addon-essentials',
 		'@storybook/addon-interactions',
-		'@storybook/addon-docs',
 		{
 			name: '@storybook/addon-styling-webpack',
 			options: {
