@@ -22,7 +22,6 @@
     "@storybook/addon-styling-webpack": "^0.0.4",
     "@storybook/addon-webpack5-compiler-swc": "^1.0.2",
     "@storybook/blocks": "^8.6.7",
-    "@storybook/client-api": "^7.6.17",
     "@storybook/core-events": "^8.6.7",
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/preview-api": "^8.6.7",
