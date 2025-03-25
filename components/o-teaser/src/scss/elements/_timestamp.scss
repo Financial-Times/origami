@@ -26,7 +26,7 @@
 		);
 	}
 
-	.o-teaser__timestamp--new {
+	.o-teaser__timestamp.o-teaser__timestamp--new {
 		@include oLabelsIndicatorContent(
 			$opts: (
 				'block': true,
@@ -35,7 +35,7 @@
 		);
 	}
 
-	.o-teaser__timestamp--updated {
+	.o-teaser__timestamp.o-teaser__timestamp--updated {
 		@include oLabelsIndicatorContent(
 			$opts: (
 				'block': true,
@@ -57,7 +57,7 @@
 		);
 	}
 
-	.o-teaser__timestamp--closed {
+	.o-teaser__timestamp.o-teaser__timestamp--closed {
 		@include oLabelsIndicatorContent(
 			$opts: (
 				'block': true,
