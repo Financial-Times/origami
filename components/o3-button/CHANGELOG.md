@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.1](https://github.com/Financial-Times/origami/compare/o3-button-v3.3.0...o3-button-v3.3.1) (2025-03-26)
+
+
+### Bug Fixes
+
+* improve specificity on neutral theme for primary/ghost ([e322749](https://github.com/Financial-Times/origami/commit/e322749965c8f7ea4e5c178dc9ec07782944cd4d))
+
 ## [3.3.0](https://github.com/Financial-Times/origami/compare/o3-button-v3.2.0...o3-button-v3.3.0) (2025-03-26)
 
 
