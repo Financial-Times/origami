@@ -240,7 +240,6 @@
 
 /* SECONDARY NEUTRAL: Unsupported */
 /* This neutral theme is currently supported only in two brands: Core and Professional. */
-/* TODO: Review moving back to the Core & Professional brand CSS files in the future */
 
 .o3-button.o3-button--secondary[data-o3-theme='neutral'],
 :where([data-o3-theme='neutral']) .o3-button.o3-button--secondary {
@@ -331,7 +330,6 @@
 
 /* GHOST NEUTRAL */
 /* This neutral theme is currently supported only in two brands: Core and Professional. */
-/* TODO: Review moving back to the Core & Professional brand CSS files in the future */
 
 .o3-button.o3-button--ghost[data-o3-theme='neutral'],
 :where([data-o3-theme='neutral']) .o3-button.o3-button--ghost {
