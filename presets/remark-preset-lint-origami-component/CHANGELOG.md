@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0](https://github.com/Financial-Times/origami/compare/remark-preset-lint-origami-component-v2.0.2...remark-preset-lint-origami-component-v2.1.0) (2025-03-26)
+
+
+### Features
+
+* o3-button: add neutral theme for primary/ghost ([c5be4b8](https://github.com/Financial-Times/origami/commit/c5be4b8b0a9fd2c32c8de86a60760052ee1c1642))
+
 ### [2.0.2](https://www.github.com/Financial-Times/origami/compare/remark-preset-lint-origami-component-v2.0.1...remark-preset-lint-origami-component-v2.0.2) (2022-01-13)
 
 

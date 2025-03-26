@@ -1,6 +1,6 @@
 {
   "name": "ftdomdelegate",
-  "version": "5.0.1",
+  "version": "5.1.0",
   "description": "FT's dom delegate library is a library for creating and binding to events on all target elements matching the given selector.",
   "browser": "main.js",
   "type": "module",

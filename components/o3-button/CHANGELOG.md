@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.3.0](https://github.com/Financial-Times/origami/compare/o3-button-v3.2.0...o3-button-v3.3.0) (2025-03-26)
+
+
+### Features
+
+* add comments for usage of neutral theme ([186d561](https://github.com/Financial-Times/origami/commit/186d561bc301980186ce84ce2c1475c359351765))
+* o3-button: add neutral theme for primary/ghost ([c5be4b8](https://github.com/Financial-Times/origami/commit/c5be4b8b0a9fd2c32c8de86a60760052ee1c1642))
+
 ## [3.2.0](https://github.com/Financial-Times/origami/compare/o3-button-v3.1.0...o3-button-v3.2.0) (2025-03-24)
 
 

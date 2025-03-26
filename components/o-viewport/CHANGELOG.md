@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.2.0](https://github.com/Financial-Times/origami/compare/o-viewport-v5.1.2...o-viewport-v5.2.0) (2025-03-26)
+
+
+### Features
+
+* o3-button: add neutral theme for primary/ghost ([c5be4b8](https://github.com/Financial-Times/origami/commit/c5be4b8b0a9fd2c32c8de86a60760052ee1c1642))
+
 ## [5.1.2](https://github.com/Financial-Times/origami/compare/o-viewport-v5.1.1...o-viewport-v5.1.2) (2023-10-27)
 
 

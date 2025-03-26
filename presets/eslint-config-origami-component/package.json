@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-origami-component",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "",
   "main": "config.js",
   "author": "Jake Champion",

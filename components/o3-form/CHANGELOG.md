@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.0](https://github.com/Financial-Times/origami/compare/o3-form-v0.5.2...o3-form-v0.6.0) (2025-03-26)
+
+
+### Features
+
+* o3-button: add neutral theme for primary/ghost ([c5be4b8](https://github.com/Financial-Times/origami/commit/c5be4b8b0a9fd2c32c8de86a60760052ee1c1642))
+
 ## [0.5.2](https://github.com/Financial-Times/origami/compare/o3-form-v0.5.1...o3-form-v0.5.2) (2025-03-19)
 
 
