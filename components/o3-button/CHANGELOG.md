@@ -5,7 +5,8 @@
 
 ### Features
 
-* improve grammar on comments for core/professional ([2db3fa2](https://github.com/Financial-Times/origami/commit/2db3fa2c45252cf34eff729897ab90535468a328))
+* Add neutral theme for primary/ghost buttons on Core & Professional brand ([baf1c60](https://github.com/Financial-Times/origami/commit/baf1c60b10c30ff85190929491c260e00f244532))
+* Add link icon to the allowed list for buttons ([55f60bd](https://github.com/Financial-Times/origami/commit/55f60bda3f3b266979766396fe947333defced79))
 
 ## [3.2.0](https://github.com/Financial-Times/origami/compare/o3-button-v3.1.0...o3-button-v3.2.0) (2025-03-24)
 
