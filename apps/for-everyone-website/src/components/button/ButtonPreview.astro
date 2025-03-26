@@ -6,6 +6,7 @@ import * as Small from './preview/Sizes-Small';
 import * as Standard from './preview/Themes-Standard';
 import * as Inverse from './preview/Themes-Inverse';
 import * as Mono from './preview/Themes-Mono';
+import * as Neutral from './preview/Themes-Neutral';
 import * as Ghost from './preview/Types-Ghost';
 import * as Primary from './preview/Types-Primary';
 import * as Secondary from './preview/Types-Secondary';
@@ -39,6 +40,9 @@ switch (previewFile) {
 		break;
 	case 'Themes-Mono':
 		component = Mono;
+		break;
+	case 'Themes-Neutral':
+		component = Neutral;
 		break;
 	case 'Types-Ghost':
 		component = Ghost;
