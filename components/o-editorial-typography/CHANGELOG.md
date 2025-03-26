@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.5.0](https://github.com/Financial-Times/origami/compare/o-editorial-typography-v2.4.1...o-editorial-typography-v2.5.0) (2025-03-26)
+
+
+### Features
+
+* o3-button: add neutral theme for primary/ghost ([c5be4b8](https://github.com/Financial-Times/origami/commit/c5be4b8b0a9fd2c32c8de86a60760052ee1c1642))
+
 ## [2.4.1](https://github.com/Financial-Times/origami/compare/o-editorial-typography-v2.4.0...o-editorial-typography-v2.4.1) (2023-10-27)
 
 

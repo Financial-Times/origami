@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.0](https://github.com/Financial-Times/origami/compare/o-big-number-v3.2.3...o-big-number-v3.3.0) (2025-03-26)
+
+
+### Features
+
+* o3-button: add neutral theme for primary/ghost ([c5be4b8](https://github.com/Financial-Times/origami/commit/c5be4b8b0a9fd2c32c8de86a60760052ee1c1642))
+
 ## [3.2.3](https://github.com/Financial-Times/origami/compare/o-big-number-v3.2.2...o-big-number-v3.2.3) (2023-10-27)
 
 

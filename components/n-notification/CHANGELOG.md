@@ -1,5 +1,12 @@
 # Changelog
 
+## [9.1.0](https://github.com/Financial-Times/origami/compare/n-notification-v9.0.0...n-notification-v9.1.0) (2025-03-26)
+
+
+### Features
+
+* o3-button: add neutral theme for primary/ghost ([c5be4b8](https://github.com/Financial-Times/origami/commit/c5be4b8b0a9fd2c32c8de86a60760052ee1c1642))
+
 ## [9.0.0](https://github.com/Financial-Times/origami/compare/n-notification-v8.2.6...n-notification-v9.0.0) (2025-02-20)
 
 ### ⚠ BREAKING CHANGES

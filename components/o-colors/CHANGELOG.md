@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.8.0](https://github.com/Financial-Times/origami/compare/o-colors-v6.7.0...o-colors-v6.8.0) (2025-03-26)
+
+
+### Features
+
+* o3-button: add neutral theme for primary/ghost ([c5be4b8](https://github.com/Financial-Times/origami/commit/c5be4b8b0a9fd2c32c8de86a60760052ee1c1642))
+
 ## [6.7.0](https://github.com/Financial-Times/origami/compare/o-colors-v6.6.4...o-colors-v6.7.0) (2024-07-31)
 
 

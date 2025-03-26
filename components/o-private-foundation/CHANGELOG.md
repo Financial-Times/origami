@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.0](https://github.com/Financial-Times/origami/compare/o-private-foundation-v1.2.2...o-private-foundation-v1.3.0) (2025-03-26)
+
+
+### Features
+
+* add neutral theme to primary/ghost buttons ([3d9eac3](https://github.com/Financial-Times/origami/commit/3d9eac30ec3b48f67acb34430892665c162a41e5))
+* o3-button: add neutral theme for primary/ghost ([c5be4b8](https://github.com/Financial-Times/origami/commit/c5be4b8b0a9fd2c32c8de86a60760052ee1c1642))
+
 ## [1.2.2](https://github.com/Financial-Times/origami/compare/o-private-foundation-v1.2.1...o-private-foundation-v1.2.2) (2025-03-19)
 
 

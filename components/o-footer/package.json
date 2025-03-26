@@ -1,6 +1,6 @@
 {
 	"name": "@financial-times/o-footer",
-	"version": "10.0.0",
+	"version": "10.1.0",
 	"description": "Responsive footer for all FT.com pages. Includes legally approved links.",
 	"keywords": [
 		"footer",

@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.0](https://github.com/Financial-Times/origami/compare/o-audio-v2.1.4...o-audio-v2.2.0) (2025-03-26)
+
+
+### Features
+
+* o3-button: add neutral theme for primary/ghost ([c5be4b8](https://github.com/Financial-Times/origami/commit/c5be4b8b0a9fd2c32c8de86a60760052ee1c1642))
+
 ## [2.1.4](https://github.com/Financial-Times/origami/compare/o-audio-v2.1.3...o-audio-v2.1.4) (2023-10-27)
 
 
