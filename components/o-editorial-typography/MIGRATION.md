@@ -15,7 +15,7 @@ e.g. Core brand with inverse theme will have following markup:
 ```html
 
 <div data-o3-brand="core" data-o3-theme="inverse">
-	<h1 class="o3-editorial-typography__headline">Heading</h1>
+	<h1 class="o3-editorial-typography-headline">Heading</h1>
 </div>
 ```
 
@@ -25,7 +25,7 @@ e.g Sustainable Views brand with inverse theme specifically applied on the eleme
 
 <div data-o3-brand="sustainable-views">
 	<!-- OTHER HTML -->
-	<h1 class="o3-editorial-typography__headline" data-o3-theme="inverse">
+	<h1 class="o3-editorial-typography-headline" data-o3-theme="inverse">
 		Heading
 	</h1>
 	<!-- OTHER HTML -->
@@ -55,7 +55,7 @@ To migrate each mixin first import `o3-editorial-typography` css. For example:
 `oEditorialTypography` mixin was used to include all o-editorial-typography CSS. `o3-editorial-typography` includes all
 o-editorial-typography CSS by default and can be used by applying correct class names.
 
-There is no need to include `oEditorialTypography` mixin in your Sass files any more. Using new class names replaced
+There is no need to include `oEditorialTypography` mixin in your Sass files anymore. Using new class names replaced
 mixins that output css.
 
 class name replacements are as follows:
