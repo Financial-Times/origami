@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.0](https://github.com/Financial-Times/origami/compare/o3-button-v3.2.0...o3-button-v3.3.0) (2025-03-26)
+
+
+### Features
+
+* improve grammar on comments for core/professional ([2db3fa2](https://github.com/Financial-Times/origami/commit/2db3fa2c45252cf34eff729897ab90535468a328))
+
 ## [3.2.0](https://github.com/Financial-Times/origami/compare/o3-button-v3.1.0...o3-button-v3.2.0) (2025-03-24)
 
 
