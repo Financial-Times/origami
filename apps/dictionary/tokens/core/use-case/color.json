@@ -65,28 +65,32 @@
             "type": "color"
           }
         },
-        "support": {
-          "text": {
-            "value": "{o3.color.palette.black-70}",
-            "type": "color"
-          }
-        },
         "body-inverse": {
           "text": {
             "value": "{o3.color.palette.white}",
             "type": "color"
           }
         },
-        "heading": {
+        "support": {
           "text": {
-            "value": "{o3.color.palette.black-80}",
+            "value": "{o3.color.palette.black-70}",
             "type": "color"
           }
         },
-        "heading-inverse": {
+        "support-inverse": {
           "text": {
             "value": "{o3.color.palette.white}",
-            "type": "color"
+            "type": "color",
+            "$extensions": {
+              "studio.tokens": {
+                "modify": {
+                  "type": "mix",
+                  "value": "0.1",
+                  "space": "srgb",
+                  "color": "{o3.color.palette.slate} "
+                }
+              }
+            }
           }
         },
         "muted": {
@@ -101,6 +105,18 @@
             "value": "#a8aaad",
             "type": "color",
             "description": "\"Muted\" text is less prominent, for example credits and captions."
+          }
+        },
+        "heading": {
+          "text": {
+            "value": "{o3.color.palette.black-80}",
+            "type": "color"
+          }
+        },
+        "heading-inverse": {
+          "text": {
+            "value": "{o3.color.palette.white}",
+            "type": "color"
           }
         },
         "footer": {
