@@ -568,11 +568,11 @@
         },
         "neutral" : {
           "background": {
-            "value": "{o3.color.palette.paper}",
+            "value": "rgba(255, 255, 255, 0)",
             "type": "color"
           },
           "border": {
-            "value": "{o3.color.palette.paper}",
+            "value": "rgba(255, 255, 255, 0)",
             "type": "color"
           },
           "color": {
