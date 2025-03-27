@@ -1084,6 +1084,26 @@ export default {
 		"css": "--o3-color-use-case-support-text",
 		"figma": "o3/color/use-case/support/text"
 },
+	"o3-color-use-case-support-inverse-text": {
+		"shortName": "text",
+		"value": "rgb(91.5% 91.6% 92%)",
+		"originalValue": "{o3.color.palette.white}",
+		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "support-inverse",
+				"state": "text"
+		},
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"support-inverse",
+				"text"
+		],
+		"css": "--o3-color-use-case-support-inverse-text",
+		"figma": "o3/color/use-case/support-inverse/text"
+},
 	"o3-color-use-case-body-inverse-text": {
 		"shortName": "text",
 		"value": "#ffffff",

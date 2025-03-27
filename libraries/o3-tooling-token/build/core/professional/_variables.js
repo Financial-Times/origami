@@ -1891,26 +1891,6 @@ export default {
 		"css": "--o3-color-use-case-body-text",
 		"figma": "o3/color/use-case/body/text"
 },
-	"o3-color-use-case-support-text": {
-		"shortName": "text",
-		"value": "#4d4845",
-		"originalValue": "{o3.color.palette.black-70}",
-		"type": "color",
-		"attributes": {
-				"item": "use-case",
-				"subitem": "support",
-				"state": "text"
-		},
-		"path": [
-				"o3",
-				"color",
-				"use-case",
-				"support",
-				"text"
-		],
-		"css": "--o3-color-use-case-support-text",
-		"figma": "o3/color/use-case/support/text"
-},
 	"o3-color-use-case-body-inverse-text": {
 		"shortName": "text",
 		"value": "#ffffff",
@@ -1931,45 +1911,45 @@ export default {
 		"css": "--o3-color-use-case-body-inverse-text",
 		"figma": "o3/color/use-case/body-inverse/text"
 },
-	"o3-color-use-case-heading-text": {
+	"o3-color-use-case-support-text": {
 		"shortName": "text",
-		"value": "#33302e",
-		"originalValue": "{o3.color.palette.black-80}",
+		"value": "#4d4845",
+		"originalValue": "{o3.color.palette.black-70}",
 		"type": "color",
 		"attributes": {
 				"item": "use-case",
-				"subitem": "heading",
+				"subitem": "support",
 				"state": "text"
 		},
 		"path": [
 				"o3",
 				"color",
 				"use-case",
-				"heading",
+				"support",
 				"text"
 		],
-		"css": "--o3-color-use-case-heading-text",
-		"figma": "o3/color/use-case/heading/text"
+		"css": "--o3-color-use-case-support-text",
+		"figma": "o3/color/use-case/support/text"
 },
-	"o3-color-use-case-heading-inverse-text": {
+	"o3-color-use-case-support-inverse-text": {
 		"shortName": "text",
-		"value": "#ffffff",
+		"value": "rgb(91.5% 91.6% 92%)",
 		"originalValue": "{o3.color.palette.white}",
 		"type": "color",
 		"attributes": {
 				"item": "use-case",
-				"subitem": "heading-inverse",
+				"subitem": "support-inverse",
 				"state": "text"
 		},
 		"path": [
 				"o3",
 				"color",
 				"use-case",
-				"heading-inverse",
+				"support-inverse",
 				"text"
 		],
-		"css": "--o3-color-use-case-heading-inverse-text",
-		"figma": "o3/color/use-case/heading-inverse/text"
+		"css": "--o3-color-use-case-support-inverse-text",
+		"figma": "o3/color/use-case/support-inverse/text"
 },
 	"o3-color-use-case-muted-text": {
 		"shortName": "text",
@@ -2012,6 +1992,46 @@ export default {
 		],
 		"css": "--o3-color-use-case-muted-inverse-text",
 		"figma": "o3/color/use-case/muted-inverse/text"
+},
+	"o3-color-use-case-heading-text": {
+		"shortName": "text",
+		"value": "#33302e",
+		"originalValue": "{o3.color.palette.black-80}",
+		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "heading",
+				"state": "text"
+		},
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"heading",
+				"text"
+		],
+		"css": "--o3-color-use-case-heading-text",
+		"figma": "o3/color/use-case/heading/text"
+},
+	"o3-color-use-case-heading-inverse-text": {
+		"shortName": "text",
+		"value": "#ffffff",
+		"originalValue": "{o3.color.palette.white}",
+		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "heading-inverse",
+				"state": "text"
+		},
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"heading-inverse",
+				"text"
+		],
+		"css": "--o3-color-use-case-heading-inverse-text",
+		"figma": "o3/color/use-case/heading-inverse/text"
 },
 	"o3-color-use-case-footer-text": {
 		"shortName": "text",
