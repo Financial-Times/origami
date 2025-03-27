@@ -170,7 +170,7 @@
             }
           }
         },
-        "neutral" : {
+        "neutral": {
           "background": {
             "value": "{o3.color.palette.black-5}",
             "type": "color"
@@ -566,7 +566,7 @@
             }
           }
         },
-        "neutral" : {
+        "neutral": {
           "background": {
             "value": "rgba(255, 255, 255, 0)",
             "type": "color"

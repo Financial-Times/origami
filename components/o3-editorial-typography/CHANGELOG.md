@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.2](https://github.com/Financial-Times/origami/compare/o3-editorial-typography-v3.1.1...o3-editorial-typography-v3.1.2) (2025-03-27)
+
+
+### Bug Fixes
+
+* Correct byline author colour, match production style. ([#2053](https://github.com/Financial-Times/origami/issues/2053)) ([f6dce35](https://github.com/Financial-Times/origami/commit/f6dce35890142603201bc63ca895c172fbb042d2))
+
 ## [3.1.1](https://github.com/Financial-Times/origami/compare/o3-editorial-typography-v3.1.0...o3-editorial-typography-v3.1.1) (2025-03-07)
 
 

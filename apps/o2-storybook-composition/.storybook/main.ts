@@ -1,13 +1,15 @@
+import {dirname, join} from 'path';
 import type {StorybookConfig} from '@storybook/react-webpack5';
 
-const config: StorybookConfig = {
-	stories: ['../stories/*.stories.@(js|jsx|mjs|ts|tsx|mdx)'],
+const config = {
+	stories: ['../stories/*.@(mdx|stories.@(js|jsx|mjs|ts|tsx))'],
+
 	addons: [
-		'@storybook/addon-links',
-		'@storybook/addon-essentials',
-		'@storybook/addon-interactions',
-		'@storybook/addon-docs',
+		getAbsolutePath('@storybook/addon-links'),
+		getAbsolutePath('@storybook/addon-essentials'),
+		getAbsolutePath('@storybook/addon-interactions'),
 		'../addons/html/src/preset/',
+		'@storybook/addon-webpack5-compiler-swc',
 	],
 	refs: {
 		'o2-core': {
@@ -27,11 +29,32 @@ const config: StorybookConfig = {
 		},
 	},
 	framework: {
-		name: '@storybook/react-webpack5',
-		options: {},
+		name: getAbsolutePath('@storybook/react-webpack5'),
+		options: {
+			builder: {
+				useSWC: true,
+			},
+		},
 	},
+	// Configures SWC compiler to import React automatically in story files
+	swc: () => ({
+		jsc: {
+			transform: {
+				react: {
+					runtime: 'automatic',
+				},
+			},
+		},
+	}),
 	docs: {
 		autodocs: 'tag',
 	},
+	typescript: {
+		reactDocgen: 'react-docgen-typescript',
+	},
 };
 export default config;
+
+function getAbsolutePath(value: string): any {
+	return dirname(require.resolve(join(value, 'package.json')));
+}
