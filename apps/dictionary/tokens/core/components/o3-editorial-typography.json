@@ -33,7 +33,7 @@
       },
       "byline-author": {
         "color": {
-          "value": "{o3.color.palette.claret}",
+          "value": "{o3.color.use-case.body.text}",
           "type": "color"
         },
         "inverse-color": {
@@ -42,7 +42,7 @@
         },
         "hover": {
           "color": {
-            "value": "{o3.color.palette.claret-30}",
+            "value": "{o3.color.palette.claret-60}",
             "type": "color"
           },
           "inverse-color": {
