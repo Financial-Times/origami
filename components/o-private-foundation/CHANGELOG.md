@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.4](https://github.com/Financial-Times/origami/compare/o-private-foundation-v1.2.3...o-private-foundation-v1.2.4) (2025-03-27)
+
+
+### Bug Fixes
+
+* Correct byline author colour, match production style. ([#2053](https://github.com/Financial-Times/origami/issues/2053)) ([f6dce35](https://github.com/Financial-Times/origami/commit/f6dce35890142603201bc63ca895c172fbb042d2))
+
 ## [1.2.3](https://github.com/Financial-Times/origami/compare/o-private-foundation-v1.2.2...o-private-foundation-v1.2.3) (2025-03-27)
 
 
