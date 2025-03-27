@@ -11,6 +11,11 @@ function ButtonPreview() {
 	);
 }
 
-export const themes = buttonThemes;
+export const themes = Object.fromEntries(
+	Object.entries(buttonThemes).map(([key, value]) => [
+		key,
+		value.filter(theme => theme !== 'neutral'),
+	])
+);
 export const filePath = 'src/components/button/preview/Types-Secondary.tsx';
 export {ButtonPreview as preview};
