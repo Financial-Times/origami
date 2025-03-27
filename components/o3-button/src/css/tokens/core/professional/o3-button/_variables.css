@@ -76,6 +76,8 @@
   --_o3-button-ghost-inverse-active-background: #c0efd8;
   --_o3-button-ghost-inverse-active-color: #000000;
   --_o3-button-ghost-inverse-active-border: rgba(255, 255, 255, 0);
+  --_o3-button-ghost-neutral-background: rgba(255, 255, 255, 0);
+  --_o3-button-ghost-neutral-border: rgba(255, 255, 255, 0);
   --_o3-button-primary-neutral-background: var(--o3-color-palette-black-5);
   --_o3-button-primary-neutral-border: var(--o3-color-palette-black-5);
   --_o3-button-primary-neutral-hover-background: var(--o3-color-palette-black-10);
@@ -84,8 +86,6 @@
   --_o3-button-primary-neutral-focus-border: var(--o3-color-palette-black-10);
   --_o3-button-primary-neutral-active-background: var(--o3-color-palette-black-20);
   --_o3-button-primary-neutral-active-border: var(--o3-color-palette-black-5);
-  --_o3-button-ghost-neutral-background: var(--o3-color-palette-paper);
-  --_o3-button-ghost-neutral-border: var(--o3-color-palette-paper);
   --_o3-button-ghost-neutral-hover-background: var(--o3-color-palette-black-10);
   --_o3-button-ghost-neutral-hover-border: var(--o3-color-palette-black-10);
   --_o3-button-ghost-neutral-focus-background: var(--o3-color-palette-black-10);
