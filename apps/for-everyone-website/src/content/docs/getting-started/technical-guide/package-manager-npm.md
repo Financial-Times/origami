@@ -39,8 +39,8 @@ Origami supports multiple brands and themes. First set your brand using the data
 
 Next we need to include the HTML for our components. We can do this in one of two ways:
 
-1. Copy-paste markup from [Storybook](https://o3.origami.ft.com). Or;
-2. Import a JSX template from the component.
+1. Import a JSX template from the component. Or;
+2. Copy-paste markup from [Storybook](https://o3.origami.ft.com).
 
 We recommend JSX templates for React projects. This will reduce the number of markup changes required when upgrading to future versions of Origami; and provide markup autocompletion through type definitions.
 
@@ -167,7 +167,7 @@ export default function Home() {
 }
 ```
 
-Although out of scope for this introduction, care must also be taken when working with [objects as properties and events](https://custom-elements-everywhere.com/). This will be [resolved in React 19](https://github.com/facebook/react/issues/11347#issuecomment-2027508811).
+Although out of scope for this introduction, care must also be taken when working with [objects as properties and events](https://custom-elements-everywhere.com/). This has been fixed in React 19.
 
 ## Figma Dev Mode
 

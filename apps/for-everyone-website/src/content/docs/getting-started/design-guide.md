@@ -45,7 +45,7 @@ Design tokens are used to align design guidelines here, Figma variables, and cod
 
 ## Figma Components
 
-Origami components in Figma align with published components available to engineers and our design guideline website. See the description of an inserted component to jump to our design guideline website. This will cover where and why to use a component, along with some of the design thinking behind it. From there follow links to explore the component in Figma or live, interactive demos in Storybook.
+Origami components in Figma align with published components available to engineers and our design guideline website. See the description of an inserted component to jump to our design guideline website. This will cover where and why to use a component, along with some of the design thinking behind it. From there follow links to explore the component in Figma or live, interactive demos in [Storybook](https://o3.origami.ft.com/).
 
 ![](/assets/images/new/figma-5.png)
 

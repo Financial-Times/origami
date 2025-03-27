@@ -21,7 +21,7 @@ description: Frequently asked questions
     <summary>
         Can I use o3 guidelines / components / patterns today?
     </summary>
-    Absolutely! We'd love you to. Teams across the FT Group have begun to use "o3" in production. Please reach out to the Origami team (<a href="https://financialtimes.slack.com/messages/origami-support">#origami-support</a>), so we can support you through early adoption as we refine "o3" and improve our documentation.
+    Absolutely! We'd love you to. Teams across the FT Group have begun to use "o3" in production. Please reach out to the Origami team (<a href="https://financialtimes.slack.com/messages/origami-support">#origami-support</a>), so we can support you through adoption as we refine "o3" and improve our documentation.
 </details>
 
 <details>

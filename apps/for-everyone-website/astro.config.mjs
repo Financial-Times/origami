@@ -4,6 +4,7 @@ import react from '@astrojs/react';
 import path, {dirname} from 'path';
 import {fileURLToPath} from 'url';
 import svelte from '@astrojs/svelte';
+import {redirects} from './redirects';
 import remarkBrandedContent from './plugins/remark-branded-content.mjs';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -24,6 +25,7 @@ export default defineConfig({
 		},
 	},
 	site: 'https://origami.ft.com/',
+	redirects: redirects,
 	integrations: [
 		react(),
 		starlight({

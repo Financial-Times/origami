@@ -46,3 +46,9 @@ We covered the engineering part of what’s new in Origami 3 (o3). Video recordi
 1. [Applying Icons](https://drive.google.com/file/d/1hDtSN8Ce_P0Vr_dv0KXuXhs5Q9aHfvAp/view?t=949s)
 1. [Customisation](https://drive.google.com/file/d/1hDtSN8Ce_P0Vr_dv0KXuXhs5Q9aHfvAp/view?t=1066s)
 1. [Takeaway](https://drive.google.com/file/d/1hDtSN8Ce_P0Vr_dv0KXuXhs5Q9aHfvAp/view?t=1266s)
+
+## Designer's Deep Dive
+
+For product designers we also ran a Figma and design guideline deep dive and Q&A. This builds on the earlier "Bridging Design & Code, How to Work with Origami 3" session:
+
+[Designer's Deep Dive Recording](https://meet.google.com/qba-auzo-xbi)

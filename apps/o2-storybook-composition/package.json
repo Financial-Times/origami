@@ -29,7 +29,6 @@
     "@storybook/react": "^8.6.9",
     "@storybook/react-webpack5": "^8.6.9",
     "@storybook/test": "^8.6.9",
-    "@whitespace/storybook-addon-html": "^5.1.6",
     "autoprefixer": "^10.4.15",
     "chromatic": "^7.1.0",
     "prettier": "^2.0.0",
@@ -39,5 +38,9 @@
     "storybook": "^8.6.9",
     "style-loader": "^3.3.3",
     "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "@storybook/addons": "^7.6.17",
+    "@storybook/api": "^7.6.17"
   }
 }
