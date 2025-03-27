@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.3](https://github.com/Financial-Times/origami/compare/o-private-foundation-v1.2.2...o-private-foundation-v1.2.3) (2025-03-27)
+
+
+### Bug Fixes
+
+* use transparent for ghost button in the neutral theme ([b300a3b](https://github.com/Financial-Times/origami/commit/b300a3b89b8c9f64432519a6028dc67078cc1d53))
+
 ## [1.2.2](https://github.com/Financial-Times/origami/compare/o-private-foundation-v1.2.1...o-private-foundation-v1.2.2) (2025-03-19)
 
 
