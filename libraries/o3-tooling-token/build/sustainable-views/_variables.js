@@ -667,7 +667,7 @@ export default {
 },
 	"o3-color-use-case-support-inverse-text": {
 		"shortName": "text",
-		"value": "rgb(91.5% 91.6% 92%)",
+		"value": "#e9eaeb",
 		"originalValue": "{o3.color.palette.white}",
 		"type": "color",
 		"attributes": {
