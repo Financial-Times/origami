@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.2](https://github.com/Financial-Times/origami/compare/o3-button-v3.3.1...o3-button-v3.3.2) (2025-03-27)
+
+
+### Bug Fixes
+
+* use transparent for ghost button in the neutral theme ([b300a3b](https://github.com/Financial-Times/origami/commit/b300a3b89b8c9f64432519a6028dc67078cc1d53))
+
 ## [3.3.1](https://github.com/Financial-Times/origami/compare/o3-button-v3.3.0...o3-button-v3.3.1) (2025-03-26)
 
 
