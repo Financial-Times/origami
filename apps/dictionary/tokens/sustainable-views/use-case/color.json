@@ -50,6 +50,22 @@
             "type": "color"
           }
         },
+        "support-inverse": {
+          "text": {
+            "value": "{o3.color.palette.white}",
+            "type": "color",
+            "$extensions": {
+              "studio.tokens": {
+                "modify": {
+                  "type": "mix",
+                  "value": "0.1",
+                  "space": "srgb",
+                  "color": "{o3.color.palette.slate} "
+                }
+              }
+            }
+          }
+        },
         "muted-inverse": {
           "text": {
             "value": "#a8aaad",
