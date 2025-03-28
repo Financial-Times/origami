@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.0](https://github.com/Financial-Times/origami/compare/o3-foundation-v3.2.4...o3-foundation-v3.3.0) (2025-03-28)
+
+
+### Features
+
+* Add support-inverse colour use-case. ([#2057](https://github.com/Financial-Times/origami/issues/2057)) ([6a4b13b](https://github.com/Financial-Times/origami/commit/6a4b13b796740eae0c86eaafef9c84a97b04c757))
+
 ## [3.2.4](https://github.com/Financial-Times/origami/compare/o3-foundation-v3.2.3...o3-foundation-v3.2.4) (2025-03-24)
 
 
