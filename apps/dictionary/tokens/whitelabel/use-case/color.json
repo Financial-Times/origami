@@ -144,6 +144,15 @@
         },
         "error": {
           "value": "{o3.color.palette.crimson}",
+          "type": "color",
+          "description": "[DEPRECATED] This token is going to be looked at in the upcoming audit."
+        },
+        "success-background": {
+          "value": "#D7F0D1",
+          "type": "color"
+        },
+        "success-foreground": {
+          "value": "#00572C",
           "type": "color"
         }
       }
