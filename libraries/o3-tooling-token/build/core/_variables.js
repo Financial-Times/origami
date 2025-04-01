@@ -1937,8 +1937,8 @@ export default {
 },
 	"o3-color-use-case-error-background": {
 		"shortName": "error-background",
-		"value": "#f7ebe5",
-		"originalValue": "#F7EBE5",
+		"value": "rgba(204, 0, 0, 0.06)",
+		"originalValue": "rgba(204,0,0,0.06)",
 		"type": "color",
 		"attributes": {
 				"item": "use-case",
@@ -1955,8 +1955,8 @@ export default {
 },
 	"o3-color-use-case-error-foreground": {
 		"shortName": "error-foreground",
-		"value": "#972217",
-		"originalValue": "#972217",
+		"value": "#cc0000",
+		"originalValue": "{o3.color.palette.crimson}",
 		"type": "color",
 		"attributes": {
 				"item": "use-case",
