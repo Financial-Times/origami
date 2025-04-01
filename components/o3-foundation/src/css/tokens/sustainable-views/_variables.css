@@ -112,6 +112,7 @@
   --o3-color-use-case-body-text: var(--o3-color-palette-black-90);
   --o3-color-use-case-muted-text: var(--o3-color-palette-black-50); /* "Muted" text is less prominent, for example credits and captions. */
   --o3-color-use-case-support-text: var(--o3-color-palette-black-70);
+  --o3-color-use-case-support-inverse-text: #e9eaeb;
   --o3-color-use-case-page-inverse-background: var(--o3-color-palette-slate);
   --o3-color-use-case-body-inverse-text: var(--o3-color-palette-white);
   --o3-color-use-case-button-foreground: var(--o3-color-palette-white);

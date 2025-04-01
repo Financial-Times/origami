@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.0.2](https://github.com/Financial-Times/origami/compare/o-teaser-v7.0.1...o-teaser-v7.0.2) (2025-03-25)
+
+
+### Bug Fixes
+
+* Ensure o-teaser__timestamp modifiers have higher specificity ([e44fd56](https://github.com/Financial-Times/origami/commit/e44fd566c769104c9364a4583bf7ac3bb4cd7ffd))
+
 ## [7.0.1](https://github.com/Financial-Times/origami/compare/o-teaser-v7.0.0...o-teaser-v7.0.1) (2025-02-26)
 
 

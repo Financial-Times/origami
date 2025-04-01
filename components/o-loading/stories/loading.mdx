@@ -1,0 +1,110 @@
+import { Canvas, Meta, Story } from '@storybook/blocks';
+import { Loading } from '../src/tsx/loading';
+import './loading.scss';
+import * as LoadingStories from './loading.stories';
+
+<Meta of={LoadingStories} />
+
+# o-loading
+
+Visual loading indicators.
+
+## Dark loaders
+
+For light backgrounds
+
+<Canvas>
+  <Story of={LoadingStories.DarkMini} />
+
+  <Story of={LoadingStories.DarkSmall} />
+
+  <Story of={LoadingStories.DarkMedium} />
+
+  <Story of={LoadingStories.DarkLarge} />
+</Canvas>
+
+## Light loaders
+
+For dark backgrounds
+
+<Canvas style={{backgroundColor: 'var(--o-colors-slate)'}}>
+  <Story of={LoadingStories.LightMini} />
+
+  <Story of={LoadingStories.LightSmall} />
+
+  <Story of={LoadingStories.LightMedium} />
+
+  <Story of={LoadingStories.LightLarge} />
+</Canvas>
+
+## Accessibility considerations
+
+When using the loader, you should mark the region it relates to as busy with
+the `aria-busy` attribute.
+
+### Web example
+
+#### html
+
+```html
+<div class="busy-place" aria-busy="false" data-busy-place>
+	<button class="busy-place__button" disabled="false">Get busy</button>
+	<div
+		class="o-loading o-loading--medium o-loading--dark busy-place__loader"
+	></div>
+</div>
+```
+
+#### css
+
+```css
+.busy-place[aria-busy='false'] .busy-place__loader {
+	display: none;
+}
+```
+
+#### js
+
+```js
+let region = document.querySelector('[data-busy-place]');
+let button = region.querySelector('button');
+
+button.addEventListener('click', event => {
+	button.disabled = true;
+	region.setAttribute('aria-busy', 'true');
+
+	// setTimeout is here in place of some real async code
+	setTimeout(() => {
+		button.disabled = false;
+		region.setAttribute('aria-busy', 'false');
+	}, 1000);
+});
+```
+
+### React example
+
+```tsx
+import {useState} from 'react';
+
+function LoadingZone({}) {
+	let [busy, setBusy] = useState(false);
+
+	function business() {
+		setBusy(true);
+
+		// setTimeout is here in place of some real async code
+		setTimeout(() => {
+			setBusy(false);
+		}, 1000);
+	}
+
+	return (
+		<div aria-busy={String(busy)}>
+			<button onClick={business} disabled={String(!busy)}>
+				get busy
+			</button>
+			{busy ? <Loading size="medium" theme="dark" /> : ''}
+		</div>
+	);
+}
+```

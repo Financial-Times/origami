@@ -3,6 +3,7 @@
 	border-bottom-color: var(--o3-color-use-case-link-underline);
 	text-decoration-color: var(--o3-color-use-case-link-underline);
 	text-decoration-thickness: 2px;
+	text-decoration-line: underline;
 
 	&:focus-visible {
 		color: var(--o3-color-use-case-link-text-focus);

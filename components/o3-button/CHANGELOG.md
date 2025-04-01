@@ -1,5 +1,41 @@
 # Changelog
 
+## [3.3.2](https://github.com/Financial-Times/origami/compare/o3-button-v3.3.1...o3-button-v3.3.2) (2025-03-27)
+
+
+### Bug Fixes
+
+* use transparent for ghost button in the neutral theme ([b300a3b](https://github.com/Financial-Times/origami/commit/b300a3b89b8c9f64432519a6028dc67078cc1d53))
+
+## [3.3.1](https://github.com/Financial-Times/origami/compare/o3-button-v3.3.0...o3-button-v3.3.1) (2025-03-26)
+
+
+### Bug Fixes
+
+* improve specificity on neutral theme for primary/ghost ([e322749](https://github.com/Financial-Times/origami/commit/e322749965c8f7ea4e5c178dc9ec07782944cd4d))
+
+## [3.3.0](https://github.com/Financial-Times/origami/compare/o3-button-v3.2.0...o3-button-v3.3.0) (2025-03-26)
+
+
+### Features
+
+* Add neutral theme for primary/ghost buttons on Core & Professional brand ([baf1c60](https://github.com/Financial-Times/origami/commit/baf1c60b10c30ff85190929491c260e00f244532))
+* Add link icon to the allowed list for buttons ([55f60bd](https://github.com/Financial-Times/origami/commit/55f60bda3f3b266979766396fe947333defced79))
+
+## [3.2.0](https://github.com/Financial-Times/origami/compare/o3-button-v3.1.0...o3-button-v3.2.0) (2025-03-24)
+
+
+### Features
+
+* calendar as default icon ([bed6436](https://github.com/Financial-Times/origami/commit/bed643655aa38dce01cb0d797a726751a5a0301c))
+
+## [3.1.0](https://github.com/Financial-Times/origami/compare/o3-button-v3.0.1...o3-button-v3.1.0) (2025-03-21)
+
+
+### Features
+
+* Support custom data attributes on pagination jsx ([2eafd66](https://github.com/Financial-Times/origami/commit/2eafd66e7ad2779a0869c218df2504acc652696e))
+
 ## [3.0.1](https://github.com/Financial-Times/origami/compare/o3-button-v3.0.0...o3-button-v3.0.1) (2025-03-05)
 
 

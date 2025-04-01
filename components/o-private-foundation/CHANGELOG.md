@@ -1,5 +1,26 @@
 # Changelog
 
+## [1.3.0](https://github.com/Financial-Times/origami/compare/o-private-foundation-v1.2.4...o-private-foundation-v1.3.0) (2025-03-28)
+
+
+### Features
+
+* Add support-inverse colour use-case. ([#2057](https://github.com/Financial-Times/origami/issues/2057)) ([6a4b13b](https://github.com/Financial-Times/origami/commit/6a4b13b796740eae0c86eaafef9c84a97b04c757))
+
+## [1.2.4](https://github.com/Financial-Times/origami/compare/o-private-foundation-v1.2.3...o-private-foundation-v1.2.4) (2025-03-27)
+
+
+### Bug Fixes
+
+* Correct byline author colour, match production style. ([#2053](https://github.com/Financial-Times/origami/issues/2053)) ([f6dce35](https://github.com/Financial-Times/origami/commit/f6dce35890142603201bc63ca895c172fbb042d2))
+
+## [1.2.3](https://github.com/Financial-Times/origami/compare/o-private-foundation-v1.2.2...o-private-foundation-v1.2.3) (2025-03-27)
+
+
+### Bug Fixes
+
+* use transparent for ghost button in the neutral theme ([b300a3b](https://github.com/Financial-Times/origami/commit/b300a3b89b8c9f64432519a6028dc67078cc1d53))
+
 ## [1.2.2](https://github.com/Financial-Times/origami/compare/o-private-foundation-v1.2.1...o-private-foundation-v1.2.2) (2025-03-19)
 
 
