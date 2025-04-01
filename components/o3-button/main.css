@@ -532,6 +532,15 @@
 .o3-button-icon.o3-button-icon--cross::before {
 	--o3-button-icon: var(--o3-icon-cross);
 }
+
+.o3-button-icon.o3-button-icon--list::before {
+	--o3-button-icon: var(--o3-icon-list);
+}
+
+.o3-button-icon.o3-button-icon--grid::before {
+	--o3-button-icon: var(--o3-icon-grid);
+}
+
 .o3-button-icon.o3-button-icon--upload::before {
 	--o3-button-icon: var(--o3-icon-upload);
 }
