@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.4.0](https://github.com/Financial-Times/origami/compare/o3-button-v3.3.2...o3-button-v3.4.0) (2025-04-01)
+
+
+### Features
+
+* introduce helper classes for o3 button grid and list icons ([#2060](https://github.com/Financial-Times/origami/issues/2060)) ([07eaef9](https://github.com/Financial-Times/origami/commit/07eaef96714322391c2326e9abb0a22a12fbf1d5))
+
 ## [3.3.2](https://github.com/Financial-Times/origami/compare/o3-button-v3.3.1...o3-button-v3.3.2) (2025-03-27)
 
 
