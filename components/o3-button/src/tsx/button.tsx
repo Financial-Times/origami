@@ -2,7 +2,12 @@ import type {ButtonProps, LinkButtonProps} from '../types/index';
 
 type ButtonClassProps = Pick<
 	ButtonProps,
-	'visuallyHideDisabled' | 'type' | 'size' | 'icon' | 'iconOnly'
+	| 'visuallyHideDisabled'
+	| 'type'
+	| 'size'
+	| 'icon'
+	| 'iconOnly'
+	| 'iconPosition'
 > & {
 	customClasses: string | boolean;
 };
@@ -14,6 +19,7 @@ function makeClassNames({
 	size,
 	icon,
 	iconOnly,
+	iconPosition,
 }: ButtonClassProps) {
 	const classNames = ['o3-button', `o3-button--${type}`, customClasses];
 
@@ -25,7 +31,11 @@ function makeClassNames({
 		classNames.push(`o3-button-icon o3-button-icon--${icon}`);
 	}
 
-	if (iconOnly) {
+	if (icon && iconPosition === 'end') {
+		classNames.push('o3-button-icon--end');
+	}
+
+	if (icon && iconOnly) {
 		classNames.push('o3-button-icon--icon-only');
 	}
 
@@ -43,6 +53,7 @@ export function Button({
 	fluid = false,
 	theme,
 	icon,
+	iconPosition,
 	iconOnly = false,
 	visuallyHideDisabled = false,
 	attributes = {},
@@ -67,6 +78,7 @@ export function Button({
 				type,
 				size,
 				icon,
+				iconPosition,
 				iconOnly,
 			})}
 			{...attributes}>
@@ -86,6 +98,7 @@ export function LinkButton({
 	fluid = false,
 	theme,
 	icon,
+	iconPosition,
 	iconOnly = false,
 	visuallyHideDisabled = false,
 	attributes = {},
@@ -102,14 +115,16 @@ export function LinkButton({
 	if (fluid) {
 		attributes['data-o3-fluid'] = '';
 	}
-	const classNames = makeClassNames({
-		customClasses,
-		visuallyHideDisabled,
-		type,
-		size,
-		icon,
-		iconOnly,
-	}) + ' o3-apply-focus-rings';
+	const classNames =
+		makeClassNames({
+			customClasses,
+			visuallyHideDisabled,
+			type,
+			size,
+			icon,
+			iconPosition,
+			iconOnly,
+		}) + ' o3-apply-focus-rings';
 	return (
 		<a
 			href={href}

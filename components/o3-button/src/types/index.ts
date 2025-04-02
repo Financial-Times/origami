@@ -20,6 +20,7 @@ export interface ButtonProps {
 		| 'cross'
 		| 'link'
 		| 'calendar';
+	iconPosition?: 'start' | 'end';
 	iconOnly?: boolean;
 	visuallyHideDisabled?: boolean;
 	attributes?: {
