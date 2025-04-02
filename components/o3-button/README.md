@@ -1,6 +1,6 @@
 # o3-button
 
-o3-button includes button, button group, and pagination patterns. See our [design guidelines for usage information and brand support](https://origami-for-everyone.ft.com/components/buttons/).
+o3-button includes button, button group, and pagination patterns. See our [design guidelines for usage information and brand support](https://origami-beta.ft.com/components/buttons/).
 
 - [o3-button](#o3-button)
   - [Markup](#markup)
@@ -23,7 +23,7 @@ o3-button supports [JSX templates for React users](#jsx), or direct HTML. We rec
 
 ### Types
 
-There are three types of buttons, primary, secondary, and ghost. When to use which button type is described in our [design guidelines](https://origami-for-everyone.ft.com/components/buttons/).
+There are three types of buttons, primary, secondary, and ghost. When to use which button type is described in our [design guidelines](https://origami-beta.ft.com/components/buttons/).
 
 | Type      | Selector              |
 | --------- | --------------------- |
@@ -41,7 +41,7 @@ o3-button may be used with either `<button>` or `<a>` elements.
 
 ### Themes
 
-A theme may be applied to a button to change its appearance using the `data-o3-theme`. See our [design guidelines](https://origami-for-everyone.ft.com/components/buttons/) for a list of available themes for your brand. Examples include:
+A theme may be applied to a button to change its appearance using the `data-o3-theme`. See our [design guidelines](https://origami-beta.ft.com/components/buttons/) for a list of available themes for your brand. Examples include:
 
 | Theme   | Data attribute          |
 | ------- | ----------------------- |
@@ -70,7 +70,7 @@ Or, themes may be applied specifically to a single button:
 
 ### Sizes
 
-Apply the `o3-button--small` modifier class for a smaller button, as appropriate, inline with [design guidelines](https://origami-for-everyone.ft.com/components/buttons/#small).
+Apply the `o3-button--small` modifier class for a smaller button, as appropriate, inline with [design guidelines](https://origami-beta.ft.com/components/buttons/#small).
 
 ```html
 <button class="o3-button o3-button--primary o3-button--small">Click me</button>
@@ -146,6 +146,18 @@ A limited number of button icons are available. Limiting the number of icons kee
 </button>
 ```
 
+#### Icon position
+
+Button icons may be positioned to the right where the icon indicates direction or continuation. Add the `o3-button-icon--end` CSS modifier. See [button design guidelines](https://origami-beta.ft.com/components/buttons/) for more details.
+
+```html
+<button
+	class="o3-button o3-button--primary o3-button-icon o3-button-icon--chevron-down o3-button-icon--end"
+>
+	Continue
+</button>
+```
+
 #### Icon only
 
 If you would like your button to display only an icon, add the class `o3-button-icon--icon-only` and provide a visually hidden label for screen-reader users with `o3-button-icon__label`.
@@ -196,7 +208,7 @@ Wrap buttons in a container with `.o3-button-group` to group them together:
 
 Our pagination pattern varies according to the space available to it, e.g. mobile vs. desktop devices.
 
-We recommend using our JSX template where possible. Alternatively, you must re-implement pagination logic following our [pagination design guidelines](https://origami-for-everyone.ft.com/patterns/pagination/).
+We recommend using our JSX template where possible. Alternatively, you must re-implement pagination logic following our [pagination design guidelines](https://origami-beta.ft.com/patterns/pagination/).
 
 `data-o3-button-show-when` is used to show/hide pagination elements according to the space available. Here is example markup for pagination with 10 pages, where the 5th page is selected.
 
@@ -268,11 +280,11 @@ We recommend using our JSX template where possible. Alternatively, you must re-i
 </div>
 ```
 
-Again, we recommend using our JSX template where possible instead of re-implementing the logic described in our [pagination design guidelines](https://origami-for-everyone.ft.com/patterns/pagination/).
+Again, we recommend using our JSX template where possible instead of re-implementing the logic described in our [pagination design guidelines](https://origami-beta.ft.com/patterns/pagination/).
 
 ### Disabled
 
-Avoid disabled buttons unless user research shows they improve your interface, see our [buttons usage guidelines](https://origami-for-everyone.ft.com/components/buttons/#usage-guidelines) for more.
+Avoid disabled buttons unless user research shows they improve your interface, see our [buttons usage guidelines](https://origami-beta.ft.com/components/buttons/#usage-guidelines) for more.
 
 To make a button disabled add the `disabled` attribute. To visually hide the disabled button until it is active add the class `o3-button--hide-disabled`.
 

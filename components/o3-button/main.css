@@ -506,6 +506,16 @@
 	--_o3-button-inline-padding-end: var(--o3-spacing-s);
 }
 
+.o3-button-icon--end:not(.o3-button-icon--icon-only) {
+	&:before {
+		order: 1;
+		margin-right: 0;
+		margin-left: var(--o3-spacing-4xs);
+	}
+	padding: 0 var(--_o3-button-inline-padding-start) 0
+		var(--_o3-button-inline-padding-end);
+}
+
 .o3-button--small.o3-button-icon {
 	--_o3-button-inline-padding-end: var(--o3-spacing-4xs);
 }
