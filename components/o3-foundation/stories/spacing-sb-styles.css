@@ -1,0 +1,11 @@
+.demo {
+	background-color: var(--o3-color-palette-teal);
+	outline: 3px dashed var(--o3-color-palette-slate);
+}
+
+[data-o3-brand='whitelabel'] {
+	.demo {
+		background-color: var(--o3-color-palette-white);
+		outline: 3px dashed var(--o3-color-palette-black);
+	}
+}

@@ -13,9 +13,27 @@ import {
 	Wrapper,
 } from '../src/tsx';
 import type {StoryObj} from '@storybook/react';
-import {BodyProps} from '@financial-times/o-typography/src/tsx/typography';
+import {SpacingDemo} from './spacing-sb-story-component';
+import './spacing-sb-styles.css';
+import links from '@financial-times/o3-figma-sb-links';
+import {Icon, icons} from './icon-sb-story-component';
+import './icon-sb-styles.css';
+import {
+	ColorPalette,
+	Color,
+	ColorBox,
+	ContrastRatioChecker,
+} from './color-sb-story-components';
+import './color-sb-styles.css';
 
-export function GridMetaGenerator(brand: string): Meta {
+export type BrandType =
+	| 'core'
+	| 'professional'
+	| 'whitelabel'
+	| 'internal'
+	| 'sustainable-views';
+
+export function GridMetaGenerator(brand: BrandType): Meta {
 	return {
 		component: O3Grid,
 		decorators: [
@@ -30,6 +48,116 @@ export function GridMetaGenerator(brand: string): Meta {
 			backgrounds: {default: 'paper'},
 			html: {
 				transform: (code: string) => transformCode(code),
+			},
+		},
+	};
+}
+
+export function SpacingMetaGenerator(brand: BrandType): Meta {
+	return {
+		component: SpacingDemo,
+		decorators: [
+			Story => (
+				<div data-o3-brand={brand}>
+					<Story />
+				</div>
+			),
+		],
+		parameters: {
+			backgrounds: {disable: true},
+			// TO DO: OR-838 uncomment this after new version of @financial-times/o3-figma-sb-link is released
+			// design: {
+			// 	type: 'figma',
+			// 	url: links[`${brand}-o3-foundation-o3-o-spacing--spacing`].figma,
+			// },
+		},
+		args: {
+			name: 'xl',
+		},
+	};
+}
+
+export function IconMetaGenerator(brand: BrandType): Meta {
+	return {
+		component: Icon,
+		decorators: [
+			Story => (
+				<div data-o3-brand={brand}>
+					<Story />
+				</div>
+			),
+		],
+		parameters: {
+			backgrounds: {disable: true},
+			// TO DO: OR-838 uncomment this after new version of @financial-times/o3-figma-sb-link is released
+			// design: {
+			// 	type: 'figma',
+			// 	url: links[`${brand}-o3-foundation-o3-icon--icon`].figma,
+			// },
+		},
+		argTypes: {
+			name: {
+				options: icons,
+				control: {
+					type: 'select',
+				},
+			},
+		},
+		args: {
+			name: 'at',
+		},
+	};
+}
+
+export function ColorPaletteMetaGenerator(brand: BrandType): Meta {
+	return {
+		component: ColorPalette,
+		decorators: [
+			Story => (
+				<div data-o3-brand={brand}>
+					<Story />
+				</div>
+			),
+		],
+		render: (_args, {loaded}) => (
+			<ColorPalette colors={loaded.colors} brand={brand} />
+		),
+		parameters: {
+			backgrounds: {disable: true},
+		},
+		argTypes: {
+			colors: {
+				control: false,
+				table: {
+					disable: true,
+				},
+			},
+		},
+	};
+}
+
+export function ContrastRatioCheckerMetaGenerator(brand: BrandType): Meta {
+	return {
+		component: ContrastRatioChecker,
+		decorators: [
+			Story => (
+				<div data-o3-brand={brand}>
+					<Story />
+				</div>
+			),
+		],
+		render: (_args, {loaded}) => (
+			<ContrastRatioChecker colors={loaded.colors} />
+		),
+		parameters: {
+			backgrounds: {disable: true},
+		},
+		argTypes: {
+			colors: {
+				control: false,
+				table: {
+					disable: true,
+				},
 			},
 		},
 	};
