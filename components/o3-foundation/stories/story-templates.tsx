@@ -13,9 +13,20 @@ import {
 	Wrapper,
 } from '../src/tsx';
 import type {StoryObj} from '@storybook/react';
-import {BodyProps} from '@financial-times/o-typography/src/tsx/typography';
+import {SpacingDemo} from './spacing-sb-story-component';
+import './spacing-sb-styles.css';
+import links from '@financial-times/o3-figma-sb-links';
+import {Icon, icons} from './icon-sb-story-component';
+import './icon-sb-styles.css';
 
-export function GridMetaGenerator(brand: string): Meta {
+type BrandType =
+	| 'core'
+	| 'professional'
+	| 'whitelabel'
+	| 'internal'
+	| 'sustainable-views';
+
+export function GridMetaGenerator(brand: BrandType): Meta {
 	return {
 		component: O3Grid,
 		decorators: [
@@ -35,6 +46,30 @@ export function GridMetaGenerator(brand: string): Meta {
 	};
 }
 
+export function SpacingMetaGenerator(brand: BrandType): Meta {
+	return {
+		component: SpacingDemo,
+		decorators: [
+			Story => (
+				<div data-o3-brand={brand}>
+					<Story />
+				</div>
+			),
+		],
+		parameters: {
+			backgrounds: {disable: true},
+			// TO DO: OR-838 uncomment this after new version of @financial-times/o3-figma-sb-link is released
+			// design: {
+			// 	type: 'figma',
+			// 	url: links[`${brand}-o3-foundation-o3-o-spacing--spacing`].figma,
+			// },
+		},
+		args: {
+			name: 'xl',
+		},
+	};
+}
+
 const TemplateSBConfig = {
 	argTypes: {
 		theme: {
@@ -45,6 +80,38 @@ const TemplateSBConfig = {
 		},
 	},
 };
+
+export function IconMetaGenerator(brand: BrandType): Meta {
+	return {
+		component: Icon,
+		decorators: [
+			Story => (
+				<div data-o3-brand={brand}>
+					<Story />
+				</div>
+			),
+		],
+		parameters: {
+			backgrounds: {disable: true},
+			// TO DO: OR-838 uncomment this after new version of @financial-times/o3-figma-sb-link is released
+			// design: {
+			// 	type: 'figma',
+			// 	url: links[`${brand}-o3-foundation-o3-icon--icon`].figma,
+			// },
+		},
+		argTypes: {
+			name: {
+				options: icons,
+				control: {
+					type: 'select',
+				},
+			},
+		},
+		args: {
+			name: 'at',
+		},
+	};
+}
 
 export type TemplateType = StoryObj & {
 	render: (args) => JSX.Element;

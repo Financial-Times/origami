@@ -1,0 +1,6 @@
+.example-icon {
+	display: inline-block;
+	width: 64px;
+	height: 64px;
+	background-color: var(--o3-color-palette-black);
+}
