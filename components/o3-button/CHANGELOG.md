@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.5.0](https://github.com/Financial-Times/origami/compare/o3-button-v3.4.0...o3-button-v3.5.0) (2025-04-02)
+
+
+### Features
+
+* Add option for right aligned button icons ([#2063](https://github.com/Financial-Times/origami/issues/2063)) ([ceec4ca](https://github.com/Financial-Times/origami/commit/ceec4cac88fe5a0145dd185d94ee2714c2f08157))
+
 ## [3.4.0](https://github.com/Financial-Times/origami/compare/o3-button-v3.3.2...o3-button-v3.4.0) (2025-04-01)
 
 
