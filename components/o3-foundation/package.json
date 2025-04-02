@@ -34,7 +34,8 @@
 		"npm": ">7"
 	},
 	"devDependencies": {
-		"@financial-times/o3-figma-sb-links": "^0.0.0"
+		"@financial-times/o3-figma-sb-links": "^0.0.0",
+		"@financial-times/o3-tooling-token": "^0.0.0"
 	},
 	"private": false
 }
