@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.4.0](https://github.com/Financial-Times/origami/compare/o3-foundation-v3.3.0...o3-foundation-v3.4.0) (2025-04-04)
+
+
+### Features
+
+* add success colour tokens ([79a2d31](https://github.com/Financial-Times/origami/commit/79a2d311cfed54f0fba5356ebec2c27c71333541))
+
 ## [3.3.0](https://github.com/Financial-Times/origami/compare/o3-foundation-v3.2.4...o3-foundation-v3.3.0) (2025-03-28)
 
 

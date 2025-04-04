@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/Financial-Times/origami/compare/o-private-foundation-v1.3.0...o-private-foundation-v1.4.0) (2025-04-04)
+
+
+### Features
+
+* add success colour tokens ([79a2d31](https://github.com/Financial-Times/origami/commit/79a2d311cfed54f0fba5356ebec2c27c71333541))
+
 ## [1.3.0](https://github.com/Financial-Times/origami/compare/o-private-foundation-v1.2.4...o-private-foundation-v1.3.0) (2025-03-28)
 
 
