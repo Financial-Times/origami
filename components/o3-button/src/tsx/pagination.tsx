@@ -122,6 +122,7 @@ export function ButtonPagination({
 	previousPager,
 	pages,
 	nextPager,
+	currentPageOnly,
 }: ButtonPaginationProps) {
 	const mapPagesToElements = (mode, pages, index, pagesGroup) => {
 		pages = pages.map(page => {
@@ -177,10 +178,30 @@ export function ButtonPagination({
 			mapPagesToElements('narrow', pages, index, pagesGroup)
 	);
 
-	const paginationElements = [
-		...paginationElementsWide,
-		...paginationElementsNarrow,
-	];
+	const PageTag = currentPage.href ? LinkButton : Button;
+	const paginationElements = currentPageOnly
+		? [
+				<PageTag
+					key={`page-current-only-${currentPage.number}`}
+					href={currentPage.href}
+					label={currentPage.number.toString()}
+					attributes={(() => {
+						const pageAttributes = {};
+						if (currentPage.href) {
+							pageAttributes['aria-current'] = 'page';
+						}
+						if (!currentPage.href) {
+							pageAttributes['aria-selected'] = true;
+						}
+						if (currentPage.onClick) {
+							pageAttributes['onClick'] = currentPage.onClick;
+						}
+						return pageAttributes;
+					})()}
+					theme={theme}
+					type="secondary"></PageTag>,
+		  ]
+		: [...paginationElementsWide, ...paginationElementsNarrow];
 
 	const NextTag = nextPager.href ? LinkButton : Button;
 	const PreviousTag = previousPager.href ? LinkButton : Button;

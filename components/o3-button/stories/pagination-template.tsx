@@ -75,5 +75,6 @@ export const Pagination: PaginationStory = {
 			href: '#next',
 			label: 'next results',
 		},
+		currentPageOnly: false,
 	},
 };

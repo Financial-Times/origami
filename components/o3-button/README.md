@@ -337,6 +337,7 @@ import '@financial-times/o3-button/css/[your brand].css';
 			{href: '#9', current: false, number: 9},
 			{href: '#10', current: false, number: 10},
 		]}
+		currentPageOnly={false}
 	/>
 </div>;
 ```
