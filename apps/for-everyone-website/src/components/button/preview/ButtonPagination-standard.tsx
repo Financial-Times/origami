@@ -5,6 +5,7 @@ function ButtonPaginationPreview() {
 		<>
 			<meta itemProp="@preview" />
 			<ButtonPagination
+				currentPageOnly={false}
 				previousPager={{label: 'previous', href: '#previous'}}
 				nextPager={{label: 'next', href: '#next'}}
 				pages={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(p => ({
