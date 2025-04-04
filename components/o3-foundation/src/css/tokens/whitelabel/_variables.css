@@ -79,6 +79,8 @@
   --o3-color-use-case-link-text: #757575;
   --o3-color-use-case-muted-text: #757575; /* "Muted" text is less prominent, for example credits and captions. */
   --o3-color-use-case-error-background: rgba(204, 0, 0, 0.06);
+  --o3-color-use-case-success-background: #d7f0d1;
+  --o3-color-use-case-success-foreground: #00572c;
   --o3-spacing-5xs: 0.25rem;
   --o3-spacing-4xs: 0.5rem;
   --o3-spacing-3xs: 0.75rem;
@@ -130,7 +132,7 @@
   --o3-color-use-case-button-pressed: var(--o3-color-palette-black-70);
   --o3-color-use-case-button-disabled: var(--o3-color-palette-black-20);
   --o3-color-use-case-error-text: var(--o3-color-palette-crimson);
-  --o3-color-use-case-error: var(--o3-color-palette-crimson);
+  --o3-color-use-case-error: var(--o3-color-palette-crimson); /* [DEPRECATED] This token is going to be looked at in the upcoming audit. */
   --o3-type-display-lg-font-family: var(--o3-font-family-financier-display); /* Use this style for large screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages. */
   --o3-type-display-lg-font-weight: var(--o3-font-weight-bold); /* Use this style for large screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages. */
   --o3-type-display-lg-font-size: var(--o3-font-size-7); /* Use this style for large screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages. */

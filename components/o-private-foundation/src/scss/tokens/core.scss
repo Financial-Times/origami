@@ -108,7 +108,10 @@ $tokens: (
   'o3-color-use-case-button-disabled': #9ec0bd,
   'o3-color-use-case-error-background': rgba(204, 0, 0, 0.06),
   'o3-color-use-case-error-text': #cc0000,
+  // [DEPRECATED] This token is going to be looked at in the upcoming audit.
   'o3-color-use-case-error': #cc0000,
+  'o3-color-use-case-success-background': #d7f0d1,
+  'o3-color-use-case-success-foreground': #00572c,
   '_o3-button-primary-standard-color': #ffffff,
   '_o3-button-primary-standard-background': #0d7680,
   '_o3-button-primary-standard-border': rgba(255, 255, 255, 0),

@@ -2234,6 +2234,7 @@ export default {
 		"value": "#cc0000",
 		"originalValue": "{o3.color.palette.crimson}",
 		"type": "color",
+		"description": "[DEPRECATED] This token is going to be looked at in the upcoming audit.",
 		"attributes": {
 				"item": "use-case",
 				"subitem": "error"
@@ -2246,6 +2247,42 @@ export default {
 		],
 		"css": "--o3-color-use-case-error",
 		"figma": "o3/color/use-case/error"
+},
+	"o3-color-use-case-success-background": {
+		"shortName": "success-background",
+		"value": "#d7f0d1",
+		"originalValue": "#D7F0D1",
+		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "success-background"
+		},
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"success-background"
+		],
+		"css": "--o3-color-use-case-success-background",
+		"figma": "o3/color/use-case/success-background"
+},
+	"o3-color-use-case-success-foreground": {
+		"shortName": "success-foreground",
+		"value": "#00572c",
+		"originalValue": "#00572C",
+		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "success-foreground"
+		},
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"success-foreground"
+		],
+		"css": "--o3-color-use-case-success-foreground",
+		"figma": "o3/color/use-case/success-foreground"
 },
 	"o3-spacing-5xs": {
 		"shortName": "5xs",
