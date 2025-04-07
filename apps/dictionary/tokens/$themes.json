@@ -4,7 +4,6 @@
     "name": "core",
     "selectedTokenSets": {
       "core/base/color": "enabled",
-      "utility-tokens": "enabled",
       "core/components/o3-button": "source",
       "core/base/spacing": "enabled",
       "core/components/o3-tooltip": "source",
@@ -217,7 +216,6 @@
       "core/professional/use-case/color": "enabled",
       "core/base/color": "enabled",
       "core/professional/base/color": "enabled",
-      "utility-tokens": "enabled",
       "core/professional/components/o3-button": "source",
       "core/base/spacing": "enabled",
       "core/use-case/color": "enabled",
@@ -421,20 +419,7 @@
     "id": "a2f70789c7452c19ef3ae7872137a48fe9d947a5",
     "name": "internal",
     "$figmaStyleReferences": {},
-    "selectedTokenSets": {
-      "utility-tokens": "enabled",
-      "internal/components/o3-button": "source",
-      "internal/base/color": "enabled",
-      "internal/base/spacing": "enabled",
-      "internal/components/o3-tooltip": "source",
-      "internal/use-case/color": "enabled",
-      "internal/use-case/typography": "enabled",
-      "internal/components/o3-form": "source",
-      "internal/components/o3-form/use-case": "source",
-      "internal/base/typography": "source",
-      "internal/use-case/focus": "enabled",
-      "internal/base/border-radius": "source"
-    },
+    "selectedTokenSets": {},
     "$figmaCollectionId": "VariableCollectionId:6510:3502",
     "$figmaModeId": "6510:2",
     "$figmaVariableReferences": {
@@ -573,7 +558,6 @@
       "o3.typography.use-case.label": "S:923caf61d0b6cd625cb4f6b75c4f24eba17810b7,"
     },
     "selectedTokenSets": {
-      "utility-tokens": "enabled",
       "whitelabel/base/color": "enabled",
       "whitelabel/components/o3-button": "source",
       "whitelabel/base/spacing": "enabled",

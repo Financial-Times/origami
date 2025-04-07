@@ -18,17 +18,6 @@
     "core/professional/components/o3-form/use-case",
     "core/professional/components/o3-button",
     "core/professional/components/o3-tooltip",
-    "internal/base/color",
-    "internal/base/typography",
-    "internal/base/spacing",
-    "internal/base/border-radius",
-    "internal/use-case/color",
-    "internal/use-case/focus",
-    "internal/use-case/typography",
-    "internal/components/o3-button",
-    "internal/components/o3-tooltip",
-    "internal/components/o3-form",
-    "internal/components/o3-form/use-case",
     "whitelabel/base/spacing",
     "whitelabel/base/color",
     "whitelabel/base/border-radius",
@@ -52,8 +41,6 @@
     "sustainable-views/components/o3-button",
     "sustainable-views/components/o3-tooltip",
     "sustainable-views/components/o3-form",
-    "sustainable-views/components/o3-form/use-case",
-    "utility-tokens",
-    "icons/icons"
+    "sustainable-views/components/o3-form/use-case"
   ]
 }
