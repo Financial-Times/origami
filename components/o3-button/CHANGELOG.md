@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.6.0](https://github.com/Financial-Times/origami/compare/o3-button-v3.5.0...o3-button-v3.6.0) (2025-04-07)
+
+
+### Features
+
+* Add a pagination pattern to show the current page only. ([#2066](https://github.com/Financial-Times/origami/issues/2066)) ([a346f2a](https://github.com/Financial-Times/origami/commit/a346f2a5df194487d3d1817fdbce7de817464f9e))
+
 ## [3.5.0](https://github.com/Financial-Times/origami/compare/o3-button-v3.4.0...o3-button-v3.5.0) (2025-04-02)
 
 
