@@ -38,6 +38,7 @@ export type ButtonPaginationProps = Pick<ButtonProps, 'theme'> & {
 	previousPager: ButtonPaginationPager;
 	pages: ButtonPaginationItem[];
 	nextPager: ButtonPaginationPager;
+	currentPageOnly?: boolean;
 };
 export interface ButtonPaginationItem {
 	href?: string;
