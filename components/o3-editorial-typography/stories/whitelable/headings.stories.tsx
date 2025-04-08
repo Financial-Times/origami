@@ -19,7 +19,7 @@ export default {
 		controls: {exclude: ['children', 'underline', 'theme']},
 		design: {
 			type: 'figma',
-			url: links['whitelabel-o3-editorial-typography--heading'].figma,
+			url: links['whitelabel-o3-editorial-typography--headings'].figma,
 		},
 	},
 } as Meta;
