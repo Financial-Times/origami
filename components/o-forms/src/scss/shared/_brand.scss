@@ -73,22 +73,39 @@ $_o-forms-shared-brand-config: (
 						error-summary-border-inverse:
 							oPrivateFoundationGet('o3-color-palette-claret-100'),
 						'professional': (
-							default-text: oPrivateFoundationGet('o3-color-use-case-body-text'),
-							controls-base: oPrivateFoundationGet('o3-color-palette-slate'),
+							default-text:
+								oPrivateFoundationGet(
+									'o3-color-use-case-body-text',
+									'professional'
+								),
+							controls-base:
+								oPrivateFoundationGet('o3-color-palette-slate', 'professional'),
 							controls-negative-checked-background:
-								oPrivateFoundationGet('o3-color-palette-slate'),
-							radio-background: oPrivateFoundationGet('o3-color-palette-slate'),
-							default-border: oPrivateFoundationGet('o3-color-palette-black-50'),
+								oPrivateFoundationGet('o3-color-palette-slate', 'professional'),
+							radio-background:
+								oPrivateFoundationGet('o3-color-palette-slate', 'professional'),
+							default-border:
+								oPrivateFoundationGet(
+									'o3-color-palette-black-50',
+									'professional'
+								),
 							controls-checked-base:
-								oPrivateFoundationGet('o3-color-palette-white'),
+								oPrivateFoundationGet('o3-color-palette-white', 'professional'),
 						),
 						'professional-inverse': (
 							default-text:
-								oPrivateFoundationGet('o3-color-use-case-body-inverse-text'),
-							controls-base: oPrivateFoundationGet('o3-color-palette-mint'),
-							default-border: oPrivateFoundationGet('o3-color-palette-mint'),
+								oPrivateFoundationGet(
+									'o3-color-use-case-body-inverse-text',
+									'professional'
+								),
+							radio-background:
+								oPrivateFoundationGet('o3-color-palette-mint', 'professional'),
+							default-border:
+								oPrivateFoundationGet('o3-color-palette-mint', 'professional'),
+							controls-base:
+								oPrivateFoundationGet('o3-color-palette-mint', 'professional'),
 							controls-checked-base:
-								oPrivateFoundationGet('o3-color-palette-slate'),
+								oPrivateFoundationGet('o3-color-palette-slate', 'professional'),
 						),
 						'ft-live': (
 							default-text: oPrivateFoundationGet('o3-color-palette-white'),

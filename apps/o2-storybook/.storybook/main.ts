@@ -117,6 +117,12 @@ const config: StorybookConfig = {
 	docs: {
 		autodocs: 'tag',
 	},
+	env: config => {
+		return {
+			...config,
+			STORYBOOK_BRAND: brand,
+		}
+	},
 };
 
 const getComponentBrands = componentDir =>
