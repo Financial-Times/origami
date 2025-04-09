@@ -141,7 +141,7 @@ export const DefaultExample: ComponentStory&lt;typeof Example> = ExampleStory.bi
 + 	inverse: 'Inverse',
 + }
 +
-+ const Brand = process.env.ORIGAMI_STORYBOOK_BRAND || 'core';
++ const Brand = process.env.STORYBOOK_BRAND || 'core';
 +
 + if (Brand === 'core') {
 + 	themeOptions.push('b2c')

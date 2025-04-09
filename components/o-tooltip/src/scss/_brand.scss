@@ -1,7 +1,11 @@
 /// Helper for `o-brand` function.
 /// @access private
 @function _oTooltipGet($variables, $from: null) {
-	@return oBrandGet($component: 'o-tooltip', $variables: $variables, $from: $from);
+	@return oBrandGet(
+		$component: 'o-tooltip',
+		$variables: $variables,
+		$from: $from
+	);
 }
 
 /// Helper for `o-brand` function.
@@ -11,41 +15,62 @@
 }
 
 @if oBrandIs('core') {
-	@include oBrandDefine('o-tooltip', 'core', (
-		'variables': (
-			'background-color': oPrivateFoundationGet('o3-color-palette-white'),
-			'foreground-color': null, // inherit by default
-			'close-foreground-color': oPrivateFoundationGet('o3-color-palette-black-60'),
-			'professional': (
-				'background-color': oPrivateFoundationGet('o3-color-palette-slate'),
-				'foreground-color': oPrivateFoundationGet('o3-color-palette-white'),
-				'close-foreground-color': oPrivateFoundationGet('o3-color-palette-white')
-			)
-		),
-		'supports-variants': (
-			'professional'
+	@include oBrandDefine(
+		'o-tooltip',
+		'core',
+		(
+			'variables': (
+				'background-color': oPrivateFoundationGet('o3-color-palette-white'),
+				'foreground-color': null,
+				// inherit by default
+				'close-foreground-color':
+					oPrivateFoundationGet('o3-color-palette-black-60'),
+				'professional': (
+					'background-color':
+						oPrivateFoundationGet('o3-color-palette-slate', 'professional'),
+					'foreground-color':
+						oPrivateFoundationGet('o3-color-palette-white', 'professional'),
+					'close-foreground-color':
+						oPrivateFoundationGet('o3-color-palette-white', 'professional'),
+				),
+			),
+			'supports-variants': (
+				'professional',
+			),
 		)
-	));
+	);
 }
 
 @if oBrandIs('internal') {
-	@include oBrandDefine('o-tooltip', 'internal', (
-		'variables': (
-			'background-color': oPrivateFoundationGet('o3-color-palette-white'),
-			'foreground-color': null, // inherit by default
-			'close-foreground-color': oPrivateFoundationGet('o3-color-palette-black-60')
-		),
-		'supports-variants': ()
-	));
+	@include oBrandDefine(
+		'o-tooltip',
+		'internal',
+		(
+			'variables': (
+				'background-color': oPrivateFoundationGet('o3-color-palette-white'),
+				'foreground-color': null,
+				// inherit by default
+				'close-foreground-color':
+					oPrivateFoundationGet('o3-color-palette-black-60'),
+			),
+			'supports-variants': (),
+		)
+	);
 }
 
 @if oBrandIs('whitelabel') {
-	@include oBrandDefine('o-tooltip', 'whitelabel', (
-		'variables': (
-			'background-color': oPrivateFoundationGet('o3-color-palette-white'),
-			'foreground-color': null, // inherit by default,
-			'close-foreground-color': oPrivateFoundationGet('o3-color-palette-black')
-		),
-		'supports-variants': ()
-	));
+	@include oBrandDefine(
+		'o-tooltip',
+		'whitelabel',
+		(
+			'variables': (
+				'background-color': oPrivateFoundationGet('o3-color-palette-white'),
+				'foreground-color': null,
+				// inherit by default,
+				'close-foreground-color':
+					oPrivateFoundationGet('o3-color-palette-black'),
+			),
+			'supports-variants': (),
+		)
+	);
 }

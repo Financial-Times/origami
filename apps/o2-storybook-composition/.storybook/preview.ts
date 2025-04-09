@@ -49,15 +49,18 @@ export default preview;
 let channel = addons.getChannel();
 
 const storyArgsListener = args => {
-	if (args.args.theme === 'inverse') {
-		let colorTheme = args.args.theme;
-		channel.emit(UPDATE_GLOBALS, {
-			globals: {
-				theme: colorTheme,
-				backgrounds: {name: 'slate', value: '#262a33ff'},
-			},
-		});
-	}
+	const colorTheme = args.args.theme;
+	const slateBackground =
+		colorTheme === 'inverse' ||
+		colorTheme === 'professional-inverse' ||
+		colorTheme === 'ft-live';
+	channel.emit(UPDATE_GLOBALS, {
+		globals: {
+			backgrounds: slateBackground
+				? {name: 'slate', value: '#262a33ff'}
+				: undefined,
+		},
+	});
 };
 
 const storyChangedListener = () => {

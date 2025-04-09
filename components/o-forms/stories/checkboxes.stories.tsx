@@ -3,6 +3,7 @@ import {useEffect} from 'react';
 import {Checkbox, Checkboxes} from '../src/tsx/o-forms';
 import './forms.scss';
 import javascript from '../main.js';
+import {useArgs} from '@storybook/preview-api';
 
 const hideArg = {
 	table: {
@@ -10,12 +11,13 @@ const hideArg = {
 	},
 };
 
-const Brand = process.env.ORIGAMI_STORYBOOK_BRAND;
+const Brand = process.env.STORYBOOK_BRAND;
 const themeControl =
 	Brand === 'core'
 		? {
 				control: {
 					type: 'select',
+					default: {undefined},
 				},
 				options: [undefined, 'professional', 'professional-inverse', 'ft-live'],
 		  }
@@ -27,15 +29,18 @@ export default {
 	argTypes: {
 		children: hideArg,
 		theme: themeControl,
+		inputType: hideArg,
 	},
 } as ComponentMeta<typeof Checkboxes>;
 
 const Template: ComponentStory<typeof Checkboxes> = args => {
+	const [_, updateArgs] = useArgs();
 	useEffect(() => {
 		let form = javascript.init();
 		return function cleanup() {
 			form = Array.isArray(form) ? form : [form];
 			form.forEach(element => element.destroy());
+			updateArgs({...args, theme: undefined});
 		};
 	}, []);
 	return <Checkboxes {...args} />;
