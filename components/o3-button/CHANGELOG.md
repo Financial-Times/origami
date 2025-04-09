@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.7.0](https://github.com/Financial-Times/origami/compare/o3-button-v3.6.0...o3-button-v3.7.0) (2025-04-09)
+
+
+### Features
+
+* Add scroll-to icon to buttons ([#2069](https://github.com/Financial-Times/origami/issues/2069)) ([820fd38](https://github.com/Financial-Times/origami/commit/820fd388b15074499863065273dbd2ed7352ab99))
+
 ## [3.6.0](https://github.com/Financial-Times/origami/compare/o3-button-v3.5.0...o3-button-v3.6.0) (2025-04-07)
 
 
