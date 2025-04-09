@@ -19,7 +19,8 @@ export interface ButtonProps {
 		| 'refresh'
 		| 'cross'
 		| 'link'
-		| 'calendar';
+		| 'calendar'
+		| 'scroll-to';
 	iconPosition?: 'start' | 'end';
 	iconOnly?: boolean;
 	visuallyHideDisabled?: boolean;

@@ -591,3 +591,6 @@
 .o3-button-icon.o3-button-icon--calendar::before {
 	--o3-button-icon: var(--o3-icon-calendar);
 }
+.o3-button-icon.o3-button-icon--scroll-to::before {
+	--o3-button-icon: var(--o3-icon-scroll-to);
+}
