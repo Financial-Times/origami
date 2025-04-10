@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.0.1](https://github.com/Financial-Times/origami/compare/o-teaser-collection-v5.0.0...o-teaser-collection-v5.0.1) (2025-04-10)
+
+
+### Bug Fixes
+
+* Update teaser-collection to md headline ([949ca25](https://github.com/Financial-Times/origami/commit/949ca25455709ff79c0c6c0f68ed4551b03973c5))
+
 ## [5.0.0](https://github.com/Financial-Times/origami/compare/o-teaser-collection-v4.2.5...o-teaser-collection-v5.0.0) (2025-02-20)
 
 ### ⚠ BREAKING CHANGES

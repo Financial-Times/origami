@@ -1,5 +1,17 @@
 # Changelog
 
+## [7.1.0](https://github.com/Financial-Times/origami/compare/o-teaser-v7.0.2...o-teaser-v7.1.0) (2025-04-10)
+
+
+### Features
+
+* Adjust headline type use-case tokens. ([94de648](https://github.com/Financial-Times/origami/commit/94de648780ab8d8877a7263fc07634fd29d035c8))
+
+
+### Bug Fixes
+
+* Correct misc teaser colours ([22a7ebd](https://github.com/Financial-Times/origami/commit/22a7ebdd5352786a8bca3fd70781fd3099831e5f))
+
 ## [7.0.2](https://github.com/Financial-Times/origami/compare/o-teaser-v7.0.1...o-teaser-v7.0.2) (2025-03-25)
 
 
