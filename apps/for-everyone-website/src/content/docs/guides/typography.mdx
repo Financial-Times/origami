@@ -209,10 +209,10 @@ Lists allow users to view two or more individual, but related, text items groupe
     Names of heading styles in Editorial typography are broadly aligned with the naming used within Editorial, however "display" is sometimes called "headline large".
 
     <BrandedContent brands="core,professional,internal,whitelabel,sustainable-views">
-    	<BrandedContent brands="core,professiona,sustainable-views">
-    		<Display />
+    	<BrandedContent brands="core,professional,sustainable-views">
+    		<Display brand={props.brand}/>
     	</BrandedContent>
-    	<HeadingStyles />
+    	<HeadingStyles brand={props.brand}/>
     </BrandedContent>
 
     ### Body
