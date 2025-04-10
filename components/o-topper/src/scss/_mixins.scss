@@ -159,17 +159,10 @@
 		.o-topper__headline {
 			margin: 0;
 			margin-bottom: oPrivateSpacingByIncrement(5);
-			font-family: oPrivateFoundationGet('o3-type-headline-sm-font-family');
-			font-size: oPrivateFoundationGet('o3-type-headline-sm-font-size');
-			font-weight: oPrivateFoundationGet('o3-type-headline-sm-font-weight');
-			line-height: oPrivateFoundationGet('o3-type-headline-sm-line-height');
-
-			@include oPrivateGridRespondTo('S') {
-				font-family: oPrivateFoundationGet('o3-type-headline-md-font-family');
-				font-size: oPrivateFoundationGet('o3-type-headline-md-font-size');
-				font-weight: oPrivateFoundationGet('o3-type-headline-md-font-weight');
-				line-height: oPrivateFoundationGet('o3-type-headline-md-line-height');
-			}
+			font-family: oPrivateFoundationGet('o3-type-headline-md-font-family');
+			font-size: oPrivateFoundationGet('o3-type-headline-md-font-size');
+			font-weight: oPrivateFoundationGet('o3-type-headline-md-font-weight');
+			line-height: oPrivateFoundationGet('o3-type-headline-md-line-height');
 
 			@include oPrivateGridRespondTo('L') {
 				font-family: oPrivateFoundationGet('o3-type-headline-lg-font-family');
