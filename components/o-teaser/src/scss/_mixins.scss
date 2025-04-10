@@ -87,6 +87,7 @@
 }
 
 @mixin _oTeaserElementsTimestamp {
+	.o-teaser__timestamp-date,
 	.o-teaser__timestamp {
 		@include _oTeaserTimestamp;
 	}

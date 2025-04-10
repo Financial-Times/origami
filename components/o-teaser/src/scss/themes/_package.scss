@@ -19,6 +19,7 @@
 		position: relative;
 		top: -50px;
 		background: inherit;
+		margin-bottom: 0;
 
 		&:after {
 			content: '';
@@ -67,11 +68,30 @@
 		color: oPrivateFoundationGet('o3-color-palette-white');
 
 		a:hover,
-		a:visited,
-		&:focus {
-			$special-report-color: oPrivateFoundationGet(
+		a:visited {
+			$special-report-color: oPrivateFoundationGet('o3-color-palette-white');
+			$special-report-background: oPrivateFoundationGet(
 				'o3-color-palette-claret-70'
 			);
+			color: oPrivateColorsMix(
+				$special-report-color,
+				$special-report-background,
+				$percentage: 78
+			);
+		}
+	}
+
+	.package-teaser__landing-link {
+		color: oPrivateFoundationGet('o3-color-palette-white');
+
+		a {
+			color: inherit;
+		}
+
+		a:hover,
+		a:visited,
+		&:focus {
+			$special-report-color: oPrivateFoundationGet('o3-color-palette-white');
 			$special-report-background: oPrivateFoundationGet(
 				'o3-color-palette-claret-70'
 			);
@@ -105,6 +125,18 @@
 		a:hover,
 		&:focus {
 			color: oPrivateFoundationGet('o3-color-palette-lemon');
+		}
+	}
+
+	.package-teaser__landing-link {
+		a,
+		a:visited {
+			color: oPrivateFoundationGet('o3-color-palette-lemon');
+		}
+
+		a:hover,
+		&:focus {
+			color: oPrivateFoundationGet('o3-color-palette-white');
 		}
 	}
 
@@ -153,12 +185,9 @@
 				$special-report-color: oPrivateFoundationGet(
 					'o3-color-palette-claret-70'
 				);
-				$special-report-background: oPrivateFoundationGet(
-					'o3-color-palette-claret-70'
-				);
 				color: oPrivateColorsMix(
 					$special-report-color,
-					$special-report-background,
+					transparent,
 					$percentage: 78
 				);
 			}
