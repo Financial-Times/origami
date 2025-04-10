@@ -146,10 +146,10 @@
 		position: relative;
 
 		&:before {
-			font-family: oPrivateFoundationGet('o3-type-headline-sm-font-family');
-			font-size: oPrivateFoundationGet('o3-type-headline-sm-font-size');
-			font-weight: oPrivateFoundationGet('o3-type-headline-sm-font-weight');
-			line-height: oPrivateFoundationGet('o3-type-headline-sm-line-height');
+			font-family: oPrivateFoundationGet('o3-type-headline-md-font-family');
+			font-size: oPrivateFoundationGet('o3-type-headline-md-font-size');
+			font-weight: oPrivateFoundationGet('o3-type-headline-md-font-weight');
+			line-height: oPrivateFoundationGet('o3-type-headline-md-line-height');
 			content: counter(o-teaser-collection-items);
 			position: absolute;
 			top: 0;
