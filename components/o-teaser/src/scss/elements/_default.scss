@@ -56,10 +56,10 @@
 /// Tag styling.
 /// Element should be a link, otherwise use _oTeaserMeta
 @mixin _oTeaserTag {
-	font-family: oPrivateFoundationGet('o3-type-detail-font-family');
-	font-size: oPrivateFoundationGet('o3-type-detail-font-size');
-	font-weight: oPrivateFoundationGet('o3-type-detail-font-weight');
-	line-height: oPrivateFoundationGet('o3-type-detail-line-height');
+	font-family: oPrivateFoundationGet('o3-type-body-base-font-family');
+	font-size: oPrivateFoundationGet('o3-type-body-base-font-size');
+	font-weight: oPrivateFoundationGet('o3-type-body-base-font-weight');
+	line-height: oPrivateFoundationGet('o3-type-body-base-line-height');
 
 	color: inherit;
 	text-decoration: none;
@@ -121,7 +121,7 @@
 		}
 
 		&:visited {
-			color: $_o-teaser-muted;
+			// color: $_o-teaser-muted;
 		}
 	}
 }

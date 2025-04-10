@@ -2658,8 +2658,8 @@ export default {
 },
 	"o3-type-headline-sm-font-size": {
 		"shortName": "fontSize",
-		"value": "24px",
-		"originalValue": "{o3.font.size.3}",
+		"value": "20px",
+		"originalValue": "{o3.font.size.2}",
 		"type": "dimension",
 		"description": "Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News).",
 		"attributes": {
@@ -2677,8 +2677,8 @@ export default {
 },
 	"o3-type-headline-sm-line-height": {
 		"shortName": "lineHeight",
-		"value": "28px",
-		"originalValue": "{o3.font.lineheight.3}",
+		"value": "24px",
+		"originalValue": "{o3.font.lineheight.2}",
 		"type": "number",
 		"description": "Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News).",
 		"attributes": {

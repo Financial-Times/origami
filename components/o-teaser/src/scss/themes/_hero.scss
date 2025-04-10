@@ -188,7 +188,10 @@
 	}
 
 	.o-teaser__heading {
-		@include oPrivateTypographyDisplay($scale: 4);
+		font-family: oPrivateFoundationGet('o3-type-headline-md-font-family');
+		font-size: oPrivateFoundationGet('o3-type-headline-md-font-size');
+		font-weight: oPrivateFoundationGet('o3-type-headline-md-font-weight');
+		line-height: oPrivateFoundationGet('o3-type-headline-md-line-height');
 	}
 
 	.o-teaser__meta:after {
@@ -207,10 +210,10 @@
 /// Hero standalone theme styles
 @mixin _oTeaserHeroStandalone {
 	.o-teaser__heading {
-		font-family: oPrivateFoundationGet('o3-type-headline-sm-font-family');
-		font-size: oPrivateFoundationGet('o3-type-headline-sm-font-size');
-		font-weight: oPrivateFoundationGet('o3-type-headline-sm-font-weight');
-		line-height: oPrivateFoundationGet('o3-type-headline-sm-line-height');
+		font-family: oPrivateFoundationGet('o3-type-headline-md-font-family');
+		font-size: oPrivateFoundationGet('o3-type-headline-md-font-size');
+		font-weight: oPrivateFoundationGet('o3-type-headline-md-font-weight');
+		line-height: oPrivateFoundationGet('o3-type-headline-md-line-height');
 	}
 
 	.o-teaser__image-container {

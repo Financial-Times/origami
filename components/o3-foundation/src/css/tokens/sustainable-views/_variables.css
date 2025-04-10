@@ -144,8 +144,8 @@
   --o3-type-headline-md-line-height: var(--o3-font-lineheight-metric2-5); /* Use this style for medium screens headlines in smaller teasers and text only toppers (eg. Opinion and News). */
   --o3-type-headline-sm-font-family: var(--o3-font-family-metric); /* Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News). */
   --o3-type-headline-sm-font-weight: var(--o3-font-weight-regular); /* Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News). */
-  --o3-type-headline-sm-font-size: var(--o3-font-size-metric2-3); /* Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News). */
-  --o3-type-headline-sm-line-height: var(--o3-font-lineheight-metric2-3); /* Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News). */
+  --o3-type-headline-sm-font-size: var(--o3-font-size-metric2-2); /* Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News). */
+  --o3-type-headline-sm-line-height: var(--o3-font-lineheight-metric2-2); /* Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News). */
   --o3-type-title-lg-font-family: var(--o3-font-family-metric); /* Use for the main page title H1 in functional pages such as account and settings. Use across all breakpoints. */
   --o3-type-title-lg-font-weight: var(--o3-font-weight-semibold); /* Use for the main page title H1 in functional pages such as account and settings. Use across all breakpoints. */
   --o3-type-title-lg-font-size: var(--o3-font-size-metric2-4); /* Use for the main page title H1 in functional pages such as account and settings. Use across all breakpoints. */
