@@ -31,7 +31,10 @@
 	}
 
 	.o-teaser__heading {
-		@include oPrivateTypographyDisplay($scale: 4);
+		font-family: oPrivateFoundationGet('o3-type-headline-md-font-family');
+		font-size: oPrivateFoundationGet('o3-type-headline-md-font-size');
+		font-weight: oPrivateFoundationGet('o3-type-headline-md-font-weight');
+		line-height: oPrivateFoundationGet('o3-type-headline-md-line-height');
 		color: $_o-teaser-base-color;
 		background: inherit;
 		padding: 20px;

@@ -123,7 +123,10 @@
 
 	.o-teaser__heading,
 	.o-teaser__heading a {
-		@include oPrivateTypographyDisplay($scale: 2, $weight: 'medium');
+		font-family: oPrivateFoundationGet('o3-type-headline-sm-font-family');
+		font-size: oPrivateFoundationGet('o3-type-headline-sm-font-size');
+		font-weight: oPrivateFoundationGet('o3-type-headline-sm-font-weight');
+		line-height: oPrivateFoundationGet('o3-type-headline-sm-line-height');
 		color: oPrivateFoundationGet('o3-color-palette-black');
 	}
 

@@ -55,8 +55,8 @@
         "value": {
           "fontFamily": "{o3.font.family.financier-display}",
           "fontWeight": "{o3.font.weight.light}",
-          "fontSize": "{o3.font.size.3}",
-          "lineHeight": "{o3.font.lineheight.3}"
+          "fontSize": "{o3.font.size.2}",
+          "lineHeight": "{o3.font.lineheight.2}"
         },
         "type": "typography",
         "description": "Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News)."
