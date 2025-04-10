@@ -51,4 +51,4 @@ We covered the engineering part of what’s new in Origami 3 (o3). Video recordi
 
 For product designers we also ran a Figma and design guideline deep dive and Q&A. This builds on the earlier "Bridging Design & Code, How to Work with Origami 3" session:
 
-[Designer's Deep Dive Recording](https://meet.google.com/qba-auzo-xbi)
+[Designer's Deep Dive Recording](https://drive.google.com/file/d/1UZ8FwfWEvOxFPT3DphNAgUtF4O5YHoJw/view)

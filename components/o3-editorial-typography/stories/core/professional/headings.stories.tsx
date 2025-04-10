@@ -25,6 +25,6 @@ export const Headings = StoryTemplates.Heading;
 Headings.parameters = {
 	design: {
 		type: 'figma',
-		url: links['core-professional-o3-editorial-typography--heading'].figma,
+		url: links['core-professional-o3-editorial-typography--headings'].figma,
 	},
 };
