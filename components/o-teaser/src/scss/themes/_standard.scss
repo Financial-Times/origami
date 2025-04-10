@@ -11,7 +11,11 @@
 	.o-teaser__standfirst a:visited,
 	.o-teaser__tag:hover,
 	.o-teaser__tag:focus {
-		color: oPrivateColorsMix($inverse-color, $inverse-background, $percentage: 60);
+		color: oPrivateColorsMix(
+			$inverse-color,
+			$inverse-background,
+			$percentage: 60
+		);
 	}
 
 	.o-teaser__meta,
@@ -21,8 +25,13 @@
 	}
 
 	.o-teaser__standfirst,
+	.o-teaser__timestamp-date,
 	.o-teaser__timestamp {
-		color: oPrivateColorsMix($inverse-color, $inverse-background, $percentage: 60);
+		color: oPrivateColorsMix(
+			$inverse-color,
+			$inverse-background,
+			$percentage: 60
+		);
 	}
 
 	&.o-teaser--hero .o-teaser__meta:after {
@@ -55,10 +64,17 @@
 /// Opinion background theme - colours background blue and adjust text
 @mixin _oTeaserOpinionBackground {
 	$theme-opinion-background: oPrivateFoundationGet('o3-color-palette-sky');
-	$theme-opinion-color: oPrivateColorsGetTextColor($theme-opinion-background, 100);
+	$theme-opinion-color: oPrivateColorsGetTextColor(
+		$theme-opinion-background,
+		100
+	);
 	.o-teaser__standfirst,
 	.o-teaser__timestamp {
-		color: oPrivateColorsMix($theme-opinion-color, $theme-opinion-background, $percentage: 60);
+		color: oPrivateColorsMix(
+			$theme-opinion-color,
+			$theme-opinion-background,
+			$percentage: 60
+		);
 	}
 
 	&.o-teaser--large {
@@ -83,7 +99,10 @@
 /// Highlight theme - colours background claret and adjust text colours
 @mixin _oTeaserHighlight {
 	$theme-highlight-background: oPrivateFoundationGet('o3-color-palette-claret');
-	$theme-highlight-color: oPrivateColorsGetTextColor($theme-highlight-background, 100);
+	$theme-highlight-color: oPrivateColorsGetTextColor(
+		$theme-highlight-background,
+		100
+	);
 	.o-teaser__heading a:hover,
 	.o-teaser__heading a:focus,
 	.o-teaser__heading a:visited,
@@ -92,17 +111,29 @@
 	.o-teaser__standfirst a:visited,
 	.o-teaser__tag:hover,
 	.o-teaser__tag:focus {
-		color: oPrivateColorsMix($theme-highlight-color, $theme-highlight-background, $percentage: 73);
+		color: oPrivateColorsMix(
+			$theme-highlight-color,
+			$theme-highlight-background,
+			$percentage: 73
+		);
 	}
 
 	.o-teaser__standfirst,
 	.o-teaser__timestamp,
 	.o-teaser__timestamp-prefix:before {
-		color: oPrivateColorsMix($theme-highlight-color, $theme-highlight-background, $percentage: 80);
+		color: oPrivateColorsMix(
+			$theme-highlight-color,
+			$theme-highlight-background,
+			$percentage: 80
+		);
 	}
 
 	.o-teaser__timestamp-prefix:before {
-		background-color: oPrivateColorsMix(oPrivateFoundationGet('o3-color-palette-white'), $theme-highlight-background, 80);
+		background-color: oPrivateColorsMix(
+			oPrivateFoundationGet('o3-color-palette-white'),
+			$theme-highlight-background,
+			80
+		);
 	}
 
 	&.o-teaser--hero {
