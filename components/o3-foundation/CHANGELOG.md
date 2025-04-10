@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.5.0](https://github.com/Financial-Times/origami/compare/o3-foundation-v3.4.0...o3-foundation-v3.5.0) (2025-04-10)
+
+
+### Features
+
+* Adjust headline type use-case tokens. ([94de648](https://github.com/Financial-Times/origami/commit/94de648780ab8d8877a7263fc07634fd29d035c8))
+
 ## [3.4.0](https://github.com/Financial-Times/origami/compare/o3-foundation-v3.3.0...o3-foundation-v3.4.0) (2025-04-04)
 
 

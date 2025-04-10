@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.0.2](https://github.com/Financial-Times/origami/compare/o-topper-v7.0.1...o-topper-v7.0.2) (2025-04-10)
+
+
+### Bug Fixes
+
+* Align o-topper__headline with o3 ([b3f342a](https://github.com/Financial-Times/origami/commit/b3f342a188af96e82a2d2b57a2ff8be43973a71e))
+
 ## [7.0.1](https://github.com/Financial-Times/origami/compare/o-topper-v7.0.0...o-topper-v7.0.1) (2025-02-26)
 
 
