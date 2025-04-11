@@ -4,7 +4,7 @@ import {globby} from 'globby';
 import path from 'path';
 import type {StorybookConfig} from '@storybook/react-webpack5';
 
-const brand = process.env.ORIGAMI_STORYBOOK_BRAND || 'core';
+const brand = process.env.STORYBOOK_BRAND || 'core';
 
 const config: StorybookConfig = {
 	stories: (async () => {

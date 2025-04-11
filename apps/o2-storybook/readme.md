@@ -16,10 +16,10 @@ Run storybook:
 npm run storybook -w apps/o2-storybook
 ```
 
-By default, storybook will build demos for the `core` brand, you can change which brand storybook will build for by changing the value of `ORIGAMI_STORYBOOK_BRAND`:
+By default, storybook will build demos for the `core` brand, you can change which brand storybook will build for by changing the value of `STORYBOOK_BRAND`:
 
 ```bash
-ORIGAMI_STORYBOOK_BRAND=internal npm run storybook -w apps/o2-storybook
+STORYBOOK_BRAND=internal npm run storybook -w apps/o2-storybook
 ```
 
 Origami 2 supports these brands:

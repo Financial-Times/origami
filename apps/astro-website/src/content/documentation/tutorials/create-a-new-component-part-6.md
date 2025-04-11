@@ -43,7 +43,7 @@ Once the storybook dev server is running we notice that some styles are already 
 
 ## Brands
 
-When we were working on [implementing brand](/documentation/tutorials/create-a-new-component-part-3/#component-brands) variants for our component we noticed that our build server generated different `html` files for us and we could swap between them. In storybook we will need to restart our dev server and provide an environment variable. To start internal component demos in storybook you will need to run `ORIGAMI_STORYBOOK_BRAND=internal npm run storybook` and similarly for whitelababel you can run `ORIGAMI_STORYBOOK_BRAND=whitelabel npm run storybook`.
+When we were working on [implementing brand](/documentation/tutorials/create-a-new-component-part-3/#component-brands) variants for our component we noticed that our build server generated different `html` files for us and we could swap between them. In storybook we will need to restart our dev server and provide an environment variable. To start internal component demos in storybook you will need to run `STORYBOOK_BRAND=internal npm run storybook` and similarly for whitelababel you can run `STORYBOOK_BRAND=whitelabel npm run storybook`.
 
 ## TSX template
 
