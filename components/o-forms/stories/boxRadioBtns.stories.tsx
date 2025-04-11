@@ -3,6 +3,7 @@ import {useEffect} from 'react';
 import {RadioBtn, RadioBtnsBox} from '../src/tsx/o-forms';
 import './forms.scss';
 import javascript from '../main.js';
+import {useArgs} from '@storybook/preview-api';
 
 const hideArg = {
 	table: {
@@ -10,7 +11,7 @@ const hideArg = {
 	},
 };
 
-const Brand = process.env.ORIGAMI_STORYBOOK_BRAND;
+const Brand = process.env.STORYBOOK_BRAND;
 const themeControl =
 	Brand === 'core'
 		? {
@@ -24,7 +25,6 @@ const themeControl =
 export default {
 	title: 'Maintained/o-forms/box-radio-buttons',
 	component: RadioBtnsBox,
-	args: {},
 	argTypes: {
 		children: hideArg,
 		theme: themeControl,
@@ -32,11 +32,13 @@ export default {
 } as ComponentMeta<typeof RadioBtnsBox>;
 
 const Template: ComponentStory<typeof RadioBtnsBox> = args => {
+	const [_, updateArgs] = useArgs();
 	useEffect(() => {
 		let form = javascript.init();
 		return function cleanup() {
 			form = Array.isArray(form) ? form : [form];
 			form.forEach(element => element.destroy());
+			updateArgs({...args, theme: undefined});
 		};
 	}, []);
 	return <RadioBtnsBox {...args} />;

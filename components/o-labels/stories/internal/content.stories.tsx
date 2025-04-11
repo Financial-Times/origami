@@ -1,7 +1,6 @@
 import {ContentLabel as ContentLabelTsx} from '../../src/tsx/label';
 import '../labels.scss';
 
-const brand = process.env.ORIGAMI_STORYBOOK_BRAND;
 const ComponentDescription = {
 	title: 'Maintained/o-labels',
 	component: ContentLabelTsx,

@@ -15,6 +15,7 @@ export default {
 	argTypes: {
 		children: hideArg,
 		theme: hideArg,
+		inputType: hideArg,
 	},
 } as ComponentMeta<typeof Checkboxes>;
 

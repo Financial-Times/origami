@@ -10,7 +10,7 @@ import {
 import js from '../main';
 import {useEffect} from 'react';
 
-const Brand = process.env.ORIGAMI_STORYBOOK_BRAND;
+const Brand = process.env.STORYBOOK_BRAND;
 const ThemeMapping = {
 	B2B: 'b2b',
 	B2C: 'b2c',
@@ -81,6 +81,11 @@ HeaderWithTitleSection.argTypes = {
 		},
 	},
 	secondaryNavData: {
+		table: {
+			disable: true,
+		},
+	},
+	theme: {
 		table: {
 			disable: true,
 		},
