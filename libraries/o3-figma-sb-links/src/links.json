@@ -104,8 +104,42 @@
   "core-o3-form--text-input-error-state": {
     "sb": "?path=/story/core-o3-form--text-input-error-state"
   },
+  "core-o3-foundation-o3-color--color": {
+    "sb": "?path=/story/core-o3-foundation-o3-color--color"
+  },
+  "core-o3-foundation-o3-color--contrast-ration-checker": {
+    "sb": "?path=/story/core-o3-foundation-o3-color--contrast-ration-checker"
+  },
+  "core-o3-foundation-o3-color--primary-palette": {
+    "sb": "?path=/story/core-o3-foundation-o3-color--primary-palette",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FVVM0PixrY3IRZq2ZUTdWfU%2F%25F0%259F%2592%25A0-Core---Origami-(o3)%3Fnode-id%3D5499-2946%26t%3DqUyLhPcf2RhRKdIP-0"
+  },
+  "core-o3-foundation-o3-color--secondary-palette": {
+    "sb": "?path=/story/core-o3-foundation-o3-color--secondary-palette",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FVVM0PixrY3IRZq2ZUTdWfU%2F%25F0%259F%2592%25A0-Core---Origami-(o3)%3Fnode-id%3D5499-2946%26t%3DqUyLhPcf2RhRKdIP-0"
+  },
+  "core-o3-foundation-o3-color--tertiary-palette": {
+    "sb": "?path=/story/core-o3-foundation-o3-color--tertiary-palette",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FVVM0PixrY3IRZq2ZUTdWfU%2F%25F0%259F%2592%25A0-Core---Origami-(o3)%3Fnode-id%3D5499-2946%26t%3DqUyLhPcf2RhRKdIP-0"
+  },
+  "core-o3-foundation-o3-color--tones-and-mixes": {
+    "sb": "?path=/story/core-o3-foundation-o3-color--tones-and-mixes",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FVVM0PixrY3IRZq2ZUTdWfU%2F%25F0%259F%2592%25A0-Core---Origami-(o3)%3Fnode-id%3D5499-2946%26t%3DqUyLhPcf2RhRKdIP-0"
+  },
+  "core-o3-foundation-o3-color--usecases": {
+    "sb": "?path=/story/core-o3-foundation-o3-color--usecases",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FVVM0PixrY3IRZq2ZUTdWfU%2F%25F0%259F%2592%25A0-Core---Origami-(o3)%3Fnode-id%3D7996-1139%26t%3DqUyLhPcf2RhRKdIP-0"
+  },
   "core-o3-foundation-o3-grid--grid": {
     "sb": "?path=/story/core-o3-foundation-o3-grid--grid"
+  },
+  "core-o3-foundation-o3-icon--icon": {
+    "sb": "?path=/story/core-o3-foundation-o3-icon--icon",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FcDQZHPJ8e962o9827vugBW%2F%25F0%259F%2592%25A0-Iconography---Origami-(o3)%3Fnode-id%3D0-1%26p%3Df%26t%3D4yHSb6Njv5FBnBu1-0"
+  },
+  "core-o3-foundation-o3-spacing--spacing": {
+    "sb": "?path=/story/core-o3-foundation-o3-spacing--spacing",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FVVM0PixrY3IRZq2ZUTdWfU%2F%25F0%259F%2592%25A0-Core---Origami-(o3)%3Fnode-id%3D8984-928%26t%3DrG33JCmCzq2WfHOi-0"
   },
   "core-o3-foundation-o3-typography--wrapper-story": {
     "sb": "?path=/story/core-o3-foundation-o3-typography--wrapper-story",
@@ -285,8 +319,39 @@
   "core-professional-o3-form--text-input-error-state": {
     "sb": "?path=/story/core-professional-o3-form--text-input-error-state"
   },
+  "core-professional-o3-foundation-o3-color--contrast-ration-checker": {
+    "sb": "?path=/story/core-professional-o3-foundation-o3-color--contrast-ration-checker"
+  },
+  "core-professional-o3-foundation-o3-color--primary-palette": {
+    "sb": "?path=/story/core-professional-o3-foundation-o3-color--primary-palette",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2Fqfi6fTq5V05b0mnXw3F7q5%2F%25F0%259F%2592%25A0-Professional---Origami-(o3)%3Fnode-id%3D4003-53%26t%3DmA4x4xkABgfw2n0q-0"
+  },
+  "core-professional-o3-foundation-o3-color--secondary-palette": {
+    "sb": "?path=/story/core-professional-o3-foundation-o3-color--secondary-palette",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2Fqfi6fTq5V05b0mnXw3F7q5%2F%25F0%259F%2592%25A0-Professional---Origami-(o3)%3Fnode-id%3D4003-53%26t%3DmA4x4xkABgfw2n0q-0"
+  },
+  "core-professional-o3-foundation-o3-color--tertiary-palette": {
+    "sb": "?path=/story/core-professional-o3-foundation-o3-color--tertiary-palette",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2Fqfi6fTq5V05b0mnXw3F7q5%2F%25F0%259F%2592%25A0-Professional---Origami-(o3)%3Fnode-id%3D4003-53%26t%3DmA4x4xkABgfw2n0q-0"
+  },
+  "core-professional-o3-foundation-o3-color--tones-and-mixes": {
+    "sb": "?path=/story/core-professional-o3-foundation-o3-color--tones-and-mixes",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2Fqfi6fTq5V05b0mnXw3F7q5%2F%25F0%259F%2592%25A0-Professional---Origami-(o3)%3Fnode-id%3D4003-53%26t%3DmA4x4xkABgfw2n0q-0"
+  },
+  "core-professional-o3-foundation-o3-color--usecases": {
+    "sb": "?path=/story/core-professional-o3-foundation-o3-color--usecases",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2Fqfi6fTq5V05b0mnXw3F7q5%2F%25F0%259F%2592%25A0-Professional---Origami-(o3)%3Fnode-id%3D5043-275%26t%3DmA4x4xkABgfw2n0q-0"
+  },
   "core-professional-o3-foundation-o3-grid--grid": {
     "sb": "?path=/story/core-professional-o3-foundation-o3-grid--grid"
+  },
+  "core-professional-o3-foundation-o3-icon--icon": {
+    "sb": "?path=/story/core-professional-o3-foundation-o3-icon--icon",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FcDQZHPJ8e962o9827vugBW%2F%25F0%259F%2592%25A0-Iconography---Origami-(o3)%3Fnode-id%3D0-1%26p%3Df%26t%3D4yHSb6Njv5FBnBu1-0"
+  },
+  "core-professional-o3-foundation-o3-spacing--spacing": {
+    "sb": "?path=/story/core-professional-o3-foundation-o3-spacing--spacing",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2Fqfi6fTq5V05b0mnXw3F7q5%2F%25F0%259F%2592%25A0-Professional---Origami-(o3)%3Fnode-id%3D4005-572%26p%3Df%26t%3Df4ne8wj0WE1ME6qf-0"
   },
   "core-professional-o3-foundation-o3-typography--wrapper-story": {
     "sb": "?path=/story/core-professional-o3-foundation-o3-typography--wrapper-story",
@@ -414,8 +479,39 @@
   "internal-o3-form--text-input-error-state": {
     "sb": "?path=/story/internal-o3-form--text-input-error-state"
   },
+  "internal-o3-foundation-o3-color--contrast-ration-checker": {
+    "sb": "?path=/story/internal-o3-foundation-o3-color--contrast-ration-checker"
+  },
+  "internal-o3-foundation-o3-color--primary-palette": {
+    "sb": "?path=/story/internal-o3-foundation-o3-color--primary-palette",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FH9vTWZgEzqzTtX689nwq4R%2F%25F0%259F%2592%25A0-Internal---Origami-(o3)%3Fnode-id%3D0-1%26p%3Df%26t%3Dhz2SwE149RsQSMk2-0"
+  },
+  "internal-o3-foundation-o3-color--secondary-palette": {
+    "sb": "?path=/story/internal-o3-foundation-o3-color--secondary-palette",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FH9vTWZgEzqzTtX689nwq4R%2F%25F0%259F%2592%25A0-Internal---Origami-(o3)%3Fnode-id%3D0-1%26p%3Df%26t%3Dhz2SwE149RsQSMk2-0"
+  },
+  "internal-o3-foundation-o3-color--tertiary-palette": {
+    "sb": "?path=/story/internal-o3-foundation-o3-color--tertiary-palette",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FH9vTWZgEzqzTtX689nwq4R%2F%25F0%259F%2592%25A0-Internal---Origami-(o3)%3Fnode-id%3D0-1%26p%3Df%26t%3Dhz2SwE149RsQSMk2-0"
+  },
+  "internal-o3-foundation-o3-color--tones-and-mixes": {
+    "sb": "?path=/story/internal-o3-foundation-o3-color--tones-and-mixes",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FH9vTWZgEzqzTtX689nwq4R%2F%25F0%259F%2592%25A0-Internal---Origami-(o3)%3Fnode-id%3D0-1%26p%3Df%26t%3Dhz2SwE149RsQSMk2-0"
+  },
+  "internal-o3-foundation-o3-color--usecases": {
+    "sb": "?path=/story/internal-o3-foundation-o3-color--usecases",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FH9vTWZgEzqzTtX689nwq4R%2F%25F0%259F%2592%25A0-Internal---Origami-(o3)%3Fnode-id%3D0-1%26p%3Df%26t%3Dhz2SwE149RsQSMk2-0"
+  },
   "internal-o3-foundation-o3-grid--grid": {
     "sb": "?path=/story/internal-o3-foundation-o3-grid--grid"
+  },
+  "internal-o3-foundation-o3-icon--icon": {
+    "sb": "?path=/story/internal-o3-foundation-o3-icon--icon",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FcDQZHPJ8e962o9827vugBW%2F%25F0%259F%2592%25A0-Iconography---Origami-(o3)%3Fnode-id%3D0-1%26p%3Df%26t%3D4yHSb6Njv5FBnBu1-0"
+  },
+  "internal-o3-foundation-o3-spacing--spacing": {
+    "sb": "?path=/story/internal-o3-foundation-o3-spacing--spacing",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FH9vTWZgEzqzTtX689nwq4R%2F%25F0%259F%2592%25A0-Internal---Origami-(o3)%3Fnode-id%3D5799-45%26p%3Df%26t%3D3frwLCTofjU6WjuL-0"
   },
   "internal-o3-foundation-o3-typography--wrapper-story": {
     "sb": "?path=/story/internal-o3-foundation-o3-typography--wrapper-story",
@@ -602,8 +698,38 @@
   "sustainable-views-o3-form--text-input-error-state": {
     "sb": "?path=/story/sustainable-views-o3-form--text-input-error-state"
   },
+  "sustainable-views-o3-foundation-o3-color--contrast-ration-checker": {
+    "sb": "?path=/story/sustainable-views-o3-foundation-o3-color--contrast-ration-checker"
+  },
+  "sustainable-views-o3-foundation-o3-color--primary-palette": {
+    "sb": "?path=/story/sustainable-views-o3-foundation-o3-color--primary-palette",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FY7u0SwIJ1mCNDE0dpzgHCJ%2F%25F0%259F%2592%25A0-Sustainable-Views---Origami-(o3)%3Fnode-id%3D3402-35%26p%3Df%26t%3DI066NQT0JZHQsQos-0"
+  },
+  "sustainable-views-o3-foundation-o3-color--secondary-palette": {
+    "sb": "?path=/story/sustainable-views-o3-foundation-o3-color--secondary-palette",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FY7u0SwIJ1mCNDE0dpzgHCJ%2F%25F0%259F%2592%25A0-Sustainable-Views---Origami-(o3)%3Fnode-id%3D3402-35%26p%3Df%26t%3DI066NQT0JZHQsQos-0"
+  },
+  "sustainable-views-o3-foundation-o3-color--tertiary-palette": {
+    "sb": "?path=/story/sustainable-views-o3-foundation-o3-color--tertiary-palette"
+  },
+  "sustainable-views-o3-foundation-o3-color--tones-and-mixes": {
+    "sb": "?path=/story/sustainable-views-o3-foundation-o3-color--tones-and-mixes",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FY7u0SwIJ1mCNDE0dpzgHCJ%2F%25F0%259F%2592%25A0-Sustainable-Views---Origami-(o3)%3Fnode-id%3D3402-35%26p%3Df%26t%3DI066NQT0JZHQsQos-0"
+  },
+  "sustainable-views-o3-foundation-o3-color--usecases": {
+    "sb": "?path=/story/sustainable-views-o3-foundation-o3-color--usecases",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FY7u0SwIJ1mCNDE0dpzgHCJ%2F%25F0%259F%2592%25A0-Sustainable-Views---Origami-(o3)%3Fnode-id%3D3402-35%26p%3Df%26t%3DI066NQT0JZHQsQos-0"
+  },
   "sustainable-views-o3-foundation-o3-grid--grid": {
     "sb": "?path=/story/sustainable-views-o3-foundation-o3-grid--grid"
+  },
+  "sustainable-views-o3-foundation-o3-icon--icon": {
+    "sb": "?path=/story/sustainable-views-o3-foundation-o3-icon--icon",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FcDQZHPJ8e962o9827vugBW%2F%25F0%259F%2592%25A0-Iconography---Origami-(o3)%3Fnode-id%3D0-1%26p%3Df%26t%3D4yHSb6Njv5FBnBu1-0"
+  },
+  "sustainable-views-o3-foundation-o3-spacing--spacing": {
+    "sb": "?path=/story/sustainable-views-o3-foundation-o3-spacing--spacing",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FY7u0SwIJ1mCNDE0dpzgHCJ%2F%25F0%259F%2592%25A0-Sustainable-Views---Origami-(o3)%3Fnode-id%3D4022-1913%26p%3Df%26t%3D0xNprRqVrikpPV4W-0"
   },
   "sustainable-views-o3-foundation-o3-typography--wrapper-story": {
     "sb": "?path=/story/sustainable-views-o3-foundation-o3-typography--wrapper-story",
@@ -799,8 +925,40 @@
     "sb": "?path=/story/whitelabel-o3-form--text-input-error-state",
     "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2Fc85SYZNRVoFZHwzIzMqtmI%2Fo3-input-text%3Fnode-id%3D7239-531%26t%3D8ztgwLe3KFu3H8NJ-4"
   },
+  "whitelabel-o3-foundation-o3-color--contrast-ration-checker": {
+    "sb": "?path=/story/whitelabel-o3-foundation-o3-color--contrast-ration-checker"
+  },
+  "whitelabel-o3-foundation-o3-color--palette": {
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2F5ATknbGociZMlnNXX4sy4f%2FWhitelabel---Origami-(o3)%3Fnode-id%3D10192-286%26t%3DzIHOM7STmJF19Ndu-0",
+    "sb": "?path=/story/whitelabel-o3-foundation-o3-color--palette"
+  },
+  "whitelabel-o3-foundation-o3-color--primary-palette": {
+    "sb": "?path=/story/whitelabel-o3-foundation-o3-color--primary-palette"
+  },
+  "whitelabel-o3-foundation-o3-color--secondary-palette": {
+    "sb": "?path=/story/whitelabel-o3-foundation-o3-color--secondary-palette"
+  },
+  "whitelabel-o3-foundation-o3-color--tertiary-palette": {
+    "sb": "?path=/story/whitelabel-o3-foundation-o3-color--tertiary-palette"
+  },
+  "whitelabel-o3-foundation-o3-color--tones-and-mixes": {
+    "sb": "?path=/story/whitelabel-o3-foundation-o3-color--tones-and-mixes",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2F5ATknbGociZMlnNXX4sy4f%2FWhitelabel---Origami-(o3)%3Fnode-id%3D10192-286%26t%3DzIHOM7STmJF19Ndu-0"
+  },
+  "whitelabel-o3-foundation-o3-color--usecases": {
+    "sb": "?path=/story/whitelabel-o3-foundation-o3-color--usecases",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2F5ATknbGociZMlnNXX4sy4f%2FWhitelabel---Origami-(o3)%3Fnode-id%3D10215-2320%26t%3DzIHOM7STmJF19Ndu-0"
+  },
   "whitelabel-o3-foundation-o3-grid--grid": {
     "sb": "?path=/story/whitelabel-o3-foundation-o3-grid--grid"
+  },
+  "whitelabel-o3-foundation-o3-icon--icon": {
+    "sb": "?path=/story/whitelabel-o3-foundation-o3-icon--icon",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FcDQZHPJ8e962o9827vugBW%2F%25F0%259F%2592%25A0-Iconography---Origami-(o3)%3Fnode-id%3D0-1%26p%3Df%26t%3D4yHSb6Njv5FBnBu1-0"
+  },
+  "whitelabel-o3-foundation-o3-spacing--spacing": {
+    "sb": "?path=/story/whitelabel-o3-foundation-o3-spacing--spacing",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2F5ATknbGociZMlnNXX4sy4f%2FWhitelabel---Origami-(o3)%3Fnode-id%3D3394-181%26p%3Df%26t%3DPeerBvhwCA9LcFvx-0"
   },
   "whitelabel-o3-foundation-o3-typography--wrapper-story": {
     "sb": "?path=/story/whitelabel-o3-foundation-o3-typography--wrapper-story",

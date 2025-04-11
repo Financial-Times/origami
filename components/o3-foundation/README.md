@@ -61,13 +61,13 @@ Then apply the brand data selector `data-o3-brand="[BRAND]"` on a container elem
 </body>
 ```
 
-## Typography
+### Typography
 
-### List
+#### List
 
 `o3-foundation` provides styling for both ordered and unordered lists:
 
-#### HTML
+##### HTML
 
 ```html
 <ul class="o3-typography-ul">
@@ -83,7 +83,7 @@ Then apply the brand data selector `data-o3-brand="[BRAND]"` on a container elem
 </ol>
 ```
 
-#### JSX
+##### JSX
 
 ```jsx
 import { List } from '@financial-times/o3-foundation/cjs'; // or esm;
@@ -101,11 +101,11 @@ import { List } from '@financial-times/o3-foundation/cjs'; // or esm;
 </OrderedList>
 ```
 
-### Wrapper
+#### Wrapper
 
 The wrapper can be used to style blocks of body without needing to apply the class to each element. This can be useful when large bodies of many components need styling:
 
-#### HTML
+##### HTML
 
 ```html
 <div class="o3-typography-wrapper"></div>
@@ -121,7 +121,7 @@ import {Wrapper} from '@financial-times/o3-foundation/cjs'; // or esm
 </Wrapper>;
 ```
 
-### Highlight (Bold)
+#### Highlight (Bold)
 
 Use typography use cases to style body content with bolder styles:
 
@@ -131,9 +131,9 @@ Use typography use cases to style body content with bolder styles:
 </p>
 ```
 
-### Custom Properties
+#### Custom Properties
 
-#### Max Line Width
+##### Max Line Width
 
 `o3-foundation` includes a CSS Custom Property `--o3-typography-max-line-width` to limit typography line length for readability.
 E.g.
@@ -241,6 +241,14 @@ o3-foundation provides CSS Custom Properties for 3 types of colours:
 - Tints: Modified palette colours `--o3-color-palette-black-10`, `--o3-color-palette-teal-100`.
 
 We recommend using a usecase token where one exists, as this allows us flexibility to update the underlying colour based on how it is used. However it is preferable to use a palette or tint colour directly rather than mis-use a usecase token.
+
+Example:
+
+```css
+.example-text {
+	color: var(--o3-color-palette-black);
+}
+```
 
 See our documentation website for a [full list of colours and where to use them](https://origami-for-everyone.ft.com/guides/colours/).
 
