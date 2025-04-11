@@ -19,8 +19,9 @@ export default {
 			if (response.ok) {
 				return response.json();
 			} else {
-			// TODO: CI-1493 to remove after subscriber only is not behind a flag
+			// TODO: CI-1493 to remove after subscriber only is not behind a flag - check on Q&A usage, see below
 			// response for when onlySubscribers is false and user is signed in but has no display name
+			// also used in live Q&A when a user is signed in but has no display name
 				if (response.status === 409) {
 					return { userHasValidSession: true };
 				}
