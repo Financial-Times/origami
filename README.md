@@ -141,10 +141,10 @@ Storybook can be run locally with the `storybook` command.
 npm run storybook
 ```
 
-To view components in other brands in Storybook, set the `ORIGAMI_STORYBOOK_BRAND` environment variable with the brand.
+To view components in other brands in Storybook, set the `STORYBOOK_BRAND` environment variable with the brand.
 
 ```shell
-ORIGAMI_STORYBOOK_BRAND=internal npm run storybook
+STORYBOOK_BRAND=internal npm run storybook
 ```
 
 Some demos in Storybook are embedded through the Build Service, meaning that local changes will not appear on Storybook. This can be verified by inspecting the `*.story.ts` file for a component and seeing if the root element is an `iframe`. Local development for these components can still be achieved by using [legacy](#legacy) demos instead.

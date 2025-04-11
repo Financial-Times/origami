@@ -44,4 +44,4 @@ jobs:
           workingDir: apps/o2-storybook
           exitOnceUploaded: true
         env:
-          ORIGAMI_STORYBOOK_BRAND: ${{ matrix.brand }}
+          STORYBOOK_BRAND: ${{ matrix.brand }}
