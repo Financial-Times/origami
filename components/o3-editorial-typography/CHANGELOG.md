@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.1](https://github.com/Financial-Times/origami/compare/o3-editorial-typography-v3.2.0...o3-editorial-typography-v3.2.1) (2025-04-15)
+
+
+### Bug Fixes
+
+* use correct editorial typography private token ([#2077](https://github.com/Financial-Times/origami/issues/2077)) ([67818e7](https://github.com/Financial-Times/origami/commit/67818e7dde726eaa411081198ea47cf8daa8da8a))
+
 ## [3.2.0](https://github.com/Financial-Times/origami/compare/o3-editorial-typography-v3.1.2...o3-editorial-typography-v3.2.0) (2025-04-10)
 
 
