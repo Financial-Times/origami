@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.1.1](https://github.com/Financial-Times/origami/compare/o-teaser-v7.1.0...o-teaser-v7.1.1) (2025-04-15)
+
+
+### Bug Fixes
+
+* Correct top story font size ([2c22d5c](https://github.com/Financial-Times/origami/commit/2c22d5c238737b66613968889d87a700a696d99f))
+
 ## [7.1.0](https://github.com/Financial-Times/origami/compare/o-teaser-v7.0.2...o-teaser-v7.1.0) (2025-04-10)
 
 
