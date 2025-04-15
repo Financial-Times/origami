@@ -95,12 +95,12 @@ a.o3-editorial-typography-byline-author[data-o3-theme='inverse'] {
 	font-weight: var(--o3-type-label-font-weight);
 	line-height: var(--o3-type-label-line-height);
 	text-transform: uppercase;
-	color: var(--_o3-editorial-typography-byline-timestamp);
+	color: var(--_o3-editorial-typography-byline-timestamp-color);
 }
 
 [data-o3-theme='inverse'] .o3-editorial-typography-byline-timestamp,
 .o3-editorial-typography-byline-timestamp[data-o3-theme='inverse'] {
-	color: var(--_o3-editorial-typography-byline-timestamp-inverse);
+	color: var(--_o3-editorial-typography-byline-timestamp-inverse-color);
 }
 
 .o3-editorial-typography-pullquote {
