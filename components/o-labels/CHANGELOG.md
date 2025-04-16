@@ -1,5 +1,13 @@
 # Changelog
 
+## [7.0.1](https://github.com/Financial-Times/origami/compare/o-labels-v7.0.0...o-labels-v7.0.1) (2025-04-16)
+
+
+### Bug Fixes
+
+* o-forms theme issue ([159797d](https://github.com/Financial-Times/origami/commit/159797d5a9945426b2c14e6846d9f72c194e1cdb))
+* update ORIGAMI_STORYBOOK_BRAND to STORYBOOK_BRAND ([e5bed4a](https://github.com/Financial-Times/origami/commit/e5bed4a3988e10cbae4384cfda573cb295b3d238))
+
 ## [7.0.0](https://github.com/Financial-Times/origami/compare/o-labels-v6.5.8...o-labels-v7.0.0) (2025-02-20)
 
 ### ⚠ BREAKING CHANGES
