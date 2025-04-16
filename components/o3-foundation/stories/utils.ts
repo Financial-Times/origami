@@ -86,18 +86,15 @@ export function getColorPalette(
 			css: value.value,
 			paletteType: value.origamiKeys[1],
 		}))
-		.reduce(
-			(acc, color) => {
-				// Destructure to separate the base property from the rest
-				const {paletteType, ...rest} = color;
-				if (!acc[paletteType]) {
-					acc[paletteType] = [];
-				}
-				acc[paletteType].push(rest);
-				return acc;
-			},
-			{} as Record<string, Omit<Color, 'paletteType'>[]>
-		);
+		.reduce((acc, color) => {
+			// Destructure to separate the base property from the rest
+			const {paletteType, ...rest} = color;
+			if (!acc[paletteType]) {
+				acc[paletteType] = [];
+			}
+			acc[paletteType].push(rest);
+			return acc;
+		}, {} as Record<string, Omit<Color, 'paletteType'>[]>);
 }
 
 export function getColorTints(tokens: TintTokenType[]) {
@@ -108,18 +105,15 @@ export function getColorTints(tokens: TintTokenType[]) {
 			css: value.value,
 			base: value.origamiTint?.base,
 		}))
-		.reduce(
-			(acc, color) => {
-				// Destructure to separate the base property from the rest
-				const {base, ...rest} = color;
-				if (!acc[base]) {
-					acc[base] = [];
-				}
-				acc[base].push(rest);
-				return acc;
-			},
-			{} as Record<string, Omit<Color, 'base'>[]>
-		);
+		.reduce((acc, color) => {
+			// Destructure to separate the base property from the rest
+			const {base, ...rest} = color;
+			if (!acc[base]) {
+				acc[base] = [];
+			}
+			acc[base].push(rest);
+			return acc;
+		}, {} as Record<string, Omit<Color, 'base'>[]>);
 }
 
 export function getColors(
@@ -147,44 +141,15 @@ export function getColorUsecases(tokens: TokenType[]) {
 			css: value.value,
 			base: value.attributes.subitem,
 		}))
-		.reduce(
-			(acc, color) => {
-				// Destructure to separate the base property from the rest
-				const {base, ...rest} = color;
-				if (!acc[base]) {
-					acc[base] = [];
-				}
-				acc[base].push(rest);
-				return acc;
-			},
-			{} as Record<string, Omit<Color, 'base'>[]>
-		);
-}
-
-export function getWCAGRating(ratio: number) {
-	let wcagRating;
-	let message = 'This combination passes WCAG color contrast guidelines';
-	let status = 'pass';
-
-	if (ratio >= 7) {
-		wcagRating = 'AAA';
-	} else if (ratio >= 4.5) {
-		wcagRating = 'AA';
-	} else if (ratio >= 3) {
-		wcagRating = 'AA18';
-		message = `Caution: When using this combination, text should be larger than 18px to pass WCAG color contrast guidelines.`;
-		status = 'warn';
-	} else {
-		wcagRating = 'Fail';
-		message = `This combination does not pass WCAG color contrast guidelines.`;
-		status = 'fail';
-	}
-
-	return {
-		wcagRating,
-		message,
-		status,
-	};
+		.reduce((acc, color) => {
+			// Destructure to separate the base property from the rest
+			const {base, ...rest} = color;
+			if (!acc[base]) {
+				acc[base] = [];
+			}
+			acc[base].push(rest);
+			return acc;
+		}, {} as Record<string, Omit<Color, 'base'>[]>);
 }
 
 export function getContrastRatio(foreground: string, background: string) {
