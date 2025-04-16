@@ -27,7 +27,7 @@
 <h2 id="styles">Styles</h2>
 <p>Once the storybook dev server is running we notice that some styles are already applied to our component. This is coming from <code>o-example/stories/example.scss</code> file which is imported by <code>example.stories.tsx</code>. <code>example.stories.tsx</code> is where we define our demos and its variants, <a href="https://storybook.js.org/docs/react/essentials/controls#gatsby-focus-wrapper">controls</a> and anything related to storybook demos.</p>
 <h2 id="brands">Brands</h2>
-<p>When we were working on <a href="/documentation/tutorials/create-a-new-component-part-3/#component-brands">implementing brand</a> variants for our component we noticed that our build server generated different <code>html</code> files for us and we could swap between them. In storybook we will need to restart our dev server and provide an environment variable. To start internal component demos in storybook you will need to run <code>ORIGAMI_STORYBOOK_BRAND=internal npm run storybook</code> and similarly for whitelababel you can run <code>ORIGAMI_STORYBOOK_BRAND=whitelabel npm run storybook</code>.</p>
+<p>When we were working on <a href="/documentation/tutorials/create-a-new-component-part-3/#component-brands">implementing brand</a> variants for our component we noticed that our build server generated different <code>html</code> files for us and we could swap between them. In storybook we will need to restart our dev server and provide an environment variable. To start internal component demos in storybook you will need to run <code>STORYBOOK_BRAND=internal npm run storybook</code> and similarly for whitelababel you can run <code>STORYBOOK_BRAND=whitelabel npm run storybook</code>.</p>
 <h2 id="tsx-template">TSX template</h2>
 <p><code>npm run create-component</code> generated a TSX (<a href="https://reactjs.org/docs/jsx-in-depth.html">JSX</a> + <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html">typeScript</a>) boilerplate template as well.</p>
 <p>The code in <code>example.tsx</code> will be very similar to what we have in <code>demo.mustache</code> but with different syntax:</p>
@@ -108,7 +108,7 @@ export const DefaultExample: ComponentStory&#x3C;typeof Example> = ExampleStory.
 + 	inverse: 'Inverse',
 + }
 +
-+ const Brand = process.env.ORIGAMI_STORYBOOK_BRAND || 'core';
++ const Brand = process.env.STORYBOOK_BRAND || 'core';
 +
 + if (Brand === 'core') {
 + 	themeOptions.push('b2c')
