@@ -40,17 +40,3 @@ export const Usecases: StoryObj = {
 		},
 	],
 };
-
-export const ContrastRationChecker: StoryObj = {
-	...TypographyStories.ContrastRatioCheckerMetaGenerator('whitelabel'),
-	loaders: [
-		async () => {
-			const colors = await Promise.resolve(
-				import('@financial-times/o3-tooling-token/whitelabel.js').then(tokens =>
-					getColors(tokens.default, true)
-				)
-			);
-			return {colors};
-		},
-	],
-};

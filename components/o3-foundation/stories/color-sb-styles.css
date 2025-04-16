@@ -16,8 +16,11 @@
 }
 .color-palette-group-base {
 	text-align: center;
-	font-weight: bold;
-	margin: 0.5rem;
+	font-family: var(--o3-type-title-md-font-family);
+	font-size: var(--o3-type-title-md-font-size);
+	line-height: var(--o3-type-title-md-line-height);
+	font-weight: var(--o3-type-title-md-font-weight);
+	text-transform: var(--o3-type-title-md-text-case);
 }
 .color-boxes {
 	display: flex;
@@ -64,9 +67,11 @@
 }
 
 .color-box-css-value {
-	margin: 0.5rem 0;
-	font-weight: bold;
-	text-transform: uppercase;
+	font-family: var(--o3-type-label-font-family);
+	font-size: var(--o3-type-label-font-size);
+	line-height: var(--o3-type-label-line-height);
+	font-weight: var(--o3-type-label-font-weight);
+	text-transform: var(--o3-type-label-text-case);
 }
 
 .color-box-copy-btn {
@@ -75,143 +80,4 @@
 	background-color: transparent;
 	visibility: hidden;
 	transition: visibility 0.1s ease-in;
-}
-.contrast-ratio-checker-container {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 16px;
-
-	.contrast-info {
-		display: flex;
-		flex-direction: column;
-		padding: 0.5rem;
-		border: 2px solid #000000;
-		background-color: white;
-		flex: 0 0 30%;
-		height: fit-content;
-		color: #000000;
-	}
-
-	.contrast-combination,
-	.contrast-ratio,
-	.color-controller {
-		display: flex;
-		justify-content: space-between;
-		margin: 0 0 0.5rem 0;
-
-		.title {
-			font-weight: bold;
-		}
-	}
-
-	.color-controller {
-		gap: 32px;
-	}
-
-	.contrast-details {
-		display: flex;
-		flex-direction: column;
-		padding: 0.5rem 0;
-		.title {
-			margin: 0;
-		}
-
-		.wcag-rating {
-			font-weight: bold;
-		}
-
-		.rating-message {
-			margin: 0;
-		}
-
-		.rating-result--pass {
-			color: #006b36;
-		}
-
-		.rating-result--fail {
-			color: #cc0000;
-		}
-		.rating-result--warn {
-			color: #b35f24;
-		}
-	}
-
-	.contrast-showcase a {
-		color: inherit;
-		text-decoration-color: inherit;
-	}
-
-	.color-box {
-		display: flex;
-		align-items: baseline;
-		height: auto;
-		padding: 1rem;
-	}
-
-	.color-selector-container {
-		max-width: 60%;
-		flex: 1 0 fit-content;
-
-		.color-selector-tabs {
-			.background-tab,
-			.foreground-tab {
-				border: 1px solid black;
-				border-bottom: none;
-				border-top-width: 2px;
-				padding: 0.5rem;
-				cursor: pointer;
-				background-color: white;
-				font-weight: bold;
-			}
-			.background-tab {
-				border-left-width: 2px;
-			}
-			.foreground-tab {
-				border-right-width: 2px;
-			}
-			.active-tab {
-				background-color: #e6d9ce;
-			}
-		}
-		.colors {
-			display: flex;
-			flex-wrap: wrap;
-			gap: 4px;
-
-			.color-btn {
-				width: 24px;
-				height: 24px;
-				border: 1px solid;
-				cursor: pointer;
-			}
-
-			.color-btn--clicked {
-				border: 2px solid #ff1493;
-			}
-		}
-		.colors-container {
-			display: flex;
-			gap: 32px;
-			align-items: baseline;
-			background-color: white;
-			border: 2px solid #000000;
-			padding: 1rem;
-			color: #000000;
-
-			h3 {
-				margin: 0;
-			}
-
-			.color-palette {
-				flex-direction: column;
-				justify-content: center;
-
-				h4 {
-					margin: 0.5rem 0;
-					text-transform: capitalize;
-				}
-			}
-		}
-	}
 }

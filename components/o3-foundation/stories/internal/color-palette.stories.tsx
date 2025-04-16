@@ -77,17 +77,3 @@ export const Usecases: StoryObj = {
 		},
 	],
 };
-
-export const ContrastRationChecker: StoryObj = {
-	...TypographyStories.ContrastRatioCheckerMetaGenerator('internal'),
-	loaders: [
-		async () => {
-			const colors = await Promise.resolve(
-				import('@financial-times/o3-tooling-token/internal.js').then(tokens =>
-					getColors(tokens.default)
-				)
-			);
-			return {colors};
-		},
-	],
-};
