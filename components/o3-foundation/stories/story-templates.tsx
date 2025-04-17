@@ -2,14 +2,7 @@ import type {Meta} from '@storybook/react';
 import {transformCode} from './utils';
 import {O3Grid} from './grid';
 import './grid-sb-styles.css';
-import {
-	Footer,
-	Heading,
-	UnorderedList,
-	OrderedList,
-	Caption,
-	Wrapper,
-} from '../src/tsx';
+import {UnorderedList, OrderedList, Wrapper} from '../src/tsx';
 import type {StoryObj} from '@storybook/react';
 import {SpacingDemo} from './spacing-sb-story-component';
 import './spacing-sb-styles.css';
@@ -18,11 +11,10 @@ import {Icon, icons} from './icon-sb-story-component';
 import './icon-sb-styles.css';
 import {ColorPalette} from './color-sb-story-components';
 import './color-sb-styles.css';
-import '../src/css/brands/core.css';
 
 export type BrandType =
 	| 'core'
-	| 'professional'
+	| 'core-professional'
 	| 'whitelabel'
 	| 'internal'
 	| 'sustainable-views';
@@ -32,7 +24,7 @@ export function GridMetaGenerator(brand: BrandType): Meta {
 		component: O3Grid,
 		decorators: [
 			Story => (
-				<div data-o3-brand={brand}>
+				<div data-o3-brand={brand.split('-')[0]}>
 					<Story />
 				</div>
 			),
@@ -52,7 +44,7 @@ export function SpacingMetaGenerator(brand: BrandType): Meta {
 		component: SpacingDemo,
 		decorators: [
 			Story => (
-				<div data-o3-brand={brand}>
+				<div data-o3-brand={brand.split('-')[0]}>
 					<Story />
 				</div>
 			),
@@ -61,7 +53,7 @@ export function SpacingMetaGenerator(brand: BrandType): Meta {
 			backgrounds: {disable: true},
 			design: {
 				type: 'figma',
-				url: links[`${brand}-o3-foundation-o3-o-spacing--spacing`].figma,
+				url: links[`${brand}-o3-foundation-o3-spacing--spacing`].figma,
 			},
 		},
 		args: {
@@ -75,7 +67,7 @@ export function IconMetaGenerator(brand: BrandType): Meta {
 		component: Icon,
 		decorators: [
 			Story => (
-				<div data-o3-brand={brand}>
+				<div data-o3-brand={brand.split('-')[0]}>
 					<Story />
 				</div>
 			),
@@ -106,7 +98,7 @@ export function ColorPaletteMetaGenerator(brand: BrandType): Meta {
 		component: ColorPalette,
 		decorators: [
 			Story => (
-				<div data-o3-brand={brand}>
+				<div data-o3-brand={brand.split('-')[0]}>
 					<Story />
 				</div>
 			),

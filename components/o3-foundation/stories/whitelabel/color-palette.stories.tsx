@@ -1,16 +1,12 @@
+import '../../src/css/brands/whitelabel.css';
 import type {Meta, StoryObj} from '@storybook/react';
-import * as TypographyStories from '../story-templates';
-import {
-	getColorPalette,
-	getColors,
-	getColorTints,
-	getColorUsecases,
-} from '../utils';
+import * as FoundationStories from '../story-templates';
+import {getColorPalette, getColorUsecases} from '../utils';
 
 export default {
 	title: 'Whitelabel/o3-foundation/o3-color',
 	tags: ['!autodocs'],
-	...TypographyStories.ColorPaletteMetaGenerator('whitelabel'),
+	...FoundationStories.ColorPaletteMetaGenerator('whitelabel'),
 } as Meta;
 
 export const Palette: StoryObj = {

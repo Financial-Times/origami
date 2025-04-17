@@ -1,16 +1,12 @@
+import '../../src/css/brands/internal.css';
 import type {Meta, StoryObj} from '@storybook/react';
-import * as TypographyStories from '../story-templates';
-import {
-	getColorPalette,
-	getColors,
-	getColorTints,
-	getColorUsecases,
-} from '../utils';
+import * as FoundationStories from '../story-templates';
+import {getColorPalette, getColorTints, getColorUsecases} from '../utils';
 
 export default {
 	title: 'Internal/o3-foundation/o3-color',
 	tags: ['!autodocs'],
-	...TypographyStories.ColorPaletteMetaGenerator('internal'),
+	...FoundationStories.ColorPaletteMetaGenerator('internal'),
 } as Meta;
 
 export const PrimaryPalette: StoryObj = {

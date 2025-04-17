@@ -1,16 +1,12 @@
+import '../../../src/css/brands/professional.css';
 import type {Meta, StoryObj} from '@storybook/react';
-import * as TypographyStories from '../../story-templates';
-import {
-	getColorPalette,
-	getColors,
-	getColorTints,
-	getColorUsecases,
-} from '../../utils';
+import * as FoundationStories from '../../story-templates';
+import {getColorPalette, getColorTints, getColorUsecases} from '../../utils';
 
 export default {
 	title: 'Core/Professional/o3-foundation/o3-color',
 	tags: ['!autodocs'],
-	...TypographyStories.ColorPaletteMetaGenerator('professional'),
+	...FoundationStories.ColorPaletteMetaGenerator('core-professional'),
 } as Meta;
 
 export const PrimaryPalette: StoryObj = {
@@ -26,11 +22,6 @@ export const PrimaryPalette: StoryObj = {
 			return {colors};
 		},
 	],
-	// TO DO: OR-838 uncomment this after new version of @financial-times/o3-figma-sb-link is released
-	// design: {
-	// 	type: 'figma',
-	// 	url: links[`${brand}-o3-foundation-o3-color--primary-palette`].figma,
-	// },
 };
 
 export const SecondaryPalette: StoryObj = {

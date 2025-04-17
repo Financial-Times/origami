@@ -1,5 +1,5 @@
 import type {Meta} from '@storybook/react';
-import * as TypographyStories from '../story-templates';
+import * as FoundationStories from '../story-templates';
 import {UnorderedList} from '../../src/tsx';
 import '../../src/css/brands/core.css';
 import links from '@financial-times/o3-figma-sb-links';
@@ -18,9 +18,10 @@ export default {
 		backgrounds: {default: 'paper'},
 		design: {
 			type: 'figma',
-			url: links['core-o3-typography-unorderedlist--unordered-list-story'].figma,
-		}
+			url: links['core-o3-typography-unorderedlist--unordered-list-story']
+				.figma,
+		},
 	},
 } as Meta;
 
-export const UnorderedListStory = TypographyStories.UnorderedListTemplate;
+export const UnorderedListStory = FoundationStories.UnorderedListTemplate;

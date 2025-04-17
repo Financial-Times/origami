@@ -1,6 +1,6 @@
 import type {Meta} from '@storybook/react';
 import {Wrapper} from '../../src/tsx';
-import * as TypographyStories from '../story-templates';
+import * as FoundationStories from '../story-templates';
 import '../../src/css/brands/whitelabel.css';
 import links from '@financial-times/o3-figma-sb-links';
 export default {
@@ -18,7 +18,7 @@ export default {
 		design: {
 			type: 'figma',
 			url: links['whitelabel-o3-typography--wrapper-story'].figma,
-		}
+		},
 	},
 	argTypes: {
 		theme: {
@@ -30,4 +30,4 @@ export default {
 	},
 } as Meta;
 
-export const WrapperStory = TypographyStories.WrapperTemplate;
+export const WrapperStory = FoundationStories.WrapperTemplate;
