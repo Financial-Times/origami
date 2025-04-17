@@ -82,53 +82,5 @@ const StickySearch = () => {
 	const stickySearchDivId = 'o-header-search-sticky';
 	const inputFieldId = 'o-header-search-term-js';
 
-	return (
-		<div
-			id={stickySearchDivId}
-			className="o-header__row o-header__search o--if-js"
-			role="search"
-			data-o-header-search>
-			<div className="o-header__container">
-				<form
-					className="o-header__search-form"
-					action="/search"
-					role="search"
-					aria-label="Site search">
-					<label
-						htmlFor={inputFieldId}
-						className="o-header__search-term o-forms-field o-forms-field--optional">
-						<span className="o-forms-title o-header__visually-hidden">
-							<span className="o-forms-title__main">
-								Search the <abbr title="Financial Times">FT</abbr>
-							</span>
-						</span>
-						<span className="o-forms-input o-forms-input--text o-forms-input--suffix">
-							<input
-								id={inputFieldId}
-								name="q"
-								type="search"
-								placeholder="Search for stories, topics or securities"
-							/>
-							<button className="o-header__search-submit" type="submit">
-								<span
-									aria-hidden="true"
-									className="o-header__search-icon"></span>
-								<span>Search</span>
-							</button>
-							<button
-								className="o-header__search-close o--if-js"
-								type="button"
-								aria-controls={stickySearchDivId}
-								title="Close search bar">
-								<span className="o-header__visually-hidden">
-									Close search bar
-								</span>
-								<span>Close</span>
-							</button>
-						</span>
-					</label>
-				</form>
-			</div>
-		</div>
-	);
+	return <></>;
 };
