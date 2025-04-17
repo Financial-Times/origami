@@ -24,7 +24,7 @@ export function GridMetaGenerator(brand: BrandType): Meta {
 		component: O3Grid,
 		decorators: [
 			Story => (
-				<div data-o3-brand={brand.split('-')[0]}>
+				<div data-o3-brand={brand.split('/')[0]}>
 					<Story />
 				</div>
 			),
@@ -44,7 +44,7 @@ export function SpacingMetaGenerator(brand: BrandType): Meta {
 		component: SpacingDemo,
 		decorators: [
 			Story => (
-				<div data-o3-brand={brand.split('-')[0]}>
+				<div data-o3-brand={brand.split('/')[0]}>
 					<Story />
 				</div>
 			),
@@ -67,7 +67,7 @@ export function IconMetaGenerator(brand: BrandType): Meta {
 		component: Icon,
 		decorators: [
 			Story => (
-				<div data-o3-brand={brand.split('-')[0]}>
+				<div data-o3-brand={brand.split('/')[0]}>
 					<Story />
 				</div>
 			),
@@ -98,7 +98,7 @@ export function ColorPaletteMetaGenerator(brand: BrandType): Meta {
 		component: ColorPalette,
 		decorators: [
 			Story => (
-				<div data-o3-brand={brand.split('-')[0]}>
+				<div data-o3-brand={brand.split('/')[0]}>
 					<Story />
 				</div>
 			),
