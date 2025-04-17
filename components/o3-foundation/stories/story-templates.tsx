@@ -14,7 +14,7 @@ import './color-sb-styles.css';
 
 export type BrandType =
 	| 'core'
-	| 'core-professional'
+	| 'core/professional'
 	| 'whitelabel'
 	| 'internal'
 	| 'sustainable-views';
