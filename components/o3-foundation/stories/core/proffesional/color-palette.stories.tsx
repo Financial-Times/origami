@@ -6,7 +6,7 @@ import {getColorPalette, getColorTints, getColorUsecases} from '../../utils';
 export default {
 	title: 'Core/Professional/o3-foundation/o3-color',
 	tags: ['!autodocs'],
-	...FoundationStories.ColorPaletteMetaGenerator('core/professional'),
+	...FoundationStories.ColorPaletteMetaGenerator('core-professional'),
 } as Meta;
 
 export const PrimaryPalette: StoryObj = {
