@@ -551,6 +551,10 @@
 	--o3-button-icon: var(--o3-icon-grid);
 }
 
+.o3-button-icon.o3-button-icon--outside-page::before {
+	--o3-button-icon: var(--o3-icon-outside-page);
+}
+
 .o3-button-icon.o3-button-icon--upload::before {
 	--o3-button-icon: var(--o3-icon-upload);
 }
