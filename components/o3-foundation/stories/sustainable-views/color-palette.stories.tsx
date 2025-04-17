@@ -1,16 +1,12 @@
+import '../../src/css/brands/sustainable-views.css';
 import type {Meta, StoryObj} from '@storybook/react';
-import * as TypographyStories from '../story-templates';
-import {
-	getColorPalette,
-	getColors,
-	getColorTints,
-	getColorUsecases,
-} from '../utils';
+import * as FoundationStories from '../story-templates';
+import {getColorPalette, getColorTints, getColorUsecases} from '../utils';
 
 export default {
 	title: 'Sustainable views/o3-foundation/o3-color',
 	tags: ['!autodocs'],
-	...TypographyStories.ColorPaletteMetaGenerator('sustainable-views'),
+	...FoundationStories.ColorPaletteMetaGenerator('sustainable-views'),
 } as Meta;
 
 export const PrimaryPalette: StoryObj = {

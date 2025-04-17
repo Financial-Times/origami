@@ -116,20 +116,6 @@ export function getColorTints(tokens: TintTokenType[]) {
 		}, {} as Record<string, Omit<Color, 'base'>[]>);
 }
 
-export function getColors(
-	tokens: ColorTokenType[] | TintTokenType[],
-	whitelabelBrand?: boolean
-) {
-	const colorPalettes = whitelabelBrand
-		? {primary: getColorPalette(tokens as ColorTokenType[], undefined, true)}
-		: getColorPalette(tokens as ColorTokenType[]);
-	const colorTints = getColorTints(tokens as TintTokenType[]);
-	return {
-		palettes: colorPalettes,
-		tones: colorTints,
-	};
-}
-
 export function getColorUsecases(tokens: TokenType[]) {
 	const useCasePrefix = '--o3-color-use-case-';
 	return Object.values(tokens)
