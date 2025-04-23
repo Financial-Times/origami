@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.8.0](https://github.com/Financial-Times/origami/compare/o3-button-v3.7.0...o3-button-v3.8.0) (2025-04-23)
+
+
+### Features
+
+* introduce utility class for outside page icon to o3-button ([#2083](https://github.com/Financial-Times/origami/issues/2083)) ([6016646](https://github.com/Financial-Times/origami/commit/60166468de2d1bdf2a307b20acd197020800e50a))
+
 ## [3.7.0](https://github.com/Financial-Times/origami/compare/o3-button-v3.6.0...o3-button-v3.7.0) (2025-04-09)
 
 
