@@ -3512,7 +3512,7 @@ export default {
 		"shortName": "inner",
 		"value": {
 				"blur": "0",
-				"spread": "4",
+				"spread": "2",
 				"color": "#ffffff",
 				"type": "dropShadow",
 				"offsetX": "0",
@@ -3520,7 +3520,7 @@ export default {
 		},
 		"originalValue": {
 				"blur": "0",
-				"spread": "4",
+				"spread": "2",
 				"color": "{o3.color.palette.white}",
 				"type": "dropShadow",
 				"offsetX": "0",
@@ -3546,7 +3546,7 @@ export default {
 		"shortName": "outer",
 		"value": {
 				"blur": "0",
-				"spread": "8",
+				"spread": "4",
 				"color": "#4d4d4d",
 				"type": "dropShadow",
 				"offsetX": "0",
@@ -3554,7 +3554,7 @@ export default {
 		},
 		"originalValue": {
 				"blur": "0",
-				"spread": "8",
+				"spread": "4",
 				"color": "{o3.color.palette.black-70}",
 				"type": "dropShadow",
 				"offsetX": "0",
@@ -3580,7 +3580,7 @@ export default {
 		"shortName": "inner",
 		"value": {
 				"blur": "0",
-				"spread": "4",
+				"spread": "2",
 				"color": "#4d4d4d",
 				"type": "dropShadow",
 				"offsetX": "0",
@@ -3588,7 +3588,7 @@ export default {
 		},
 		"originalValue": {
 				"blur": "0",
-				"spread": "4",
+				"spread": "2",
 				"color": "{o3.color.palette.black-70}",
 				"type": "dropShadow",
 				"offsetX": "0",
@@ -3615,7 +3615,7 @@ export default {
 		"shortName": "outer",
 		"value": {
 				"blur": "0",
-				"spread": "8",
+				"spread": "4",
 				"color": "#ffffff",
 				"type": "dropShadow",
 				"offsetX": "0",
@@ -3623,7 +3623,7 @@ export default {
 		},
 		"originalValue": {
 				"blur": "0",
-				"spread": "8",
+				"spread": "4",
 				"color": "{o3.color.palette.white}",
 				"type": "dropShadow",
 				"offsetX": "0",
