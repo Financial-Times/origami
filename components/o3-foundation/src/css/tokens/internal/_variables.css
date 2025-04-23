@@ -188,10 +188,10 @@
   --o3-type-label-font-weight: var(--o3-font-weight-regular); /* Use this style for labels such as badges and metadata in teasers and toppers (e.g., "Live," "Premium," or the main timestamp). Avoid using full sentences. */
   --o3-type-label-font-size: var(--o3-font-size-metric2-negative-1); /* Use this style for labels such as badges and metadata in teasers and toppers (e.g., "Live," "Premium," or the main timestamp). Avoid using full sentences. */
   --o3-type-label-line-height: var(--o3-font-lineheight-metric2-negative-1); /* Use this style for labels such as badges and metadata in teasers and toppers (e.g., "Live," "Premium," or the main timestamp). Avoid using full sentences. */
-  --o3-focus-use-case-ring-inner: 0px 0px 0px 4px #ffffff;
-  --o3-focus-use-case-ring-outer: 0px 0px 0px 8px #4d4d4d;
-  --o3-focus-use-case-ring-inverse-inner: 0px 0px 0px 4px #4d4d4d;
-  --o3-focus-use-case-ring-inverse-outer: 0px 0px 0px 8px #ffffff;
+  --o3-focus-use-case-ring-inner: 0px 0px 0px 2px #ffffff;
+  --o3-focus-use-case-ring-outer: 0px 0px 0px 4px #4d4d4d;
+  --o3-focus-use-case-ring-inverse-inner: 0px 0px 0px 2px #4d4d4d;
+  --o3-focus-use-case-ring-inverse-outer: 0px 0px 0px 4px #ffffff;
   --o3-focus-use-case-outline-color: 0px 0px 0px 2px #808080;
   --o3-focus-use-case-outline-inverse-color: 0px 0px 0px 2px #ffffff;
 }
