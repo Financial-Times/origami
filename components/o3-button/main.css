@@ -598,3 +598,6 @@
 .o3-button-icon.o3-button-icon--scroll-to::before {
 	--o3-button-icon: var(--o3-icon-scroll-to);
 }
+.o3-button-icon.o3-button-icon--sparkles::before {
+	--o3-button-icon: var(--o3-icon-sparkles);
+}

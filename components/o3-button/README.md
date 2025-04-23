@@ -116,22 +116,9 @@ Make buttons full width using a [container query](https://developer.mozilla.org/
 
 To add an icon to your button add the class `o3-button-icon` and `o3-button-icon--{icon-name}`.
 
-A limited number of button icons are available. Limiting the number of icons keeps the CSS bundle smaller. If you need an icon button that we don't currently support, please contact the Origami team:
+A limited number of button icons are available. Limiting the number of icons keeps the CSS bundle smaller.
 
-- chevron-left
-- chevron-right
-- upload
-- tick
-- plus
-- warning
-- chevron-down
-- chevron-up
-- edit
-- download
-- search
-- refresh
-- cross
-- calendar
+If you need an icon button that we don't currently support, please contact the Origami team.
 
 ```html
 <button
