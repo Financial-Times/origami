@@ -21,7 +21,8 @@ export interface ButtonProps {
 		| 'cross'
 		| 'link'
 		| 'calendar'
-		| 'scroll-to';
+		| 'scroll-to'
+		| 'sparkles';
 	iconPosition?: 'start' | 'end';
 	iconOnly?: boolean;
 	visuallyHideDisabled?: boolean;
