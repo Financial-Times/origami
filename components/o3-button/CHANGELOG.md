@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.9.0](https://github.com/Financial-Times/origami/compare/o3-button-v3.8.0...o3-button-v3.9.0) (2025-04-23)
+
+
+### Features
+
+* Add sparkles helper class for o3-button ([e03bd99](https://github.com/Financial-Times/origami/commit/e03bd99cabd910bca5d95c83b67ab246ba53ba4a))
+
 ## [3.8.0](https://github.com/Financial-Times/origami/compare/o3-button-v3.7.0...o3-button-v3.8.0) (2025-04-23)
 
 
