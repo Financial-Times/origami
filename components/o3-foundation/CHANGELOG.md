@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.5.1](https://github.com/Financial-Times/origami/compare/o3-foundation-v3.5.0...o3-foundation-v3.5.1) (2025-04-24)
+
+
+### Bug Fixes
+
+* Reduce internal brand focus styles. ([19b084f](https://github.com/Financial-Times/origami/commit/19b084fcdbceca9d9ebd7eee1ac45f46345fbee0))
+
 ## [3.5.0](https://github.com/Financial-Times/origami/compare/o3-foundation-v3.4.0...o3-foundation-v3.5.0) (2025-04-10)
 
 
