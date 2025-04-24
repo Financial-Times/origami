@@ -194,13 +194,16 @@ Where two elements fall into the same category and overlap, you may increment by
 
 ### Focus rings
 
-`o3-foundation` provides visually consistent focus rings across all brands. The focus rings consist of two rings: an outer black ring and an inner white ring. By default, the outer ring is black and the inner ring is white. However, if you are using an inverse theme, the colors will be inverted. Focus rings are automatically applied to `buttons`, `inputs`, `selects`, and `textareas`.
+`o3-foundation` provides focus rings in two styles.
+
+1. A single outline by default, for example on anchor elements, which is unobtrusive.
+1. A double focus ring for buttons and form elements, this ensures contrast regardless of the element colour and its background.
+
+The double focus rings consist of two rings: an outer black ring and an inner white ring. By default, the outer ring is black and the inner ring is white. However, if you are using an inverse theme, the colors will be inverted.
 
 If you need to apply a focus ring to a different element than the ones mentioned above, you can use the `o3-apply-focus-ring` class on that element.
 
 Users can also revert the focus rings by using the `o3-revert-focus` class on the element.
-
-For other elements, such as links, text, and multiline text, we use focus as an outline.
 
 ### Fonts
 
