@@ -166,6 +166,19 @@ export default function authenticateUser () {
 			});
 		});
 
+		describe("emailInUse is true", () => {
+			it("sets this.emailInUse to true", () => {
+				fetchJWTStub.resolves({
+					emailInUse: true
+				});
+
+				const stream = new Stream();
+				return stream.authenticateUser()
+					.then(() => {
+						proclaim.isTrue(stream.emailInUse);
+					});
+			});
+		});
 	});
 
 	describe("fetchJsonWebToken returns if user is registered , trial or subscriber", () => { 

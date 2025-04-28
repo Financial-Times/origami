@@ -33,6 +33,7 @@ class Stream {
 		this.isSubscribed = false;
 		this.isTrialist = false;
 		this.onlySubscribers = opts.onlySubscribers;
+		this.emailInUse = false;
 	}
 
 	init () {
@@ -112,6 +113,7 @@ class Stream {
 				this.isSubscribed = response?.isSubscribed;
 				this.isTrialist = response?.isTrialist;
 				this.isRegistered = response?.isRegistered;
+				this.emailInUse = response?.emailInUse;
 			})
 			.catch(() => {
 				return false;
@@ -326,7 +328,22 @@ class Stream {
 					View our full ${this.options.linkSubscribe ? `<a class="linkSubscribe" href='${this.options.linkSubscribe}'>subscription packages</a>` : `subscription packages` } to join the conversation.
 				</p>
 			`;
-			customMessageContainer.innerHTML = this.isTrialist ? messageForTrial : this.isRegistered ? messageRegistered : messageForAnonymous;
+			const messageForEmailInUse = `
+			<h3>There is a problem configuring your commenting account</h3>
+				<p>
+					Please contact ${this.options.linkContact ? `<a class="linkContact" href='${this.options.linkContact}'>Customer Care</a>` : `Customer Care`} referencing issue code E403.
+				</p>
+			`;
+			if (this.isRegistered) {
+				customMessageContainer.innerHTML = messageRegistered;
+			} else if (this.isTrialist) {
+				customMessageContainer.innerHTML = messageForTrial;
+			} else if (this.emailInUse) {
+				customMessageContainer.innerHTML = messageForEmailInUse;
+			} else {
+				customMessageContainer.innerHTML = messageForAnonymous;
+			}
+			  
 			// this content is attached after oTracking.init is called therefore set data-trackable to the links doesn't work, therefore we raise an event when click on it
 			customMessageContainer.querySelector('.linkSubscribe')?.addEventListener('click', (event) => {
 				event.preventDefault();
@@ -361,6 +378,22 @@ class Stream {
 				dispatchTrackingEvent(trackData);
 				window.location.href = event?.target?.href;
 			});
+			customMessageContainer.querySelector('.linkContact')?.addEventListener('click', (event) => {
+				event.preventDefault();
+				const trackData = {
+					category: 'comment',
+					action: 'contactMessage',
+					coral: false,
+					content : {
+						asset_type: this.options.assetType,
+						uuid: this.options.articleId,
+						linkType: 'contact',
+						user_type: 'registered-email-in-use'
+					}
+				}
+				dispatchTrackingEvent(trackData);
+				window.location.href = event?.target?.href;
+			});
 			coralContainer.prepend(customMessageContainer);
 
 			const trackData = {
@@ -370,7 +403,13 @@ class Stream {
 				content : {
 					asset_type: this.options.assetType,
 					uuid: this.options.articleId,
-					user_type: this.isTrialist ? 'trialist' : this.isRegistered ? 'registered' : 'anonymous'
+					user_type: this.emailInUse
+						? 'registered-email-in-use'
+						: this.isTrialist
+							? 'trialist'
+							: this.isRegistered
+							? 'registered'
+							: 'anonymous'
 				}
 			}
 			dispatchTrackingEvent(trackData);
