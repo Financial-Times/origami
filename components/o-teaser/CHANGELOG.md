@@ -1,5 +1,13 @@
 # Changelog
 
+## [7.1.2](https://github.com/Financial-Times/origami/compare/o-teaser-v7.1.1...o-teaser-v7.1.2) (2025-04-29)
+
+
+### Bug Fixes
+
+* Force teaser to use latest foundations ([6636f86](https://github.com/Financial-Times/origami/commit/6636f86ea98654d935e712f331274343b323dbf4))
+* Restore visited teaser style ([ee25688](https://github.com/Financial-Times/origami/commit/ee25688439d371ad9854bc55d155c4c8b16ac5f7))
+
 ## [7.1.1](https://github.com/Financial-Times/origami/compare/o-teaser-v7.1.0...o-teaser-v7.1.1) (2025-04-15)
 
 

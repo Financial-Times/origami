@@ -1,6 +1,6 @@
 {
 	"name": "@financial-times/o-teaser",
-	"version": "7.1.1",
+	"version": "7.1.2",
 	"description": "Provides styling for teaser elements, which contain information about an article and link through to it",
 	"keywords": [
 		"article",
@@ -25,7 +25,7 @@
 	},
 	"peerDependencies": {
 		"@financial-times/o-labels": "^7.0.0",
-		"@financial-times/o-private-foundation": "^1.0.0"
+		"@financial-times/o-private-foundation": "^1.5.0"
 	},
 	"devDependencies": {
 		"@financial-times/o-date": "^7.0.0",
