@@ -15,6 +15,7 @@ export interface ButtonProps {
 		| 'chevron-up'
 		| 'edit'
 		| 'download'
+		| 'notification'
 		| 'outside-page'
 		| 'search'
 		| 'refresh'
