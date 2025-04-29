@@ -18,6 +18,7 @@ export interface ButtonProps {
 		| 'notification'
 		| 'outside-page'
 		| 'search'
+		| 'settings'
 		| 'refresh'
 		| 'cross'
 		| 'link'
