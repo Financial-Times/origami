@@ -96,10 +96,7 @@
 
 @include _oTopperDefineOnce(tag) {
 	%_o-topper__tag {
-		// Non-linked tags and author tags are the same colour as the body copy.
-		@if not is-superselector('a', '#{&}') {
-			color: oPrivateFoundationGet('o3-color-use-case-body-text');
-		}
+		color: unset;
 
 		font-family: oPrivateFoundationGet('o3-type-body-highlight-font-family');
 		font-size: oPrivateFoundationGet('o3-type-body-highlight-font-size');
@@ -119,14 +116,6 @@
 
 			&:hover {
 				color: oPrivateFoundationGet('o3-color-palette-claret-30');
-			}
-		}
-		color: unset;
-
-		@at-root a#{&} {
-			color: unset;
-			&:hover {
-				color: unset;
 			}
 		}
 	}
