@@ -565,6 +565,11 @@
 .o3-button-icon.o3-button-icon--tick::before {
 	--o3-button-icon: var(--o3-icon-tick);
 }
+
+.o3-button-icon.o3-button-icon--settings::before {
+	--o3-button-icon: var(--o3-icon-settings);
+}
+
 .o3-button-icon.o3-button-icon--search::before {
 	--o3-button-icon: var(--o3-icon-search);
 }
