@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.0.3](https://github.com/Financial-Times/origami/compare/o-topper-v7.0.2...o-topper-v7.0.3) (2025-04-29)
+
+
+### Bug Fixes
+
+* Remove _o-topper__tag anchor colour unset ([82b5e22](https://github.com/Financial-Times/origami/commit/82b5e22d509e43b8bb95f05188deab80fb63fb5e))
+
 ## [7.0.2](https://github.com/Financial-Times/origami/compare/o-topper-v7.0.1...o-topper-v7.0.2) (2025-04-10)
 
 

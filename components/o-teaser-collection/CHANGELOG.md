@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.0.2](https://github.com/Financial-Times/origami/compare/o-teaser-collection-v5.0.1...o-teaser-collection-v5.0.2) (2025-04-29)
+
+
+### Bug Fixes
+
+* Force teaser to use latest foundations ([6636f86](https://github.com/Financial-Times/origami/commit/6636f86ea98654d935e712f331274343b323dbf4))
+
 ## [5.0.1](https://github.com/Financial-Times/origami/compare/o-teaser-collection-v5.0.0...o-teaser-collection-v5.0.1) (2025-04-10)
 
 
