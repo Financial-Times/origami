@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.10.0](https://github.com/Financial-Times/origami/compare/o3-button-v3.9.0...o3-button-v3.10.0) (2025-04-29)
+
+
+### Features
+
+* introduce utility class for notification icon to o3-button ([#2091](https://github.com/Financial-Times/origami/issues/2091)) ([7cb70db](https://github.com/Financial-Times/origami/commit/7cb70dbd9a3d3ad213c3cf24aac78815bc9b25b8))
+* introduce utility class for settings icon to o3-button ([#2097](https://github.com/Financial-Times/origami/issues/2097)) ([90a0372](https://github.com/Financial-Times/origami/commit/90a03723a60abefb23f4425f4ec70b4d8b20fa6a))
+
 ## [3.9.0](https://github.com/Financial-Times/origami/compare/o3-button-v3.8.0...o3-button-v3.9.0) (2025-04-23)
 
 
