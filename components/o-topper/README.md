@@ -18,7 +18,7 @@ Check out [how to include Origami components in your project](https://origami.ft
 The basic markup structure for a topper will look something like this:
 
 ```html
-<div class="o-topper o-topper--basic o-topper--color-o3-color-palette-paper">
+<div class="o-topper o-topper--basic o-topper--color-paper">
 	<div class="o-topper__content">
 		<div class="o-topper__tags">
 			<a href="https://www.ft.com/german-election" class="o-topper__topic"
@@ -81,16 +81,16 @@ These themes affect the layout and visual style of all elements. See the [demos]
 These colors affect the background of the `.o-topper__background` and `.o-topper__visual` elements, and select a contrasting text color for all other elements.
 
 ```
-.o-topper--color-o3-color-palette-paper
-.o-topper--color-o3-color-palette-wheat
-.o-topper--color-o3-color-palette-white
-.o-topper--color-o3-color-palette-black
-.o-topper--color-o3-color-palette-claret
-.o-topper--color-o3-color-palette-oxford
-.o-topper--color-o3-color-palette-slate
-.o-topper--color-o3-color-palette-crimson
-.o-topper--color-o3-color-palette-sky
-.o-topper--color-o3-color-palette-matisse
+.o-topper--color-paper
+.o-topper--color-wheat
+.o-topper--color-white
+.o-topper--color-black
+.o-topper--color-claret
+.o-topper--color-oxford
+.o-topper--color-slate
+.o-topper--color-crimson
+.o-topper--color-sky
+.o-topper--color-matisse
 ```
 
 ### Modifiers
@@ -158,9 +158,9 @@ To include o-topper styles granularly specify which elements, themes, and colour
 		),
 		'colors': (
 			'o3-color-palette-white',
-			// .o-topper--color-o3-color-palette-white
+			// .o-topper--color-white
 			'o3-color-palette-black',
-			// .o-topper--color-o3-color-palette-black
+			// .o-topper--color-black
 			'o3-color-palette-claret',
 			'o3-color-palette-oxford',
 			'o3-color-palette-paper',
