@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.0.4](https://github.com/Financial-Times/origami/compare/o-topper-v7.0.3...o-topper-v7.0.4) (2025-04-30)
+
+
+### Bug Fixes
+
+* Revert o-topper breaking markup change ([2086102](https://github.com/Financial-Times/origami/commit/2086102c76037b8389f8a59f10ad5c41488be5aa))
+
 ## [7.0.3](https://github.com/Financial-Times/origami/compare/o-topper-v7.0.2...o-topper-v7.0.3) (2025-04-29)
 
 
