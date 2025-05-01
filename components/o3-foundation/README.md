@@ -175,7 +175,7 @@ We recommend to avoid setting `z-index`. Where needed, Origami provide some stan
 
 - `--o3-z-index`: To bump z-index for most elements, if `z-index` is unavoidable.
 - `--o3-z-popover`: Popovers which overlay content, such as select, autocomplete drop downs, calendar widgets, tooltips.
-- `--o3-z-nav-popover`: Navigation which overlays content, such as sticky headers and drawers.
+- `--o3-z-navigation-popover`: Navigation which overlays content, such as sticky headers and drawers.
 - `--o3-z-message-polite-popover`: Non-modal, non-critical messaging overlays such as marketing banners.
 - `--o3-z-message-service-popover`: Non-modal, messaging overlays for important service or status messages such as toasts.
 - `--o3-z-modal-dialog`: Modal dialogue / overlays which prevent interaction with underlying content.
