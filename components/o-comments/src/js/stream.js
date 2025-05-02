@@ -3,6 +3,7 @@ import displayName from './utils/display-name.js';
 import auth from './utils/auth.js';
 import purgeJwtCache from './utils/purge-jwt-cache.js';
 import Delegate from 'ftdomdelegate';
+import User from './models/user.js';
 
 // eslint version is too old to support private methods and we do not want to expose this function as part of the Stream class interface
 function tidyPath(path) {
@@ -30,8 +31,7 @@ class Stream {
 		this.options = opts;
 		this.eventSeenTimes = {};
 		this.useStagingEnvironment = Boolean(opts.useStagingEnvironment);
-		this.isSubscribed = false;
-		this.isTrialist = false;
+		this.user = new User();
 		this.onlySubscribers = opts.onlySubscribers;
 		this.errorCode = null;
 	}
@@ -59,7 +59,7 @@ class Stream {
 				this.renderSignedInMessage();
 			}
 		}
-		else if(this.onlySubscribers && !this.isSubscribed){
+		else if(this.onlySubscribers && !this.user.isSubscribed()){
 			this.renderNotSignedInMessage();
 		}
 	}
@@ -110,9 +110,7 @@ class Stream {
 				} else {
 					this.userHasValidSession = response.userHasValidSession;
 				}
-				this.isSubscribed = response?.isSubscribed;
-				this.isTrialist = response?.isTrialist;
-				this.isRegistered = response?.isRegistered;
+				this.user.setUser(response);
 				this.errorCode = response?.errorCode;
 			})
 			.catch(() => {
@@ -227,7 +225,7 @@ class Stream {
 		} = data;
 
 		//TODO: CI-1493 userHasValidSession no longer required after subscriber only is not behind a flag
-		if (name === 'loginPrompt' && (this.userHasValidSession || this.isSubscribed)) {
+		if (name === 'loginPrompt' && (this.userHasValidSession || this.user.isSubscribed())) {
 			return this.displayNamePrompt();
 		}
 
@@ -300,15 +298,9 @@ class Stream {
 	}
 
 	renderNotSignedInMessage() {
-		if (this.isSubscribed) return;
+		if (this.user.isSubscribed()) return;
 
-		const userType = this.errorCode
-		? 'sub-with-error'
-		: this.isTrialist
-			? 'trialist'
-			: this.isRegistered
-				? 'registered'
-				: 'anonymous';
+		const userType = this.user.getNonSubscribersAccessLevel();
 		const {
 			linkSubscribe,
 			linkLogin,
@@ -326,13 +318,10 @@ class Stream {
 		const section = document.createElement('section');
 		section.classList.add('coral__custom-message-content', 'coral');
 		const h3 = document.createElement('h3');
-		h3.textContent = userType === 'trialist'
-			? 'You are still on a trial period'
-			: 'Commenting is only available to readers with an FT subscription';
-		
 		const p = document.createElement('p');
 
-		if (userType === 'sub-with-error') {
+		if (this.errorCode) {
+			h3.textContent = 'There is a problem on our side';
 			p.append(
 				document.createTextNode('There was an error setting your display name. Please contact '),
 				linkContact
@@ -344,49 +333,55 @@ class Stream {
 					: document.createTextNode('Customer Care'),
 				document.createTextNode(` quoting ${this.errorCode}.`)
 			);
-		} else if (userType === 'trialist') {
-			p.append(
-				document.createTextNode('View our full '),
-				linkSubscribe
-					? Object.assign(document.createElement('a'), {
-						className: 'linkSubscribe',
-						href: linkSubscribe,
-						textContent: 'subscription packages'
-						})
-					: document.createTextNode('subscription packages'),
-				document.createTextNode(' to join the conversation.')
-			);
-		} else if (userType === 'registered') {
-			p.append(
-				linkSubscribe
-					? Object.assign(document.createElement('a'), {
-						className: 'linkSubscribe',
-						href: linkSubscribe,
-						textContent: 'Subscribe'
-					})
-					: document.createTextNode('Subscribe'),
-				document.createTextNode(' to join the conversation.')
-			);
 		} else {
-			p.append(
-				document.createTextNode('Please '),
-				linkLogin
-				? Object.assign(document.createElement('a'), {
-					className: 'linkLogin',
-					href: linkLogin,
-					textContent: 'login'
-					})
-				: document.createTextNode('login'),
-				document.createTextNode(' or '),
-				linkSubscribe
-				? Object.assign(document.createElement('a'), {
-					className: 'linkSubscribe',
-					href: linkSubscribe,
-					textContent: 'subscribe'
-					})
-				: document.createTextNode('subscribe'),
-				document.createTextNode(' to join the conversation.')
-			);
+			h3.textContent = userType === 'trialist'
+			? 'You are still on a trial period'
+			: 'Commenting is only available to readers with an FT subscription';
+		
+			if (userType === 'trialist') {
+				p.append(
+					document.createTextNode('View our full '),
+					linkSubscribe
+						? Object.assign(document.createElement('a'), {
+							className: 'linkSubscribe',
+							href: linkSubscribe,
+							textContent: 'subscription packages'
+							})
+						: document.createTextNode('subscription packages'),
+					document.createTextNode(' to join the conversation.')
+				);
+			} else if (userType === 'registered') {
+				p.append(
+					linkSubscribe
+						? Object.assign(document.createElement('a'), {
+							className: 'linkSubscribe',
+							href: linkSubscribe,
+							textContent: 'Subscribe'
+						})
+						: document.createTextNode('Subscribe'),
+					document.createTextNode(' to join the conversation.')
+				);
+			} else {
+				p.append(
+					document.createTextNode('Please '),
+					linkLogin
+					? Object.assign(document.createElement('a'), {
+						className: 'linkLogin',
+						href: linkLogin,
+						textContent: 'login'
+						})
+					: document.createTextNode('login'),
+					document.createTextNode(' or '),
+					linkSubscribe
+					? Object.assign(document.createElement('a'), {
+						className: 'linkSubscribe',
+						href: linkSubscribe,
+						textContent: 'subscribe'
+						})
+					: document.createTextNode('subscribe'),
+					document.createTextNode(' to join the conversation.')
+				);
+			}
 		}
 
 		section.append(h3, p);
