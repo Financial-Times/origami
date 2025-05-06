@@ -1,0 +1,20 @@
+{
+  "o3": {
+    "color": {
+      "use-case": {
+        "button": {
+          "primary": {
+            "background": {
+              "value": "{o3.color.palette.white}",
+              "type": "color"
+            },
+            "text": {
+              "value": "{o3.color.palette.slate}",
+              "type": "color"
+            }
+          }
+        }
+      }
+    }
+  }
+}
