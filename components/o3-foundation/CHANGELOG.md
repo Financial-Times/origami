@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.5.2](https://github.com/Financial-Times/origami/compare/o3-foundation-v3.5.1...o3-foundation-v3.5.2) (2025-05-07)
+
+
+### Bug Fixes
+
+* Improve focus styling. ([2882425](https://github.com/Financial-Times/origami/commit/28824254157d15a35e0792d8a144953650549b2b))
+
 ## [3.5.1](https://github.com/Financial-Times/origami/compare/o3-foundation-v3.5.0...o3-foundation-v3.5.1) (2025-04-24)
 
 
