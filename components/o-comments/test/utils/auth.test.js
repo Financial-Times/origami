@@ -62,7 +62,9 @@ describe('Fetch JSON web token', () => {
 	describe("when comments api returns a valid response", () => {
 		before(() => {
 			fetchMock.mock('https://comments-api.ft.com/user/auth/', {
-				token: '12345'
+				token: '12345',
+				isSubscribed: true,
+				displayName: 'Glynn',
 			});
 		});
 
@@ -123,7 +125,12 @@ describe('Fetch JSON web token', () => {
 
 	describe("when the comments api responds with 409", () => {
 		before(() => {
-			fetchMock.mock('https://comments-api.ft.com/user/auth/', 409);
+			fetchMock.mock('https://comments-api.ft.com/user/auth/', {
+				status: 409,
+				body: {
+					userHasValidSession: true,
+				}
+			});
 		});
 
 		after(() => {
@@ -143,6 +150,28 @@ describe('Fetch JSON web token', () => {
 		it("resolves with userIsSignedIn true", () => {
 			return auth.fetchJsonWebToken()
 				.then((result) => proclaim.isTrue(result.userHasValidSession));
+		});
+
+		it('resolves without an error code when none is provided', () => {			
+			  return auth.fetchJsonWebToken()
+				.then(result => proclaim.isUndefined(result.errorCode));
+		});
+
+		it('resolves with an errorCode', () => {
+			fetchMock.reset();
+			fetchMock.once(
+				"https://comments-api.ft.com/user/auth/",
+				{
+				  status: 409,
+				  body: {
+					userHasValidSession: true,
+					errorCode: "SOME_CODE"
+				  }
+				}
+			  );
+			
+			  return auth.fetchJsonWebToken()
+				.then(result => proclaim.isString(result.errorCode));
 		});
 	});
 

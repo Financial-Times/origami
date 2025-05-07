@@ -169,6 +169,9 @@ These are the available options we can pass to oComments:
 - scrollContainer
 - assetType
 - disableOTracking
+- linkSubscribe
+- linkLogin
+- linkContact
 
 ### Firing an oDomContentLoaded event
 
