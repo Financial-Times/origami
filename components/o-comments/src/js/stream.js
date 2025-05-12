@@ -33,6 +33,7 @@ class Stream {
 		this.isSubscribed = false;
 		this.isTrialist = false;
 		this.onlySubscribers = opts.onlySubscribers;
+		this.errorCode = null;
 	}
 
 	init () {
@@ -112,6 +113,7 @@ class Stream {
 				this.isSubscribed = response?.isSubscribed;
 				this.isTrialist = response?.isTrialist;
 				this.isRegistered = response?.isRegistered;
+				this.errorCode = response?.errorCode;
 			})
 			.catch(() => {
 				return false;
@@ -201,11 +203,11 @@ class Stream {
 		document.addEventListener('oOverlay.ready', onOverlayReady);
 
 		const onOverlayClosed = () => {
-			overlay.context.removeEventListener('oLayers.close', onOverlayClosed);
+			overlay.context.removeEventListener('oOverlay.layerClose', onOverlayClosed);
 			document.removeEventListener('oOverlay.ready', onOverlayReady);
 			overlay.destroy();
 		};
-		overlay.context.addEventListener('oLayers.close', onOverlayClosed);
+		overlay.context.addEventListener('oOverlay.layerClose', onOverlayClosed);
 	}
 
 	/**
@@ -297,85 +299,133 @@ class Stream {
 		};
 	}
 
-	renderNotSignedInMessage () {
-			if(this.isSubscribed){
-				return;
-			}
+	renderNotSignedInMessage() {
+		if (this.isSubscribed) return;
 
-			const shadowRoot = this.streamEl.querySelector("#coral-shadow-container").shadowRoot;
-			const coralContainer = shadowRoot.querySelector("#coral");
-			coralContainer.setAttribute('data-user-not-signed-in' , true);
-	
-			const customMessageContainer = document.createElement("section");
-			customMessageContainer.classList.add('coral__custom-message-content','coral');
-			const messageRegistered = `
-			<h3>Commenting is only available to readers with an FT subscription</h3>
-				<p>
-				${this.options.linkSubscribe ? `<a class="linkSubscribe" href='${this.options.linkSubscribe}'>Subscribe</a>` : `Subscribe`} to join the conversation.
-				</p>
-			`;
-			const messageForAnonymous = `
-			<h3>Commenting is only available to readers with an FT subscription</h3>
-				<p>
-					Please ${this.options.linkLogin ? ` <a class="linkLogin" href='${this.options.linkLogin}'>login</a>` : `login`} or ${this.options.linkSubscribe ? `<a href='${this.options.linkSubscribe}' class="linkSubscribe" >subscribe</a>` : `subscribe`} to join the conversation.
-				</p>
-			`;
-			const messageForTrial = `
-			<h3>You are still on a trial period</h3>
-				<p>
-					View our full ${this.options.linkSubscribe ? `<a class="linkSubscribe" href='${this.options.linkSubscribe}'>subscription packages</a>` : `subscription packages` } to join the conversation.
-				</p>
-			`;
-			customMessageContainer.innerHTML = this.isTrialist ? messageForTrial : this.isRegistered ? messageRegistered : messageForAnonymous;
-			// this content is attached after oTracking.init is called therefore set data-trackable to the links doesn't work, therefore we raise an event when click on it
-			customMessageContainer.querySelector('.linkSubscribe')?.addEventListener('click', (event) => {
-				event.preventDefault();
-				const trackData = {
-					category: 'comment',
-					action: 'linkMessage',
-					coral: false,
-					content : {
-						asset_type: this.options.assetType,
-						uuid: this.options.articleId,
-						linkType: 'subscribe',
-						user_type: this.isTrialist ? 'trialist' : this.isRegistered ? 'registered' : 'anonymous'
-					}
-				}
-				dispatchTrackingEvent(trackData);
-				window.location.href = event?.target?.href;
+		const userType = this.errorCode
+		? 'sub-with-error'
+		: this.isTrialist
+			? 'trialist'
+			: this.isRegistered
+				? 'registered'
+				: 'anonymous';
+		const {
+			linkSubscribe,
+			linkLogin,
+			linkContact,
+			assetType,
+			articleId
+		} = this.options;
+	  
+		const shadowRoot = this.streamEl
+			.querySelector('#coral-shadow-container')
+			.shadowRoot;
+		const coralContainer = shadowRoot.getElementById('coral');
+		coralContainer.dataset.userNotSignedIn = 'true';
 
-			});
-			customMessageContainer.querySelector('.linkLogin')?.addEventListener('click', (event) => {
-				event.preventDefault();
-				const trackData = {
-					category: 'comment',
-					action: 'linkMessage',
-					coral: false,
-					content : {
-						asset_type: this.options.assetType,
-						uuid: this.options.articleId,
-						linkType: 'login',
-						user_type: this.isTrialist ? 'trialist' : this.isRegistered ? 'registered' : 'anonymous'
-					}
-				}
-				dispatchTrackingEvent(trackData);
-				window.location.href = event?.target?.href;
-			});
-			coralContainer.prepend(customMessageContainer);
+		const section = document.createElement('section');
+		section.classList.add('coral__custom-message-content', 'coral');
+		const h3 = document.createElement('h3');
+		h3.textContent = userType === 'trialist'
+			? 'You are still on a trial period'
+			: 'Commenting is only available to readers with an FT subscription';
+		
+		const p = document.createElement('p');
 
-			const trackData = {
+		if (userType === 'sub-with-error') {
+			p.append(
+				document.createTextNode('There was an error setting your display name. Please contact '),
+				linkContact
+					? Object.assign(document.createElement('a'), {
+						className: 'linkContact',
+						href: linkContact,
+						textContent: 'Customer Care'
+					})
+					: document.createTextNode('Customer Care'),
+				document.createTextNode(` quoting ${this.errorCode}.`)
+			);
+		} else if (userType === 'trialist') {
+			p.append(
+				document.createTextNode('View our full '),
+				linkSubscribe
+					? Object.assign(document.createElement('a'), {
+						className: 'linkSubscribe',
+						href: linkSubscribe,
+						textContent: 'subscription packages'
+						})
+					: document.createTextNode('subscription packages'),
+				document.createTextNode(' to join the conversation.')
+			);
+		} else if (userType === 'registered') {
+			p.append(
+				linkSubscribe
+					? Object.assign(document.createElement('a'), {
+						className: 'linkSubscribe',
+						href: linkSubscribe,
+						textContent: 'Subscribe'
+					})
+					: document.createTextNode('Subscribe'),
+				document.createTextNode(' to join the conversation.')
+			);
+		} else {
+			p.append(
+				document.createTextNode('Please '),
+				linkLogin
+				? Object.assign(document.createElement('a'), {
+					className: 'linkLogin',
+					href: linkLogin,
+					textContent: 'login'
+					})
+				: document.createTextNode('login'),
+				document.createTextNode(' or '),
+				linkSubscribe
+				? Object.assign(document.createElement('a'), {
+					className: 'linkSubscribe',
+					href: linkSubscribe,
+					textContent: 'subscribe'
+					})
+				: document.createTextNode('subscribe'),
+				document.createTextNode(' to join the conversation.')
+			);
+		}
+
+		section.append(h3, p);
+
+		section.addEventListener('click', e => {
+			const link = e.target.closest('a');
+			if (!link) return;
+			const isSubscriber = link.classList.contains('linkSubscribe');
+			const isLogin     = link.classList.contains('linkLogin');
+			if (!isSubscriber && !isLogin) return;
+
+			e.preventDefault();
+			dispatchTrackingEvent({
 				category: 'comment',
-				action: 'show-not-signed-in-message',
+				action: 'linkMessage',
 				coral: false,
-				content : {
-					asset_type: this.options.assetType,
-					uuid: this.options.articleId,
-					user_type: this.isTrialist ? 'trialist' : this.isRegistered ? 'registered' : 'anonymous'
+				content:  {
+				asset_type: assetType,
+				uuid: articleId,
+				linkType: isSubscriber ? 'subscribe' : 'login',
+				user_type: userType
 				}
-			}
-			dispatchTrackingEvent(trackData);
-	}
+			});
+			window.location.href = link.href;
+		});
 
+		coralContainer.prepend(section);
+
+		dispatchTrackingEvent({
+			category: 'comment',
+			action: 'show-not-signed-in-message',
+			coral: false,
+			content: {
+				asset_type: assetType,
+				uuid: articleId,
+				user_type: userType
+			}
+		});
+	  }
 }
 
 export default Stream;
