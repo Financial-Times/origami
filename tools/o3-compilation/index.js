@@ -2,7 +2,8 @@
 import * as esbuild from 'esbuild';
 import {build} from 'tsup';
 import {existsSync, readdirSync, readFileSync, writeFileSync, unlinkSync, rmSync} from 'fs';
-import path from 'path';
+import path from 'node:path';
+import {cpSync} from 'node:fs';
 
 (async () => {
 	const sharedConfig = {
@@ -74,6 +75,13 @@ if (existsSync('src/ts')) {
 		outDir: 'browser',
 		entry: ['./src/ts/index.ts'],
 		bundle: true,
+	});
+}
+
+if (existsSync('src/js/tokens')) {
+	cpSync('src/js/tokens', 'esm/tokens', {
+		force: true,
+		recursive: true,
 	});
 }
 
