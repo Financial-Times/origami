@@ -1,5 +1,12 @@
 # Changelog
 
+## [12.1.0](https://github.com/Financial-Times/origami/compare/o-comments-v12.0.1...o-comments-v12.1.0) (2025-05-15)
+
+
+### Features
+
+* ci-2617 export auth library for login without comments stream ([be8ed08](https://github.com/Financial-Times/origami/commit/be8ed08af2bc6941482c76cb742ba7f266c2613c))
+
 ## [12.0.1](https://github.com/Financial-Times/origami/compare/o-comments-v12.0.0...o-comments-v12.0.1) (2025-02-26)
 
 
