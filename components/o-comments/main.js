@@ -1,4 +1,4 @@
-import Comments from './src/js/comments.js';
+import Comments, { auth } from './src/js/comments.js';
 
 const constructAll = function () {
 	Comments.init();
@@ -10,3 +10,4 @@ if (typeof document !== 'undefined') {
 }
 
 export default Comments;
+export { auth };
