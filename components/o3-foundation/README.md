@@ -1,28 +1,29 @@
 # o3-foundation
 
 - [o3-foundation](#o3-foundation)
-  - [Usage](#usage)
-    - [Typography](#typography)
-      - [Headings](#headings)
-      - [Body/Paragraphs](#bodyparagraphs)
-      - [Links](#links)
-      - [List](#list)
-      - [Wrapper](#wrapper)
-      - [Custom Properties](#custom-properties)
-    - [Normalisation](#normalisation)
-    - [Stacking with z-index](#stacking-with-z-index)
-    - [Focus rings](#focus-rings)
-    - [Fonts](#fonts)
-    - [Icons](#icons)
-    - [Colours](#colours)
-    - [Spacing](#spacing)
-    - [Grid](#grid)
-    - [Helper classes](#helper-classes)
+  - [CSS Tokens](#css-tokens)
+  - [JS Tokens](#JS-tokens)
+  - [Typography](#typography)
+    - [Headings](#headings)
+    - [Body/Paragraphs](#bodyparagraphs)
+    - [Links](#links)
+    - [List](#list)
+    - [Wrapper](#wrapper)
+    - [Custom Properties](#custom-properties)
+  - [Normalisation](#normalisation)
+  - [Stacking with z-index](#stacking-with-z-index)
+  - [Focus rings](#focus-rings)
+  - [Fonts](#fonts)
+  - [Icons](#icons)
+  - [Colours](#colours)
+  - [Spacing](#spacing)
+  - [Grid](#grid)
+  - [Helper classes](#helper-classes)
   - [Migration](#migration)
   - [Contact](#contact)
   - [Licence](#licence)
 
-## Usage
+# CSS Tokens
 
 `o3-foundation` provides CSS Custom Properties for design tokens representing colours, typographic scale, spacing, iconography, grid and typography components such as headings, body, link and etc.
 
@@ -61,13 +62,23 @@ Then apply the brand data selector `data-o3-brand="[BRAND]"` on a container elem
 </body>
 ```
 
-### Typography
+# JS Tokens
 
-#### List
+Foundational tokens are also available as JavaScript. Replace `[brand].js` with our brand, e.g. `core.js`.
+
+```js
+@import '@financial-times/o3-foundation/esm/tokens/[brand].js';
+
+const example = `The hex for FT Pink is ${tokens['o3-color-palette-ft-pink']}`;
+```
+
+## Typography
+
+### List
 
 `o3-foundation` provides styling for both ordered and unordered lists:
 
-##### HTML
+#### HTML
 
 ```html
 <ul class="o3-typography-ul">
@@ -83,7 +94,7 @@ Then apply the brand data selector `data-o3-brand="[BRAND]"` on a container elem
 </ol>
 ```
 
-##### JSX
+#### JSX
 
 ```jsx
 import { List } from '@financial-times/o3-foundation/cjs'; // or esm;
@@ -101,11 +112,11 @@ import { List } from '@financial-times/o3-foundation/cjs'; // or esm;
 </OrderedList>
 ```
 
-#### Wrapper
+### Wrapper
 
 The wrapper can be used to style blocks of body without needing to apply the class to each element. This can be useful when large bodies of many components need styling:
 
-##### HTML
+#### HTML
 
 ```html
 <div class="o3-typography-wrapper"></div>
@@ -121,7 +132,7 @@ import {Wrapper} from '@financial-times/o3-foundation/cjs'; // or esm
 </Wrapper>;
 ```
 
-#### Highlight (Bold)
+### Highlight (Bold)
 
 Use typography use cases to style body content with bolder styles:
 
@@ -131,9 +142,9 @@ Use typography use cases to style body content with bolder styles:
 </p>
 ```
 
-#### Custom Properties
+### Custom Properties
 
-##### Max Line Width
+#### Max Line Width
 
 `o3-foundation` includes a CSS Custom Property `--o3-typography-max-line-width` to limit typography line length for readability.
 E.g.
@@ -154,7 +165,7 @@ E.g.
 }
 ```
 
-### Normalisation
+## Normalisation
 
 `o3-foundation` provides a set of CSS Custom Properties for normalising the default browser styles and also applies a set of defaults to elements. This is to ensure a consistent starting point for all projects and respective brands. The list of normalisations includes:
 
@@ -165,7 +176,7 @@ E.g.
 - Normalising text related elements
 - Normalising form elements
 
-### Stacking with z-index
+## Stacking with z-index
 
 We recommend to avoid setting `z-index`. Where needed, Origami provide some standard values as Custom Properties. This help prevent conflicts within projects.
 
@@ -192,7 +203,7 @@ Where two elements fall into the same category and overlap, you may increment by
 }
 ```
 
-### Focus rings
+## Focus rings
 
 `o3-foundation` provides focus rings in two styles.
 
@@ -205,11 +216,11 @@ If you need to apply a focus ring to a different element than the ones mentioned
 
 Users can also revert the focus rings by using the `o3-revert-focus` class on the element.
 
-### Fonts
+## Fonts
 
 `o3-foundation` defines two `@font-face`-s. The first one is `Metric2-VF` and it is used fot all brands. The second one is `FinancierDisplayWeb` and currently used by core brand only.
 
-### Icons
+## Icons
 
 CSS Custom Properties for icons are included for each brand in the format: `--o3-icon-[ICON NAME]`.
 
@@ -235,7 +246,7 @@ For example, to create a `1rem` sized icon which inherits its colour from the cu
 
 See our documentation website for a [full list of icons](https://origami-for-everyone.ft.com/guides/icons/) and more details.
 
-### Colours
+## Colours
 
 o3-foundation provides CSS Custom Properties for 3 types of colours:
 
@@ -255,7 +266,7 @@ Example:
 
 See our documentation website for a [full list of colours and where to use them](https://origami-for-everyone.ft.com/guides/colours/).
 
-### Spacing
+## Spacing
 
 o3-foundation provides CSS Custom Properties for standard spacing values in the format: `--o3-spacing-[spacing size]`. These follow t-shirt sizes from `5xs` to `4xl`.
 
@@ -269,7 +280,7 @@ Example:
 
 See our documentation website for a [full list of spacing tokens](https://origami-for-everyone.ft.com/guides/spacing/).
 
-### Grid
+## Grid
 
 > ⚠️ **NOTE:** Grid is experimental and open to change without notice. Please contact the Origami team before using.
 
@@ -295,7 +306,7 @@ The o3-grid system adapts to different screen sizes, the number of columns is va
 - Bleed Columns for Extended Layouts: `bleed-start` & `bleed-end`: These special columns extend beyond the 12-column grid, reaching the edges of the viewport. This allows you to create "full-bleed" layouts where content extends off the screen. These columns are used as margin areas, providing visual breathing room around your central content.
 - `[REST_OF_THE_COLUMNS]`: This represents any additional columns you might need in your grid.
 
-#### Positioning grid items
+### Positioning grid items
 
 You can precisely control the positioning of grid items using the `grid-column` style or css property:
 
@@ -322,7 +333,7 @@ You can precisely control the positioning of grid items using the `grid-column` 
 </div>
 ```
 
-#### Using grid with nested children
+### Using grid with nested children
 
 In some cases, an element may be nested deeply and not have access to the grid. o3-foundation provides CSS Custom Properties to help align elements to grid in these cases:
 
@@ -335,7 +346,7 @@ In some cases, an element may be nested deeply and not have access to the grid. 
 
 Use `--o3-grid-columns-to-span-count` to control how many columns you want your element to span. In this example, the width of `my-nested-class` will be equivalent to 6 columns. `--o3-grid-columns-to-span-count` must be defined for `.o3-grid-columns-to-span-width` to work.
 
-#### Advanced usage of grid
+### Advanced usage of grid
 
 For advanced usage `o3-foundation` provides CSS Custom Properties for grid that you can set on your class:
 
@@ -351,7 +362,7 @@ For advanced usage `o3-foundation` provides CSS Custom Properties for grid that 
 }
 ```
 
-### Helper classes
+## Helper classes
 
 `o3-foundation` provides a set of helper classes to help with common tasks. The list of helper classes includes:
 
