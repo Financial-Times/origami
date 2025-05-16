@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.6.0](https://github.com/Financial-Times/origami/compare/o3-foundation-v3.5.2...o3-foundation-v3.6.0) (2025-05-16)
+
+
+### Features
+
+* Add a JS export for foundational tokens ([ecb59d0](https://github.com/Financial-Times/origami/commit/ecb59d016efa9b1df24e74f8f6f2a7bc21b2caeb))
+
 ## [3.5.2](https://github.com/Financial-Times/origami/compare/o3-foundation-v3.5.1...o3-foundation-v3.5.2) (2025-05-07)
 
 
