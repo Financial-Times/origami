@@ -1,5 +1,12 @@
 # Changelog
 
+## [12.1.1](https://github.com/Financial-Times/origami/compare/o-comments-v12.1.0...o-comments-v12.1.1) (2025-05-16)
+
+
+### Bug Fixes
+
+* ci-2617 add export to main.js ([ce8aca0](https://github.com/Financial-Times/origami/commit/ce8aca049f0358a16e301703544bf0a1bcf17575))
+
 ## [12.1.0](https://github.com/Financial-Times/origami/compare/o-comments-v12.0.1...o-comments-v12.1.0) (2025-05-15)
 
 
