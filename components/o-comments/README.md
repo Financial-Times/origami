@@ -163,6 +163,8 @@ const Comments = new oComments(commentsElement, {
 
 Add `useStagingEnvironment: true` to the options if you want to use Coral staging environment.
 
+This component includes a [TypeScript declaration file](`types/index.d.ts`). The types are automatically included when you import the o-comments component in a TypeScript project.
+
 If you want to initialise every comment stream or count element on the page (based on the presence of the attribute: `data-o-component="o-comments"`):
 
 ```js

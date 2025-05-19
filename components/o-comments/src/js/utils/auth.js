@@ -1,4 +1,19 @@
+/**
+ * Authentication utilities for o-comments
+ * Provides methods to handle user authentication with the comments API
+ */
 export default {
+	/**
+	 * Fetches a JSON Web Token for the current user from the comments API
+	 *
+	 * @param {Object} options - Configuration options
+	 * @param {string} [options.commentsAPIUrl] - URL of the comments API (defaults to https://comments-api.ft.com)
+	 * @param {string} [options.commentsAuthUrl] - Custom URL for authentication
+	 * @param {boolean} [options.onlySubscribers] - Whether to limit comments to subscribers only
+	 * @param {string} [options.displayName] - Display name to use for the user
+	 * @param {boolean} [options.useStagingEnvironment] - Whether to use the staging environment
+	 * @returns {Promise<Object>} Promise resolving to auth response with token and user status
+	 */
 	fetchJsonWebToken: function fetchJsonWebToken (options = {}) {
 
 		const commentsAPIUrl = options?.commentsAPIUrl || 'https://comments-api.ft.com';
@@ -14,6 +29,7 @@ export default {
 			url.searchParams.append('staging', '1');
 		}
 
+		// Make authenticated request to the comments API
 		return fetch(url, { credentials: 'include' }).then(response => {
 		// user is signed in
 			if (response.ok) {
