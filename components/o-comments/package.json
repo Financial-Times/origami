@@ -15,6 +15,7 @@
 	"license": "MIT",
 	"type": "module",
 	"browser": "main.js",
+	"types": "types/index.d.ts",
 	"scripts": {
 		"start": "npx serve ./demos/local",
 		"build": "bash ../../scripts/component/build.bash",
