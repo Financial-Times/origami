@@ -1,5 +1,16 @@
 # Changelog
 
+## [13.0.0](https://github.com/Financial-Times/origami/compare/o-comments-v12.1.1...o-comments-v13.0.0) (2025-05-19)
+
+
+### ⚠ BREAKING CHANGES
+
+* ci-2617 type declaration file for o-comments
+
+### Features
+
+* ci-2617 type declaration file for o-comments ([3962597](https://github.com/Financial-Times/origami/commit/3962597aba5417ed92a7e464bbc879baf3f523a8))
+
 ## [12.1.1](https://github.com/Financial-Times/origami/compare/o-comments-v12.1.0...o-comments-v12.1.1) (2025-05-16)
 
 
