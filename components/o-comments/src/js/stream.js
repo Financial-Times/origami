@@ -184,7 +184,7 @@ class Stream {
 
 			if (displayNameForm) {
 				displayNameForm.addEventListener('submit', (event) => {
-					displayName.promptValidation(event)
+					displayName.promptValidation(event, this.options)
 						.then(displayName => {
 							overlay.close();
 							this.authenticateUser(displayName)
