@@ -1,5 +1,12 @@
 # Changelog
 
+## [13.0.1](https://github.com/Financial-Times/origami/compare/o-comments-v13.0.0...o-comments-v13.0.1) (2025-05-20)
+
+
+### Bug Fixes
+
+* ci-2748 pass through options to display name validation ([0f73f54](https://github.com/Financial-Times/origami/commit/0f73f54997cff293bd79907bcb1b9ad00c112a1f))
+
 ## [13.0.0](https://github.com/Financial-Times/origami/compare/o-comments-v12.1.1...o-comments-v13.0.0) (2025-05-19)
 
 
