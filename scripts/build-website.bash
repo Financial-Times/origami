@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# this script is used by the build-website workflow and heroku review apps
+# this script is used by the build-website workflow
 
 set -e
 cd apps/astro-website/
