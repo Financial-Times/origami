@@ -20,12 +20,14 @@
 
 @mixin _oTopperHasHeadshot {
 	.o-topper__tags,
-	.o-topper__standfirst {
+	.o-topper__standfirst,
+	.o-topper__summary {
 		box-sizing: border-box;
 	}
 
 	.o-topper__headline--no-standfirst,
-	.o-topper__standfirst {
+	.o-topper__standfirst,
+	.o-topper__summary {
 		padding-right: calc(
 			#{$_o-topper-headshot-width} + #{oPrivateSpacingByName('s2')}
 		);
