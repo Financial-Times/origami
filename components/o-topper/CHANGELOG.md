@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.0.5](https://github.com/Financial-Times/origami/compare/o-topper-v7.0.4...o-topper-v7.0.5) (2025-05-28)
+
+
+### Bug Fixes
+
+* ci-2809 o-topper fix text under headshot ([f4c5cb1](https://github.com/Financial-Times/origami/commit/f4c5cb1d1f95caf7433fb1c1030b13ac63f63cc2))
+
 ## [7.0.4](https://github.com/Financial-Times/origami/compare/o-topper-v7.0.3...o-topper-v7.0.4) (2025-04-30)
 
 
