@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.1.3](https://github.com/Financial-Times/origami/compare/o-teaser-v7.1.2...o-teaser-v7.1.3) (2025-05-29)
+
+
+### Bug Fixes
+
+* o-teaser timestamp margin ([e4c2815](https://github.com/Financial-Times/origami/commit/e4c2815ff3e11cdc880da8c7cd25fcda0540539c))
+
 ## [7.1.2](https://github.com/Financial-Times/origami/compare/o-teaser-v7.1.1...o-teaser-v7.1.2) (2025-04-29)
 
 
