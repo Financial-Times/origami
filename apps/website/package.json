@@ -5,7 +5,7 @@
 	"scripts": {
 		"dev": "astro dev",
 		"start": "astro dev",
-		"build": "NODE_OPTIONS=--max-old-space-size=10248 astro build && node remove-branded-headings.mjs",
+		"build": "../../scripts/build-o3-deps.sh && NODE_OPTIONS=--max-old-space-size=10248 astro build && node remove-branded-headings.mjs",
 		"preview": "astro preview",
 		"astro": "astro",
 		"test": "npm run build",
