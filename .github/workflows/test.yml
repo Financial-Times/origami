@@ -199,18 +199,16 @@ jobs:
             - 'apps/o2-storybook/addons/guidelines/**'
           apps/o2-storybook/addons/markdown-tabs:
             - 'apps/o2-storybook/addons/markdown-tabs/**'
-          apps/astro-website:
-            - 'apps/astro-website/**'
           apps/dictionary:
             - 'apps/dictionary/**'
-          apps/for-everyone-website:
-            - 'apps/for-everyone-website/**'
           apps/o2-storybook:
             - 'apps/o2-storybook/**'
           apps/o2-storybook-composition:
             - 'apps/o2-storybook-composition/**'
           apps/o3-storybook:
             - 'apps/o3-storybook/**'
+          apps/website:
+            - 'apps/website/**'
   test:
     if: ${{ needs.changes.outputs.components != '[]' && needs.changes.outputs.components != '' }}
     needs: changes
