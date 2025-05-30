@@ -3,7 +3,6 @@ import starlight from '@astrojs/starlight';
 import react from '@astrojs/react';
 import path, {dirname} from 'path';
 import {fileURLToPath} from 'url';
-import svelte from '@astrojs/svelte';
 import {redirects} from './redirects';
 import remarkBrandedContent from './plugins/remark-branded-content.mjs';
 const __filename = fileURLToPath(import.meta.url);
@@ -138,7 +137,6 @@ export default defineConfig({
 					link: '/blog/',
 				},
 			],
-		}),
-		svelte(),
+		})
 	],
 });
