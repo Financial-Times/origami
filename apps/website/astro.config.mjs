@@ -25,6 +25,8 @@ export default defineConfig({
 	},
 	site: 'https://origami.ft.com/',
 	redirects: redirects,
+	outDir: "../../origami.ft.com",
+	compressHTML: true,
 	integrations: [
 		react(),
 		starlight({

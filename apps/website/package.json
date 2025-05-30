@@ -5,7 +5,7 @@
 	"scripts": {
 		"dev": "astro dev",
 		"start": "astro dev",
-		"build": "../../scripts/build-o3-deps.sh && NODE_OPTIONS=--max-old-space-size=10248 astro build && node remove-branded-headings.mjs",
+		"build": "NODE_OPTIONS=--max-old-space-size=10248 astro build && node remove-branded-headings.mjs",
 		"preview": "astro preview",
 		"astro": "astro",
 		"test": "npm run build",
@@ -28,7 +28,7 @@
 		"@financial-times/o3-social-sign-in": "^2.0.0",
 		"@financial-times/o3-tooling-token": "^0.0.0",
 		"@financial-times/o3-tooltip": "^3.0.0",
-		"astro": "^4.0.9",
+		"astro": "^4.0.10",
 		"autoprefixer": "^10.4.20",
 		"cheerio": "^1.0.0",
 		"html-to-text": "^9.0.5",
@@ -40,7 +40,6 @@
 		"sanitize-html": "^2.17.0",
 		"sharp": "^0.32.5",
 		"typescript": "^5.4.5",
-		"@astrojs/mdx": "^0.19.7",
 		"@astrojs/sitemap": "^2.0.1",
 		"axios": "^1.4.0"
 	},
