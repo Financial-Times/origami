@@ -29,7 +29,7 @@ export default defineConfig({
 	integrations: [
 		react(),
 		starlight({
-			title: 'Origami Design System',
+			title: 'Origami',
 			defaultLocale: 'root',
 			locales: {
 				root: {
