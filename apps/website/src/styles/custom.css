@@ -26,16 +26,18 @@
 
     --sl-color-orange: var(--o3-color-palette-mandarin);
     --sl-color-orange-high: var(--o3-color-palette-mandarin);
-    --sl-color-orange-low: color-mix(in srgb, var(--sl-color-orange), transparent 80%);
+    --sl-color-orange-low: color-mix(in srgb, var(--sl-color-orange), transparent 95%);
     --sl-color-green: var(--o3-color-palette-jade);
     --sl-color-green-high: var(--o3-color-palette-jade);
-    --sl-color-green-low: color-mix(in srgb, var(--sl-color-green), transparent 80%);
+    --sl-color-green-low: color-mix(in srgb, var(--sl-color-green), transparent 95%);
+    --sl-color-red-high: var(--o3-color-palette-crimson);
+    --sl-color-red-low: color-mix(in srgb, var(--sl-color-red), transparent 95%);
     --sl-color-blue: #006f9b; /* graphics-dark-blue from the core brand */
     --sl-color-blue-high: #006f9b; /* graphics-dark-blue from the core brand */
-    --sl-color-blue-low: color-mix(in srgb, var(--sl-color-blue), transparent 80%);
+    --sl-color-blue-low: color-mix(in srgb, var(--sl-color-blue), transparent 95%);
     --sl-color-purple: #593380; /* velvet from the core brand */
     --sl-color-purple-high: #593380; /* velvet from the core brand */
-    --sl-color-purple-low: color-mix(in srgb, var(--sl-color-purple), transparent 80%);
+    --sl-color-purple-low: color-mix(in srgb, var(--sl-color-purple), transparent 95%);
 
     --sl-font-system: var(--o3-font-family-metric);
     --sl-text-base: var(--o3-type-body-base-font-size);
