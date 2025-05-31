@@ -1,0 +1,78 @@
+---
+import config from "virtual:starlight/user-config";
+import {getCollection} from 'astro:content';
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+
+import {
+	convertToSlug,
+	formatDateString,
+	generateBlogPostURL,
+} from '@/helpers/utils';
+
+export async function getStaticPaths() {
+	const locales =  Object.keys(config.locales);
+	const postEntries = await getCollection('posts');
+	return locales.flatMap(locale => {
+		const localePath = locale === 'root' ? '' : locale;
+		return postEntries.map(entry => {
+			return {
+				params: {
+					slug: localePath + '/blog/' + generateBlogPostURL(entry.slug),
+				},
+				props: {entry},
+			};
+		});
+	});
+}
+
+const {entry} = Astro.props;
+const canonicalURL = '/blog/' + generateBlogPostURL(entry.slug);
+const {Content, headings} = await entry.render();
+const formatedDateString = formatDateString(entry.data.publishDate);
+const tags = entry.data.tags?.length > 0 && entry.data.tags.join(',');
+const {title, description} = entry.data;
+---
+
+<style>
+	.blog-meta {
+		font-size: var(--sl-text-xs);
+	}
+</style>
+<StarlightPage
+	frontmatter={{
+		title: entry.data.title,
+		head: [{
+			tag: 'link',
+			attrs: {
+				rel: 'canonical',
+				href: (new URL(canonicalURL, Astro.site)).toString()
+			}
+		}
+		]
+	}}
+	headings={headings}
+>
+	<div class="blog-post">
+		<p class="blog-meta">
+			Posted on <time datetime={entry.data.datePublished}
+				>{formatedDateString}</time
+			>
+			by {entry.data.author}.
+			{
+				tags && (
+					<>
+						<br />
+						Tagged with <span>{tags}</span>
+					</>
+				)
+			}
+		</p>
+		{}
+		<p>
+			<abbr title="Too long; didn't read">
+				<strong>TL;DR:</strong>
+			</abbr>{entry.data.tldr || entry.data.description}
+		</p>
+		<Content />
+	</div>
+</StarlightPage>

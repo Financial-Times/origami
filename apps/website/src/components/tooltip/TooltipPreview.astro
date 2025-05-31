@@ -1,0 +1,17 @@
+---
+import * as OnboardingTooltip from './preview/OnboardingTooltip';
+import * as Toggletip from './preview/Toggletip';
+import Preview from '../utils/Preview.astro';
+import FigmaSbLinks from '../utils/FigmaSbLinks.astro';
+
+const brand = Astro.props.brand || 'whitelabel';
+const componentName = Astro.props.component;
+const isToggle = componentName === 'toggle';
+
+const component = isToggle ? Toggletip : OnboardingTooltip;
+const endOfId = isToggle ? 'toggle-tooltip' : 'onboarding-tooltip';
+const storybookId = `${brand}-o3-tooltip--${endOfId}`;
+---
+
+<Preview {component} />
+<FigmaSbLinks {storybookId} />

@@ -1,0 +1,12 @@
+---
+const currentPageEncoded = encodeURI(Astro.props.slug);
+const googleForm =
+	'https://docs.google.com/forms/d/e/1FAIpQLSchYMltnK_TwZl482vYWQanvwfJqIHQAuwnRXuQ7WpdqAbmcA/viewform';
+const feedBack = googleForm + '?entry.1283843461=' + currentPageEncoded;
+---
+
+<a
+	style="--o3-button-icon: var(--o3-icon-quote);"
+	class="o3-button o3-button--primary o3-button-icon o3-button--small"
+	href={feedBack}>Rate Origami</a
+>

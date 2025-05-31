@@ -1,0 +1,73 @@
+---
+const tokens = await import(`@financial-times/o3-tooling-token/${Astro.props.brand}.js`);
+const ColorTokens = Object.entries(tokens.default).filter(([key, value]) => value.type === 'color').map(([key, value]) => {
+    value.name = key;
+    return value
+});
+
+let FilteredColorTokens = ColorTokens.filter(t => !t.name.includes('transparent') && t.name.includes !== 'DO-NOT-USE');
+switch (Astro.props.type) {
+    case 'tint':
+        FilteredColorTokens = FilteredColorTokens.filter(t => t.origamiTint);
+        break;
+
+    case 'use-case':
+    FilteredColorTokens = FilteredColorTokens.filter(t => t.name.includes('use-case'));
+        break;
+
+    default:
+        FilteredColorTokens = FilteredColorTokens.filter(t => t.name.includes('palette') && (Astro.props.palette ? t.origamiKeys?.includes(Astro.props.palette) : false));
+        break;
+}
+---
+
+<table class="color-table">
+    <thead>
+        <tr>
+            <th class="name">name</th>
+            <th>css</th>
+            <th>description</th>
+            <th class="value">value</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        {
+            FilteredColorTokens.map(token => {
+                return <tr style=`--palette-color: ${token.value};`><td><span class="table-swatch">{Astro.props.type === 'use-case' ? token.name.replace('o3-color-use-case-', '')  : token.shortName}</span></td> <td>{token.css}</td> <td>{token.description || '...'}</td> <td>{token.value}</td></tr>;
+            })
+        }
+    </tbody>
+</table>
+
+<style>
+
+    .color-table.color-table {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+        overflow-wrap: anywhere;
+    }
+    .color-table.color-table th {
+        text-align: left;
+    }
+    .table-swatch {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    .table-swatch:before {
+        content: '';
+        height: 2rem;
+        width: 2rem;
+        background-color: var(--palette-color);
+        border: 1px dotted black;
+    }
+
+    th.name,
+    th.value {
+        width: 120px;
+    }
+</style>

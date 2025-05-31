@@ -1,0 +1,16 @@
+---
+import Preview from '../../utils/Preview.astro'
+import FigmaSbLinks from '../../utils/FigmaSbLinks.astro';
+
+import * as ErrorSummaryTSX from '../preview/Error-summary-in-form'
+
+const {brand} = Astro.props
+const component = ErrorSummaryTSX
+const storybookId = `${brand}-o3-form--error-summary`
+---
+
+<div>
+	<Preview {component} />
+	<FigmaSbLinks storybookId={storybookId} />
+</div>
+

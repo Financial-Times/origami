@@ -1,0 +1,43 @@
+---
+import {getBrandFromLocale} from '../helpers/utils.js';
+const brand = getBrandFromLocale(Astro.props.lang)
+---
+
+<div class={`content-panel`} data-preview-brand={brand}>
+	<div class="sl-container">
+		<slot />
+	</div>
+	<script>
+		document.querySelectorAll('.content-panel').forEach(panel => {
+			const brand = panel.getAttribute('data-preview-brand');
+			if (brand) {
+				panel.querySelectorAll('[data-apply-current-brand]').forEach(el => {
+					el.removeAttribute('data-apply-current-brand');
+					el.setAttribute('data-o3-brand', brand);
+				});
+			}
+		});
+	</script>
+</div>
+
+<style>
+	.content-panel {
+		padding: 1.5rem var(--sl-content-pad-x);
+	}
+	.content-panel + .content-panel {
+		border-top: 1px solid var(--sl-color-hairline);
+	}
+	.sl-container {
+		max-width: var(--sl-content-width);
+	}
+
+	.sl-container > :global(* + *) {
+		margin-top: 1.5rem;
+	}
+
+	@media (min-width: 72rem) {
+		.sl-container {
+			margin-inline: var(--sl-content-margin-inline, auto);
+		}
+	}
+</style>

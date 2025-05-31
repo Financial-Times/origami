@@ -1,0 +1,335 @@
+---
+title: Typography
+description: Our typographic scale.
+sidebar:
+  order: 4
+  badge:
+    text: updated
+    variant: note
+---
+
+import '@financial-times/o3-foundation/css/whitelabel.css';
+import '@financial-times/o3-foundation/css/internal.css';
+import '@financial-times/o3-foundation/css/professional.css';
+import '@financial-times/o3-foundation/css/core.css';
+import '@financial-times/o3-foundation/css/sustainable-views.css';
+
+import '@financial-times/o3-editorial-typography/css/core.css';
+import '@financial-times/o3-editorial-typography/css/professional.css';
+import '@financial-times/o3-editorial-typography/css/sustainable-views.css';
+import '@financial-times/o3-editorial-typography/css/whitelabel.css';
+
+import { Tabs, TabItem, Code } from '@astrojs/starlight/components';
+
+import PreviewFrame from '../../../components/utils/PreviewFrame.astro';
+import ListTypography from '../../../components/typography/Lists.astro';
+
+import HeadingStyles from '../../../components/editorial-typography/HeadingStyles.astro';
+import Display from '../../../components/editorial-typography/Display.astro';
+import Quotes from '../../../components/editorial-typography/Quotes.astro';
+import Lists from '../../../components/editorial-typography/Lists.astro';
+import BigNumber from '../../../components/editorial-typography/BigNumber.astro';
+import Byline from '../../../components/editorial-typography/Byline.astro';
+import TopicTag from '../../../components/editorial-typography/TopicTag.astro';
+import StandFirst from '../../../components/editorial-typography/StandFirst.astro';
+import Caption from '../../../components/editorial-typography/Caption.astro';
+
+import TypeScale from '../../../components/TypeScale.astro';
+import TypeFamily from '../../../components/TypeFamily.astro';
+import TypeUsecase from '../../../components/TypeUsecase.astro';
+
+import { default as Example } from '../../../components/Example.astro';
+import { default as Guideline } from '../../../components/Guideline.astro';
+
+<TypeFamily brand={props.brand} />
+
+FT typography uses the following typefaces, to convey information to our users in different aspects of FT products.
+
+### Metric
+
+Metric is our primary typeface. Clear, contemporary and rational, Metric communicates with clarity. It is best used for CTAs, body copy, and headings across all sub-brands.
+
+[Learn more about Metric](https://brand.ft.com/document/24#/branding-elements/fonts).
+
+<BrandedContent brands="core, professional, sustainable-views, whitelabel">
+	### Financier Display
+	Financier is our secondary typeface. Elegant, authoritative, and with a distinct voice. It is primarily used for large article titles and headings in editorial pages only.
+
+    [Learn more about Financier Display](https://brand.ft.com/document/24#/branding-elements/fonts).
+
+</BrandedContent>
+
+<BrandedContent brands="core, professional, whitelabel">
+
+    ### Georgia
+    Georgia is solely used for editorial article body copy. This is an alternate to Financier Text, as a [system
+    font](https://en.wikipedia.org/wiki/Web_typography) it avoids the performance implications of users downloading
+    additional custom fonts.
+
+</BrandedContent>
+
+<BrandedContent brands="sustainable-views">
+	### Financier Text
+	Financier Text is our main editorial typeface and is used predominantly in our journalism. It is elegant and
+	authoritative, has a distinct voice, and works well across long copy formats.
+
+    [Learn more about Financier Text](https://brand.ft.com/document/24#/branding-elements/fonts).
+
+</BrandedContent>
+
+## Typographic Scale
+
+We do not recommend the direct use of our typographic scale within projects. Instead use a [usecase token](#usecase-tokens), which defines family, scale, weight, and style as one token for specific scenarios.
+
+These usecases are based on multiple typographic scales, for different font families. Our scale ranges from -2 to 10, depending on the font family. Consider scale 0 the baseline, with ascending and descending values in each direction. Avoid using styles below zero for long form content.
+
+<details>
+<summary>Scale values</summary>
+<Tabs syncKey="code">
+	<TabItem label="Metric2">
+		<TypeScale brand={props.brand} scaleFamily="metric2" />
+	</TabItem>
+	<BrandedContent brands="core, professional, sustainable-views, whitelabel">
+		<TabItem label="Financier Display">
+			<TypeScale brand={props.brand} scaleFamily="financier-display" />
+		</TabItem>
+	</BrandedContent>
+	<BrandedContent brands="sustainable-views">
+		<TabItem label="Financier Text">
+			<TypeScale brand={props.brand} scaleFamily="financier-text" />
+		</TabItem>
+	</BrandedContent>
+	<BrandedContent brands="core, professional, whitelabel">
+		<TabItem label="Georgia">
+			<TypeScale brand={props.brand} scaleFamily="georgia" />
+		</TabItem>
+	</BrandedContent>
+</Tabs>
+</details>
+
+## Font Weight
+
+Font weight can be used to express hierarchy or urgency of information. As with our typographic scale, we do not recommend the direct use of our font weight values within projects. Instead [apply a usecase token](#usecase-tokens).
+
+
+<details>
+<summary>Weight values</summary>
+| Preview                                                                                                               | Value | Token                     |
+| --------------------------------------------------------------------------------------------------------------------- | ----- | ------------------------- |
+| <span style="font-family: var(--o3-font-family-metric) ; font-weight: var(--o3-font-weight-light)">light</span>       | 300   | <Code code={`font-weight: var(--o3-font-weight-light);`} lang="css" wrap={true}/>  |
+| <span style="font-family: var(--o3-font-family-metric) ; font-weight: var(--o3-font-weight-regular)">regular</span>   | 400   | <Code code={`font-weight: var(--o3-font-weight-regular);`} lang="css" wrap={true}/> |
+| <span style="font-family: var(--o3-font-family-metric) ; font-weight: var(--o3-font-weight-medium)">medium</span>     | 500   | <Code code={`font-weight: var(--o3-font-weight-medium);`} lang="css" wrap={true}/> |
+| <span style="font-family: var(--o3-font-family-metric) ; font-weight: var(--o3-font-weight-semibold)">semibold</span> | 700   | <Code code={`font-weight: var(--o3-font-weight-semibold);`} lang="css" wrap={true}/> |
+| <span style="font-family: var(--o3-font-family-metric) ; font-weight: var(--o3-font-weight-bold)">bold</span>         | 800   | <Code code={`font-weight: var(--o3-font-weight-bold);`} lang="css" wrap={true}/> |
+</details>
+
+## Usecase Tokens
+
+Typography usecase tokens provide low level typography styles for use in a variety of contexts.
+
+<BrandedContent brands="core, professional, sustainable-views, whitelabel">
+In addition to these usecase tokens, Origami provides typography components which use these. For example the [display heading component](#headings) combines all three [display sizes](#display) at different breakpoints for a responsive heading.
+</BrandedContent>
+
+<BrandedContent brands="core, professional, sustainable-views, whitelabel">
+	### Display
+
+	Display styles, as the largest text on the screen, are reserved for short, important text or numerals.
+
+	These styles are responsive to screen sizes and use the Financier Display typeface. This font family should be used exclusively for editorial story headlines, such as teaser headlines or article toppers.
+
+	<TypeUsecase brand={props.brand} usecases={['display-sm', 'display-md', 'display-lg']} />
+</BrandedContent>
+
+<BrandedContent brands="core, professional, sustainable-views, whitelabel">
+	### Headline
+
+	Headlines are best suited for short, high-emphasis text on smaller screens and components. They work well for highlighting primary text passages or important content regions. Headlines use the Financier Display typeface, with carefully integrated line height and letter spacing to ensure readability. This font style should be reserved exclusively for editorial story headlines, such as teaser headlines or article toppers.
+
+	<TypeUsecase brand={props.brand} usecases={['headline-sm', 'headline-md', 'headline-lg']} />
+</BrandedContent>
+
+### Title
+
+Titles should be used for medium-emphasis text that remains relatively short. For example, consider using title styles to divide secondary passages of text or story paragraph.
+
+<TypeUsecase brand={props.brand} usecases={['title-sm', 'title-md', 'title-lg']} />
+
+### Body
+
+Body styles are used for longer passages of text in your features and components.
+
+<TypeUsecase brand={props.brand} usecases={['body-lg', 'body-base', 'body-highlight']} />
+
+
+### Label and Details
+
+Label styles are smaller, utilitarian styles, used for very small text within body copy such as captions, contextual info, and label tags.
+
+<TypeUsecase brand={props.brand} usecases={['detail', 'label']} />
+
+
+<BrandedContent brands="core, professional, sustainable-views, whitelabel">
+	### Body content
+
+	Body content styles are used only for editorial content pages such as article body and posts in Live news pages.
+
+	<TypeUsecase brand={props.brand} usecases={['body-content-base', 'body-content-highlight', 'body-content-emphasis']} />
+</BrandedContent>
+
+
+### Links
+
+The link style can be applied inline (within a paragraph or body text) or standalone. The inline links inherit the text properties of the body it is in. Its focus style follows the global Origami focus for single ring element.
+
+This example shows a link within copy that uses `body-base`.
+<PreviewFrame themes={['standard', 'inverse']}
+							html={`<span class="o3-type-body-base">Make <a href="#">sense of</a> it all.</span>`} mark={`a href`} />
+
+Here is another example which shows a link within `body-content-base`.
+<PreviewFrame themes={['standard', 'inverse']}
+							html={`<span class="o3-type-body-content-base">Make <a href="#">sense of</a> it all.</span>`}
+							mark={`a href`} />
+
+## UI Components
+
+<BrandedContent brands="core, professional, sustainable-views, whitelabel">
+	User interface (UI) typography components apply [typography usecase tokens](#usecase-tokens). They are intended for all design elements except
+	those with an editorial voice, such as article page content (see [editorial
+	typography](#editorial-components)).
+</BrandedContent>
+
+### List
+
+Lists allow users to view two or more individual, but related, text items grouped together. We have ordered and unordered lists.
+
+<ListTypography brand={props.brand} />
+
+<BrandedContent brands="core, professional, sustainable-views, whitelabel">
+	## Editorial Components
+
+    Editorial typography components bring together [typography usecases](#usecase-tokens) for a specific purpose. For example combining the 3 `display` sizes into one responsive heading. They are intended for editorial and article content e.g article and home pages, live news, teasers.
+
+    ### Headings
+
+    Names of heading styles in Editorial typography are broadly aligned with the naming used within Editorial, however "display" is sometimes called "headline large".
+
+    <BrandedContent brands="core,professional,internal,whitelabel,sustainable-views">
+    	<BrandedContent brands="core,professional,sustainable-views">
+    		<Display brand={props.brand}/>
+    	</BrandedContent>
+    	<HeadingStyles brand={props.brand}/>
+    </BrandedContent>
+
+    ### Body
+    For article body use the [`body-content` typography use-case](#body-content) as above.
+
+	<PreviewFrame themes={['standard', 'inverse']}
+								html={`<span class="o3-type-body-content-base">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet earum libero at voluptatum <strong>highlight</strong> illum facere totam architecto eum porro exercitationem, ea, <em>emphasis</em> accusamus quia? Repellat beatae similique ab? Reprehenderit, ullam quae?`}
+								mark={`o3-type-body-content-base`} />
+
+	### Drop Cap
+
+	Use for stylistic emphasis on the first letter of an article.
+
+	<PreviewFrame themes={['standard', 'inverse']}
+								html={`<span class="o3-type-body-content-base o3-editorial-typography-drop-cap">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet earum libero at voluptatum <strong>highlight</strong> illum facere totam architecto eum porro exercitationem, ea, <em>emphasis</em> accusamus quia? Repellat beatae similique ab? Reprehenderit, ullam quae?`}
+								mark={`o3-editorial-typography-drop-cap`} />
+
+    ### Quotes
+
+    The quote component is used to highlight notable statements, excerpts, or phrases from articles, interviews, and other
+    types of content. It draws attention to key information and enhances the reading experience.
+
+    <Quotes brand={props.brand} />
+
+    ### Lists
+
+    For lists in article content. Refer to guidelines under [UI lists above](#list).
+
+    <Lists brand={props.brand} />
+
+    ### Big Number
+
+    <BigNumber brand={props.brand} />
+
+    ### Byline
+
+    <Byline brand={props.brand} />
+
+    ### Topic Tag
+
+
+    Topic tag is used to indicate the category of a post. Its default colour may be customised to suit your product
+    need.
+
+    <details>
+    	<summary>Topic tag customisation options</summary>
+
+    	| Option | Description |
+    	| --------------------- | ------------------------------------- |
+    	| Topic tag color | The colour of the topic tag. |
+    	| Topic tag hover color | The colour of the topic tag on hover. |
+
+    	E.g. To make the topic tag pink.
+    	<Code lang="css"
+    				code={`:root{\n\t--o3-editorial-typography-topic-tag-color: hotpink;\n\t--o3-editorial-typography-topic-tag-hover-color: deeppink;\n}`} />
+    </details>
+
+
+    <TopicTag brand={props.brand} />
+
+    ### Standfirst
+    Short intro below the headline that provides context about a post. Used in
+    combination with a header in the topper component.
+    <StandFirst brand={props.brand} />
+
+    ### Caption
+    For additional information about a piece or image that should be less
+    prominent.
+    <Caption brand={props.brand} />
+
+    ## Usage Guidelines
+
+Keeping typography consistent and sticking to logical hierarchies ensures that elements in the UI are clear and easily recognisable when scanning the page.
+
+<Guideline summary="Use descriptive words to describe links" do={true}>
+	<p slot="description">
+		Link text should be clear, concise, and descriptive enough to make sense out
+		of context. Avoid vague phrases like "click here" or "read more." for
+		example: use "Read our accessibility guidelines" Instead.
+	</p>
+</Guideline>
+<Guideline summary="Define heading levels" do={true}>
+	<p slot="description">
+		Styles can be assigned a heading level that is independent of style name,
+		size, weight, or other properties.
+	</p>
+	<Example slot="examples" do={true}>
+		![A h1 heading follows a h2
+		heading.](/assets/images/components/typography/type-guideline-1.svg)
+	</Example>
+</Guideline>
+
+    <Guideline summary="Don’t use Financier fonts for UI" do={false}>
+    	<p slot="description">
+    		            The Financier Display font must be used for Editorial article content only, use Metric for UI.
+.
+    	</p>
+    	<Example slot="examples" do={false}>
+    		![The cost of an annual subscription in a signup flow incorrectly uses
+    		Financier.](/assets/images/components/typography/type-guideline-2.svg)
+    	</Example>
+    </Guideline>
+
+    <Guideline summary="Avoid negative font scales" do={false}>
+    	<p slot="description">
+    		Scales less than zero,  `o3-font-size--1`(14px) and `o3-font-size--2`(12px), are edge cases. Avoid these as they can be hard to read especially on large screens. Negative scales may be used to present short, secondary information where needed to align to existing designs. However we recommend using predefined [ui typography](#ui-typography) styles where possible.
+    	</p>
+    	<Example slot="examples" do={false}>
+    		![A small, negative font scale is incorrectly used for a large body of
+    		copy.](/assets/images/components/typography/type-guideline-3.svg)
+    	</Example>
+    </Guideline>
+
+</BrandedContent>

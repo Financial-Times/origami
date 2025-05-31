@@ -3,8 +3,8 @@
 # this script is used by the build-website workflow
 
 set -e
-cd apps/astro-website/
-NODE_OPTIONS=--max-old-space-size=10248 npm run astro build
+cd apps/website/
+npm run build
 cd ../../
 
 if ! [ -z "$SHOULD_DELETE_ALL_YOUR_FILES" ]; then

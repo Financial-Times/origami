@@ -1,0 +1,78 @@
+---
+import config from "virtual:starlight/user-config"
+import Select from "@astrojs/starlight/components/Select.astro"
+---
+
+{
+	(
+		<starlight-lang-select>
+			<Select
+				icon="laptop"
+				label="select brand"
+				value={Astro.props.locale}
+				options={Object.entries(config.locales).map(([code, locale]) => ({
+					value: code,
+					selected: code === Astro.props.locale,
+					label: `brand: ${locale!.label}`,
+				}))}
+				width="11rem"
+			/>
+		</starlight-lang-select>
+	)
+}
+
+<script>
+	import config from "virtual:starlight/user-config"
+
+	/**
+	 * Get the equivalent of the passed URL for the passed locale
+	 */
+	function localizePath(location: string, locale?: string): string {
+		const localeCodes = Object.keys(config.locales)
+
+		let {pathname: currentPath} = new URL(location)
+
+		if (currentPath === "/") {
+			return locale === "root" ? "/" : "/" + locale + "/"
+		}
+
+		// Trim leading and trailing slashes, note this does not mutate workingUrl
+		const trimmedPathname = currentPath.replace(/^\/|\/$/g, "")
+		const [baseSegment, ...restSegments] = trimmedPathname.split("/")
+
+		if (locale === "root") {
+			if (!localeCodes.includes(baseSegment)) {
+				return "/" + currentPath
+			} else {
+				return "/" + restSegments.join("/")
+			}
+		}
+
+		if (!localeCodes.includes(baseSegment)) {
+			return "/" + locale + currentPath
+		} else if (restSegments.length > 0) {
+			return "/" + locale + "/" + restSegments.join("/")
+		} else {
+			return "/" + locale + "/"
+		}
+	}
+
+	class StarlightLanguageSelect extends HTMLElement {
+		constructor() {
+			super()
+			const select = this.querySelector("select")
+			if (select) {
+				select.addEventListener("change", e => {
+					if (e.currentTarget instanceof HTMLSelectElement) {
+						window.location.pathname = localizePath(
+							location.toString(),
+							e.currentTarget.value
+						)
+					}
+				})
+			}
+		}
+	}
+
+	customElements.define("starlight-lang-select", StarlightLanguageSelect)
+</script>

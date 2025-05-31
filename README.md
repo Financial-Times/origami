@@ -14,17 +14,13 @@ If you'd like to make a proposal for a new component or anything else, go ahead 
 This repository houses many projects of different kinds. Most of them have
 READMEs of their own where you can learn more about them.
 
-### apps/astro-website
-
-The [Origami website](./apps/website), served at <https://origami.ft.com>.
-
 ### apps/storybook
 
 [Origami's storybook](./apps/storybook), served at <https://origami.ft.com/storybook/>.
 
-### apps/for-everyone-website
+### apps/website
 
-[Origami Design System](https://origami-for-everyone.ft.com/) documentation and usage guides.
+[Origami Design System](https://origami.ft.com/) documentation and usage guides.
 
 ### components and libraries
 
@@ -122,7 +118,7 @@ brew install rg
    - For Origami Design System website, run the following command:
 
      ```shell
-     npm run dev -w apps/for-everyone-website/
+     npm run dev -w apps/website
      ```
 
 ### Developing components

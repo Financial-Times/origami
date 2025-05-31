@@ -235,7 +235,7 @@
 			"path": "tools/verify-package-json"
 		},
 		{
-			"path": "apps/astro-website"
+			"path": "apps/website"
 		},
 		{
 			"path": "apps/dictionary"

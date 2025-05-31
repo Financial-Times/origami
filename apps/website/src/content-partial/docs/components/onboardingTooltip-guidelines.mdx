@@ -1,0 +1,146 @@
+import {default as Example} from '../../../components/Example.astro';
+import {default as Guideline} from '../../../components/Guideline.astro';
+import {TooltipOnboarding} from '@financial-times/o3-tooltip';
+import {Button} from '@financial-times/o3-button';
+
+<Guideline summary="Do not obstruct other elements" do={true}>
+	<p slot="description">
+		Ensure onboarding tooltips do not obstruct other interface elements.
+	</p>
+	<Example slot="examples" do={true}>
+		<div style="position: relative; width: 400px; height: 300px;">
+			<div style={{position: "absolute", right: "50px", top: "150px",}}>
+				<Button
+					attributes={{
+						id: 'demo-onboarding-tooltip-do-1'
+					}}
+					label="Tooltip target"
+					type="primary"
+				/>
+    			<Button
+    				label="Another button"
+    				type="secondary"
+    			/>
+    		</div>
+    		<TooltipOnboarding
+    			targetId="demo-onboarding-tooltip-do-1"
+    			content="Example of a onboarding tooltip that behaves normally and doesn't cover other UI elements."
+    			title=""
+    			contentId="demo-onboarding-tooltip-contnent"
+    			placement="top"
+    		/>
+    	</div>
+    </Example>
+    <Example slot="examples" do={false}>
+    			<div style="position: relative; width: 400px; height: 300px;">
+			<div style={{position: "absolute", right: "50px", top: "150px",}}>
+				<Button
+					attributes={{
+						id: 'demo-onboarding-tooltip-do-2'
+					}}
+					label="Tooltip target"
+					type="primary"
+				/>
+    			<Button
+    				label="Another button"
+    				type="secondary"
+    			/>
+    		</div>
+    		<TooltipOnboarding
+    			targetId="demo-onboarding-tooltip-do-2"
+    			content="Example of a onboarding tooltip that covers other UI elements."
+    			title=""
+    			contentId="demo-onboarding-tooltip-contnent"
+    			placement="right"
+    		/>
+    	</div>
+    </Example>
+
+</Guideline>
+
+<Guideline summary="Refrain from using headings" do={true}>
+	<p slot="description">
+		Use headings only for presentational reasons, as emphasis is not provided for screen reader
+		users. When a heading is used ensure: The extra visual emphasis is not
+		required for understanding; and heading copy flows into body copy without duplication.
+	</p>
+	<Example slot="examples" do={true}>
+		<div style="position: relative; width: 400px; height: 200px;">
+			<Button
+				attributes={{
+					id: 'demo-onboarding-tooltip-3',
+					style: {
+						position: 'absolute',
+						right: '60px',
+						top: '100px',
+					},
+				}}
+				label="Tooltip target"
+				type="secondary"
+			/>
+			<TooltipOnboarding
+				targetId="demo-onboarding-tooltip-3"
+				content="Now you can use natural language to find exactly what you're looking for, faster."
+				title="Introducing Enhanced Search"
+				contentId="demo-onboarding-tooltip-contnent"
+				placement="right"
+			/>
+		</div>
+	</Example>
+	<Example slot="examples" do={false}>
+		<div style="position: relative; width: 400px; height: 200px;">
+			<Button
+				attributes={{
+					id: 'demo-onboarding-tooltip-4',
+					style: {
+						position: 'absolute',
+						right: '60px',
+						top: '100px',
+					},
+				}}
+				label="Tooltip target"
+				type="secondary"
+			/>
+			<TooltipOnboarding
+				targetId="demo-onboarding-tooltip-4"
+				content="Enhanced Search means you can use natural language to find exactly what you're looking for, faster."
+				title="Enhanced Search"
+				contentId="demo-onboarding-tooltip-contnent"
+				placement="right"
+			/>
+		</div>
+	</Example>
+</Guideline>
+
+<Guideline summary="Use to highlight new features" do={false}>
+	<p slot="description">
+		Use them to highlight new features or assist with user onboarding.
+	</p>
+	<Example slot="examples" do={true}>
+		<div style="position: relative; width: 400px; height: 200px; left: 100px; top: 100px;">
+			<div style="display: flex">
+				<TooltipOnboarding
+					targetId="onboarding-search-target"
+					placement="top"
+					content="Try our new AI-powered search."
+					title=''
+				/>
+				<input type='text' id='onboarding-search-target' />
+			</div>
+		</div>
+    </Example>
+    <Example slot="examples" do={false}>
+    	<div style="position: relative; width: 400px; height: 200px; left: 100px; top: 100px;">
+    		<div style="display: flex">
+    				<TooltipOnboarding
+    					targetId="onboarding-input-target"
+    					placement="top"
+    					content="Please use longer password."
+    					title=''
+    				/>
+    				<input type='password' id='onboarding-input-target' />
+    		</div>
+    	</div>
+    </Example>
+
+</Guideline>

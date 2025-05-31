@@ -1,0 +1,22 @@
+---
+import * as Component from './preview/Social.tsx'
+import Preview from '../utils/Preview.astro';
+import FigmaSbLinks from '../utils/FigmaSbLinks.astro';
+
+const {brand} = Astro.props;
+
+const storybookId = `${brand}-o3-social-sign-in--social-sign-in-stories`;
+---
+
+<div class="social-preview-container">
+	<Preview component={Component} />
+	<FigmaSbLinks {storybookId} />
+</div>
+
+
+<style>
+	.social-preview-container {
+		--preview-display: grid;
+		--preview-justify: auto;
+	}
+</style>
