@@ -29,6 +29,12 @@ const postsByYear = Array.from(postsByYearMap);
 	li {
 		list-style-type: none;
 	}
+
+	.blog-post-desc.blog-post-desc,
+	.blog-post-detail.blog-post-detail {
+		margin-top: var(--o3-spacing-4xs);
+	}
+
 </style>
 
 
@@ -72,12 +78,11 @@ const postsByYear = Array.from(postsByYearMap);
 								</a>
 							</h3>
 							{post.data.description.length !== 0 && (
-								<p>{post.data.description}</p>
+								<p class="blog-post-desc">{post.data.description}</p>
 							)}
-							<p>
+							<p class="blog-post-detail o3-type-label">
 								Posted {formatDateString(post.data.publishDate)} by{' '}
 								{post.data.author}.
-								{post.data.tags && <span> Tagged {post.data.tags}.</span>}
 							</p>
 						</li>
 						})}
