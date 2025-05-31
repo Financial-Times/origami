@@ -13,10 +13,10 @@ import {Form, CheckBoxItem} from '@financial-times/o3-form';
 import Tip from '../../../../components/utils/Tip.astro';
 import Example from '../../../../components/Example.astro';
 
-import {default as CheckboxAnatomy} from '../../../../components/form/anatomy/Checkbox.astro';
+import {default as CheckboxAnatomy} from '../../../../components/forms/anatomy/Checkbox.astro';
 
-import {default as CheckboxSelectedStates} from '../../../../components/form/examples/Checkbox-selection-state.astro';
-import {default as CheckboxGroup} from '../../../../components/form/examples/Checkbox-group.astro';
+import {default as CheckboxSelectedStates} from '../../../../components/forms/examples/Checkbox-selection-state.astro';
+import {default as CheckboxGroup} from '../../../../components/forms/examples/Checkbox-group.astro';
 
 import '@financial-times/o3-form/css/whitelabel.css';
 import '@financial-times/o3-form/css/internal.css';
@@ -32,8 +32,8 @@ Checkboxes allow users to select one or more items from a list or toggle an opti
 	The <a
 		href={
 			props.brand == 'core'
-				? '/components/form'
-				: `/${props.brand}/components/form`
+				? '/components/forms/'
+				: `/${props.brand}/components/forms/`
 		}>
 		general form component guidelines
 	</a> apply to this component. Please make sure you’re familiar with them first.

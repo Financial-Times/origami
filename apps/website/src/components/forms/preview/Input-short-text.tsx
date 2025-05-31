@@ -6,18 +6,22 @@ function ButtonPreview() {
 			<meta itemProp="@preview" />
 			<Form>
 				<TextInput
-					label="Email"
-					attributes={{defaultValue: 'john@gmailcom'}}
-					feedback={{
-						message: 'Please enter a valid email address',
-						type: 'error',
-					}}
+					label="2 characters"
+					length={2}
+				/>
+				<TextInput
+					label="3 characters"
+					length={3}
+				/>
+				<TextInput
+					label="4 characters"
+					length={4}
 				/>
 			</Form>
 			<meta itemProp="@preview" />
 		</>
 	);
 }
-export const filePath = 'src/components/form/preview/Input-error.tsx';
+export const filePath = 'src/components/forms/preview/Input-short-text.tsx';
 
 export {ButtonPreview as preview};
