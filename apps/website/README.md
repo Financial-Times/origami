@@ -37,7 +37,7 @@ The Origami website is [![built with Starlight](https://astro.badg.es/v2/built-w
 └── tsconfig.json
 ```
 
-Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name. We use [Starlight's internationalisation features](https://starlight.astro.build/guides/i18n/) to present tailored content dependent on the selected brand. Brand specific content e.g. `src/content/docs/professional` takes precedence over content at `src/content/docs/`.
+Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name. We use [Starlight's internationalisation features](https://starlight.astro.build/foundations/i18n/) to present tailored content dependent on the selected brand. Brand specific content e.g. `src/content/docs/professional` takes precedence over content at `src/content/docs/`.
 
 Images can be added to `src/assets/` and embedded in Markdown with a relative link.
 
@@ -45,7 +45,7 @@ Static assets, like favicons, can be placed in the `public/` directory.
 
 ## Multiple Brand Support
 
-We use [Starlight's internationalisation features](https://starlight.astro.build/guides/i18n/) to support documentation for multiple brands. This allows us to share content. In many cases we can switch CSS Custom Properties when changing brand, be reuse the same design guidelines. In other cases we can "translate" content for brand specific cases (see [Branded Content](#branded-content))
+We use [Starlight's internationalisation features](https://starlight.astro.build/foundations/i18n/) to support documentation for multiple brands. This allows us to share content. In many cases we can switch CSS Custom Properties when changing brand, be reuse the same design guidelines. In other cases we can "translate" content for brand specific cases (see [Branded Content](#branded-content))
 
 This also means search is brand specific. Typically, this feature relies on the `lang` html attribute to correctly search only content for the selected language. We have applied that to brands using a [private subtag](https://datatracker.ietf.org/doc/html/rfc4646#section-4.5) e.g. `lang="en-GB-x-prof"`. Note that all subtags have a maximum length of 8 characters and whitespace is not permitted, we must therefore appreciate brands here.
 

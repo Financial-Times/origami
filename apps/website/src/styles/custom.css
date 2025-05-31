@@ -17,16 +17,49 @@
 }
 
 /* Light mode colors. */
+[data-o3-brand="internal"],
 :root[data-theme='light'] {
-    --sl-color-accent-low: var(--o3-color-palette-teal);
+    --sl-color-accent-low: color-mix(in srgb, var(--o3-color-palette-teal), transparent 80%);
     --sl-color-accent: var(--o3-color-palette-teal);
     --sl-color-accent-high: var(--o3-color-palette-teal);
     --sl-color-text-accent: var(--o3-color-palette-teal);
+
+    --sl-color-orange: var(--o3-color-palette-mandarin);
+    --sl-color-orange-high: var(--o3-color-palette-mandarin);
+    --sl-color-orange-low: color-mix(in srgb, var(--sl-color-orange), transparent 80%);
+    --sl-color-green: var(--o3-color-palette-jade);
+    --sl-color-green-high: var(--o3-color-palette-jade);
+    --sl-color-green-low: color-mix(in srgb, var(--sl-color-green), transparent 80%);
+    --sl-color-blue: #006f9b; /* graphics-dark-blue from the core brand */
+    --sl-color-blue-high: #006f9b; /* graphics-dark-blue from the core brand */
+    --sl-color-blue-low: color-mix(in srgb, var(--sl-color-blue), transparent 80%);
+    --sl-color-purple: #593380; /* velvet from the core brand */
+    --sl-color-purple-high: #593380; /* velvet from the core brand */
+    --sl-color-purple-low: color-mix(in srgb, var(--sl-color-purple), transparent 80%);
+
+    --sl-font-system: var(--o3-font-family-metric);
+    --sl-text-base: var(--o3-type-body-base-font-size);
+    --sl-text-h1: var(--o3-type-title-lg-font-size);
+    --sl-text-h2: var(--o3-type-title-md-font-size);
+    --sl-text-h3: var(--o3-type-title-sm-font-size);
+    --sl-text-h4: var(--o3-type-body-lg-font-size);
+    --sl-line-height: 1.5;
+    --sl-line-height-headings: 1.33;
 }
 
 summary {
     font-weight: bold;
     cursor: pointer;
+}
+
+details details .large {
+    font-weight: normal;
+    font-size: var(--sl-text-sm);
+    color: var(--sl-color-gray-2);
+}
+
+.starlight-aside a {
+    text-decoration-color: currentColor;
 }
 
 img {

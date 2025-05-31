@@ -50,13 +50,13 @@ export const redirects = {
 		'/getting-started/technical-guide/o3-specification/',
 	'/documentation/manifests/origami-json/':
 		'/getting-started/technical-guide/o3-specification/',
-	'/documentation/principles/': '/guides/',
-	'/documentation/principles/accessibility/': '/guides/',
+	'/documentation/principles/': '/foundations/',
+	'/documentation/principles/accessibility/': '/foundations/',
 	'/documentation/principles/design/': '/getting-started/design-guide/',
 	'/documentation/principles/tone-and-language/':
 		'/contribution/tone-and-language/',
 	'/documentation/principles/vision-and-mission/': '/about/',
-	'/documentation/services/': '/guides/images/',
+	'/documentation/services/': '/foundations/images/',
 	'/documentation/tutorials/': '/getting-started/',
 	'/documentation/tutorials/build-service/':
 		'/o2-components/technical-guide/origami-build-service/',

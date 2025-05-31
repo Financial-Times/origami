@@ -30,7 +30,7 @@ export default defineConfig({
 	integrations: [
 		react(),
 		starlight({
-			title: 'Origami',
+			title: 'Origami – design & build',
 			defaultLocale: 'root',
 			locales: {
 				root: {
@@ -62,6 +62,7 @@ export default defineConfig({
 				ThemeProvider: './src/components/ThemeProvider.astro',
 				SocialIcons: './src/components/NavLinks.astro',
 				FallbackContentNotice: './src/components/FallbackContentNotice.astro',
+				Footer: './src/components/Footer.astro',
 			},
 			customCss: ['./src/styles/custom.css'],
 			social: {
@@ -81,6 +82,10 @@ export default defineConfig({
 						src: '/js/tracking.js',
 						defer: true,
 					},
+				},
+				{
+					tag: 'script',
+					content: `document.documentElement.setAttribute('data-o3-brand', 'internal');`,
 				},
 			],
 			expressiveCode: {
@@ -111,7 +116,7 @@ export default defineConfig({
 				{
 					label: 'Foundations (o3)',
 					autogenerate: {
-						directory: 'guides',
+						directory: 'foundations',
 					},
 				},
 				{

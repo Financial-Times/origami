@@ -51,3 +51,19 @@ export async function getComponentDataFromContent(
 	const componentsToRender = filterAndSortNavbars(components)
 	return componentsToRender
 }
+
+export function getBrandFromLocale(lang) {
+	switch (lang) {
+		case "en-GB-x-prof":
+			return "professional"
+		case "en-GB-x-sv":
+			return "sustainable-views"
+		case "en-GB-x-internal":
+			return "internal"
+		case "en-GB-x-wl":
+			return "whitelabel"
+		case "en-GB-x-core":
+		default:
+			return "core"
+	}
+}

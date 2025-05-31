@@ -1,11 +1,12 @@
 ---
 const currentPageEncoded = encodeURI(Astro.props.slug);
 const googleForm =
-	'https://docs.google.com/forms/d/e/1FAIpQLSfloWAL9xTZN9jdwDPJZQUcwGUYXZMrIgJ80xpOSTTjepnzjw/viewform';
-const feedBack = googleForm + '?entry.446988371=' + currentPageEncoded;
+	'https://docs.google.com/forms/d/e/1FAIpQLSchYMltnK_TwZl482vYWQanvwfJqIHQAuwnRXuQ7WpdqAbmcA/viewform';
+const feedBack = googleForm + '?entry.1283843461=' + currentPageEncoded;
 ---
 
 <a
-	class="o3-button o3-button--ghost o3-button-icon o3-button-icon--edit o3-button--small"
-	href={feedBack}>feedback</a
+	style="--o3-button-icon: var(--o3-icon-quote);"
+	class="o3-button o3-button--primary o3-button-icon o3-button--small"
+	href={feedBack}>Rate Origami</a
 >

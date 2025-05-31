@@ -78,6 +78,7 @@ const typeScaleOrdered = Object.entries(typeScale).sort((a, b) => {
 
 			return (<tr>
 					<td
+						data-apply-current-brand
 						class={`token-sample ${Astro.props.scaleFamily ? `token-sample--${Astro.props.scaleFamily}` : ''}`}
 						style=`line-height: ${scale.lineHeights.value}; font-size: ${scale.fontSize.value}`>Make sense of it all</td>
 					<td>{scaleKey}</td>
