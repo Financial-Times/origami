@@ -21,6 +21,6 @@ function ButtonPreview() {
 	);
 }
 export const filePath =
-	'src/components/form/preview/Checkbox-selected-states.tsx';
+	'src/components/forms/preview/Checkbox-selected-states.tsx';
 
 export {ButtonPreview as preview};

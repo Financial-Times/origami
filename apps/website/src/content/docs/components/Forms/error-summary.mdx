@@ -13,9 +13,9 @@ import {Form, TextInput} from '@financial-times/o3-form';
 import Tip from '../../../../components/utils/Tip.astro';
 import Example from '../../../../components/Example.astro';
 
-import {default as ErrorSummaryAnatomy} from '../../../../components/form/anatomy/Error-summary.astro';
+import {default as ErrorSummaryAnatomy} from '../../../../components/forms/anatomy/Error-summary.astro';
 
-import {default as ErrorSummaryPreview} from '../../../../components/form/examples/Error-summary.astro';
+import {default as ErrorSummaryPreview} from '../../../../components/forms/examples/Error-summary.astro';
 
 import '@financial-times/o3-form/css/whitelabel.css';
 import '@financial-times/o3-form/css/internal.css';
@@ -29,8 +29,8 @@ The Error Summary appears on the top of a page after a user submits a form which
 	The <a
 		href={
 			props.brand == 'core'
-				? '/components/form'
-				: `/${props.brand}/components/form`
+				? '/components/forms/'
+				: `/${props.brand}/components/forms/`
 		}>
 		general form component guidelines
 	</a> apply to this component. Please make sure you’re familiar with them first.

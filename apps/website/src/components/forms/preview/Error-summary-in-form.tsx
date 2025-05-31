@@ -30,6 +30,6 @@ function ButtonPreview() {
 		</>
 	);
 }
-export const filePath = 'src/components/form/preview/Error-summary-in-form.tsx';
+export const filePath = 'src/components/forms/preview/Error-summary-in-form.tsx';
 
 export {ButtonPreview as preview};

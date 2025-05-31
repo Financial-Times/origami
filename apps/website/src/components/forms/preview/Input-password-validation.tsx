@@ -18,6 +18,6 @@ function ButtonPreview() {
 		</div>
 	);
 }
-export const filePath = 'src/components/form/preview/Input-password.tsx';
+export const filePath = 'src/components/forms/preview/Input-password.tsx';
 
 export {ButtonPreview as preview};

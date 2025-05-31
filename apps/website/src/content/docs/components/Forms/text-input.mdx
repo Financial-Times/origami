@@ -13,10 +13,10 @@ import {Form, TextInput} from '@financial-times/o3-form';
 import Tip from '../../../../components/utils/Tip.astro';
 import Example from '../../../../components/Example.astro';
 
-import {default as TextInputAnatomy} from '../../../../components/form/anatomy/Text-input.astro';
+import {default as TextInputAnatomy} from '../../../../components/forms/anatomy/Text-input.astro';
 
-import {default as InputWidthExample} from '../../../../components/form/examples/Input-width.astro';
-import {default as ShortTextEample} from '../../../../components/form/examples/Input-short-text.astro';
+import {default as InputWidthExample} from '../../../../components/forms/examples/Input-width.astro';
+import {default as ShortTextEample} from '../../../../components/forms/examples/Input-short-text.astro';
 
 import '@financial-times/o3-form/css/whitelabel.css';
 import '@financial-times/o3-form/css/internal.css';
@@ -31,8 +31,8 @@ Text inputs allow users to enter free-form text data such as filling in contact 
 	The <a
 		href={
 			props.brand == 'core'
-				? '/components/form'
-				: `/${props.brand}/components/form`
+				? '/components/forms/'
+				: `/${props.brand}/components/forms/`
 		}>
 		general form component guidelines
 	</a> apply to this component. Please make sure you’re familiar with them first.

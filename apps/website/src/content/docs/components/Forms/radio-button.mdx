@@ -12,11 +12,11 @@ import {Aside} from '@astrojs/starlight/components';
 import Tip from '../../../../components/utils/Tip.astro';
 import Example from '../../../../components/Example.astro';
 
-import {default as RadioButtonAnatomy} from '../../../../components/form/anatomy/Radio-button.astro';
+import {default as RadioButtonAnatomy} from '../../../../components/forms/anatomy/Radio-button.astro';
 
-import {default as RadioButtonExclusiveChoicesGuideline} from '../../../../components/form/guidelines/Radio-button-exclusive-choices.astro';
+import {default as RadioButtonExclusiveChoicesGuideline} from '../../../../components/forms/guidelines/Radio-button-exclusive-choices.astro';
 
-import {default as RadioButtonGroup} from '../../../../components/form/examples/Radio-button-group.astro';
+import {default as RadioButtonGroup} from '../../../../components/forms/examples/Radio-button-group.astro';
 
 import '@financial-times/o3-form/css/whitelabel.css';
 import '@financial-times/o3-form/css/internal.css';
@@ -30,8 +30,8 @@ Radio buttons allow users to select a single option from a predefined set of mut
 	The <a
 		href={
 			props.brand == 'core'
-				? '/components/form'
-				: `/${props.brand}/components/form`
+				? '/components/forms/'
+				: `/${props.brand}/components/forms/`
 		}>
 		general form component guidelines
 	</a> apply to this component. Please make sure you’re familiar with them first.
@@ -54,7 +54,7 @@ Radio buttons are best suited for small sets of options (typically 2 to 5). For 
 
 ### Use for Mutually Exclusive Choices
 
-Only use radio buttons when the options are mutually exclusive. If multiple selections are possible, consider using <a href={`/${props.brand}/components/form/checkbox/`}>checkboxes</a> instead.
+Only use radio buttons when the options are mutually exclusive. If multiple selections are possible, consider using <a href={`/${props.brand}/components/forms/checkbox/`}>checkboxes</a> instead.
 
 <RadioButtonExclusiveChoicesGuideline brand={props.brand} />
 

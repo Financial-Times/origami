@@ -29,6 +29,6 @@ function ButtonPreview() {
 		</div>
 	);
 }
-export const filePath = 'src/components/form/preview/Radio-group.tsx';
+export const filePath = 'src/components/forms/preview/Radio-group.tsx';
 
 export {ButtonPreview as preview};

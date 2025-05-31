@@ -6,22 +6,14 @@ function ButtonPreview() {
 			<meta itemProp="@preview" />
 			<Form>
 				<TextInput
-					label="2 characters"
-					length={2}
-				/>
-				<TextInput
-					label="3 characters"
-					length={3}
-				/>
-				<TextInput
-					label="4 characters"
-					length={4}
+					label="Full name"
+					attributes={{defaultValue: 'John Smith'}}
 				/>
 			</Form>
 			<meta itemProp="@preview" />
 		</>
 	);
 }
-export const filePath = 'src/components/form/preview/Input-short-text.tsx';
+export const filePath = 'src/components/forms/preview/Input-width.tsx';
 
 export {ButtonPreview as preview};
