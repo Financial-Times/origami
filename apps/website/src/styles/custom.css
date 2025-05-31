@@ -41,6 +41,8 @@
 
     --sl-font-system: var(--o3-font-family-metric);
     --sl-text-base: var(--o3-type-body-base-font-size);
+    --sl-text-sm: var(--o3-type-detail-font-size);
+    --sl-text-xs: var(--o3-type-detail-font-size);
     --sl-text-h1: var(--o3-type-title-lg-font-size);
     --sl-text-h2: var(--o3-type-title-md-font-size);
     --sl-text-h3: var(--o3-type-title-sm-font-size);
@@ -62,6 +64,21 @@ details details .large {
 
 .starlight-aside a {
     text-decoration-color: currentColor;
+}
+
+.sl-badge {
+    font-family: var(--sl-font-system);
+    padding-bottom: var(--o3-spacing-5xs);
+    border-radius: 0;
+}
+
+.sl-badge.caution {
+    --sl-color-bg-badge: color-mix(in srgb, var(--sl-color-orange), black 10%);
+    --sl-color-border-badge: var(--sl-color-bg-badge)
+}
+
+.starlight-aside--caution {
+    --sl-color-asides-text-accent: color-mix(in srgb, var(--sl-color-orange), black 10%);
 }
 
 img {
