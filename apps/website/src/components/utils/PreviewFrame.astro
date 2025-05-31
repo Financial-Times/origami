@@ -1,8 +1,26 @@
 ---
 import {Tabs, TabItem, Code} from '@astrojs/starlight/components';
 
+function getBrandFromLocale(lang: string) {
+	switch (lang) {
+		case "en-GB-x-prof":
+			return "professional"
+		case "en-GB-x-sv":
+			return "sustainable-views"
+		case "en-GB-x-internal":
+			return "internal"
+		case "en-GB-x-wl":
+			return "whitelabel"
+		case "en-GB-x-core":
+		default:
+			return "NOPE"
+	}
+}
+
 const {component: Component, html, jsx, mark, themes= []} = Astro.props;
 const uniqueID = 'switcher-' + Math.random().toString(36).substring(7);
+let brand = getBrandFromLocale(Astro);
+
 ---
 
 <div class="not-content">
@@ -23,7 +41,7 @@ const uniqueID = 'switcher-' + Math.random().toString(36).substring(7);
 		</label>
 	</div>
 
-	<div class="component-preview-wrapper">
+	<div data-apply-current-brand class="component-preview-wrapper">
 		<div class={`not-content component-preview visible ${uniqueID}`}>
 			{Component ?
 				<Component /> :

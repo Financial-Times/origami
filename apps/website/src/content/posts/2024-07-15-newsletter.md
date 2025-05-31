@@ -16,13 +16,13 @@ Some of the bigger Origami news since our last update:
 
 #### Grid
 
-In conjunction with product design team, we have published [new grid guidelines for Origami 3 (o3)](https://origami-beta.ft.com/guides/grid/).
+In conjunction with product design team, we have published [new grid guidelines for Origami 3 (o3)](https://origami-beta.ft.com/foundations/grid/).
 
 Without a consistent grid system the FT would be anarchy, from a design and usability perspective. We use a grid system to ensure consistency across different FT pages with a structured, balanced layout. It enhances readability and guides the reader's eye. Regardless of who designed or built a given page, the grid system provides an FT experience.
 
 For over 11 years, the FT have had guidelines for a systematised grid. However over the years the devices our readers use and the tools we use to create products have changed. [Conformance to our grid system has fallen](https://docs.google.com/document/d/1k4q3uWYk7NiI9nuzRNTHS5pxYavzyUtPFcC2oSJfRMk/edit#heading=h.f45oi3ye4iz4), and inconsistency across FT projects has grown.
 
-Our [updated grid guidelines](https://origami-beta.ft.com/guides/grid/) are more comprehensive and, with a smaller number of columns for smaller viewports, more orientated to mobile design than before. We also have an [accurate representation within Figma](<https://www.figma.com/design/xf2Hi9dzeNOAEQdaoqelRy/%F0%9F%92%A0-Grid---Origami-(o3)?node-id=3-108&t=QeTAtPVjhEbhDwC9-0>) design tooling.
+Our [updated grid guidelines](https://origami-beta.ft.com/foundations/grid/) are more comprehensive and, with a smaller number of columns for smaller viewports, more orientated to mobile design than before. We also have an [accurate representation within Figma](<https://www.figma.com/design/xf2Hi9dzeNOAEQdaoqelRy/%F0%9F%92%A0-Grid---Origami-(o3)?node-id=3-108&t=QeTAtPVjhEbhDwC9-0>) design tooling.
 
 ![A graphic showing our new grid has 4 columns on mobile and 12 on larger devices.](/assets/images/2024-07-15-newsletter/column-spanning.svg)
 
@@ -30,7 +30,7 @@ We're continuing to gather real world feedback from designers and are working to
 
 #### Editorial Typography
 
-We've also released new [editorial typography guidelines for o3](https://origami-beta.ft.com/guides/typography/).
+We've also released new [editorial typography guidelines for o3](https://origami-beta.ft.com/foundations/typography/).
 
 ![Guidelines for a quote component. Switching the current brand shows different guidelines, with a different visual style.](/assets/images/2024-07-15-newsletter/quotes-sv.gif)
 

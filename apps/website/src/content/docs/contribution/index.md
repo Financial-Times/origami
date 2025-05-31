@@ -13,9 +13,8 @@ Whether you'd like to create a new Origami component, improve documentation, or 
 
 You can reach us in a number of Slack channels. Don't worry about picking the right one, we're happy to hear from you in any forum:
 
-- [#origami-support](https://financialtimes.slack.com/messages/origami-support) – The support channel is a great place to ask for help with a specific question or bug report.
 - [#design-system-guild](https://financialtimes.slack.com/archives/C01481FKWA2) – The design system guild channel includes us, the Origami team, and designers from across the FT Group. This is a great place to bring proposals for new components or features, or anything else where broad designer input could be valuable.
-- [#origami-chat](https://app.slack.com/client/T025C95MN/CSW6B2VAN) – Our chat channel is for anything else. Bounce around ideas, kick off a big proposal, or say hello to the team and share a photo of your cat, dog, or pet catepillar.
+- [#origami-support](https://financialtimes.slack.com/messages/origami-support) – The support channel is great for specific questions, bug reports, or general advise from the core Origami team and our community of collaborators.
 
 You may also contact us via email (origami.support@ft.com), or, drop into an [open meeting](#design-system-open-meeting).
 

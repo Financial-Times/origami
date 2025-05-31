@@ -4,7 +4,7 @@ description: Our typographic scale.
 sidebar:
   order: 4
   badge:
-    text: Updated
+    text: updated
     variant: note
 ---
 
@@ -83,6 +83,8 @@ We do not recommend the direct use of our typographic scale within projects. Ins
 
 These usecases are based on multiple typographic scales, for different font families. Our scale ranges from -2 to 10, depending on the font family. Consider scale 0 the baseline, with ascending and descending values in each direction. Avoid using styles below zero for long form content.
 
+<details>
+<summary>Scale values</summary>
 <Tabs syncKey="code">
 	<TabItem label="Metric2">
 		<TypeScale brand={props.brand} scaleFamily="metric2" />
@@ -103,11 +105,15 @@ These usecases are based on multiple typographic scales, for different font fami
 		</TabItem>
 	</BrandedContent>
 </Tabs>
+</details>
 
 ## Font Weight
 
 Font weight can be used to express hierarchy or urgency of information. As with our typographic scale, we do not recommend the direct use of our font weight values within projects. Instead [apply a usecase token](#usecase-tokens).
 
+
+<details>
+<summary>Weight values</summary>
 | Preview                                                                                                               | Value | Token                     |
 | --------------------------------------------------------------------------------------------------------------------- | ----- | ------------------------- |
 | <span style="font-family: var(--o3-font-family-metric) ; font-weight: var(--o3-font-weight-light)">light</span>       | 300   | <Code code={`font-weight: var(--o3-font-weight-light);`} lang="css" wrap={true}/>  |
@@ -115,7 +121,7 @@ Font weight can be used to express hierarchy or urgency of information. As with 
 | <span style="font-family: var(--o3-font-family-metric) ; font-weight: var(--o3-font-weight-medium)">medium</span>     | 500   | <Code code={`font-weight: var(--o3-font-weight-medium);`} lang="css" wrap={true}/> |
 | <span style="font-family: var(--o3-font-family-metric) ; font-weight: var(--o3-font-weight-semibold)">semibold</span> | 700   | <Code code={`font-weight: var(--o3-font-weight-semibold);`} lang="css" wrap={true}/> |
 | <span style="font-family: var(--o3-font-family-metric) ; font-weight: var(--o3-font-weight-bold)">bold</span>         | 800   | <Code code={`font-weight: var(--o3-font-weight-bold);`} lang="css" wrap={true}/> |
-
+</details>
 
 ## Usecase Tokens
 
@@ -125,15 +131,15 @@ Typography usecase tokens provide low level typography styles for use in a varie
 In addition to these usecase tokens, Origami provides typography components which use these. For example the [display heading component](#headings) combines all three [display sizes](#display) at different breakpoints for a responsive heading.
 </BrandedContent>
 
-### Display
+<BrandedContent brands="core, professional, sustainable-views, whitelabel">
+	### Display
 
-Display styles, as the largest text on the screen, are reserved for short, important text or numerals.
+	Display styles, as the largest text on the screen, are reserved for short, important text or numerals.
 
-<BrandedContent brands="core, professional, sustainable-views">
-These styles are responsive to screen sizes and use the Financier Display typeface. This font family should be used exclusively for editorial story headlines, such as teaser headlines or article toppers.
+	These styles are responsive to screen sizes and use the Financier Display typeface. This font family should be used exclusively for editorial story headlines, such as teaser headlines or article toppers.
+
+	<TypeUsecase brand={props.brand} usecases={['display-sm', 'display-md', 'display-lg']} />
 </BrandedContent>
-
-<TypeUsecase brand={props.brand} usecases={['display-sm', 'display-md', 'display-lg']} />
 
 <BrandedContent brands="core, professional, sustainable-views, whitelabel">
 	### Headline

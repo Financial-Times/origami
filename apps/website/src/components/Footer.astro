@@ -1,0 +1,28 @@
+---
+import {getBrandFromLocale} from '../helpers/utils.js';
+const brand = getBrandFromLocale(Astro.props.lang)
+const homePageRegex = new RegExp(`^/?${brand}/?$`);
+const brandRegex = new RegExp(`^/?${brand}[/$]`);
+const currentPageEncoded = encodeURI(Astro.props.slug);
+let pageAnswer = currentPageEncoded === '/' || currentPageEncoded === '' || currentPageEncoded.match(homePageRegex) ? 'home' : currentPageEncoded;
+pageAnswer = pageAnswer.replace(brandRegex, '');
+const googleForm =
+	'https://docs.google.com/forms/d/e/1FAIpQLSfloWAL9xTZN9jdwDPJZQUcwGUYXZMrIgJ80xpOSTTjepnzjw/viewform';
+const feedBack = googleForm + '?entry.446988371=' + pageAnswer + '&entry.448320318=' + brand;
+---
+
+<div class="edit-panel">
+	<a
+		data-o3-fluid
+		class="o3-button o3-button--ghost o3-button-icon o3-button-icon--edit o3-button--small"
+		href={feedBack}>Suggest an edit</a
+	>
+</div>
+
+<style>
+	.edit-panel.edit-panel {
+		display: flex;
+		margin: var(--o3-spacing-xl) 0;
+		justify-content: center;
+	}
+</style>

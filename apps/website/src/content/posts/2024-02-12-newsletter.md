@@ -58,7 +58,7 @@ Engineers who use VS Code (a popular [IDE](https://en.wikipedia.org/wiki/Integra
 
 ## Goodbye Registry
 
-Whilst we're busy building out what's new for Origami, we're also working to decommission the old. This quarter we plan to turn off the [Origami Registry](https://registry.origami.ft.com/components) along with its two supporting systems [origami-codedocs](https://biz-ops.in.ft.com/System/origami-codedocs) and [origami-repo-data](https://biz-ops.in.ft.com/System/origami-repo-data). This will help us reduce our maintenance burden to focus on what's new, and also consolidate our demos and documentation for easier onboarding to Origami. 
+Whilst we're busy building out what's new for Origami, we're also working to decommission the old. This quarter we plan to turn off the [Origami Registry](https://registry.origami.ft.com/components) along with its two supporting systems [origami-codedocs](https://biz-ops.in.ft.com/System/origami-codedocs) and [origami-repo-data](https://biz-ops.in.ft.com/System/origami-repo-data). This will help us reduce our maintenance burden to focus on what's new, and also consolidate our demos and documentation for easier onboarding to Origami.
 
 ![](/assets/images/2024-02-12-newsletter/registry-button-demos.png?width=500&source=origami)
 
@@ -98,6 +98,6 @@ A digest list of some other things that have happened in January:
 
 - [Sass build time metrics in PageKit](https://origami-for-everyone.ft.com/blog/2024/01/24/sass-build-times). Sass build times got you down? Enable Sass monitoring in your project and let us know. New Origami components do not require Sass.
 - [Improved pagination pattern](https://origami-for-everyone.ft.com/patterns/pagination/), with mobile support.
-- [New colour palette design guidelines](https://origami-for-everyone.ft.com/guides/colours/).
+- [New colour palette design guidelines](https://origami-for-everyone.ft.com/foundations/colours/).
 - Beta [Sustainable Views](https://origami-for-everyone.ft.com/sustainable-views/components/buttons/#themes) support added.
 - Revised Origami Image Service hostname monitoring, [to mitigate a business risk](https://biz-ops.in.ft.com/Risk/image-service-open-to-abuse?message=Risk%20image-service-open-to-abuse%20was%20successfully%20updated&messageType=success). We count 2151 unique image hosts so far, for images requested via the Origami Image Service.
