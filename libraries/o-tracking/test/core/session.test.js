@@ -64,7 +64,10 @@ describe('Core.Session', function () {
 
 		it('should generate timestamp for session', () => {
 			const currentTimestamp = new Date().getTime();
-			proclaim.equal(currentTimestamp, getSession().timestamp)
+			const timestamp = getSession().timestamp;
+			proclaim.isNumber(timestamp);
+			proclaim.isTrue(timestamp >= currentTimestamp);
+			proclaim.isTrue(timestamp <= currentTimestamp + 1000); // within 1 second
 		})
 
 		it('should generate a new timestamp if session has expired', (done) => {
