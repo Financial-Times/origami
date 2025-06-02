@@ -66,8 +66,9 @@ describe('Core.Session', function () {
 			const currentTimestamp = new Date().getTime();
 			const timestamp = getSession().timestamp;
 			proclaim.isNumber(timestamp);
-			proclaim.isTrue(timestamp >= currentTimestamp);
-			proclaim.isTrue(timestamp <= currentTimestamp + 1000); // within 1 second
+			// sometimes timestamp is a few ms behind currentTimeStamp and sometimes ahead, the point is that it is close enough
+			proclaim.greaterThanOrEqual(timestamp, currentTimestamp - 5);
+			proclaim.lessThanOrEqual(timestamp, currentTimestamp + 1000); // allow up to 1 second
 		})
 
 		it('should generate a new timestamp if session has expired', (done) => {
