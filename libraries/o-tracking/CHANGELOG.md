@@ -1,5 +1,18 @@
 # Changelog
 
+## [4.8.0](https://github.com/Financial-Times/origami/compare/o-tracking-v4.7.0...o-tracking-v4.8.0) (2025-06-02)
+
+
+### Features
+
+* (o-tracking) ci-2846  add custom to allowed tracking attributes for component-view ([a0023c3](https://github.com/Financial-Times/origami/commit/a0023c3e33e772df4fe9c6c7802f5ea1c0f926f3))
+
+
+### Bug Fixes
+
+* (session) allow up to a second for session to be created ([f2f1d6b](https://github.com/Financial-Times/origami/commit/f2f1d6bd2015b8b4f5b0b6771d5435961cc547ce))
+* (session) ms differences between session time and current time ([ca5f0c7](https://github.com/Financial-Times/origami/commit/ca5f0c796de01c227afe302d4b4c9d9af98c4163))
+
 ## [4.7.0](https://github.com/Financial-Times/origami/compare/o-tracking-v4.6.1...o-tracking-v4.7.0) (2025-01-30)
 
 
