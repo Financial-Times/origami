@@ -1,0 +1,1 @@
+const o=document.querySelectorAll(".sliding-switch");o.forEach(e=>{e.addEventListener("change",()=>{const c=e.id,s=document.querySelector(`.component-preview.${c}`),i=document.querySelector(`.code-preview.${c}`);e.checked?(s?.classList.remove("visible"),i?.classList.add("visible")):(i?.classList.remove("visible"),s?.classList.add("visible"))})});
