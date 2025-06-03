@@ -126,16 +126,6 @@
 	margin-right: 4px;
 }
 
-@mixin _oTopperColumnist {
-	margin-top: oPrivateSpacingByName('s4');
-	text-transform: uppercase;
-}
-
-@mixin _oTopperColumnistName {
-	@extend %_o-topper__tag;
-	vertical-align: middle;
-}
-
 @mixin _oTopperTags {
 	font-family: oPrivateFoundationGet('o3-type-body-base-font-family');
 	font-size: oPrivateFoundationGet('o3-type-body-base-font-size');
