@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.0.6](https://github.com/Financial-Times/origami/compare/o-topper-v7.0.5...o-topper-v7.0.6) (2025-06-03)
+
+
+### Bug Fixes
+
+* Correct o-topper__image-caption background ([b6af900](https://github.com/Financial-Times/origami/commit/b6af900c9315994218fa0008e195116b8aa587db))
+
 ## [7.0.5](https://github.com/Financial-Times/origami/compare/o-topper-v7.0.4...o-topper-v7.0.5) (2025-05-28)
 
 
