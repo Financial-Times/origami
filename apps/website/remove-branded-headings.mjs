@@ -4,7 +4,7 @@ import {minify} from 'html-minifier';
 import {JSDOM} from 'jsdom';
 
 // Get all HTML files from the output directory
-const path = 'dist';
+const path = 'origami.ft.com';
 const files = await globby(`${path}/**/*.html`);
 
 /**
