@@ -33,13 +33,14 @@
 			min-height: 350px;
 		}
 
+
 		@each $color-name in $colors {
-			$color-name: if($color-name == 'matisse', 'o3-color-palette-#{$color-name}-blue', 'o3-color-palette-#{$color-name}');
+			$o3-palette-name: if($color-name == 'matisse', 'o3-color-palette-#{$color-name}-blue', 'o3-color-palette-#{$color-name}');
 			&.o-topper--color-#{$color-name} {
 				.o-topper__image-caption {
-					$background: oPrivateFoundationGet($color-name);
+					$background: oPrivateFoundationGet($o3-palette-name);
 					$foreground: oPrivateColorsGetTextColor($background, $opacity: 100);
-					color: oPrivateColorsMix($foreground, $color-name, 73);
+					color: oPrivateColorsMix($foreground, $background, 73);
 					background-color: $background;
 				}
 			}
