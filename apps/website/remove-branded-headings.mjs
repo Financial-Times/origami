@@ -4,8 +4,12 @@ import {minify} from 'html-minifier';
 import {JSDOM} from 'jsdom';
 
 // Get all HTML files from the output directory
-const path = 'origami.ft.com';
+const path = '../../origami.ft.com';
 const files = await globby(`${path}/**/*.html`);
+
+if(!files.length) {
+	throw new Error(`Could not remove branded headings. No HTML files found in ${path}.`);
+}
 
 /**
  * Remove links from a table of contents element, where they are
