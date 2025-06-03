@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.0.7](https://github.com/Financial-Times/origami/compare/o-topper-v7.0.6...o-topper-v7.0.7) (2025-06-03)
+
+
+### Bug Fixes
+
+* o-topper, prevent myft/headshot overlay ([f567b15](https://github.com/Financial-Times/origami/commit/f567b15311d5956d8ba1572c067d30e252b919dc))
+
 ## [7.0.6](https://github.com/Financial-Times/origami/compare/o-topper-v7.0.5...o-topper-v7.0.6) (2025-06-03)
 
 
