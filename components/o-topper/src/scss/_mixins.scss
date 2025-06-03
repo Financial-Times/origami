@@ -236,13 +236,22 @@
 
 	@if index($elements, 'columnist') {
 		.o-topper__columnist {
-			@include _oTopperColumnist;
+			margin-top: oPrivateSpacingByName('s4');
+			text-transform: uppercase;
+		}
+
+		.o-topper--has-headshot .o-topper__columnist {
+			margin-right: $_o-topper-headshot-width;
+			@include oPrivateGridRespondTo(M) {
+				margin-right: $_o-topper-headshot-width-M;
+			}
 		}
 	}
 
 	@if index($elements, 'columnist-name') {
 		.o-topper__columnist-name {
-			@include _oTopperColumnistName;
+			@extend %_o-topper__tag;
+			vertical-align: middle;
 		}
 	}
 
