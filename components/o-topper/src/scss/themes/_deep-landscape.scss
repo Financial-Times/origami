@@ -25,12 +25,12 @@
 	.o-topper__standfirst{
 		opacity: 1;
 	}
-	
+
 
 	@each $color-name in $colors {
-		$color-name: if($color-name == 'matisse', 'o3-color-palette-#{$color-name}-blue', 'o3-color-palette-#{$color-name}');
+		$o3-palette-name: if($color-name == 'matisse', 'o3-color-palette-#{$color-name}-blue', 'o3-color-palette-#{$color-name}');
 		&.o-topper--color-#{$color-name} {
-			$background: oPrivateFoundationGet($color-name);
+			$background: oPrivateFoundationGet($o3-palette-name);
 			$foreground: oPrivateColorsGetTextColor($background, $opacity: 100);
 			.o-topper__content--text-shadow{
 				@if $foreground == white{
