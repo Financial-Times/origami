@@ -41,6 +41,7 @@
 			transform $_o-tooltip-animation-duration $o-pf-visual-effects-timing-slide;
 		border: 0;
 		display: none;
+		background: green;
 
 		&.visible {
 			transform: translate(0, 0);
