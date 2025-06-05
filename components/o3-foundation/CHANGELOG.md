@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.6.1](https://github.com/Financial-Times/origami/compare/o3-foundation-v3.6.0...o3-foundation-v3.6.1) (2025-06-05)
+
+
+### Bug Fixes
+
+* Use hover colours for link focus state unless otherwise defined ([8c3152a](https://github.com/Financial-Times/origami/commit/8c3152a57373acf16b8a555cc6112b17dfda1359))
+
 ## [3.6.0](https://github.com/Financial-Times/origami/compare/o3-foundation-v3.5.2...o3-foundation-v3.6.0) (2025-05-16)
 
 
