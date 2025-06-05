@@ -2,8 +2,8 @@
 @font-face {
 	src: url('https://www.ft.com/__origami/service/build/v3/font?version=1.13&font_name=Metric2-VF&system_code=origami&font_format=woff2')
 		format('woff2-variations');
-	font-family: 'arial';
-	font-weight: 600 600;
+	font-family: 'metric 2 VF';
+	font-weight: 300 800;
 	font-style: normal;
 	font-display: swap;
 }
