@@ -51,6 +51,8 @@ This will trigger chromatic deployment and after deployment there will be two ad
 
 To pass additional check on the PR we will need to approve UI Review and UI Tests from [Chromatic app](https://www.chromatic.com/reviews?appId=64faf6b1815b6c0106f82e74). Once both checks are approved, the pull request can be merged.
 
+If you need any assitance with the reviews or this process please contact us on the [#origami-support](https://financialtimes.enterprise.slack.com/archives/C02FU5ARJ) Slack channel.
+
 ## Releasing
 
 When your component is reviewed by the component's code owners, usually the Origami team, it is ready for release:
