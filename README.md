@@ -236,6 +236,23 @@ _Note: This will take a good amount of time when running on localhost._
   and not working, try running it without the cache:
   `npm run storybook -- --no-manager-cache`
 
+## Chromatic
+
+### Billing
+
+Chromatic usage is calculated in snapshots. You can check on the current consumption of our monthly allowance by:
+
+- Logging into Chromatic
+- Click **Billing** in the left side menu
+
+Here you can see the current billing periods usage as well historical periods.
+
+#### Notifications
+
+An alert has been set for when the snapshot usage reaches 42,500 (50% of the current 85,000 total).
+
+The alert sends an email to the [#origami-notifcation](https://financialtimes.enterprise.slack.com/archives/C046BHSDZR9) channel.
+
 ## Contributing
 
 If you want to contribute, check out [CONTRIBUTING.md](./CONTRIBUTING.md).
