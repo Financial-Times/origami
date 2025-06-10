@@ -5,7 +5,7 @@
 @import './src/scss/o-spacing/main';
 @import './src/scss/o-colors/main';
 @import './src/scss/o-normalise/main';
-@import "./src/scss/o-icons/main";
+@import './src/scss/o-icons/main';
 @import './src/scss/o-visual-effects/main';
 @import './src/scss/o-buttons/main';
 @import './src/scss/o-grid/main';
@@ -25,7 +25,7 @@
 		src: url('https://www.ft.com/__origami/service/build/v3/font?version=1.13&font_name=FinancierDisplay-VF&system_code=origami&font_format=woff2')
 			format('woff2-variations');
 		font-family: 'financier display VF';
-		font-weight: 300 800;
+		font-weight: 200 800;
 		font-style: normal;
 		font-display: swap;
 	}
