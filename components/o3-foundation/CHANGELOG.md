@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.7.0](https://github.com/Financial-Times/origami/compare/o3-foundation-v3.6.2...o3-foundation-v3.7.0) (2025-06-10)
+
+
+### Features
+
+* Add font-size icon ([0665e8a](https://github.com/Financial-Times/origami/commit/0665e8a98c29bd9b3d941efe0b475735a283d522))
+
 ## [3.6.2](https://github.com/Financial-Times/origami/compare/o3-foundation-v3.6.1...o3-foundation-v3.6.2) (2025-06-09)
 
 
