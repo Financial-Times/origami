@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.8.0](https://github.com/Financial-Times/origami/compare/o3-foundation-v3.7.0...o3-foundation-v3.8.0) (2025-06-10)
+
+
+### Features
+
+* Enable named exports for esm tokens. ([63502ab](https://github.com/Financial-Times/origami/commit/63502abcfd94811ababc1f4a8dbfb467ab7f5d2a))
+* Seperate JS token exports by icons and all other branded tokens. ([82808f9](https://github.com/Financial-Times/origami/commit/82808f9a1a6d17bacfb36bca4cff9a8f4858396c))
+
 ## [3.7.0](https://github.com/Financial-Times/origami/compare/o3-foundation-v3.6.2...o3-foundation-v3.7.0) (2025-06-10)
 
 
