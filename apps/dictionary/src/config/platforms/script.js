@@ -17,10 +17,20 @@ function jsObjectConfigForBrand(brand) {
 						return false;
 					}
 					return (
-						!token.filePath.includes(`/components/`)
+						!token.filePath.includes(`/components/`) && token.path[1] !== 'icon'
 					);
 				},
 				destination: `o3-foundation/src/js/tokens/${subBrand}.js`,
+				format: 'javascript/esm',
+				options: {
+					flat: true
+				},
+			},
+			{
+				filter: token => {
+					return token.path[1] === 'icon';
+				},
+				destination: `o3-foundation/src/js/tokens/icons.js`,
 				format: 'javascript/esm',
 				options: {
 					flat: true
@@ -46,10 +56,17 @@ function jsNamedExportConfigForBrand(brand) {
 						return false;
 					}
 					return (
-						!token.filePath.includes(`/components/`)
+						!token.filePath.includes(`/components/`) && token.path[1] !== 'icon'
 					);
 				},
 				destination: `o3-foundation/src/js/tokens/${subBrand}-named.js`,
+				format: 'javascript/es6'
+			},
+			{
+				filter: token => {
+					return token.path[1] === 'icon';
+				},
+				destination: `o3-foundation/src/js/tokens/icons-named.js`,
 				format: 'javascript/es6'
 			}
 		],
