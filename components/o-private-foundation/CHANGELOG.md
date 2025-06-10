@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.6.0](https://github.com/Financial-Times/origami/compare/o-private-foundation-v1.5.1...o-private-foundation-v1.6.0) (2025-06-10)
+
+
+### Features
+
+* Add font-size icon ([0665e8a](https://github.com/Financial-Times/origami/commit/0665e8a98c29bd9b3d941efe0b475735a283d522))
+
+## [1.5.1](https://github.com/Financial-Times/origami/compare/o-private-foundation-v1.5.0...o-private-foundation-v1.5.1) (2025-06-09)
+
+
+### Bug Fixes
+
+* Allow 200+ financier display weights. ([4262f95](https://github.com/Financial-Times/origami/commit/4262f95de7efed36d420cfb7b578355c481b2494))
+
 ## [1.5.0](https://github.com/Financial-Times/origami/compare/o-private-foundation-v1.4.0...o-private-foundation-v1.5.0) (2025-04-10)
 
 

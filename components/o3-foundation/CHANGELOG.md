@@ -1,5 +1,34 @@
 # Changelog
 
+## [3.8.0](https://github.com/Financial-Times/origami/compare/o3-foundation-v3.7.0...o3-foundation-v3.8.0) (2025-06-10)
+
+
+### Features
+
+* Enable named exports for esm tokens. ([63502ab](https://github.com/Financial-Times/origami/commit/63502abcfd94811ababc1f4a8dbfb467ab7f5d2a))
+* Seperate JS token exports by icons and all other branded tokens. ([82808f9](https://github.com/Financial-Times/origami/commit/82808f9a1a6d17bacfb36bca4cff9a8f4858396c))
+
+## [3.7.0](https://github.com/Financial-Times/origami/compare/o3-foundation-v3.6.2...o3-foundation-v3.7.0) (2025-06-10)
+
+
+### Features
+
+* Add font-size icon ([0665e8a](https://github.com/Financial-Times/origami/commit/0665e8a98c29bd9b3d941efe0b475735a283d522))
+
+## [3.6.2](https://github.com/Financial-Times/origami/compare/o3-foundation-v3.6.1...o3-foundation-v3.6.2) (2025-06-09)
+
+
+### Bug Fixes
+
+* Allow 200+ financier display weights. ([4262f95](https://github.com/Financial-Times/origami/commit/4262f95de7efed36d420cfb7b578355c481b2494))
+
+## [3.6.1](https://github.com/Financial-Times/origami/compare/o3-foundation-v3.6.0...o3-foundation-v3.6.1) (2025-06-05)
+
+
+### Bug Fixes
+
+* Use hover colours for link focus state unless otherwise defined ([8c3152a](https://github.com/Financial-Times/origami/commit/8c3152a57373acf16b8a555cc6112b17dfda1359))
+
 ## [3.6.0](https://github.com/Financial-Times/origami/compare/o3-foundation-v3.5.2...o3-foundation-v3.6.0) (2025-05-16)
 
 
