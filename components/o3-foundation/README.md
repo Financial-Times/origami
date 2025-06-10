@@ -64,12 +64,28 @@ Then apply the brand data selector `data-o3-brand="[BRAND]"` on a container elem
 
 # JS Tokens
 
-Foundational tokens are also available as JavaScript. Replace `[brand].js` with our brand, e.g. `core.js`.
+Foundational tokens are also available as JavaScript.
+
+For an object of all tokens replace `[brand].js` with our brand, e.g. `core.js`.
+
+Pro: Same token naming convention as with CSS Custom Properties, for discoverability and refactoring.
+Con: Unused tokens cannot be removed through [tree-shaking](https://developer.mozilla.org/en-US/docs/Glossary/Tree_shaking), and therefore may increase your final bundle size.
 
 ```js
-@import '@financial-times/o3-foundation/esm/tokens/[brand].js';
+import tokens from '@financial-times/o3-foundation/esm/tokens/[brand].js';
 
 const example = `The hex for FT Pink is ${tokens['o3-color-palette-ft-pink']}`;
+```
+
+To use named exports instead of an object of all tokens, use `[brand]-named.js`.
+
+Pro: Supports [tree-shaking](https://developer.mozilla.org/en-US/docs/Glossary/Tree_shaking) for minimal bundle sizes.
+Con: Uses snake case token names, making it impossible to search for a token across JS and CSS.
+
+```js
+import {o3_color_palette_ft_pink} from '@financial-times/o3-foundation/esm/tokens/[brand]-named.js';
+
+const example = `The hex for FT Pink is ${o3_color_palette_ft_pink}`;
 ```
 
 ## Typography

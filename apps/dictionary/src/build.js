@@ -1,6 +1,6 @@
 import {StyleDictionaryPackageWithTransforms} from './config/styledictionary.js';
 import {getBrandSourcesAndIncludes, getBrandNames} from './utils.js';
-import {jsConfigForBrand} from './config/platforms/script.js';
+import {jsObjectConfigForBrand, jsNamedExportConfigForBrand} from './config/platforms/script.js';
 import {cssConfigForBrand} from './config/platforms/css.js';
 import {sassConfigForBrand} from './config/platforms/sass.js';
 import {toolingConfigForBrand} from './config/platforms/tooling.js';
@@ -33,7 +33,8 @@ export async function buildForBrand(brand) {
 			},
 		},
 		platforms: {
-			js: jsConfigForBrand(brand),
+			js: jsObjectConfigForBrand(brand),
+			['js-named']: jsNamedExportConfigForBrand(brand),
 			css: cssConfigForBrand(brand),
 			sass: sassConfigForBrand(brand),
 			tooling: toolingConfigForBrand(brand),
