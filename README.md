@@ -238,6 +238,10 @@ _Note: This will take a good amount of time when running on localhost._
 
 ## Chromatic
 
+Origami implements visual regression tests for o3 components with Chromatic.
+
+More details on how Chromatic can test Pull Requests can be found in the [Contribution notes](https://github.com/Financial-Times/origami/blob/main/CONTRIBUTING.md#pull-requests-and-visual-regression-tests).
+
 ### Billing
 
 Chromatic usage is calculated in snapshots. You can check on the current consumption of our monthly allowance by:
