@@ -2,12 +2,14 @@ import core from '../core.js';
 import {getTrace} from '../../libs/get-trace.js';
 import {assignIfUndefined, filterProperties} from '../utils.js';
 
+// https://docs.google.com/spreadsheets/d/16d2-uDM8rhz1wSKOkoupcpPDRFQ8AtY1GxVJpt74vY4/edit?gid=1318706009#gid=1318706009 is the tracking spec for component events
 const TRACKING_ATTRIBUTES = [
-	'componentContentId',
+	'componentContentId', // this isn't actually used in spoor but leaving it here so it doesn't cause issues with existing tracking
 	'type',
 	'subtype',
 	'component',
 	'custom',
+	'content'
 ];
 
 const decorateEventData = (eventData, viewedEl, opts) => {
