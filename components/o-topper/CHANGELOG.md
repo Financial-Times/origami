@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.0.8](https://github.com/Financial-Times/origami/compare/o-topper-v7.0.7...o-topper-v7.0.8) (2025-06-13)
+
+
+### Bug Fixes
+
+* add read-next to oTopperColor mixin ([fdefca6](https://github.com/Financial-Times/origami/commit/fdefca646e68c9fdda2878c7bedc12b3bd14747c))
+
 ## [7.0.7](https://github.com/Financial-Times/origami/compare/o-topper-v7.0.6...o-topper-v7.0.7) (2025-06-03)
 
 
