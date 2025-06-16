@@ -19,8 +19,6 @@ export interface ButtonProps {
 		| "search"
 		| "refresh"
 		| "cross"
-		| "first"
-		| "last"
 		| ""
 		| (string & Record<never, never>); // Support IDE autocomplete whilst allowing any string https://github.com/microsoft/TypeScript/issues/29729#issuecomment-1331857805
 	iconOnly?: boolean;
