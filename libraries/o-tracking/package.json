@@ -23,5 +23,8 @@
   "dependencies": {
     "ftdomdelegate": "^5"
   },
-  "private": false
+  "private": false,
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.5"
+  }
 }
