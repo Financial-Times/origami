@@ -11,11 +11,7 @@
 	$base: map-get($theme, 'controls-base');
 	$base: if(type-of($base) == 'string', oPrivateFoundationGet($base), $base);
 	$border: map-get($theme, 'controls-border');
-	$border: if(
-		type-of($border) == 'string',
-		oPrivateFoundationGet($border),
-		$border
-	);
+	$border: if(type-of($border) == 'string', oPrivateFoundationGet($border), $border);
 
 	// Get given checked base colour.
 	$checked-base: map-get($theme, 'controls-checked-base');
