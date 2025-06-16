@@ -8,6 +8,7 @@ const TRACKING_ATTRIBUTES = [
 	'subtype',
 	'component',
 	'custom',
+	'content'
 ];
 
 const decorateEventData = (eventData, viewedEl, opts) => {
