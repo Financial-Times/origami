@@ -1,5 +1,17 @@
 # Changelog
 
+## [7.10.0](https://github.com/Financial-Times/origami/compare/o-buttons-v7.9.2...o-buttons-v7.10.0) (2025-06-16)
+
+
+### Features
+
+* first / end button icon helper ([2372c9d](https://github.com/Financial-Times/origami/commit/2372c9d9c7afb573bcf4e3d39b54cbdf08f92f2a))
+
+
+### Bug Fixes
+
+* correct button icon tsx ([552c561](https://github.com/Financial-Times/origami/commit/552c56104c49de34c3577f778a36fe98a8ae3142))
+
 ## [7.9.2](https://github.com/Financial-Times/origami/compare/o-buttons-v7.9.1...o-buttons-v7.9.2) (2024-02-22)
 
 
