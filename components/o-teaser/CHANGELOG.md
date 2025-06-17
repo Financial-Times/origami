@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.1.4](https://github.com/Financial-Times/origami/compare/o-teaser-v7.1.3...o-teaser-v7.1.4) (2025-06-17)
+
+
+### Bug Fixes
+
+* Update teaser topic tag typography ([bb7a9ee](https://github.com/Financial-Times/origami/commit/bb7a9eea91c78fed526b5b68c4ffed970c4e1239))
+
 ## [7.1.3](https://github.com/Financial-Times/origami/compare/o-teaser-v7.1.2...o-teaser-v7.1.3) (2025-05-29)
 
 
