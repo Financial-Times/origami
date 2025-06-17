@@ -610,3 +610,9 @@
 .o3-button-icon.o3-button-icon--sparkles::before {
 	--o3-button-icon: var(--o3-icon-sparkles);
 }
+.o3-button-icon.o3-button-icon--first::before {
+	--o3-button-icon: var(--o3-icon-first);
+}
+.o3-button-icon.o3-button-icon--last::before {
+	--o3-button-icon: var(--o3-icon-last);
+}
