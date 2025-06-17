@@ -188,8 +188,44 @@ To track when an element has come into view of the user, add the attribute `data
 	- `type`
 	- `subtype`
 	- `component`
+
+UPDATE 2025-060-12: THESE OPTIONS MAY BE OUT OF DATE, THEY DEFINITELY ARE FOR COMPONENTS, SEE BELOW FOR UPDATED INFORMATION
+
 _Note:_ This feature requires `window.IntersectionObserver` in order to track the events
 _Note:_ `getContextData` should be a function which returns `{object}`. It accepts the viewed element as an argument
+
+###### Component tracking
+[Component standard template tracking spec](https://docs.google.com/spreadsheets/d/16d2-uDM8rhz1wSKOkoupcpPDRFQ8AtY1GxVJpt74vY4/edit?gid=1318706009#gid=1318706009) sets out what data should be captured for component views. Some are generated for you, `category` and `action` have defaults. You will need to set the following properties in `getContextData`
+
+ ```js
+ getContextData: () => {
+      return {
+        component: {
+          name: '[some-human-readable-name]',
+          type: '[see tracking spec list]',
+          id: '[consistent-guid]'
+        },
+        content: {
+          asset_type: '[see tracking spec list]',
+          uuid: ['content-id-eg-article-id']
+        }
+      };
+    },
+  });
+```
+
+Optionally you can also add in up to 3 custom values for extra metadata withing the getContextData call
+```js
+    ...
+        custom: [
+          {
+            name: 'some-name',
+            value: 'some-value',
+          },
+        ],
+    ...
+```
+
 
 Please refer to the [event document](docs/event.md) for information about all the possible properties which can be set.
 
