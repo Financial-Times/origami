@@ -8,9 +8,7 @@ sidebar:
 
 Origami 2 "o2" packages include foundational styles, components, and patterns. These will be gradually deprecated over time, as we conduct design audits and build Origami 3 "o3" alternatives. Where components are deprecated, begin to use the o3 alternative.
 
-## Legacy
-
-Legacy o2 packages can be found on their branded Storybook sites:
+o2 packages can be found on their branded Storybook sites:
 
 <ul>
 	<li>
