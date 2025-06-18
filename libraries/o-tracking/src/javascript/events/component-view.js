@@ -2,12 +2,14 @@ import core from '../core.js';
 import {getTrace} from '../../libs/get-trace.js';
 import {assignIfUndefined, filterProperties} from '../utils.js';
 
+// https://docs.google.com/spreadsheets/d/16d2-uDM8rhz1wSKOkoupcpPDRFQ8AtY1GxVJpt74vY4/edit?gid=1318706009#gid=1318706009 is the tracking spec for component events
 const TRACKING_ATTRIBUTES = [
 	'componentContentId',
 	'type',
 	'subtype',
 	'component',
 	'custom',
+	'content'
 ];
 
 const decorateEventData = (eventData, viewedEl, opts) => {

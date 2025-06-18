@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.9.0](https://github.com/Financial-Times/origami/compare/o-tracking-v4.8.0...o-tracking-v4.9.0) (2025-06-17)
+
+
+### Features
+
+* otracking ci-2734 add content to component view attributes ([c59afd0](https://github.com/Financial-Times/origami/commit/c59afd0cd8f9ef93284614bb5264dc62807ea241))
+
 ## [4.8.0](https://github.com/Financial-Times/origami/compare/o-tracking-v4.7.0...o-tracking-v4.8.0) (2025-06-02)
 
 

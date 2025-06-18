@@ -92,7 +92,7 @@ import {
 
 import '@financial-times/o3-tooltip'; // import the JavaScript needed for custom elements on client side
 
-import '@finacial-times/o3-tooltip/css/[your brand].css'; // tooltip styling
+import '@financial-times/o3-tooltip/css/[your brand].css'; // tooltip styling
 
 <div className="o3-brand-[your brand]">
 	<button id="target" aria-describedby="contentId">

@@ -1,5 +1,10 @@
 # Changelog
 
+## [7.10.0](https://github.com/Financial-Times/origami/compare/o-buttons-v7.9.2...o-buttons-v7.10.0) (2025-06-16)
+
+
+* No change. Long story.
+
 ## [7.9.2](https://github.com/Financial-Times/origami/compare/o-buttons-v7.9.1...o-buttons-v7.9.2) (2024-02-22)
 
 
