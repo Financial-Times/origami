@@ -25,140 +25,31 @@ import {default as Preview} from '../../../components/button/ButtonPreview.astro
 import {default as GroupPreview} from '../../../components/button/ButtonGroupPreview.astro';
 import {default as SocialPreview} from '../../../components/button/SocialPreview.astro';
 
-Buttons are triggers that provide users with a call to action. Typically allowing users to execute, choose, submit and confirm actions.
+Buttons help people take action. In FT products, they support journeys, whether submitting a form, sharing content or progressing through a task. We aim for buttons to be clear, consistent and accessible across our products.
 
-## FT Buttons
+This guidance helps teams choose the correct button type, understand how buttons behave, and apply them consistently across layouts, devices and themes. If something here doesn’t fit your use case, let us know, we’ll help you find the right approach.
 
-FT buttons are those that are designed for FT's digital products, with FT branding.
+## Anatomy of a button
+
+Each button includes:
 
 <ButtonAnatomy />
 
-1. <strong>Icon (optional)</strong>: Most buttons don't need an icon. Use an
-   icon to add additional affordance where the icon has a clear and
-   well-established meaning.
-1. <strong>Label</strong>: Text that explains the result of selecting the
-   button. Use action verbs or phrases to tell the user what will happen next.
-1. <strong>Container</strong>: has minimum width of 80px for standard buttons
-   and 64px for small buttons.
+1. <strong>Label:</strong> Clearly describe the action using a verb. Use specific,
+   outcome-focused wording like "Subscribe" or "Continue".
+2. <strong>Container:</strong> This wraps the label up and any optional icon. Standard
+   buttons should at least be 80px wide; small buttons should be no smaller than
+   64px
+3. <strong>Icon (optional):</strong> Include only when it helps clarify the action.
+   Place it before the label, unless it visually suggests direction.
 
-### Usage Guidelines
+## Button Types
 
-<Guideline summary="Keep button labels short" do={true}>
-	<p slot="description">
-		Keep labels short and free of punctuation. They should confirm the action a
-		user is taking. Drop unnecessary articles, such as ‘a’ or ‘the’, for a more
-		concise label.
-	</p>
-	<Example slot="examples" do={true}>
-		<Button label="Share" type="primary" />
-	</Example>
-	<Example slot="examples" do={false}>
-		<Button label="Share on your social media of choice" type="primary" />
-	</Example>
-</Guideline>
+Choose a button type based on how much emphasis the action needs.
 
-<Guideline summary="Use sentence case for button labels" do={true}>
-	<p slot="description">
-		Only capitalize the first letter of the button and any proper nouns. Not
-		title case or Upper case.
-	</p>
-	<Example slot="examples" do={true}>
-		<Button label="Share now" type="primary" />
-	</Example>
-	<Example slot="examples" do={false}>
-		<Button label="Share Now" type="primary" />
-	</Example>
-	<Example slot="examples" do={false}>
-		<Button label="SHARE NOW" type="primary" />
-	</Example>
-</Guideline>
+### Primary (High Emphasis)
 
-<Guideline summary="Don’t use more than one primary button" do={false}>
-	<p slot="description">
-		Each page or product area (a form, modal, within an article) should not have
-		more than 1 primary button to help guide the user to the primary action. Any
-		remaining CTA's should be displayed as secondary or ghost buttons.
-	</p>
-	<Example slot="examples" do={true}>
-		<Button label="Share" type="primary" />
-		<Button label="Cancel" type="secondary" />
-	</Example>
-	<Example slot="examples" do={false}>
-		<Button label="Share" type="primary" />
-		<Button label="Cancel" type="primary" />
-	</Example>
-</Guideline>
-
-<Guideline summary="Avoid disabled buttons without user research" do={false}>
-    <div slot="description">
-        Avoid disabled buttons unless user research shows they improve your interface. Disabled buttons have poor contrast which makes them difficult to read. They also do not give feedback to a user why they are disabled. This has caused issues for FT readers in the past, and has been flagged in previous accessibility audits.
-
-        Hampus Sethfors explains the issues with disabled buttons in more detail in an [axesslab.com article](https://axesslab.com/disabled-buttons-suck/). In the article Hampus suggests alternative design approaches for common uses of disabled buttons.
-    </div>
-
-    <Example slot="examples" do={false}>
-        <Button label="Submit" type="primary" attributes={{disabled: true}} />
-    </Example>
-
-</Guideline>
-
-<Guideline summary="Don’t use full width buttons in wide containers" do={false}>
-    <div slot="description">
-		Instead use <a href="#width">fluid buttons</a>, which are full-width for small devices or containers up to around 400px width. Otherwise, button width should default to its content length.
-    </div>
-
-    <Example slot="examples" do={true}>
-    	<svg role="presentation" width="217" height="128" viewBox="0 0 217 128" fill="none" xmlns="http://www.w3.org/2000/svg">
-    		<rect width="64.1379" height="127.741" rx="4" fill="#D9D9D9"/>
-    		<rect x="70.0172" width="146.983" height="88.7241" fill="#D9D9D9"/>
-    		<rect x="4.27588" y="112.242" width="55.5862" height="9.08621" fill="#0D7680"/>
-    		<rect x="76.431" y="71.0859" width="53.4483" height="11.2241" fill="#0D7680"/>
-    	</svg>
-    </Example>
-
-    <Example slot="examples" do={false}>
-    	<svg
-    		role="presentation"
-    		width="217"
-    		height="128"
-    		viewBox="0 0 217 128"
-    		fill="none"
-    		xmlns="http://www.w3.org/2000/svg">
-    		<rect width="64.1379" height="127.741" rx="4" fill="#D9D9D9" />
-    		<rect x="70.0172" width="146.983" height="88.7241" fill="#D9D9D9" />
-    		<rect
-    			x="4.27588"
-    			y="112.242"
-    			width="55.5862"
-    			height="9.08621"
-    			fill="#0D7680"
-    		/>
-    		<rect x="76" y="71" width="135" height="11" fill="#0D7680" />
-    	</svg>
-    </Example>
-
-</Guideline>
-
-#### Width
-
-A button's width is dependant on the length of its content by default. Alternatively buttons may be "fluid", and stretch to fill the full width of their container.
-
-We recommend buttons are fluid until around 400px, after which the button should be determined by the length of its content.
-
-_(Resize your browser to preview the fluid button's responsive width)_
-
-<Preview
-	brand={props.brand}
-	previewFile="Fluid"
-	component={Button}
-	componentProps={{label: 'Fluid button', type: 'primary', fluid: true}}
-/>
-
-### Icons
-
-Buttons may be used with icons, without icons, or only icons.
-
-#### Without icon
+Use for the most important action in a view. Stick to one per context to maintain a clear hierarchy.
 
 <Preview
 	previewFile="Types-Primary"
@@ -166,17 +57,31 @@ Buttons may be used with icons, without icons, or only icons.
 	componentProps={{label: 'Hello', type: 'primary'}}
 />
 
-#### With icon
+### Secondary (Medium Emphasis)
 
-When icons are used, these are always left aligned.
+This is used for actions that support or cancel the primary. It often appears alongside it.
 
 <Preview
-	previewFile="Icons-WithIcon"
+	previewFile="Types-Secondary"
 	brand={props.brand}
-	componentProps={{label: 'Hello', type: 'primary', icon: 'search'}}
+	componentProps={{label: 'Hello', type: 'secondary'}}
 />
 
-#### Only icon
+### Tertiary / Ghost (Low Emphasis)
+
+This is used for optional or low-priority actions, such as ‘Skip’ or ‘Back.’ These are typically paired with a primary button and presented with lower visual emphasis.
+
+<Preview
+	previewFile="Types-Ghost"
+	brand={props.brand}
+	componentProps={{label: 'Hello', type: 'ghost'}}
+/>
+
+### Icon-only (Low Emphasis)
+
+Use to take supplementary actions with a single tap but only when the icon is universally recognised and adds clear meaning.
+
+In areas like toolbars and menu bars, always pair icons with text labels for clarity.
 
 <Preview
 	previewFile="Icons-IconOnly"
@@ -189,65 +94,57 @@ When icons are used, these are always left aligned.
 	}}
 />
 
-### Sizes
+### Segmented Buttons (Low Emphasis)
 
-The button comes in two sizes: standard and small.
+Use them to toggle between closely related views, such as time periods (e.g. “Day”, “Week”, “Month”).
 
-#### Standard
+Limit to six or fewer options.
 
-<Preview
-	previewFile="Types-Primary"
-	brand={props.brand}
-	componentProps={{label: 'Hello', type: 'primary'}}
-/>
+<GroupPreview brand={props.brand} />
 
-#### Small
+### SSO Buttons
 
-<Preview
-	previewFile="Sizes-Small"
-	brand={props.brand}
-	componentProps={{label: 'Hello', type: 'primary', size: 'small'}}
-/>
+Single Sign On (<abbr title="Single Sign On">SSO</abbr>) buttons allows for use for third-party authentication, such as Google or Apple.
 
-### Types
+Always use consistent copy:
 
-There are three types of buttons to support different contexts.
+- “Sign in with [Provider]” for returning users
+- “Sign up with [Provider]” for new users
 
-#### Primary
+<SocialPreview brand={props.brand} />
 
-The primary button is used for the most important calls to action on a page. Primary buttons should only appear once per product area (not including the application header, modal dialogue, on-site messaging, or side panel).
+#### Branding Compliance Reference
 
-<Preview
-	previewFile="Types-Primary"
-	brand={props.brand}
-	componentProps={{label: 'Hello', type: 'primary'}}
-/>
+Follow the platform visual and copy guidance closely.
 
-#### Secondary
+- [Apple's guidelines](https://developer.apple.com/design/human-interface-guidelines/sign-in-with-apple)
+- [Google's guidelines](https://developers.google.com/identity/branding-guidelines)
 
-For secondary actions on each page or used in conjunction with a primary button. As part of a pair, the secondary button’s function is to perform the negative action of the set, such as “Cancel” or “Back”.
+## Ordering and Placement
 
-<Preview
-	previewFile="Types-Secondary"
-	brand={props.brand}
-	componentProps={{label: 'Hello', type: 'secondary'}}
-/>
+Use the alignment pattern suited to the user flow and task context to help users complete tasks intuitively. Use one pattern per view or flow. Don't mix.
 
-#### Ghost
+### Z-Pattern
 
-For the least pronounced actions; often used in conjunction with a primary button. In a situation such as a progress flow, a ghost button may be paired with a primary and secondary button set, where the primary button is for ‘Save and continue’ the ghost button would be ‘Skip’.
+Use for modals, onboarding flows, or focused tasks with a clear hierarchy. Right-aligned buttons ensure users naturally end their scan on the primary action, guiding them quickly and confidently through tasks.
 
-<Preview
-	previewFile="Types-Ghost"
-	brand={props.brand}
-	componentProps={{label: 'Hello', type: 'ghost'}}
-/>
+![](/assets/images/components/buttons/ordering-placement-z-pattern.svg)
 
-### Themes
+### F-Pattern
 
-Each button type supports the following themes.
+Left-align buttons only in content-heavy, full-page forms, or long-scrolling views where users primarily read top-down and scan horizontally. Left-aligned buttons reinforce task completion in contexts with substantial information.
 
-#### Standard
+![](/assets/images/components/buttons/ordering-placement-f-pattern.svg)
+
+Edge cases: If you've applied this and doesn't work for your use case. contact us, let’s discuss.
+
+## Themes
+
+Use themes to adjust tone and contrast based on context:
+
+### Standard
+
+Use as the default theme for most buttons.
 
 <Preview
 	previewFile="Themes-Standard"
@@ -255,9 +152,9 @@ Each button type supports the following themes.
 	componentProps={{label: 'Hello', type: 'primary'}}
 />
 
-#### Inverse
+### Inverse
 
-An alternative theme for use on dark backgrounds.
+Use on dark backgrounds to maintain contrast.
 
 <div data-o3-theme="inverse">
 	<Preview
@@ -268,9 +165,9 @@ An alternative theme for use on dark backgrounds.
 </div>
 
 <BrandedContent brands="core, sustainable-views">
-#### Mono
+### Mono
 
-Mono can be helpful where the standard theme distracts from other colour used, for example when placed near data visualisations.
+Use where minimal styling is needed, like beside charts or data visualisations.
 
 <div data-o3-theme="mono">
 	<Preview
@@ -282,9 +179,9 @@ Mono can be helpful where the standard theme distracts from other colour used, f
 </BrandedContent>
 
 <BrandedContent brands="core, professional">
-#### Neutral
+### Neutral
 
-The neutral theme allows for reduced emphasis, to support the hierarchy of the page. It is used for Ask FT in the header, and sharable anchor links within live blogs. It is available in either primary or ghost button types. It is not supported with the secondary button type.
+Use for medium emphasis actions that have less priority then than the primary CTA but higher priority than an icon or ghost button. For example, the FT header.
 
 <div data-o3-theme="neutral">
 	<Preview
@@ -293,86 +190,167 @@ The neutral theme allows for reduced emphasis, to support the hierarchy of the p
 		componentProps={{label: 'Hello', type: 'primary', theme: 'neutral'}}
 	/>
 </div>
+
+<strong>Note:</strong> Not all themes are supported across all button types. If something doesn’t fit your use case, contact the Design Systems team for guidance.
 </BrandedContent>
 
-## FT Button Groups
+## Sizes
 
-Buttons may be grouped to combine related buttons together which present users with a set of related, frequently used actions or options in a compact and organized manner.
+### Standard (Default)
 
-In terms of user experience, button groups provide a straightforward way for users to perform actions within a single context, emphasizing action over navigation.
+Use for most cases.
 
-<GroupPreview brand={props.brand} />
+<Preview
+	previewFile="Types-Primary"
+	brand={props.brand}
+	componentProps={{label: 'Hello', type: 'primary'}}
+/>
+
+### Small
+
+Use in compact layouts like toolbars. Avoid small buttons on mobile unless absolutely required. When used, allow a touch area of at least 44px.
+
+<Preview
+	previewFile="Sizes-Small"
+	brand={props.brand}
+	componentProps={{label: 'Hello', type: 'primary', size: 'small'}}
+/>
+
+## Responsive Behaviour
+
+Buttons are fluid up to ~400px, then adapt to their content.<br /><em>(Resize your browser to preview the fluid button’s responsive width)</em>
+
+<Preview
+	previewFile="Types-Primary"
+	brand={props.brand}
+	componentProps={{label: 'Example', type: 'primary'}}
+/>
 
 ### Usage Guidelines
 
-<Guideline summary="Use grouped buttons for related actions" do={true}>
+<Guideline summary="Full-width usage" do={true}>
 	<p slot="description">
-		Group related actions or options closely together to improve usability and
-		decision-making efficiency. For example, use for switching views or modes
-		within the same context, such as changing calendar views from day, week, to
-		month
+		Use full-width buttons only in narrow containers such as mobile layouts.
 	</p>
-	<Example slot="examples" do={true}>
-		![A labelled group of buttons. The label reads "view", it is annotated for
-		demonstration purposes as the "action". The two buttons read "topic" and
-		"timeline". The "topic" button is
-		pressed.](/assets/images/components/buttons/group-guideline-1.svg)
 
-    	![A labelled group of buttons. The label reads "view". The two buttons read
-    	"topic" and "timeline". The buttons are annotated as "mode" for
-    	demonstration purposes. The "topic" button is
-    	pressed.](/assets/images/components/buttons/group-guideline-2.svg)
-    </Example>
-
-</Guideline>
-
-<Guideline summary="Don't use grouped buttons for navigation" do={false}>
-	<p slot="description">
-		Use tabs instead to imply navigation between different content areas or
-		contexts within the same workspace.
-	</p>
-	<Example slot="examples" do={false}>
-    		![](/assets/images/components/buttons/group-guideline-3.svg)
-    </Example>
-
-</Guideline>
-
-<Guideline summary="Limit the number of buttons in a group" do={false}>
-	<p slot="description">
-		Never use groups of more than six buttons, as too many calls to action can
-		cause users to be unsure of what to do next. Also be thoughtful about how
-		multiple buttons will look and work on small screens, this may vary
-		according the the length of the button's label.
-	</p>
     <Example slot="examples" do={true}>
-    	![](/assets/images/components/buttons/group-guideline-5.svg)
+    	![](/assets/images/components/buttons/usage-full-width-do.svg)
     </Example>
+
     <Example slot="examples" do={false}>
-    	![](/assets/images/components/buttons/group-guideline-4.svg)
+    	![](/assets/images/components/buttons/usage-full-width-dont.svg)
     </Example>
 
 </Guideline>
 
-## Single Sign On
+<Guideline summary="Only one primary button per product area" do={true}>
+	<p slot="description">
+		To maintain clarity, use only one primary button per product area (a form, modal, within an article). For all other CTAS, use secondary or ghost buttons.
+	</p>
 
-Single Sign On (<abbr title="Single Sign On">SSO</abbr>) buttons allow users to sign in or sign up using 3rd party platforms. We provide the visual style of these and leave platform integration to the developer.
+    <Example slot="examples" do={true}>
+    	![](/assets/images/components/buttons/usage-only-one-primary-button-do.svg)
+    </Example>
 
-<SocialPreview brand={props.brand} />
+    <Example slot="examples" do={false}>
+    	![](/assets/images/components/buttons/usage-only-one-primary-button-dont.svg)
+    </Example>
 
-### Usage Guidelines
+</Guideline>
 
-#### Sign up vs Sign in
+<Guideline summary="Icons in button should be on the left" do={true}>
+	<p slot="description">
+		Place icons on the left side of the button label, unless direction is being conveyed.
+	</p>
 
-Ensure consistent wording for different user flows. This may be changed if needed, but refer to [Apple and Google guidelines below](#branding-compliance-reference) on appropriate wording. We recommend:
+    <Example slot="examples" do={true}>
+    	![](/assets/images/components/buttons/usage-icons-placement-do.svg)
+    </Example>
 
-- "Sign in with [Provider]" for login
-- "Sign up with [Provider]" for registration
+    <Example slot="examples" do={false}>
+    	![](/assets/images/components/buttons/usage-icons-placement-dont.svg)
+    </Example>
 
-#### Responsiveness
+</Guideline>
 
-The <abbr title="Single Sign On">SSO</abbr> button spans the full-width of its container to increase tap area on mobile, up to a maximum width of [4 grid columns](/foundations/grid/) on tablet and desktop. When used with form fields, always align SSO button width to ensure consistency.
+<Guideline summary="Group related buttons where it helps the user." do={true}>
+	<Example slot="examples" do={true}>
+		![](/assets/images/components/buttons/usage-group-releated-buttons-do.svg)
+	</Example>
+</Guideline>
 
-#### Branding Compliance Reference
+<Guideline summary="Limit to 6 buttons per group" do={true}>
+	<p slot="description">
+		Only group related actions when it helps the user. Keep to a maximum of 6 buttons per group. When the action switches content, use tabs instead of button groups.
+	</p>
 
-- [Apple's guidelines](https://developer.apple.com/design/human-interface-guidelines/sign-in-with-apple)
-- [Google's guidelines](https://developers.google.com/identity/branding-guidelines)
+    <Example slot="examples" do={true}>
+    	![](/assets/images/components/buttons/usage-limit-6-buttons-group-do.svg)
+    </Example>
+
+    <Example slot="examples" do={false}>
+    	![](/assets/images/components/buttons/usage-limit-6-buttons-group-dont.svg)
+    </Example>
+
+</Guideline>
+
+### Button Label Guidance
+
+Button labels should be outcome-focused, short and easy to scan.
+
+<Guideline summary="Use clear, action-driven language (e.g. 'Share', 'Download')" do={true}>
+	<Example slot="examples" do={true}>
+    	![](/assets/images/components/buttons/label-guidance-action-driven-do.svg)
+    </Example>
+
+    <Example slot="examples" do={false}>
+    	![](/assets/images/components/buttons/label-guidance-action-driven-dont.svg)
+    </Example>
+
+</Guideline>
+
+<Guideline summary="Do not use filler words, punctuation or unnecessary articles ('the', 'a')" do={true}>
+	<Example slot="examples" do={true}>
+    	![](/assets/images/components/buttons/label-guidance-filler-words-do.svg)
+    </Example>
+
+    <Example slot="examples" do={false}>
+    	![](/assets/images/components/buttons/label-guidance-filler-words-dont.svg)
+    </Example>
+
+</Guideline>
+
+<Guideline summary="Write labels in sentence case" do={true}>
+	<Example slot="examples" do={true}>
+    	![](/assets/images/components/buttons/label-guidance-sentence-case-do.svg)
+    </Example>
+
+    <Example slot="examples" do={false}>
+    	![](/assets/images/components/buttons/label-guidance-sentence-case-dont.svg)
+    </Example>
+
+    <Example slot="examples" do={false}>
+    	![](/assets/images/components/buttons/label-guidance-sentence-case-dont-too.svg)
+    </Example>
+
+</Guideline>
+
+### Accessibility Considerations
+
+<Guideline summary="Ensure contrast meets WCAG standards" do={true}>
+	<p slot="description">
+		Only use if backed by user research. They often have poor contrast, don’t explain why they’re inactive, and can cause confusion, especially for screen reader users or in accessibility audits.
+	</p>
+
+    <Example slot="examples" do={false}>
+    	![](/assets/images/components/buttons/accessibility-considerations-contrast-dont.svg)
+    </Example>
+
+</Guideline>
+
+<Guideline summary="All buttons must have at least a 44px target size" do={true}>
+	<Example slot="examples" do={true}>
+    	![](/assets/images/components/buttons/accessibility-considerations-44pixels-target-size-do.svg)
+    </Example>
+
+</Guideline>
