@@ -46,20 +46,51 @@
 }
 
 @mixin _oTeaserElementsDefault {
-	.o-teaser__meta {
-		@include _oTeaserMeta;
-	}
-
+	.o-teaser__meta,
+	.o-teaser__tag-suffix,
+	.o-teaser__tag,
 	.o-teaser__tag-prefix {
-		@include _oTeaserTagPrefix;
+		font-family: oPrivateFoundationGet('o3-type-body-base-font-family');
+		font-size: oPrivateFoundationGet('o3-type-body-base-font-size');
+		font-weight: oPrivateFoundationGet('o3-type-body-base-font-weight');
+		line-height: oPrivateFoundationGet('o3-type-body-base-line-height');
 	}
 
-	.o-teaser__tag {
-		@include _oTeaserTag;
+	a.o-teaser__tag-prefix,
+	a.o-teaser__tag {
+		font-family: oPrivateFoundationGet('o3-type-body-highlight-font-family');
+		font-size: oPrivateFoundationGet('o3-type-body-highlight-font-size');
+		font-weight: oPrivateFoundationGet('o3-type-body-highlight-font-weight');
+		line-height: oPrivateFoundationGet('o3-type-body-highlight-line-height');
+	}
+
+	.o-teaser__meta {
+		color: oPrivateFoundationGet('o3-color-palette-claret');
+		margin-bottom: oPrivateSpacingByName('s3');
 	}
 
 	.o-teaser__tag-suffix {
-		@include _oTeaserTagSuffix;
+		color: oPrivateFoundationGet('o3-color-palette-black-60');
+	}
+
+	.o-teaser__tag-prefix {
+		margin-right: 0.25em;
+	}
+
+	.o-teaser__tag {
+		color: inherit;
+		text-decoration: none;
+		border: 0;
+		margin-right: 0.25em;
+
+		&:hover,
+		&:focus {
+			color: $_o-teaser-focus-hover;
+		}
+
+		span {
+			display: inline-block;
+		}
 	}
 
 	.o-teaser__heading {

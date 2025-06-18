@@ -1,5 +1,27 @@
 <div class="demo-container">
 
+	<div class="o-teaser o-teaser--article o-teaser--small o-teaser--has-image o-teaser--highlight">
+		<div class="o-teaser__content">
+			<div class="o-teaser__meta">
+				<span class="o-teaser__tag-prefix">Prefix Text</span>
+				<a class="o-teaser__tag" href="#" aria-label="Category: {{article-tag}}">{{article-tag}}</a>
+			</div>
+			<div class="o-teaser__heading">
+				<a href="#">{{article-heading}}</a>
+			</div>
+			<p class="o-teaser__standfirst">
+				<a href="#">{{article-standfirst}}</a>
+			</p>
+		</div>
+		<div class="o-teaser__image-container">
+			<a href="#" tabindex="-1" aria-hidden="true">
+				<div class="o-teaser__image-placeholder" style="aspect-ratio: 2048 / 1152;">
+					<img class="o-teaser__image" src="{{article-image-url}}" alt="">
+				</div>
+			</a>
+		</div>
+	</div>
+
 	<div class="o-teaser o-teaser--small" data-o-component="o-teaser">
 		<div class="o-teaser__content">
 			{{#article-tag}}
