@@ -25,8 +25,10 @@ export interface ButtonProps {
 		| 'calendar'
 		| 'scroll-to'
 		| 'sparkles'
-		| "first"
-		| "last";
+		| 'first'
+		| 'last'
+		| 'list'
+		| 'grid';
 	iconPosition?: 'start' | 'end';
 	iconOnly?: boolean;
 	visuallyHideDisabled?: boolean;
