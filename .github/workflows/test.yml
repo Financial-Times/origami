@@ -203,8 +203,6 @@ jobs:
             - 'apps/dictionary/**'
           apps/o2-storybook:
             - 'apps/o2-storybook/**'
-          apps/o2-storybook-composition:
-            - 'apps/o2-storybook-composition/**'
           apps/o3-storybook:
             - 'apps/o3-storybook/**'
           apps/website:

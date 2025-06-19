@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.8.1](https://github.com/Financial-Times/origami/compare/o3-foundation-v3.8.0...o3-foundation-v3.8.1) (2025-06-19)
+
+
+### Bug Fixes
+
+* use correct headings to pull from (core) ([c162599](https://github.com/Financial-Times/origami/commit/c162599ddec641abe8818353b7a0367e1f6a9656))
+* use correct headings to pull from (internal) ([93b35a8](https://github.com/Financial-Times/origami/commit/93b35a86c468b1ca9603fcb41bcc9c43b77cad0b))
+* use correct headings to pull from (professional) ([a765297](https://github.com/Financial-Times/origami/commit/a7652974e2c2eda4b2981d0b7e1152fc303b2262))
+* use correct headings to pull from (sustainable views) ([91237c5](https://github.com/Financial-Times/origami/commit/91237c52f4210252f5ad0880d8ffe073ed7a7a55))
+* use correct headings to pull from (whitelabel) ([ab9bc82](https://github.com/Financial-Times/origami/commit/ab9bc825b07cfd1d3addfc661880862dc13184ee))
+
 ## [3.8.0](https://github.com/Financial-Times/origami/compare/o3-foundation-v3.7.0...o3-foundation-v3.8.0) (2025-06-10)
 
 

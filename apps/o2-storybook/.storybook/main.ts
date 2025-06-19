@@ -93,7 +93,7 @@ const config: StorybookConfig = {
 				],
 			},
 		},
-		'../../o2-storybook-composition/addons/html/src/preset',
+		'@whitespace/storybook-addon-html',
 		'@storybook/addon-webpack5-compiler-swc',
 	],
 	framework: {
