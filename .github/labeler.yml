@@ -200,8 +200,6 @@ dictionary:
   - apps/dictionary/**/*
 o2-storybook:
   - apps/o2-storybook/**/*
-o2-storybook-composition:
-  - apps/o2-storybook-composition/**/*
 o3-storybook:
   - apps/o3-storybook/**/*
 website:
