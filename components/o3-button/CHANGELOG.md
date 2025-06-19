@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.12.0](https://github.com/Financial-Times/origami/compare/o3-button-v3.11.0...o3-button-v3.12.0) (2025-06-19)
+
+
+### Features
+
+* list / grid button icon helper ([b6b3794](https://github.com/Financial-Times/origami/commit/b6b3794713bc9371a734661c01629105415818d8))
+
 ## [3.11.0](https://github.com/Financial-Times/origami/compare/o3-button-v3.10.0...o3-button-v3.11.0) (2025-06-16)
 
 
