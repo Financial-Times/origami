@@ -4,6 +4,7 @@ description: Buttons are triggers that provide users with a call to action. Typi
 ---
 
 import {Button} from '@financial-times/o3-button';
+import Tip from '../../../components/utils/Tip.astro';
 
 import '@financial-times/o3-button/css/whitelabel.css';
 import '@financial-times/o3-button/css/internal.css';
@@ -94,11 +95,9 @@ In areas like toolbars and menu bars, always pair icons with text labels for cla
 	}}
 />
 
-### Segmented Buttons (Low Emphasis)
+### Grouped Buttons (Low Emphasis)
 
-Use them to toggle between closely related views, such as time periods (e.g. “Day”, “Week”, “Month”).
-
-Limit to six or fewer options.
+Also known as Segmented buttons. Use them to toggle between closely related views, such as time periods (e.g. “Day”, “Week”, “Month”). Limit to six or fewer options. Limit to six or fewer options.
 
 <GroupPreview brand={props.brand} />
 
@@ -123,6 +122,24 @@ Follow the platform visual and copy guidance closely.
 ## Ordering and Placement
 
 Use the alignment pattern suited to the user flow and task context to help users complete tasks intuitively. Use one pattern per view or flow. Don't mix.
+
+| Pattern   | Usage                                         | Reading Behaviour                     | Placement                                     |
+| --------- | --------------------------------------------- | ------------------------------------- | --------------------------------------------- |
+| Z-Pattern | Focused flows, e.g modals or onboarding flows | Start-to-end scan <br/>(left → right) | Place primary right and secondary to the left |
+| F-Pattern | Content-heavy layouts                         | Top-down, left-biased scan            | Align buttons left, primary action first      |
+
+<Tip
+	icon="false"
+	sources={[
+		{
+			title: 'UX collective: Z-pattern layout in UX design',
+			url: '#',
+		},
+		{
+			title: 'NN/g: F-shaped pattern of reading',
+			url: 'https://www.nngroup.com/articles/f-shaped-pattern-reading-web-content/',
+		},
+	]}></Tip>
 
 ### Z-Pattern
 
@@ -245,7 +262,7 @@ Buttons are fluid up to ~400px, then adapt to their content.<br /><em>(Resize yo
 
 <Guideline summary="Only one primary button per product area" do={true}>
 	<p slot="description">
-		To maintain clarity, use only one primary button per product area (a form, modal, within an article). For all other CTAS, use secondary or ghost buttons.
+		To maintain clarity, use only one primary button per product area (a form, modal, within an article). For all other CTAs, use secondary or ghost buttons.
 	</p>
 
     <Example slot="examples" do={true}>

@@ -24,6 +24,7 @@ import '@financial-times/o3-form/css/core.css';
 import '@financial-times/o3-form/css/professional.css';
 
 The Error Summary appears on the top of a page after a user submits a form which generates an error. It presents a list of errors that have occurred and allows users to identify and correct mistakes easily.
+
 <Aside>
 	{/* prettier-ignore */}
 	The <a
@@ -50,12 +51,14 @@ The Error Summary appears on the top of a page after a user submits a form which
 ### Placement
 
 The error summary should always appear on top of the page, before the form elements.
-<ErrorSummaryPreview  brand={props.brand} />
-<Tip>
+
+<ErrorSummaryPreview brand={props.brand} />
+<Tip icon="true">
 	<p>
 		By positioning errors on top of the page we make sure they’re the first
 		thing a user sees after the page loads. This way also helps with users on a
-		screen reader since this is the first information they’ll get in the content block.
+		screen reader since this is the first information they’ll get in the content
+		block.
 	</p>
 </Tip>
 
@@ -66,4 +69,3 @@ The summary should provide a concise list of all errors, ideally in the order th
 ### Validation
 
 Only use the error summary for actual errors that won’t let the user navigate further. Don’t use it for information, tips, etc.
-
