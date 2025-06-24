@@ -62,7 +62,7 @@
 	}
 }
 
-@media (min-width: 980px) {
+@media (min-width: 1024px) {
 	.o3-grid-extension {
 		--columns: 12;
 		--gutter: 24px;
@@ -70,16 +70,16 @@
 	}
 }
 
-@media (min-width: 1220px) {
+@media (min-width: 1440px) {
 	.o3-grid-extension {
 		--help-text: 'XL';
 	}
 }
 
 /* this value is XL(1220px) + 2 * margin(24px) */
-@media (min-width: 1268px) {
+@media (min-width: 1360px) {
 	.o3-grid-extension {
-		--max-width: 1220px;
+		--max-width: 1312px;
 		/* on bigger screen switch to box-shadow for margin colouring */
 		border-left: 0;
 		border-right: 0;
