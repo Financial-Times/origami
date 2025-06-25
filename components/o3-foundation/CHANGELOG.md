@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.9.0](https://github.com/Financial-Times/origami/compare/o3-foundation-v3.8.1...o3-foundation-v3.9.0) (2025-06-23)
+
+
+### Features
+
+* add icon-clock ([25d718b](https://github.com/Financial-Times/origami/commit/25d718bffd68398db5af793cac9ffe15bf4e2d92))
+
 ## [3.8.1](https://github.com/Financial-Times/origami/compare/o3-foundation-v3.8.0...o3-foundation-v3.8.1) (2025-06-19)
 
 
