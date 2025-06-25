@@ -76,7 +76,7 @@ There are a few steps involved in updating and publishing the Chrome extension o
 
 ### Publishing the extension
 
-To publish, we will need to do the following steps which has been broken up in sections below. To understand the process of updating the Chrome extension, is is advisable to spend a few moments reading up on the documentation.
+To publish, we will need to do the following steps which has been broken up in sections below. To understand the process of updating the Chrome extension, we advise you spend a few moments reading up on the documentation.
 
 - [Chrome for Developers: Update your Chrome Web store item](https://developer.chrome.com/docs/webstore/update)
 
