@@ -43,7 +43,6 @@
 			background: transparent;
 		}
 
-		
 	}
 	@include oPrivateGridRespondTo(L) {
 		grid-template-rows: minmax(auto, 600px) 1fr;
@@ -68,6 +67,5 @@
 	.o-topper__image-caption {
 		background-color: transparent;
 		color: oPrivateFoundationGet("o3-color-palette-black-70");
-		margin-bottom: -20px;
 	}
 }
