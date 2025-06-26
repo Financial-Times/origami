@@ -192,7 +192,7 @@ export interface Indicators {
 
 export interface CustomSlot {
 	/** HTML string. Two sibling tags needs to be wrapped inside a parent element */
-	customSlot?: JSX.Element | JSX.Element[] | string;
+	customSlot?: React.JSX.Element | React.JSX.Element[] | string;
 }
 
 export interface TeaserProps

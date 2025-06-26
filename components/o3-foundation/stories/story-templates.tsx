@@ -132,7 +132,7 @@ const TemplateSBConfig = {
 };
 
 export type TemplateType = StoryObj & {
-	render: (args) => JSX.Element;
+	render: (args) => React.JSX.Element;
 };
 
 const Headings = {

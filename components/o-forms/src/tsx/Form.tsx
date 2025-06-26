@@ -3,7 +3,7 @@ import {uidBuilder} from "@financial-times/o-utils";
 const uniqueId = uidBuilder('o-forms');
 
 interface TypeFormProps {
-	children: JSX.Element | JSX.Element[];
+	children: React.JSX.Element | React.JSX.Element[];
 	action?: string;
 	method?: string;
 	onSubmit?: Function;
@@ -19,10 +19,10 @@ export interface TypeFormField {
 
 export interface FormFieldProps extends TypeFormField {
 	id: string;
-	children?: JSX.Element;
+	children?: React.JSX.Element;
 }
 export interface FormFieldsetProps extends TypeFormField {
-	children: JSX.Element;
+	children: React.JSX.Element;
 }
 
 export interface InputProps {

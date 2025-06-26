@@ -38,7 +38,7 @@ export const RadioButtonGroup = (props: FormFieldsetProps) => {
 	const radioGroupName = Math.random().toString(36).substring(7);
 	return (
 		<FormFieldset {...restProps}>
-			{(children as JSX.Element[]).map(child => {
+			{(children as React.JSX.Element[]).map(child => {
 				const hasError = props.feedback?.errorElementIds?.includes(
 					child.props.inputId
 				);

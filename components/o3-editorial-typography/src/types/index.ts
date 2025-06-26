@@ -6,12 +6,12 @@ export type HeadingProps = {
 };
 
 export type SummaryProps = {
-	children: (string | JSX.Element)[] | string | JSX.Element;
+	children: (string | React.JSX.Element)[] | string | React.JSX.Element;
 };
 
 export type DetailProps = {
 	theme?: 'standard' | 'inverse';
-	children: JSX.Element[] | JSX.Element | string;
+	children: React.JSX.Element[] | React.JSX.Element | string;
 };
 
 export type TopicTagProps = DetailProps & {
@@ -34,7 +34,7 @@ export type BigNumberProps = {
 
 export type BylineProps = {
 	theme?: 'standard' | 'inverse';
-	children: JSX.Element[] | JSX.Element | string;
+	children: React.JSX.Element[] | React.JSX.Element | string;
 };
 
 export type ListProps = {
