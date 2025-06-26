@@ -2,11 +2,11 @@ export interface ExpanderProps {
 	/**
 	 * will always be shown outside of the collapsed content
 	 */
-	header?: JSX.Element;
+	header?: React.JSX.Element;
 	/**
 	 * children will be put in `o-expander__content`
 	 */
-	children: JSX.Element | JSX.Element[];
+	children: React.JSX.Element | React.JSX.Element[];
 
 	/**
 	 * `false` by default. if `true` then content is in open-state

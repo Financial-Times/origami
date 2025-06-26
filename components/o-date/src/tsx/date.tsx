@@ -25,7 +25,7 @@ export function Date({
 	format,
 	textCase,
 	children,
-}: React.PropsWithChildren<DateProps>): JSX.Element {
+}: React.PropsWithChildren<DateProps>): React.JSX.Element {
 	return (
 		<time
 			data-o-component="o-date"
@@ -47,7 +47,7 @@ export function DatePrinter({
 	format,
 	textCase,
 	children,
-}: React.PropsWithChildren<DatePrinterProps>): JSX.Element {
+}: React.PropsWithChildren<DatePrinterProps>): React.JSX.Element {
 	return (
 		<span data-o-date-printer data-o-date-format={format} data-o-date-text-case={textCase}>
 			{children}

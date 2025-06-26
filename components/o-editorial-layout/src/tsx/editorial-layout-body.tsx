@@ -1,5 +1,5 @@
 interface EditorialLayoutBodyArgs {
-	children: string | JSX.Element | JSX.Element[];
+	children: string | React.JSX.Element | React.JSX.Element[];
 }
 export const EditorialLayoutBody = ({children}: EditorialLayoutBodyArgs) => {
 	return <p className='o-editorial-layout-body'>{children}</p>

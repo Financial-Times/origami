@@ -42,7 +42,7 @@ function SimpleLabel({
 	size,
 	state,
 	children,
-}: {size?: string, state?: string, children: string}): JSX.Element {
+}: {size?: string, state?: string, children: string}): React.JSX.Element {
 	const classNames = ['o-labels'];
 	if (size) {
 		classNames.push(`o-labels--${size}`);
@@ -53,23 +53,23 @@ function SimpleLabel({
 	return <span className={classNames.join(' ')}>{children}</span>;
 }
 
-export function BaseLabel(props: BaseLabelProps): JSX.Element {
+export function BaseLabel(props: BaseLabelProps): React.JSX.Element {
 	return SimpleLabel(props)
 }
 
-export function SupportLabel(props: SupportLabelProps): JSX.Element {
+export function SupportLabel(props: SupportLabelProps): React.JSX.Element {
 	return SimpleLabel(props)
 }
-export function ServiceLabel(props: ServiceLabelProps): JSX.Element {
+export function ServiceLabel(props: ServiceLabelProps): React.JSX.Element {
 	return SimpleLabel(props)
 }
-export function ColourLabel(props: ColourLabelProps): JSX.Element {
+export function ColourLabel(props: ColourLabelProps): React.JSX.Element {
 	return SimpleLabel(props)
 }
-export function ContentLabel(props: ContentLabelProps): JSX.Element {
+export function ContentLabel(props: ContentLabelProps): React.JSX.Element {
 	return SimpleLabel(props)
 }
-export function LifeCycleLabel(props: LifeCycleLabelProps): JSX.Element {
+export function LifeCycleLabel(props: LifeCycleLabelProps): React.JSX.Element {
 	return SimpleLabel(props)
 }
 
@@ -78,7 +78,7 @@ export interface IndicatorLabelProps {
 	badge?: boolean;
 	status?: string;
 	inverse?: boolean;
-	timestamp?: JSX.Element | JSX.Element[];
+	timestamp?: React.JSX.Element | React.JSX.Element[];
 }
 
 export function IndicatorLabel({
@@ -87,7 +87,7 @@ export function IndicatorLabel({
 	inverse,
 	timestamp,
 	badge,
-}: IndicatorLabelProps): JSX.Element {
+}: IndicatorLabelProps): React.JSX.Element {
 	const classNames = ['o-labels-indicator', `o-labels-indicator--${indicator}`];
 	if (inverse) {
 		classNames.push('o-labels-indicator--inverse');
@@ -109,10 +109,10 @@ export function IndicatorLabel({
 
 export interface TimestampLabelProps {
 	inverse?: boolean;
-	children?: JSX.Element | JSX.Element[]
+	children?: React.JSX.Element | React.JSX.Element[]
 }
 
-export function TimestampLabel({inverse, children}: TimestampLabelProps): JSX.Element {
+export function TimestampLabel({inverse, children}: TimestampLabelProps): React.JSX.Element {
 	const classNames = ['o-labels-timestamp'];
 	if (inverse) {
 		classNames.push('o-labels-timestamp--inverse');

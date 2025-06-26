@@ -72,5 +72,5 @@ export type Ellipsis = Pick<ButtonProps, 'theme'> & {
 
 // ButtonGroup types
 export interface ButtonGroupProps {
-	children: JSX.Element[];
+	children: React.JSX.Element[];
 }

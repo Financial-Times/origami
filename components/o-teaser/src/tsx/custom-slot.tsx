@@ -1,6 +1,6 @@
 import { CustomSlot } from './Props';
 
-const render = (action: JSX.Element | JSX.Element[] | string) => {
+const render = (action: React.JSX.Element | React.JSX.Element[] | string) => {
 	// Allow parent components to pass raw HTML strings
 	if (typeof action === 'string') {
 		return <span>{action}</span>;

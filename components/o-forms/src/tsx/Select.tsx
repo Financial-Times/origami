@@ -6,9 +6,9 @@ const uniqueId = uidBuilder('o-forms');
 interface TypeSelect extends InputProps {
 	highlight?: 'valid' | 'invalid';
 	errorMessage?: string;
-	suffix?: JSX.Element;
+	suffix?: React.JSX.Element;
 	isSmall?: boolean;
-	children?: JSX.Element | JSX.Element[];
+	children?: React.JSX.Element | React.JSX.Element[];
 	inlineInput?: boolean;
 	multiple?: boolean;
 	onChange?: Function;

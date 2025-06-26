@@ -3,7 +3,7 @@ import {InputProps, FormError, FormFieldset, TypeFormField} from './Form';
 import {uidBuilder} from "@financial-times/o-utils";
 const uniqueId = uidBuilder('o-forms');
 export interface CheckboxesWrapperProps {
-	children: JSX.Element | JSX.Element[];
+	children: React.JSX.Element | React.JSX.Element[];
 	errorMessage?: string;
 	inlineInputs?: boolean;
 	inputType?: 'checkbox' | 'toggle';
@@ -13,7 +13,7 @@ export interface CheckboxProps extends InputProps {
 	checked?: boolean;
 	description?: string;
 	labelFirst?: boolean;
-	children?: JSX.Element | string;
+	children?: React.JSX.Element | string;
 }
 
 export interface CheckboxesProps
