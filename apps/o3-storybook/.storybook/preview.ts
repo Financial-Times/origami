@@ -1,10 +1,10 @@
-import type {Preview} from '@storybook/react';
-import {addons} from '@storybook/preview-api';
+import type {Preview} from '@storybook/react-webpack5';
+import {addons} from 'storybook/preview-api';
 import {
 	UPDATE_GLOBALS,
 	STORY_ARGS_UPDATED,
 	STORY_CHANGED,
-} from '@storybook/core-events';
+} from 'storybook/internal/core-events';
 
 import {allModes} from './modes';
 

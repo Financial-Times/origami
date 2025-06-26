@@ -7,14 +7,12 @@ const config: StorybookConfig = {
 		'../../../components/o3-*/stories/**/*.stories.@(js|jsx|mjs|ts|tsx)'
 	],
 	addons: [
-		getAbsolutePath("@storybook/addon-links"),
-		getAbsolutePath("@storybook/addon-essentials"),
-		getAbsolutePath("@storybook/addon-interactions"),
-		"@whitespace/storybook-addon-html",
-		getAbsolutePath("@storybook/addon-a11y"),
-		getAbsolutePath("@storybook/addon-designs"),
-		{
-			name: '@storybook/addon-styling-webpack',
+        getAbsolutePath("@storybook/addon-links"),
+        //getAbsolutePath("@whitespace/storybook-addon-html"),
+        getAbsolutePath("@storybook/addon-a11y"),
+        getAbsolutePath("@storybook/addon-designs"),
+        {
+			name: getAbsolutePath("@storybook/addon-styling-webpack"),
 			options: {
 				rules: [
 					{
@@ -42,9 +40,10 @@ const config: StorybookConfig = {
 				],
 			},
 		},
-		getAbsolutePath("@chromatic-com/storybook"),
-		getAbsolutePath("@storybook/addon-webpack5-compiler-swc"),
-	],
+        getAbsolutePath("@chromatic-com/storybook"),
+        getAbsolutePath("@storybook/addon-webpack5-compiler-swc"),
+        getAbsolutePath("@storybook/addon-docs")
+    ],
 	framework: {
 		name: getAbsolutePath("@storybook/react-webpack5"),
 		options: {
