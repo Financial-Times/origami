@@ -8,13 +8,13 @@ sidebar:
 ---
 
 import Tip from '../../../../components/utils/Tip.astro';
-import { default as PlacementOrderGuidlines } from '../../../../components/forms/guidelines/Placement-order.astro';
-import { default as RequiredOptionalInput } from '../../../../components/forms/guidelines/Required-optional.astro';
-import { default as LabelsGrouping } from '../../../../components/forms/guidelines/Labels-grouping.astro';
-import { default as FormSubmission } from '../../../../components/forms/guidelines/Form-submission.astro';
-import { default as InputValidation } from '../../../../components/forms/examples/Input-validation.astro';
-import { default as ErrorSummary } from '../../../../components/forms/examples/Page-level-validation.astro';
-import { default as DisabledStates } from '../../../../components/forms/examples/Disabled-state.astro';
+import {default as PlacementOrderGuidlines} from '../../../../components/forms/guidelines/Placement-order.astro';
+import {default as RequiredOptionalInput} from '../../../../components/forms/guidelines/Required-optional.astro';
+import {default as LabelsGrouping} from '../../../../components/forms/guidelines/Labels-grouping.astro';
+import {default as FormSubmission} from '../../../../components/forms/guidelines/Form-submission.astro';
+import {default as InputValidation} from '../../../../components/forms/examples/Input-validation.astro';
+import {default as ErrorSummary} from '../../../../components/forms/examples/Page-level-validation.astro';
+import {default as DisabledStates} from '../../../../components/forms/examples/Disabled-state.astro';
 
 import '@financial-times/o3-form/css/whitelabel.css';
 import '@financial-times/o3-form/css/internal.css';
@@ -34,7 +34,6 @@ Form components are used to collect information and guide users. Here you’ll f
 	<a href="error-summary">Error summary</a>
 </div>
 
-
 ## Placement and Order
 
 When placing form components on a page, there are two basic rules:
@@ -45,6 +44,7 @@ When placing form components on a page, there are two basic rules:
 <PlacementOrderGuidlines brand={props.brand} />
 
 <Tip
+	icon="true"
 	sources={[
 		{
 			title: 'Luke W: Web Form Design: Filling in the Blanks',
@@ -141,4 +141,3 @@ We have made a number of considerations to ensure accessible forms ([perceivable
 - Form validation states are conveyed with both colour, iconography. and text. This improves perceivability for people with colour blindness, for example, who may find it difficult to distinguish colour.
 - On submit an error summary component provides keyboard users a means to quickly navigate to the form field with an error, improving operability.
 - Form inputs and their labels are connected and clickable, providing a large touch target area for people with limited dexterity, or other reasons, that make it difficult to click a small target area.
-

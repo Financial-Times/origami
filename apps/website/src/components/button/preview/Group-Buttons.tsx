@@ -6,11 +6,12 @@ function ButtonGroupPreview() {
 			<meta itemProp="@preview" />
 			<ButtonGroup>
 				<Button
-					label="Hello"
+					label="List"
 					type="secondary"
 					attributes={{'aria-selected': true}}
+					icon="list"
 				/>
-				<Button label="World" type="secondary" />
+				<Button label="Grid" type="secondary" icon="grid" />
 			</ButtonGroup>
 			<meta itemProp="@preview" />
 		</>
