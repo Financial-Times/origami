@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.10.0](https://github.com/Financial-Times/origami/compare/o3-foundation-v3.9.0...o3-foundation-v3.10.0) (2025-06-27)
+
+
+### Features
+
+* add o3-grid v2 dimensions ([b0b82d2](https://github.com/Financial-Times/origami/commit/b0b82d2699b6f66f1e323a520706775ce85bd6ed))
+* use 1360px instead of 1440px ([c75cb8b](https://github.com/Financial-Times/origami/commit/c75cb8bd119b4ab56e0af5df9ba56c8cb4255866))
+
 ## [3.9.0](https://github.com/Financial-Times/origami/compare/o3-foundation-v3.8.1...o3-foundation-v3.9.0) (2025-06-23)
 
 
