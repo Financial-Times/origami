@@ -20,7 +20,7 @@ interface LinkProps {
 		className?: string;
 		tabIndex?: number;
 	};
-	children?: JSX.Element | JSX.Element[] | string;
+	children?: React.JSX.Element | React.JSX.Element[] | string;
 }
 
 export default ({customElements = {}, ...props}: LinkProps) => {

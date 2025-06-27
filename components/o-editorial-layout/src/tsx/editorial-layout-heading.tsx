@@ -1,6 +1,6 @@
 interface EditorialLayoutHeadingProps {
 	headingLevel: '1' | '2' | '3' | '4' | '5';
-	children: string | JSX.Element | JSX.Element[]
+	children: string | React.JSX.Element | React.JSX.Element[]
 }
 export const EditorialLayoutHeading = ({headingLevel, children}: EditorialLayoutHeadingProps) => {
 	const Heading: keyof JSX.IntrinsicElements = `h${headingLevel}`;

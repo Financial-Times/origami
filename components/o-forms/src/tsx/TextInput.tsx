@@ -11,7 +11,7 @@ interface TypeTextInput extends InputProps {
 	hasSuffix?: boolean;
 	type?: TextInputType;
 	isSmall?: boolean;
-	children?: JSX.Element;
+	children?: React.JSX.Element;
 	inlineInput?: boolean;
 	onChange?: Function;
 	additionalAttributes?: Record<string, string | boolean>;

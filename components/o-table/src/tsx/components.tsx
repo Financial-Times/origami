@@ -14,7 +14,7 @@ export const TableRow = args => {
 }
 
 interface TableHeadingProps {
-	children?: string | JSX.Element | JSX.Element[];
+	children?: string | React.JSX.Element | React.JSX.Element[];
 	dataType?: 'text' | 'date' | 'number' | 'percent' | 'currency' | 'numeric' | AllowAnyString;
 }
 
@@ -23,7 +23,7 @@ export const TableHeading = (args: TableHeadingProps) => {
 }
 
 interface TableDataProps {
-	children?: string | JSX.Element | JSX.Element[];
+	children?: string | React.JSX.Element | React.JSX.Element[];
 	verticallyCenter?: boolean;
 	dataType?: 'text' | 'date' | 'number' | 'percent' | 'currency' | 'numeric' | AllowAnyString;
 	dataValue?: any;
@@ -50,7 +50,7 @@ export const TableCaption = ({children}) => {
 
 
 interface FilterProps {
-	filterComponent: JSX.Element | JSX.Element[];
+	filterComponent: React.JSX.Element | React.JSX.Element[];
 	id: string;
 	filterId: string;
 	filterColumn: string;

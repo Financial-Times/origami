@@ -9,7 +9,7 @@ interface BodyVariants {
 }
 
 export interface BodyProps extends BodyVariants {
-	children: JSX.Element | string | (JSX.Element|string)[];
+	children: React.JSX.Element | string | (React.JSX.Element|string)[];
 };
 
 export interface BodyVariantProps extends BodyVariants {
@@ -34,20 +34,20 @@ export type StrongProps = Omit<BodyVariantProps, 'weight'>;
 export type EmphasisProps = Omit<BodyVariantProps, 'style'>;
 
 export interface CaptionProps {
-	children: JSX.Element | string | (JSX.Element|string)[];
+	children: React.JSX.Element | string | (React.JSX.Element|string)[];
 }
 export interface FooterProps {
 	copy: string;
 }
 export interface ListItemProps {
-	children: JSX.Element | string | (JSX.Element|string)[];
+	children: React.JSX.Element | string | (React.JSX.Element|string)[];
 }
 export interface ListProps {
 	children: ListItemProps[];
     ordered?: boolean;
 }
 export interface WrapperProps {
-	children: JSX.Element[];
+	children: React.JSX.Element[];
 }
 
 export function Wrapper({

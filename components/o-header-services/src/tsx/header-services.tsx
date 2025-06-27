@@ -10,7 +10,7 @@ type TitleProps = {
 	title: string;
 	tagline?: string;
 	titleUrl?: string;
-	relatedContent?: (ListItem | JSX.Element)[];
+	relatedContent?: (ListItem | React.JSX.Element)[];
 	primaryNavData?: NavItem[];
 	relatedContentAlwaysVisible?: boolean;
 };

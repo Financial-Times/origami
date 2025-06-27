@@ -8,7 +8,7 @@ export function HeaderWrapper({
 }: {
 	variant?: THeaderVariant;
 	additionalClassName?: string;
-	children: JSX.Element[] | JSX.Element;
+	children: React.JSX.Element[] | React.JSX.Element;
 }) {
 	const headerClassNames = `o-header o-header--${variant || "simple"} ${
 		additionalClassName ? additionalClassName : ""
@@ -29,7 +29,7 @@ export function HeaderWrapper({
 export const TopWrapper = ({
 	children,
 }: {
-	children: JSX.Element | JSX.Element[];
+	children: React.JSX.Element | React.JSX.Element[];
 }) => (
 	<div className="o-header__row o-header__top">
 		<div className="o-header__container">

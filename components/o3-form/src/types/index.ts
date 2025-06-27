@@ -33,14 +33,14 @@ export interface RadioButtonProps extends BaseInputProps {
 export interface FormFieldsetProps {
 	label: string;
 	description?: string;
-	children: JSX.Element | JSX.Element[];
+	children: React.JSX.Element | React.JSX.Element[];
 	feedback?: FeedbackProps;
 	optional?: boolean;
 }
 
 export interface FormFieldProps extends BaseInputProps {
 	feedback?: FeedbackProps;
-	children: JSX.Element & JSX.IntrinsicElements['input'];
+	children: React.JSX.Element & JSX.IntrinsicElements['input'];
 }
 
 export type FeedbackProps = {
