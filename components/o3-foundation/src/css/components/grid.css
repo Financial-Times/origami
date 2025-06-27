@@ -1,38 +1,45 @@
 :root {
 	--_o3-grid-gutters: calc(var(--o3-grid-columns) - 1);
-	--o3-grid-template: 0px
-		repeat(var(--o3-grid-columns), 1fr) 0px;
+	--o3-grid-template: 0px repeat(var(--o3-grid-columns), 1fr) 0px;
 	--o3-grid-area: 'bleed-left content-start . . content-end bleed-right';
 	--o3-grid-columns: 4;
 	--o3-grid-gap: 16px;
-	--_o3-grid-column-width: calc((100vw - var(--_o3-grid-gutters) * var(--o3-grid-gap)) / var(--o3-grid-columns));
+	--_o3-grid-column-width: calc(
+		(100vw - var(--_o3-grid-gutters) * var(--o3-grid-gap)) /
+			var(--o3-grid-columns)
+	);
 
 	@media screen and (min-width: 740px) {
-		--o3-grid-template: 8px
-			repeat(var(--o3-grid-columns), 1fr) 8px;
+		--o3-grid-template: 8px repeat(var(--o3-grid-columns), 1fr) 8px;
 		--o3-grid-area: 'bleed-left content-start . . . . . . content-end bleed-right';
 		--o3-grid-columns: 8;
-
 	}
 
-	@media screen and (min-width: 980px) {
-		--o3-grid-template: 0px
-			repeat(var(--o3-grid-columns), 1fr) 0px;
+	@media screen and (min-width: 1024px) {
+		--o3-grid-template: 0px repeat(var(--o3-grid-columns), 1fr) 0px;
 		--o3-grid-area: 'bleed-left content-start . . . . . . . . . . content-end bleed-right';
 		--o3-grid-columns: 12;
 		--o3-grid-gap: 24px;
 	}
 
-	@media screen and (min-width: 1268px) {
+	@media screen and (min-width: 1360px) {
 		--o3-grid-columns: 12;
 		--o3-grid-template: 1fr
 			repeat(var(--o3-grid-columns), var(--o3-grid-column-width)) 1fr;
-		--o3-grid-column-width: calc((1220px - var(--_o3-grid-gutters) * var(--o3-grid-gap)) / var(--o3-grid-columns));
+		--o3-grid-column-width: calc(
+			(1312px - var(--_o3-grid-gutters) * var(--o3-grid-gap)) /
+				var(--o3-grid-columns)
+		);
 	}
 }
 
 .o3-grid * {
-	--o3-grid-columns-to-span-width: calc(((var(--_o3-grid-column-width) + var(--o3-grid-gap)) * var(--o3-grid-columns-to-span-count)) - var(--o3-grid-gap));
+	--o3-grid-columns-to-span-width: calc(
+		(
+				(var(--_o3-grid-column-width) + var(--o3-grid-gap)) *
+					var(--o3-grid-columns-to-span-count)
+			) - var(--o3-grid-gap)
+	);
 }
 
 .o3-grid {

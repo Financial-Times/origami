@@ -3,16 +3,10 @@ title: Grids
 description: Grid guidelines.
 sidebar:
   order: 3
-  badge:
-    text: experimental
-    variant: caution
 ---
 
 import {default as Guideline} from '../../../components/Guideline.astro';
 import {default as Example} from '../../../components/Example.astro';
-import {Aside} from '@astrojs/starlight/components';
-
-<Aside type="caution">Our new grid guidelines are experimental and open to change without notice. Please contact the Origami team before using.</Aside>
 
 The standard FT grid system is designed to be flexible, responsive, and adaptable. It caters to a wide range of devices and screen sizes, ensuring consistency and harmony across all digital products.
 
@@ -58,21 +52,21 @@ We recommend following the below design guidelines for any new projects.
 		</tr>
 		<tr>
 			<td>M</td>
-			<td>740-979</td>
+			<td>740-1023</td>
 			<td>8</td>
 			<td>16px</td>
 			<td>24px</td>
 		</tr>
 		<tr>
 			<td>L</td>
-			<td>980-1219</td>
+			<td>1024-1439</td>
 			<td>12</td>
 			<td>24px</td>
 			<td>24px</td>
 		</tr>
 		<tr>
 			<td>XL</td>
-			<td>1220+</td>
+			<td>1440+</td>
 			<td>12</td>
 			<td>24px</td>
 			<td>24px – auto</td>
@@ -90,9 +84,9 @@ Our grid adapts to the following breakpoints to accommodate various screen sizes
 
 - **Default (XS)**: 320px-489px. Default/smallest screen.
 - **Small (S)**: 490-739px. For larger mobile & small tablets.
-- **Medium (M)**: 740-979px. For tablets.
-- **Large (L)**: 980-1219px. For large tablets and small desktops.
-- **Extra Large (XL)**: 1220px and above. For desktop screens.
+- **Medium (M)**: 740-1023px. For tablets.
+- **Large (L)**: 1024-1439px. For large tablets and small desktops.
+- **Extra Large (XL)**: 1440px and above. For desktop screens.
 
 However, you could define custom settings to set specific page size/or view type to use a design outside it’s breakpoint. For instance, the landscape width of the iPad pro is 1366px, which falls within the XL breakpoint. You can set this to maintain the X breakpoint design instead by indicating to your engineer.
 
@@ -104,7 +98,7 @@ Column widths are fluid and change with the size of the grid.
 
 ## Contained Width Behaviour
 
-Our grid is fluid, it uses 100% of the screen’s width until the max width of 1220px is reached. After this, the margins grow to fill the screen. This allows for maximum use of screen real estate, in complex screens and readability of page content in large and high-definition screens.
+Our grid is fluid, it uses 100% of the screen’s width until the max width of 1312px is reached. After this, the margins grow to fill the screen. This allows for maximum use of screen real estate, in complex screens and readability of page content in large and high-definition screens.
 
 Exceptions can be made for contents, e.g full-bleed banners and graphics, to break out of the contained grid.
 
@@ -149,9 +143,9 @@ Key features:
 		larger or smaller to help group regions hierarchically on the page.
 	</p>
 
-	<Example slot="examples" do={true}>
-		![](/assets/images/components/grid/usage-best-practise.svg)
-	</Example>
+    <Example slot="examples" do={true}>
+    	![](/assets/images/components/grid/usage-best-practise.svg)
+    </Example>
 
 </Guideline>
 
@@ -165,8 +159,8 @@ Key features:
 		other content overlaps this grid area.
 	</p>
 
-	<Example slot="examples" do={true}>
-		![](/assets/images/components/grid/usage-best-practise-ad.svg)
-	</Example>
+    <Example slot="examples" do={true}>
+    	![](/assets/images/components/grid/usage-best-practise-ad.svg)
+    </Example>
 
 </Guideline>

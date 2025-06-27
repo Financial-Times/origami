@@ -27,7 +27,8 @@
 			color: _oFormsGet('invalid-base');
 			display: block;
 			position: relative;
-			margin-bottom: -$_o-forms-spacing-five;
+			margin-top: oPrivateSpacingByIncrement(1);
+			margin-bottom: -#{oPrivateSpacingByIncrement(7)};
 		}
 	}
 }

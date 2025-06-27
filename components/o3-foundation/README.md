@@ -312,8 +312,6 @@ See our documentation website for a [full list of spacing tokens](https://origam
 
 ## Grid
 
-> ⚠️ **NOTE:** Grid is experimental and open to change without notice. Please contact the Origami team before using.
-
 The `o3-grid` system, provided by `o3-foundation`, standardises usage of grid across ft. The `o3-grid` is responsive on different screen sizes and differs from [`o-grid`](https://o2-core.origami.ft.com/?path=/docs/maintained-o-grid-readme--docs) component. For more detailed guidelines on grid system check our documentation for [`o3-grid`](https://origami-beta.ft.com/guides/grid/).
 
 For a convenient and standardized grid layout, apply the `o3-grid` class to your element:
