@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.0.9](https://github.com/Financial-Times/origami/compare/o-topper-v7.0.8...o-topper-v7.0.9) (2025-06-25)
+
+
+### Bug Fixes
+
+* remove negative margins in o-topper ([8930853](https://github.com/Financial-Times/origami/commit/8930853fbca928ede656713f5086addd344facf3))
+
 ## [7.0.8](https://github.com/Financial-Times/origami/compare/o-topper-v7.0.7...o-topper-v7.0.8) (2025-06-13)
 
 
