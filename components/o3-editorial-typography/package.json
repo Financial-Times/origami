@@ -1,39 +1,39 @@
 {
-	"name": "@financial-times/o3-editorial-typography",
-	"version": "3.2.1",
-	"description": "Origami typography with design tokens",
-	"keywords": [
-		"typography",
-		"design-tokens"
-	],
-	"homepage": "",
-	"bugs": {
-		"url": "https://github.com/Financial-Times/origami/issues/new?labels=o3-editorial-typography,components",
-		"email": "origami.support@ft.com"
-	},
-	"license": "MIT",
-	"files": [
-		"cjs",
-		"esm",
-		"css",
-		"origami.json",
-		"package.json",
-		"README.md"
-	],
-	"main": "./cjs/index.js",
-	"module": "./esm/index.js",
-	"types": "./build/types/index.d.ts",
-	"scripts": {
-		"build": "bash ../../scripts/component/build-o3.bash o3-editorial-typography"
-	},
-	"engines": {
-		"npm": ">7"
-	},
-	"private": false,
-	"peerDependencies": {
-		"@financial-times/o3-foundation": "^3.0.0"
-	},
-	"devDependencies": {
-		"@financial-times/o3-figma-sb-links": "^0.0.0"
-	}
+  "name": "@financial-times/o3-editorial-typography",
+  "version": "3.2.1",
+  "description": "Origami typography with design tokens",
+  "keywords": [
+    "typography",
+    "design-tokens"
+  ],
+  "homepage": "",
+  "bugs": {
+    "url": "https://github.com/Financial-Times/origami/issues/new?labels=o3-editorial-typography,components",
+    "email": "origami.support@ft.com"
+  },
+  "license": "MIT",
+  "files": [
+    "cjs",
+    "esm",
+    "css",
+    "origami.json",
+    "package.json",
+    "README.md"
+  ],
+  "main": "./cjs/index.js",
+  "module": "./esm/index.js",
+  "types": "./build/types/index.d.ts",
+  "scripts": {
+    "build": "bash ../../scripts/component/build-o3.bash o3-editorial-typography"
+  },
+  "engines": {
+    "npm": ">7"
+  },
+  "private": false,
+  "peerDependencies": {
+    "@financial-times/o3-foundation": "^3.0.0"
+  },
+  "devDependencies": {
+    "@financial-times/o3-figma-sb-links": "^0.0.0"
+  }
 }

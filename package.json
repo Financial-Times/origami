@@ -1,108 +1,107 @@
 {
-	"private": true,
-	"type": "module",
-	"name": "origami",
-	"version": "1.0.0",
-	"description": "the reference implementation of the FT's design system",
-	"scripts": {
-		"regenerate": "node ./scripts/regenerate-ci-config-files.js",
-		"install": "./scripts/install.bash",
-		"storybook": "cd apps/o2-storybook && npm run storybook",
-		"build-storybook": "cd apps/o2-storybook && npm run build-storybook",
-		"build": "./scripts/build-website.bash",
-		"start": "npx serve origami.ft.com",
-		"watch": "concurrently 'cd apps/website && npm run watch' 'cd apps/o2-storybook && npm run watch-storybook' 'npx serve origami.ft.com'",
-		"create-component": "cd tools/create-component && create-component",
-		"precommit": "prettier --write",
-		"postinstall": "patch-package"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/Financial-Times/origami.git"
-	},
-	"keywords": [
-		"origami",
-		"components"
-	],
-	"author": "chee <chee@snoot.club>",
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/Financial-Times/origami/issues"
-	},
-	"homepage": "https://github.com/Financial-Times/origami#readme",
-	"volta": {
-		"node": "22.2.0",
-		"npm": "10.2.1"
-	},
-	"engines": {
-		"node": "22.2.0",
-		"npm": "10.2.1"
-	},
-	"workspaces": [
-		"components/*",
-		"libraries/*",
-		"presets/*",
-		"tools/*",
-		"apps/o2-storybook/addons/*",
-		"apps/*"
-	],
-	"devDependencies": {
-		"@babel/core": "^7.15.5",
-		"@esm-bundle/chai": "^4.3.4-fix.0",
-		"@lwc/eslint-plugin-lwc": "^1.1.1",
-		"@open-wc/testing": "^3.0.3",
-		"@storybook/blocks": "^7.6.20",
-		"@testing-library/dom": "^8.0.0",
-		"@testing-library/user-event": "^13.1.9",
-		"chai": "^4.3.4",
-		"concurrently": "^6.3.0",
-		"decompress": "^4.2.1",
-		"eslint": "^7.32.0",
-		"eslint-config-origami-component": "^2.1.1",
-		"eslint-config-prettier": "^8.5.0",
-		"eslint-plugin-import": "^2.25.3",
-		"eslint-plugin-jsdoc": "^37.0.3",
-		"fetch-mock": "^9.11.0",
-		"husky": "^8.0.3",
-		"mocha": "^8.3.2",
-		"patch-package": "^8.0.0",
-		"prettier": "^2.3.2",
-		"proclaim": "^3.6.0",
-		"react": "^16.14.0",
-		"react-dom": "^16.14.0",
-		"remark": "^13.0.0",
-		"remark-lint": "^7.0.1",
-		"remark-preset-lint-origami-component": "^2.0.0",
-		"sass-bin": "^1.43.2",
-		"serve": "^12.0.1",
-		"sinon": "^10.0.0",
-		"stylelint": "^13.12.0",
-		"stylelint-config-origami-component": "^1.0.4",
-		"stylelint-config-prettier": "^9.0.3"
-	},
-	"dependencies": {
-		"@actions/core": "^1.2.6",
-		"@actions/exec": "^1.0.4",
-		"@actions/github": "^4.0.0",
-		"@actions/io": "^1.0.2",
-		"@percy/cli": "^1.0.5",
-		"@slack/web-api": "^7.0.2",
-		"autoprefixer": "^10.4.2",
-		"del": "^6.0.0",
-		"fast-glob": "^3.2.7",
-		"globby": "^12.0.2",
-		"karma": "^6.3.16",
-		"mustache": "^4.2.0",
-		"react-syntax-highlighter": "^15.4.4",
-		"read-pkg": "^7.0.0",
-		"remark-cli": "^10.0.0",
-		"splitonce": "^0.1.2",
-		"toposort": "^2.0.2",
-		"typescript": "^5.2.2",
-		"undici": "^4.5.1",
-		"zx": "^4.1.1"
-	},
-	"peerDependencies": {
-		"esbuild": "^0.16.17"
-	}
+  "private": true,
+  "type": "module",
+  "name": "origami",
+  "version": "1.0.0",
+  "description": "the reference implementation of the FT's design system",
+  "scripts": {
+    "regenerate": "node ./scripts/regenerate-ci-config-files.js",
+    "install": "./scripts/install.bash",
+    "storybook": "cd apps/o2-storybook && npm run storybook",
+    "build-storybook": "cd apps/o2-storybook && npm run build-storybook",
+    "build": "./scripts/build-website.bash",
+    "start": "npx serve origami.ft.com",
+    "watch": "concurrently 'cd apps/website && npm run watch' 'cd apps/o2-storybook && npm run watch-storybook' 'npx serve origami.ft.com'",
+    "create-component": "cd tools/create-component && create-component",
+    "precommit": "prettier --write",
+    "postinstall": "patch-package"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Financial-Times/origami.git"
+  },
+  "keywords": [
+    "origami",
+    "components"
+  ],
+  "author": "chee <chee@snoot.club>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Financial-Times/origami/issues"
+  },
+  "homepage": "https://github.com/Financial-Times/origami#readme",
+  "volta": {
+    "node": "22.2.0",
+    "npm": "10.2.1"
+  },
+  "engines": {
+    "node": "22.2.0",
+    "npm": "10.2.1"
+  },
+  "workspaces": [
+    "components/*",
+    "libraries/*",
+    "presets/*",
+    "tools/*",
+    "apps/o2-storybook/addons/*",
+    "apps/*"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@esm-bundle/chai": "^4.3.4-fix.0",
+    "@lwc/eslint-plugin-lwc": "^1.1.1",
+    "@open-wc/testing": "^3.0.3",
+    "@testing-library/dom": "^8.0.0",
+    "@testing-library/user-event": "^13.1.9",
+    "chai": "^4.3.4",
+    "concurrently": "^6.3.0",
+    "decompress": "^4.2.1",
+    "eslint": "^7.32.0",
+    "eslint-config-origami-component": "^2.1.1",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsdoc": "^37.0.3",
+    "fetch-mock": "^9.11.0",
+    "husky": "^8.0.3",
+    "mocha": "^8.3.2",
+    "patch-package": "^8.0.0",
+    "prettier": "^2.3.2",
+    "proclaim": "^3.6.0",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "remark": "^13.0.0",
+    "remark-lint": "^7.0.1",
+    "remark-preset-lint-origami-component": "^2.0.0",
+    "sass-bin": "^1.43.2",
+    "serve": "^12.0.1",
+    "sinon": "^10.0.0",
+    "stylelint": "^13.12.0",
+    "stylelint-config-origami-component": "^1.0.4",
+    "stylelint-config-prettier": "^9.0.3"
+  },
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/exec": "^1.0.4",
+    "@actions/github": "^4.0.0",
+    "@actions/io": "^1.0.2",
+    "@percy/cli": "^1.0.5",
+    "@slack/web-api": "^7.0.2",
+    "autoprefixer": "^10.4.2",
+    "del": "^6.0.0",
+    "fast-glob": "^3.2.7",
+    "globby": "^12.0.2",
+    "karma": "^6.3.16",
+    "mustache": "^4.2.0",
+    "react-syntax-highlighter": "^15.4.4",
+    "read-pkg": "^7.0.0",
+    "remark-cli": "^10.0.0",
+    "splitonce": "^0.1.2",
+    "toposort": "^2.0.2",
+    "typescript": "^5.2.2",
+    "undici": "^4.5.1",
+    "zx": "^4.1.1"
+  },
+  "peerDependencies": {
+    "esbuild": "^0.16.17"
+  }
 }

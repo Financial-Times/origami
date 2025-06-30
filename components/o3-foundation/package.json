@@ -1,41 +1,41 @@
 {
-	"name": "@financial-times/o3-foundation",
-	"version": "3.9.0",
-	"description": "Origami foundations with design tokens",
-	"keywords": [
-		"foundation",
-		"design-tokens",
-		"colour",
-		"typography",
-		"spacing",
-		"icon",
-		"grid"
-	],
-	"homepage": "https://registry.origami.ft.com/components/o3-foundation",
-	"bugs": {
-		"url": "https://github.com/Financial-Times/origami/issues/new?labels=o3-foundation,components",
-		"email": "origami.support@ft.com"
-	},
-	"license": "MIT",
-	"main": "./cjs/index.js",
-	"module": "./esm/index.js",
-	"files": [
-		"cjs",
-		"esm",
-		"css",
-		"origami.json",
-		"package.json",
-		"README.md"
-	],
-	"scripts": {
-		"build": "bash ../../scripts/component/build-o3.bash o3-foundation"
-	},
-	"engines": {
-		"npm": ">7"
-	},
-	"devDependencies": {
-		"@financial-times/o3-figma-sb-links": "^0.0.0",
-		"@financial-times/o3-tooling-token": "^0.0.0"
-	},
-	"private": false
+  "name": "@financial-times/o3-foundation",
+  "version": "3.9.0",
+  "description": "Origami foundations with design tokens",
+  "keywords": [
+    "foundation",
+    "design-tokens",
+    "colour",
+    "typography",
+    "spacing",
+    "icon",
+    "grid"
+  ],
+  "homepage": "https://registry.origami.ft.com/components/o3-foundation",
+  "bugs": {
+    "url": "https://github.com/Financial-Times/origami/issues/new?labels=o3-foundation,components",
+    "email": "origami.support@ft.com"
+  },
+  "license": "MIT",
+  "main": "./cjs/index.js",
+  "module": "./esm/index.js",
+  "files": [
+    "cjs",
+    "esm",
+    "css",
+    "origami.json",
+    "package.json",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "bash ../../scripts/component/build-o3.bash o3-foundation"
+  },
+  "engines": {
+    "npm": ">7"
+  },
+  "devDependencies": {
+    "@financial-times/o3-figma-sb-links": "^0.0.0",
+    "@financial-times/o3-tooling-token": "^0.0.0"
+  },
+  "private": false
 }

@@ -1,4 +1,4 @@
-import type {Meta} from '@storybook/react';
+import type {Meta} from '@storybook/react-webpack5';
 import {TooltipOnboarding as OnboardingTooltipTsx} from '../../src/tsx/onboardingTooltip';
 import {
 	OnboardingTooltip as OnboardingTooltipStory,

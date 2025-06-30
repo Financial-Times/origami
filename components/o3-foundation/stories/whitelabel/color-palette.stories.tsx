@@ -1,5 +1,5 @@
 import '../../src/css/brands/whitelabel.css';
-import type {Meta, StoryObj} from '@storybook/react';
+import type {Meta, StoryObj} from '@storybook/react-webpack5';
 import * as FoundationStories from '../story-templates';
 import {getColorPalette, getColorUsecases} from '../utils';
 

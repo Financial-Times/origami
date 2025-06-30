@@ -1,4 +1,4 @@
-import type {Meta} from '@storybook/react';
+import type {Meta} from '@storybook/react-webpack5';
 import {Caption as CaptionTsx} from '../../src/tsx/index';
 import * as StoryTemplates from '../story-templates';
 

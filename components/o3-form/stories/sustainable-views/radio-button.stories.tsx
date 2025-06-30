@@ -1,4 +1,4 @@
-import type {Meta} from '@storybook/react';
+import type {Meta} from '@storybook/react-webpack5';
 import links from "@financial-times/o3-figma-sb-links"
 import {RadioButtonGroup as RadioButtonTsx} from '../../src/tsx/index';
 import '../../src/css/brands/sustainable-views.css';

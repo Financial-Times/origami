@@ -1,4 +1,4 @@
-import type {Meta} from '@storybook/react';
+import type {Meta} from '@storybook/react-webpack5';
 import {TopicTag as TopicTagTsx} from '../../src/tsx/index';
 import * as StoryTemplates from '../story-templates';
 

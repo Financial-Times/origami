@@ -1,4 +1,4 @@
-import type {Meta} from '@storybook/react';
+import type {Meta} from '@storybook/react-webpack5';
 import {SocialSignIn as SocialSignInTsx} from '../../src/tsx/socialSignIn';
 import {SocialSignInStory} from '../story-templates';
 import links from '@financial-times/o3-figma-sb-links';

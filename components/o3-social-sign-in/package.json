@@ -1,38 +1,38 @@
 {
-	"name": "@financial-times/o3-social-sign-in",
-	"version": "2.0.0",
-	"description": "Social sign-in buttons for third party-authentication flows.",
-	"main": "./cjs/socialSignIn.js",
-	"module": "./esm/socialSignIn.js",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/Financial-Times/origami.git"
-	},
-	"files": [
-		"cjs",
-		"esm",
-		"css",
-		"origami.json",
-		"package.json",
-		"README.md"
-	],
-	"private": false,
-	"keywords": [
-		"financial-times",
-		"origami",
-		"buttons",
-		"social-sign-in"
-	],
-	"scripts": {
-		"build": "bash ../../scripts/component/build-o3.bash o3-social-sign-in"
-	},
-	"author": "",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/Financial-Times/origami/issues"
-	},
-	"homepage": "https://github.com/Financial-Times/origami#readme",
-	"dependencies": {
-		"@financial-times/o3-foundation": "^3.0.0"
-	}
+  "name": "@financial-times/o3-social-sign-in",
+  "version": "2.0.0",
+  "description": "Social sign-in buttons for third party-authentication flows.",
+  "main": "./cjs/socialSignIn.js",
+  "module": "./esm/socialSignIn.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Financial-Times/origami.git"
+  },
+  "files": [
+    "cjs",
+    "esm",
+    "css",
+    "origami.json",
+    "package.json",
+    "README.md"
+  ],
+  "private": false,
+  "keywords": [
+    "financial-times",
+    "origami",
+    "buttons",
+    "social-sign-in"
+  ],
+  "scripts": {
+    "build": "bash ../../scripts/component/build-o3.bash o3-social-sign-in"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Financial-Times/origami/issues"
+  },
+  "homepage": "https://github.com/Financial-Times/origami#readme",
+  "dependencies": {
+    "@financial-times/o3-foundation": "^3.0.0"
+  }
 }

@@ -1,4 +1,4 @@
-import type {Meta} from '@storybook/react';
+import type {Meta} from '@storybook/react-webpack5';
 import {Button as ButtonTsx} from '../../src/tsx/button';
 import * as ButtonStories from '../story-templates';
 import {Pagination as PaginationTemplate} from '../pagination-template';

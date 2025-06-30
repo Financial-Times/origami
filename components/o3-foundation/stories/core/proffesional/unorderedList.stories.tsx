@@ -1,4 +1,4 @@
-import type {Meta} from '@storybook/react';
+import type {Meta} from '@storybook/react-webpack5';
 import * as FoundationStories from '../../story-templates';
 import {UnorderedList} from '../../../src/tsx';
 import '../../../src/css/brands/professional.css';

@@ -1,4 +1,4 @@
-import type {Meta} from '@storybook/react';
+import type {Meta} from '@storybook/react-webpack5';
 import {Wrapper} from '../../src/tsx';
 import * as FoundationStories from '../story-templates';
 import '../../src/css/brands/core.css';
