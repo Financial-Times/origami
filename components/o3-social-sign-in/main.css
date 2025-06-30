@@ -1,9 +1,10 @@
 .o3-social-sign-in-button {
+	position: relative;
 	--o3-grid-columns-to-span-count: 4;
 	max-width: var(--o3-grid-columns-to-span-width, 484px);
 	width: 100%;
 	min-height: 44px;
-	padding: 0 var(--o3-spacing-m) 0 var(--o3-spacing-s);
+	padding: 0 var(--o3-spacing-s) 0 var(--o3-spacing-s);
 	display: inline-flex;
 	gap: var(--o3-spacing-s);
 	align-items: center;
@@ -17,7 +18,6 @@
 
 	border: 1px solid var(--_o3-social-sign-in-border-color);
 	border-radius: var(--o3-border-radius-1);
-	text-align: center;
 	text-decoration: none;
 	cursor: pointer;
 
@@ -26,8 +26,7 @@
 }
 
 .o3-social-sign-in-button__copy {
-	margin-right: auto;
-	margin-left: auto;
+	justify-content: center;
 }
 
 .o3-social-sign-in-button--apple {
@@ -43,11 +42,12 @@
 }
 
 .o3-social-sign-in-button::before {
+	position: absolute;
 	content: '';
 
 	width: 16px;
 	height: 16px;
-	flex-shrink: 0;
+	left: var(--o3-spacing-s);
 }
 
 .o3-social-sign-in-button--google::before {
