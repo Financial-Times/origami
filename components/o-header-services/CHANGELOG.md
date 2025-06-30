@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.0.3](https://github.com/Financial-Times/origami/compare/o-header-services-v6.0.2...o-header-services-v6.0.3) (2025-06-30)
+
+
+### Bug Fixes
+
+* move JSX to React namespace to support React v19 ([8663b25](https://github.com/Financial-Times/origami/commit/8663b255b002d99deb6ccab833be189f07284f55))
+
 ## [6.0.2](https://github.com/Financial-Times/origami/compare/o-header-services-v6.0.1...o-header-services-v6.0.2) (2025-04-16)
 
 
