@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.9.1](https://github.com/Financial-Times/origami/compare/o-icons-v7.9.0...o-icons-v7.9.1) (2025-06-30)
+
+
+### Bug Fixes
+
+* move JSX to React namespace to support React v19 ([8663b25](https://github.com/Financial-Times/origami/commit/8663b255b002d99deb6ccab833be189f07284f55))
+
 ## [7.9.0](https://github.com/Financial-Times/origami/compare/o-icons-v7.8.0...o-icons-v7.9.0) (2025-03-07)
 
 

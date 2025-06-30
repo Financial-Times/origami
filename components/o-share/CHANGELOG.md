@@ -1,5 +1,12 @@
 # Changelog
 
+## [11.0.1](https://github.com/Financial-Times/origami/compare/o-share-v11.0.0...o-share-v11.0.1) (2025-06-30)
+
+
+### Bug Fixes
+
+* move JSX to React namespace to support React v19 ([8663b25](https://github.com/Financial-Times/origami/commit/8663b255b002d99deb6ccab833be189f07284f55))
+
 ## [11.0.0](https://github.com/Financial-Times/origami/compare/o-share-v10.0.3...o-share-v11.0.0) (2025-02-20)
 
 ### ⚠ BREAKING CHANGES

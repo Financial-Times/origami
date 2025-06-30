@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.3](https://github.com/Financial-Times/origami/compare/o3-form-v0.5.2...o3-form-v0.5.3) (2025-06-30)
+
+
+### Bug Fixes
+
+* move JSX to React namespace to support React v19 ([8663b25](https://github.com/Financial-Times/origami/commit/8663b255b002d99deb6ccab833be189f07284f55))
+
 ## [0.5.2](https://github.com/Financial-Times/origami/compare/o3-form-v0.5.1...o3-form-v0.5.2) (2025-03-19)
 
 

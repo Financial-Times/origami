@@ -4,6 +4,13 @@
 
 - Add skip link for screen reader users
 
+## [6.0.1](https://github.com/Financial-Times/origami/compare/o-layout-v6.0.0...o-layout-v6.0.1) (2025-06-30)
+
+
+### Bug Fixes
+
+* move JSX to React namespace to support React v19 ([8663b25](https://github.com/Financial-Times/origami/commit/8663b255b002d99deb6ccab833be189f07284f55))
+
 ## [6.0.0](https://github.com/Financial-Times/origami/compare/o-layout-v5.4.0...o-layout-v6.0.0) (2025-02-20)
 
 ### ⚠ BREAKING CHANGES

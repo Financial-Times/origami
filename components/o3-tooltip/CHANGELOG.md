@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.2](https://github.com/Financial-Times/origami/compare/o3-tooltip-v3.0.1...o3-tooltip-v3.0.2) (2025-06-30)
+
+
+### Bug Fixes
+
+* move JSX to React namespace to support React v19 ([8663b25](https://github.com/Financial-Times/origami/commit/8663b255b002d99deb6ccab833be189f07284f55))
+
 ## [3.0.1](https://github.com/Financial-Times/origami/compare/o3-tooltip-v3.0.0...o3-tooltip-v3.0.1) (2025-03-19)
 
 
