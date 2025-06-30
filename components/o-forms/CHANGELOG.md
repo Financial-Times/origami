@@ -1,5 +1,12 @@
 # Changelog
 
+## [10.0.3](https://github.com/Financial-Times/origami/compare/o-forms-v10.0.2...o-forms-v10.0.3) (2025-06-27)
+
+
+### Bug Fixes
+
+* Ensure enough space for focus + validation message ([96b4ffd](https://github.com/Financial-Times/origami/commit/96b4ffdfd5de1beca313072f5f57dceca8a1d8ad))
+
 ## [10.0.2](https://github.com/Financial-Times/origami/compare/o-forms-v10.0.1...o-forms-v10.0.2) (2025-04-16)
 
 

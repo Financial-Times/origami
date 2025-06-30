@@ -2,6 +2,7 @@
 import tip from '../../../public/assets/images/documentation/components/tip.svg?raw';
 
 interface Props {
+	icon: boolean;
 	sources: {
 	 title: string;
 	 url: string;
@@ -11,12 +12,19 @@ const {sources} = Astro.props;
 ---
 
 <div class="not-content tip-container">
-	<div class="tip-description">
-		<div class="icon">
-			<Fragment set:html={tip} />
+	{Astro.props.icon === true && (
+		<div class="tip-description">
+			<div class="icon">
+				<Fragment set:html={tip} />
+			</div>
+			<slot />
 		</div>
-		<slot />
-	</div>
+	)}
+	{Astro.props.icon === false && (
+		<div class="tip-description">
+			<slot />
+		</div>
+	)}
 	{
 		sources?.length > 0 && (
 			<div class="tip-sources">

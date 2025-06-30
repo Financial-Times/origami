@@ -1,6 +1,5 @@
 @import '@financial-times/o3-foundation/css/internal.css';
 @import '@financial-times/o3-button/css/internal.css';
-@import '@financial-times/o3-typography/css/internal.css';
 
 main {
 	padding: var(--o3-spacing-xs);

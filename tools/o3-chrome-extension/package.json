@@ -1,6 +1,6 @@
 {
 	"name": "o3-chrome-extension",
-	"version": "0.0.1",
+	"version": "1.1.0",
 	"description": "Chrome extension for O3 components",
 	"keywords": [],
 	"author": "",
@@ -15,7 +15,6 @@
 	"devDependencies": {
 		"@financial-times/o3-button": "^1.1.5",
 		"@financial-times/o3-foundation": "^1.2.0",
-		"@financial-times/o3-typography": "^1.0.3",
 		"@types/chrome": "^0.0.268",
 		"vite": "^5.3.4"
 	}
