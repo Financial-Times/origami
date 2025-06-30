@@ -2,7 +2,7 @@ type ShareProps = {
 	small?: boolean;
 	vertical?: boolean;
 	inverse?: boolean;
-	children?: JSX.Element | JSX.Element[];
+	children?: React.JSX.Element | React.JSX.Element[];
 };
 
 export function Share({

@@ -4,7 +4,7 @@ import {uidBuilder} from "@financial-times/o-utils";
 const uniqueId = uidBuilder('o-forms');
 
 export interface RadioBtnsWrapperProps {
-	children: JSX.Element | JSX.Element[];
+	children: React.JSX.Element | React.JSX.Element[];
 	errorMessage?: string;
 	inlineInputs?: boolean;
 }
@@ -17,7 +17,7 @@ export interface RadioBtnsBoxWrapperProps extends RadioBtnsWrapperProps {
 export interface RadioBtnProps extends InputProps {
 	checked?: boolean;
 	isNegative?: boolean;
-	children?: JSX.Element | string;
+	children?: React.JSX.Element | string;
 }
 
 export interface RadioBtnsProps extends RadioBtnsWrapperProps, TypeFormField {

@@ -52,7 +52,7 @@ export const CheckBoxGroup = (props: FormFieldsetProps) => {
 
 	return (
 		<FormFieldset {...restProps}>
-			{(children as JSX.Element[]).map(child => {
+			{(children as React.JSX.Element[]).map(child => {
 				const hasError = props.feedback?.errorElementIds?.includes(
 					child.props.inputId
 				);

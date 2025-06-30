@@ -1,5 +1,5 @@
 import { Hero } from "./landingPartials";
-type ChildrenType = JSX.Element | JSX.Element[];
+type ChildrenType = React.JSX.Element | React.JSX.Element[];
 
 type OverviewSectionItemProps = {
 	content: ChildrenType;

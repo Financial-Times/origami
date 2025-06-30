@@ -1,11 +1,11 @@
 interface RadioBoxLinksProps {
-	children: JSX.Element | JSX.Element[];
+	children: React.JSX.Element | React.JSX.Element[];
 }
 interface RadioBoxLinkProps {
 	href: string;
 	isCurrent?: boolean;
 	value?: string;
-	children?: JSX.Element | JSX.Element[] | string;
+	children?: React.JSX.Element | React.JSX.Element[] | string;
 }
 
 export function RadioBoxLinks({children}: RadioBoxLinksProps) {

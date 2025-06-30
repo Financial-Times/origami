@@ -1,5 +1,5 @@
 export interface ButtonGroupProps {
-	children: JSX.Element[];
+	children: React.JSX.Element[];
 }
 
 export function ButtonGroup({children = []}: ButtonGroupProps) {
