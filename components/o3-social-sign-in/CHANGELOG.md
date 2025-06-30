@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.1](https://github.com/Financial-Times/origami/compare/o3-social-sign-in-v2.0.0...o3-social-sign-in-v2.0.1) (2025-06-30)
+
+
+### Bug Fixes
+
+* align o3-social-sign-in button text to center ([#2170](https://github.com/Financial-Times/origami/issues/2170)) ([0bfe0f9](https://github.com/Financial-Times/origami/commit/0bfe0f93a8cf441b961b942a62280b906614a15f))
+
 ## [2.0.0](https://github.com/Financial-Times/origami/compare/o3-social-sign-in-v1.0.1...o3-social-sign-in-v2.0.0) (2025-02-20)
 
 ### ⚠ BREAKING CHANGES
