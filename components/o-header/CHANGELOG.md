@@ -1,5 +1,13 @@
 # Changelog
 
+## [15.1.0](https://github.com/Financial-Times/origami/compare/o-header-v15.0.4...o-header-v15.1.0) (2025-07-02)
+
+
+### Features
+
+* update ask-ft-button ([d4b2a46](https://github.com/Financial-Times/origami/commit/d4b2a467f32e86404177d2d5feafa8125626fa9c))
+* update ask-ft-button style ([3b427b0](https://github.com/Financial-Times/origami/commit/3b427b03e40b9ee9bcde45c832e98262b97d7569))
+
 ## [15.0.4](https://github.com/Financial-Times/origami/compare/o-header-v15.0.3...o-header-v15.0.4) (2025-06-30)
 
 
