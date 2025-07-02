@@ -10,7 +10,7 @@ export const AskFtButton = ({ id, variant, dataTrackable }: AskFtButtonProps) =>
 		className={`o-header__ask-ft-button o-header__ask-ft-button--${variant}`}
 		data-trackable={dataTrackable}
 		href="https://ask.ft.com"
-		title="ASK FT"
+		title="Ask FT"
 	>
 		Ask FT
 	</a>
