@@ -12,9 +12,6 @@ import storyData from './storybook-data';
 import profileStoryData from './storybook-data/profile';
 import {argTypes} from './arg-types';
 import {Drawer} from '../src/tsx/drawer';
-
-const Brand = process.env.STORYBOOK_BRAND;
-
 export default {
 	title: 'Maintained/o-header',
 	component: MainHeader,
@@ -30,7 +27,7 @@ export default {
 export const HeaderPrimary: ComponentStory<typeof MainHeader> = args => {
 	useEffect(() => void javascript.init(), []);
 	return (
-		<div data-o3-brand={Brand}>
+		<>
 			<MainHeader {...args} />
 			<Drawer
 				data={args.data}
@@ -41,7 +38,7 @@ export const HeaderPrimary: ComponentStory<typeof MainHeader> = args => {
 			<p className="demo-sticky-message demo-sticky-message--scroll">
 				Scroll down
 			</p>
-		</div>
+		</>
 	);
 };
 HeaderPrimary.storyName = 'Default header with drawer and sticky header';
@@ -68,7 +65,7 @@ export const DefaultHeaderWithRightAlignedSubnav: ComponentStory<
 > = args => {
 	useEffect(() => void javascript.init(), []);
 	return (
-		<div data-o3-brand={Brand}>
+		<>
 			<MainHeader {...args} />;
 			<Drawer
 				data={args.data}
@@ -76,7 +73,7 @@ export const DefaultHeaderWithRightAlignedSubnav: ComponentStory<
 				userIsLoggedIn={args.userIsLoggedIn}
 				userIsSubscribed={args.userIsSubscribed}
 			/>
-		</div>
+		</>
 	);
 };
 DefaultHeaderWithRightAlignedSubnav.storyName =
@@ -104,11 +101,7 @@ DefaultHeaderWithRightAlignedSubnav.parameters = {
 
 export const LogoOnlyHeader: ComponentStory<typeof LogoOnly> = args => {
 	useEffect(() => void javascript.init(), []);
-	return (
-		<div data-o3-brand={Brand}>
-			<LogoOnly {...args} />
-		</div>
-	)
+	return <LogoOnly {...args} />;
 };
 LogoOnlyHeader.args = {
 	variant: 'simple',
@@ -145,11 +138,7 @@ export const NoOutboundLinks: ComponentStory<
 	typeof NoOutboundLinksHeader
 > = args => {
 	useEffect(() => void javascript.init(), []);
-	return (
-		<div data-o3-brand={Brand}>
-			<NoOutboundLinksHeader {...args} />
-		</div>
-	)
+	return <NoOutboundLinksHeader {...args} />;
 };
 
 NoOutboundLinks.storyName = 'No Outbound links';
@@ -182,11 +171,7 @@ export const InverseSimpleHeader: ComponentStory<
 	typeof InverseHeader
 > = args => {
 	useEffect(() => void javascript.init(), []);
-	return (
-		<div data-o3-brand={Brand}>
-			<InverseHeader {...args} />
-		</div>
-	) 
+	return <InverseHeader {...args} />;
 };
 InverseSimpleHeader.storyName = 'Simple transparent (inverse) header';
 InverseSimpleHeader.args = {
