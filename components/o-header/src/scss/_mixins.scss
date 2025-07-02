@@ -119,27 +119,9 @@
 
 /// Base styles for Ask FT button
 @mixin _oHeaderAskFtButton() {
-	@include oPrivateTypographySans(-1, $weight: 'semibold');
 	display: flex;
 	align-items: center;
-	gap: 4px;
-	padding: 4px 8px;
-	color: _oHeaderGet('header-ask-ft-button-text');
-	background-color: _oHeaderGet('header-ask-ft-button-background');
-	border-radius: 4px;
-	text-transform: uppercase;
-	text-decoration: none;
 	white-space: nowrap;
-
-	&::before {
-		@include oPrivateIconsContent(
-			$icon-name: 'sparkles',
-			$color: _oHeaderGet('header-ask-ft-button-icon'),
-			$size: 40
-		);
-		content: '';
-		margin: -10px; // Undo in-built icon whitespace.
-	}
 }
 
 @mixin _oHeaderPrimaryLink() {

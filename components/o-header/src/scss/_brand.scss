@@ -85,3 +85,16 @@
 		)
 	));
 }
+
+@if oBrandIs('core') {
+	@import '@financial-times/o3-button/css/core.css';
+  } @else if oBrandIs('professional') {
+	@import '@financial-times/o3-button/css/professional.css';
+  } @else if oBrandIs('internal') {
+	@import '@financial-times/o3-button/css/internal.css';
+  } @else if oBrandIs('sustainable-views') {
+	@import '@financial-times/o3-button/css/sustainable-views.css';
+  } @else if oBrandIs('whitelabel') {
+	@import '@financial-times/o3-button/css/whitelabel.css';
+  }
+  

@@ -30,7 +30,8 @@
 		"@financial-times/o-private-foundation": "^1.0.4",
 		"@financial-times/o-toggle": "^3.2.6",
 		"@financial-times/o-utils": "^2.0.0",
-		"@financial-times/o-viewport": "^5.1.2"
+		"@financial-times/o-viewport": "^5.1.2",
+		"@financial-times/o3-button": "^3.12.1"
 	},
 	"devDependencies": {
 		"@financial-times/o-fonts": "^5.3.5",
