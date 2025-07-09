@@ -1,8 +1,8 @@
 import type {Meta} from '@storybook/react';
-import links from "@financial-times/o3-figma-sb-links"
+import links from '@financial-times/o3-figma-sb-links';
 import {CheckBox as CheckBoxTsx} from '../../src/tsx/index';
 import '../../src/css/brands/core.css';
-import {CheckBoxStory} from '../story-template';
+import {CheckBoxesWithDescriptionStory, CheckBoxStory} from '../story-template';
 
 export default {
 	title: 'Core/o3-form',
@@ -18,9 +18,11 @@ export default {
 		backgrounds: {disable: true},
 		design: {
 			type: 'figma',
-			url: links["whitelabel-o3-form--check-box"].figma
-		}
+			url: links['whitelabel-o3-form--check-box'].figma,
+		},
 	},
 } as Meta;
 
 export const CheckBox = CheckBoxStory;
+
+export const CheckBoxDescription = CheckBoxesWithDescriptionStory;

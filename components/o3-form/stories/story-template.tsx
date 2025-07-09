@@ -7,7 +7,8 @@ import {
 	CheckBox,
 	RadioButtonGroup,
 	RadioButtonItem,
-	ErrorSummary} from '../src/tsx/index';
+	ErrorSummary,
+} from '../src/tsx/index';
 import type {CheckBoxProps} from '../src/types/index';
 
 type CheckBoxStoryProps = CheckBoxProps & {
@@ -48,6 +49,7 @@ const CheckBoxGroupTemplate: CheckBoxGroupStory = {
 						key="1"
 						optional={true}
 						checkboxLabel="Normal"
+						checkboxDescription="This is a normal checkbox item"
 						inputId="checkbox_1"
 					/>
 					<CheckBoxItem
@@ -61,6 +63,7 @@ const CheckBoxGroupTemplate: CheckBoxGroupStory = {
 						key="3"
 						optional={true}
 						checkboxLabel="Disabled"
+						checkboxDescription="This is a disabled checkbox description"
 						attributes={{disabled: true}}
 						inputId="checkbox_3"
 					/>
@@ -148,6 +151,23 @@ export const CheckBoxStory: CheckBoxStory = {
 	},
 };
 
+export const CheckBoxesWithDescriptionStory: CheckBoxStory = {
+	...CheckBoxTemplate,
+	args: {
+		inputId: 'checkbox_1',
+		label: 'Check this box',
+		description: 'Please check the box to continue',
+		checkboxLabel: 'I agree to the terms and conditions',
+		checkboxDescription: 'Further details on the checkbox item',
+		optional: false,
+		attributes: {
+			disabled: false,
+			onChange: () => {},
+		},
+		enableIndeterminate: false,
+	},
+};
+
 export const CheckBoxGroupStory: CheckBoxGroupStory = {
 	...CheckBoxGroupTemplate,
 	args: {
@@ -173,7 +193,6 @@ export const RadioButtonGroupStory: RadioButtonGroupStory = {
 		},
 	},
 };
-
 
 export const ErrorSummaryStory: StoryObj = {
 	...ErrorSummaryTemplate,
