@@ -616,3 +616,6 @@
 .o3-button-icon.o3-button-icon--last::before {
 	--o3-button-icon: var(--o3-icon-last);
 }
+.o3-button-icon.o3-button-icon--play::before {
+	--o3-button-icon: var(--o3-icon-play);
+}
