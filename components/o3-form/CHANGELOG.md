@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.4](https://github.com/Financial-Times/origami/compare/o3-form-v0.5.3...o3-form-v0.5.4) (2025-07-14)
+
+
+### Bug Fixes
+
+* use font-size instead of font-family for font-size ([f0433ea](https://github.com/Financial-Times/origami/commit/f0433eab71607bb70cb44512d09da3889cdf927a))
+
 ## [0.5.3](https://github.com/Financial-Times/origami/compare/o3-form-v0.5.2...o3-form-v0.5.3) (2025-06-30)
 
 
