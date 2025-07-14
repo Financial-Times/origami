@@ -252,41 +252,56 @@ describe('Core.Send', function () {
 		});
 	});
 
-	it('should cope with the huge queue bug', function (done) {
-		const server = sinon.fakeServer.create(); // Catch AJAX requests
-		let queue = new Queue('requests');
+	describe('queue bug', function () {
+		let transport;
 
-		queue.replace([]);
+		beforeEach(function () {
+			transport = {
+				send: sinon.spy(),
+				complete: function (callback) {
+					callback();
+				},
+			};
 
-		for (let i=0; i<201; i++) {
-			queue.add({});
-		}
+			mock.transport = function () {
+				return transport;
+			};
+		});
 
-		queue.save();
+		it('should cope with the huge queue bug', function (done) {
+			let queue = new Queue('requests');
 
-		server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
+			queue.replace([]);
 
-		// Run the queue
-		init();
-
-		server.respond();
-
-		// Wait for localStorage
-		setTimeout(() => {
-			try {
-				// Refresh our queue as it's kept in memory
-				queue = new Queue('requests');
-
-				// Event added for the debugging info
-				proclaim.equal(queue.all().length, 0);
-
-				// console.log(queue.all());
-				server.restore();
-				done();
-			} catch (error) {
-				done(error);
+			for (let i = 0; i < 200; i++) {
+				queue.add({
+					category: 'page',
+					action: 'view',
+				});
 			}
-		}, 200);
+
+			queue.add({
+				category: 'button',
+				action: 'click',
+			});
+
+			queue.save();
+
+			// Run the queue
+			init();
+
+			// Only one event should be sent
+			proclaim.equal(transport.send.callCount, 1);
+
+			const payload = JSON.parse(transport.send.firstCall.args[1]);
+			proclaim.equal(payload.category, 'o-tracking');
+			proclaim.equal(payload.action, 'queue-bug');
+			proclaim.equal(payload.context.queue_length, 201);
+			proclaim.deepEqual(payload.context.counts, {
+				'page:view': 200,
+				'button:click': 1,
+			});
+		});
 	});
 
 	it('should replace circular references with warning strings', function (done) {
@@ -329,6 +344,4 @@ describe('Core.Send', function () {
 			}
 		}, 100);
 	});
-
-
 });
