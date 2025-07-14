@@ -4,11 +4,10 @@ import proclaim from 'proclaim';
 import sinon from 'sinon/pkg/sinon-esm.js';
 import {
 	init,
-	add,
 	addAndRun
 } from '../../src/javascript/core/send.js';
 import {Queue} from "../../src/javascript/core/queue.js";
-import {unmockTransport, mockTransport, sendSpy} from '../setup.js';
+import {unmockTransport, mockTransport, sendSpy, errorNextSend} from '../setup.js';
 import {set, destroy} from '../../src/javascript/core/settings.js';
 
 const request = {
@@ -51,13 +50,6 @@ describe('Core.Send', function () {
 			init();
 		});
 	});
-
-	it('should add a request', function () {
-		proclaim.doesNotThrow(function () {
-			add(request);
-		});
-	});
-
 
 	describe('fallback transports', function () {
 		before(function () {
@@ -253,47 +245,38 @@ describe('Core.Send', function () {
 	});
 
 	describe('queue bug', function () {
-		let transport;
+		let queue;
 
 		beforeEach(function () {
-			transport = {
-				send: sinon.spy(),
-				complete: function (callback) {
-					callback();
-				},
-			};
-
-			mock.transport = function () {
-				return transport;
-			};
+			set('config', {queue: true});
+			queue = init();
 		});
 
-		it('should cope with the huge queue bug', function (done) {
-			let queue = new Queue('requests');
+		afterEach(function () {
+			queue.storage.destroy();
+		});
 
-			queue.replace([]);
-
+		it('should summarise large numbers of offline events to avoid the huge queue bug', function () {
+			// queue up 200 'offline' events
 			for (let i = 0; i < 200; i++) {
-				queue.add({
+				errorNextSend();
+				addAndRun({
 					category: 'page',
 					action: 'view',
 				});
 			}
 
-			queue.add({
+			// Go online, and send the events with a clean sinon.spy history
+			sendSpy.resetHistory();
+			addAndRun({
 				category: 'button',
 				action: 'click',
 			});
 
-			queue.save();
-
-			// Run the queue
-			init();
-
 			// Only one event should be sent
-			proclaim.equal(transport.send.callCount, 1);
+			proclaim.equal(sendSpy.callCount, 1);
 
-			const payload = JSON.parse(transport.send.firstCall.args[1]);
+			const payload = JSON.parse(sendSpy.firstCall.args[1]);
 			proclaim.equal(payload.category, 'o-tracking');
 			proclaim.equal(payload.action, 'queue-bug');
 			proclaim.equal(payload.context.queue_length, 201);
@@ -301,6 +284,60 @@ describe('Core.Send', function () {
 				'page:view': 200,
 				'button:click': 1,
 			});
+
+			proclaim.equal(queue.all().length, 0);
+		});
+
+		it('should summarise all offline events rather than discard previous summaries', function () {
+			// queue up 200 'offline' events
+			for (let i = 0; i < 200; i++) {
+				errorNextSend();
+				addAndRun({
+					category: 'page',
+					action: 'view',
+				});
+			}
+
+			// this failure will generate a queue-bug event
+			errorNextSend();
+			addAndRun({
+				category: 'button',
+				action: 'click',
+			});
+
+			// queue up 200 more 'offline' events
+			for (let i = 0; i < 200; i++) {
+				errorNextSend();
+				addAndRun({
+					category: 'page',
+					action: 'view',
+				});
+			}
+
+			// Go online, and send the events with a clean sinon.spy history
+			sendSpy.resetHistory();
+
+			addAndRun({
+				category: 'button',
+				action: 'click',
+			});
+
+			// Two send events should have been attempted
+			proclaim.equal(sendSpy.callCount, 2);
+
+			// NB: our mockTransport completes synchronously, so the click event is
+			// sent before the queue-bug event. It'll be the other way around with
+			// a real HTTP call, but harder to observe the test framework.
+			const payload = JSON.parse(sendSpy.secondCall.args[1]);
+			proclaim.equal(payload.category, 'o-tracking');
+			proclaim.equal(payload.action, 'queue-bug');
+			proclaim.equal(payload.context.queue_length, 401);
+			proclaim.deepEqual(payload.context.counts, {
+				'page:view': 400,
+				'button:click': 1,
+			});
+
+			proclaim.equal(queue.all().length, 0);
 		});
 	});
 
