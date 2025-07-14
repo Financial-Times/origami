@@ -252,13 +252,18 @@ describe('Core.Send', function () {
 	});
 
 	describe('queue bug', function () {
+		let queue;
 		let transport;
+		let transportError = false;
 
 		beforeEach(function () {
+			set('config', {queue: true});
+			queue = init();
+
 			transport = {
 				send: sinon.spy(),
 				complete: function (callback) {
-					callback();
+					callback(transportError);
 				},
 			};
 
@@ -267,27 +272,29 @@ describe('Core.Send', function () {
 			};
 		});
 
-		it('should cope with the huge queue bug', function (done) {
-			let queue = new Queue('requests');
+		afterEach(function () {
+			queue.storage.destroy();
+		});
 
-			queue.replace([]);
+		it('should summarise large numbers of offline events to avoid the huge queue bug', function () {
+			// Simulate offline
+			transportError = true;
 
 			for (let i = 0; i < 200; i++) {
-				queue.add({
+				add({
 					category: 'page',
 					action: 'view',
 				});
 			}
 
-			queue.add({
+			add({
 				category: 'button',
 				action: 'click',
 			});
 
-			queue.save();
-
-			// Run the queue
-			init();
+			// Go online, and send the events
+			transportError = false;
+			run();
 
 			// Only one event should be sent
 			proclaim.equal(transport.send.callCount, 1);
@@ -300,6 +307,60 @@ describe('Core.Send', function () {
 				'page:view': 200,
 				'button:click': 1,
 			});
+
+			proclaim.equal(queue.all().length, 0);
+		});
+
+		it('should summarise all offline events rather than discard previous summaries', function () {
+			// Simulate offline
+			transportError = true;
+
+			// queue up 200 events
+			for (let i = 0; i < 200; i++) {
+				add({
+					category: 'page',
+					action: 'view',
+				});
+			}
+
+			add({
+				category: 'button',
+				action: 'click',
+			});
+
+			// try - and fail - to send the events
+			run();
+
+			// queue up 200 more events
+			for (let i = 0; i < 200; i++) {
+				add({
+					category: 'page',
+					action: 'view',
+				});
+			}
+
+			add({
+				category: 'button',
+				action: 'click',
+			});
+
+			// Go online, and send the events
+			transportError = false;
+			run();
+
+			// Two send events should have been attempted
+			proclaim.equal(transport.send.callCount, 2);
+
+			const payload = JSON.parse(transport.send.secondCall.args[1]);
+			proclaim.equal(payload.category, 'o-tracking');
+			proclaim.equal(payload.action, 'queue-bug');
+			proclaim.equal(payload.context.queue_length, 402);
+			proclaim.deepEqual(payload.context.counts, {
+				'page:view': 400,
+				'button:click': 2,
+			});
+
+			proclaim.equal(queue.all().length, 0);
 		});
 	});
 });

@@ -133,22 +133,35 @@ function add(request) {
  * @param {Function} [callback] - Optional callback
  * @returns {void}
  */
-function run(callback = function () { /* empty */}) {
+function run(
+	callback = function () {
+		/* empty */
+	}
+) {
 	// Investigate queue lengths bug
 	// https://jira.ft.com/browse/DTP-330
 	const all_events = queue.all();
+	let queue_length = all_events.length;
 
-	if (all_events.length > 200) {
+	if (queue_length > 200) {
 		const counts = {};
 
-		all_events.forEach(function (event) {
-			const label = [event.category, event.action].join(':');
+		all_events.forEach(function ({category, action, context}) {
+			// If a previously-queued event was a 'queue-bug' summary,
+			// extract the information and add to the current context
+			if (category === 'o-tracking' && action === 'queue-bug') {
+				for (const [label, count] of Object.entries(context.counts)) {
+					counts[label] = (counts[label] || 0) + count;
+					queue_length += count;
+				}
 
-			if (!Object.prototype.hasOwnProperty.call(counts, label)) {
-				counts[label] = 0;
+				// Data from this old 'queue-bug' event has been exported,
+				// so the event can now be forgotten
+				queue_length -= 1;
+			} else {
+				const label = [category, action].join(':');
+				counts[label] = (counts[label] || 0) + 1;
 			}
-
-			counts[label] += 1;
 		});
 
 		queue.replace([]);
@@ -158,10 +171,10 @@ function run(callback = function () { /* empty */}) {
 			action: 'queue-bug',
 			context: {
 				url: document.URL,
-				queue_length: all_events.length,
+				queue_length,
 				counts: counts,
-				storage: queue.storage.storage._type
-			}
+				storage: queue.storage.storage._type,
+			},
 		});
 	}
 
