@@ -28,14 +28,14 @@ export const CheckBoxItem = (props: CheckBoxProps) => {
 				aria-required={!optional}
 			/>
 			<label htmlFor={inputId} className="o3-form-input-checkbox__label">
-				<div>
+				<span>
 					{props.checkboxLabel}
 					{checkboxDescription && (
-						<div className="o3-form-input-checkbox__description">
+						<span className="o3-form-input-checkbox__description">
 							{checkboxDescription}
-						</div>
+						</span>
 					)}
-				</div>
+				</span>
 			</label>
 		</div>
 	);

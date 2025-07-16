@@ -140,6 +140,7 @@
 }
 
 .o3-form-input-checkbox__description {
+	display: block;
 	font-family: var(--o3-type-detail-font-family);
 	font-size: var(--o3-type-detail-font-size);
 	font-weight: var(--o3-type-detail-font-weight);
