@@ -21,7 +21,7 @@
 	.o3-form-field__title,
 	.o3-form-field__legend {
 		font-family: var(--o3-type-body-highlight-font-family);
-		font-size: var(--o3-type-body-highlight-font-family);
+		font-size: var(--o3-type-body-highlight-font-size);
 		font-weight: var(--o3-type-body-highlight-font-weight);
 		line-height: var(--o3-type-body-highlight-line-height);
 		color: var(--o3-color-use-case-body-text);
@@ -36,7 +36,7 @@
 
 	.o3-form-input__description {
 		font-family: var(--o3-type-body-base-font-family);
-		font-size: var(--o3-type-body-base-font-family);
+		font-size: var(--o3-type-body-base-font-size);
 		font-weight: var(--o3-type-body-base-font-weight);
 		line-height: var(--o3-type-body-base-line-height);
 		color: var(--o3-color-use-case-body-text);

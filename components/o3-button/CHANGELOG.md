@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.12.2](https://github.com/Financial-Times/origami/compare/o3-button-v3.12.1...o3-button-v3.12.2) (2025-07-14)
+
+
+### Bug Fixes
+
+* Add play icon as an option in button icons ([fe38617](https://github.com/Financial-Times/origami/commit/fe386174fe4f73d3163d9361cd01965f5ab11549))
+
 ## [3.12.1](https://github.com/Financial-Times/origami/compare/o3-button-v3.12.0...o3-button-v3.12.1) (2025-06-30)
 
 
