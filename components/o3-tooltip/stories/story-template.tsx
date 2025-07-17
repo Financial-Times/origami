@@ -66,7 +66,7 @@ const ToggleTemplateStory: TemplateType = {
 	},
 };
 
-export const OnboardingTooltip: OnBoardingTooltipStory = {
+const OnboardingTooltip: OnBoardingTooltipStory = {
 	...OnboardingTemplateStory,
 	args: {
 		targetId: 'demo-o3-tooltip-id',
@@ -77,8 +77,9 @@ export const OnboardingTooltip: OnBoardingTooltipStory = {
 		placement: 'top',
 	},
 };
+const OnboardingTooltipTest = Object.assign({}, OnboardingTooltip);
 
-export const ToggleToolTip: ToggleTooltipStory = {
+const ToggleToolTip: ToggleTooltipStory = {
 	...ToggleTemplateStory,
 	args: {
 		content:
@@ -95,4 +96,12 @@ export const ToggleToolTip: ToggleTooltipStory = {
 	parameters: Object.assign({}, ToggleTemplateStory.parameters, {
 		controls: {exclude: ['targetId', 'contentId']},
 	}),
+};
+const ToggleToolTipTest = Object.assign({}, ToggleToolTip);
+
+export {
+	OnboardingTooltip,
+	OnboardingTooltipTest,
+	ToggleToolTip,
+	ToggleToolTipTest
 };
