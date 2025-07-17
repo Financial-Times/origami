@@ -1,13 +1,11 @@
-import type {Meta} from '@storybook/react';
-import {TooltipOnboarding as OnboardingTooltipTsx} from '../../src/tsx/onboardingTooltip';
+import type { Meta } from '@storybook/react';
+import { TooltipOnboarding as OnboardingTooltipTsx } from '../../src/tsx/onboardingTooltip';
 import {
-	OnboardingTooltip as OnboardingTooltipInteractionStory,
-	ToggleToolTip as ToggleToolTipInteractionStory,
+	OnboardingTooltipTest as OnboardingTooltipInteractionStory,
+	ToggleToolTipTest as ToggleToolTipInteractionStory,
 } from '../story-template';
 
-import { userEvent, waitFor, within, expect, fn } from '@storybook/test';
-
-import links from '@financial-times/o3-figma-sb-links';
+import { userEvent, within, expect } from '@storybook/test';
 
 import '../../src/css/brands/core.css';
 import '../../../o3-button/src/css/brands/core.css';
@@ -29,8 +27,8 @@ export default {
 	},
 } as Meta;
 
-export const OnboardingTooltip = OnboardingTooltipInteractionStory;
-OnboardingTooltip.play = async ({ canvasElement }) => {
+export const OnboardingTooltipTest = OnboardingTooltipInteractionStory;
+OnboardingTooltipTest.play = async ({ canvasElement }) => {
 	const canvas = within(canvasElement);
 
 	const tooltipText = 'Tool tip content that is quite long, Tool tip content that is quite long, Tool tip content that is quite long';
@@ -50,8 +48,8 @@ OnboardingTooltip.play = async ({ canvasElement }) => {
 }
 
 
-export const ToggleTooltip = ToggleToolTipInteractionStory;
-ToggleTooltip.play = async ({ canvasElement }) => {
+export const ToggleTooltipTest = ToggleToolTipInteractionStory;
+ToggleTooltipTest.play = async ({ canvasElement }) => {
 	const canvas = within(canvasElement);
 
 	const tooltipText = 'tooltip content that is quite long and has some information about the target';
