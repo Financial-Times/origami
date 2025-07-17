@@ -19,11 +19,11 @@ export interface PasswordInputProps extends BaseInputProps {
 	feedback?: FeedbackProps;
 }
 
-
 export interface CheckBoxProps extends BaseInputProps {
 	inputId: string;
 	checkboxLabel: string; // Label specifically for the checkbox
 	feedback?: FeedbackProps;
+	checkboxDescription?: string;
 }
 
 export interface RadioButtonProps extends BaseInputProps {
