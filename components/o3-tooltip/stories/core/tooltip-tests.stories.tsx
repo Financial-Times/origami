@@ -43,8 +43,6 @@ OnboardingTooltipTest.play = async ({ canvasElement }) => {
 	await expect(
 		canvas.queryByText(tooltipText)
 	).toBeNull();
-
-	return void 0;
 }
 
 
