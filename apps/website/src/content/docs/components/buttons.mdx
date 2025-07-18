@@ -251,11 +251,34 @@ Buttons are fluid up to ~400px, then adapt to their content.<br /><em>(Resize yo
 	</p>
 
     <Example slot="examples" do={true}>
-    	![Correct layout: Two boxes side by side, each with a button at the bottom. On mobile, buttons are full-width; on desktop, buttons are bottom-left aligned.](/assets/images/components/buttons/usage-full-width-do.svg)
-    </Example>
+    	{['whitelabel', 'professional'].includes(props.brand) && (
+    		<img
+    			src="/assets/images/components/buttons/usage-full-width-do-whitelabel.svg"
+    			alt="Correct layout: Two boxes side by side, each with a button at the bottom. On mobile, buttons are full-width; on desktop, buttons are bottom-left aligned."
+    		/>
+    	)}
+    	{['core', 'internal', 'sustainable-views'].includes(props.brand) && (
+    		<img
+    			src="/assets/images/components/buttons/usage-full-width-do-core.svg"
+    			alt="Correct layout: Two boxes side by side, each with a button at the bottom. On mobile, buttons are full-width; on desktop, buttons are bottom-left aligned."
+    		/>
+    	)}
+
+</Example>
 
     <Example slot="examples" do={false}>
-    	![Incorrect layout: a single box with a full-width button at the bottom on desktop. This style is intended for mobile viewports only.](/assets/images/components/buttons/usage-full-width-dont.svg)
+    	{['whitelabel', 'professional'].includes(props.brand) && (
+    		<img
+    			src="/assets/images/components/buttons/usage-full-width-dont-whitelabel.svg"
+    			alt="Incorrect layout: a single box with a full-width button at the bottom on desktop. This style is intended for mobile viewports only."
+    		/>
+    	)}
+    	{['core', 'internal', 'sustainable-views'].includes(props.brand) && (
+    		<img
+    			src="/assets/images/components/buttons/usage-full-width-dont-core.svg"
+    			alt="Incorrect layout: a single box with a full-width button at the bottom on desktop. This style is intended for mobile viewports only."
+    		/>
+    	)}
     </Example>
 
 </Guideline>
@@ -266,11 +289,33 @@ Buttons are fluid up to ~400px, then adapt to their content.<br /><em>(Resize yo
 	</p>
 
     <Example slot="examples" do={true}>
-    	![Correct layout: two buttons side by side. The first is a primary button—used only once per product area. The second is a secondary or ghost button.](/assets/images/components/buttons/usage-only-one-primary-button-do.svg)
+    	{['whitelabel', 'professional'].includes(props.brand) && (
+    		<img
+    			src="/assets/images/components/buttons/usage-only-one-primary-button-do-whitelabel.svg"
+    			alt="Correct layout: two buttons side by side. The first is a primary button—used only once per product area. The second is a secondary or ghost button."
+    		/>
+    	)}
+    	{['core', 'internal', 'sustainable-views'].includes(props.brand) && (
+    		<img
+    			src="/assets/images/components/buttons/usage-only-one-primary-button-do-core.svg"
+    			alt="Correct layout: two buttons side by side. The first is a primary button—used only once per product area. The second is a secondary or ghost button."
+    		/>
+    	)}
     </Example>
 
     <Example slot="examples" do={false}>
-    	![Incorrect layout: two primary buttons side by side in the same product area. Only one primary button should be used per area.](/assets/images/components/buttons/usage-only-one-primary-button-dont.svg)
+    	{['whitelabel', 'professional'].includes(props.brand) && (
+    		<img
+    			src="/assets/images/components/buttons/usage-only-one-primary-button-dont-whitelabel.svg"
+    			alt="Incorrect layout: two primary buttons side by side in the same product area. Only one primary button should be used per area."
+    		/>
+    	)}
+    	{['core', 'internal', 'sustainable-views'].includes(props.brand) && (
+    		<img
+    			src="/assets/images/components/buttons/usage-only-one-primary-button-dont-core.svg"
+    			alt="Incorrect layout: two primary buttons side by side in the same product area. Only one primary button should be used per area."
+    		/>
+    	)}
     </Example>
 
 </Guideline>
@@ -281,21 +326,51 @@ Buttons are fluid up to ~400px, then adapt to their content.<br /><em>(Resize yo
 	</p>
 
     <Example slot="examples" do={true}>
-    	![Correct layout: two buttons. The first has a pencil icon on the left and says ‘Edit’. The second says ‘What’s included’ with a down chevron on the right, indicating direction. Icons appear on the left unless used to convey direction.](/assets/images/components/buttons/usage-icons-placement-do.svg)
+    	{['whitelabel', 'professional'].includes(props.brand) && (
+    		<img
+    			src="/assets/images/components/buttons/usage-icons-placement-do-whitelabel.svg"
+    			alt="Correct layout: two buttons. The first has a pencil icon on the left and says ‘Edit’. The second says ‘What’s included’ with a down chevron on the right, indicating direction. Icons appear on the left unless used to convey direction."
+    		/>
+    	)}
+    	{['core', 'internal', 'sustainable-views'].includes(props.brand) && (
+    		<img
+    			src="/assets/images/components/buttons/usage-icons-placement-do-core.svg"
+    			alt="Correct layout: two buttons. The first has a pencil icon on the left and says ‘Edit’. The second says ‘What’s included’ with a down chevron on the right, indicating direction. Icons appear on the left unless used to convey direction."
+    		/>
+    	)}
     </Example>
 
     <Example slot="examples" do={false}>
-    	![Incorrect layout: a button with a pencil icon on the left, a plus icon on the right, and the text ‘Edit’. Icons should not appear on both sides unless the right icon conveys direction.](/assets/images/components/buttons/usage-icons-placement-dont.svg)
+    	{['whitelabel', 'professional'].includes(props.brand) && (
+    		<img
+    			src="/assets/images/components/buttons/usage-icons-placement-dont-whitelabel.svg"
+    			alt="Incorrect layout: a button with a pencil icon on the left, a plus icon on the right, and the text ‘Edit’. Icons should not appear on both sides unless the right icon conveys direction."
+    		/>
+    	)}
+    	{['core', 'internal', 'sustainable-views'].includes(props.brand) && (
+    		<img
+    			src="/assets/images/components/buttons/usage-icons-placement-dont-core.svg"
+    			alt="Incorrect layout: a button with a pencil icon on the left, a plus icon on the right, and the text ‘Edit’. Icons should not appear on both sides unless the right icon conveys direction."
+    		/>
+    	)}
     </Example>
 
 </Guideline>
 
 <Guideline summary="Group related buttons where it helps the user." do={true}>
 	<Example slot="examples" do={true}>
-		![Correct layout: one standalone ‘View’ button, which represents an action.
-		Beside it, ‘Topic’ and ‘Timeline’ buttons are grouped together to indicate
-		modes. Clear distinction is made between action (View) and modes (Topic,
-		Timeline).](/assets/images/components/buttons/usage-group-releated-buttons-do.svg)
+		{['whitelabel', 'professional'].includes(props.brand) && (
+			<img
+				src="/assets/images/components/buttons/usage-group-related-buttons-do-whitelabel.svg"
+				alt="Correct layout: one standalone ‘View’ button, which represents an action. Beside it, ‘Topic’ and ‘Timeline’ buttons are grouped together to indicate modes. Clear distinction is made between action (View) and modes (Topic, Timeline)."
+			/>
+		)}
+		{['core', 'internal', 'sustainable-views'].includes(props.brand) && (
+			<img
+				src="/assets/images/components/buttons/usage-group-related-buttons-do-core.svg"
+				alt="Correct layout: one standalone ‘View’ button, which represents an action. Beside it, ‘Topic’ and ‘Timeline’ buttons are grouped together to indicate modes. Clear distinction is made between action (View) and modes (Topic, Timeline)."
+			/>
+		)}
 	</Example>
 </Guideline>
 
@@ -305,11 +380,33 @@ Buttons are fluid up to ~400px, then adapt to their content.<br /><em>(Resize yo
 	</p>
 
     <Example slot="examples" do={true}>
-    	![Correct layout: a group of three buttons labeled Seconds, Minutes, and Hours. The group stays within the recommended limit of six buttons.](/assets/images/components/buttons/usage-limit-6-buttons-group-do.svg)
+    	{['whitelabel', 'professional'].includes(props.brand) && (
+    		<img
+    			src="/assets/images/components/buttons/usage-limit-6-buttons-group-do-whitelabel.svg"
+    			alt="Correct layout: a group of three buttons labeled Seconds, Minutes, and Hours. The group stays within the recommended limit of six buttons."
+    		/>
+    	)}
+    	{['core', 'internal', 'sustainable-views'].includes(props.brand) && (
+    		<img
+    			src="/assets/images/components/buttons/usage-limit-6-buttons-group-do-core.svg"
+    			alt="Correct layout: a group of three buttons labeled Seconds, Minutes, and Hours. The group stays within the recommended limit of six buttons."
+    		/>
+    	)}
     </Example>
 
     <Example slot="examples" do={false}>
-    	![Incorrect layout: a group of seven buttons labeled Seconds, Minutes, Hours, Days, Weeks, Months, and Year. This exceeds the recommended limit of six buttons per group.](/assets/images/components/buttons/usage-limit-6-buttons-group-dont.svg)
+    	{['whitelabel', 'professional'].includes(props.brand) && (
+    		<img
+    			src="/assets/images/components/buttons/usage-limit-6-buttons-group-dont-whitelabel.svg"
+    			alt="Incorrect layout: a group of seven buttons labeled Seconds, Minutes, Hours, Days, Weeks, Months, and Year. This exceeds the recommended limit of six buttons per group."
+    		/>
+    	)}
+    	{['core', 'internal', 'sustainable-views'].includes(props.brand) && (
+    		<img
+    			src="/assets/images/components/buttons/usage-limit-6-buttons-group-dont-core.svg"
+    			alt="Incorrect layout: a group of seven buttons labeled Seconds, Minutes, Hours, Days, Weeks, Months, and Year. This exceeds the recommended limit of six buttons per group."
+    		/>
+    	)}
     </Example>
 
 </Guideline>
@@ -320,37 +417,114 @@ Button labels should be outcome-focused, short and easy to scan.
 
 <Guideline summary="Use clear, action-driven language (e.g. 'Share', 'Download')" do={true}>
 	<Example slot="examples" do={true}>
-    	![Correct implementation: a button labeled ‘Share’. The label uses clear, action-driven language.](/assets/images/components/buttons/label-guidance-action-driven-do.svg)
+		{['whitelabel', 'professional'].includes(props.brand) && (
+    		<img
+    			src="/assets/images/components/buttons/label-guidance-action-driven-do-whitelabel.svg"
+    			alt="Correct implementation: a button labeled ‘Share’. The label uses clear, action-driven language."
+    		/>
+    	)}
+    	{['core', 'internal', 'sustainable-views'].includes(props.brand) && (
+    		<img
+    			src="/assets/images/components/buttons/label-guidance-action-driven-do-core.svg"
+    			alt="Correct implementation: a button labeled ‘Share’. The label uses clear, action-driven language."
+    		/>
+    	)}
     </Example>
 
     <Example slot="examples" do={false}>
-    	![Incorrect implementation: a button labeled ‘Share on your social media of choice’. This label is overly wordy and lacks clear, action-driven language.](/assets/images/components/buttons/label-guidance-action-driven-dont.svg)
+    	{['whitelabel', 'professional'].includes(props.brand) && (
+    		<img
+    			src="/assets/images/components/buttons/label-guidance-action-driven-dont-whitelabel.svg"
+    			alt="Incorrect implementation: a button labeled ‘Share on your social media of choice’. This label is overly wordy and lacks clear, action-driven language."
+    		/>
+    	)}
+    	{['core', 'internal', 'sustainable-views'].includes(props.brand) && (
+    		<img
+    			src="/assets/images/components/buttons/label-guidance-action-driven-dont-core.svg"
+    			alt="Incorrect implementation: a button labeled ‘Share on your social media of choice’. This label is overly wordy and lacks clear, action-driven language."
+    		/>
+    	)}
     </Example>
 
 </Guideline>
 
 <Guideline summary="Do not use filler words, punctuation or unnecessary articles ('the', 'a')" do={true}>
 	<Example slot="examples" do={true}>
-    	![Correct implementation: a button labeled ‘Continue’. The label is concise, direct, and free of filler words, punctuation, or unnecessary articles.](/assets/images/components/buttons/label-guidance-filler-words-do.svg)
+		{['whitelabel', 'professional'].includes(props.brand) && (
+    		<img
+    			src="/assets/images/components/buttons/label-guidance-filler-words-do-whitelabel.svg"
+    			alt="Correct implementation: a button labeled ‘Continue’. The label is concise, direct, and free of filler words, punctuation, or unnecessary articles."
+    		/>
+    	)}
+    	{['core', 'internal', 'sustainable-views'].includes(props.brand) && (
+    		<img
+    			src="/assets/images/components/buttons/label-guidance-filler-words-do-core.svg"
+    			alt="Correct implementation: a button labeled ‘Continue’. The label is concise, direct, and free of filler words, punctuation, or unnecessary articles."
+    		/>
+    	)}
     </Example>
 
     <Example slot="examples" do={false}>
-    	![Incorrect implementation: a button labeled ‘Continue to the next section’. The label is too long and includes unnecessary words and articles, reducing clarity.](/assets/images/components/buttons/label-guidance-filler-words-dont.svg)
+    	{['whitelabel', 'professional'].includes(props.brand) && (
+    		<img
+    			src="/assets/images/components/buttons/label-guidance-filler-words-dont-whitelabel.svg"
+    			alt="Incorrect implementation: a button labeled ‘Continue to the next section’. The label is too long and includes unnecessary words and articles, reducing clarity."
+    		/>
+    	)}
+    	{['core', 'internal', 'sustainable-views'].includes(props.brand) && (
+    		<img
+    			src="/assets/images/components/buttons/label-guidance-filler-words-dont-core.svg"
+    			alt="Incorrect implementation: a button labeled ‘Continue to the next section’. The label is too long and includes unnecessary words and articles, reducing clarity."
+    		/>
+    	)}
     </Example>
 
 </Guideline>
 
 <Guideline summary="Write labels in sentence case" do={true}>
 	<Example slot="examples" do={true}>
-    	![Correct implementation: a button labeled ‘Share now’. The label uses sentence case, which improves readability and aligns with design guidelines.](/assets/images/components/buttons/label-guidance-sentence-case-do.svg)
+		{['whitelabel', 'professional'].includes(props.brand) && (
+    		<img
+    			src="/assets/images/components/buttons/label-guidance-sentence-case-do-whitelabel.svg"
+    			alt="Correct implementation: a button labeled ‘Share now’. The label uses sentence case, which improves readability and aligns with design guidelines."
+    		/>
+    	)}
+    	{['core', 'internal', 'sustainable-views'].includes(props.brand) && (
+    		<img
+    			src="/assets/images/components/buttons/label-guidance-sentence-case-do-core.svg"
+    			alt="Correct implementation: a button labeled ‘Share now’. The label uses sentence case, which improves readability and aligns with design guidelines."
+    		/>
+    	)}
     </Example>
 
     <Example slot="examples" do={false}>
-    	![Incorrect implementation: a button labeled ‘Share Now’. The use of title case reduces readability and doesn’t follow sentence case guidelines.](/assets/images/components/buttons/label-guidance-sentence-case-dont.svg)
+    	{['whitelabel', 'professional'].includes(props.brand) && (
+    		<img
+    			src="/assets/images/components/buttons/label-guidance-sentence-case-dont-whitelabel.svg"
+    			alt="Incorrect implementation: a button labeled ‘Share Now’. The use of title case reduces readability and doesn’t follow sentence case guidelines."
+    		/>
+    	)}
+    	{['core', 'internal', 'sustainable-views'].includes(props.brand) && (
+    		<img
+    			src="/assets/images/components/buttons/label-guidance-sentence-case-dont-core.svg"
+    			alt="Incorrect implementation: a button labeled ‘Share Now’. The use of title case reduces readability and doesn’t follow sentence case guidelines."
+    		/>
+    	)}
     </Example>
 
     <Example slot="examples" do={false}>
-    	![Incorrect implementation: a button labeled ‘SHARE NOW’. Using all caps reduces readability and may be perceived as shouting. Sentence case is preferred.](/assets/images/components/buttons/label-guidance-sentence-case-dont-too.svg)
+    	{['whitelabel', 'professional'].includes(props.brand) && (
+    		<img
+    			src="/assets/images/components/buttons/label-guidance-sentence-case-dont-whitelabel.svg"
+    			alt="Incorrect implementation: a button labeled ‘SHARE NOW’. Using all caps reduces readability and may be perceived as shouting. Sentence case is preferred."
+    		/>
+    	)}
+    	{['core', 'internal', 'sustainable-views'].includes(props.brand) && (
+    		<img
+    			src="/assets/images/components/buttons/label-guidance-sentence-case-dont-core.svg"
+    			alt="Incorrect implementation: a button labeled ‘SHARE NOW’. Using all caps reduces readability and may be perceived as shouting. Sentence case is preferred."
+    		/>
+    	)}
     </Example>
 
 </Guideline>
@@ -363,14 +537,36 @@ Button labels should be outcome-focused, short and easy to scan.
 	</p>
 
     <Example slot="examples" do={false}>
-    	![Poor implementation of a button with low contrast and no clear reason for being inactive. This can confuse users, especially those with visual impairments, and fails to communicate why the button can’t be used.](/assets/images/components/buttons/accessibility-considerations-contrast-dont.svg)
+    	{['whitelabel', 'professional'].includes(props.brand) && (
+    		<img
+    			src="/assets/images/components/buttons/accessibility-considerations-contrast-dont-whitelabel.svg"
+    			alt="Poor implementation of a button with low contrast and no clear reason for being inactive. This can confuse users, especially those with visual impairments, and fails to communicate why the button can’t be used."
+    		/>
+    	)}
+    	{['core', 'internal', 'sustainable-views'].includes(props.brand) && (
+    		<img
+    			src="/assets/images/components/buttons/accessibility-considerations-contrast-dont-core.svg"
+    			alt="Poor implementation of a button with low contrast and no clear reason for being inactive. This can confuse users, especially those with visual impairments, and fails to communicate why the button can’t be used."
+    		/>
+    	)}
     </Example>
 
 </Guideline>
 
 <Guideline summary="All buttons must have at least a 44px target size" do={true}>
 	<Example slot="examples" do={true}>
-    	![Correct implementation: The button must have a minimum target size of 44px to meet accessibility standards and ensure it’s easy to tap on touch devices.](/assets/images/components/buttons/accessibility-considerations-44pixels-target-size-do.svg)
+    	{['whitelabel', 'professional'].includes(props.brand) && (
+    		<img
+    			src="/assets/images/components/buttons/accessibility-considerations-44pixels-target-size-do-whitelabel.svg"
+    			alt="Correct implementation: The button must have a minimum target size of 44px to meet accessibility standards and ensure it’s easy to tap on touch devices."
+    		/>
+    	)}
+    	{['core', 'internal', 'sustainable-views'].includes(props.brand) && (
+    		<img
+    			src="/assets/images/components/buttons/accessibility-considerations-44pixels-target-size-do-core.svg"
+    			alt="Correct implementation: The button must have a minimum target size of 44px to meet accessibility standards and ensure it’s easy to tap on touch devices."
+    		/>
+    	)}
     </Example>
 
 </Guideline>
