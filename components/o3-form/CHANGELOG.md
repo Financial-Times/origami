@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.0](https://github.com/Financial-Times/origami/compare/o3-form-v0.5.4...o3-form-v0.6.0) (2025-07-22)
+
+
+### Features
+
+* introduce checkbox descriptions ([#2176](https://github.com/Financial-Times/origami/issues/2176)) ([9598a89](https://github.com/Financial-Times/origami/commit/9598a89909a78495949f3782903dfe4be83640c9))
+
 ## [0.5.4](https://github.com/Financial-Times/origami/compare/o3-form-v0.5.3...o3-form-v0.5.4) (2025-07-14)
 
 
