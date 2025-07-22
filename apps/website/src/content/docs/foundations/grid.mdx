@@ -109,25 +109,25 @@ Following industry-standard, we use a 4px baseline which the grid, spacing and t
 Our grid is fluid, it uses 100% of the screen’s width until the max width of 1312px (XL breakpoint) is reached. After this, the margins grow to fill the screen. This allows for maximum use of screen real estate in complex screens and readability of page content in large and high-definition screens.
 Exceptions can be made for full-bleed banners, headers and graphics, to bleed out of the grid columns.
 
-![](/assets/images/components/grid/contained-width.svg)
+![Fluid 12-column grid with fixed width at XL breakpoint (1312px), showing contained content layout.](/assets/images/components/grid/contained-width.svg)
 
 ### Column Spanning
 
 Layout regions can span any number of columns, separated by the grid gutter. You have the flexibility to set the number to reflect the responsive nature of your design.
 
-![](/assets/images/components/grid/column-spanning.svg)
+![12-column grid showing layout regions with various column spans (3, 4, 6, 12) and gutter separation.](/assets/images/components/grid/column-spanning.svg)
 
 ### Layout Responsiveness
 
 Responsive layout design adapts content layout to various screen types using a fluid layout. This ensures that features built once will display evenly across all screen sizes.
 
-![](/assets/images/components/grid/layout-responsiveness.svg)
+![12-column grid showing layout regions with various column spans (3, 4, 6, 12) and gutter separation.](/assets/images/components/grid/layout-responsiveness.svg)
 
 ### Column Offset
 
 Page content does not always need to span across 12 columns; it can occupy a smaller region within the page.
 
-![](/assets/images/components/grid/column-offset.svg)
+![12-column grid with content offset, demonstrating a 10-column span centered within the page layout.](/assets/images/components/grid/column-offset.svg)
 
 ## Usage Guidelines
 
@@ -143,11 +143,11 @@ Page content does not always need to span across 12 columns; it can occupy a sma
 		</ul>
 	</div>
 	<Example slot="examples" do={true}>
-    	![](/assets/images/components/grid/usage-guidelines-fractional-column-spans-do.svg)
+    	![Correct: Grid layout with even column spans showing 2- and 4-column layouts and horizontal scrolling to maintain alignment.](/assets/images/components/grid/usage-guidelines-fractional-column-spans-do.svg)
     </Example>
 
     <Example slot="examples" do={false}>
-    	![](/assets/images/components/grid/usage-guidelines-fractional-column-spans-dont.svg)
+    	![Incorrect: Grid layout using fractional column spans (2.6), resulting in broken alignment and inconsistent spacing.](/assets/images/components/grid/usage-guidelines-fractional-column-spans-dont.svg)
     </Example>
 
 </Guideline>
@@ -158,7 +158,7 @@ Page content does not always need to span across 12 columns; it can occupy a sma
 	</p>
 
     <Example slot="examples" do={true}>
-    	![](/assets/images/components/grid/usage-guidelines-align-irregular-fixed-size-content-invisible-regions.svg)
+    	![Correct: An example of fixed-size content (like an ad) aligned to the grid using an invisible container that preserves layout structure.](/assets/images/components/grid/usage-guidelines-align-irregular-fixed-size-content-invisible-regions.svg)
     </Example>
 
 </Guideline>
@@ -169,11 +169,11 @@ Page content does not always need to span across 12 columns; it can occupy a sma
 	</p>
 		
 	<Example slot="examples" do={true}>
-    	![](/assets/images/components/grid/usage-guidelines-do-not-leave-elements-in-gutter-do.svg)
+    	![Correct: Grid layout with elements properly contained within columns, avoiding the gutters.](/assets/images/components/grid/usage-guidelines-do-not-leave-elements-in-gutter-do.svg)
     </Example>
 
     <Example slot="examples" do={false}>
-    	![](/assets/images/components/grid/usage-guidelines-do-not-leave-elements-in-gutter-dont.svg)
+    	![Incorrect: Grid layout with elements bleeding into gutters, disrupting column alignment.](/assets/images/components/grid/usage-guidelines-do-not-leave-elements-in-gutter-dont.svg)
     </Example>
 
 </Guideline>
@@ -188,11 +188,11 @@ Page content does not always need to span across 12 columns; it can occupy a sma
     </div>
 
     <Example slot="examples" do={true}>
-    	![](/assets/images/components/grid/accessibility-considerations-maintain-readability-do.svg)
+    	![Correct: Text block spans 6 columns, keeping line length within the recommended 50–80 characters for readability.](/assets/images/components/grid/accessibility-considerations-maintain-readability-do.svg)
     </Example>
 
     <Example slot="examples" do={false}>
-    	![](/assets/images/components/grid/accessibility-considerations-maintain-readability-dont.svg)
+    	![Text block spans 7 columns, exceeding the recommended 80-character line length and reducing reading comfort.](/assets/images/components/grid/accessibility-considerations-maintain-readability-dont.svg)
     </Example>
 
 </Guideline>
