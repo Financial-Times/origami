@@ -133,19 +133,43 @@ function run(callback = function () { /* empty */}) {
 
 	if (queue_length > 200) {
 		const counts = {};
+		const isOfflineCounts = {
+			true: 0,
+			false: 0,
+		};
+		let maxOfflineLag = 0;
+		let totalOfflineLag = 0;
 
 		all_events.forEach(function ({
+			queueTime,
 			category,
 			action,
-			context: {counts: event_counts = {}} = {},
+			context = {},
+			device: {is_offline = false} = {},
 		}) {
+			const offlineLag = new Date().getTime() - queueTime;
+
 			// If a previously-queued event was a 'queue-bug' summary,
-			// extract the information and add to the current context
+			// extract the information and merge with the current context
 			if (category === 'o-tracking' && action === 'queue-bug') {
-				for (const [label, count] of Object.entries(event_counts)) {
+				const previousCounts = context.counts || {};
+				const previousOfflineCounts = context.isOfflineCounts || {
+					true: 0,
+					false: 0,
+				};
+				const previousMaxOfflineLag = context.maxOfflineLag || 0;
+				const previousTotalOfflineLag = context.totalOfflineLag || 0;
+
+				for (const [label, count] of Object.entries(previousCounts)) {
 					counts[label] = (counts[label] || 0) + count;
 					queue_length += count;
 				}
+
+				isOfflineCounts[true] += previousOfflineCounts.true;
+				isOfflineCounts[false] += previousOfflineCounts.false;
+
+				maxOfflineLag = Math.max(maxOfflineLag, previousMaxOfflineLag);
+				totalOfflineLag += previousTotalOfflineLag;
 
 				// Data from this old 'queue-bug' event has been exported,
 				// so the event can now be forgotten
@@ -153,9 +177,13 @@ function run(callback = function () { /* empty */}) {
 			} else {
 				const label = [category, action].join(':');
 				counts[label] = (counts[label] || 0) + 1;
+				isOfflineCounts[is_offline] += 1;
+				maxOfflineLag = Math.max(maxOfflineLag, offlineLag);
+				totalOfflineLag += offlineLag;
 			}
 		});
 
+		const averageOfflineLag = Math.round(totalOfflineLag / queue_length);
 		queue.replace([]);
 
 		queue.add({
@@ -165,8 +193,12 @@ function run(callback = function () { /* empty */}) {
 				url: document.URL,
 				queue_length,
 				counts: counts,
-				storage: queue.storage.storage._type
-			}
+				isOfflineCounts,
+				maxOfflineLag,
+				averageOfflineLag,
+				totalOfflineLag,
+				storage: queue.storage.storage._type,
+			},
 		});
 	}
 

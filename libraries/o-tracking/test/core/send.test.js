@@ -298,7 +298,7 @@ describe('Core.Send', function () {
 				});
 			}
 
-			// this failure will generate a queue-bug event
+			// this failure will generate a queue-bug event which fails to be sent
 			errorNextSend();
 			addAndRun({
 				category: 'button',
@@ -316,7 +316,6 @@ describe('Core.Send', function () {
 
 			// Go online, and send the events with a clean sinon.spy history
 			sendSpy.resetHistory();
-
 			addAndRun({
 				category: 'button',
 				action: 'click',
@@ -325,19 +324,83 @@ describe('Core.Send', function () {
 			// Two send events should have been attempted
 			proclaim.equal(sendSpy.callCount, 2);
 
-			// NB: our mockTransport completes synchronously, so the click event is
+			// NB: our mockTransport completes synchronously, so the last click event is
 			// sent before the queue-bug event. It'll be the other way around with
 			// a real HTTP call, but harder to observe the test framework.
-			const payload = JSON.parse(sendSpy.secondCall.args[1]);
-			proclaim.equal(payload.category, 'o-tracking');
-			proclaim.equal(payload.action, 'queue-bug');
-			proclaim.equal(payload.context.queue_length, 401);
-			proclaim.deepEqual(payload.context.counts, {
+			const firstEvent = JSON.parse(sendSpy.firstCall.args[1]);
+			proclaim.equal(firstEvent.category, 'button');
+			proclaim.equal(firstEvent.action, 'click');
+
+			const secondEvent = JSON.parse(sendSpy.secondCall.args[1]);
+			proclaim.equal(secondEvent.category, 'o-tracking');
+			proclaim.equal(secondEvent.action, 'queue-bug');
+			proclaim.equal(secondEvent.context.queue_length, 401);
+			proclaim.deepEqual(secondEvent.context.counts, {
 				'page:view': 400,
 				'button:click': 1,
 			});
 
 			proclaim.equal(queue.all().length, 0);
+		});
+
+		it('should summarise offline status and queue time', async function () {
+			const clock = sinon.useFakeTimers({
+				now: new Date(0),
+				toFake: ['Date'],
+			});
+
+			// queue up 100 'online' events which fail to send
+			for (let i = 0; i < 100; i++) {
+				errorNextSend();
+				addAndRun({
+					category: 'page',
+					action: 'view',
+				});
+				clock.tick(1);
+			}
+
+			// queue up 301 'offline' events with a queue lag
+			for (let i = 0; i < 301; i++) {
+				errorNextSend();
+				addAndRun({
+					category: 'page',
+					action: 'view',
+					device: {
+						is_offline: true,
+					},
+				});
+				clock.tick(1);
+			}
+
+			// Go online, and send the events with a clean sinon.spy history
+			sendSpy.resetHistory();
+			addAndRun({
+				category: 'button',
+				action: 'click',
+			});
+
+			// Two send events should have been attempted
+			proclaim.equal(sendSpy.callCount, 2);
+
+			// NB: our mockTransport completes synchronously, so the last click event is
+			// sent before the queue-bug event. It'll be the other way around with
+			// a real HTTP call, but harder to observe the test framework.
+			const firstEvent = JSON.parse(sendSpy.firstCall.args[1]);
+			proclaim.equal(firstEvent.category, 'button');
+			proclaim.equal(firstEvent.action, 'click');
+
+			const secondEvent = JSON.parse(sendSpy.secondCall.args[1]);
+			proclaim.equal(secondEvent.category, 'o-tracking');
+			proclaim.equal(secondEvent.action, 'queue-bug');
+			proclaim.equal(secondEvent.context.maxOfflineLag, 200);
+			proclaim.equal(secondEvent.context.averageOfflineLag, 100);
+			proclaim.equal(secondEvent.context.totalOfflineLag, 40000);
+			proclaim.deepEqual(secondEvent.context.isOfflineCounts, {
+				true: 301,
+				false: 100,
+			});
+
+			clock.restore();
 		});
 	});
 
