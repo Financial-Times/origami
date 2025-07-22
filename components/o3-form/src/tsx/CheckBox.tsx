@@ -5,7 +5,7 @@ import type {CheckBoxProps, FormFieldsetProps} from '../types/index';
 const uniqueId = uidBuilder('o3-form-checkbox-input');
 
 export const CheckBoxItem = (props: CheckBoxProps) => {
-	let {inputId, attributes, optional, error} = props;
+	let {inputId, checkboxDescription, attributes, optional, error} = props;
 
 	if (!inputId) {
 		inputId = uniqueId('_');
@@ -28,7 +28,14 @@ export const CheckBoxItem = (props: CheckBoxProps) => {
 				aria-required={!optional}
 			/>
 			<label htmlFor={inputId} className="o3-form-input-checkbox__label">
-				{props.checkboxLabel}
+				<span>
+					{props.checkboxLabel}
+					{checkboxDescription && (
+						<span className="o3-form-input-checkbox__description">
+							{checkboxDescription}
+						</span>
+					)}
+				</span>
 			</label>
 		</div>
 	);
@@ -40,9 +47,12 @@ export const CheckBox = (props: CheckBoxProps) => {
 		labelId: props.inputId,
 		descriptionId: props.inputId,
 	};
+
 	return (
 		<TitledFormField {...newProps}>
-			<CheckBoxItem {...newProps}> </CheckBoxItem>
+			<CheckBoxItem
+				{...newProps}
+				checkboxDescription={props.checkboxDescription}></CheckBoxItem>
 		</TitledFormField>
 	);
 };
