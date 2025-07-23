@@ -78,6 +78,9 @@
   "core-o3-form--check-box": {
     "sb": "?path=/story/core-o3-form--check-box"
   },
+  "core-o3-form--check-box-description": {
+    "sb": "?path=/story/core-o3-form--check-box-description"
+  },
   "core-o3-form--check-box-group": {
     "sb": "?path=/story/core-o3-form--check-box-group"
   },
