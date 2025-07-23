@@ -1,0 +1,49 @@
+name: 'Chromatic deployment – O3'
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'package.json'
+      - 'package-lock.json'
+      - 'apps/o3-storybook/**'
+      - '!apps/o3-storybook/**/*.md'
+      - 'components/o3-*/**'
+      - '!components/o3-*/*.md'
+  pull_request:
+    paths:
+      - 'package.json'
+      - 'package-lock.json'
+      - 'apps/o3-storybook/**'
+      - '!apps/o3-storybook/**/*.md'
+      - 'components/o3-*/**'
+      - '!components/o3-*/*.md'
+
+jobs:
+  interaction-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/cache@v4
+        with:
+          volta-version: "1.0.8"
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install dependencies
+        run: npm ci
+      - name: Build Storybook
+        run: npm run build-storybook --quiet -w apps/o3-storybook
+      - name: Serve Storybook and run tests
+        run: |
+          cd apps/o3-storybook
+          npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
+            "npx http-server storybook-static --port 6006 --silent" \
+            "npx wait-on tcp:6006 && npm run test-storybook"
