@@ -4,7 +4,7 @@
   "description": "Storybook for o3 components",
   "main": "index.js",
   "scripts": {
-	"test-storybook": "test-storybook",
+    "test-storybook": "test-storybook",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "../../scripts/build-o3-deps.sh && storybook build",
     "chromatic": "chromatic"
