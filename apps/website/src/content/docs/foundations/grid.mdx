@@ -20,7 +20,7 @@ This page covers the design and behaviour of grids. For technical details, pleas
 
 ![](/assets/images/components/grid/anatomy.svg)
 
-1. **Columns:** the thick coloured blocks that make up the content width of your design. Field elements are to sit on a certain number of columns.
+1. **Columns:** The coloured blocks define the content area. Align field elements to a specific number of columns within this space.
 2. **Gutters:** the space between the columns.
 3. **Margins:** also known as outside gutters, the amount of white space outside of your content width.
 
@@ -142,11 +142,11 @@ Page content does not always need to span across 12 columns; it can occupy a sma
 			<li>Apply horizontal scroll instead of breaking column alignment.</li>
 		</ul>
 	</div>
-	<Example slot="examples" do={true}>
+	<Example slot="examples" do={true} centred={true}>
     	![Correct: Grid layout with even column spans showing 2- and 4-column layouts and horizontal scrolling to maintain alignment.](/assets/images/components/grid/usage-guidelines-fractional-column-spans-do.svg)
     </Example>
 
-    <Example slot="examples" do={false}>
+    <Example slot="examples" do={false} centred={true}>
     	![Incorrect: Grid layout using fractional column spans (2.6), resulting in broken alignment and inconsistent spacing.](/assets/images/components/grid/usage-guidelines-fractional-column-spans-dont.svg)
     </Example>
 
@@ -157,7 +157,7 @@ Page content does not always need to span across 12 columns; it can occupy a sma
 		Sometimes content cannot align to the grid. For example, we do not always control the dimensions of an ad banner. In this scenario, imagine an invisible element around the content which does align to the grid. Ensure no other content overlaps this grid area.
 	</p>
 
-    <Example slot="examples" do={true}>
+    <Example slot="examples" do={true} centred={true}>
     	![Correct: An example of fixed-size content (like an ad) aligned to the grid using an invisible container that preserves layout structure.](/assets/images/components/grid/usage-guidelines-align-irregular-fixed-size-content-invisible-regions.svg)
     </Example>
 
@@ -165,14 +165,14 @@ Page content does not always need to span across 12 columns; it can occupy a sma
 
 <Guideline summary="Do not leave elements in the gutters" do={true}>
 	<p slot="description">
-		Your elements should sit within the columns and not be bleeding into the gutters. You cannot leave elements in the gutters, that causes inconsistency and defeats the purpose of the grid.
+		Your elements should sit within the columns and not bleed into the gutters. You cannot leave elements in the gutters; that causes inconsistency and defeats the purpose of the grid.
 	</p>
 		
-	<Example slot="examples" do={true}>
+	<Example slot="examples" do={true} centred={true}>
     	![Correct: Grid layout with elements properly contained within columns, avoiding the gutters.](/assets/images/components/grid/usage-guidelines-do-not-leave-elements-in-gutter-do.svg)
     </Example>
 
-    <Example slot="examples" do={false}>
+    <Example slot="examples" do={false} centred={true}>
     	![Incorrect: Grid layout with elements bleeding into gutters, disrupting column alignment.](/assets/images/components/grid/usage-guidelines-do-not-leave-elements-in-gutter-dont.svg)
     </Example>
 
@@ -183,15 +183,13 @@ Page content does not always need to span across 12 columns; it can occupy a sma
 <Guideline summary="Maintain readability range for article body" do={true}>
 	<div slot="description">
 		<p>Shorter lines are usually more comfortable to the reader. As the line length increases, the user’s eye has to travel further from the end of one line to the beginning of the next, making it harder to track their progress vertically. Aim for an average line length of 50–80 characters, including spaces.</p>
-
-    	<p>See demo showing the acceptable text width for block of text in varying typography sizes.</p>
     </div>
 
-    <Example slot="examples" do={true}>
+    <Example slot="examples" do={true} centred={true}>
     	![Correct: Text block spans 6 columns, keeping line length within the recommended 50–80 characters for readability.](/assets/images/components/grid/accessibility-considerations-maintain-readability-do.svg)
     </Example>
 
-    <Example slot="examples" do={false}>
+    <Example slot="examples" do={false} centred={true}>
     	![Text block spans 7 columns, exceeding the recommended 80-character line length and reducing reading comfort.](/assets/images/components/grid/accessibility-considerations-maintain-readability-dont.svg)
     </Example>
 
