@@ -3,6 +3,8 @@ import tip from '../../../public/assets/images/documentation/components/tip.svg?
 
 interface Props {
 	icon: boolean;
+	tipLabel?: string;
+	tipLabelStyle?: string;
 	sources: {
 	 title: string;
 	 url: string;
@@ -28,7 +30,17 @@ const {sources} = Astro.props;
 	{
 		sources?.length > 0 && (
 			<div class="tip-sources">
-				<strong>SOURCES:</strong>
+				<strong
+    class={`tip-label${
+        Astro.props.tipLabelStyle === 'uppercase'
+            ? ' tip-label--uppercase'
+            : Astro.props.tipLabelStyle === 'capitalize'
+            ? ' tip-label--capitalize'
+            : ''
+    }`}
+>
+    {Astro.props.tipLabel ? `${Astro.props.tipLabel}:` : 'Sources:'}
+</strong>
 				<div class="tip-sources-wrapper">
 					{sources.map((source, index) => (
 						<>
@@ -59,6 +71,17 @@ const {sources} = Astro.props;
 			width: var(--_icon-width);
 			height: var(--_icon-width);
 			margin: 0px var(--o3-spacing-4xs);
+		}
+	}
+
+	.tip-label {
+
+		&.tip-label--uppercase {
+			text-transform: uppercase;
+		}
+
+		&.tip-label--capitalize {
+			text-transform: capitalize;
 		}
 	}
 
