@@ -7,6 +7,7 @@ import '../../src/css/brands/whitelabel.css';
 const meta: Meta<typeof TextInputTsx> = {
 	title: 'Whitelabel/o3-form',
 	component: TextInputTsx,
+	tags: ['experimental'],
 	decorators: [
 		Story => (
 			<div data-o3-brand="whitelabel" className="o3-grid">

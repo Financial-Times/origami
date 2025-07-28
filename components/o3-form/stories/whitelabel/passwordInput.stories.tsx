@@ -8,6 +8,7 @@ import {Form} from '../../src/tsx';
 const meta: Meta<typeof PasswordInputTsx> = {
 	title: 'Whitelabel/o3-form',
 	component: PasswordInputTsx,
+	tags: ['experimental'],
 	decorators: [
 		Story => (
 			<div data-o3-brand="whitelabel" className="o3-grid">

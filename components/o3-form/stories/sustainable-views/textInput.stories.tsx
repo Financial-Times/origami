@@ -7,6 +7,7 @@ import '../../src/css/brands/sustainable-views.css';
 const meta: Meta<typeof TextInputTsx> = {
 	title: 'Sustainable Views/o3-form',
 	component: TextInputTsx,
+	tags: ['experimental'],
 	decorators: [
 		Story => (
 			<div data-o3-brand="sustainable-views" className="o3-grid">
