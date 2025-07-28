@@ -236,6 +236,13 @@ declare module 'astro:content' {
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
+"contribution/badge-statuses.md": {
+	id: "contribution/badge-statuses.md";
+  slug: "contribution/badge-statuses";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".md"] };
 "contribution/brands.mdx": {
 	id: "contribution/brands.mdx";
   slug: "contribution/brands";
