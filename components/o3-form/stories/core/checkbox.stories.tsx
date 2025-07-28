@@ -7,6 +7,7 @@ import {CheckBoxesWithDescriptionStory, CheckBoxStory} from '../story-template';
 export default {
 	title: 'Core/o3-form',
 	component: CheckBoxTsx,
+	tags: ['experimental'],
 	decorators: [
 		Story => (
 			<div data-o3-brand="core">

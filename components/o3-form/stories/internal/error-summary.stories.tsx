@@ -7,6 +7,7 @@ import {ErrorSummaryStory} from '../story-template';
 export default {
 	title: 'Internal/o3-form',
 	component: ErrorSummaryTsx,
+	tags: ['experimental'],
 	decorators: [
 		Story => (
 			<div data-o3-brand="professional">

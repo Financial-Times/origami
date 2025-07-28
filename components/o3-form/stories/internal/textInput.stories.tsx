@@ -7,6 +7,7 @@ import '../../src/css/brands/internal.css';
 const meta: Meta<typeof TextInputTsx> = {
 	title: 'Internal/o3-form',
 	component: TextInputTsx,
+	tags: ['experimental'],
 	decorators: [
 		Story => (
 			<div data-o3-brand="professional" className="o3-grid">

@@ -8,6 +8,7 @@ import {Form} from '../../src/tsx';
 const meta: Meta<typeof PasswordInputTsx> = {
 	title: 'Sustainable Views/o3-form',
 	component: PasswordInputTsx,
+	tags: ['experimental'],
 	decorators: [
 		Story => (
 			<div data-o3-brand="sustainable-views" className="o3-grid">
