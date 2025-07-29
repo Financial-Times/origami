@@ -30,7 +30,12 @@ const ButtonTemplate: TemplateType = {
 const LinkButtonTemplate: TemplateType = {
 	...TemplateSBConfig,
 	render: args => {
-		return <LinkButton {...args} attributes={{'aria-disabled': args['aria-disabled']}} />;
+		return (
+			<LinkButton
+				{...args}
+				attributes={{'aria-disabled': args['aria-disabled']}}
+			/>
+		);
 	},
 };
 
@@ -53,9 +58,9 @@ export const Button: ButtonStory = {
 		label: 'Press button',
 		type: 'primary',
 		disabled: false,
+		brand: 'core',
 	},
 };
-
 
 export const SmallButton: ButtonStory = {
 	...ButtonTemplate,
