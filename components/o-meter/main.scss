@@ -13,6 +13,7 @@
 	}
 
 	.o-meter {
+		appearance: none;
 		display: block;
 		width: var(--o-meter-width);
 		height: var(--o-meter-height);
@@ -78,6 +79,13 @@
 	.o-meter-value,
 	.o-meter:-moz-meter-optimum::-moz-meter-bar {
 		display: inline-block;
+	}
+
+	/* Background in Firefox */
+	@supports (-moz-appearance: none) {
+		.o-meter {
+			background: var(--o-meter-background-color);
+		}
 	}
 
 	/* Background in Chrome, etc. */
