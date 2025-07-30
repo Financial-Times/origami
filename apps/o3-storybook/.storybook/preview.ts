@@ -1,4 +1,3 @@
-import type {Preview} from '@storybook/react';
 import {addons} from '@storybook/preview-api';
 import {
 	UPDATE_GLOBALS,
@@ -8,62 +7,75 @@ import {
 
 import {allModes} from './modes';
 
-const preview: Preview = {
-    parameters: {
-		viewport: {
-		      viewports: {
-			"default": { name: "Default", styles: { width: "240px", height: "900px" } },
-		        "s": { name: "Small", styles: { width: "490px", height: "900px" } },
-		        "m": { name: "Medium", styles: { width: "740px", height: "900px" } },
-			"l": { name: "Large", styles: { width: "980px", height: "900px" } },
-		      	"xl": { name: "XLarge", styles: { width: "1220px", height: "900px" } },
-		      },
-		},
-		chromatic: {
-			modes: {
-				mobile: allModes["360px"],
-				desktop: allModes["1220px"],
-			},
-		},
-		html: {
-			prettier: {
-				tabWidth: 2,
-				useTabs: false,
-				htmlWhitespaceSensitivity: 'ignore',
-			},
-		},
-		backgrounds: {
-			values: [
-				{
-					name: 'paper',
-					value: '#fff1e5ff',
-				},
-				{
-					name: 'slate',
-					value: '#262a33ff',
-				},
-				{
-					name: 'wheat',
-					value: '#f2dfceff',
-				},
-				{
-					name: 'white',
-					value: '#ffffff',
-				},
-			],
-		},
-		controls: {
-			matchers: {
-				color: /(background|color)$/i,
-				date: /Date$/,
-			},
+export const parameters = {
+	viewport: {
+		viewports: {
+			default: {name: 'Default', styles: {width: '240px', height: '900px'}},
+			s: {name: 'Small', styles: {width: '490px', height: '900px'}},
+			m: {name: 'Medium', styles: {width: '740px', height: '900px'}},
+			l: {name: 'Large', styles: {width: '980px', height: '900px'}},
+			xl: {name: 'XLarge', styles: {width: '1220px', height: '900px'}},
 		},
 	},
-
-    tags: ['autodocs']
+	chromatic: {
+		modes: {
+			mobile: allModes['360px'],
+			desktop: allModes['1220px'],
+		},
+	},
+	html: {
+		prettier: {
+			tabWidth: 2,
+			useTabs: false,
+			htmlWhitespaceSensitivity: 'ignore',
+		},
+	},
+	backgrounds: {
+		values: [
+			{
+				name: 'paper',
+				value: '#fff1e5ff',
+			},
+			{
+				name: 'slate',
+				value: '#262a33ff',
+			},
+			{
+				name: 'wheat',
+				value: '#f2dfceff',
+			},
+			{
+				name: 'white',
+				value: '#ffffff',
+			},
+		],
+	},
+	controls: {
+		matchers: {
+			color: /(background|color)$/i,
+			date: /Date$/,
+		},
+	},
+	o3BrandSelector: {
+		brands: [
+			'core',
+			'professional',
+			'sustainable-views',
+			'internal',
+			'whitelabel',
+		],
+	},
+	selectedBrand: 'core',
 };
 
-export default preview;
+export const globalTypes = {
+	selectedBrand: {
+		name: 'Brand',
+		description: 'Selected brand for decorator',
+		defaultValue: 'core',
+	},
+};
+export const tags = ['autodocs'];
 
 let channel = addons.getChannel();
 
