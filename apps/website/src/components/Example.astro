@@ -2,6 +2,7 @@
 let icon = '';
 let title = Astro.props.title || 'Example';
 let classModifier;
+let centredClass = Astro.props.centred === true ? 'example--centred' : '';
 switch (Astro.props.do) {
 	case true:
 		icon = '✅';
@@ -19,7 +20,7 @@ switch (Astro.props.do) {
 }
 ---
 
-<div class={`not-content example ${classModifier}`}>
+<div class={`not-content example ${classModifier} ${centredClass}`}>
 	<span class="example__tag o3-type-detail"
 		>{icon}
 		{title}</span
@@ -51,7 +52,11 @@ switch (Astro.props.do) {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 0.5rem;
-		margin: 1rem 0.5rem;
+		margin: 0.5rem;
+	}
+	.example--centred .example__content {
+		justify-content: center;
+		text-align: center;
 	}
 	.example--do .example__tag {
 		color: #005c00;
