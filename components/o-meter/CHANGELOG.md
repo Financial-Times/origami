@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.0.1](https://github.com/Financial-Times/origami/compare/o-meter-v4.0.0...o-meter-v4.0.1) (2025-07-31)
+
+
+### Bug Fixes
+
+* remove background property from o-meter, use [@supports](https://github.com/supports) for moz-appearance ([fa32511](https://github.com/Financial-Times/origami/commit/fa32511dc97c8d3240943830531b62ac4efef5e9))
+
 ## [4.0.0](https://github.com/Financial-Times/origami/compare/o-meter-v3.2.5...o-meter-v4.0.0) (2025-02-20)
 
 ### ⚠ BREAKING CHANGES

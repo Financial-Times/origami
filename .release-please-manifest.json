@@ -28,7 +28,7 @@
 	"components/o-lazy-load": "3.1.3",
 	"components/o-loading": "6.0.0",
 	"components/o-message": "6.0.0",
-	"components/o-meter": "4.0.0",
+	"components/o-meter": "4.0.1",
 	"components/o-multi-select": "3.0.1",
 	"components/o-normalise": "3.3.2",
 	"components/o-overlay": "5.0.1",
