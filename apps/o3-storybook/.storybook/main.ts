@@ -1,5 +1,6 @@
 import {dirname, join} from 'path';
 import type {StorybookConfig} from '@storybook/react-webpack5';
+import path from 'path';
 
 const config: StorybookConfig = {
 	stories: [
@@ -45,6 +46,7 @@ const config: StorybookConfig = {
 		getAbsolutePath('@chromatic-com/storybook'),
 		getAbsolutePath('@storybook/addon-webpack5-compiler-swc'),
 		getAbsolutePath('storybook-addon-tag-badges'),
+		path.resolve(__dirname, '../addons/o3-brand-selector'),
 	],
 	framework: {
 		name: getAbsolutePath('@storybook/react-webpack5'),

@@ -65,6 +65,7 @@ const TemplateSBConfig: Meta = {
 			type: 'figma',
 		},
 	},
+	tags: ['autodocs', 'core', 'professional', 'whitelabel', 'sustainable-views'],
 };
 
 const HeadingTemplate: StoryObj = {
@@ -83,6 +84,7 @@ const HeadingTemplate: StoryObj = {
 			if: {arg: 'type', eq: 'display'},
 		},
 	},
+	tags: [...TemplateSBConfig.tags],
 	render: args => {
 		return <HeadingTsx {...args}>{args.content}</HeadingTsx>;
 	},
@@ -92,6 +94,7 @@ const SummaryTemplate: StoryObj = {
 	argTypes: {
 		...TemplateSBConfig.argTypes,
 	},
+	tags: [...TemplateSBConfig.tags],
 	render: args => {
 		return <SummaryTsx {...args}>{args.content}</SummaryTsx>;
 	},
@@ -101,6 +104,7 @@ const StandFirstTemplate: StoryObj = {
 	argTypes: {
 		...TemplateSBConfig.argTypes,
 	},
+	tags: [...TemplateSBConfig.tags],
 	render: args => {
 		return <StandFirstTsx {...args}>{args.content}</StandFirstTsx>;
 	},
@@ -110,6 +114,7 @@ const CaptionTemplate: StoryObj = {
 	argTypes: {
 		...TemplateSBConfig.argTypes,
 	},
+	tags: [...TemplateSBConfig.tags],
 	render: args => {
 		return (
 			<figure>
@@ -127,6 +132,7 @@ const TopicTagTemplate: StoryObj = {
 	argTypes: {
 		...TemplateSBConfig.argTypes,
 	},
+	tags: [...TemplateSBConfig.tags],
 	render: args => {
 		return <TopicTagTsx {...args}>{args.content}</TopicTagTsx>;
 	},
@@ -152,6 +158,7 @@ const QuoteTemplate: StoryObj = {
 	parameters: {
 		controls: {exclude: ['type', 'children']},
 	},
+	tags: [...TemplateSBConfig.tags],
 	render: args => {
 		return <QuoteTsx {...args}>{args.content}</QuoteTsx>;
 	},
@@ -164,6 +171,7 @@ const BigNumberTemplate: StoryObj = {
 	parameters: {
 		controls: {exclude: ['type', 'children']},
 	},
+	tags: [...TemplateSBConfig.tags],
 	render: args => {
 		return <BigNumberTsx {...args}>{args.content}</BigNumberTsx>;
 	},
@@ -176,6 +184,7 @@ const BylineTemplate: StoryObj = {
 	parameters: {
 		controls: {exclude: ['type', 'children', 'brand']},
 	},
+	tags: [...TemplateSBConfig.tags],
 	render: args => {
 		return (
 			<BylineTsx {...args}>
@@ -204,6 +213,7 @@ const ListTemplate: StoryObj = {
 			},
 		},
 	},
+	tags: [...TemplateSBConfig.tags],
 	render: args => {
 		return (
 			<div id="component-wrapper" style={{padding: '20px'}}>
