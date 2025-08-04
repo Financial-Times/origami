@@ -1,10 +1,3 @@
-import {addons} from '@storybook/preview-api';
-import {
-	UPDATE_GLOBALS,
-	STORY_ARGS_UPDATED,
-	STORY_CHANGED,
-} from '@storybook/core-events';
-
 import {allModes} from './modes';
 
 export const parameters = {
@@ -31,6 +24,7 @@ export const parameters = {
 		},
 	},
 	backgrounds: {
+		default: null,
 		values: [
 			{
 				name: 'paper',
@@ -58,14 +52,57 @@ export const parameters = {
 	},
 	o3BrandSelector: {
 		brands: [
-			'core',
-			'professional',
-			'sustainable-views',
-			'internal',
-			'whitelabel',
+			{
+				name: 'core',
+				background: {
+					standard: 'paper',
+					inverse: 'slate',
+					mono: 'paper',
+					neutral: 'paper',
+				},
+			},
+			{
+				name: 'professional',
+				background: {
+					standard: 'paper',
+					inverse: 'slate',
+					mono: 'paper',
+					neutral: 'paper',
+				},
+			},
+			{
+				name: 'sustainable-views',
+				background: {
+					standard: 'white',
+					inverse: 'slate',
+					mono: 'white',
+					neutral: 'white',
+				},
+			},
+			{
+				name: 'internal',
+				background: {
+					standard: 'white',
+					inverse: 'slate',
+					mono: 'white',
+					neutral: 'white',
+				},
+			},
+			{
+				name: 'whitelabel',
+				background: {
+					standard: 'white',
+					inverse: 'slate',
+					mono: 'white',
+					neutral: 'white',
+				},
+			},
 		],
 	},
-	selectedBrand: 'core',
+};
+
+export const initialGlobals = {
+	backgrounds: {value: 'paper'},
 };
 
 export const globalTypes = {
@@ -76,42 +113,3 @@ export const globalTypes = {
 	},
 };
 export const tags = ['autodocs'];
-
-let channel = addons.getChannel();
-
-const storyArgsListener = args => {
-	if (args.args.theme === 'inverse') {
-		let colorTheme = args.args.theme;
-		channel.emit(UPDATE_GLOBALS, {
-			globals: {
-				theme: colorTheme,
-				backgrounds: {name: 'slate', value: '#262a33ff'},
-			},
-		});
-	} else {
-		let colorTheme = args.args.theme;
-		channel.emit(UPDATE_GLOBALS, {
-			globals: {
-				theme: colorTheme,
-				backgrounds: {name: 'paper', value: '#fff1e5ff'},
-			},
-		});
-	}
-};
-
-const storyChangedListener = () => {
-	channel.emit(UPDATE_GLOBALS, {
-		globals: {
-			backgrounds: undefined,
-		},
-	});
-};
-
-function setupBackgroundListener() {
-	channel.removeListener(STORY_ARGS_UPDATED, storyArgsListener);
-	channel.removeListener(STORY_CHANGED, storyChangedListener);
-	channel.addListener(STORY_ARGS_UPDATED, storyArgsListener);
-	channel.addListener(STORY_CHANGED, storyChangedListener);
-}
-
-setupBackgroundListener();
