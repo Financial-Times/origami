@@ -13,21 +13,21 @@
 	}
 
 	.o-meter {
+		appearance: none;
 		display: block;
 		width: var(--o-meter-width);
 		height: var(--o-meter-height);
+
 		--o-meter-background-color: #{oPrivateFoundationGet('o3-color-palette-slate-white-15')};
 		--o-meter-optimum-color: #{oPrivateFoundationGet('o3-color-palette-jade')};
 		--o-meter-sub-optimum-color: #{oPrivateFoundationGet('o3-color-palette-mandarin')};
 		--o-meter-less-than-sub-optimum-color: #{oPrivateFoundationGet('o3-color-palette-crimson')};
-
-		/* Background in Firefox */
-		background: var(--o-meter-background-color);
 	}
 
 	.o-meter-container {
 		width: var(--o-meter-width);
 		position: relative;
+
 		.o-meter {
 			width: 100%;
 		}
@@ -81,6 +81,13 @@
 		display: inline-block;
 	}
 
+	/* Background in Firefox */
+	@supports (-moz-appearance: none) {
+		.o-meter {
+			background: var(--o-meter-background-color);
+		}
+	}
+
 	/* Background in Chrome, etc. */
 	.o-meter::-webkit-meter-bar {
 		background: var(--o-meter-background-color);
@@ -122,7 +129,7 @@
 	// sass-lint:enable no-vendor-prefixes
 }
 
-@if ($o-meter-is-silent == false) {
+@if ($o-meter-is-silent ==false) {
 	@include oMeter();
 
 	// Set to silent again to avoid being output twice
