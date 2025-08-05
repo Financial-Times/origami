@@ -704,5 +704,34 @@
       "o3.spacing.4xl": "9842876bb417b69da6bcb6c55256f5f376f744b0"
     },
     "group": "sustainable-views"
+  },
+  {
+    "id": "5647981aaaf215577d2424ec5c8e1f5fe79908fc",
+    "name": "core",
+    "$figmaStyleReferences": {},
+    "selectedTokenSets": {
+      "foundation": "enabled",
+      "brand/core": "enabled",
+      "alias/core": "enabled",
+      "theme/core-inverse": "enabled",
+      "components/o3-button": "enabled"
+    },
+    "group": "proposed"
+  },
+  {
+    "id": "6ec89033436c7e090a4c5597a8049e6e8385e9c6",
+    "name": "professional",
+    "$figmaStyleReferences": {},
+    "selectedTokenSets": {
+      "foundation": "enabled",
+      "brand/core": "enabled",
+      "brand/professional": "enabled",
+      "alias/core": "enabled",
+      "alias/professional": "enabled",
+      "theme/core-inverse": "enabled",
+      "theme/professional-inverse": "enabled",
+      "components/o3-button": "enabled"
+    },
+    "group": "proposed"
   }
 ]
