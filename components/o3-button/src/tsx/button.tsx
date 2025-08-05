@@ -58,6 +58,7 @@ export function Button({
 	visuallyHideDisabled = false,
 	attributes = {},
 	onClick,
+	ref,
 }: ButtonProps) {
 	// Combine custom classes with first party o3-button classes,
 	// rather than override them.
@@ -71,6 +72,7 @@ export function Button({
 	}
 	return (
 		<button
+			ref={ref}
 			onClick={onClick ? event => onClick(event) : undefined}
 			className={makeClassNames({
 				customClasses,
