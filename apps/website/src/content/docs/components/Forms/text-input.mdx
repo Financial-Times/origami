@@ -10,6 +10,10 @@ sidebar:
 import {Form, PasswordInput, TextInput} from '@financial-times/o3-form';
 
 import {Content as PlaceholderText} from '../../../../content-partial/docs/components/placeholder-text.mdx';
+import {
+	inputValidationIntroText
+} from '../../../../content-partial/docs/components/input-validation-intro.js';
+import {Content as InputValidationGuidelines} from '../../../../content-partial/docs/components/input-validation-guidelines.mdx';
 import Example from '../../../../components/Example.astro';
 
 import {default as TextInputAnatomy} from '../../../../components/forms/anatomy/Text-input.astro';
@@ -114,15 +118,11 @@ This makes labels easier to read at a glance and better aligns with how people n
 
 ## Input Validation & Feedback
 
-Input components support input-level validation, which provides feedback when the user enters incorrect or invalid data. Validation is triggered after the user finishes interacting with the input, typically when they move focus away from the field (on blur).
+{inputValidationIntroText}
 
 <EmailErrorSummaryExample brand={props.brand} />
 
-**Why we avoid real-time validation**
-
-* Validating on every keystroke introduces error feedback noise that can feel overwhelming.
-* Triggering errors too early is considered a hostile UX pattern. It punishes users while they’re still thinking.
-* Changing a component’s visual state mid-interaction can feel unexpected or jarring, especially for keyboard and screen reader users.
+<InputValidationGuidelines />
 
 ## Submit Button Requirements
 
