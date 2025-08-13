@@ -7,16 +7,19 @@ sidebar:
     variant: caution
 ---
 
-import {Aside} from '@astrojs/starlight/components';
-import {Form, TextInput} from '@financial-times/o3-form';
+import {Form, PasswordInput, TextInput} from '@financial-times/o3-form';
 
-import Tip from '../../../../components/utils/Tip.astro';
+import {Content as PlaceholderText} from '../../../../content-partial/docs/components/placeholder-text.mdx';
 import Example from '../../../../components/Example.astro';
 
 import {default as TextInputAnatomy} from '../../../../components/forms/anatomy/Text-input.astro';
+import {default as EmailErrorSummaryExample} from '../../../../components/forms/examples/Email-error-summary.astro';
 
 import {default as InputWidthExample} from '../../../../components/forms/examples/Input-width.astro';
-import {default as ShortTextEample} from '../../../../components/forms/examples/Input-short-text.astro';
+import {default as ShortTextFourEample} from '../../../../components/forms/examples/Input-short-text-four.astro';
+import {default as ShortTextThreeEample} from '../../../../components/forms/examples/Input-short-text-three.astro';
+import {default as ShortTextTwoEample} from '../../../../components/forms/examples/Input-short-text-two.astro';
+
 
 import '@financial-times/o3-form/css/whitelabel.css';
 import '@financial-times/o3-form/css/internal.css';
@@ -26,73 +29,127 @@ import '@financial-times/o3-form/css/professional.css';
 
 Text inputs allow users to enter free-form text data such as filling in contact or payment information.
 
-<Aside>
-	{/* prettier-ignore */}
-	The <a
-		href={
-			props.brand == 'core'
-				? '/components/forms/'
-				: `/${props.brand}/components/forms/`
-		}>
-		general form component guidelines
-	</a> apply to this component. Please make sure you’re familiar with them first.
-</Aside>
+## Anatomy of a Text Input
 
-## Anatomy
+<TextInputAnatomy style={{textAlign: 'center'}} />
 
-<TextInputAnatomy />
-
-1. Label: Indicates the purpose of the text input field. It should clearly communicate what kind of information is expected.
-2. Description: Provides additional context/instructions about the text input field. It helps users understand what is required or gives examples of the kind of information they should enter.
-3. Optional indicator: Indicates fields that are not mandatory.
-4. Input box: the interactive area where users can type their input
-5. Input text: The text string entered by the user. This is not placeholder text and only applies when the user has typed.
-6. Feedback message: provides users with response regarding their input. For now it’s only errors. The feedback message should be clear and specific, guiding the user on any necessary actions
+1. **Label:** Indicates the purpose of the text input field. It should clearly communicate what kind of information is expected.
+2. **Description:** Provides additional instructions about the text input field. It helps users understand what is required or gives examples of the kind of information they should enter.
+3. **Optional indicator:** Indicates fields that are not mandatory.
+4. **Input box:** the interactive area where users can type their input.
+5. **Input text:** The input entered by the user. This is not placeholder text and only applies when the user has typed.
+6. **Feedback message:** provides users with response regarding their input. For now, it is only errors. The feedback message should be clear and specific, guiding the user on any necessary actions.
 
 ## Usage Guidelines
 
-### Width
+### Field Sizes
 
-As layouts adapt to larger screens, flexible container dimensions are applied to form components for better readability. The default width is 4 grid columns—343px on mobile, expanding to 422px on desktop for an optimized experience.
+As layouts adapt to larger screens, flexible container dimensions are applied to form components for better readability. The default width is 4 grid columns (343px on mobile, expanding to 422px on desktop) for an optimized experience.
 
 <InputWidthExample brand={props.brand} />
 
-In most cases, the input field follows the standard forms width, which adapts to the layout. However, when the expected user input is a short string of characters, it’s better to use a properly-sized input field:
+In most cases, the input field follows the standard form width, which adapts to the layout. However, when the expected user input short, it’s better to use an appropriately sized input field:
 
-<ShortTextEample brand={props.brand} />
+#### Four Characters
 
-## Placeholder Text
+<ShortTextFourEample brand={props.brand} />
 
-The input box should never be used to display a text hint for the user.
+#### Three Characters
 
-<Example do title="Use description fields for additional hints">
+<ShortTextThreeEample brand={props.brand} />
+
+#### Two Characters
+
+<ShortTextTwoEample brand={props.brand} />
+
+## Label Content and Tone
+
+Form field labels should be clear, concise, and easy to scan. We use sentence case for all labels and adopt a neutral, human tone to make forms more approachable and accessible.
+
+Write labels with only the first word capitalized, unless the label includes a proper noun (like "UK" or "Google").
+
+This makes labels easier to read at a glance and better aligns with how people naturally process language in user interfaces.
+
+<Example do={false} title="Avoid title case">
 	<div data-o3-brand={props.brand}>
 		<Form>
 			<TextInput
-				label="Password"
-				description="Please use at least 8 characters"
+				label="First Name"
 			/>
 		</Form>
 	</div>
 </Example>
 
-<Example do={false} title="Never use the input box for hints">
+<Example do title="Use sentence case">
 	<div data-o3-brand={props.brand}>
 		<Form>
 			<TextInput
-				label="Password"
-				attributes={{
-					placeholder: 'Please use at least 8 characters',
-				}}
+				label="First name"
 			/>
 		</Form>
 	</div>
 </Example>
 
-<Tip icon="true">
-	<p>
-		Using placeholder text is considered a bad practice because the hint
-		disappears once the user starts typing, with no obvious way to retrieve it
-		and forces the user to have to rely on memory.
-	</p>
-</Tip>
+**Use a neutral and helpful tone**
+
+* Avoid overly technical or legal language.
+* Speak as the product would speak: polite, direct, and helpful, not robotic.
+* Labels should describe the information being requested, not the UI element. For example, use Phone number not Enter your phone number here.
+* Never use punctuation (no colons, no full stops)
+* Avoid vague or clever language; clarity always comes first.
+
+✅ Good label tone:
+
+* Company website
+* Delivery address
+* Password
+
+🚫 Avoid:
+* Please enter your delivery address
+* What's your password?
+* Website for your company:
+* By writing with sentence case and a neutral tone, we help users move through forms more efficiently and with less friction, especially in long or complex interactions.
+
+<PlaceholderText />
+
+## Input Validation & Feedback
+
+Input components support input-level validation, which provides feedback when the user enters incorrect or invalid data. Validation is triggered after the user finishes interacting with the input, typically when they move focus away from the field (on blur).
+
+<EmailErrorSummaryExample brand={props.brand} />
+
+**Why we avoid real-time validation**
+
+* Validating on every keystroke introduces error feedback noise that can feel overwhelming.
+* Triggering errors too early is considered a hostile UX pattern. It punishes users while they’re still thinking.
+* Changing a component’s visual state mid-interaction can feel unexpected or jarring, especially for keyboard and screen reader users.
+
+## Submit Button Requirements
+
+All data entered through input components must be submitted using a dedicated button, typically labeled Submit, Save, or something contextually relevant.
+
+<Example do title="Include a button with a clear call to action to submit data">
+<div data-o3-brand={props.brand}>
+	<Form>
+		<TextInput
+			label="Email"
+		/>
+		<PasswordInput
+			label="Password"
+			/>
+		<button type="submit" className="o3-button o3-button--primary">Log in</button>
+	</Form>
+</div>
+</Example>
+
+Why a submit button is required:
+
+* It clearly signals to the user that their input needs confirmation.
+* It provides an explicit action to complete the task and save the information.
+* Without submission, info is lost if the user navigates away, closes the page, or reloads.
+
+
+**Exception:** Immediate Components
+
+The only exception to this rule is components that take effect immediately, such as toggle switches.
+

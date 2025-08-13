@@ -1,0 +1,44 @@
+import Example from '../../../components/Example.astro';
+import {Form, TextInput} from '@financial-times/o3-form';
+
+## Use of Placeholder Text
+
+**Don’t use placeholder text to provide hints or instructions inside text input fields.**
+
+Placeholders disappear as soon as the user starts typing, which means:
+
+* The guidance is no longer visible when the user needs it most.
+* It forces the user to rely on memory if they forget what was originally shown.
+* It reduces accessibility, as some screen readers either ignore placeholder text or read it inconsistently.
+* It can be mistaken for a filled-in value, especially for users scanning quickly.
+
+Instead, use:
+
+* Clear, persistent labels to describe the input
+* Helper text below the field for optional instructions or format guidance
+* Validation feedback for any errors or constraints after user interaction
+* Placeholder text should only be used when the purpose is purely decorative or supplementary, never as a replacement for a label or required instruction.
+
+<Example do={false} title="Never use the input box for hints">
+	<div data-o3-brand={props.brand}>
+		<Form>
+			<TextInput
+				label="Password"
+				attributes={{
+					placeholder: 'Please use at least 8 characters',
+				}}
+			/>
+		</Form>
+	</div>
+</Example>
+
+<Example do title="Use description fields for additional hints">
+	<div data-o3-brand={props.brand}>
+		<Form>
+			<TextInput
+				label="Password"
+				description="Please use at least 8 characters"
+			/>
+		</Form>
+	</div>
+</Example>
