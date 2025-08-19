@@ -34,7 +34,7 @@ export interface ButtonProps {
 	iconOnly?: boolean;
 	visuallyHideDisabled?: boolean;
 	attributes?: {
-		[attribute: string]: string | boolean;
+		[attribute: string]: string | boolean | Function;
 	};
 	onClick?: Function;
 }
