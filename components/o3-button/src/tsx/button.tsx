@@ -61,7 +61,8 @@ export function Button({
 }: ButtonProps) {
 	// Combine custom classes with first party o3-button classes,
 	// rather than override them.
-	const customClasses = attributes.className;
+	const customClasses =
+		typeof attributes.className === 'string' ? attributes.className : '';
 	delete attributes.className;
 	if (theme) {
 		attributes['data-o3-theme'] = theme;
@@ -107,7 +108,8 @@ export function LinkButton({
 }: LinkButtonProps) {
 	// Combine custom classes with first party o3-button classes,
 	// rather than override them.
-	const customClasses = attributes.className;
+	const customClasses =
+		typeof attributes.className === 'string' ? attributes.className : '';
 	delete attributes.className;
 	if (theme) {
 		attributes['data-o3-theme'] = theme;
