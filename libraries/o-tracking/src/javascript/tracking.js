@@ -126,7 +126,14 @@ function init(config = {}) {
 	updateConfig(config);
 
 	// Session
-	initSession(config.session);
+	const session = initSession(config.session); // returns the session
+	// Expose the session props through accessor function
+	tracking.getSession = () => ({
+		sessionId: session?.id,
+		sessionIsNew: session?.isNew,
+		sessionTimestamp:session?.timestamp
+	});
+
 
 	// Initialize the sending queue.
 	initSend();
