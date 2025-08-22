@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.13.0](https://github.com/Financial-Times/origami/compare/o3-button-v3.12.2...o3-button-v3.13.0) (2025-08-22)
+
+
+### Features
+
+* allow event handlers on o3 button attributes ([#2192](https://github.com/Financial-Times/origami/issues/2192)) ([062982c](https://github.com/Financial-Times/origami/commit/062982cdf6909c383cafc1f818dbacc0f44645d8))
+
 ## [3.12.2](https://github.com/Financial-Times/origami/compare/o3-button-v3.12.1...o3-button-v3.12.2) (2025-07-14)
 
 
