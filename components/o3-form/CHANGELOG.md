@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.1](https://github.com/Financial-Times/origami/compare/o3-form-v0.6.0...o3-form-v0.6.1) (2025-08-22)
+
+
+### Bug Fixes
+
+* move figma-sb-links to dev deps ([#2194](https://github.com/Financial-Times/origami/issues/2194)) ([5f577c7](https://github.com/Financial-Times/origami/commit/5f577c77089aff950e62487f51122a3294394468))
+
 ## [0.6.0](https://github.com/Financial-Times/origami/compare/o3-form-v0.5.4...o3-form-v0.6.0) (2025-07-22)
 
 
