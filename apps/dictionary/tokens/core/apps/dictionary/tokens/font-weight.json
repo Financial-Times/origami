@@ -1,0 +1,33 @@
+{
+  "_comment": "This file was generated automatically by Supernova.io and should not be changed manually. To modify the format or content of this file, please contact your design system team.",
+  "font-weight": {
+    "font-weight": {
+      "o3": {
+        "font": {
+          "weight": {
+            "light": {
+              "value": "300",
+              "type": "fontWeight"
+            },
+            "regular": {
+              "value": "400",
+              "type": "fontWeight"
+            },
+            "medium": {
+              "value": "500",
+              "type": "fontWeight"
+            },
+            "semibold": {
+              "value": "700",
+              "type": "fontWeight"
+            },
+            "bold": {
+              "value": "800",
+              "type": "fontWeight"
+            }
+          }
+        }
+      }
+    }
+  }
+}

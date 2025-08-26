@@ -1,0 +1,21 @@
+{
+  "_comment": "This file was generated automatically by Supernova.io and should not be changed manually. To modify the format or content of this file, please contact your design system team.",
+  "border": {
+    "o3": {
+      "form": {
+        "input": {
+          "border": {
+            "": {
+              "value": "0.094rem solid rgba({color.o3.color.palette.black-30}, 1)",
+              "type": "border"
+            },
+            "error": {
+              "value": "0.094rem solid rgba({color.o3.color.use-case.error}, 1)",
+              "type": "border"
+            }
+          }
+        }
+      }
+    }
+  }
+}
