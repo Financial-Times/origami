@@ -1,0 +1,43 @@
+{
+  "_comment": "This file was generated automatically by Supernova.io and should not be changed manually. To modify the format or content of this file, please contact your design system team.",
+  "shadow": {
+    "o3": {
+      "focus": {
+        "use-case": {
+          "ring": {
+            "inner": {
+              "value": "0rem 0rem 0rem 0.25rem {color.o3.color.palette.white}",
+              "type": "shadow"
+            },
+            "outer": {
+              "value": "0rem 0rem 0rem 0.5rem {color.o3.color.palette.black-70}",
+              "type": "shadow"
+            },
+            "inverse": {
+              "inner": {
+                "value": "0rem 0rem 0rem 0.25rem {color.o3.color.palette.black-70}",
+                "type": "shadow"
+              },
+              "outer": {
+                "value": "0rem 0rem 0rem 0.5rem {color.o3.color.palette.white}",
+                "type": "shadow"
+              }
+            }
+          },
+          "outline": {
+            "color": {
+              "value": "0rem 0rem 0rem 0.125rem {color.o3.color.palette.black-50}",
+              "type": "shadow"
+            },
+            "inverse": {
+              "color": {
+                "value": "0rem 0rem 0rem 0.125rem {color.o3.color.palette.white}",
+                "type": "shadow"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
