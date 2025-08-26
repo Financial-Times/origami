@@ -1,0 +1,115 @@
+{
+  "_comment": "This file was generated automatically by Supernova.io and should not be changed manually. To modify the format or content of this file, please contact your design system team.",
+  "dimension": {
+    "dimension": {
+      "o3": {
+        "font": {
+          "lineheight": {
+            "0": {
+              "value": "20",
+              "type": "dimension"
+            },
+            "1": {
+              "value": "20",
+              "type": "dimension"
+            },
+            "2": {
+              "value": "24",
+              "type": "dimension"
+            },
+            "3": {
+              "value": "28",
+              "type": "dimension"
+            },
+            "4": {
+              "value": "32",
+              "type": "dimension"
+            },
+            "5": {
+              "value": "32",
+              "type": "dimension"
+            },
+            "6": {
+              "value": "40",
+              "type": "dimension"
+            },
+            "7": {
+              "value": "48",
+              "type": "dimension"
+            },
+            "8": {
+              "value": "56",
+              "type": "dimension"
+            },
+            "9": {
+              "value": "72",
+              "type": "dimension"
+            },
+            "10": {
+              "value": "84",
+              "type": "dimension"
+            },
+            "negative-2": {
+              "value": "16",
+              "type": "dimension"
+            },
+            "negative-1": {
+              "value": "16",
+              "type": "dimension"
+            }
+          },
+          "lineheight-metric2": {
+            "0": {
+              "value": "24",
+              "type": "dimension"
+            },
+            "1": {
+              "value": "24",
+              "type": "dimension"
+            },
+            "2": {
+              "value": "28",
+              "type": "dimension"
+            },
+            "3": {
+              "value": "32",
+              "type": "dimension"
+            },
+            "4": {
+              "value": "32",
+              "type": "dimension"
+            },
+            "5": {
+              "value": "40",
+              "type": "dimension"
+            },
+            "6": {
+              "value": "48",
+              "type": "dimension"
+            },
+            "7": {
+              "value": "56",
+              "type": "dimension"
+            },
+            "8": {
+              "value": "72",
+              "type": "dimension"
+            },
+            "9": {
+              "value": "84",
+              "type": "dimension"
+            },
+            "negative-2": {
+              "value": "16",
+              "type": "dimension"
+            },
+            "negative-1": {
+              "value": "20",
+              "type": "dimension"
+            }
+          }
+        }
+      }
+    }
+  }
+}
