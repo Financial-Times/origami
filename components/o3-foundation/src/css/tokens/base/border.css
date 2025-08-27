@@ -1,0 +1,9 @@
+/**
+ * This file was generated automatically by Supernova.io and should not be changed manually.
+ * To modify the format or content of this file, please contact your design system team. 
+ */
+
+[data-o3-brand=core] {
+  --o3-border: 0.094rem solid rgba(var(--o3-color-black-30), 1);
+  --o3-border-error: 0.094rem solid rgba(var(--o3-color-error), 1);
+}

@@ -1,0 +1,19 @@
+/**
+ * This file was generated automatically by Supernova.io and should not be changed manually.
+ * To modify the format or content of this file, please contact your design system team. 
+ */
+
+[data-o3-brand=core] {
+  --o3-space-5xs: 0.25rem;
+  --o3-space-4xs: 0.5rem;
+  --o3-space-3xs: 0.75rem;
+  --o3-space-2xs: 1rem;
+  --o3-space-xs: 1.25rem;
+  --o3-space-s: 1.5rem;
+  --o3-space-m: 2rem;
+  --o3-space-l: 2.5rem;
+  --o3-space-xl: 3rem;
+  --o3-space-2xl: 4rem;
+  --o3-space-3xl: 5rem;
+  --o3-space-4xl: 6rem;
+}
