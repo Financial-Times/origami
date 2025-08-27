@@ -105,7 +105,8 @@ const config: StorybookConfig = {
 		},
 	},
 	// Configures SWC compiler to import React automatically in story files
-	swc: () => ({
+	swc: config => ({
+		...config,
 		jsc: {
 			transform: {
 				react: {
@@ -121,7 +122,7 @@ const config: StorybookConfig = {
 		return {
 			...config,
 			STORYBOOK_BRAND: brand,
-		}
+		};
 	},
 };
 
