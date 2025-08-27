@@ -1,103 +1,99 @@
 {
   "_comment": "This file was generated automatically by Supernova.io and should not be changed manually. To modify the format or content of this file, please contact your design system team.",
-  "typography": {
-    "o3": {
-      "type": {
-        "display-lg": {
-          "value": "{fontWeight.font-weight.o3.font.weight.bold} {fontSize.font-size.o3.font.size.7}/48 {fontFamily.font-family.o3.font.family.financier-display}",
-          "type": "typography",
-          "description": "Use this style for large screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages."
-        },
-        "display-md": {
-          "value": "{fontWeight.font-weight.o3.font.weight.bold} {fontSize.font-size.o3.font.size.6}/40 {fontFamily.font-family.o3.font.family.financier-display}",
-          "type": "typography",
-          "description": "Use this style for medium screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages."
-        },
-        "display-sm": {
-          "value": "{fontWeight.font-weight.o3.font.weight.bold} {fontSize.font-size.o3.font.size.5}/32 {fontFamily.font-family.o3.font.family.financier-display}",
-          "type": "typography",
-          "description": "Use this style for small screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages."
-        },
-        "headline-lg": {
-          "value": "{fontWeight.font-weight.o3.font.weight.light} {fontSize.font-size.o3.font.size.6}/40 {fontFamily.font-family.o3.font.family.financier-display}",
-          "type": "typography",
-          "description": "Use this style for large screens headlines in standard-sized teasers and text only toppers (eg. Opinion and News)."
-        },
-        "headline-md": {
-          "value": "{fontWeight.font-weight.o3.font.weight.light} {fontSize.font-size.o3.font.size.5}/32 {fontFamily.font-family.o3.font.family.financier-display}",
-          "type": "typography",
-          "description": "Use this style for medium screens headlines in smaller teasers and text only toppers (eg. Opinion and News)."
-        },
-        "headline-sm": {
-          "value": "{fontWeight.font-weight.o3.font.weight.light} {fontSize.font-size.o3.font.size.2}/24 {fontFamily.font-family.o3.font.family.financier-display}",
-          "type": "typography",
-          "description": "Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News)."
-        },
-        "title-lg": {
-          "value": "{fontWeight.font-weight.o3.font.weight.semibold} {fontSize.font-size.o3.font.size-metric2.4}/32 {fontFamily.font-family.o3.font.family.metric}",
-          "type": "typography",
-          "description": "Use for the main page title H1 in functional pages such as account and settings. Use across all breakpoints."
-        },
-        "title-md": {
-          "value": "{fontWeight.font-weight.o3.font.weight.regular} {fontSize.font-size.o3.font.size-metric2.3}/32 {fontFamily.font-family.o3.font.family.metric}",
-          "type": "typography",
-          "description": "Use this style as H3 or subtitles within the content body to break paragraphs, or for titles of components like forms, tables and cards across all breakpoints."
-        },
-        "title-sm": {
-          "value": "{fontWeight.font-weight.o3.font.weight.regular} {fontSize.font-size.o3.font.size-metric2.2}/28 {fontFamily.font-family.o3.font.family.metric}",
-          "type": "typography",
-          "description": "Use H6 for subtitles within the content body to break up paragraphs, and H2 for subheadings on stream pages or as subtitles for components such as forms, tables, and cards across all breakpoints."
-        },
-        "body-lg": {
-          "value": "{fontWeight.font-weight.o3.font.weight.regular} {fontSize.font-size.o3.font.size-metric2.1}/24 {fontFamily.font-family.o3.font.family.metric}",
-          "type": "typography",
-          "description": "Use primarily for the stand-first (introductory summary or highlight) in topper component, as larger body text in components, or section description."
-        },
-        "body-base": {
-          "value": "{fontWeight.font-weight.o3.font.weight.regular} {fontSize.font-size.o3.font.size-metric2.0}/24 {fontFamily.font-family.o3.font.family.metric}",
-          "type": "typography",
-          "description": "Use this style for the stand-first in teasers and as the default body copy style across components such as location in the byline."
-        },
-        "body-highlight": {
-          "value": "{fontWeight.font-weight.o3.font.weight.semibold} {fontSize.font-size.o3.font.size-metric2.0}/24 {fontFamily.font-family.o3.font.family.metric}",
-          "type": "typography",
-          "description": "Use this style for bold formatting in body copy or for small interactive elements, such as Topic tags and Author names."
-        },
-        "detail": {
-          "value": "{fontWeight.font-weight.o3.font.weight.regular} {fontSize.font-size.o3.font.size-metric2.negative-1}/20 {fontFamily.font-family.o3.font.family.metric}",
-          "type": "typography",
-          "description": "Use this style for caption in visual assets such as image and video and for small text elements, such as secondary metadata, caveats, or footnotes."
-        },
-        "label": {
-          "value": "{fontWeight.font-weight.o3.font.weight.regular} {fontSize.font-size.o3.font.size-metric2.negative-1}/20 {fontFamily.font-family.o3.font.family.metric}",
-          "type": "typography",
-          "description": "Use this style for labels such as badges and metadata in teasers and toppers (e.g., \"Live,\" \"Premium,\" or the main timestamp). Avoid using full sentences."
-        },
-        "body-content-base": {
-          "value": "400 {fontSize.font-size.o3.font.size.2}/32 Georgia",
-          "type": "typography",
-          "description": "Use this style only for the body copy of content pages, such as articles, live news and other content experience page."
-        },
-        "body-content-highlight": {
-          "value": "700 {fontSize.font-size.o3.font.size.2}/32 Georgia",
-          "type": "typography",
-          "description": "Use this style only for the body copy of content pages, such as articles, live news and other content experience page."
-        },
-        "body-content-emphasis": {
-          "value": "400 {fontSize.font-size.o3.font.size.2}/32 Georgia",
-          "type": "typography",
-          "description": "Use this style only for the body copy of content pages, such as articles, live news and other content experience page."
-        }
+  "o3": {
+    "typography": {
+      "display-lg": {
+        "value": "{o3.fontWeight.bold} {o3.fontSize.7}/48 {o3.fontFamily.financier-display}",
+        "type": "typography",
+        "description": "Use this style for large screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages."
       },
-      "editorial-typography": {
-        "pullquote-content": {
-          "value": "{fontWeight.font-weight.o3.font.weight.semibold} {fontSize.font-size.o3.font.size-metric2.2}/28 {fontFamily.font-family.o3.font.family.metric}",
-          "type": "typography"
-        },
-        "big-number-title": {
-          "value": "{fontWeight.font-weight.o3.font.weight.semibold} {fontSize.font-size.o3.font.size-metric2.7}/56 {fontFamily.font-family.o3.font.family.metric}",
-          "type": "typography"
-        }
+      "display-md": {
+        "value": "{o3.fontWeight.bold} {o3.fontSize.6}/40 {o3.fontFamily.financier-display}",
+        "type": "typography",
+        "description": "Use this style for medium screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages."
+      },
+      "display-sm": {
+        "value": "{o3.fontWeight.bold} {o3.fontSize.5}/32 {o3.fontFamily.financier-display}",
+        "type": "typography",
+        "description": "Use this style for small screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages."
+      },
+      "headline-lg": {
+        "value": "{o3.fontWeight.light} {o3.fontSize.6}/40 {o3.fontFamily.financier-display}",
+        "type": "typography",
+        "description": "Use this style for large screens headlines in standard-sized teasers and text only toppers (eg. Opinion and News)."
+      },
+      "headline-md": {
+        "value": "{o3.fontWeight.light} {o3.fontSize.5}/32 {o3.fontFamily.financier-display}",
+        "type": "typography",
+        "description": "Use this style for medium screens headlines in smaller teasers and text only toppers (eg. Opinion and News)."
+      },
+      "headline-sm": {
+        "value": "{o3.fontWeight.light} {o3.fontSize.2}/24 {o3.fontFamily.financier-display}",
+        "type": "typography",
+        "description": "Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News)."
+      },
+      "title-lg": {
+        "value": "{o3.fontWeight.semibold} {o3.fontSize.4}/32 {o3.fontFamily.metric}",
+        "type": "typography",
+        "description": "Use for the main page title H1 in functional pages such as account and settings. Use across all breakpoints."
+      },
+      "title-md": {
+        "value": "{o3.fontWeight.regular} {o3.fontSize.3}/32 {o3.fontFamily.metric}",
+        "type": "typography",
+        "description": "Use this style as H3 or subtitles within the content body to break paragraphs, or for titles of components like forms, tables and cards across all breakpoints."
+      },
+      "title-sm": {
+        "value": "{o3.fontWeight.regular} {o3.fontSize.2}/28 {o3.fontFamily.metric}",
+        "type": "typography",
+        "description": "Use H6 for subtitles within the content body to break up paragraphs, and H2 for subheadings on stream pages or as subtitles for components such as forms, tables, and cards across all breakpoints."
+      },
+      "body-lg": {
+        "value": "{o3.fontWeight.regular} {o3.fontSize.1}/24 {o3.fontFamily.metric}",
+        "type": "typography",
+        "description": "Use primarily for the stand-first (introductory summary or highlight) in topper component, as larger body text in components, or section description."
+      },
+      "body-base": {
+        "value": "{o3.fontWeight.regular} {o3.fontSize.0}/24 {o3.fontFamily.metric}",
+        "type": "typography",
+        "description": "Use this style for the stand-first in teasers and as the default body copy style across components such as location in the byline."
+      },
+      "body-highlight": {
+        "value": "{o3.fontWeight.semibold} {o3.fontSize.0}/24 {o3.fontFamily.metric}",
+        "type": "typography",
+        "description": "Use this style for bold formatting in body copy or for small interactive elements, such as Topic tags and Author names."
+      },
+      "detail": {
+        "value": "{o3.fontWeight.regular} {o3.fontSize.negative-1}/20 {o3.fontFamily.metric}",
+        "type": "typography",
+        "description": "Use this style for caption in visual assets such as image and video and for small text elements, such as secondary metadata, caveats, or footnotes."
+      },
+      "label": {
+        "value": "{o3.fontWeight.regular} {o3.fontSize.negative-1}/20 {o3.fontFamily.metric}",
+        "type": "typography",
+        "description": "Use this style for labels such as badges and metadata in teasers and toppers (e.g., \"Live,\" \"Premium,\" or the main timestamp). Avoid using full sentences."
+      },
+      "body-content-base": {
+        "value": "400 {o3.fontSize.2}/32 Georgia",
+        "type": "typography",
+        "description": "Use this style only for the body copy of content pages, such as articles, live news and other content experience page."
+      },
+      "body-content-highlight": {
+        "value": "700 {o3.fontSize.2}/32 Georgia",
+        "type": "typography",
+        "description": "Use this style only for the body copy of content pages, such as articles, live news and other content experience page."
+      },
+      "body-content-emphasis": {
+        "value": "400 {o3.fontSize.2}/32 Georgia",
+        "type": "typography",
+        "description": "Use this style only for the body copy of content pages, such as articles, live news and other content experience page."
+      },
+      "pullquote-content": {
+        "value": "{o3.fontWeight.semibold} {o3.fontSize.2}/28 {o3.fontFamily.metric}",
+        "type": "typography"
+      },
+      "big-number-title": {
+        "value": "{o3.fontWeight.semibold} {o3.fontSize.7}/56 {o3.fontFamily.metric}",
+        "type": "typography"
       }
     }
   }

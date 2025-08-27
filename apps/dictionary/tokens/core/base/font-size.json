@@ -1,114 +1,106 @@
 {
   "_comment": "This file was generated automatically by Supernova.io and should not be changed manually. To modify the format or content of this file, please contact your design system team.",
-  "font-size": {
+  "o3": {
     "font-size": {
-      "o3": {
-        "font": {
-          "size": {
-            "0": {
-              "value": "1rem",
-              "type": "fontSize"
-            },
-            "1": {
-              "value": "1.125rem",
-              "type": "fontSize"
-            },
-            "2": {
-              "value": "1.25rem",
-              "type": "fontSize"
-            },
-            "3": {
-              "value": "1.5rem",
-              "type": "fontSize"
-            },
-            "4": {
-              "value": "1.75rem",
-              "type": "fontSize"
-            },
-            "5": {
-              "value": "2rem",
-              "type": "fontSize"
-            },
-            "6": {
-              "value": "2.5rem",
-              "type": "fontSize"
-            },
-            "7": {
-              "value": "3rem",
-              "type": "fontSize"
-            },
-            "8": {
-              "value": "3.5rem",
-              "type": "fontSize"
-            },
-            "9": {
-              "value": "4.5rem",
-              "type": "fontSize"
-            },
-            "10": {
-              "value": "5.25rem",
-              "type": "fontSize"
-            },
-            "negative-2": {
-              "value": "0.75rem",
-              "type": "fontSize"
-            },
-            "negative-1": {
-              "value": "0.875rem",
-              "type": "fontSize"
-            }
-          },
-          "size-metric2": {
-            "0": {
-              "value": "1rem",
-              "type": "fontSize"
-            },
-            "1": {
-              "value": "1.125rem",
-              "type": "fontSize"
-            },
-            "2": {
-              "value": "1.25rem",
-              "type": "fontSize"
-            },
-            "3": {
-              "value": "1.5rem",
-              "type": "fontSize"
-            },
-            "4": {
-              "value": "1.75rem",
-              "type": "fontSize"
-            },
-            "5": {
-              "value": "2rem",
-              "type": "fontSize"
-            },
-            "6": {
-              "value": "2.5rem",
-              "type": "fontSize"
-            },
-            "7": {
-              "value": "3rem",
-              "type": "fontSize"
-            },
-            "8": {
-              "value": "4rem",
-              "type": "fontSize"
-            },
-            "9": {
-              "value": "4.5rem",
-              "type": "fontSize"
-            },
-            "negative-2": {
-              "value": "0.75rem",
-              "type": "fontSize"
-            },
-            "negative-1": {
-              "value": "0.875rem",
-              "type": "fontSize"
-            }
-          }
-        }
+      "0": {
+        "value": "1rem",
+        "type": "fontSize"
+      },
+      "1": {
+        "value": "1.125rem",
+        "type": "fontSize"
+      },
+      "2": {
+        "value": "1.25rem",
+        "type": "fontSize"
+      },
+      "3": {
+        "value": "1.5rem",
+        "type": "fontSize"
+      },
+      "4": {
+        "value": "1.75rem",
+        "type": "fontSize"
+      },
+      "5": {
+        "value": "2rem",
+        "type": "fontSize"
+      },
+      "6": {
+        "value": "2.5rem",
+        "type": "fontSize"
+      },
+      "7": {
+        "value": "3rem",
+        "type": "fontSize"
+      },
+      "8": {
+        "value": "3.5rem",
+        "type": "fontSize"
+      },
+      "9": {
+        "value": "4.5rem",
+        "type": "fontSize"
+      },
+      "10": {
+        "value": "5.25rem",
+        "type": "fontSize"
+      },
+      "negative-2": {
+        "value": "0.75rem",
+        "type": "fontSize"
+      },
+      "negative-1": {
+        "value": "0.875rem",
+        "type": "fontSize"
+      },
+      "0_1": {
+        "value": "1rem",
+        "type": "fontSize"
+      },
+      "1_1": {
+        "value": "1.125rem",
+        "type": "fontSize"
+      },
+      "2_1": {
+        "value": "1.25rem",
+        "type": "fontSize"
+      },
+      "3_1": {
+        "value": "1.5rem",
+        "type": "fontSize"
+      },
+      "4_1": {
+        "value": "1.75rem",
+        "type": "fontSize"
+      },
+      "5_1": {
+        "value": "2rem",
+        "type": "fontSize"
+      },
+      "6_1": {
+        "value": "2.5rem",
+        "type": "fontSize"
+      },
+      "7_1": {
+        "value": "3rem",
+        "type": "fontSize"
+      },
+      "8_1": {
+        "value": "4rem",
+        "type": "fontSize"
+      },
+      "9_1": {
+        "value": "4.5rem",
+        "type": "fontSize"
+      },
+      "negative-2_1": {
+        "value": "0.75rem",
+        "type": "fontSize"
+      },
+      "negative-1_1": {
+        "value": "0.875rem",
+        "type": "fontSize"
       }
     }
   }

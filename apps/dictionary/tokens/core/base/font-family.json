@@ -1,24 +1,18 @@
 {
   "_comment": "This file was generated automatically by Supernova.io and should not be changed manually. To modify the format or content of this file, please contact your design system team.",
-  "font-family": {
+  "o3": {
     "font-family": {
-      "o3": {
-        "font": {
-          "family": {
-            "metric": {
-              "value": "metric 2 VF, sans-serif",
-              "type": "fontFamily"
-            },
-            "financier-display": {
-              "value": "financier display VF, serif",
-              "type": "fontFamily"
-            },
-            "georgia": {
-              "value": "georgia, serif",
-              "type": "fontFamily"
-            }
-          }
-        }
+      "metric": {
+        "value": "metric 2 VF, sans-serif",
+        "type": "fontFamily"
+      },
+      "financier-display": {
+        "value": "financier display VF, serif",
+        "type": "fontFamily"
+      },
+      "georgia": {
+        "value": "georgia, serif",
+        "type": "fontFamily"
       }
     }
   }
