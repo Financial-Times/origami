@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.13.1](https://github.com/Financial-Times/origami/compare/o3-button-v3.13.0...o3-button-v3.13.1) (2025-08-27)
+
+
+### Bug Fixes
+
+* narrow classname type ([#2196](https://github.com/Financial-Times/origami/issues/2196)) ([1b046a8](https://github.com/Financial-Times/origami/commit/1b046a844b382ef1c82fe4552f88522649261818))
+
 ## [3.13.0](https://github.com/Financial-Times/origami/compare/o3-button-v3.12.2...o3-button-v3.13.0) (2025-08-22)
 
 
