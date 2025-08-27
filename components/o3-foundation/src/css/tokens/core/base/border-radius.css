@@ -1,0 +1,12 @@
+/**
+ * This file was generated automatically by Supernova.io and should not be changed manually.
+ * To modify the format or content of this file, please contact your design system team. 
+ */
+
+[data-o3-brand=core] {
+  /* for default radius on interactive elements */
+  --o3-border-radius-1: 0.125rem;
+  /* for the outer radius of interactive elements that have both inner and outer boundaries as in box radio button */
+  --o3-border-radius-2: 0.25rem;
+  --o3-border-radius-border-radius: var(--o3-border-radius-1);
+}

@@ -1,0 +1,43 @@
+/**
+ * This file was generated automatically by Supernova.io and should not be changed manually.
+ * To modify the format or content of this file, please contact your design system team. 
+ */
+
+[data-o3-brand=core] {
+  /* Use this style for large screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages. */
+  --o3-typography-display-lg: var(--o3-font-weight-bold) var(--o3-font-size-7)/48 var(--o3-font-family-financier-display);
+  /* Use this style for medium screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages. */
+  --o3-typography-display-md: var(--o3-font-weight-bold) var(--o3-font-size-6)/40 var(--o3-font-family-financier-display);
+  /* Use this style for small screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages. */
+  --o3-typography-display-sm: var(--o3-font-weight-bold) var(--o3-font-size-5)/32 var(--o3-font-family-financier-display);
+  /* Use this style for large screens headlines in standard-sized teasers and text only toppers (eg. Opinion and News). */
+  --o3-typography-headline-lg: var(--o3-font-weight-light) var(--o3-font-size-6)/40 var(--o3-font-family-financier-display);
+  /* Use this style for medium screens headlines in smaller teasers and text only toppers (eg. Opinion and News). */
+  --o3-typography-headline-md: var(--o3-font-weight-light) var(--o3-font-size-5)/32 var(--o3-font-family-financier-display);
+  /* Use this style for small screens headlines in smaller teasers and text only toppers (eg. Opinion and News). */
+  --o3-typography-headline-sm: var(--o3-font-weight-light) var(--o3-font-size-2)/24 var(--o3-font-family-financier-display);
+  /* Use for the main page title H1 in functional pages such as account and settings. Use across all breakpoints. */
+  --o3-typography-title-lg: var(--o3-font-weight-semibold) var(--o3-font-size-4)/32 var(--o3-font-family-metric);
+  /* Use this style as H3 or subtitles within the content body to break paragraphs, or for titles of components like forms, tables and cards across all breakpoints. */
+  --o3-typography-title-md: var(--o3-font-weight-regular) var(--o3-font-size-3)/32 var(--o3-font-family-metric);
+  /* Use H6 for subtitles within the content body to break up paragraphs, and H2 for subheadings on stream pages or as subtitles for components such as forms, tables, and cards across all breakpoints. */
+  --o3-typography-title-sm: var(--o3-font-weight-regular) var(--o3-font-size-2)/28 var(--o3-font-family-metric);
+  /* Use primarily for the stand-first (introductory summary or highlight) in topper component, as larger body text in components, or section description. */
+  --o3-typography-body-lg: var(--o3-font-weight-regular) var(--o3-font-size-1)/24 var(--o3-font-family-metric);
+  /* Use this style for the stand-first in teasers and as the default body copy style across components such as location in the byline. */
+  --o3-typography-body-base: var(--o3-font-weight-regular) var(--o3-font-size-0)/24 var(--o3-font-family-metric);
+  /* Use this style for bold formatting in body copy or for small interactive elements, such as Topic tags and Author names. */
+  --o3-typography-body-highlight: var(--o3-font-weight-semibold) var(--o3-font-size-0)/24 var(--o3-font-family-metric);
+  /* Use this style for caption in visual assets such as image and video and for small text elements, such as secondary metadata, caveats, or footnotes. */
+  --o3-typography-detail: var(--o3-font-weight-regular) var(--o3-font-size-negative-1)/20 var(--o3-font-family-metric);
+  /* Use this style for labels such as badges and metadata in teasers and toppers (e.g., "Live," "Premium," or the main timestamp). Avoid using full sentences. */
+  --o3-typography-label: var(--o3-font-weight-regular) var(--o3-font-size-negative-1)/20 var(--o3-font-family-metric);
+  /* Use this style only for the body copy of content pages, such as articles, live news and other content experience page. */
+  --o3-typography-body-content-base: 400 var(--o3-font-size-2)/32 "Georgia";
+  /* Use this style only for the body copy of content pages, such as articles, live news and other content experience page. */
+  --o3-typography-body-content-highlight: 700 var(--o3-font-size-2)/32 "Georgia";
+  /* Use this style only for the body copy of content pages, such as articles, live news and other content experience page. */
+  --o3-typography-body-content-emphasis: 400 var(--o3-font-size-2)/32 "Georgia";
+  --o3-typography-pullquote-content: var(--o3-font-weight-semibold) var(--o3-font-size-2)/28 var(--o3-font-family-metric);
+  --o3-typography-big-number-title: var(--o3-font-weight-semibold) var(--o3-font-size-7)/56 var(--o3-font-family-metric);
+}

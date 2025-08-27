@@ -1,0 +1,13 @@
+/**
+ * This file was generated automatically by Supernova.io and should not be changed manually.
+ * To modify the format or content of this file, please contact your design system team. 
+ */
+
+[data-o3-brand=core] {
+  --o3-shadow-inner: 0rem 0rem 0rem 0.25rem var(--o3-color-white);
+  --o3-shadow-outer: 0rem 0rem 0rem 0.5rem var(--o3-color-black-70);
+  --o3-shadow-inner: 0rem 0rem 0rem 0.25rem var(--o3-color-black-70);
+  --o3-shadow-outer: 0rem 0rem 0rem 0.5rem var(--o3-color-white);
+  --o3-shadow-color: 0rem 0rem 0rem 0.125rem var(--o3-color-black-50);
+  --o3-shadow-color: 0rem 0rem 0rem 0.125rem var(--o3-color-white);
+}
