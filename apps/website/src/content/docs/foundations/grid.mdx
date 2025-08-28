@@ -3,36 +3,42 @@ title: Grids
 description: Grid guidelines.
 sidebar:
   order: 3
+  badge:
+    text: updated
+    variant: note
 ---
 
 import {default as Guideline} from '../../../components/Guideline.astro';
 import {default as Example} from '../../../components/Example.astro';
+import Tip from '../../../components/utils/Tip.astro';
 
 The standard FT grid system is designed to be flexible, responsive, and adaptable. It caters to a wide range of devices and screen sizes, ensuring consistency and harmony across all digital products.
 
-This page covers the design and behaviour of grids. For technical details, please see the <a href={`https://o3.origami.ft.com/?path=/docs/${props.brand}-o3-foundation-o3-grid-readme--jsx-documentation`}>technical documentation in Storybook</a>.
-Note that the previous version of Origami (o2) uses a different grid system, for
-this [see o-grid](https://o2-core.origami.ft.com/index.html?path=/docs/maintained-o-grid-readme--docs&globals=backgrounds:!undefined).
-We recommend following the below design guidelines for any new projects.
+This page covers the design and behaviour of grids. For technical details, please see the <a href={`https://o3.origami.ft.com/?path=/docs/${props.brand}-o3-foundation-o3-grid-readme--jsx-documentation`}>technical documentation in Storybook</a>. Note that the previous version of Origami (o2) uses a different grid system, for this [see o-grid](https://o2-core.origami.ft.com/index.html?path=/docs/maintained-o-grid-readme--docs&globals=backgrounds:!undefined). We recommend following the below design guidelines for any new projects.
 
 ## Grid Anatomy
 
 ![](/assets/images/components/grid/anatomy.svg)
 
-1. Grid Columns
-2. Gutter
-3. Margin
+1. **Columns:** The coloured blocks define the content area. Align field elements to a specific number of columns within this space.
+2. **Gutters:** the space between the columns.
+3. **Margins:** also known as outside gutters, the amount of white space outside of your content width.
 
-## Dimensions
+## Grid Properties
+
+### Dimensions
+
+Our grid adapts to the following breakpoints to accommodate various screen sizes:
 
 <table>
 	<thead>
 		<tr>
 			<th>Breakpoint</th>
 			<th>Range (px)</th>
-			<th>columns</th>
+			<th>Columns</th>
 			<th>Gutter</th>
 			<th>Margin</th>
+			<th>Usage</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -42,6 +48,7 @@ We recommend following the below design guidelines for any new projects.
 			<td>4</td>
 			<td>16px</td>
 			<td>16px</td>
+			<td>Portrait - mobile</td>
 		</tr>
 		<tr>
 			<td>S</td>
@@ -49,6 +56,10 @@ We recommend following the below design guidelines for any new projects.
 			<td>4</td>
 			<td>16px</td>
 			<td>16px</td>
+			<td>
+				Portrait - large mobile, small tablet <br />
+				Landscape - mobile
+			</td>
 		</tr>
 		<tr>
 			<td>M</td>
@@ -56,6 +67,10 @@ We recommend following the below design guidelines for any new projects.
 			<td>8</td>
 			<td>16px</td>
 			<td>24px</td>
+			<td>
+				Portrait - tablet <br />
+				Landscape - large mobile, small tablet
+			</td>
 		</tr>
 		<tr>
 			<td>L</td>
@@ -63,6 +78,10 @@ We recommend following the below design guidelines for any new projects.
 			<td>12</td>
 			<td>24px</td>
 			<td>24px</td>
+			<td>
+				Landscape - large tablet, <br />
+				desktop
+			</td>
 		</tr>
 		<tr>
 			<td>XL</td>
@@ -70,57 +89,111 @@ We recommend following the below design guidelines for any new projects.
 			<td>12</td>
 			<td>24px</td>
 			<td>24px – auto</td>
+			<td>desktop</td>
 		</tr>
 	</tbody>
 </table>
 
-### Baseline
-
-We use a 4px baseline which the grid, spacing, and typography is based on.
-
-### Breakpoints
-
-Our grid adapts to the following breakpoints to accommodate various screen sizes:
-
-- **Default (XS)**: 320px-489px. Default/smallest screen.
-- **Small (S)**: 490-739px. For larger mobile & small tablets.
-- **Medium (M)**: 740-1023px. For tablets.
-- **Large (L)**: 1024-1439px. For large tablets and small desktops.
-- **Extra Large (XL)**: 1440px and above. For desktop screens.
-
-However, you could define custom settings to set specific page size/or view type to use a design outside it’s breakpoint. For instance, the landscape width of the iPad pro is 1366px, which falls within the XL breakpoint. You can set this to maintain the X breakpoint design instead by indicating to your engineer.
-
 ### Columns
-
-![](/assets/images/components/grid/columns.svg)
 
 Column widths are fluid and change with the size of the grid.
 
-## Contained Width Behaviour
+### Baseline
 
-Our grid is fluid, it uses 100% of the screen’s width until the max width of 1312px is reached. After this, the margins grow to fill the screen. This allows for maximum use of screen real estate, in complex screens and readability of page content in large and high-definition screens.
+Following industry-standard, we use a 4px baseline which the grid, spacing and typography is based on.
 
-Exceptions can be made for contents, e.g full-bleed banners and graphics, to break out of the contained grid.
+## Grid Behaviour
 
-![](/assets/images/components/grid/contained-width.svg)
+### Contained Width
+
+Our grid is fluid, it uses 100% of the screen’s width until the max width of 1312px (XL breakpoint) is reached. After this, the margins grow to fill the screen. This allows for maximum use of screen real estate in complex screens and readability of page content in large and high-definition screens.
+Exceptions can be made for full-bleed banners, headers and graphics, to bleed out of the grid columns.
+
+![Fluid 12-column grid with fixed width at XL breakpoint (1312px), showing contained content layout.](/assets/images/components/grid/contained-width.svg)
 
 ### Column Spanning
 
 Layout regions can span any number of columns, separated by the grid gutter. You have the flexibility to set the number to reflect the responsive nature of your design.
 
-![](/assets/images/components/grid/column-spanning.svg)
+![12-column grid showing layout regions with various column spans (3, 4, 6, 12) and gutter separation.](/assets/images/components/grid/column-spanning.svg)
 
 ### Layout Responsiveness
 
 Responsive layout design adapts content layout to various screen types using a fluid layout. This ensures that features built once will display evenly across all screen sizes.
 
-![](/assets/images/components/grid/layout-responsiveness.svg)
+![12-column grid showing layout regions with various column spans (3, 4, 6, 12) and gutter separation.](/assets/images/components/grid/layout-responsiveness.svg)
 
 ### Column Offset
 
-Page content does not always need to span across 12 columns; it can occupy a smaller region of the page.
+Page content does not always need to span across 12 columns; it can occupy a smaller region within the page.
 
-![](/assets/images/components/grid/column-offset.svg)
+![12-column grid with content offset, demonstrating a 10-column span centered within the page layout.](/assets/images/components/grid/column-offset.svg)
+
+## Usage Guidelines
+
+<Guideline summary="Do not use fractional column spans" do={true}>
+	<div slot="description">
+		<p>
+			Use the gutter width to help determine the space between layout regions. At any breakpoint, only use a number of cards that are exact multiples of the grid column size.
+		</p>
+		<p>If layout doesn't divide evenly (e.g. 3 teasers in a 8-column grid), opt for:</p>
+		<ul>
+			<li>2 layout (2 columns each), or 4-layout (2 columns each).</li>
+			<li>Apply horizontal scroll instead of breaking column alignment.</li>
+		</ul>
+	</div>
+	<Example slot="examples" do={true} centred={true}>
+    	![Correct: Grid layout with even column spans showing 2- and 4-column layouts and horizontal scrolling to maintain alignment.](/assets/images/components/grid/usage-guidelines-fractional-column-spans-do.svg)
+    </Example>
+
+    <Example slot="examples" do={false} centred={true}>
+    	![Incorrect: Grid layout using fractional column spans (2.6), resulting in broken alignment and inconsistent spacing.](/assets/images/components/grid/usage-guidelines-fractional-column-spans-dont.svg)
+    </Example>
+
+</Guideline>
+
+<Guideline summary="Align irregular or fixed sized content using invisible regions" do={true}>
+	<p slot="description">
+		Sometimes content cannot align to the grid. For example, we do not always control the dimensions of an ad banner. In this scenario, imagine an invisible element around the content which does align to the grid. Ensure no other content overlaps this grid area.
+	</p>
+
+    <Example slot="examples" do={true} centred={true}>
+    	![Correct: An example of fixed-size content (like an ad) aligned to the grid using an invisible container that preserves layout structure.](/assets/images/components/grid/usage-guidelines-align-irregular-fixed-size-content-invisible-regions.svg)
+    </Example>
+
+</Guideline>
+
+<Guideline summary="Do not leave elements in the gutters" do={true}>
+	<p slot="description">
+		Your elements should sit within the columns and not bleed into the gutters. You cannot leave elements in the gutters; that causes inconsistency and defeats the purpose of the grid.
+	</p>
+		
+	<Example slot="examples" do={true} centred={true}>
+    	![Correct: Grid layout with elements properly contained within columns, avoiding the gutters.](/assets/images/components/grid/usage-guidelines-do-not-leave-elements-in-gutter-do.svg)
+    </Example>
+
+    <Example slot="examples" do={false} centred={true}>
+    	![Incorrect: Grid layout with elements bleeding into gutters, disrupting column alignment.](/assets/images/components/grid/usage-guidelines-do-not-leave-elements-in-gutter-dont.svg)
+    </Example>
+
+</Guideline>
+
+## Accessibility Considerations
+
+<Guideline summary="Maintain readability range for article body" do={true}>
+	<div slot="description">
+		<p>Shorter lines are usually more comfortable to the reader. As the line length increases, the user’s eye has to travel further from the end of one line to the beginning of the next, making it harder to track their progress vertically. Aim for an average line length of 50–80 characters, including spaces.</p>
+    </div>
+
+    <Example slot="examples" do={true} centred={true}>
+    	![Correct: Text block spans 6 columns, keeping line length within the recommended 50–80 characters for readability.](/assets/images/components/grid/accessibility-considerations-maintain-readability-do.svg)
+    </Example>
+
+    <Example slot="examples" do={false} centred={true}>
+    	![Text block spans 7 columns, exceeding the recommended 80-character line length and reducing reading comfort.](/assets/images/components/grid/accessibility-considerations-maintain-readability-dont.svg)
+    </Example>
+
+</Guideline>
 
 ## Chrome Extension for Grid Overlay
 
@@ -135,32 +208,13 @@ Key features:
 
 [Install Origami Chrome Extension](https://chromewebstore.google.com/detail/origami/dnbpiedepbjomlcddalmifemnmgcailh)
 
-## Usage Guidelines
-
-<Guideline summary="Use gutter width as a basis for vertical rhythm" do={true}>
-	<p slot="description">
-		Use the gutter width to help determine the space between layout regions. This space can be
-		larger or smaller to help group regions hierarchically on the page.
-	</p>
-
-    <Example slot="examples" do={true}>
-    	![](/assets/images/components/grid/usage-best-practise.svg)
-    </Example>
-
-</Guideline>
-
-<Guideline
-	summary="Align irregular or fixed sized content using invisible regions"
-	do={true}>
-	<p slot="description">
-		Sometimes content cannot align to the grid. For example, we do not always
-		control the dimensions of an ad banner. In this scenario, imagine an
-		invisible element around the content which does align to the grid. Ensure no
-		other content overlaps this grid area.
-	</p>
-
-    <Example slot="examples" do={true}>
-    	![](/assets/images/components/grid/usage-best-practise-ad.svg)
-    </Example>
-
-</Guideline>
+<Tip
+	icon="false"
+	tipLabel="Further reading/inspiration"
+	tipLabelStyle="uppercase"
+	sources={[
+		{
+			title: 'Responsive grids and how to actually use them',
+			url: 'https://uxdesign.cc/responsive-grids-and-how-to-actually-use-them-970de4c16e01',
+		},
+	]}></Tip>
