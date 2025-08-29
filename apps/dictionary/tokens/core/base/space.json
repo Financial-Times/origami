@@ -1,0 +1,55 @@
+{
+  "_comment": "This file was generated automatically by Supernova.io and should not be changed manually. To modify the format or content of this file, please contact your design system team.",
+  "o3": {
+    "spacing": {
+      "5xs": {
+        "value": "0.25rem",
+        "type": "spacing"
+      },
+      "4xs": {
+        "value": "0.5rem",
+        "type": "spacing"
+      },
+      "3xs": {
+        "value": "0.75rem",
+        "type": "spacing"
+      },
+      "2xs": {
+        "value": "1rem",
+        "type": "spacing"
+      },
+      "xs": {
+        "value": "1.25rem",
+        "type": "spacing"
+      },
+      "s": {
+        "value": "1.5rem",
+        "type": "spacing"
+      },
+      "m": {
+        "value": "2rem",
+        "type": "spacing"
+      },
+      "l": {
+        "value": "2.5rem",
+        "type": "spacing"
+      },
+      "xl": {
+        "value": "3rem",
+        "type": "spacing"
+      },
+      "2xl": {
+        "value": "4rem",
+        "type": "spacing"
+      },
+      "3xl": {
+        "value": "5rem",
+        "type": "spacing"
+      },
+      "4xl": {
+        "value": "6rem",
+        "type": "spacing"
+      }
+    }
+  }
+}

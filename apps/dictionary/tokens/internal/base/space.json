@@ -1,0 +1,53 @@
+{
+  "_comment": "This file was generated automatically by Supernova.io and should not be changed manually. To modify the format or content of this file, please contact your design system team.",
+  "space": {
+    "5xs": {
+      "value": "4px",
+      "type": "space"
+    },
+    "4xs": {
+      "value": "8px",
+      "type": "space"
+    },
+    "3xs": {
+      "value": "12px",
+      "type": "space"
+    },
+    "2xs": {
+      "value": "16px",
+      "type": "space"
+    },
+    "xs": {
+      "value": "20px",
+      "type": "space"
+    },
+    "s": {
+      "value": "24px",
+      "type": "space"
+    },
+    "m": {
+      "value": "32px",
+      "type": "space"
+    },
+    "l": {
+      "value": "40px",
+      "type": "space"
+    },
+    "xl": {
+      "value": "48px",
+      "type": "space"
+    },
+    "2xl": {
+      "value": "64px",
+      "type": "space"
+    },
+    "3xl": {
+      "value": "80px",
+      "type": "space"
+    },
+    "4xl": {
+      "value": "96px",
+      "type": "space"
+    }
+  }
+}

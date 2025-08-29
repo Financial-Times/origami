@@ -1,0 +1,60 @@
+{
+  "_comment": "This file was generated automatically by Supernova.io and should not be changed manually. To modify the format or content of this file, please contact your design system team.",
+  "typography": {
+    "display-lg": {
+      "value": "{fontWeight.bold} {fontSize.7}/48 {fontFamily.financier-display}",
+      "type": "typography",
+      "description": "Use this style for large screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages."
+    },
+    "display-md": {
+      "value": "{fontWeight.bold} {fontSize.6}/40 {fontFamily.financier-display}",
+      "type": "typography",
+      "description": "Use this style for medium screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages."
+    },
+    "display-sm": {
+      "value": "{fontWeight.bold} {fontSize.5}/32 {fontFamily.financier-display}",
+      "type": "typography",
+      "description": "Use this style for small screens headlines in the main headers (toppers) of content pages, for prominent, large teasers or landing pages."
+    },
+    "title-lg": {
+      "value": "{fontWeight.semibold} {fontSize.4}/32 {fontFamily.metric}",
+      "type": "typography",
+      "description": "Use for the main page title H1 in functional pages such as account and settings. Use across all breakpoints."
+    },
+    "title-md": {
+      "value": "{fontWeight.regular} {fontSize.3}/32 {fontFamily.metric}",
+      "type": "typography",
+      "description": "Use this style as H3 or subtitles within the content body to break paragraphs, or for titles of components like forms, tables and cards across all breakpoints."
+    },
+    "title-sm": {
+      "value": "{fontWeight.regular} {fontSize.2}/28 {fontFamily.metric}",
+      "type": "typography",
+      "description": "Use H6 for subtitles within the content body to break up paragraphs, and H2 for subheadings on stream pages or as subtitles for components such as forms, tables, and cards across all breakpoints."
+    },
+    "body-lg": {
+      "value": "{fontWeight.regular} {fontSize.1}/24 {fontFamily.metric}",
+      "type": "typography",
+      "description": "Use primarily for the stand-first (introductory summary or highlight) in topper component, as larger body text in components, or section description."
+    },
+    "body-base": {
+      "value": "{fontWeight.regular} {fontSize.0}/24 {fontFamily.metric}",
+      "type": "typography",
+      "description": "Use this style for the stand-first in teasers and as the default body copy style across components such as location in the byline."
+    },
+    "body-highlight": {
+      "value": "{fontWeight.semibold} {fontSize.0}/24 {fontFamily.metric}",
+      "type": "typography",
+      "description": "Use this style for bold formatting in body copy or for small interactive elements, such as Topic tags and Author names."
+    },
+    "detail": {
+      "value": "{fontWeight.regular} {fontSize.negative-1}/20 {fontFamily.metric}",
+      "type": "typography",
+      "description": "Use this style for caption in visual assets such as image and video and for small text elements, such as secondary metadata, caveats, or footnotes."
+    },
+    "label": {
+      "value": "{fontWeight.regular} {fontSize.negative-1}/20 {fontFamily.metric}",
+      "type": "typography",
+      "description": "Use this style for labels such as badges and metadata in teasers and toppers (e.g., \"Live,\" \"Premium,\" or the main timestamp). Avoid using full sentences."
+    }
+  }
+}

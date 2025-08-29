@@ -1,0 +1,19 @@
+{
+  "_comment": "This file was generated automatically by Supernova.io and should not be changed manually. To modify the format or content of this file, please contact your design system team.",
+  "border-radius": {
+    "1": {
+      "value": "2px",
+      "type": "borderRadius",
+      "description": "for default radius on interactive elements"
+    },
+    "2": {
+      "value": "4px",
+      "type": "borderRadius",
+      "description": "for the outer radius of interactive elements that have both inner and outer boundaries as in box radio button"
+    },
+    "border-radius": {
+      "value": "{borderRadius.1}",
+      "type": "borderRadius"
+    }
+  }
+}

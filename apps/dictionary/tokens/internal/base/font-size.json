@@ -1,0 +1,105 @@
+{
+  "_comment": "This file was generated automatically by Supernova.io and should not be changed manually. To modify the format or content of this file, please contact your design system team.",
+  "font-size": {
+    "0": {
+      "value": "16px",
+      "type": "fontSize"
+    },
+    "1": {
+      "value": "18px",
+      "type": "fontSize"
+    },
+    "2": {
+      "value": "20px",
+      "type": "fontSize"
+    },
+    "3": {
+      "value": "24px",
+      "type": "fontSize"
+    },
+    "4": {
+      "value": "28px",
+      "type": "fontSize"
+    },
+    "5": {
+      "value": "32px",
+      "type": "fontSize"
+    },
+    "6": {
+      "value": "40px",
+      "type": "fontSize"
+    },
+    "7": {
+      "value": "48px",
+      "type": "fontSize"
+    },
+    "8": {
+      "value": "56px",
+      "type": "fontSize"
+    },
+    "9": {
+      "value": "72px",
+      "type": "fontSize"
+    },
+    "10": {
+      "value": "84px",
+      "type": "fontSize"
+    },
+    "negative-2": {
+      "value": "12px",
+      "type": "fontSize"
+    },
+    "negative-1": {
+      "value": "14px",
+      "type": "fontSize"
+    },
+    "0_1": {
+      "value": "16px",
+      "type": "fontSize"
+    },
+    "1_1": {
+      "value": "18px",
+      "type": "fontSize"
+    },
+    "2_1": {
+      "value": "20px",
+      "type": "fontSize"
+    },
+    "3_1": {
+      "value": "24px",
+      "type": "fontSize"
+    },
+    "4_1": {
+      "value": "28px",
+      "type": "fontSize"
+    },
+    "5_1": {
+      "value": "32px",
+      "type": "fontSize"
+    },
+    "6_1": {
+      "value": "40px",
+      "type": "fontSize"
+    },
+    "7_1": {
+      "value": "48px",
+      "type": "fontSize"
+    },
+    "8_1": {
+      "value": "64px",
+      "type": "fontSize"
+    },
+    "9_1": {
+      "value": "72px",
+      "type": "fontSize"
+    },
+    "negative-2_1": {
+      "value": "12px",
+      "type": "fontSize"
+    },
+    "negative-1_1": {
+      "value": "14px",
+      "type": "fontSize"
+    }
+  }
+}

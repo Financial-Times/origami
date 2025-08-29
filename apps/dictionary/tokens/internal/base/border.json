@@ -1,0 +1,13 @@
+{
+  "_comment": "This file was generated automatically by Supernova.io and should not be changed manually. To modify the format or content of this file, please contact your design system team.",
+  "border": {
+    "": {
+      "value": "1.5px solid rgba({color.black-30}, 1)",
+      "type": "border"
+    },
+    "error": {
+      "value": "1.5px solid rgba({color.error}, 1)",
+      "type": "border"
+    }
+  }
+}

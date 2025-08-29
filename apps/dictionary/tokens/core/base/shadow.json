@@ -1,0 +1,31 @@
+{
+  "_comment": "This file was generated automatically by Supernova.io and should not be changed manually. To modify the format or content of this file, please contact your design system team.",
+  "o3": {
+    "shadow": {
+      "inner": {
+        "value": "0rem 0rem 0rem 0.25rem {o3.color.white}",
+        "type": "shadow"
+      },
+      "outer": {
+        "value": "0rem 0rem 0rem 0.5rem {o3.color.black-70}",
+        "type": "shadow"
+      },
+      "inner_1": {
+        "value": "0rem 0rem 0rem 0.25rem {o3.color.black-70}",
+        "type": "shadow"
+      },
+      "outer_1": {
+        "value": "0rem 0rem 0rem 0.5rem {o3.color.white}",
+        "type": "shadow"
+      },
+      "color": {
+        "value": "0rem 0rem 0rem 0.125rem {o3.color.black-50}",
+        "type": "shadow"
+      },
+      "color_1": {
+        "value": "0rem 0rem 0rem 0.125rem {o3.color.white}",
+        "type": "shadow"
+      }
+    }
+  }
+}
