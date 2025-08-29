@@ -1,0 +1,105 @@
+{
+  "_comment": "This file was generated automatically by Supernova.io and should not be changed manually. To modify the format or content of this file, please contact your design system team.",
+  "dimension": {
+    "0": {
+      "value": "20",
+      "type": "dimension"
+    },
+    "1": {
+      "value": "20",
+      "type": "dimension"
+    },
+    "2": {
+      "value": "24",
+      "type": "dimension"
+    },
+    "3": {
+      "value": "28",
+      "type": "dimension"
+    },
+    "4": {
+      "value": "32",
+      "type": "dimension"
+    },
+    "5": {
+      "value": "32",
+      "type": "dimension"
+    },
+    "6": {
+      "value": "40",
+      "type": "dimension"
+    },
+    "7": {
+      "value": "48",
+      "type": "dimension"
+    },
+    "8": {
+      "value": "56",
+      "type": "dimension"
+    },
+    "9": {
+      "value": "72",
+      "type": "dimension"
+    },
+    "10": {
+      "value": "84",
+      "type": "dimension"
+    },
+    "negative-2": {
+      "value": "16",
+      "type": "dimension"
+    },
+    "negative-1": {
+      "value": "16",
+      "type": "dimension"
+    },
+    "0_1": {
+      "value": "24",
+      "type": "dimension"
+    },
+    "1_1": {
+      "value": "24",
+      "type": "dimension"
+    },
+    "2_1": {
+      "value": "28",
+      "type": "dimension"
+    },
+    "3_1": {
+      "value": "32",
+      "type": "dimension"
+    },
+    "4_1": {
+      "value": "32",
+      "type": "dimension"
+    },
+    "5_1": {
+      "value": "40",
+      "type": "dimension"
+    },
+    "6_1": {
+      "value": "48",
+      "type": "dimension"
+    },
+    "7_1": {
+      "value": "56",
+      "type": "dimension"
+    },
+    "8_1": {
+      "value": "72",
+      "type": "dimension"
+    },
+    "9_1": {
+      "value": "84",
+      "type": "dimension"
+    },
+    "negative-2_1": {
+      "value": "16",
+      "type": "dimension"
+    },
+    "negative-1_1": {
+      "value": "20",
+      "type": "dimension"
+    }
+  }
+}
