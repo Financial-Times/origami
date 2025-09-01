@@ -506,7 +506,7 @@ class Overlay {
 		// Put focus back on the triggering element
 		if (this.opts.trigger) {
 			this.opts.trigger.focus();
-			this.opts.trigger.setAttribute('aria-pressed', 'false');
+			this.opts.trigger.setAttribute('aria-pressed', 'true');
 		}
 		document.removeEventListener('keydown', focusTrap);
 
