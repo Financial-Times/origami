@@ -164,7 +164,7 @@ class Overlay {
 				triggerClickHandler.bind(this.opts.trigger, id),
 				false
 			);
-			this.context = document.body;
+			this.context = this.opts.parentnode ? document.querySelector(this.opts.parentnode) : document.body;
 		} else {
 			if (document.querySelector(this.opts.parentnode)) {
 				this.context = document.querySelector(this.opts.parentnode);
