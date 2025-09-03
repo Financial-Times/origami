@@ -23,38 +23,29 @@
 /// @example scss - Timestamp label with inverse modifier class
 ///   @include oLabels($opts: ('timestamp': ('inverse': true));
 /// @access public
-@mixin oLabels(
-	$opts: (
-		'sizes': $_o-labels-standard-sizes,
+@mixin oLabels($opts: ('sizes': $_o-labels-standard-sizes,
 		'states': $_o-labels-standard-states,
-		'indicators': (
-			'status': $_o-labels-indicator-status,
+		'indicators': ('status': $_o-labels-indicator-status,
 			'inverse': true,
 		),
-		'timestamp': (
-			'inverse': true,
+		'timestamp': ('inverse': true,
 		),
-	)
-) {
+	)) {
 	// Get standard labels to include
 	$standard-label-sizes: map-get($opts, 'sizes');
 	$standard-label-states: map-get($opts, 'states');
 	// Get indicator labels to include
 	$indicator-label-opts: map-get($opts, 'indicators');
-	$indicator-label-opts: if(
-		type-of($indicator-label-opts) == 'map',
-		$indicator-label-opts,
-		()
-	);
+	$indicator-label-opts: if(type-of($indicator-label-opts)=='map',
+			$indicator-label-opts,
+			());
 	$indicator-label-status: map-get($indicator-label-opts, 'status');
 	$indicator-label-inverse: map-get($indicator-label-opts, 'inverse');
 	// Get whether to include the timestamp label
 	$timestamp-label: map-get($opts, 'timestamp');
-	$timestamp-label-inverse: if(
-		type-of($timestamp-label) == 'map',
-		map-get($timestamp-label, 'inverse'),
-		$timestamp-label
-	);
+	$timestamp-label-inverse: if(type-of($timestamp-label)=='map',
+			map-get($timestamp-label, 'inverse'),
+			$timestamp-label);
 
 	// Base standard label styles
 	.o-labels {
@@ -91,29 +82,20 @@
 	// Indicator label styles
 	@if $indicator-label-status and _oLabelsSupports('indicators') {
 		.o-labels-indicator {
-			@include oLabelsIndicatorContent(
-				$opts: (
-					'block': true,
-				)
-			);
+			@include oLabelsIndicatorContent($opts: ('block': true,
+				));
 		}
 
 		.o-labels-indicator__status {
-			@include oLabelsIndicatorContent(
-				$opts: (
-					'element': 'status',
-				)
-			);
+			@include oLabelsIndicatorContent($opts: ('element': 'status',
+				));
 		}
 
 		@each $indicator-status in $indicator-label-status {
 			.o-labels-indicator--#{$indicator-status} {
-				@include oLabelsIndicatorContent(
-					$opts: (
-						'block': true,
+				@include oLabelsIndicatorContent($opts: ('block': true,
 						'modifier': $indicator-status,
-					)
-				);
+					));
 			}
 		}
 
@@ -128,8 +110,15 @@
 			font-weight: oFontsWeight('bold');
 			color: oPrivateFoundationGet('o3-color-palette-white');
 			border-radius: div(2, 16) * 1rem;
+
 			&.o-labels-indicator--live {
+				// This needs to use the correct label tokens in the Design System
 				background: oPrivateFoundationGet('o3-color-palette-crimson');
+				line-height: oPrivateFoundationGet('o3-type-label-line-height');
+				font-family: oPrivateFoundationGet('o3-type-label-font-family');
+				font-size: oPrivateFoundationGet('o3-type-label-font-size');
+				font-weight: oPrivateFoundationGet('o3-type-label-font-weight');
+				text-transform: oPrivateFoundationGet('o3-type-label-text-case');
 			}
 
 			&.o-labels-indicator--closed {
@@ -138,7 +127,9 @@
 		}
 
 		.o-labels-indicator.o-labels-indicator--badge.o-labels-indicator--inverse {
+
 			&.o-labels-indicator--live,
+			// 👆 should this be red bg instead?
 			&.o-labels-indicator--closed {
 				background: transparent;
 			}
@@ -146,7 +137,7 @@
 	}
 }
 
-@if ($o-labels-is-silent == false) {
+@if ($o-labels-is-silent ==false) {
 	@include oLabels();
 
 	// Set module to silent again
