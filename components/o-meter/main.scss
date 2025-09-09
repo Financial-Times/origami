@@ -72,7 +72,7 @@
 
 	meter::-webkit-meter-inner-element {
 		// Chrome 83 added a display grid which we want to override
-		display: inline-block;
+		display: -webkit-inline-block;
 	}
 
 	/* for Firefox */
