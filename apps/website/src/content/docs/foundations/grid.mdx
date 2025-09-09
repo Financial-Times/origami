@@ -142,12 +142,23 @@ Page content does not always need to span across 12 columns; it can occupy a sma
 			<li>Apply horizontal scroll instead of breaking column alignment.</li>
 		</ul>
 	</div>
-	<Example slot="examples" do={true} centred={true}>
+    <Example slot="examples" do={true} centred={true}>
     	![Correct: Grid layout with even column spans showing 2- and 4-column layouts and horizontal scrolling to maintain alignment.](/assets/images/components/grid/usage-guidelines-fractional-column-spans-do.svg)
     </Example>
 
     <Example slot="examples" do={false} centred={true}>
     	![Incorrect: Grid layout using fractional column spans (2.6), resulting in broken alignment and inconsistent spacing.](/assets/images/components/grid/usage-guidelines-fractional-column-spans-dont.svg)
+    </Example>
+
+</Guideline>
+
+<Guideline summary="Align Odd Content Blocks with Gutter Spacing" do={true}>
+	<div slot="description">
+		<p>In edge cases where odd number of content blocks cannot be aligned to the grid after applying the logic above, use the grid’s gutter size to space your content to maintain visual consistency.</p>
+	</div>
+
+    <Example slot="examples" do={true} centred={true}>
+    	![Three content blocks spaced evenly on the grid, with 16px gutters between each block, showing how to align odd numbers of blocks consistently.](/assets/images/components/grid/usage-guidelines-align-content-blocks-with-gutter-spacing.svg)
     </Example>
 
 </Guideline>
