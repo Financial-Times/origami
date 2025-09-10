@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.0.2](https://github.com/Financial-Times/origami/compare/o-meter-v4.0.1...o-meter-v4.0.2) (2025-09-10)
+
+
+### Bug Fixes
+
+* use -webkit-inline-block for meter inner element ([a302ec4](https://github.com/Financial-Times/origami/commit/a302ec49f9e7343e549666e8fe73fc6b643c1e6a))
+
 ## [4.0.1](https://github.com/Financial-Times/origami/compare/o-meter-v4.0.0...o-meter-v4.0.1) (2025-07-31)
 
 
