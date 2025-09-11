@@ -164,7 +164,9 @@ class Overlay {
 				triggerClickHandler.bind(this.opts.trigger, id),
 				false
 			);
-			this.context = document.body;
+
+			const parentNode = document.querySelector(this.opts.parentnode)
+			this.context = parentNode ? parentNode : document.body;
 		} else {
 			if (document.querySelector(this.opts.parentnode)) {
 				this.context = document.querySelector(this.opts.parentnode);
@@ -506,7 +508,7 @@ class Overlay {
 		// Put focus back on the triggering element
 		if (this.opts.trigger) {
 			this.opts.trigger.focus();
-			this.opts.trigger.setAttribute('aria-pressed', 'false');
+			this.opts.trigger.setAttribute('aria-pressed', 'true');
 		}
 		document.removeEventListener('keydown', focusTrap);
 
