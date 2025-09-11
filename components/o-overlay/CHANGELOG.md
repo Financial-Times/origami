@@ -1,5 +1,14 @@
 # Changelog
 
+## [5.0.2](https://github.com/Financial-Times/origami/compare/o-overlay-v5.0.1...o-overlay-v5.0.2) (2025-09-11)
+
+
+### Bug Fixes
+
+* change the context only if the parentnode exists in the DOM ([536eab1](https://github.com/Financial-Times/origami/commit/536eab12adb8ee7aab3a0969e8b74556246fe2e1))
+* **overlay:** set aria-pressed=true on trigger when overlay closes ([e4e2a01](https://github.com/Financial-Times/origami/commit/e4e2a014ac3851b0be1718dc140a087113e61385))
+* **overlay:** use parent node context if trigger also provided ([0cdb992](https://github.com/Financial-Times/origami/commit/0cdb9924d3b37f91370f12c66e3a221fec1ed808))
+
 ## [5.0.1](https://github.com/Financial-Times/origami/compare/o-overlay-v5.0.0...o-overlay-v5.0.1) (2025-02-26)
 
 
