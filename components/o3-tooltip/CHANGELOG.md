@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.3](https://github.com/Financial-Times/origami/compare/o3-tooltip-v3.0.2...o3-tooltip-v3.0.3) (2025-09-11)
+
+
+### Bug Fixes
+
+* remove bounce animation ([7662b49](https://github.com/Financial-Times/origami/commit/7662b490d6464fd8e379eaad7b51f1db7164f734))
+
 ## [3.0.2](https://github.com/Financial-Times/origami/compare/o3-tooltip-v3.0.1...o3-tooltip-v3.0.2) (2025-06-30)
 
 
