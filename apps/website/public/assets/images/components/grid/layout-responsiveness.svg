@@ -12,8 +12,14 @@
 <rect width="4" height="200" transform="translate(100 2)" fill="white"/>
 <rect opacity="0.1" x="100" y="2" width="4" height="200" fill="white"/>
 <rect x="4" y="18" width="100" height="1" fill="black" fill-opacity="0.2"/>
-<rect opacity="0.3" x="8" y="39" width="92" height="52" rx="1" fill="#3A7DFF"/>
-<rect opacity="0.3" x="8" y="128" width="92" height="52" rx="1" fill="#3A7DFF"/>
+<g opacity="0.3">
+<rect x="8" y="39" width="92" height="52" rx="2" fill="#159BFF"/>
+<rect opacity="0.3" x="8" y="39" width="92" height="52" rx="1" fill="#159BFF"/>
+</g>
+<g opacity="0.3">
+<rect x="8" y="128" width="92" height="52" rx="2" fill="#159BFF"/>
+<rect opacity="0.3" x="8" y="128" width="92" height="52" rx="1" fill="#159BFF"/>
+</g>
 <rect x="8" y="119" width="92" height="1" fill="black" fill-opacity="0.05"/>
 <path d="M8 95H59C59.5523 95 60 95.4477 60 96V97C60 97.5523 59.5523 98 59 98H8V95Z" fill="black" fill-opacity="0.1"/>
 <path d="M8 184H59C59.5523 184 60 184.448 60 185V186C60 186.552 59.5523 187 59 187H8V184Z" fill="black" fill-opacity="0.1"/>
@@ -41,10 +47,22 @@
 <rect opacity="0.1" x="296" y="2" width="4" height="200" fill="white"/>
 <rect width="4" height="200" transform="translate(320 2)" fill="white"/>
 <rect opacity="0.1" x="320" y="2" width="4" height="200" fill="white"/>
-<rect opacity="0.3" x="132" y="39" width="92" height="52" rx="1" fill="#3A7DFF"/>
-<rect opacity="0.3" x="228" y="39" width="92" height="52" rx="1" fill="#3A7DFF"/>
-<rect opacity="0.3" x="132" y="127" width="92" height="52" rx="1" fill="#3A7DFF"/>
-<rect opacity="0.3" x="228" y="127" width="92" height="52" rx="1" fill="#3A7DFF"/>
+<g opacity="0.3">
+<rect x="132" y="39" width="92" height="52" rx="2" fill="#159BFF"/>
+<rect opacity="0.3" x="132" y="39" width="92" height="52" rx="1" fill="#159BFF"/>
+</g>
+<g opacity="0.3">
+<rect x="228" y="39" width="92" height="52" rx="2" fill="#159BFF"/>
+<rect opacity="0.3" x="228" y="39" width="92" height="52" rx="1" fill="#159BFF"/>
+</g>
+<g opacity="0.3">
+<rect x="132" y="127" width="92" height="52" rx="2" fill="#159BFF"/>
+<rect opacity="0.3" x="132" y="127" width="92" height="52" rx="1" fill="#159BFF"/>
+</g>
+<g opacity="0.3">
+<rect x="228" y="127" width="92" height="52" rx="2" fill="#159BFF"/>
+<rect opacity="0.3" x="228" y="127" width="92" height="52" rx="1" fill="#159BFF"/>
+</g>
 <rect x="128" y="18" width="196" height="1" fill="black" fill-opacity="0.2"/>
 <rect x="132" y="119" width="92" height="1" fill="black" fill-opacity="0.05"/>
 <rect x="228" y="119" width="92" height="1" fill="black" fill-opacity="0.05"/>
@@ -86,12 +104,30 @@
 <rect opacity="0.1" x="632" y="2" width="4" height="200" fill="white"/>
 <rect width="28" height="200" transform="translate(656 2)" fill="white"/>
 <rect opacity="0.1" x="656" y="2" width="28" height="200" fill="white"/>
-<rect opacity="0.3" x="372" y="39" width="92" height="52" rx="1" fill="#3A7DFF"/>
-<rect opacity="0.3" x="372" y="127" width="92" height="52" rx="1" fill="#3A7DFF"/>
-<rect opacity="0.3" x="468" y="127" width="92" height="52" rx="1" fill="#3A7DFF"/>
-<rect opacity="0.3" x="564" y="127" width="92" height="52" rx="1" fill="#3A7DFF"/>
-<rect opacity="0.3" x="468" y="39" width="92" height="52" rx="1" fill="#3A7DFF"/>
-<rect opacity="0.3" x="564" y="39" width="92" height="52" rx="1" fill="#3A7DFF"/>
+<g opacity="0.3">
+<rect x="372" y="39" width="92" height="52" rx="2" fill="#159BFF"/>
+<rect opacity="0.3" x="372" y="39" width="92" height="52" rx="1" fill="#159BFF"/>
+</g>
+<g opacity="0.3">
+<rect x="372" y="127" width="92" height="52" rx="2" fill="#159BFF"/>
+<rect opacity="0.3" x="372" y="127" width="92" height="52" rx="1" fill="#159BFF"/>
+</g>
+<g opacity="0.3">
+<rect x="468" y="127" width="92" height="52" rx="2" fill="#159BFF"/>
+<rect opacity="0.3" x="468" y="127" width="92" height="52" rx="1" fill="#159BFF"/>
+</g>
+<g opacity="0.3">
+<rect x="564" y="127" width="92" height="52" rx="2" fill="#159BFF"/>
+<rect opacity="0.3" x="564" y="127" width="92" height="52" rx="1" fill="#159BFF"/>
+</g>
+<g opacity="0.3">
+<rect x="468" y="39" width="92" height="52" rx="2" fill="#159BFF"/>
+<rect opacity="0.3" x="468" y="39" width="92" height="52" rx="1" fill="#159BFF"/>
+</g>
+<g opacity="0.3">
+<rect x="564" y="39" width="92" height="52" rx="2" fill="#159BFF"/>
+<rect opacity="0.3" x="564" y="39" width="92" height="52" rx="1" fill="#159BFF"/>
+</g>
 <rect x="344" y="18" width="340" height="1" fill="black" fill-opacity="0.2"/>
 <path d="M372 95H423C423.552 95 424 95.4477 424 96V97C424 97.5523 423.552 98 423 98H372V95Z" fill="black" fill-opacity="0.1"/>
 <path d="M372 183H423C423.552 183 424 183.448 424 184V185C424 185.552 423.552 186 423 186H372V183Z" fill="black" fill-opacity="0.1"/>
