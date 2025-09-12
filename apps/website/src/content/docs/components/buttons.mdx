@@ -38,7 +38,7 @@ Each button includes:
 
 1. <strong>Label:</strong> Clearly describe the action using a verb. Use specific,
    outcome-focused wording like "Subscribe" or "Continue".
-2. <strong>Container:</strong> This wraps the label up and any optional icon. Standard.
+2. <strong>Container:</strong> This wraps the label up and any optional icon. Standard
    buttons should at least be 80px wide; small buttons should be no smaller than
    64px
 3. <strong>Icon (optional):</strong> Include only when it helps clarify the action.
@@ -250,7 +250,7 @@ Buttons are fluid up to ~400px, then adapt to their content.<br /><em>(Resize yo
 		Use full-width buttons only in narrow containers such as mobile layouts.
 	</p>
 
-    <Example slot="examples" do={true}>
+    <Example slot="examples" do={true} centred={true}>
     	{['whitelabel', 'professional'].includes(props.brand) && (
     		<img
     			src="/assets/images/components/buttons/usage-full-width-do-whitelabel.svg"
@@ -266,7 +266,7 @@ Buttons are fluid up to ~400px, then adapt to their content.<br /><em>(Resize yo
 
 </Example>
 
-    <Example slot="examples" do={false}>
+    <Example slot="examples" do={false} centred={true}>
     	{['whitelabel', 'professional'].includes(props.brand) && (
     		<img
     			src="/assets/images/components/buttons/usage-full-width-dont-whitelabel.svg"
@@ -288,7 +288,7 @@ Buttons are fluid up to ~400px, then adapt to their content.<br /><em>(Resize yo
 		To maintain clarity, use only one primary button per product area (a form, modal, within an article). For all other CTAs, use secondary or ghost buttons.
 	</p>
 
-    <Example slot="examples" do={true}>
+    <Example slot="examples" do={true} centred={true}>
     	{['whitelabel', 'professional'].includes(props.brand) && (
     		<img
     			src="/assets/images/components/buttons/usage-only-one-primary-button-do-whitelabel.svg"
@@ -303,7 +303,7 @@ Buttons are fluid up to ~400px, then adapt to their content.<br /><em>(Resize yo
     	)}
     </Example>
 
-    <Example slot="examples" do={false}>
+    <Example slot="examples" do={false} centred={true}>
     	{['whitelabel', 'professional'].includes(props.brand) && (
     		<img
     			src="/assets/images/components/buttons/usage-only-one-primary-button-dont-whitelabel.svg"
@@ -325,7 +325,7 @@ Buttons are fluid up to ~400px, then adapt to their content.<br /><em>(Resize yo
 		Place icons on the left side of the button label, unless direction is being conveyed.
 	</p>
 
-    <Example slot="examples" do={true}>
+    <Example slot="examples" do={true} centred={true}>
     	{['whitelabel', 'professional'].includes(props.brand) && (
     		<img
     			src="/assets/images/components/buttons/usage-icons-placement-do-whitelabel.svg"
@@ -340,7 +340,7 @@ Buttons are fluid up to ~400px, then adapt to their content.<br /><em>(Resize yo
     	)}
     </Example>
 
-    <Example slot="examples" do={false}>
+    <Example slot="examples" do={false} centred={true}>
     	{['whitelabel', 'professional'].includes(props.brand) && (
     		<img
     			src="/assets/images/components/buttons/usage-icons-placement-dont-whitelabel.svg"
@@ -358,7 +358,7 @@ Buttons are fluid up to ~400px, then adapt to their content.<br /><em>(Resize yo
 </Guideline>
 
 <Guideline summary="Group related buttons where it helps the user." do={true}>
-	<Example slot="examples" do={true}>
+	<Example slot="examples" do={true} centred={true}>
 		{['whitelabel', 'professional'].includes(props.brand) && (
 			<img
 				src="/assets/images/components/buttons/usage-group-related-buttons-do-whitelabel.svg"
@@ -379,7 +379,7 @@ Buttons are fluid up to ~400px, then adapt to their content.<br /><em>(Resize yo
 		Only group related actions when it helps the user. Keep to a maximum of 6 buttons per group. When the action switches content, use tabs instead of button groups.
 	</p>
 
-    <Example slot="examples" do={true}>
+    <Example slot="examples" do={true} centred={true}>
     	{['whitelabel', 'professional'].includes(props.brand) && (
     		<img
     			src="/assets/images/components/buttons/usage-limit-6-buttons-group-do-whitelabel.svg"
@@ -394,7 +394,7 @@ Buttons are fluid up to ~400px, then adapt to their content.<br /><em>(Resize yo
     	)}
     </Example>
 
-    <Example slot="examples" do={false}>
+    <Example slot="examples" do={false} centred={true}>
     	{['whitelabel', 'professional'].includes(props.brand) && (
     		<img
     			src="/assets/images/components/buttons/usage-limit-6-buttons-group-dont-whitelabel.svg"
@@ -416,7 +416,7 @@ Buttons are fluid up to ~400px, then adapt to their content.<br /><em>(Resize yo
 Button labels should be outcome-focused, short and easy to scan.
 
 <Guideline summary="Use clear, action-driven language (e.g. 'Share', 'Download')" do={true}>
-	<Example slot="examples" do={true}>
+	<Example slot="examples" do={true} centred={true}>
 		{['whitelabel', 'professional'].includes(props.brand) && (
     		<img
     			src="/assets/images/components/buttons/label-guidance-action-driven-do-whitelabel.svg"
@@ -431,7 +431,7 @@ Button labels should be outcome-focused, short and easy to scan.
     	)}
     </Example>
 
-    <Example slot="examples" do={false}>
+    <Example slot="examples" do={false} centred={true}>
     	{['whitelabel', 'professional'].includes(props.brand) && (
     		<img
     			src="/assets/images/components/buttons/label-guidance-action-driven-dont-whitelabel.svg"
@@ -449,7 +449,7 @@ Button labels should be outcome-focused, short and easy to scan.
 </Guideline>
 
 <Guideline summary="Do not use filler words, punctuation or unnecessary articles ('the', 'a')" do={true}>
-	<Example slot="examples" do={true}>
+	<Example slot="examples" do={true} centred={true}>
 		{['whitelabel', 'professional'].includes(props.brand) && (
     		<img
     			src="/assets/images/components/buttons/label-guidance-filler-words-do-whitelabel.svg"
@@ -464,7 +464,7 @@ Button labels should be outcome-focused, short and easy to scan.
     	)}
     </Example>
 
-    <Example slot="examples" do={false}>
+    <Example slot="examples" do={false} centred={true}>
     	{['whitelabel', 'professional'].includes(props.brand) && (
     		<img
     			src="/assets/images/components/buttons/label-guidance-filler-words-dont-whitelabel.svg"
@@ -482,7 +482,7 @@ Button labels should be outcome-focused, short and easy to scan.
 </Guideline>
 
 <Guideline summary="Write labels in sentence case" do={true}>
-	<Example slot="examples" do={true}>
+	<Example slot="examples" do={true} centred={true}>
 		{['whitelabel', 'professional'].includes(props.brand) && (
     		<img
     			src="/assets/images/components/buttons/label-guidance-sentence-case-do-whitelabel.svg"
@@ -497,7 +497,7 @@ Button labels should be outcome-focused, short and easy to scan.
     	)}
     </Example>
 
-    <Example slot="examples" do={false}>
+    <Example slot="examples" do={false} centred={true}>
     	{['whitelabel', 'professional'].includes(props.brand) && (
     		<img
     			src="/assets/images/components/buttons/label-guidance-sentence-case-dont-whitelabel.svg"
@@ -512,7 +512,7 @@ Button labels should be outcome-focused, short and easy to scan.
     	)}
     </Example>
 
-    <Example slot="examples" do={false}>
+    <Example slot="examples" do={false} centred={true}>
     	{['whitelabel', 'professional'].includes(props.brand) && (
     		<img
     			src="/assets/images/components/buttons/label-guidance-sentence-case-dont-whitelabel.svg"
@@ -536,7 +536,7 @@ Button labels should be outcome-focused, short and easy to scan.
 		Only use if backed by user research. They often have poor contrast, don’t explain why they’re inactive, and can cause confusion, especially for screen reader users or in accessibility audits.
 	</p>
 
-    <Example slot="examples" do={false}>
+    <Example slot="examples" do={false} centred={true}>
     	{['whitelabel', 'professional'].includes(props.brand) && (
     		<img
     			src="/assets/images/components/buttons/accessibility-considerations-contrast-dont-whitelabel.svg"
@@ -554,7 +554,7 @@ Button labels should be outcome-focused, short and easy to scan.
 </Guideline>
 
 <Guideline summary="All buttons must have at least a 44px target size" do={true}>
-	<Example slot="examples" do={true}>
+	<Example slot="examples" do={true} centred={true}>
     	{['whitelabel', 'professional'].includes(props.brand) && (
     		<img
     			src="/assets/images/components/buttons/accessibility-considerations-44pixels-target-size-do-whitelabel.svg"
