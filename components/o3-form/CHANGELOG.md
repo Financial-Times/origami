@@ -6,6 +6,7 @@
 ### Bug Fixes
 
 * use sentence case on comments ([#2217](https://github.com/Financial-Times/origami/issues/2217)) ([e47e699](https://github.com/Financial-Times/origami/commit/e47e699458fcfa1683abd34ddcf92fed01705794))
+* * move figma-sb-links to dev deps (https://github.com/Financial-Times/origami/issues/2194) ([5f577c7](https://github.com/Financial-Times/origami/commit/5f577c77089aff950e62487f51122a3294394468))
 
 ## [0.6.1](https://github.com/Financial-Times/origami/compare/o3-form-v0.6.0...o3-form-v0.6.1) (2025-08-22)
 
