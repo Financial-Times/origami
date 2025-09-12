@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.2](https://github.com/Financial-Times/origami/compare/o3-form-v0.6.1...o3-form-v0.6.2) (2025-09-12)
+
+
+### Bug Fixes
+
+* use sentence case on comments ([#2217](https://github.com/Financial-Times/origami/issues/2217)) ([e47e699](https://github.com/Financial-Times/origami/commit/e47e699458fcfa1683abd34ddcf92fed01705794))
+
 ## [0.6.1](https://github.com/Financial-Times/origami/compare/o3-form-v0.6.0...o3-form-v0.6.1) (2025-08-22)
 
 
