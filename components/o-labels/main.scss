@@ -129,7 +129,6 @@
 		.o-labels-indicator.o-labels-indicator--badge.o-labels-indicator--inverse {
 
 			&.o-labels-indicator--live,
-			// 👆 should this be red bg instead?
 			&.o-labels-indicator--closed {
 				background: transparent;
 			}
