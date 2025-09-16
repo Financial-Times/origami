@@ -87,7 +87,7 @@ describe("oFooter", () => {
 		describe("destroy()", () => {
 			it("calls destroy on things found in _toggles and then sets _toggles to null", () => {
 				const footer = oFooter.init();
-				const toggle = new Toggle();
+				const toggle = new Toggle(document.createElement('h3'), { target: document.createElement('ul') });
 				const toggleSpy = sinon.stub(toggle, "destroy").returns(true);
 
 				footer._toggles = [toggle];
