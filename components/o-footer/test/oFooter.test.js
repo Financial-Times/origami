@@ -83,11 +83,24 @@ describe("oFooter", () => {
 				proclaim.equal(typeof footer._toggles, 'object');
 				proclaim.equal(footer._toggles.length, 5);
 			});
+
+			it("sets tabindex=0 for every toggle target on the page", () => {
+				const footer = oFooter.init();
+
+				footer.setup();
+
+				const toggleEls = footer.footerEl.querySelectorAll('[aria-controls]');
+
+				proclaim.deepEqual(
+					Array.from(toggleEls, el => el.getAttribute('tabindex')),
+					['0', '0', '0', '0', '0']
+				)
+			})
 		});
 		describe("destroy()", () => {
 			it("calls destroy on things found in _toggles and then sets _toggles to null", () => {
 				const footer = oFooter.init();
-				const toggle = new Toggle();
+				const toggle = new Toggle(document.createElement('h3'), { target: document.createElement('ul') });
 				const toggleSpy = sinon.stub(toggle, "destroy").returns(true);
 
 				footer._toggles = [toggle];
@@ -97,6 +110,20 @@ describe("oFooter", () => {
 				proclaim.equal(toggleSpy.called, true);
 				proclaim.equal(footer._toggles, null);
 
+			});
+
+			it('removes tabindex on every toggle target on the page', () => {
+				const footer = oFooter.init();
+
+				footer.setup();
+				footer.destroy()
+
+				const toggleEls = footer.footerEl.querySelectorAll('[aria-controls]');
+
+				proclaim.deepEqual(
+					Array.from(toggleEls, el => el.getAttribute('tabindex')),
+					[null, null, null, null, null]
+				);
 			});
 		});
 
