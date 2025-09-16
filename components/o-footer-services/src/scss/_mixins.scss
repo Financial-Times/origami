@@ -134,7 +134,7 @@
 		background-size: contain;
 		background-position: 50%;
 		vertical-align: baseline;
-		background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/#{$url-encoded-logo}?source=#{$system-code}');
+		background-image: url('https://images.ft.com/v3/image/raw/#{$url-encoded-logo}?source=#{$system-code}');
 		content: '';
 		width: $_o-footer-services-logo-size;
 		height: $_o-footer-services-logo-size;
@@ -242,7 +242,7 @@
 					ie-hex-str(_oFooterServicesGet('text-color', $from: $theme-name)),
 					4
 				);
-				background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2%3A#{$icon}?source=#{$system-code}&tint=#{$text-color-encoded}&format=svg');
+				background-image: url('https://images.ft.com/v3/image/raw/ftsocial-v2%3A#{$icon}?source=#{$system-code}&tint=#{$text-color-encoded}&format=svg');
 			}
 		}
 	}
@@ -259,7 +259,7 @@
 		'%23#{str-slice(ie-hex-str($color), 4)}',
 		null
 	);
-	$base-url: 'https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo:';
+	$base-url: 'https://images.ft.com/v3/image/raw/ftlogo:';
 	$url: $base-url + $logo-name + '?source=#{$system-code}' +
 		if($url-encoded-color, '&tint=#{$url-encoded-color}', '') + '&format=svg';
 	background-image: url($url);
