@@ -977,7 +977,7 @@ describe("Video", () => {
 			return video.getData().then(() => {
 				proclaim.deepEqual(
 					video.posterImage,
-					"https://images.ft.com/v3/images/raw/" +
+					"https://images.ft.com/v3/image/raw/" +
 						"https%3A%2F%2Fbcsecure01-a.akamaihd.net%2F13%2F47628783001%2F201704%2F970%2F47628783001_5393625566001_5393611350001-vs.jpg%3FpubId%3D47628783001%26videoId%3D5393611350001" +
 						"?source=origami&quality=low&fit=scale-down&width=300"
 				);
