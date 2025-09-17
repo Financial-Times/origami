@@ -102,7 +102,7 @@
 		@error 'A global "$system-code" Sass variable must be set to a valid [Bizops system code](https://biz-ops.in.ft.com/list/Systems).';
 	}
 
-	$base-url: 'https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo:';
+	$base-url: 'https://images.ft.com/v3/image/raw/ftlogo:';
 	$color: str-slice(ie-hex-str($color), 4);
 	background-image: url($base-url + $logo-name + '?source=#{$system-code}&tint=%23#{$color},%23#{$color}&format=svg');
 
