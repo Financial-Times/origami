@@ -120,7 +120,7 @@ const CaptionTemplate: StoryObj = {
 			<figure>
 				<img
 					alt="Image caption demo"
-					src="https://images.ft.com/v3/image/raw/http%3A%2F%2Fim.ft-static.com%2Fcontent%2Fimages%2Fa60ae24b-b87f-439c-bf1b-6e54946b4cf2.img?width=250&amp;source=origami-build-tools"
+					src="https://images.ft.com/v3/image/raw/https%3A%2F%2Fim.ft-static.com%2Fcontent%2Fimages%2Fa60ae24b-b87f-439c-bf1b-6e54946b4cf2.img?width=250&amp;source=origami"
 				/>
 				<CaptionTsx {...args}>{args.content}</CaptionTsx>
 			</figure>
