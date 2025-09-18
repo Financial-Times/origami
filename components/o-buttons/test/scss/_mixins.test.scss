@@ -53,7 +53,7 @@
 			// arrow-left is an example of an icon
 			@include contains($selector: false) {
 				.o-buttons--secondary.o-buttons-icon--arrow-left {
-					background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=test&tint=%230D7680,%230D7680&format=svg");
+					background-image: url("https://images.ft.com/v3/image/raw/fticon-v1:arrow-left?source=test&tint=%230D7680,%230D7680&format=svg");
 				}
 			}
 		}
@@ -160,7 +160,7 @@
 			@include contains() {
 				background-color: #262a33;
 				min-height: 40px;
-				background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=test&tint=%23FFFFFF,%23FFFFFF&format=svg");
+				background-image: url("https://images.ft.com/v3/image/raw/fticon-v1:arrow-left?source=test&tint=%23FFFFFF,%23FFFFFF&format=svg");
 			}
 		}
 	}

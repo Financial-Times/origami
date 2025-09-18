@@ -1,11 +1,11 @@
-import {$} from 'zx'
+import {$} from 'zx';
 import fs from 'fs-extra';
 import postcss from 'postcss';
 import autoprefixer from 'autoprefixer';
-import { files, log } from 'origami-tools-helpers';
+import {files, log} from 'origami-tools-helpers';
 import path from 'node:path';
-import { promisify } from 'node:util';
-import { createRequire } from 'node:module';
+import {promisify} from 'node:util';
+import {createRequire} from 'node:module';
 const require = createRequire(import.meta.url);
 const readFile = promisify(fs.readFile);
 const outputFile = promisify(fs.outputFile);
@@ -21,17 +21,20 @@ const sassBinary = require.resolve('sass-bin/src/sass');
  * @param {String} config.sassPrefix [''] - Sass to prefix the Sass from file with.
  * @return {Promise<String>} - The sass from the file, with extra Sass variables and prefixes according to configuration.
  */
-function getSassData(sassFile, config = {
-	brand: undefined,
-	sassPrefix: ''
-}) {
+function getSassData(
+	sassFile,
+	config = {
+		brand: undefined,
+		sassPrefix: '',
+	}
+) {
 	// Set Sass system code variable `$system-code`.
-	const sassSystemCodeVariable = '$system-code: "origami-build-tools";';
+	const sassSystemCodeVariable = '$system-code: "origami";';
 	// Set Sass brand variable `$o-brand`, given as an obt argument.
 	const sassBrandVariable = config.brand ? `$o-brand: ${config.brand};` : '';
 	const sassPrefix = config.sassPrefix ? config.sassPrefix : '';
-	return readFile(sassFile, 'utf-8').then(code =>
-		sassSystemCodeVariable + sassBrandVariable + sassPrefix + code
+	return readFile(sassFile, 'utf-8').then(
+		code => sassSystemCodeVariable + sassBrandVariable + sassPrefix + code
 	);
 }
 
@@ -54,42 +57,46 @@ function buildSass(config) {
 	console.log(`Building Sass for brand ${config.brand}`);
 	config = config || {};
 	const cwd = config.cwd || process.cwd();
-	const src = config.sass ? Promise.resolve(config.sass) : files.getMainSassPath(cwd);
+	const src = config.sass
+		? Promise.resolve(config.sass)
+		: files.getMainSassPath(cwd);
 
 	return src.then(sassFile => {
 		if (sassFile) {
 			const destFolder = config.buildFolder || files.getBuildFolderPath(cwd);
 			const dest = config.buildCss || 'main.css';
-			const useSourceMaps = typeof config.sourcemaps === 'boolean' ?
-				config.sourcemaps :
-				true;
+			const useSourceMaps =
+				typeof config.sourcemaps === 'boolean' ? config.sourcemaps : true;
 			const sassData = getSassData(sassFile, {
 				brand: config.brand,
 				sassPrefix: config.sassPrefix,
 			});
 
 			return Promise.resolve(sassData)
-				.then(async (sassData) => {
+				.then(async sassData => {
 					const sassArguments = [];
 					// Set Sass include paths (i.e. npm paths)
 					sassArguments.push(
-						...files.getSassIncludePaths(cwd, config).map(p => `--load-path=${p}`)
+						...files
+							.getSassIncludePaths(cwd, config)
+							.map(p => `--load-path=${p}`)
 					);
 					// Set CSS output style. Expanded by default
 					sassArguments.push(`--style=${config.outputStyle || 'expanded'}`);
 					// Configure sourcemaps
-					sassArguments.push(...useSourceMaps ?
-						['--embed-source-map', '--source-map-urls=absolute'] :
-						['--no-source-map'],
+					sassArguments.push(
+						...(useSourceMaps
+							? ['--embed-source-map', '--source-map-urls=absolute']
+							: ['--no-source-map'])
 					);
 					// Build Sass
 					let result = '';
 					const prevd = process.cwd();
 
 					try {
-						process.chdir(path.resolve(sassFile, ".."));
+						process.chdir(path.resolve(sassFile, '..'));
 						$.verbose = false;
-						const p =  $`${sassBinary} --stdin ${sassArguments}`;
+						const p = $`${sassBinary} --stdin ${sassArguments}`;
 						p.stdin.write(sassData);
 						p.stdin.end();
 						result = await p;
@@ -101,17 +108,14 @@ function buildSass(config) {
 						const stderr = error.message || error.stderr || '';
 						let errorMessage = `Failed building Sass:\n' ${stderr}\n`;
 						// Find where the Sass error occurred from stderr.
-						const errorLineMatch = stderr.match(/(?:[\s]+)?(.+.scss)(?:[\s]+)([0-9]+):([0-9]+)/);
+						const errorLineMatch = stderr.match(
+							/(?:[\s]+)?(.+.scss)(?:[\s]+)([0-9]+):([0-9]+)/
+						);
 						// If we know where the Sass error occurred, provide an absolute uri.
 						if (errorLineMatch) {
-							const [
-								,
-								file,
-								line,
-								column
-							] = errorLineMatch;
-							errorMessage = errorMessage +
-								`\n${path.join(cwd, file)}:${line}:${column}\n`;
+							const [, file, line, column] = errorLineMatch;
+							errorMessage =
+								errorMessage + `\n${path.join(cwd, file)}:${line}:${column}\n`;
 						}
 						// Forward Sass error.
 						throw new Error(errorMessage);
@@ -120,7 +124,8 @@ function buildSass(config) {
 					}
 
 					return result.stdout;
-				}).then(css => {
+				})
+				.then(css => {
 					// postcss does not parse the charset unless it is also base64.
 					// TODO: Remove the charset as a workaround, and remove this code
 					// when postcss release a fix.
@@ -133,42 +138,48 @@ function buildSass(config) {
 					const postCssTransforms = [];
 
 					// Configure postcss autoprefixer transform
-					postCssTransforms.push(autoprefixer({
-						overrideBrowserslist: [
-							'> 1%',
-							'last 2 versions',
-							'ie >= 11',
-							'ff ESR',
-							'safari >= 9'
-						],
-						cascade: false,
-						flexbox: 'no-2009',
-						grid: true
-					}));
+					postCssTransforms.push(
+						autoprefixer({
+							overrideBrowserslist: [
+								'> 1%',
+								'last 2 versions',
+								'ie >= 11',
+								'ff ESR',
+								'safari >= 9',
+							],
+							cascade: false,
+							flexbox: 'no-2009',
+							grid: true,
+						})
+					);
 
 					// Set postcss options
-					const postCssOptions = useSourceMaps ? {
-						from: sassFile,
-						to: dest,
-						map: { inline: true }
-					} : {from: undefined};
+					const postCssOptions = useSourceMaps
+						? {
+								from: sassFile,
+								to: dest,
+								map: {inline: true},
+						  }
+						: {from: undefined};
 
 					// Run postcss
 					try {
 						return postcss(postCssTransforms).process(css, postCssOptions);
-					} catch(error) {
+					} catch (error) {
 						throw new Error(
-							`Failed building Sass: postcss threw an error.\n` +
-							error.message
+							`Failed building Sass: postcss threw an error.\n` + error.message
 						);
 					}
-				}).then(postcssResult => {
+				})
+				.then(postcssResult => {
 					function cssOnlyHasComments(css) {
 						const cssComments = /\/\*[^*]*\*+([^\/*][^*]*\*+)*\//g;
 						const cssWithoutComments = css.replace(cssComments, '');
 						return cssWithoutComments.trim().length === 0;
 					}
-					const css = cssOnlyHasComments(postcssResult.css) ? '' : postcssResult.css;
+					const css = cssOnlyHasComments(postcssResult.css)
+						? ''
+						: postcssResult.css;
 					// Return css after writing to file if a destination
 					// directory is given.
 					if (destFolder !== 'disabled') {
@@ -179,9 +190,6 @@ function buildSass(config) {
 				});
 		}
 	});
-};
-
-export {
-	getSassData,
-	buildSass
 }
+
+export {getSassData, buildSass};

@@ -1,5 +1,5 @@
-const BASE_URL = 'https://www.ft.com/__origami/service/image/v2/images/raw';
-const OPTIONS = {source: 'next', fit: 'scale-down', dpr: "2"};
+const BASE_URL = 'https://images.ft.com/v3/image/raw';
+const OPTIONS = {source: 'next', fit: 'scale-down', dpr: '2'};
 
 type Options = {
 	tint?: string;

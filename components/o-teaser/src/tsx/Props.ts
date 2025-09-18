@@ -113,7 +113,7 @@ export interface Headshot {
 	 */
 	headshot?: string;
 	/**
-	 * See the image service API (https://www.ft.com/__origami/service/image/v2/docs/api) for usage
+	 * See the image service API (https://images.ft.com/v3/docs/api) for usage
 	 */
 	headshotTint?: string;
 }
