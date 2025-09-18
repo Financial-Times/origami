@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.1.0](https://github.com/Financial-Times/origami/compare/o-header-services-v6.0.3...o-header-services-v6.1.0) (2025-09-18)
+
+
+### Features
+
+* use image service v3 in o-header-services ([#2215](https://github.com/Financial-Times/origami/issues/2215)) ([f265ae2](https://github.com/Financial-Times/origami/commit/f265ae2b2b0e2b325f9b4cb9f5310d0c3ac3abea))
+
 ## [6.0.3](https://github.com/Financial-Times/origami/compare/o-header-services-v6.0.2...o-header-services-v6.0.3) (2025-06-30)
 
 

@@ -1,5 +1,12 @@
 # Changelog
 
+## [15.2.0](https://github.com/Financial-Times/origami/compare/o-header-v15.1.0...o-header-v15.2.0) (2025-09-18)
+
+
+### Features
+
+* upgrade o header ([#2219](https://github.com/Financial-Times/origami/issues/2219)) ([75733de](https://github.com/Financial-Times/origami/commit/75733dea74e12c1a4e52dca8c31d026b71a819dc))
+
 ## [15.1.0](https://github.com/Financial-Times/origami/compare/o-header-v15.0.4...o-header-v15.1.0) (2025-07-02)
 
 
