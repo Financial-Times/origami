@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.0.3](https://github.com/Financial-Times/origami/compare/o-labels-v7.0.2...o-labels-v7.0.3) (2025-09-18)
+
+
+### Bug Fixes
+
+* use correct label tokens for live label ([7051a86](https://github.com/Financial-Times/origami/commit/7051a86baffb13f5f18e7f7871002c5476e2dac0))
+
 ## [7.0.2](https://github.com/Financial-Times/origami/compare/o-labels-v7.0.1...o-labels-v7.0.2) (2025-06-30)
 
 

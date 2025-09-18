@@ -1,5 +1,12 @@
 # Changelog
 
+## [10.0.1](https://github.com/Financial-Times/origami/compare/o-footer-v10.0.0...o-footer-v10.0.1) (2025-09-18)
+
+
+### Bug Fixes
+
+* remove tabindex on footer headings when transitioning to large breakpoint ([#2221](https://github.com/Financial-Times/origami/issues/2221)) ([5babf65](https://github.com/Financial-Times/origami/commit/5babf653fdbf4e2a61bfce81d067e2cfe7605023))
+
 ## [10.0.0](https://github.com/Financial-Times/origami/compare/o-footer-v9.2.10...o-footer-v10.0.0) (2025-02-20)
 
 ### ⚠ BREAKING CHANGES
