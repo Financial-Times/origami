@@ -1,5 +1,12 @@
 # Changelog
 
+## [13.1.0](https://github.com/Financial-Times/origami/compare/o-comments-v13.0.1...o-comments-v13.1.0) (2025-09-22)
+
+
+### Features
+
+* use image service v3 in o-comments ([36a56e3](https://github.com/Financial-Times/origami/commit/36a56e3edc01d1627e85f40a282f8cbf16641dca))
+
 ## [13.0.1](https://github.com/Financial-Times/origami/compare/o-comments-v13.0.0...o-comments-v13.0.1) (2025-05-20)
 
 

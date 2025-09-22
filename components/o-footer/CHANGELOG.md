@@ -1,5 +1,12 @@
 # Changelog
 
+## [10.1.0](https://github.com/Financial-Times/origami/compare/o-footer-v10.0.1...o-footer-v10.1.0) (2025-09-22)
+
+
+### Features
+
+* use image service v3 in o-footer ([15ae5a0](https://github.com/Financial-Times/origami/commit/15ae5a0f9cc0fb67c3fcf8dd367c2691f406dcf0))
+
 ## [10.0.1](https://github.com/Financial-Times/origami/compare/o-footer-v10.0.0...o-footer-v10.0.1) (2025-09-18)
 
 
