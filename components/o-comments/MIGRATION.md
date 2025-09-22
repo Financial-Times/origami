@@ -4,7 +4,6 @@
 
 v13.1.0 includes a change to use Image Service V3. Whilst the change should be unobtrusive, there are some checks you will need to perform.
 
-
 Image service V3 uses a hosts configuration, meaning **a valid system code must be used in order to make image requests** this can be set in your Sass configuration as a global.
  
 ```scss
