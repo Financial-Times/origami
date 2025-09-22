@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.7.0](https://github.com/Financial-Times/origami/compare/o-typography-v7.6.3...o-typography-v7.7.0) (2025-09-22)
+
+
+### Features
+
+* use image service v3 in o-typography ([9816902](https://github.com/Financial-Times/origami/commit/9816902d4215325842d22377df437de9b712aea1))
+
 ## [7.6.3](https://github.com/Financial-Times/origami/compare/o-typography-v7.6.2...o-typography-v7.6.3) (2025-06-30)
 
 

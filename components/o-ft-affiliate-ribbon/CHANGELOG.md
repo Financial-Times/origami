@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.1.0](https://github.com/Financial-Times/origami/compare/o-ft-affiliate-ribbon-v6.0.0...o-ft-affiliate-ribbon-v6.1.0) (2025-09-22)
+
+
+### Features
+
+* use image service v3 in o-ft-affiliate-ribbon ([38f1033](https://github.com/Financial-Times/origami/commit/38f1033b964148e5206f04054a7bb6462175c291))
+
 ## [6.0.0](https://github.com/Financial-Times/origami/compare/o-ft-affiliate-ribbon-v5.2.2...o-ft-affiliate-ribbon-v6.0.0) (2025-02-20)
 
 ### ⚠ BREAKING CHANGES

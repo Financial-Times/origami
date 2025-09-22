@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.1.0](https://github.com/Financial-Times/origami/compare/o-footer-services-v5.0.1...o-footer-services-v5.1.0) (2025-09-22)
+
+
+### Features
+
+* use image service v3 in o-footer-services ([c683b31](https://github.com/Financial-Times/origami/commit/c683b31e356c8cf85e12d55a5d9be7a0079c16a7))
+
 ## [5.0.1](https://github.com/Financial-Times/origami/compare/o-footer-services-v5.0.0...o-footer-services-v5.0.1) (2025-02-26)
 
 
