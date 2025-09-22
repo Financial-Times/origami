@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.2.0](https://github.com/Financial-Times/origami/compare/o-teaser-v7.1.5...o-teaser-v7.2.0) (2025-09-22)
+
+
+### Features
+
+* use image service v3 in o-teaser ([e9748e4](https://github.com/Financial-Times/origami/commit/e9748e4b28fc6591f052dd531e707889514b0bee))
+
 ## [7.1.5](https://github.com/Financial-Times/origami/compare/o-teaser-v7.1.4...o-teaser-v7.1.5) (2025-06-30)
 
 

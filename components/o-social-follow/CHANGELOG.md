@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0](https://github.com/Financial-Times/origami/compare/o-social-follow-v2.0.0...o-social-follow-v2.1.0) (2025-09-22)
+
+
+### Features
+
+* use image service v3 in o-social-follow ([e6f2400](https://github.com/Financial-Times/origami/commit/e6f24008d08724d3387951aaa9a8f4121a2ab9d5))
+
 ## [2.0.0](https://github.com/Financial-Times/origami/compare/o-social-follow-v1.0.11...o-social-follow-v2.0.0) (2025-02-20)
 
 ### ⚠ BREAKING CHANGES

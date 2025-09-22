@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.11.0](https://github.com/Financial-Times/origami/compare/o-buttons-v7.10.1...o-buttons-v7.11.0) (2025-09-22)
+
+
+### Features
+
+* use image service v3 in o-buttons ([54d5134](https://github.com/Financial-Times/origami/commit/54d5134e14af4dc34119a669763da196d72ddbd1))
+
 ## [7.10.1](https://github.com/Financial-Times/origami/compare/o-buttons-v7.10.0...o-buttons-v7.10.1) (2025-06-30)
 
 
