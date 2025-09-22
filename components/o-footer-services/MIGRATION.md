@@ -1,5 +1,18 @@
 # Migration Guide
 
+### Migrating to v5.1.0
+
+v5.1.0 includes a change to use Image Service V3. Whilst the change should be unobtrusive, there are some checks you will need to perform.
+
+Image service V3 uses a hosts configuration, meaning **a valid system code must be used in order to make image requests** this can be set in you Sass configuration as a global.
+
+```scss
+//global scope of your Sass code
+$system-code: 'next-article';
+```
+
+Your system must appear in the valid hosts for the Image Service, please refer to the [Image Service documentation](https://github.com/Financial-Times/image-service?tab=readme-ov-file#systems--hosts).
+
 ## Migrating from v4 to v5
 
 This major release introduces a new design language and visually breaking changes. This includes mobile optimised typography, icons, and buttons. It also removes peer dependencies from deprecated "o2" components.
