@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.2.1](https://github.com/Financial-Times/origami/compare/o-teaser-v7.2.0...o-teaser-v7.2.1) (2025-09-23)
+
+
+### Bug Fixes
+
+* tag hover & focus colour for TopStoryLandscape theme ([3fb7a60](https://github.com/Financial-Times/origami/commit/3fb7a60378cfb2bd369c1aad60dde24fcd1d43d0))
+
 ## [7.2.0](https://github.com/Financial-Times/origami/compare/o-teaser-v7.1.5...o-teaser-v7.2.0) (2025-09-22)
 
 
