@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.10.0](https://github.com/Financial-Times/origami/compare/o-icons-v7.9.1...o-icons-v7.10.0) (2025-09-22)
+
+
+### Features
+
+* use image service v3 in o-icons ([7167a21](https://github.com/Financial-Times/origami/commit/7167a211db2f36741000c7f9098777842f827f68))
+
 ## [7.9.1](https://github.com/Financial-Times/origami/compare/o-icons-v7.9.0...o-icons-v7.9.1) (2025-06-30)
 
 

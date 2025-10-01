@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.0](https://github.com/Financial-Times/origami/compare/o-multi-select-v3.0.1...o-multi-select-v3.1.0) (2025-09-22)
+
+
+### Features
+
+* use image service v3 in o-multi-select ([e004d22](https://github.com/Financial-Times/origami/commit/e004d225440296f5892bda844fdfa4aa6b04105d))
+
 ## [3.0.1](https://github.com/Financial-Times/origami/compare/o-multi-select-v3.0.0...o-multi-select-v3.0.1) (2025-02-26)
 
 

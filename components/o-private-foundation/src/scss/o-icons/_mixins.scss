@@ -23,7 +23,7 @@
 
 	// Define base image service path.
 	$scheme: "fticon-v#{$iconset-version}";
-	$service-url: "https://www.ft.com/__origami/service/image/v2/images/raw/#{$scheme}:#{$icon-name}";
+	$service-url: "https://images.ft.com/v3/image/raw/#{$scheme}:#{$icon-name}";
 
 	// Include base styles shared by all icons.
 	@if ($include-base-styles == true) {

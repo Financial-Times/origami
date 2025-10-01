@@ -1,5 +1,19 @@
 # Changelog
 
+## [3.13.1](https://github.com/Financial-Times/origami/compare/o3-button-v3.13.0...o3-button-v3.13.1) (2025-08-27)
+
+
+### Bug Fixes
+
+* narrow classname type ([#2196](https://github.com/Financial-Times/origami/issues/2196)) ([1b046a8](https://github.com/Financial-Times/origami/commit/1b046a844b382ef1c82fe4552f88522649261818))
+
+## [3.13.0](https://github.com/Financial-Times/origami/compare/o3-button-v3.12.2...o3-button-v3.13.0) (2025-08-22)
+
+
+### Features
+
+* allow event handlers on o3 button attributes ([#2192](https://github.com/Financial-Times/origami/issues/2192)) ([062982c](https://github.com/Financial-Times/origami/commit/062982cdf6909c383cafc1f818dbacc0f44645d8))
+
 ## [3.12.2](https://github.com/Financial-Times/origami/compare/o3-button-v3.12.1...o3-button-v3.12.2) (2025-07-14)
 
 

@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.10.0](https://github.com/Financial-Times/origami/compare/o-tracking-v4.9.0...o-tracking-v4.10.0) (2025-09-08)
+
+
+### Features
+
+* expose session access through accessor func ([ecebcce](https://github.com/Financial-Times/origami/commit/ecebcce43cc5c6b35aa996f20f5759bdb18a65f4))
+
 ## [4.9.0](https://github.com/Financial-Times/origami/compare/o-tracking-v4.8.0...o-tracking-v4.9.0) (2025-06-17)
 
 

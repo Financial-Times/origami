@@ -39,6 +39,15 @@
 	background: oPrivateFoundationGet('o3-color-palette-wheat');
 	padding: 12px;
 
+	.o-teaser__tag:hover,
+	.o-teaser__tag:focus {
+		color: oPrivateColorsMix(
+			oPrivateFoundationGet('o3-color-palette-black'),
+			oPrivateFoundationGet('o3-color-palette-wheat'),
+			$percentage: 70
+		);
+	}
+
 	@include oPrivateGridRespondTo(M) {
 		padding: 20px 0 0 20px;
 

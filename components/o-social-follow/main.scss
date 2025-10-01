@@ -103,7 +103,7 @@
 			@error 'o-social-follow: "#{$icon-name}" is not supported. Icons must be one or more of "#{map-keys($_o-social-follow-icons)}"';
 		}
 		.o-social-follow-icon--#{$icon-name} {
-			$icon-image-url: 'https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2%3A#{$icon-name}?source=#{$system-code}';
+			$icon-image-url: 'https://images.ft.com/v3/image/raw/ftsocial-v2%3A#{$icon-name}?source=#{$system-code}';
 			--o-social-follow-brand-color: #{$social-brand-colour};
 
 			&:before {

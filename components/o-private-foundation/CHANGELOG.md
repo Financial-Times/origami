@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.0](https://github.com/Financial-Times/origami/compare/o-private-foundation-v1.7.0...o-private-foundation-v1.8.0) (2025-09-18)
+
+
+### Features
+
+* upgrade o header ([#2219](https://github.com/Financial-Times/origami/issues/2219)) ([75733de](https://github.com/Financial-Times/origami/commit/75733dea74e12c1a4e52dca8c31d026b71a819dc))
+
 ## [1.7.0](https://github.com/Financial-Times/origami/compare/o-private-foundation-v1.6.0...o-private-foundation-v1.7.0) (2025-06-23)
 
 

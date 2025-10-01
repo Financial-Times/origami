@@ -45,7 +45,10 @@ class Footer {
 	}
 
 	destroy () {
-		this._toggles.forEach(toggle => toggle.destroy());
+		this._toggles.forEach(toggle => {
+			toggle.toggleEl.removeAttribute('tabindex');
+			toggle.destroy();
+		});
 		this._toggles = null;
 	}
 

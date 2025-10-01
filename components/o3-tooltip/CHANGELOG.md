@@ -1,5 +1,19 @@
 # Changelog
 
+## [3.1.0](https://github.com/Financial-Times/origami/compare/o3-tooltip-v3.0.3...o3-tooltip-v3.1.0) (2025-09-24)
+
+
+### Features
+
+* introduce method to update position of tooltip ([#2229](https://github.com/Financial-Times/origami/issues/2229)) ([79f51ff](https://github.com/Financial-Times/origami/commit/79f51ffd8719cf9a28a5f123841cbbf5a25098c3))
+
+## [3.0.3](https://github.com/Financial-Times/origami/compare/o3-tooltip-v3.0.2...o3-tooltip-v3.0.3) (2025-09-11)
+
+
+### Bug Fixes
+
+* remove bounce animation ([7662b49](https://github.com/Financial-Times/origami/commit/7662b490d6464fd8e379eaad7b51f1db7164f734))
+
 ## [3.0.2](https://github.com/Financial-Times/origami/compare/o3-tooltip-v3.0.1...o3-tooltip-v3.0.2) (2025-06-30)
 
 

@@ -194,7 +194,7 @@ describe("smoke-tests (./overlay.js)", function() {
 			});
 			proclaim.equal(Overlay.prototype.close.callCount, 0);
 
-			o.fireCustomEvent(document.body, 'oOverlay.layerOpen', {el: 'something'});
+			o.fireCustomEvent(document.querySelector('.js-container'), 'oOverlay.layerOpen', {el: 'something'});
 			proclaim.equal(Overlay.prototype.close.callCount, 1);
 
 			o.fireEvent(document.querySelector('.o-overlay__close'), 'click');
@@ -349,7 +349,7 @@ describe("smoke-tests (./overlay.js)", function() {
 				document.body.removeEventListener('oOverlay.ready', overlayReadyHandler);
 
 				triggerPressed = trigger.getAttribute('aria-pressed');
-				proclaim.equal(triggerPressed, 'false');
+				proclaim.equal(triggerPressed, 'true');
 
 				done();
 			}

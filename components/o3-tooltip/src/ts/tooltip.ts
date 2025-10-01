@@ -57,6 +57,10 @@ export class ToolTip extends HTMLElement implements TooltipProps {
 		this._popperInstance?.destroy();
 	}
 
+	async update() {
+		await this._popperInstance?.update();
+	}
+
 	protected render(name?: string) {
 		this._popperInstance?.setOptions({
 			placement: this.placement,
