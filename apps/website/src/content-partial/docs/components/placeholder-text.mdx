@@ -17,9 +17,10 @@ Instead, use:
 * Clear, persistent labels to describe the input
 * Helper text below the field for optional instructions or format guidance
 * Validation feedback for any errors or constraints after user interaction
-* Placeholder text should only be used when the purpose is purely decorative or supplementary, never as a replacement for a label or required instruction.
 
-<Example do={false} title="Never use the input box for hints">
+Placeholder text should only be used when the purpose is purely decorative or supplementary, never as a replacement for a label or required instruction.
+
+<Example do={false} title="Don't use the input box for hints">
 	<div data-o3-brand={props.brand}>
 		<Form>
 			<TextInput
@@ -32,7 +33,7 @@ Instead, use:
 	</div>
 </Example>
 
-<Example do title="Use description fields for additional hints">
+<Example do title="Do use description fields for additional hints">
 	<div data-o3-brand={props.brand}>
 		<Form>
 			<TextInput

@@ -5,7 +5,12 @@ function ButtonPreview() {
 		<>
 			<meta itemProp="@preview" />
 			<Form>
-				<TextInput label="Year of birth" length={4} />
+				<TextInput
+					label="Year of birth"
+					length={4}
+					description="Format: YYYY"
+					attributes={{defaultValue: '1987'}}
+				/>
 			</Form>
 			<meta itemProp="@preview" />
 		</>

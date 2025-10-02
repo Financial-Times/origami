@@ -5,7 +5,12 @@ function ButtonPreview() {
 		<>
 			<meta itemProp="@preview" />
 			<Form>
-				<TextInput label="CVV Code" length={3} />
+				<TextInput
+					label="CVV Code"
+					length={3}
+					description="3 digits on back of the card"
+					attributes={{defaultValue: '621'}}
+				/>
 			</Form>
 			<meta itemProp="@preview" />
 		</>

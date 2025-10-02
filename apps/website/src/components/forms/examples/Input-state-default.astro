@@ -1,0 +1,15 @@
+---
+import Preview from '../../utils/Preview.astro'
+import FigmaSbLinks from '../../utils/FigmaSbLinks.astro';
+
+import * as InputStateDefault from '../preview/Input-state-default'
+
+const {brand} = Astro.props
+const component = InputStateDefault
+const storybookId = `${brand}-o3-form--text-input`
+---
+
+<div>
+	<Preview {component} />
+	<FigmaSbLinks storybookId={storybookId} />
+</div>

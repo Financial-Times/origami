@@ -5,12 +5,13 @@ function ButtonPreview() {
 		<>
 			<meta itemProp="@preview" />
 			<Form>
-				<TextInput label="Your Initials" length={2} />
+				<TextInput label="State" length={2} attributes={{defaultValue: 'NY'}} />
 			</Form>
 			<meta itemProp="@preview" />
 		</>
 	);
 }
+
 export const filePath = 'src/components/forms/preview/Input-short-text-two.tsx';
 
 export {ButtonPreview as preview};
