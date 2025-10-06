@@ -8,14 +8,18 @@ sidebar:
 ---
 
 import {Aside} from '@astrojs/starlight/components';
-import {Form, CheckBoxItem} from '@financial-times/o3-form';
+import { CheckBoxItem, Form, CheckBoxGroup as CheckBoxGroupComponent} from '@financial-times/o3-form';
+import {Button} from '@financial-times/o3-button';
 
 import Tip from '../../../../components/utils/Tip.astro';
 import Example from '../../../../components/Example.astro';
 
 import {default as CheckboxAnatomy} from '../../../../components/forms/anatomy/Checkbox.astro';
 
-import {default as CheckboxSelectedStates} from '../../../../components/forms/examples/Checkbox-selection-state.astro';
+import {default as CheckboxSelectionDefault} from '../../../../components/forms/examples/Checkbox-selection-default.astro';
+import {default as CheckboxSelectionDisabled} from '../../../../components/forms/examples/Checkbox-selection-disabled.astro';
+import {default as CheckboxSelectionError} from '../../../../components/forms/examples/Checkbox-selection-error.astro';
+import {default as CheckboxDisabled} from '../../../../components/forms/examples/Checkbox-disabled.astro';
 import {default as CheckboxGroup} from '../../../../components/forms/examples/Checkbox-group.astro';
 
 import '@financial-times/o3-form/css/whitelabel.css';
@@ -43,47 +47,266 @@ Checkboxes allow users to select one or more items from a list or toggle an opti
 
 <CheckboxAnatomy />
 
-1. Label: Indicates the purpose of the entire group of checkboxes. It provides an instruction or context for the available options.
-2. Description: Provides additional context/instructions about the checkbox. It helps users understand what is required or gives examples of the kind of information they should enter.
-3. Checkbox container: The checkbox selection control.
-4. Checkbox label: Indicates the purpose of each individual checkbox(es). It should clearly communicates the choice or option represented by that specific checkbox.
+1. **Label:** Indicates the purpose of the checkboxes. It should clearly communicate what kind of choice has to be made.
+1. **Description:** Provides additional context/instructions about the checkbox. It helps users understand what is required or gives examples of the kind of information they should enter.
+1. **Optional indicator:** indicated that the choice is not mandatory
+1. **Checkbox container:** The checkbox selection control.
+1. **Checkbox label:** Indicates the purpose of the checkbox. It should clearly communicate what kind of choice is expected.
 
-## Usage Guidelines
+## Placement in Layouts
 
-### Selection states
+Whether you're designing a Z-pattern or an F-pattern layout, placing input components consistently improves readability and user flow.
 
-<CheckboxSelectedStates brand={props.brand} />
-Checkboxes have three selection states: Unchecked, Checked, and Indeterminate. The
-indeterminate state is typically used to indicate a partially selected group of options
-or when some but not all sub-options are selected.
+Follow these two foundational rules:
 
-### Group Related Checkboxes
+1. Always left-align components.
+
+Align inputs and labels to the left to support natural reading flow and reduce cognitive load, especially in forms with multiple fields.
+
+2. Stack components vertically rather than placing them side by side.
+
+Vertical stacking is easier to scan, reduces ambiguity about which label belongs to which input, and works better across screen sizes and accessibility contexts.
+
+<Example do={false} title="Don't Center components or place them side by side">
+	<svg xmlns="http://www.w3.org/2000/svg" width="536" height="251" viewBox="0 0 536 251" fill="none">
+		<rect width="536" height="251" fill="white"/>
+		<rect x="146" y="45.5" width="52" height="4" fill="#E6E6E6"/>
+		<rect x="76" y="100.5" width="88" height="4" fill="#E6E6E6"/>
+		<rect x="146" y="57.5" width="245" height="12" rx="2" fill="#999999"/>
+		<rect x="76" y="113" width="102" height="24" rx="2" fill="#E6E6E6"/>
+		<rect x="372" y="100.5" width="88" height="4" fill="#E6E6E6"/>
+		<rect x="372" y="113" width="102" height="24" rx="2" fill="#E6E6E6"/>
+		<rect x="217" y="100.5" width="88" height="4" fill="#E6E6E6"/>
+		<rect x="217" y="113" width="102" height="24" rx="2" fill="#E6E6E6"/>
+		<rect x="273" y="173" width="64" height="24" rx="2" fill="#F2F2F2"/>
+		<rect x="201" y="173" width="64" height="24" rx="2" fill="#4BBF73"/>
+	</svg>
+</Example>
+
+<Example do title="Left align components and stack them vertically">
+	<svg xmlns="http://www.w3.org/2000/svg" width="536" height="345" viewBox="0 0 536 345" fill="none">
+		<rect width="536" height="345" fill="white"/>
+		<rect x="146" y="45.5" width="52" height="4" fill="#E6E6E6"/>
+		<rect x="146" y="100.5" width="88" height="4" fill="#E6E6E6"/>
+		<rect x="146" y="160.5" width="88" height="4" fill="#E6E6E6"/>
+		<rect x="146" y="220.5" width="88" height="4" fill="#E6E6E6"/>
+		<rect x="146" y="57.5" width="245" height="12" rx="2" fill="#999999"/>
+		<rect x="146" y="112.5" width="245" height="24" rx="2" fill="#E6E6E6"/>
+		<rect x="146" y="172.5" width="245" height="24" rx="2" fill="#E6E6E6"/>
+		<rect x="146" y="232.5" width="245" height="24" rx="2" fill="#E6E6E6"/>
+		<rect x="218" y="280.5" width="64" height="24" rx="2" fill="#F2F2F2"/>
+		<rect x="146" y="280.5" width="64" height="24" rx="2" fill="#4BBF73"/>
+	</svg>
+</Example>
+
+<Tip icon={true}>
+	The vertical order of input components is crucial for helping users navigate efficiently. A clear top-to-bottom layout aligns with natural reading patterns, ensuring a smoother experience. Avoid placing components horizontally, as it can disrupt the flow and lead to confusion.
+</Tip>
+
+
+### Interactive states
+
+Checkboxes have three selection states: Unchecked, Checked, and Indeterminate. The indeterminate state is typically used to indicate a partially selected group of options or when some but not all sub-options are selected.
+
+<CheckboxSelectionDefault brand={props.brand} />
+
+### Hover
+
+### Focus
+
+### Disabled
+
+<CheckboxSelectionDisabled brand={props.brand} />
+
+### Error
+
+<CheckboxSelectionError brand={props.brand}/>
+
+## Guidance on disabled states
+
+Checkboxes support a disabled state, but it should be used sparingly and with care.
+
+* Only use disabled checkboxes when absolutely necessary, and always provide a clear explanation of why the field is disabled and how it can be enabled.
+
+* A common acceptable use case is for displaying read-only information that the user should see but not edit.
+
+<CheckboxDisabled brand={props.brand}/>
+
+When used without sufficient context, disabled inputs can:
+
+* Confuse users or make them feel stuck.
+* Hide important information or functionality.
+* Prevent error recovery or correction.
+* Introduce accessibility issues, as screen readers may skip over disabled elements or fail to communicate their purpose.
+
+If a field must be temporarily unavailable, consider alternatives like making it read-only, providing inline messaging, or restructuring the flow to avoid exposing it unnecessarily.
+
+### Grouping Related Checkboxes
+
+When possible, group related checkboxes together and provide a clear heading or label to describe the group. This helps users quickly understand what the options are related to.
+
+Avoid putting more than 7 checkboxes in one group. For larger sets, consider subdividing into multiple smaller groups with their own labels.
 
 <CheckboxGroup brand={props.brand} />
-- When possible, group related checkboxes together and provide a clear heading or label
-to describe the group. This helps users quickly understand what the options are related
-to.
-- Avoid putting more than 7 checkboxes in one group.
 
-### Labels
+## Required and Optional inputs
 
-Phrase the labels clearly so that no helper text is needed to clarify what will happen when you select the respective checkbox.
+By default, all select components are considered required, unless explicitly marked as optional.
+We intentionally do not display a “required” label or symbol. Instead, only optional fields are labeled, which simplifies the interface and reduces visual noise.
 
-Provide clear and descriptive labels to aid users in understanding the purpose of each checkbox. Avoid using negative statements like 'check to prevent X'. Instead, use positive, active statements that clearly describe what will happen when the checkbox is selected.
+Why we don’t label required fields:
 
-<Example do title="Provide clear and descriptive labels">
-	<div data-o3-brand={props.brand}>
-		<Form>
-			<CheckBoxItem checkboxLabel="Subscribe me to the newsletter" />
-		</Form>
-	</div>
+* Reduces cognitive load by eliminating redundant information.
+* Improves scannability in forms with multiple inputs.
+* Avoids visual clutter, especially when form labels are stacked vertically.
+
+This approach helps users focus only on what they can skip, without having to mentally process which fields they must complete.
+
+<Example do title="Do mark optional input fields">
+	<Form>
+
+		<CheckBoxGroupComponent optional label="Additional updates" description="Would you like to receive">
+
+			<CheckBoxItem checkboxLabel="Product Tips"/>
+
+			<CheckBoxItem checkboxLabel="Promotions"/>
+
+			<CheckBoxItem checkboxLabel="Event invitations"/>
+
+		</CheckBoxGroupComponent>
+
+	</Form>
 </Example>
+
+### Label Content and Tone
+
+Checkbox labels should be clear and self-explanatory, so that no additional helper text is needed to clarify what will happen when the checkbox is selected.
+
+Use positive, active phrasing to describe what the checkbox enables, rather than using negative language to describe what it prevents. Avoid patterns where users must check a box to opt out or stop something from happening, as this creates friction and can lead to mistakes.
 
 <Example do={false} title="Don’t use negative statements">
+
 	<div data-o3-brand={props.brand}>
+
 		<Form>
-			<CheckBoxItem checkboxLabel="Don’t subscribe me to the newsletter" />
+
+			<CheckBoxItem checkboxLabel="Don’t subscribe me" />
+
 		</Form>
+
 	</div>
+
 </Example>
 
+
+<Example do title="Do use clear and descriptive labels">
+
+	<div data-o3-brand={props.brand}>
+
+		<Form>
+
+			<CheckBoxItem checkboxLabel="Subscribe me" />
+
+		</Form>
+
+	</div>
+
+</Example>
+
+Checkbox labels should be clear, concise, and easy to scan. We use sentence case for all labels and adopt a neutral, human tone to make forms more approachable and accessible.
+
+Write labels with only the first word capitalized, unless the label includes a proper noun (like "UK" or "Google").
+
+This makes labels easier to read at a glance and better aligns with how people naturally process language in user interfaces.
+
+<Example do={false} title="Don’t use title case">
+
+	<div data-o3-brand={props.brand}>
+
+		<Form>
+
+			<CheckBoxGroupComponent label="Notification Preferences">
+
+			<CheckBoxItem checkboxLabel="Email Notifications" />
+
+			<CheckBoxItem checkboxLabel="SMS Notifications" />
+
+			<CheckBoxItem checkboxLabel="In-app Notifications" />
+
+			</CheckBoxGroupComponent>
+
+		</Form>
+
+	</div>
+
+</Example>
+
+<Example do title="Do use sentence case">
+
+	<div data-o3-brand={props.brand}>
+
+		<Form>
+
+			<CheckBoxGroupComponent label="Notification preferences">
+
+			<CheckBoxItem checkboxLabel="Email notifications" />
+
+			<CheckBoxItem checkboxLabel="SMS notifications" />
+
+			<CheckBoxItem checkboxLabel="In-app notifications" />
+
+			</CheckBoxGroupComponent>
+
+		</Form>
+
+	</div>
+
+</Example>
+
+Use a Neutral and Helpful Tone
+
+* Avoid overly technical or legal language.
+* Speak as the product would speak: polite, direct, and helpful, not robotic.
+* Labels should describe the information being requested, not the UI element. For example, use Phone number, not Enter your phone number here.
+* Never use punctuation (no colons, no full stops).
+* Avoid vague or clever language; clarity always comes first.
+
+✅ Good label tone:
+
+* Company website
+* Delivery address
+* Password
+
+🚫 Avoid:
+
+* Please enter your delivery address
+* What's your password?
+* Website for your company:
+
+By writing with sentence case and a neutral tone, we help users move through forms more efficiently and with less friction, especially in long or complex interactions.
+
+## Submit Button Requirements
+
+All data entered through input components must be submitted using a dedicated button, typically labeled Submit, Save, or something contextually relevant.
+
+<Example do title="Do include a button with a clear call to action">
+	<Form>
+		<CheckBoxGroupComponent label="Notification preferences">
+			<CheckBoxItem key="1" checkboxLabel="Email notifications"  inputId="email"/>
+			<CheckBoxItem key="2" checkboxLabel="SMS notifications"  inputId="sms"/>
+			<CheckBoxItem key="3" checkboxLabel="In-app notifications"  inputId="in-app"/>
+		</CheckBoxGroupComponent>
+
+<Button type="primary" label="Save Preferences" />
+	</Form>
+</Example>
+
+Why a Submit Button is Required:
+
+* It clearly signals to the user that their input needs confirmation.
+* It provides an explicit action to complete the task and persist the data.
+* Without submission, data is lost if the user navigates away, closes the page, or reloads.
+
+**Exception:** Immediate Components
+
+The only exception to this rule is components that take effect immediately, such as toggle switches.

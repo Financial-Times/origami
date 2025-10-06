@@ -1,0 +1,22 @@
+---
+import Preview from '../../utils/Preview.astro'
+import FigmaSbLinks from '../../utils/FigmaSbLinks.astro';
+
+import * as CheckboxSelectionDefault from '../preview/Checkbox-selection-default'
+
+const {brand} = Astro.props
+const component = CheckboxSelectionDefault
+const storybookId = `${brand}-o3-form--check-box-group`
+
+
+---
+<script>
+	const indeterminateElement = document.getElementById('indeterminate-checkbox')
+	indeterminateElement.indeterminate = true
+</script>
+
+<div>
+	<Preview {component} />
+	<FigmaSbLinks storybookId={storybookId} />
+</div>
+
