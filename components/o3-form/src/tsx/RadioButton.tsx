@@ -1,6 +1,7 @@
 import {uidBuilder} from '@financial-times/o-utils';
 import {FormFieldset} from './fieldComponents/FormField';
 import type {RadioButtonProps, FormFieldsetProps} from '../types';
+import {Children, cloneElement, isValidElement, ReactElement} from 'react';
 
 const uniqueId = uidBuilder('o3-form-radio-button-input');
 
@@ -36,24 +37,21 @@ export const RadioButtonGroup = (props: FormFieldsetProps) => {
 	const {children, ...restProps} = props;
 	// generate random name for radio group
 	const radioGroupName = Math.random().toString(36).substring(7);
+
+	const childElements = Children.toArray(children).filter(
+		(c): c is ReactElement => isValidElement(c)
+	);
+
 	return (
 		<FormFieldset {...restProps}>
-			{(children as React.JSX.Element[]).map(child => {
-				const hasError = props.feedback?.errorElementIds?.includes(
-					child.props.inputId
-				);
+			{childElements.map((child, i) => {
+				const inputId = child.props?.inputId;
+				const hasError = props.feedback?.errorElementIds?.includes(inputId);
 
-				return (
-					<RadioButtonItem
-						{...child.props}
-						error={hasError}
-						key={child.props.inputId}
-						attributes={{
-							...child.props.attributes,
-							name: radioGroupName,
-						}}
-					/>
-				);
+				return cloneElement(child, {
+					key: child.key ?? inputId ?? i,
+					error: hasError,
+				});
 			})}
 		</FormFieldset>
 	);
