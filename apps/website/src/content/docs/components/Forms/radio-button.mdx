@@ -7,6 +7,8 @@ sidebar:
     variant: caution
 ---
 
+import {RadioButtonItem, Form, RadioButtonGroup as RadioButtonGroupComponent} from '@financial-times/o3-form';
+import {Button} from '@financial-times/o3-button';
 import {Aside} from '@astrojs/starlight/components';
 
 import Tip from '../../../../components/utils/Tip.astro';
@@ -14,9 +16,18 @@ import Example from '../../../../components/Example.astro';
 
 import {default as RadioButtonAnatomy} from '../../../../components/forms/anatomy/Radio-button.astro';
 
-import {default as RadioButtonExclusiveChoicesGuideline} from '../../../../components/forms/guidelines/Radio-button-exclusive-choices.astro';
+import {
+	default as RadioButtonExclusiveChoicesGuideline
+} from '../../../../components/forms/guidelines/Radio-button-exclusive-choices.astro';
 
+import {default as RadioButtonDisabled} from '../../../../components/forms/examples/Radio-button-disabled.astro';
 import {default as RadioButtonGroup} from '../../../../components/forms/examples/Radio-button-group.astro';
+import {
+	default as RadioButtonSelectionDefault
+} from '../../../../components/forms/examples/Radio-button-selection-default.astro';
+import {
+	default as RadioButtonSelectionDisabled
+} from '../../../../components/forms/examples/Radio-button-selection-disabled.astro';
 
 import '@financial-times/o3-form/css/whitelabel.css';
 import '@financial-times/o3-form/css/internal.css';
@@ -28,39 +39,227 @@ Radio buttons allow users to select a single option from a predefined set of mut
 <Aside>
 	{/* prettier-ignore */}
 	The <a
-		href={
-			props.brand == 'core'
-				? '/components/forms/'
-				: `/${props.brand}/components/forms/`
-		}>
-		general form component guidelines
-	</a> apply to this component. Please make sure you’re familiar with them first.
+	href={
+		props.brand == 'core'
+			? '/components/forms/'
+			: `/${props.brand}/components/forms/`
+	}>
+	general form component guidelines
+</a> apply to this component. Please make sure you’re familiar with them first.
 </Aside>
 
 ## Anatomy
 
 <RadioButtonAnatomy />
 
-1. Label: Indicates the purpose of the radio buttons. It should clearly communicate what kind of decision has to be made
-2. Description: Provides additional context/instructions
-3. Radio button: The radio button selection control.
-4. Radio button label: Describes the purpose of the radio buttons. It should clearly communicate what kind of choice is expected.
+1. **Label:** Indicates the purpose of the radio buttons. It should clearly communicate what kind of decision has to be made
+1. **Description:** Provides additional context/instructions
+1. **Optional indicator:** indicated that the choice is not mandatory
+1. **Radio button:** The radio button selection control.
+1. **Radio button label:** Describes the purpose of the radio buttons. It should clearly communicate what kind of choice is expected.
 
-## Usage Guidelines
+## Placement in Layouts
 
-### Use for Small Sets
+Whether you're designing a Z-pattern or an F-pattern layout, placing input components consistently improves readability and user flow.
+
+Follow these two foundational rules:\
+
+**1. Always left-align components.**
+
+Align inputs and labels to the left to support natural reading flow and reduce cognitive load, especially in forms with multiple fields.
+
+**2. Stack components vertically rather than placing them side by side.**
+
+Vertical stacking is easier to scan, reduces ambiguity about which label belongs to which input, and works better across screen sizes and accessibility contexts.
+
+<Example do={false} title="Don't center components or place them side by side">
+	<svg xmlns="http://www.w3.org/2000/svg" width="536" height="251" viewBox="0 0 536 251" fill="none">
+		<rect width="536" height="251" fill="white" />
+		<rect x="146" y="45.5" width="52" height="4" fill="#E6E6E6" />
+		<rect x="76" y="100.5" width="88" height="4" fill="#E6E6E6" />
+		<rect x="146" y="57.5" width="245" height="12" rx="2" fill="#999999" />
+		<rect x="76" y="113" width="102" height="24" rx="2" fill="#E6E6E6" />
+		<rect x="372" y="100.5" width="88" height="4" fill="#E6E6E6" />
+		<rect x="372" y="113" width="102" height="24" rx="2" fill="#E6E6E6" />
+		<rect x="217" y="100.5" width="88" height="4" fill="#E6E6E6" />
+		<rect x="217" y="113" width="102" height="24" rx="2" fill="#E6E6E6" />
+		<rect x="273" y="173" width="64" height="24" rx="2" fill="#F2F2F2" />
+		<rect x="201" y="173" width="64" height="24" rx="2" fill="#4BBF73" />
+	</svg>
+</Example>
+
+<Example do title="Align them vertically">
+	<svg xmlns="http://www.w3.org/2000/svg" width="536" height="345" viewBox="0 0 536 345" fill="none">
+		<rect width="536" height="345" fill="white" />
+		<rect x="146" y="45.5" width="52" height="4" fill="#E6E6E6" />
+		<rect x="146" y="100.5" width="88" height="4" fill="#E6E6E6" />
+		<rect x="146" y="160.5" width="88" height="4" fill="#E6E6E6" />
+		<rect x="146" y="220.5" width="88" height="4" fill="#E6E6E6" />
+		<rect x="146" y="57.5" width="245" height="12" rx="2" fill="#999999" />
+		<rect x="146" y="112.5" width="245" height="24" rx="2" fill="#E6E6E6" />
+		<rect x="146" y="172.5" width="245" height="24" rx="2" fill="#E6E6E6" />
+		<rect x="146" y="232.5" width="245" height="24" rx="2" fill="#E6E6E6" />
+		<rect x="218" y="280.5" width="64" height="24" rx="2" fill="#F2F2F2" />
+		<rect x="146" y="280.5" width="64" height="24" rx="2" fill="#4BBF73" />
+	</svg>
+</Example>
+
+<Tip icon>
+	The vertical order of input components is crucial for helping users navigate efficiently. A clear top-to-bottom layout
+	aligns with natural reading patterns, ensuring a smoother experience. Avoid placing components horizontally, as it can
+	disrupt the flow and lead to confusion.
+</Tip>
+
+## Interactive States
+
+### Default
+
+<RadioButtonSelectionDefault brand={props.brand} />
+
+### Hover
+
+### Focus
+
+### Pressed
+
+### Disabled
+
+<RadioButtonSelectionDisabled brand={props.brand} />
+
+### Error
+
+## Guidance on Disabled States
+
+Radio buttons support a disabled state, but it should be used **sparingly and with care.**
+
+
+* Only use disabled radio buttons when absolutely necessary, and always provide a clear explanation of why the field is disabled and how it can be enabled.
+* A common acceptable use case is for displaying read-only information that the user should see but not edit.
+
+<RadioButtonDisabled brand={props.brand} />
+
+When used without sufficient context, disabled inputs can:
+* Confuse users or make them feel stuck
+* Hide important information or functionality
+* Prevent error recovery or correction
+* Introduce accessibility issues, as screen readers may skip over disabled elements or fail to communicate their purpose
+
+
+If a field must be temporarily unavailable, consider alternatives like making it read-only, providing inline messaging, or restructuring the flow to avoid exposing it unnecessarily.
+
+## Required and Optional Inputs
+
+By default, all radio button components are considered required, unless explicitly marked as optional.
+
+We intentionally do not display a “required” label or symbol. Instead, only optional fields are labeled, which simplifies the interface and reduces visual noise.
+
+Why we don’t label required fields:
+
+* Reduces cognitive load by eliminating redundant information.
+* Improves scannability in forms with multiple inputs.
+* Avoids visual clutter, especially when form labels are stacked vertically.
+
+This approach helps users focus only on what they can skip, without having to mentally process which fields they must complete.
+
+<Example do title="Do mark optional input fields">
+	<Form>
+		<RadioButtonGroupComponent label="How did you hear about us?" optional>
+			<RadioButtonItem radioButtonLabel="Social media" />
+			<RadioButtonItem radioButtonLabel="Friend" />
+			<RadioButtonItem radioButtonLabel="Other" />
+		</RadioButtonGroupComponent>
+	</Form>
+</Example>
+
+## Label Content and Tone
+
+Form field labels should be clear, concise, and easy to scan. We use sentence case for all labels and adopt a neutral, human tone to make forms more approachable and accessible.
+
+Write labels with only the first word capitalized, unless the label includes a proper noun (like "UK" or "Google").
+
+This makes labels easier to read at a glance and better aligns with how people naturally process language in user interfaces.
+
+<Example do={false} title="Don't use title case">
+	<Form>
+		<RadioButtonGroupComponent label="How did you hear about us?">
+			<RadioButtonItem key="1" radioButtonLabel="Social Media" />
+			<RadioButtonItem key="2" radioButtonLabel="Friend" />
+			<RadioButtonItem key="3" radioButtonLabel="Other" />
+		</RadioButtonGroupComponent>
+	</Form>
+</Example>
+
+<Example do title="Use sentence case">
+	<Form>
+		<RadioButtonGroupComponent label="How did you hear about us?">
+			<RadioButtonItem key="1" radioButtonLabel="Social media" />
+			<RadioButtonItem key="2" radioButtonLabel="Friend" />
+			<RadioButtonItem key="3" radioButtonLabel="Other" />
+		</RadioButtonGroupComponent>
+	</Form>
+</Example>
+
+Use a Neutral and Helpful Tone
+
+* Avoid overly technical or legal language.
+* Speak as the product would speak: polite, direct, and helpful, not robotic.
+* Labels should describe the information being requested, not the UI element. For example, use Phone number, not Enter your phone number here.
+* Never use punctuation (no colons, no full stops).
+* Avoid vague or clever language; clarity always comes first.
+
+
+✅ Good label tone:
+
+* Company website
+* Delivery address
+* Password
+
+🚫 Avoid:
+
+* Please enter your delivery address
+* What's your password?
+* Website for your company:
+
+By writing with sentence case and a neutral tone, we help users move through forms more efficiently and with less friction, especially in long or complex interactions.
+
+## Use for Small Sets
 
 Radio buttons are best suited for small sets of options (typically 2 to 5). For larger sets of options, consider using a dropdown menu instead to reduce visual clutter.
 
-### Use for Mutually Exclusive Choices
+## Mutually Exclusive Choices
 
 Only use radio buttons when the options are mutually exclusive. If multiple selections are possible, consider using <a href={`/${props.brand}/components/forms/checkbox/`}>checkboxes</a> instead.
 
 <RadioButtonExclusiveChoicesGuideline brand={props.brand} />
 
-### Preselected Option
+## Preselected Option
+
+If one of the options is the most common or recommended, pre-select it as the default option. However, ensure it’s easy for the user to change their selection.
 
 <RadioButtonGroup brand={props.brand} />
 
-If one of the options is the most common or recommended, pre-select it as the default option. However, ensure it’s easy for the user to change their selection.
+## Submit Button Requirements
+
+All data entered through input components must be submitted using a dedicated button, typically labeled Submit, Save, or something contextually relevant.
+
+<Example do title="Include a button with a clear call to action">
+	<Form>
+		<RadioButtonGroupComponent label="How did you hear about us?">
+			<RadioButtonItem key="1" radioButtonLabel="Social media" inputId="1" />
+			<RadioButtonItem key="2" radioButtonLabel="Friend" inputId="2" />
+			<RadioButtonItem key="3" radioButtonLabel="Other" inputId="3" />
+		</RadioButtonGroupComponent>
+		<Button type="primary" label="Submit" />
+	</Form>
+</Example>
+
+Why a Submit Button is Required:
+
+* It clearly signals to the user that their input needs confirmation.
+* It provides an explicit action to complete the task and persist the data.
+* Without submission, data is lost if the user navigates away, closes the page, or reloads.
+
+**Exception:** Immediate Components
+
+The only exception to this rule is components that take effect immediately, such as toggle switches.
 
