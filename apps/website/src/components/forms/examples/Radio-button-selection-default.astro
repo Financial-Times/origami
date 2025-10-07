@@ -1,0 +1,18 @@
+---
+import Preview from '../../utils/Preview.astro'
+import FigmaSbLinks from '../../utils/FigmaSbLinks.astro';
+
+import * as RadioButtonSelectionDefault from '../preview/Radio-button-selection-default';
+
+const {brand} = Astro.props
+const component = RadioButtonSelectionDefault;
+const storybookId = `${brand}-o3-form--radio-box-group`
+
+
+---
+
+<div>
+	<Preview {component} />
+	<FigmaSbLinks storybookId={storybookId} />
+</div>
+

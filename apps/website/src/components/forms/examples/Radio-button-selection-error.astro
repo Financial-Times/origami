@@ -2,13 +2,14 @@
 import Preview from '../../utils/Preview.astro'
 import FigmaSbLinks from '../../utils/FigmaSbLinks.astro';
 
-import * as ErrorSummaryTSX from '../preview/Error-summary-in-form'
+import * as RadioButtonSelectionError from '../preview/Radio-button-selection-error'
 
 const {brand} = Astro.props
-const component = ErrorSummaryTSX
-const storybookId = `${brand}-o3-form--error-summary`
----
+const component = RadioButtonSelectionError
+const storybookId = `${brand}-o3-form--radio-button-group`
 
+
+---
 <div>
 	<Preview {component} />
 	<FigmaSbLinks storybookId={storybookId} />

@@ -1,0 +1,17 @@
+---
+import Preview from '../../utils/Preview.astro'
+import FigmaSbLinks from '../../utils/FigmaSbLinks.astro';
+
+import * as RadioButtonSelectionDisabled from '../preview/Radio-button-selection-disabled'
+
+const {brand} = Astro.props
+const component = RadioButtonSelectionDisabled
+const storybookId = `${brand}-o3-form--check-box-group`
+
+
+---
+<div>
+	<Preview {component} />
+	<FigmaSbLinks storybookId={storybookId} />
+</div>
+

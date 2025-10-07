@@ -1,6 +1,7 @@
 import {uidBuilder} from '@financial-times/o-utils';
 import {TitledFormField, FormFieldset} from './fieldComponents/FormField';
 import type {CheckBoxProps, FormFieldsetProps} from '../types/index';
+import {Children, cloneElement, isValidElement, ReactElement} from 'react';
 
 const uniqueId = uidBuilder('o3-form-checkbox-input');
 
@@ -60,20 +61,20 @@ export const CheckBox = (props: CheckBoxProps) => {
 export const CheckBoxGroup = (props: FormFieldsetProps) => {
 	const {children, ...restProps} = props;
 
+	const childElements = Children.toArray(children).filter(
+		(c): c is ReactElement => isValidElement(c)
+	);
+
 	return (
 		<FormFieldset {...restProps}>
-			{(children as React.JSX.Element[]).map(child => {
-				const hasError = props.feedback?.errorElementIds?.includes(
-					child.props.inputId
-				);
+			{childElements.map((child, i) => {
+				const inputId = child.props?.inputId;
+				const hasError = !!props.feedback?.errorElementIds?.includes?.(inputId);
 
-				return (
-					<CheckBoxItem
-						{...child.props}
-						error={hasError}
-						key={child.props.inputId}
-					/>
-				);
+				return cloneElement(child, {
+					key: child.key ?? inputId ?? i,
+					error: hasError,
+				});
 			})}
 		</FormFieldset>
 	);

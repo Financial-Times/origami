@@ -8,14 +8,8 @@ sidebar:
 ---
 
 import {Aside} from '@astrojs/starlight/components';
-import {Form, TextInput} from '@financial-times/o3-form';
-
-import Tip from '../../../../components/utils/Tip.astro';
-import Example from '../../../../components/Example.astro';
 
 import {default as ErrorSummaryAnatomy} from '../../../../components/forms/anatomy/Error-summary.astro';
-
-import {default as ErrorSummaryPreview} from '../../../../components/forms/examples/Error-summary.astro';
 
 import '@financial-times/o3-form/css/whitelabel.css';
 import '@financial-times/o3-form/css/internal.css';
@@ -41,31 +35,20 @@ The Error Summary appears on the top of a page after a user submits a form which
 
 <ErrorSummaryAnatomy />
 
-1. Title: A brief general feedback message summarizing the presence of errors
-2. Icon: A visual indicator of an error
-3. Details: A list of specific errors that led to the feedback message.
-4. Box: A colored area that contains the entire error summary.
+1. **Title:** A brief general feedback message summarizing the presence of errors.
+1. **Icon:**  A visual indicator of an error.
+1. **Details:** A list of specific errors that led to the feedback message.
+1. **Box:** A colored area that contains the entire error summary.
 
-## Usage Guidelines
+## Placement in Layouts
 
-### Placement
+The error summary should always appear on top of the page, before the form elements. By positioning errors on top of the page we make sure they’re the first thing a user sees after the page loads. This way also helps with users on a screen reader since this is the first information they’ll get.
 
-The error summary should always appear on top of the page, before the form elements.
+## Triggers
 
-<ErrorSummaryPreview brand={props.brand} />
-<Tip icon="true">
-	<p>
-		By positioning errors on top of the page we make sure they’re the first
-		thing a user sees after the page loads. This way also helps with users on a
-		screen reader since this is the first information they’ll get in the content
-		block.
-	</p>
-</Tip>
+Page-level validation happens once the user submits the entered input though a button. If there’s an error with the entered data, the error summary component appears on top of the page, providing an overview of errors that have occurred.
 
-### message
+## Content and Tone
 
 The summary should provide a concise list of all errors, ideally in the order they appear on the form. Each item in the list should describe the error clearly and be clickable. Clicking on an error should take the user directly to the problematic field, ensuring that they can quickly locate and resolve the issue.
-
-### Validation
-
 Only use the error summary for actual errors that won’t let the user navigate further. Don’t use it for information, tips, etc.

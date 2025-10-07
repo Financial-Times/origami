@@ -6,22 +6,17 @@ function ButtonPreview() {
 			<meta itemProp="@preview" />
 			<Form>
 				<TextInput
-					label="2 characters"
-					length={2}
-				/>
-				<TextInput
-					label="3 characters"
+					label="CVV Code"
 					length={3}
-				/>
-				<TextInput
-					label="4 characters"
-					length={4}
+					description="3 digits on back of the card"
+					attributes={{defaultValue: '621'}}
 				/>
 			</Form>
 			<meta itemProp="@preview" />
 		</>
 	);
 }
-export const filePath = 'src/components/forms/preview/Input-short-text.tsx';
+export const filePath =
+	'src/components/forms/preview/Input-short-text-three.tsx';
 
 export {ButtonPreview as preview};
