@@ -1,6 +1,6 @@
 import {Form, RadioButtonItem} from '@financial-times/o3-form';
 
-function CheckboxPreview() {
+function RadioButtonPreview() {
 	return (
 		<div style={{width: '50%'}}>
 			<meta itemProp="@preview" />
@@ -30,4 +30,4 @@ function CheckboxPreview() {
 export const filePath =
 	'src/components/forms/preview/Radio-button-selection-disabled.tsx';
 
-export {CheckboxPreview as preview};
+export {RadioButtonPreview as preview};

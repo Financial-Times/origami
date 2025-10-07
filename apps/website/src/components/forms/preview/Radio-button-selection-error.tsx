@@ -1,6 +1,6 @@
 import {Form, RadioButtonItem} from '@financial-times/o3-form';
 
-function RadioButtonPreview() {
+function RadioButton() {
 	return (
 		<div style={{width: '50%'}}>
 			<meta itemProp="@preview" />
@@ -13,12 +13,13 @@ function RadioButtonPreview() {
 					}}>
 					<RadioButtonItem
 						radioButtonLabel="Option 1"
-						inputId="deselected-radio"
+						inputId="disabled-radio-1"
+						error
 					/>
 					<RadioButtonItem
 						radioButtonLabel="Option 2"
-						inputId="selected-radio"
-						attributes={{defaultChecked: true}}
+						inputId="disabled-radio-2"
+						error
 					/>
 				</div>
 			</Form>
@@ -27,6 +28,6 @@ function RadioButtonPreview() {
 	);
 }
 export const filePath =
-	'src/components/forms/preview/Radio-button-selection-default.tsx';
+	'src/components/forms/preview/Radio-button-selection-error.tsx';
 
-export {RadioButtonPreview as preview};
+export {RadioButton as preview};

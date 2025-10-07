@@ -14,18 +14,18 @@ function CheckboxPreview() {
 					<CheckBoxItem
 						checkboxLabel="Unchecked"
 						inputId="unchecked-checkbox"
-						feedback={{type: 'error', message: 'test'}}
+						error
 					/>
 					<CheckBoxItem
 						checkboxLabel="Checked"
 						inputId="checked-checkbox"
 						attributes={{defaultChecked: true}}
-						feedback={{type: 'error', message: 'test'}}
+						error
 					/>
 					<CheckBoxItem
 						checkboxLabel="Indeterminate"
 						inputId="indeterminate-checkbox"
-						feedback={{type: 'error', message: 'test'}}
+						error
 					/>
 				</div>
 			</Form>
