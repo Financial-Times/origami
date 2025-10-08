@@ -67,15 +67,16 @@ export class ToolTip extends HTMLElement implements TooltipProps {
 
 	disconnectedCallback() {
 		this._popperInstance?.destroy();
+		this._popperInstance = undefined;
 		this._mutationObserver?.disconnect();
 		this._resizeObserver?.disconnect();
 	}
 
-	async update() {
+	async update(): Promise<void> {
 		await this._popperInstance?.update();
 	}
 
-	forceUpdate() {
+	forceUpdate(): void {
 		this._popperInstance?.forceUpdate?.();
 	}
 
