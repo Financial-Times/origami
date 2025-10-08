@@ -1,4 +1,4 @@
-import {createPopper, Instance} from '@popperjs/core';
+import {createPopper, type Instance} from '@popperjs/core';
 import type {TooltipProps} from '../types';
 
 export class ToolTip extends HTMLElement implements TooltipProps {
@@ -50,6 +50,9 @@ export class ToolTip extends HTMLElement implements TooltipProps {
 		}
 		this.contentId = this.getAttribute('content-id') as string;
 
+		this._mutationObserver?.disconnect();
+		this._resizeObserver?.disconnect();
+
 		const contentRoot = (this.shadowRoot?.querySelector('[part="content"]') as HTMLElement) ?? this;
 		this._mutationObserver = new MutationObserver(() => this.update());
 		this._mutationObserver.observe(contentRoot, { childList: true, subtree: true, characterData: true });
@@ -73,14 +76,10 @@ export class ToolTip extends HTMLElement implements TooltipProps {
 	}
 
 	forceUpdate() {
-		this._popperInstance?.forceUpdate();
+		this._popperInstance?.forceUpdate?.();
 	}
 
 	protected render(name?: string) {
-		// this._popperInstance?.setOptions({
-		// 	placement: this.placement,
-		// });
-
 		if (this._popperInstance) {
 			this._popperInstance.setOptions((opts) => ({
 				...opts,
@@ -116,36 +115,6 @@ export class ToolTip extends HTMLElement implements TooltipProps {
 		targetNode: HTMLElement,
 		popperElement: HTMLElement
 	) {
-		// return createPopper(targetNode, popperElement, {
-		// 	placement: this.placement || 'top',
-		// 	modifiers: [
-		// 		{
-		// 			name: 'preventOverflow',
-		// 			options: {
-		// 				rootBoundary: document.body,
-		// 			},
-		// 		},
-		// 		{
-		// 			name: 'eventListeners',
-		// 			options: {
-		// 				scroll: false,
-		// 			},
-		// 		},
-		// 		{
-		// 			name: 'flip',
-		// 			options: {
-		// 				fallbackPlacements: ['top', 'bottom', 'left', 'right'],
-		// 				rootBoundary: document.body,
-		// 			},
-		// 		},
-		// 		{
-		// 			name: 'offset',
-		// 			options: {
-		// 				offset: [0, 16],
-		// 			},
-		// 		},
-		// 	],
-		// });
 		this._popperInstance = createPopper(targetNode, popperElement, {
 			placement: this.placement || 'top',
 			modifiers: [
