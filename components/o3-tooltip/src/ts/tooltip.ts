@@ -53,9 +53,15 @@ export class ToolTip extends HTMLElement implements TooltipProps {
 		this._mutationObserver?.disconnect();
 		this._resizeObserver?.disconnect();
 
-		const contentRoot = (this.shadowRoot?.querySelector('[part="content"]') as HTMLElement) ?? this;
+		const contentRoot =
+			(this.shadowRoot?.querySelector('[part="content"]') as HTMLElement) ??
+			this;
 		this._mutationObserver = new MutationObserver(() => this.update());
-		this._mutationObserver.observe(contentRoot, { childList: true, subtree: true, characterData: true });
+		this._mutationObserver.observe(contentRoot, {
+			childList: true,
+			subtree: true,
+			characterData: true,
+		});
 
 		this._resizeObserver = new ResizeObserver(() => this.update());
 		this._resizeObserver.observe(this);
@@ -82,7 +88,7 @@ export class ToolTip extends HTMLElement implements TooltipProps {
 
 	protected render(name?: string) {
 		if (this._popperInstance) {
-			this._popperInstance.setOptions((opts) => ({
+			this._popperInstance.setOptions(opts => ({
 				...opts,
 				placement: this.placement,
 			}));
