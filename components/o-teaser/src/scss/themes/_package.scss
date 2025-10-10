@@ -20,15 +20,6 @@
 		top: -50px;
 		background: inherit;
 		margin-bottom: 0;
-
-		&:after {
-			content: '';
-			display: block;
-			width: 60px;
-			border-bottom: oPrivateSpacingByIncrement(1) solid
-				oPrivateFoundationGet('o3-color-palette-claret-70');
-			margin-top: oPrivateSpacingByName('s1');
-		}
 	}
 
 	.o-teaser__heading {
@@ -58,10 +49,6 @@
 
 	.o-teaser__meta {
 		color: oPrivateFoundationGet('o3-color-palette-white');
-
-		&:after {
-			border-color: oPrivateFoundationGet('o3-color-palette-white');
-		}
 	}
 
 	.o-teaser__heading {
@@ -113,10 +100,6 @@
 
 	.o-teaser__meta {
 		color: oPrivateFoundationGet('o3-color-palette-lemon');
-
-		&:after {
-			border-color: oPrivateFoundationGet('o3-color-palette-lemon');
-		}
 	}
 
 	.o-teaser__heading {

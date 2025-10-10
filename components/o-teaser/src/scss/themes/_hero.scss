@@ -8,16 +8,6 @@
 		border: 0;
 		word-break: break-word;
 	}
-
-	.o-teaser__meta:after {
-		content: '';
-		display: block;
-		width: 60px;
-		border-bottom: oPrivateSpacingByIncrement(1) solid
-			oPrivateFoundationGet('o3-color-palette-claret-60');
-		margin-top: oPrivateSpacingByName('s1');
-		margin-bottom: oPrivateSpacingByName('s2');
-	}
 }
 
 /// Base styles for themed hero teasers
@@ -141,10 +131,6 @@
 			color: inherit;
 		}
 
-		.o-teaser__meta:after {
-			border-bottom-color: oPrivateFoundationGet('o3-color-palette-white');
-		}
-
 		.o-teaser__tag:hover,
 		.o-teaser__tag:focus {
 			color: inherit;
@@ -192,11 +178,6 @@
 		font-size: oPrivateFoundationGet('o3-type-headline-md-font-size');
 		font-weight: oPrivateFoundationGet('o3-type-headline-md-font-weight');
 		line-height: oPrivateFoundationGet('o3-type-headline-md-line-height');
-	}
-
-	.o-teaser__meta:after {
-		margin-left: auto;
-		margin-right: auto;
 	}
 }
 
@@ -251,10 +232,6 @@
 
 	.o-teaser__meta {
 		color: $hero-extra-highlight-color;
-
-		&:after {
-			border-color: $hero-extra-highlight-border;
-		}
 	}
 
 	.o-teaser__heading,
