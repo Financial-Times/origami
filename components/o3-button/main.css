@@ -580,42 +580,59 @@
 .o3-button-icon.o3-button-icon--download::before {
 	--o3-button-icon: var(--o3-icon-download);
 }
+
 .o3-button-icon.o3-button-icon--chevron-up::before {
 	--o3-button-icon: var(--o3-icon-chevron-up);
 }
+
 .o3-button-icon.o3-button-icon--chevron-down::before {
 	--o3-button-icon: var(--o3-icon-chevron-down);
 }
+
 .o3-button-icon.o3-button-icon--chevron-right::before {
 	--o3-button-icon: var(--o3-icon-chevron-right);
 }
+
 .o3-button-icon.o3-button-icon--chevron-left::before {
 	--o3-button-icon: var(--o3-icon-chevron-left);
 }
+
 .o3-button-icon.o3-button-icon--edit::before {
 	--o3-button-icon: var(--o3-icon-edit);
 }
+
 .o3-button-icon.o3-button-icon--refresh::before {
 	--o3-button-icon: var(--o3-icon-refresh);
 }
+
 .o3-button-icon.o3-button-icon--link::before {
 	--o3-button-icon: var(--o3-icon-link);
 }
+
 .o3-button-icon.o3-button-icon--calendar::before {
 	--o3-button-icon: var(--o3-icon-calendar);
 }
+
 .o3-button-icon.o3-button-icon--scroll-to::before {
 	--o3-button-icon: var(--o3-icon-scroll-to);
 }
+
 .o3-button-icon.o3-button-icon--sparkles::before {
 	--o3-button-icon: var(--o3-icon-sparkles);
 }
+
 .o3-button-icon.o3-button-icon--first::before {
 	--o3-button-icon: var(--o3-icon-first);
 }
+
 .o3-button-icon.o3-button-icon--last::before {
 	--o3-button-icon: var(--o3-icon-last);
 }
+
 .o3-button-icon.o3-button-icon--play::before {
 	--o3-button-icon: var(--o3-icon-play);
+}
+
+.o3-button-icon.o3-button-icon--note::before {
+	--o3-button-icon: var(--o3-icon-note);
 }
