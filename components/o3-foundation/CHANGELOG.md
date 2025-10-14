@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.11.0](https://github.com/Financial-Times/origami/compare/o3-foundation-v3.10.1...o3-foundation-v3.11.0) (2025-10-14)
+
+
+### Features
+
+* add notes to icons in o3-foundation ([5eb8dce](https://github.com/Financial-Times/origami/commit/5eb8dce3ad7e183c8a2330ae5abebf3d85ce33d3))
+
+
+### Bug Fixes
+
+* use correct 24x24 icon for note ([82160bd](https://github.com/Financial-Times/origami/commit/82160bd8dfdc95b7535460fb54c0b64b2283beb2))
+
 ## [3.10.1](https://github.com/Financial-Times/origami/compare/o3-foundation-v3.10.0...o3-foundation-v3.10.1) (2025-06-30)
 
 
