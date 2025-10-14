@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.14.0](https://github.com/Financial-Times/origami/compare/o3-button-v3.13.1...o3-button-v3.14.0) (2025-10-14)
+
+
+### Features
+
+* add note icon to o3-button ([0358d4e](https://github.com/Financial-Times/origami/commit/0358d4e83bb6669fb0dbfec04c6766bbd90aee1f))
+* add note to types for o3-button ([ab92639](https://github.com/Financial-Times/origami/commit/ab9263965d7ed97fd44a00f00912b138b11ab7bb))
+
 ## [3.13.1](https://github.com/Financial-Times/origami/compare/o3-button-v3.13.0...o3-button-v3.13.1) (2025-08-27)
 
 
