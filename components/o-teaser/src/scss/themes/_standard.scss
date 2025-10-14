@@ -33,10 +33,6 @@
 			$percentage: 60
 		);
 	}
-
-	&.o-teaser--hero .o-teaser__meta:after {
-		border-bottom-color: oPrivateFoundationGet('o3-color-palette-white');
-	}
 }
 
 /// Make a teaser fill the full height of its container
