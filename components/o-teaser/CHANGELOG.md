@@ -1,5 +1,16 @@
 # Changelog
 
+## [8.0.0](https://github.com/Financial-Times/origami/compare/o-teaser-v7.2.1...o-teaser-v8.0.0) (2025-10-14)
+
+
+### ⚠ BREAKING CHANGES
+
+* Remove tag underline from Hero & Package teasers
+
+### Features
+
+* Remove tag underline from Hero & Package teasers ([f7e86af](https://github.com/Financial-Times/origami/commit/f7e86af2dd0a224b39f24e401986948dc4aade35))
+
 ## [7.2.1](https://github.com/Financial-Times/origami/compare/o-teaser-v7.2.0...o-teaser-v7.2.1) (2025-09-23)
 
 
