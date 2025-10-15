@@ -13,8 +13,23 @@ jobs:
           token: ${{ secrets.ORIGAMI_GITHUB_TOKEN }}
           command: manifest
           monorepo-tags: true
+      - name: Dump release action output & connectivity (diagnostic)
+        if: always()
+        run: |
+          echo "release step outcome: ${{ steps.release.outcome }}"
+          echo "release outputs (JSON): ${{ toJSON(steps.release.outputs) }}"
+          echo "Workflow run id: $GITHUB_RUN_ID"
+          echo "Resolve api.github.com:"
+          nslookup api.github.com || true
+          echo "Curl GitHub api (headers only):"
+          curl -sS -I https://api.github.com/ || true
       - uses: actions/checkout@v4
         if: ${{ steps.release.outputs.releases_created }}
+      - name: Save release outputs for debug
+        if: ${{ steps.release.outputs.releases_created }}
+        run: |
+          echo '${{ toJSON(steps.release.outputs) }}' > release-outputs.json
+          cat release-outputs.json
       - uses: actions/setup-node@v4
         with:
           cache: 'npm'
