@@ -7,7 +7,7 @@
 @mixin _oLabelsBaseContent() {
 	@include oPrivateTypographySans(
 		$scale: _oLabelsGet('font-scale'),
-		$weight: 'semibold'
+		$weight: 'regular'
 	);
 	line-height: 1em;
 	text-align: center;
@@ -22,6 +22,7 @@
 	color: _oLabelsGet('text-color');
 	background-color: _oLabelsGet('background-color');
 	border: solid _oLabelsGet('border-width') transparent;
+	border-radius: div(2, 16) * 1rem;
 }
 
 /// Size modifiers for labels.
