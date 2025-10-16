@@ -268,4 +268,10 @@
 			}
 		}
 	}
+	// Hide o-labels-indicator__status on updated and new labels
+	@if ($status == 'updated' or $status == 'new') {
+		& > %_o-labels-indicator__status:before {
+			display: none;
+		}
+	}
 }

@@ -186,7 +186,8 @@ Uses the `o-teaser--audio` modifier.
 
 |    State     | Major Version | Last Minor Release |                    Migration guide                    |
 | :----------: | :-----------: | :----------------: | :---------------------------------------------------: |
-| ⚠ maintained |       7       |        N/A         | [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7) |
+| ⚠ maintained |       8       |        N/A         | [migrate to v8](MIGRATION.md#migrating-from-v7-to-v8) |
+| ╳ deprecated |       7       |       7.2.1        | [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7) |
 | ╳ deprecated |       6       |        6.4         | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
 | ╳ deprecated |       5       |        5.2         | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
 | ╳ deprecated |       4       |        4.0         | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
