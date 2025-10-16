@@ -18,13 +18,13 @@ jobs:
         run: |
           echo "release step outcome: ${{ steps.release.outcome }}"
           echo "release outputs (sanitised JSON):"
-    # Pretty-print and sanitise known secret keys before printing
-    node - <<'JS'
-    const o = ${{ toJSON(steps.release.outputs) }};
-    ['NPM_TOKEN','NODE_AUTH_TOKEN','SLACK_ANNOUNCER_AUTH_TOKEN','SLACK_ANNOUNCER_CHANNEL_ID','ORIGAMI_GITHUB_TOKEN']
-      .forEach(k => { if (o[k]) o[k] = '<redacted>'; });
-    console.log(JSON.stringify(o, null, 2));
-    JS
+          # Pretty-print and sanitise known secret keys before printing
+          node - <<'JS'
+          const o = ${{ toJSON(steps.release.outputs) }};
+          ['NPM_TOKEN','NODE_AUTH_TOKEN','SLACK_ANNOUNCER_AUTH_TOKEN','SLACK_ANNOUNCER_CHANNEL_ID','ORIGAMI_GITHUB_TOKEN']
+            .forEach(k => { if (o[k]) o[k] = '<redacted>'; });
+          console.log(JSON.stringify(o, null, 2));
+          JS
           echo "Workflow run id: $GITHUB_RUN_ID"
           echo "Resolve api.github.com:"
           nslookup api.github.com || true
