@@ -13,8 +13,40 @@ jobs:
           token: ${{ secrets.ORIGAMI_GITHUB_TOKEN }}
           command: manifest
           monorepo-tags: true
+      - name: Dump release action output & connectivity (diagnostic)
+        if: always()
+        run: |
+          echo "release step outcome: ${{ steps.release.outcome }}"
+          echo "release outputs (sanitised JSON):"
+          # Pretty-print and sanitise known secret keys before printing
+          node - <<'JS'
+          const o = ${{ toJSON(steps.release.outputs) }};
+          ['NPM_TOKEN','NODE_AUTH_TOKEN','SLACK_ANNOUNCER_AUTH_TOKEN','SLACK_ANNOUNCER_CHANNEL_ID','ORIGAMI_GITHUB_TOKEN']
+            .forEach(k => { if (o[k]) o[k] = '<redacted>'; });
+          console.log(JSON.stringify(o, null, 2));
+          JS
+          echo "Workflow run id: $GITHUB_RUN_ID"
+          echo "Resolve api.github.com:"
+          nslookup api.github.com || true
+          echo "Curl GitHub api (headers only):"
+          curl -sS -I https://api.github.com/ || true
       - uses: actions/checkout@v4
         if: ${{ steps.release.outputs.releases_created }}
+      - name: Save release outputs for debug
+        if: ${{ steps.release.outputs.releases_created }}
+        run: |
+          # Save raw outputs and sanitise them safely (avoid shell-embedding issues)
+          echo '${{ toJSON(steps.release.outputs) }}' > release-outputs-raw.json
+          node -e "const fs=require('fs'); let o={}; try{o=JSON.parse(fs.readFileSync('release-outputs-raw.json','utf8'))}catch(e){}; ['NPM_TOKEN','NODE_AUTH_TOKEN','SLACK_ANNOUNCER_AUTH_TOKEN','SLACK_ANNOUNCER_CHANNEL_ID','ORIGAMI_GITHUB_TOKEN'].forEach(k=>{if(o[k])o[k]='<redacted>'}); fs.writeFileSync('release-outputs.json',JSON.stringify(o,null,2));" || true
+          rm -f release-outputs-raw.json || true
+          cat release-outputs.json
+      - name: Upload release outputs artifact
+        if: ${{ steps.release.outputs.releases_created }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-outputs
+          path: release-outputs.json
+          if-no-files-found: warn
       - uses: actions/setup-node@v4
         with:
           cache: 'npm'

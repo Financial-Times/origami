@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.0.1](https://github.com/Financial-Times/origami/compare/o-teaser-v8.0.0...o-teaser-v8.0.1) (2025-10-16)
+
+
+### Bug Fixes
+
+* linting change ([2893812](https://github.com/Financial-Times/origami/commit/289381213bd4e589708af340a99bdf10db2810f3))
+
 ## [8.0.0](https://github.com/Financial-Times/origami/compare/o-teaser-v7.2.1...o-teaser-v8.0.0) (2025-10-14)
 
 

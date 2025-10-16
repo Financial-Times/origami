@@ -1,5 +1,9 @@
 # Migration guide
 
+### Migrating to v8.0.0
+
+v8.0.0 includes a minor visual update. You’ll need to check a few things to make sure it looks and works as expected.
+
 ### Migrating to v7.2.0
 
 v7.2.0 includes a change to use Image Service V3. Whilst the change should be unobtrusive, there are some checks you will need to perform.
