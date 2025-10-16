@@ -1,6 +1,6 @@
 {
 	"name": "@financial-times/o-teaser",
-	"version": "8.0.0",
+	"version": "8.0.1",
 	"description": "Provides styling for teaser elements, which contain information about an article and link through to it",
 	"keywords": [
 		"article",
