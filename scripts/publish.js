@@ -5,9 +5,8 @@ import {promisify} from 'util';
 import SlackAnnouncer from './lib/slack-announcer.js';
 const execAsync = promisify(exec);
 
-// Helper to run shell commands without adding external libraries. Returns an
-// object with stdout and stderr; on error it throws an Error that includes
-// stdout and stderr properties so retry logging can print useful diagnostics.
+// Returns an object with stdout and stderr; on error it throws an Error that
+// includes stdout and stderr properties so retry logging can print diagnostics.
 async function runCmd(command, options = {}) {
 	const execOptions = {maxBuffer: 10 * 1024 * 1024, ...options};
 	try {
@@ -46,7 +45,8 @@ const pathsReleased = (() => {
 	try {
 		return JSON.parse(outputs['paths_released'] || '[]');
 	} catch (error) {
-		// If this parsing fails, continue with an empty list so we do not accidentally publish.
+		// If this parsing fails, continue with an empty list
+		// so we do not accidentally publish.
 		console.error(
 			'Failed to parse outputs.paths_released:',
 			error && error.message
@@ -62,15 +62,16 @@ const honker = new SlackAnnouncer({
 	log: console,
 });
 
-// Simple retry helper with exponential backoff
+// Retry helper with exponential backoff
 async function retry(
 	fn,
 	attempts = 3,
 	baseDelayMs = 2000,
 	label = 'operation'
 ) {
-	// Simple retry helper with exponential backoff. It logs each attempt and any
-	// captured stdout/stderr from zx commands to aid diagnostics when CI runs fail.
+	// Retry helper with exponential backoff. It logs each attempt and any
+	// captured stdout/stderr from executed commands (run via `runCmd`) to aid
+	// diagnostics when CI runs fail.
 	let lastError;
 	for (let attempt = 1; attempt <= attempts; attempt++) {
 		try {
@@ -84,7 +85,8 @@ async function retry(
 				`${label}: attempt ${attempt} failed:`,
 				error && error.message ? error.message : error
 			);
-			// If zx thrown error has stdout/stderr, print for diagnostics
+			// If the thrown error includes stdout/stderr
+			// Print them for diagnostics
 			if (error && typeof error === 'object') {
 				if ('stdout' in error)
 					console.error(
@@ -147,8 +149,9 @@ async function run() {
 			);
 			console.log(`Publish succeeded for ${workspace}`);
 
-			// Announce to Slack — Slack is considered best-effort. We retry transient failures
-			// but do not let a Slack outage block the overall publish.
+			// Announce to Slack — Slack is considered best-effort.
+			// We retry transient failures but do not let a Slack
+			// outage block the overall publish.
 			const name = path.basename(workspace);
 			const versionNumber = outputs[`${workspace}--version`];
 			const url = outputs[`${workspace}--html_url`];
@@ -180,7 +183,8 @@ async function run() {
 }
 
 run().catch(error => {
-	// Catch any unexpected errors at the top level and surface a clear message.
+	// Catch any unexpected errors at the top level
+	// and surface a clear message.
 	console.error(
 		'Publish script encountered an unexpected error:',
 		error && error.message ? error.message : error
