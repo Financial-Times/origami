@@ -18,10 +18,13 @@ jobs:
         run: |
           echo "release step outcome: ${{ steps.release.outcome }}"
           echo "release outputs (sanitised JSON):"
-          # Write raw outputs to a temp file then have Node safely read and sanitise it.
-          echo '${{ toJSON(steps.release.outputs) }}' > /tmp/release-outputs-raw.json || true
-          node -e "const fs=require('fs'); let o={}; try{o=JSON.parse(fs.readFileSync('/tmp/release-outputs-raw.json','utf8'))}catch(e){}; ['NPM_TOKEN','NODE_AUTH_TOKEN','SLACK_ANNOUNCER_AUTH_TOKEN','SLACK_ANNOUNCER_CHANNEL_ID','ORIGAMI_GITHUB_TOKEN'].forEach(k=>{if(o[k])o[k]='<redacted>'}); console.log(JSON.stringify(o,null,2));" || true
-          rm -f /tmp/release-outputs-raw.json || true
+    # Pretty-print and sanitise known secret keys before printing
+    node - <<'JS'
+    const o = ${{ toJSON(steps.release.outputs) }};
+    ['NPM_TOKEN','NODE_AUTH_TOKEN','SLACK_ANNOUNCER_AUTH_TOKEN','SLACK_ANNOUNCER_CHANNEL_ID','ORIGAMI_GITHUB_TOKEN']
+      .forEach(k => { if (o[k]) o[k] = '<redacted>'; });
+    console.log(JSON.stringify(o, null, 2));
+    JS
           echo "Workflow run id: $GITHUB_RUN_ID"
           echo "Resolve api.github.com:"
           nslookup api.github.com || true
