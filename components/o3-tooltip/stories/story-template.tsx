@@ -31,9 +31,6 @@ const OnboardingTemplateStory: TemplateType = {
 	render: args => {
 		return (
 			<div className="o3-tooltip-demo-wrapper">
-				<div className="o3-tooltip-demo-message">
-					<p>Refresh to view bounce animation</p>
-				</div>
 				<div id="component-wrapper">
 					<Button
 						label="Share"

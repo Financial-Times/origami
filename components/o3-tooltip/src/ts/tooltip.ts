@@ -1,4 +1,4 @@
-import {createPopper, Instance} from '@popperjs/core';
+import {createPopper, type Instance} from '@popperjs/core';
 import type {TooltipProps} from '../types';
 
 export class ToolTip extends HTMLElement implements TooltipProps {
@@ -8,6 +8,8 @@ export class ToolTip extends HTMLElement implements TooltipProps {
 	protected _popperInstance?: Instance;
 	protected _targetNode!: HTMLElement;
 	protected _isToggleTooltip!: boolean;
+	private _mutationObserver?: MutationObserver;
+	private _resizeObserver?: ResizeObserver;
 
 	constructor() {
 		super();
@@ -47,6 +49,22 @@ export class ToolTip extends HTMLElement implements TooltipProps {
 			this.title = this.getAttribute('title') as string;
 		}
 		this.contentId = this.getAttribute('content-id') as string;
+
+		this._mutationObserver?.disconnect();
+		this._resizeObserver?.disconnect();
+
+		const contentRoot =
+			(this.shadowRoot?.querySelector('[part="content"]') as HTMLElement) ??
+			this;
+		this._mutationObserver = new MutationObserver(() => this.update());
+		this._mutationObserver.observe(contentRoot, {
+			childList: true,
+			subtree: true,
+			characterData: true,
+		});
+
+		this._resizeObserver = new ResizeObserver(() => this.update());
+		this._resizeObserver.observe(this);
 	}
 
 	attributeChangedCallback(name: string) {
@@ -55,16 +73,26 @@ export class ToolTip extends HTMLElement implements TooltipProps {
 
 	disconnectedCallback() {
 		this._popperInstance?.destroy();
+		this._popperInstance = undefined;
+		this._mutationObserver?.disconnect();
+		this._resizeObserver?.disconnect();
 	}
 
-	async update() {
+	async update(): Promise<void> {
 		await this._popperInstance?.update();
 	}
 
+	forceUpdate(): void {
+		this._popperInstance?.forceUpdate?.();
+	}
+
 	protected render(name?: string) {
-		this._popperInstance?.setOptions({
-			placement: this.placement,
-		});
+		if (this._popperInstance) {
+			this._popperInstance.setOptions(opts => ({
+				...opts,
+				placement: this.placement,
+			}));
+		}
 
 		if (name === 'title' || name === 'content') {
 			const titleEl = this.querySelector('.o3-tooltip-content-title');
@@ -82,6 +110,11 @@ export class ToolTip extends HTMLElement implements TooltipProps {
 			} else {
 				this.removeAttribute('no-title');
 			}
+			this.forceUpdate();
+		}
+
+		if (name && name !== 'title' && name !== 'content') {
+			void this.update();
 		}
 	}
 
@@ -89,7 +122,7 @@ export class ToolTip extends HTMLElement implements TooltipProps {
 		targetNode: HTMLElement,
 		popperElement: HTMLElement
 	) {
-		return createPopper(targetNode, popperElement, {
+		this._popperInstance = createPopper(targetNode, popperElement, {
 			placement: this.placement || 'top',
 			modifiers: [
 				{
@@ -119,5 +152,6 @@ export class ToolTip extends HTMLElement implements TooltipProps {
 				},
 			],
 		});
+		return this._popperInstance;
 	}
 }
