@@ -22,8 +22,8 @@
 		calc(#{_oLabelsGet('padding-horizontal')} - #{_oLabelsGet('border-width')});
 	color: _oLabelsGet('text-color');
 	background-color: _oLabelsGet('background-color');
-	border: solid _oLabelsGet('border-width') transparent;
-	border-radius: div(2, 16) * 1rem;
+	border: solid _oLabelsGet('border-width') _oLabelsGet('border-color');
+	border-radius: oPrivateFoundationGet('o3-border-radius-1');
 }
 
 /// Size modifiers for labels.

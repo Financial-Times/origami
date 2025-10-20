@@ -109,7 +109,7 @@
 			padding: oPrivateSpacingByName('s1') oPrivateSpacingByName('s2');
 			font-weight: oFontsWeight('bold');
 			color: oPrivateFoundationGet('o3-color-palette-white');
-			border-radius: div(2, 16) * 1rem;
+			border-radius: oPrivateFoundationGet('o3-border-radius-1');
 
 			&.o-labels-indicator--live {
 				// This needs to use the correct label tokens in the Design System
