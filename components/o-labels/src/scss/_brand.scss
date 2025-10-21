@@ -44,8 +44,8 @@ $_o-labels-shared-brand-config: (
 				border-color: oPrivateColorsMix('o3-color-palette-jade', 'o3-color-palette-black', $percentage: 83.334)
 			),
 			'content-premium': (
-				background-color: oPrivateFoundationGet('o3-color-palette-black'),
-				border-color: oPrivateFoundationGet('o3-color-palette-black')
+				background-color: oPrivateFoundationGet('o3-color-palette-slate'),
+				border-color: oPrivateFoundationGet('o3-color-palette-slate')
 			),
 			'lifecycle-beta': (
 				background-color: oPrivateFoundationGet('o3-color-palette-paper'),
