@@ -53,6 +53,7 @@ HeaderPrimary.args = {
 	showLogoLink: true,
 	showStickyHeader: true,
 	showAskButton: true,
+	showMprButton: true,
 };
 HeaderPrimary.parameters = {
 	controls: {
@@ -86,6 +87,7 @@ DefaultHeaderWithRightAlignedSubnav.args = {
 	userIsLoggedIn: true,
 	showLogoLink: false,
 	showAskButton: true,
+	showMprButton: true,
 };
 DefaultHeaderWithRightAlignedSubnav.parameters = {
 	controls: {
@@ -122,6 +124,7 @@ LogoOnlyHeader.parameters = {
 			'currentPath',
 			'userIsLoggedIn',
 			'showAskButton',
+			'showMprButton',
 			'showSubNavigation',
 			'showUserNavigation',
 			'showMegaNav',
@@ -157,6 +160,7 @@ NoOutboundLinks.parameters = {
 			'currentPath',
 			'variant',
 			'showAskButton',
+			'showMprButton',
 			'showMegaNav',
 			'userIsSubscribed',
 			'showStickyHeader',
@@ -187,6 +191,7 @@ InverseSimpleHeader.parameters = {
 			'currentPath',
 			'variant',
 			'showAskButton',
+			'showMprButton',
 			'showMegaNav',
 			'showSubNavigation',
 			'showLogoLink',
