@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.1.0](https://github.com/Financial-Times/origami/compare/o-labels-v7.0.3...o-labels-v7.1.0) (2025-10-22)
+
+
+### Features
+
+* hide status indicator for updated and new labels in o-labels ([5e5e8f0](https://github.com/Financial-Times/origami/commit/5e5e8f0e7f1c3fc7ea8904d9a6a6a422b7a71f67))
+
 ## [7.0.3](https://github.com/Financial-Times/origami/compare/o-labels-v7.0.2...o-labels-v7.0.3) (2025-09-18)
 
 
