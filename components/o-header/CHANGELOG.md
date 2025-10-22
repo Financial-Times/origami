@@ -1,5 +1,12 @@
 # Changelog
 
+## [15.3.0](https://github.com/Financial-Times/origami/compare/o-header-v15.2.0...o-header-v15.3.0) (2025-10-22)
+
+
+### Features
+
+* ENTST-1459 Add MPR button support to o-header component ([2d4bc7d](https://github.com/Financial-Times/origami/commit/2d4bc7d174cf767771df39630d656ef52e91882b))
+
 ## [15.2.0](https://github.com/Financial-Times/origami/compare/o-header-v15.1.0...o-header-v15.2.0) (2025-09-18)
 
 
