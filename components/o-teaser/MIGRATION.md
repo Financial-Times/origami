@@ -1,5 +1,23 @@
 # Migration guide
 
+### Migrating to v9.0.0
+
+v9 upgrades [html-react-parser to v5.2.7](https://github.com/remarkablemark/html-react-parser), which has a dependency on React 19.
+
+If you use React 17 or 18, add an override/resolution in your package manager to align React versions.
+
+```json
+{
+  "overrides": {
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  }
+}
+```
+
+If you are using preact with `preact/compat`, ensure your bundler aliases `react` and `react-dom` to `preact/compat`.
+
+
 ### Migrating to v8.0.0
 
 v8.0.0 includes a minor visual update. You’ll need to check a few things to make sure it looks and works as expected.
