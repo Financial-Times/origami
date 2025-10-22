@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.15.0](https://github.com/Financial-Times/origami/compare/o3-button-v3.14.0...o3-button-v3.15.0) (2025-10-22)
+
+
+### Features
+
+* ENTST-1459 Add "radar" icon support to o3-button component ([7613ac4](https://github.com/Financial-Times/origami/commit/7613ac497d01c9172fe618ae48c1cef70a55a9cf))
+
 ## [3.14.0](https://github.com/Financial-Times/origami/compare/o3-button-v3.13.1...o3-button-v3.14.0) (2025-10-14)
 
 
