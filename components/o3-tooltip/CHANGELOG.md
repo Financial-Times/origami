@@ -1,5 +1,14 @@
 # Changelog
 
+## [3.1.1](https://github.com/Financial-Times/origami/compare/o3-tooltip-v3.1.0...o3-tooltip-v3.1.1) (2025-10-22)
+
+
+### Bug Fixes
+
+* add explicit types ([282f193](https://github.com/Financial-Times/origami/commit/282f193d2638d1b15e54f9289700e7555427b3c9))
+* add in disconnect for connectedCallBack() ([8882816](https://github.com/Financial-Times/origami/commit/88828169a5fafab801e592dea0af8ba07b9f87ba))
+* use forceUpdate for aligning to target element ([b260f56](https://github.com/Financial-Times/origami/commit/b260f567cf1aec919bf07c0abfbe02d05b9d1ee1))
+
 ## [3.1.0](https://github.com/Financial-Times/origami/compare/o3-tooltip-v3.0.3...o3-tooltip-v3.1.0) (2025-09-24)
 
 
