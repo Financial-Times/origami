@@ -1,4 +1,5 @@
 import { AskFtButton } from "./components/ask-ft-button";
+import { MprButton } from './components/mpr-button';
 import { THeaderVariant, TNavMenuItem } from "./Props";
 
 export function HeaderWrapper({
@@ -38,7 +39,7 @@ export const TopWrapper = ({
 	</div>
 );
 
-export function TopColumnLeft({ isSticky, showAskButton }: { isSticky?: boolean, showAskButton?: boolean }) {
+export function TopColumnLeft({ isSticky, showAskButton, showMprButton }: { isSticky?: boolean, showAskButton?: boolean, showMprButton?: boolean }) {
 	const drawerLabel = isSticky ? "Menu" : "Open side navigation menu";
 	const searchProps = {
 		href: isSticky ? "#o-header-search-sticky" : "#o-header-search",
@@ -63,13 +64,14 @@ export function TopColumnLeft({ isSticky, showAskButton }: { isSticky?: boolean,
 			>
 				<span className="o-header__top-link-label">Open search bar</span>
 			</a>
-			{showAskButton && 
+			{showAskButton &&
 				<AskFtButton
 					variant="top"
 					dataTrackable={isSticky ? "ask-ft-button-sticky" : "ask-ft-button-header"}
 					id={isSticky ? "ask-ft-button-sticky" : "ask-ft-button-header"}
 				/>
 			}
+			{showMprButton && !isSticky && <MprButton id="mpr-button-header" dataTrackable="mpr-button-header" />}
 		</div>
 	);
 }

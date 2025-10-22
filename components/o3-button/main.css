@@ -636,3 +636,7 @@
 .o3-button-icon.o3-button-icon--note::before {
 	--o3-button-icon: var(--o3-icon-note);
 }
+
+.o3-button-icon.o3-button-icon--radar::before {
+	--o3-button-icon: var(--o3-icon-radar);
+}

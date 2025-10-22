@@ -11,6 +11,7 @@ export function MainHeader(props: THeaderProps) {
 	const {
 		data,
 		showAskButton,
+		showMprButton,
 		showLogoLink,
 		showMegaNav,
 		showStickyHeader,
@@ -29,6 +30,7 @@ export function MainHeader(props: THeaderProps) {
 		includeUserActionsNav,
 		includeSubNavigation,
 		showAskButton,
+		showMprButton,
 		showLogoLink,
 		showSubNavigation,
 		showUserNavigation,
@@ -54,7 +56,6 @@ export function MainHeader(props: THeaderProps) {
 				<Header {...defaultHeaderProps} />
 			</HeaderWrapper>
 			{showStickyHeader && <StickyHeader {...stickyHeaderProps} />}
-			
 		</>
 	);
 }
