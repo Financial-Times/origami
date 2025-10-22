@@ -30,7 +30,8 @@ export interface ButtonProps {
 		| 'list'
 		| 'grid'
 		| 'play'
-		| 'note';
+		| 'note'
+		| 'radar';
 	iconPosition?: 'start' | 'end';
 	iconOnly?: boolean;
 	visuallyHideDisabled?: boolean;

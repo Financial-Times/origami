@@ -220,6 +220,29 @@
 		@include oPrivateGridRespondTo($until: 'M') {
 			display: none;
 		}
-		margin: 0 10px;
+	}
+
+	.o-header__mpr-button {
+		@include oPrivateButtonsContent(
+				(
+					'type': 'primary',
+					'theme': 'mono',
+				)
+		);
+		border-radius: 4px;
+
+		@include oPrivateGridRespondTo($until: 'L') {
+			display: none;
+		}
+
+		&::before {
+			@include oPrivateIconsContent(
+				$icon-name: 'radar',
+				$color: _oHeaderGet('header-mpr-button-icon'),
+				$size: 20
+			);
+			content: '';
+			margin-right: 8px;
+		}
 	}
 }
