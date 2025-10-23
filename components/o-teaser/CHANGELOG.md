@@ -1,5 +1,21 @@
 # Changelog
 
+## [9.0.0](https://github.com/Financial-Times/origami/compare/o-teaser-v8.0.1...o-teaser-v9.0.0) (2025-10-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* bump html-react-parser ([#2256](https://github.com/Financial-Times/origami/issues/2256))
+
+### Features
+
+* bump html-react-parser ([#2256](https://github.com/Financial-Times/origami/issues/2256)) ([81b1498](https://github.com/Financial-Times/origami/commit/81b149882e72a60a1311c1aae51ec447c1c9d532))
+
+
+### Bug Fixes
+
+* Remove standfirst hover and focus colour changes ([#2232](https://github.com/Financial-Times/origami/issues/2232)) ([741e2d3](https://github.com/Financial-Times/origami/commit/741e2d38df52335699ee0e448df6384ecb619772))
+
 ## [8.0.1](https://github.com/Financial-Times/origami/compare/o-teaser-v8.0.0...o-teaser-v8.0.1) (2025-10-16)
 
 
