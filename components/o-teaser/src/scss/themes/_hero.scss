@@ -36,8 +36,6 @@
 	.o-teaser__heading a:hover,
 	.o-teaser__heading a:focus,
 	.o-teaser__heading a:visited,
-	.o-teaser__standfirst a:hover,
-	.o-teaser__standfirst a:focus,
 	.o-teaser__standfirst a:visited,
 	.o-teaser__tag:hover,
 	.o-teaser__tag:focus {
@@ -215,9 +213,7 @@
 	$hero-extra-highlight-border: oPrivateFoundationGet('o3-color-palette-lemon');
 	$hero-extra-highlight-color: oPrivateFoundationGet('o3-color-palette-lemon');
 	.o-teaser__heading a:hover,
-	.o-teaser__heading a:focus,
-	.o-teaser__standfirst a:hover,
-	.o-teaser__standfirst a:focus {
+	.o-teaser__heading a:focus {
 		color: $hero-extra-highlight-color;
 	}
 

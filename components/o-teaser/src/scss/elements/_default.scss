@@ -3,6 +3,11 @@
 /// @access public
 @mixin oTeaserHeading {
 	@include _oTeaserLink();
+	a:focus,
+	a:hover {
+		color: $_o-teaser-focus-hover;
+	}
+
 	font-family: oPrivateFoundationGet('o3-type-headline-sm-font-family');
 	font-size: oPrivateFoundationGet('o3-type-headline-sm-font-size');
 	font-weight: oPrivateFoundationGet('o3-type-headline-sm-font-weight');
@@ -65,11 +70,6 @@
 		color: inherit;
 		text-decoration: none;
 		border: 0;
-
-		&:focus,
-		&:hover {
-			color: $_o-teaser-focus-hover;
-		}
 
 		&:visited {
 			color: $_o-teaser-muted;
