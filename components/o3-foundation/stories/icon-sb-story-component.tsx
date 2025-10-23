@@ -43,6 +43,7 @@ export const icons = [
 	'media-description',
 	'minus',
 	'more',
+	'note',
 	'notification-mute',
 	'notification',
 	'newspaper',

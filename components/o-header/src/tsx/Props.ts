@@ -51,7 +51,8 @@ export type THeaderOptions = {
 	showMegaNav?: boolean;
 	showLogoLink?: boolean;
 	extraHeaderProps?: any;
-  	showAskButton?: boolean;
+	showAskButton?: boolean;
+	showMprButton?: boolean;
 };
 
 export type THeaderVariant = 'simple' | 'large-logo' | string;
