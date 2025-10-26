@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.1.0](https://github.com/Financial-Times/origami/compare/o-topper-v7.0.9...o-topper-v7.1.0) (2025-10-26)
+
+
+### Features
+
+* ci-3143 multiple authors on opinion topper ([b4ce9b1](https://github.com/Financial-Times/origami/commit/b4ce9b1dfa6139b3fa6f0ce82a724619f5dd5950))
+
 ## [7.0.9](https://github.com/Financial-Times/origami/compare/o-topper-v7.0.8...o-topper-v7.0.9) (2025-06-25)
 
 
