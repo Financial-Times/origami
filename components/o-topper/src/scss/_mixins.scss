@@ -248,6 +248,17 @@
 		}
 	}
 
+	@if index($elements, 'columnist-list') {
+		.o-topper__columnist-list {
+			@extend %_o-topper__tag;
+			display: contents;
+			list-style: none;
+			li {
+				display: inline-block;
+			}
+		}
+	}
+
 	@if index($elements, 'columnist-name') {
 		.o-topper__columnist-name {
 			@extend %_o-topper__tag;
