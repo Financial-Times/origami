@@ -32,6 +32,7 @@ export interface ContentLabelProps extends BaseLabelProps {
 	state:
 		| 'content-commercial'
 		| 'content-premium'
+		| 'content-scoop'
 }
 export interface LifeCycleLabelProps extends BaseLabelProps {
 	state:

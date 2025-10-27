@@ -47,6 +47,11 @@ $_o-labels-shared-brand-config: (
 				background-color: oPrivateFoundationGet('o3-color-palette-slate'),
 				border-color: oPrivateFoundationGet('o3-color-palette-slate')
 			),
+			'content-scoop': (
+				background-color: oPrivateFoundationGet('o3-color-palette-ft-pink'),
+				border-color: oPrivateFoundationGet('o3-color-palette-ft-pink'),
+				text-color: oPrivateFoundationGet('o3-color-palette-black-80')
+			),
 			'lifecycle-beta': (
 				background-color: oPrivateFoundationGet('o3-color-palette-paper'),
 				border-color: oPrivateFoundationGet('o3-color-palette-black-20'),
@@ -63,6 +68,7 @@ $_o-labels-shared-brand-config: (
 			'small',
 			'content-commercial',
 			'content-premium',
+			'content-scoop',
 			'lifecycle-beta'
 		)
 	));
