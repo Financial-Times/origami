@@ -13,19 +13,22 @@
 
 // Define shared brand configurations
 $_o-labels-shared-brand-config: (
-	font-scale: -1,
+	font-scale: 0,
 	padding-vertical: oPrivateSpacingByName('s1'),
 	padding-horizontal: oPrivateSpacingByName('s2'),
 	border-width: 1px,
+	line-height: oPrivateFoundationGet('o3-type-label-line-height'),
 	'big': (
 		font-scale: 0,
 		padding-vertical: oPrivateSpacingByName('s2'),
-		padding-horizontal: oPrivateSpacingByName('s2')
+		padding-horizontal: oPrivateSpacingByName('s2'),
+		line-height: oPrivateFoundationGet('o3-type-label-line-height')
 	),
 	'small': (
 		font-scale: -1,
 		padding-vertical: 2px,
-		padding-horizontal: 4px
+		padding-horizontal: 4px,
+		line-height: 1rem
 	)
 );
 
@@ -35,11 +38,19 @@ $_o-labels-shared-brand-config: (
 		'variables': map-merge($_o-labels-shared-brand-config, (
 			text-color: oPrivateFoundationGet('o3-color-palette-black'),
 			background-color: oPrivateFoundationGet('o3-color-palette-wheat'),
+			border-color: oPrivateFoundationGet('o3-color-palette-wheat'),
 			'content-commercial': (
-				background-color: oPrivateColorsMix('o3-color-palette-jade', 'o3-color-palette-black', $percentage: 83.334)
+				background-color: oPrivateColorsMix('o3-color-palette-jade', 'o3-color-palette-black', $percentage: 83.334),
+				border-color: oPrivateColorsMix('o3-color-palette-jade', 'o3-color-palette-black', $percentage: 83.334)
 			),
 			'content-premium': (
-				background-color: oPrivateFoundationGet('o3-color-palette-black')
+				background-color: oPrivateFoundationGet('o3-color-palette-slate'),
+				border-color: oPrivateFoundationGet('o3-color-palette-slate')
+			),
+			'content-scoop': (
+				background-color: oPrivateFoundationGet('o3-color-palette-ft-pink'),
+				border-color: oPrivateFoundationGet('o3-color-palette-ft-pink'),
+				text-color: oPrivateFoundationGet('o3-color-palette-black-80')
 			),
 			'lifecycle-beta': (
 				background-color: oPrivateFoundationGet('o3-color-palette-paper'),
@@ -57,6 +68,7 @@ $_o-labels-shared-brand-config: (
 			'small',
 			'content-commercial',
 			'content-premium',
+			'content-scoop',
 			'lifecycle-beta'
 		)
 	));
@@ -67,61 +79,78 @@ $_o-labels-shared-brand-config: (
 	@include oBrandDefine('o-labels', 'internal', (
 		'variables': map-merge($_o-labels-shared-brand-config, (
 			background-color: oPrivateColorsMix('o3-color-palette-black', 'o3-color-palette-white', 10),
+			border-color: oPrivateColorsMix('o3-color-palette-black', 'o3-color-palette-white', 10),
 			'support-active': (
-				background-color: oPrivateColorsMix('o3-color-palette-jade', 'o3-color-palette-black', 70)
+				background-color: oPrivateColorsMix('o3-color-palette-jade', 'o3-color-palette-black', 70),
+				border-color: oPrivateColorsMix('o3-color-palette-jade', 'o3-color-palette-black', 70)
 			),
 			'support-dead': (
-				background-color: oPrivateFoundationGet('o3-color-palette-black')
+				background-color: oPrivateFoundationGet('o3-color-palette-black'),
+				border-color: oPrivateFoundationGet('o3-color-palette-black')
 			),
 			'support-deprecated': (
-				background-color: oPrivateFoundationGet('o3-color-palette-crimson')
+				background-color: oPrivateFoundationGet('o3-color-palette-crimson'),
+				border-color: oPrivateFoundationGet('o3-color-palette-crimson')
 			),
 			'support-experimental': (
-				background-color: oPrivateFoundationGet('o3-color-palette-lemon')
+				background-color: oPrivateFoundationGet('o3-color-palette-lemon'),
+				border-color: oPrivateFoundationGet('o3-color-palette-lemon')
 			),
 			'support-maintained': (
-				background-color: oPrivateColorsMix('o3-color-palette-jade', 'o3-color-palette-black', 70)
+				background-color: oPrivateColorsMix('o3-color-palette-jade', 'o3-color-palette-black', 70),
+				border-color: oPrivateColorsMix('o3-color-palette-jade', 'o3-color-palette-black', 70)
 			),
 			'tier-bronze': (
 				// NOTE: service tiers not in o-colors yet, will be moved if another
 				// component needs to use these colours
-				background-color: #b78d83
+				background-color: #b78d83,
+				border-color: #b78d83
 			),
 			'tier-gold': (
 				// NOTE: service tiers not in o-colors yet, will be moved if another
 				// component needs to use these colours
-				background-color: #b89d62
+				background-color: #b89d62,
+				border-color: #b89d62
 			),
 			'tier-platinum': (
 				// NOTE: service tiers not in o-colors yet, will be moved if another
 				// component needs to use these colours
-				background-color: #e5e4e2
+				background-color: #e5e4e2,
+				border-color: #e5e4e2
 			),
 			'tier-silver': (
 				// NOTE: service tiers not in o-colors yet, will be moved if another
 				// component needs to use these colours
-				background-color: #c0c0c0
+				background-color: #c0c0c0,
+				border-color: #c0c0c0
 			),
 			'oxford': (
-				background-color: oPrivateFoundationGet('o3-color-palette-oxford')
+				background-color: oPrivateFoundationGet('o3-color-palette-oxford'),
+				border-color: oPrivateFoundationGet('o3-color-palette-oxford')
 			),
 			'teal': (
-				background-color: oPrivateFoundationGet('o3-color-palette-teal-50')
+				background-color: oPrivateFoundationGet('o3-color-palette-teal-50'),
+				border-color: oPrivateFoundationGet('o3-color-palette-teal-50')
 			),
 			'lemon': (
-				background-color: oPrivateFoundationGet('o3-color-palette-lemon')
+				background-color: oPrivateFoundationGet('o3-color-palette-lemon'),
+				border-color: oPrivateFoundationGet('o3-color-palette-lemon')
 			),
 			'slate': (
-				background-color: oPrivateFoundationGet('o3-color-palette-slate')
+				background-color: oPrivateFoundationGet('o3-color-palette-slate'),
+				border-color: oPrivateFoundationGet('o3-color-palette-slate')
 			),
 			'jade': (
-				background-color: oPrivateFoundationGet('o3-color-palette-jade')
+				background-color: oPrivateFoundationGet('o3-color-palette-jade'),
+				border-color: oPrivateFoundationGet('o3-color-palette-jade')
 			),
 			'crimson': (
-				background-color: oPrivateFoundationGet('o3-color-palette-crimson')
+				background-color: oPrivateFoundationGet('o3-color-palette-crimson'),
+				border-color: oPrivateFoundationGet('o3-color-palette-crimson')
 			),
 			'mandarin': (
-				background-color: oPrivateFoundationGet('o3-color-palette-mandarin')
+				background-color: oPrivateFoundationGet('o3-color-palette-mandarin'),
+				border-color: oPrivateFoundationGet('o3-color-palette-mandarin')
 			)
 		)),
 		'supports-variants': (
@@ -151,7 +180,8 @@ $_o-labels-shared-brand-config: (
 @if oBrandIs('whitelabel') {
 	@include oBrandDefine('o-labels', 'whitelabel', (
 		'variables': map-merge($_o-labels-shared-brand-config, (
-			background-color: oPrivateColorsMix('o3-color-palette-black', 'o3-color-palette-white', 10)
+			background-color: oPrivateColorsMix('o3-color-palette-black', 'o3-color-palette-white', 10),
+			border-color: oPrivateColorsMix('o3-color-palette-black', 'o3-color-palette-white', 10)
 		)),
 		'supports-variants': (
 			'big',

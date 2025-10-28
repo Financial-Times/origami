@@ -15,6 +15,10 @@
 		{
 			"id": "content-premium",
 			"content": "Premium"
+		},
+		{
+			"id": "content-scoop",
+			"content": "Exclusive"
 		}
 	]
 }
