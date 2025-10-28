@@ -196,16 +196,10 @@ guidelines:
   - apps/o2-storybook/addons/guidelines/**/*
 markdown-tabs:
   - apps/o2-storybook/addons/markdown-tabs/**/*
-astro-website:
-  - apps/astro-website/**/*
 dictionary:
   - apps/dictionary/**/*
-for-everyone-website:
-  - apps/for-everyone-website/**/*
 o2-storybook:
   - apps/o2-storybook/**/*
-o2-storybook-composition:
-  - apps/o2-storybook-composition/**/*
 o3-storybook:
   - apps/o3-storybook/**/*
 website:
