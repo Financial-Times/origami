@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.1.1](https://github.com/Financial-Times/origami/compare/o-topper-v7.1.0...o-topper-v7.1.1) (2025-10-28)
+
+
+### Bug Fixes
+
+* correct grammar in comments ([#2259](https://github.com/Financial-Times/origami/issues/2259)) ([54e9056](https://github.com/Financial-Times/origami/commit/54e905695f736a9280cc1b3b83e0d70be2061c58))
+
 ## [7.1.0](https://github.com/Financial-Times/origami/compare/o-topper-v7.0.9...o-topper-v7.1.0) (2025-10-26)
 
 
