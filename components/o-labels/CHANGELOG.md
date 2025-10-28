@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.1.1](https://github.com/Financial-Times/origami/compare/o-labels-v7.1.0...o-labels-v7.1.1) (2025-10-28)
+
+
+### Bug Fixes
+
+* update o-labels badge styling to match new designs ([#2246](https://github.com/Financial-Times/origami/issues/2246)) ([66aa1fc](https://github.com/Financial-Times/origami/commit/66aa1fc8c6ee2d95a7c1d531c15875f66c70d1ab))
+
 ## [7.1.0](https://github.com/Financial-Times/origami/compare/o-labels-v7.0.3...o-labels-v7.1.0) (2025-10-22)
 
 
