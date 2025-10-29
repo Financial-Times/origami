@@ -3,5 +3,4 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: start;
-	gap: var(--o3-spacing-s);
 }
