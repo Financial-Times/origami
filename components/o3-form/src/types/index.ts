@@ -17,6 +17,7 @@ export interface TextInputProps extends BaseInputProps {
 export interface PasswordInputProps extends BaseInputProps {
 	disabled?: boolean;
 	feedback?: FeedbackProps;
+	forgotPasswordLink?: string;
 }
 
 export interface CheckBoxProps extends BaseInputProps {
