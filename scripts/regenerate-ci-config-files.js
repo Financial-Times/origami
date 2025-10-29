@@ -29,6 +29,8 @@ let dotReleasePleaseManifest = {};
 let releasePleaseConfig = {
 	'bootstrap-sha': '4d52a27b6c08755d6c527723c2595ade3e024898',
 	'last-release-sha': 'e00bda2104ee46cc7f99e5845dcaa8f9fd374dfe',
+	'commit-search-depth': 200,
+	'release-search-depth': 200,
 	packages: {},
 };
 

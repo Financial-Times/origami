@@ -1,6 +1,6 @@
 // Do not output placeholders twice i.e. if o-labels is imported twice.
 // This is a temporary variable, until we can use the new sass `@use` feature
-// that will not have the problem of re-outputting placeholders on every import
+// that will not have the problem of re-outputting placeholders on every import.
 $_o-labels-first-import: true !default;
 
 @if $_o-labels-first-import == true {

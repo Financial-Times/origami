@@ -7,21 +7,23 @@
 @mixin _oLabelsBaseContent() {
 	@include oPrivateTypographySans(
 		$scale: _oLabelsGet('font-scale'),
-		$weight: 'semibold'
+		$weight: 'regular'
 	);
-	line-height: 1em;
+	line-height: _oLabelsGet('line-height');
 	text-align: center;
 	display: inline-block;
 	box-sizing: border-box;
 	margin: 0;
 	text-decoration: none;
+	text-transform: oPrivateFoundationGet('o3-type-label-text-case');
 	padding: calc(
 			#{_oLabelsGet('padding-vertical')} - #{_oLabelsGet('border-width')}
 		)
 		calc(#{_oLabelsGet('padding-horizontal')} - #{_oLabelsGet('border-width')});
 	color: _oLabelsGet('text-color');
 	background-color: _oLabelsGet('background-color');
-	border: solid _oLabelsGet('border-width') transparent;
+	border: solid _oLabelsGet('border-width') _oLabelsGet('border-color');
+	border-radius: oPrivateFoundationGet('o3-border-radius-1');
 }
 
 /// Size modifiers for labels.
@@ -171,7 +173,6 @@
 	$scale: _oLabelsGet('font-scale', $size);
 	@if $scale {
 		@include oPrivateTypographySans($scale);
-		line-height: 1;
 	}
 	padding: calc(
 			#{_oLabelsGet('padding-vertical', $size)} - #{_oLabelsGet('border-width')}

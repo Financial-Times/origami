@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.0.1](https://github.com/Financial-Times/origami/compare/o-video-v8.0.0...o-video-v8.0.1) (2025-10-28)
+
+
+### Bug Fixes
+
+* force release of unreleased components ([#2264](https://github.com/Financial-Times/origami/issues/2264)) ([c4faddc](https://github.com/Financial-Times/origami/commit/c4faddc35b69c712ca6a967353871d9921cd4dfc))
+
 ## [8.0.0](https://github.com/Financial-Times/origami/compare/o-video-v7.3.1...o-video-v8.0.0) (2025-02-20)
 
 ### ⚠ BREAKING CHANGES
