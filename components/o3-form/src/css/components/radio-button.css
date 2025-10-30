@@ -51,6 +51,7 @@
 
 	&:disabled + label::before {
 		border-color: var(--_o3-form-color-use-case-border-disabled);
+		background-color: var(--_o3-form-color-use-case-border-disabled);
 	}
 
 	&:disabled:checked + label::after {
