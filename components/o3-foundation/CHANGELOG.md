@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.11.1](https://github.com/Financial-Times/origami/compare/o3-foundation-v3.11.0...o3-foundation-v3.11.1) (2025-11-04)
+
+
+### Bug Fixes
+
+* calculate grid nested span widths correctly ([#2270](https://github.com/Financial-Times/origami/issues/2270)) ([c0ce58b](https://github.com/Financial-Times/origami/commit/c0ce58bed621eeb156990ede5320f49b28804d5c))
+
 ## [3.11.0](https://github.com/Financial-Times/origami/compare/o3-foundation-v3.10.1...o3-foundation-v3.11.0) (2025-10-14)
 
 

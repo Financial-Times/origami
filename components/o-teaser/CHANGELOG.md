@@ -1,5 +1,12 @@
 # Changelog
 
+## [9.1.0](https://github.com/Financial-Times/origami/compare/o-teaser-v9.0.0...o-teaser-v9.1.0) (2025-11-04)
+
+
+### Features
+
+* Add new styling for o-teaser labels ([#2268](https://github.com/Financial-Times/origami/issues/2268)) ([b356c83](https://github.com/Financial-Times/origami/commit/b356c8377817cadafc3e1da5614156f7d7159c63))
+
 ## [9.0.0](https://github.com/Financial-Times/origami/compare/o-teaser-v8.0.1...o-teaser-v9.0.0) (2025-10-23)
 
 
