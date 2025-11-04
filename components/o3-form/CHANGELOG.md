@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.7.0](https://github.com/Financial-Times/origami/compare/o3-form-v0.6.2...o3-form-v0.7.0) (2025-11-04)
+
+
+### Features
+
+* align check box and radio buttons to new designs ([57c1fc0](https://github.com/Financial-Times/origami/commit/57c1fc07678f4ff43d9d33d7655c6f81fb3fda32))
+* introduce select input ([#2267](https://github.com/Financial-Times/origami/issues/2267)) ([b133d20](https://github.com/Financial-Times/origami/commit/b133d200c2aca6efd99622852c68f5c5ae3aaf49))
+* update password input to designs ([7a48277](https://github.com/Financial-Times/origami/commit/7a48277f6af4542aa4a76627c16214cf727a52ff))
+
 ## [0.6.2](https://github.com/Financial-Times/origami/compare/o3-form-v0.6.1...o3-form-v0.6.2) (2025-09-12)
 
 
