@@ -1,6 +1,6 @@
 {
 	"name": "@financial-times/o-labels",
-	"version": "7.1.1",
+	"version": "7.1.2",
 	"description": "Labels for content classification or to emphasise a value. Provides customisation options with the FT colour palette.",
 	"keywords": [
 		"label",
