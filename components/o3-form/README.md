@@ -10,6 +10,7 @@ Provides components to construct forms.
     - [Short text input](#short-text-input)
   - [Checkbox](#checkbox)
     - [Checkbox Group](#checkbox-group)
+  - [Select Input](#select-input)
 - [Contact](#contact)
 - [Licence](#licence)
 
@@ -383,6 +384,61 @@ import {CheckBoxGroup, CheckBoxItem} from '@financial-times/o3-form/cjs'; // or 
 | `label`       | The label for the group of checkboxes    | string     |         |
 | `description` | A description of the group of checkboxes | string     |         |
 | `children`    | The checkboxes to be rendered            | CheckBox[] |         |
+
+### Select Input
+
+A dropdown select input for choosing one option from a list.
+
+```html
+<div class="o3-form-field">
+  <label
+          class="o3-form-field__label"
+          for="o3-form-select-input-_3564083419195512"
+  >
+    Card type
+  </label>
+  <span
+          class="o3-form-input__description"
+          id="o3-form-description_14471165011746046"
+  >
+        Printed on the front side of your payment card.
+      </span>
+  <div class="o3-form-select-input__container">
+    <select
+            id="o3-form-select-input-_3564083419195512"
+            class="o3-form o3-form-select-input"
+            required=""
+            aria-required="true"
+            maxlength="0"
+            type="select"
+    >
+      <option value="American Express">American Express</option>
+      <option value="Visa Debit">Visa Debit</option>
+      <option value="Visa Credit">Visa Credit</option>
+      <option value="Mastercard Debit">Mastercard Debit</option>
+      <option value="Mastercard Credit">Mastercard Credit</option>
+    </select>
+  </div>
+  <div class="o3-form-feedback o3-form-feedback__undefined">
+    <span class="o3-form-feedback__undefined-message"></span>
+  </div>
+</div>
+```
+
+```tsx
+import {SelectInput} from '@financial-times/o3-form';
+
+<SelectInput
+ label="Card type"
+ description="Printed on the front side of your payment card."
+>
+  <option value="American Express">American Express</option>
+  <option value="Visa Debit">Visa Debit</option>
+  <option value="Visa Credit">Visa Credit</option>
+  <option value="Mastercard Debit">Mastercard Debit</option>
+  <option value="Mastercard Credit">Mastercard Credit</option>
+</SelectInput>
+```
 
 ## Contact
 
