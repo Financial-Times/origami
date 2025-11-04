@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import "../src/css/components/grid.css";
+import '../src/css/components/grid.css';
 
 const itemDetails = [
 	{
@@ -74,12 +74,21 @@ export function O3Grid() {
 					{item.text}
 				</div>
 			))}
-			<div className="o3-grid-item" style={{gridColumn: `content-start / span 6`, backgroundColor: 'tomato'}}>
-				Span 6
-				<div style={{'--o3-grid-columns-to-span-count': 2,
-					width: 'var(--o3-grid-columns-to-span-width)',
-					backgroundColor: 'lightblue'
-				}}>Nested Element span 2</div>
+			<div
+				className="o3-grid-item"
+				style={{
+					gridColumn: `content-start / content-end`,
+					backgroundColor: 'tomato',
+				}}>
+				Full Content with Nested Grid
+				<div
+					style={{
+						'--o3-grid-columns-to-span-count': 2,
+						width: 'var(--o3-grid-columns-to-span-width)',
+						backgroundColor: 'lightblue',
+					}}>
+					Nested Element span 2
+				</div>
 			</div>
 		</div>
 	);

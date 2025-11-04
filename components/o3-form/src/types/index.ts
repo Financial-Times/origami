@@ -14,6 +14,11 @@ export interface TextInputProps extends BaseInputProps {
 	feedback?: FeedbackProps;
 }
 
+export interface SelectInputProps extends BaseInputProps {
+	disabled?: boolean;
+	feedback?: FeedbackProps;
+}
+
 export interface PasswordInputProps extends BaseInputProps {
 	disabled?: boolean;
 	feedback?: FeedbackProps;
