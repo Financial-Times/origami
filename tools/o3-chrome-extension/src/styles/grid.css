@@ -77,10 +77,10 @@
 }
 
 /* The container max width + 2 * margin (24px) is the min-width media query */
-/* i.e. --max-width: 1312px + 2 * margin (24px) = 1360px */
-@media (min-width: 1360px) {
+/* i.e. --max-width: 1320px + 2 * margin (24px) = 1360px */
+@media (min-width: 1366px) {
 	.o3-grid-extension {
-		--max-width: 1312px;
+		--max-width: 1320px;
 		/* on bigger screen switch to box-shadow for margin colouring */
 		border-left: 0;
 		border-right: 0;
