@@ -16,6 +16,8 @@
 		@include _oTeaserElementsRelatedItems;
 	} @else if $group == 'syndication' {
 		@include _oTeaserSyndicationIndicator;
+	} @else if $group == 'labels' {
+		@include _oTeaserElementsLabels;
 	}
 }
 
@@ -115,6 +117,22 @@
 	}
 
 	@include _oTeaserHeadshot;
+}
+
+@mixin _oTeaserElementsLabels {
+	.o-teaser__labels {
+		font-family: oPrivateFoundationGet('o3-type-label-font-family');
+		font-size: oPrivateFoundationGet('o3-type-label-font-size');
+		font-weight: oPrivateFoundationGet('o3-type-label-font-weight');
+		line-height: oPrivateFoundationGet('o3-type-label-line-height');
+		text-transform: oPrivateFoundationGet('o3-type-label-text-case');
+		color: $_o-teaser-muted;
+		display: block;
+		// Moves labels to the bottom when stretched modifier is used
+		margin-top: auto;
+		// and ensures there is always some gap above
+		padding-top: oPrivateSpacingByName('s4');
+	}
 }
 
 @mixin _oTeaserElementsTimestamp {
