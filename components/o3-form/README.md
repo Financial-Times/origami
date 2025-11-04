@@ -8,6 +8,7 @@ Provides components to construct forms.
     - [Form Field, Form Fieldset and Feedback](#form-field-form-fieldset-and-feedback)
   - [Text Input](#text-input)
     - [Short text input](#short-text-input)
+    - [Password Input](#password-input)
   - [Checkbox](#checkbox)
     - [Checkbox Group](#checkbox-group)
 - [Contact](#contact)
@@ -261,6 +262,73 @@ import {TextInput} from '@financial-times/o3-form/cjs'; // or esm
   maxLength: 3,
  }}
 />
+```
+
+#### Password Input
+
+A password input for collecting password values. Features a show/hide password toggle and a forgot password link.
+
+**HTML**
+```html
+<div class="o3-form-field">
+  <label
+          class="o3-form-field__label"
+          for="o3-form-password-input-_5538262633951523"
+  >
+    Password
+  </label>
+  <span
+          class="o3-form-input__description"
+          id="o3-form-description_5812824517374977"
+  >
+        Your password must be at least 8 characters.
+      </span>
+  <div class="o3-password-input__container">
+    <input
+            id="o3-form-password-input-_5538262633951523"
+            class="o3-form o3-form-text-input o3-form-text-input--password"
+            required=""
+            type="password"
+            aria-required="true"
+    />
+    <button
+            id="o3-form-password-toggle"
+            class="o3-password-input__show-password-toggle o3-password-input__show-password-toggle--show"
+            aria-label="Show password"
+            title="Show password"
+            aria-pressed="false"
+    ></button>
+  </div>
+  <div class="o3-form-feedback o3-form-feedback__undefined">
+    <span class="o3-form-feedback__undefined-message"></span>
+  </div>
+</div>
+<div class="o3-password-input__controls">
+  <a class="o3-typography-link" href="#">Forgot password?</a>
+</div>
+```
+
+Be sure to include Javascript to enable the password toggle feature.
+
+```javascript
+import PasswordInput from '@financial-times/o3-form/cjs/PasswordInput';
+
+document.addEventListener('DOMContentLoaded', function () {
+ const passwordInput = new PasswordInput(
+  document.getElementById('o3-form-password-toggle')
+ );
+});
+```
+
+```tsx
+import {PasswordInput} from '@financial-times/o3-form';
+
+<Form>
+  <PasswordInput
+   label="Password"
+   description="Your password must be at least 8 characters."
+   forgotPasswordLink="#" />
+</Form>
 ```
 
 ### Checkbox
