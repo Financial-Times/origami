@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.1](https://github.com/Financial-Times/origami/compare/o3-form-v0.7.0...o3-form-v0.7.1) (2025-11-05)
+
+
+### Bug Fixes
+
+* fix o3-form typings ([#2271](https://github.com/Financial-Times/origami/issues/2271)) ([d2a1d86](https://github.com/Financial-Times/origami/commit/d2a1d86b5f34b74259cbe505313312b4c0ff15dc))
+
 ## [0.7.0](https://github.com/Financial-Times/origami/compare/o3-form-v0.6.2...o3-form-v0.7.0) (2025-11-04)
 
 
