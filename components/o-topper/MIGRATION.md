@@ -21,13 +21,12 @@ To upgrade, replace the following "o2" components with their "o3" equivalent:
 
 `o-topper` no longer includes JavaScript to select the correct topper for JSON-formatted FT articles and flags. This helper was deeply tied to the FT.com content store, and included hardcoded UUIDs and business logic beyond the scope of Origami. Origami components focus on providing reusable user interfaces – without business logic assumptions which could limit their use outside specific groups or use-cases.
 
-To migrate, replace `o-topper` JavaScript with [`n-map-content-to-topper`](https://github.com/Financial-Times/n-map-content-to-topper).
+Logic for topper selection is now handled in the Topper model in [`cp-content-pipeline`](https://github.com/financial-times/cp-content-pipeline/). The previous library for this, [`n-map-content-to-topper`](https://github.com/Financial-Times/n-map-content-to-topper), is now archived.
 
-```diff
--import { mapContentToTopper } from '@financial-times/o-topper';
-+import mapContentToTopper from '@financial-times/n-map-content-to-topper';
-const topper = mapContentToTopper(ftArticle, flags);
-```
+
+<del>
+To migrate, replace `o-topper` JavaScript with [`n-map-content-to-topper`](https://github.com/Financial-Times/n-map-content-to-topper).
+</del>
 
 ## Migrating from v4 to v5
 
