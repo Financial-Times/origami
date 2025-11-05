@@ -1,5 +1,5 @@
 import {uidBuilder} from '@financial-times/o-utils';
-import {PasswordInputProps} from '../types/index';
+import {PasswordInputProps} from '../types';
 import {LabeledFormField} from './fieldComponents/FormField';
 import {PasswordInput as PasswordInputController} from '../js/PasswordInput.js';
 import {useEffect, useRef, useState} from 'react';
