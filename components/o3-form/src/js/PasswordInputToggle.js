@@ -1,4 +1,4 @@
-// src/js/PasswordInput.js
+// src/js/PasswordInputToggle.js
 // @ts-check
 
 /**
@@ -9,12 +9,12 @@
 /**
  * @export
  */
-export class PasswordInput {
+export class PasswordInputToggle {
 	/**
 	 * Class constructor.
 	 *
 	 * @param {HTMLElement} [element] - An input element in the DOM
-	 * @param {PasswordInputOptions} [options] - An options object for configuring the password input
+	 * @param {PasswordInputToggleOptions} [options] - An options object for configuring the password input
 	 */
 	constructor(
 		element,

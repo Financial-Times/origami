@@ -1,7 +1,7 @@
 import {uidBuilder} from '@financial-times/o-utils';
 import {PasswordInputProps} from '../types';
 import {LabeledFormField} from './fieldComponents/FormField';
-import {PasswordInput as PasswordInputController} from '../js/PasswordInput.js';
+import {PasswordInputToggle as PasswordInputToggleController} from '../js/PasswordInputToggle.js';
 import {useEffect, useRef, useState} from 'react';
 
 const uniqueId = uidBuilder('o3-form-password-input');
@@ -20,9 +20,9 @@ export const PasswordInput = ({
 
 	let inputRef = useRef<HTMLInputElement | null>(null);
 	let buttonRef = useRef<HTMLButtonElement | null>(null);
-	let toggleRef = useRef<InstanceType<typeof PasswordInputController> | null>(
-		null
-	);
+	let toggleRef = useRef<InstanceType<
+		typeof PasswordInputToggleController
+	> | null>(null);
 
 	const inputClasses = [
 		'o3-form',
@@ -39,7 +39,7 @@ export const PasswordInput = ({
 		const btnEl = buttonRef.current;
 		if (!inputEl || !btnEl) return;
 
-		toggleRef.current = new PasswordInputController(inputEl, {
+		toggleRef.current = new PasswordInputToggleController(inputEl, {
 			toggleButtonId: btnEl.id,
 		});
 
