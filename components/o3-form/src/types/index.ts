@@ -14,9 +14,16 @@ export interface TextInputProps extends BaseInputProps {
 	feedback?: FeedbackProps;
 }
 
-export interface SelectInputProps extends BaseInputProps {
+export interface SelectInputProps {
 	disabled?: boolean;
 	feedback?: FeedbackProps;
+	children?: React.JSX.Element[];
+	inputId?: string;
+	label?: string;
+	description?: string;
+	optional?: boolean;
+	error?: boolean;
+	attributes?: JSX.IntrinsicElements['select'];
 }
 
 export interface PasswordInputProps extends BaseInputProps {

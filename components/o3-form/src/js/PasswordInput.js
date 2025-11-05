@@ -1,11 +1,21 @@
+// src/js/PasswordInput.js
+// @ts-check
+
+/**
+ * @typedef {Object} PasswordInputOptions
+ * @property {string} [toggleButtonId]
+ */
+
+/**
+ * @export
+ */
 export class PasswordInput {
 	/**
 	 * Class constructor.
 	 *
 	 * @param {HTMLElement} [element] - An input element in the DOM
-	 * @param {Object} [options={toggleButtonId}] - An options object for configuring the password input
+	 * @param {PasswordInputOptions} [options] - An options object for configuring the password input
 	 */
-
 	constructor(
 		element,
 		options = {toggleButtonId: 'o3-form-password-input-toggle'}
@@ -41,6 +51,7 @@ export class PasswordInput {
 		);
 	}
 
+	/** @returns {void} */
 	toggle() {
 		if (!this._toggleButton) {
 			throw new Error(
