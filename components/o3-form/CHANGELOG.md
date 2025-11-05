@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.2](https://github.com/Financial-Times/origami/compare/o3-form-v0.7.1...o3-form-v0.7.2) (2025-11-05)
+
+
+### Bug Fixes
+
+* fix password js bundling ([e5e2b88](https://github.com/Financial-Times/origami/commit/e5e2b881d4b8b8fe4876974eb2fc80a2d4fc97c8))
+
 ## [0.7.1](https://github.com/Financial-Times/origami/compare/o3-form-v0.7.0...o3-form-v0.7.1) (2025-11-05)
 
 
