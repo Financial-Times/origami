@@ -1,6 +1,7 @@
 {
 	"extends": "../../tsconfig.json",
 	"compilerOptions": {
+		"allowJs": true,
 		"typeRoots": ["./src/types", "../../node_modules/@types"]
 	}
 }

@@ -35,9 +35,7 @@ export const SelectInput = ({
 					disabled={disabled}
 					className={inputClasses.join(' ')}
 					required={!optional}
-					aria-required={!optional}
-					maxLength={length}
-					type="select">
+					aria-required={!optional}>
 					{children}
 				</select>
 			</div>
