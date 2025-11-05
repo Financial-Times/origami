@@ -1,8 +1,8 @@
 import {uidBuilder} from '@financial-times/o-utils';
 import {PasswordInputProps} from '../types';
 import {LabeledFormField} from './fieldComponents/FormField';
-import {PasswordInputToggle as PasswordInputToggleController} from '../js/PasswordInputToggle.js';
-import {useEffect, useRef, useState} from 'react';
+import {PasswordInputToggle as PasswordInputToggleController} from './PasswordInputToggle';
+import {useEffect, useRef} from 'react';
 
 const uniqueId = uidBuilder('o3-form-password-input');
 
