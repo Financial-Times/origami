@@ -274,5 +274,9 @@
   "tests-o3-tooltip--onboarding-tooltip-test": "?path=/story/tests-o3-tooltip--onboarding-tooltip-test",
   "tests-o3-tooltip--toggle-tooltip-test": "?path=/story/tests-o3-tooltip--toggle-tooltip-test",
   "o3-tooltip--onboarding-tooltip": "?path=/story/o3-tooltip--onboarding-tooltip",
-  "o3-tooltip--toggle-tooltip": "?path=/story/o3-tooltip--toggle-tooltip"
+  "o3-tooltip--toggle-tooltip": "?path=/story/o3-tooltip--toggle-tooltip",
+  "tests-o3-form--password-input-test": "?path=/story/tests-o3-form--password-input-test",
+  "o3-form--select-input": "?path=/story/o3-form--select-input",
+  "o3-form--select-input-disabled": "?path=/story/o3-form--select-input-disabled",
+  "o3-form--select-input-error-state": "?path=/story/o3-form--select-input-error-state"
 }
