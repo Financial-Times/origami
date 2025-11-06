@@ -8,8 +8,8 @@ sidebar:
     variant: note
 ---
 
-import {default as Guideline} from '../../../components/Guideline.astro';
 import {default as Example} from '../../../components/Example.astro';
+import {default as Guideline} from '../../../components/Guideline.astro';
 import Tip from '../../../components/utils/Tip.astro';
 
 The standard FT grid system is designed to be flexible, responsive, and adaptable. It caters to a wide range of devices and screen sizes, ensuring consistency and harmony across all digital products.
@@ -88,7 +88,7 @@ Our grid adapts to the following breakpoints to accommodate various screen sizes
 			<td>1440+</td>
 			<td>12</td>
 			<td>24px</td>
-			<td>24px – auto</td>
+			<td>Auto</td>
 			<td>desktop</td>
 		</tr>
 	</tbody>
@@ -179,7 +179,7 @@ Page content does not always need to span across 12 columns; it can occupy a sma
 		Your elements should sit within the columns and not bleed into the gutters. You cannot leave elements in the gutters; that causes inconsistency and defeats the purpose of the grid.
 	</p>
 
-	<Example slot="examples" do={true} centred={true}>
+    <Example slot="examples" do={true} centred={true}>
     	![Correct: Grid layout with elements properly contained within columns, avoiding the gutters.](/assets/images/components/grid/usage-guidelines-do-not-leave-elements-in-gutter-do.svg)
     </Example>
 
