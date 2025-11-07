@@ -457,6 +457,8 @@ import {CheckBoxGroup, CheckBoxItem} from '@financial-times/o3-form/cjs'; // or 
 
 A dropdown select input for choosing one option from a list.
 
+**HTML**
+
 ```html
 <div class="o3-form-field">
   <label
@@ -493,6 +495,8 @@ A dropdown select input for choosing one option from a list.
 </div>
 ```
 
+**TSX**
+
 ```tsx
 import {SelectInput} from '@financial-times/o3-form';
 
@@ -505,6 +509,55 @@ import {SelectInput} from '@financial-times/o3-form';
   <option value="Visa Credit">Visa Credit</option>
   <option value="Mastercard Debit">Mastercard Debit</option>
   <option value="Mastercard Credit">Mastercard Credit</option>
+</SelectInput>
+```
+
+#### Short Text Input
+
+Select input supports width control for shorter inputs:
+
+```html
+<div class="o3-form-field">
+  <label
+          class="o3-form-field__label"
+          for="o3-form-select-input-_3564083419195512"
+  >
+    Title
+  </label>
+  <div class="o3-form-select-input__container o3-form-select-input--short-3">
+    <select
+            id="o3-form-select-input-_3564083419195512"
+            class="o3-form o3-form-select-input"
+            required=""
+            aria-required="true"
+            maxlength="0"
+            type="select"
+    >
+      <option value="American Express">American Express</option>
+      <option value="Visa Debit">Visa Debit</option>
+      <option value="Visa Credit">Visa Credit</option>
+      <option value="Mastercard Debit">Mastercard Debit</option>
+      <option value="Mastercard Credit">Mastercard Credit</option>
+    </select>
+  </div>
+  <div class="o3-form-feedback o3-form-feedback__undefined">
+    <span class="o3-form-feedback__undefined-message"></span>
+  </div>
+</div>
+```
+
+**TSX**
+
+```tsx
+import {SelectInput} from '@financial-times/o3-form';
+
+<SelectInput
+ label="Title"
+ length="3"
+>
+  <option value="Mr">Mr</option>
+  <option value="Mrs">Mrs</option>
+  <option value="Mx>">Mx</option>
 </SelectInput>
 ```
 
