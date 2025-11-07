@@ -20,6 +20,7 @@ export interface SelectInputProps {
 	children?: React.JSX.Element[];
 	inputId?: string;
 	label?: string;
+	length?: 1 | 3;
 	description?: string;
 	optional?: boolean;
 	error?: boolean;
