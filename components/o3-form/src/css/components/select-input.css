@@ -13,6 +13,16 @@
 	appearance: none;
 }
 
+.o3-form-select-input__container.o3-form-select-input--short-1 {
+	--_o3-form-select-input-max-width: calc(1.8em + 48px);
+	max-width: var(--_o3-form-select-input-max-width);
+}
+
+.o3-form-select-input__container.o3-form-select-input--short-3 {
+	--_o3-form-select-input-max-width: calc(2.5em + 48px);
+	max-width: var(--_o3-form-select-input-max-width);
+}
+
 .o3-form-select-input__container {
 	position: relative;
 	display: inline-block;
