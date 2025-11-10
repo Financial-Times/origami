@@ -5,4 +5,5 @@ export * from './CheckBox';
 export * from './RadioButton';
 export * from './Error-summary';
 export * from './PasswordInput';
+export * from './SelectInput';
 export * from './TextInput';

@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.3](https://github.com/Financial-Times/origami/compare/o3-form-v0.7.2...o3-form-v0.7.3) (2025-11-10)
+
+
+### Bug Fixes
+
+* export select input ([00da222](https://github.com/Financial-Times/origami/commit/00da2220fb35b71904c93482c42f4735236a4dd4))
+
 ## [0.7.2](https://github.com/Financial-Times/origami/compare/o3-form-v0.7.1...o3-form-v0.7.2) (2025-11-05)
 
 
