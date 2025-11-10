@@ -2,7 +2,7 @@
 	display: flex;
 	flex-direction: column;
 	font-family: var(--o3-font-family-metric);
-	gap: var(--o3-spacing-xs);
+	gap: var(--o3-spacing-3xs);
 
 	&:where(fieldset) {
 		margin: 0;
