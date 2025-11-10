@@ -1,0 +1,168 @@
+---
+title: Select Input
+description: The select component allows users to choose one option from a list of predefined choices.
+sidebar:
+  badge:
+    text: experimental
+    variant: caution
+---
+
+import {Form, SelectInput} from '@financial-times/o3-form';
+
+import Example from '../../../../components/Example.astro';
+import Tip from '../../../../components/utils/Tip.astro';
+
+import {default as SelectInputAnatomy} from '../../../../components/forms/anatomy/Select-input.astro';
+
+import '@financial-times/o3-form/css/whitelabel.css';
+import '@financial-times/o3-form/css/internal.css';
+import '@financial-times/o3-form/css/sustainable-views.css';
+import '@financial-times/o3-form/css/core.css';
+import '@financial-times/o3-form/css/professional.css';
+
+The select component allows users to choose one option from a list of predefined choices.
+
+## Anatomy
+
+<SelectInputAnatomy />
+
+1. **Label:** Indicates the purpose of the select component. It should clearly communicate what kind of choice is expected to be made.
+1. **Description:** Provides additional context/instructions about the choice
+1. **Optional indicator:** indicated that the choice is not mandatory
+1. **Selection:** displays the current selection that’s made by the user or the default from the system
+1. **Input field:** the interactive area where the user can click to see the available options
+1. **Down arrow:** a signifier that helps the user understand what to expect
+
+## Field Sizes
+
+As layouts adapt to larger screens, flexible container dimensions are applied to form components for better readability. The default width is 4 grid columns (343px on mobile, expanding to 422px on desktop) for an optimized experience.
+
+[//]  # (Component demo)
+
+In most cases, the select component follows the standard forms width, which adapts to the layout. However, when the string of character is short, it’s better to use a properly-sized select component:
+
+## Placement in Layouts
+
+Whether you're designing a Z-pattern or an F-pattern layout, placing input components consistently improves readability and user flow.
+
+Follow these two foundational rules:
+
+**Always left-align components.**
+
+Align inputs and labels to the left to support natural reading flow and reduce cognitive load, especially in forms with multiple fields.
+
+**Stack components vertically rather than placing them side by side.**
+
+Vertical stacking is easier to scan, reduces ambiguity about which label belongs to which input, and works better across screen sizes and accessibility contexts.
+
+<Example do={false} title="Don't center components or place them side by side.">
+	<svg xmlns="http://www.w3.org/2000/svg" width="536" height="251" viewBox="0 0 536 251" fill="none">
+		<rect width="536" height="251" fill="white" />
+		<rect x="146" y="45.5" width="52" height="4" fill="#E6E6E6" />
+		<rect x="76" y="100.5" width="88" height="4" fill="#E6E6E6" />
+		<rect x="146" y="57.5" width="245" height="12" rx="2" fill="#999999" />
+		<rect x="76" y="113" width="102" height="24" rx="2" fill="#E6E6E6" />
+		<rect x="372" y="100.5" width="88" height="4" fill="#E6E6E6" />
+		<rect x="372" y="113" width="102" height="24" rx="2" fill="#E6E6E6" />
+		<rect x="217" y="100.5" width="88" height="4" fill="#E6E6E6" />
+		<rect x="217" y="113" width="102" height="24" rx="2" fill="#E6E6E6" />
+		<rect x="273" y="173" width="64" height="24" rx="2" fill="#F2F2F2" />
+		<rect x="201" y="173" width="64" height="24" rx="2" fill="#4BBF73" />
+	</svg>
+</Example>
+
+<Example do title="Do left-align components and stack them vertically">
+	<svg xmlns="http://www.w3.org/2000/svg" width="536" height="251" viewBox="0 0 536 251" fill="none">
+		<rect width="536" height="251" fill="white" />
+		<rect x="146" y="45.5" width="52" height="4" fill="#E6E6E6" />
+		<rect x="76" y="100.5" width="88" height="4" fill="#E6E6E6" />
+		<rect x="146" y="57.5" width="245" height="12" rx="2" fill="#999999" />
+		<rect x="76" y="113" width="102" height="24" rx="2" fill="#E6E6E6" />
+		<rect x="372" y="100.5" width="88" height="4" fill="#E6E6E6" />
+		<rect x="372" y="113" width="102" height="24" rx="2" fill="#E6E6E6" />
+		<rect x="217" y="100.5" width="88" height="4" fill="#E6E6E6" />
+		<rect x="217" y="113" width="102" height="24" rx="2" fill="#E6E6E6" />
+		<rect x="273" y="173" width="64" height="24" rx="2" fill="#F2F2F2" />
+		<rect x="201" y="173" width="64" height="24" rx="2" fill="#4BBF73" />
+	</svg>
+</Example>
+
+<Tip>
+	The vertical order of input components is crucial for helping users navigate efficiently. A clear top-to-bottom layout
+	aligns with natural reading patterns, ensuring a smoother experience. Avoid placing components horizontally, as it can
+	disrupt the flow and lead to confusion.
+</Tip>
+
+## Interactive States
+
+### Default
+
+### Focus
+
+### Error
+
+### Disabled
+
+## Guidance on Disabled States
+
+Select inputs support a disabled state, but it should be used **sparingly and with care.**
+
+* Only use disabled inputs when absolutely necessary, and always provide a clear explanation of why the field is disabled and how it can be enabled.
+* A common acceptable use case is for displaying read-only information that the user should see but not edit.
+
+[//]  # (Example)
+
+When used without sufficient context, disabled inputs can:
+
+* Confuse users or make them feel stuck
+* Hide important information or functionality
+* Prevent error recovery or correction
+* Introduce accessibility issues, as screen readers may skip over disabled elements or fail to communicate their purpose
+
+If a field must be temporarily unavailable, consider alternatives like making it read-only, providing inline messaging, or restructuring the flow to avoid exposing it unnecessarily.
+
+## Required and Optional Inputs
+
+By default, all select components are considered required, unless explicitly marked as optional.
+
+We intentionally do not display a “required” label or symbol. Instead, only optional fields are labeled, which simplifies the interface and reduces visual noise.
+
+Why we don’t label required fields:
+* Reduces cognitive load by eliminating redundant information
+* Improves scannability in forms with multiple inputs
+* Avoids visual clutter, especially when form labels are stacked vertically
+
+This approach helps users focus only on what they can skip, without having to mentally process which fields they must complete.
+
+<Example do title="Do mark optional input fields">
+	<div data-o3-brand={props.brand}>
+		<Form>
+			<SelectInput title={"Your Country"} />
+			<SelectInput title={"How did you hear about us"} attributes={{optional: true}} />
+		</Form>
+	</div>
+</Example>
+
+## Label content and Tone
+
+Form field labels should be clear, concise, and easy to scan. We use sentence case for all labels and adopt a neutral, human tone to make forms more approachable and accessible.
+
+Write labels with only the first word capitalized, unless the label includes a proper noun (like "UK" or "Google").
+
+This makes labels easier to read at a glance and better aligns with how people naturally process language in user interfaces.
+
+<Example do={false} title="Don't use title case">
+<Form>
+	<SelectInput title="Card Type">
+		<option value="American Express">American Express</option>
+	</SelectInput>
+</Form>
+</Example>
+
+<Example do title="Do use sentence case">
+	<Form>
+		<SelectInput title="Card type">
+			<option value="American Express">American Express</option>
+		</SelectInput>
+	</Form>
+</Example>
