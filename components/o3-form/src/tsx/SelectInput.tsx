@@ -13,6 +13,7 @@ export const SelectInput = ({
 	inputId,
 	optional,
 	children,
+	length,
 }: SelectInputProps) => {
 	const id = inputId || uniqueId('_');
 	const inputClasses = ['o3-form', 'o3-form-select-input'];
@@ -28,7 +29,10 @@ export const SelectInput = ({
 			description={description}
 			inputId={id}
 			optional={optional}>
-			<div className="o3-form-select-input__container">
+			<div
+				className={`o3-form-select-input__container ${
+					length ? `o3-form-select-input--short-${length}` : ''
+				}`}>
 				<select
 					{...attributes}
 					id={id}
