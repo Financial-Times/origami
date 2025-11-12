@@ -1,12 +1,12 @@
 import type {Meta} from '@storybook/react';
 import links from '@financial-times/o3-figma-sb-links';
 
-import {PasswordInput as PasswordInputTsx} from '../src/tsx/PasswordInput';
+import {DateInput as DateInputTsx} from '../src/tsx/DateInput';
 import '../src/css/brands/core.css';
 
-const meta: Meta<typeof PasswordInputTsx> = {
+const meta: Meta<typeof DateInputTsx> = {
 	title: 'o3-form',
-	component: PasswordInputTsx,
+	component: DateInputTsx,
 	tags: [
 		'experimental',
 		'core',
@@ -34,53 +34,51 @@ const meta: Meta<typeof PasswordInputTsx> = {
 	},
 } as Meta;
 
-export const PasswordInput = {
+export const DateInput = {
 	args: {
-		label: 'Password',
-		description: 'Your password must be at least 8 characters.',
+		label: 'Date of Birth',
+		description: 'The date you were born',
 		feedback: {},
 		disabled: false,
-		forgotPasswordLink: '#',
 	},
 	parameters: {
 		design: {
 			type: 'figma',
-			url: links['whitelabel-o3-form--password-input'].figma,
+			url: links['o3-form--date-input'].figma,
 		},
 	},
 	render: args => {
 		return (
-			<PasswordInputTsx
+			<DateInputTsx
 				label={args.label}
 				disabled={args.disabled}
 				description={args.description}
 				feedback={args.feedback}
-				forgotPasswordLink={args.forgotPasswordLink}
+				isDatePicker={args.isDatePicker}
 			/>
 		);
 	},
 };
 
-export const PasswordInputErrorState = {
+export const DateInputErrorState = {
 	args: {
-		label: 'Password',
-		description: 'Your password must be at least 8 characters',
+		label: 'Date of Birth',
+		description: 'The date you were born',
 		feedback: {
-			message: 'Password must be at least 8 characters',
+			message: 'Date must be in DD / MM / YYYY format',
 			type: 'error',
 		},
 		disabled: false,
-		forgotPasswordLink: '#',
 	},
 	parameters: {
 		design: {
 			type: 'figma',
-			url: links['whitelabel-o3-form--password-input-error-state'].figma,
+			url: links['o3-form--date-input-error-state'].figma,
 		},
 	},
 	render: args => {
 		return (
-			<PasswordInputTsx
+			<DateInputTsx
 				label={args.label}
 				disabled={args.disabled}
 				description={args.description}
