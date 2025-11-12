@@ -64,8 +64,68 @@ export const SelectInput = {
 				label={args.label}
 				disabled={args.disabled}
 				description={args.description}
-				feedback={args.feedback}>
+				feedback={args.feedback}
+				length={args.length}>
 				{options}
+			</SelectInputTsx>
+		);
+	},
+};
+
+export const SelectInputShortThree = {
+	args: {
+		label: 'Title',
+		description: 'Printed on the front side of your payment card.',
+		feedback: {},
+		length: 3,
+	},
+	parameters: {
+		design: {
+			type: 'figma',
+			url: links['whitelabel-o3-form--text-input'].figma,
+		},
+	},
+	render: args => {
+		return (
+			<SelectInputTsx
+				label={args.label}
+				disabled={args.disabled}
+				description={args.description}
+				feedback={args.feedback}
+				length={args.length}>
+				<option value="Mr">Mr</option>
+				<option value="Mrs">Mrs</option>
+				<option value="Mx">Mx</option>
+			</SelectInputTsx>
+		);
+	},
+};
+
+export const SelectInputShortOne = {
+	args: {
+		label: 'Initial',
+		description: 'Printed on the front side of your payment card.',
+		feedback: {},
+		length: 1,
+	},
+	parameters: {
+		design: {
+			type: 'figma',
+			url: links['whitelabel-o3-form--text-input'].figma,
+		},
+	},
+	render: args => {
+		return (
+			<SelectInputTsx
+				label={args.label}
+				disabled={args.disabled}
+				description={args.description}
+				feedback={args.feedback}
+				length={args.length}>
+				<option value="A">A</option>
+				<option value="B">B</option>
+				<option value="C">C</option>
+				<option value="M">M</option>
 			</SelectInputTsx>
 		);
 	},

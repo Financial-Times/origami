@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.0](https://github.com/Financial-Times/origami/compare/o3-form-v0.7.3...o3-form-v0.8.0) (2025-11-11)
+
+
+### Features
+
+* introduce short text input ([5fc51e5](https://github.com/Financial-Times/origami/commit/5fc51e5eb411e55e2735757c0787ce758057fb31))
+
 ## [0.7.3](https://github.com/Financial-Times/origami/compare/o3-form-v0.7.2...o3-form-v0.7.3) (2025-11-10)
 
 
