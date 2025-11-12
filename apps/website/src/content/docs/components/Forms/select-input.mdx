@@ -13,6 +13,13 @@ import Example from '../../../../components/Example.astro';
 import Tip from '../../../../components/utils/Tip.astro';
 
 import {default as SelectInputAnatomy} from '../../../../components/forms/anatomy/Select-input.astro';
+import {default as StandardSizeExample} from '../../../../components/forms/examples/Select-input-standard-size.astro';
+import {default as SelectInputSizeThreeExample} from '../../../../components/forms/examples/Select-input-size-three.astro';
+import {default as SelectInputSizeOneExample} from '../../../../components/forms/examples/Select-input-size-one.astro';
+import {default as SelectInputDefaultStateExample} from '../../../../components/forms/examples/Select-input-default-state.astro';
+import {default as SelectInputFocusStateExample} from '../../../../components/forms/examples/Select-input-focus-state.astro';
+import {default as SelectInputErrorStateExample} from '../../../../components/forms/examples/Select-input-error-state.astro';
+import {default as SelectInputDisabledStateExample} from '../../../../components/forms/examples/Select-input-disabled-state.astro';
 
 import '@financial-times/o3-form/css/whitelabel.css';
 import '@financial-times/o3-form/css/internal.css';
@@ -37,9 +44,17 @@ The select component allows users to choose one option from a list of predefined
 
 As layouts adapt to larger screens, flexible container dimensions are applied to form components for better readability. The default width is 4 grid columns (343px on mobile, expanding to 422px on desktop) for an optimized experience.
 
-[//]  # (Component demo)
+<StandardSizeExample brand={props.brand} />
 
 In most cases, the select component follows the standard forms width, which adapts to the layout. However, when the string of character is short, it’s better to use a properly-sized select component:
+
+### Three Characters
+
+<SelectInputSizeThreeExample brand={props.brand} />
+
+### One Character
+
+<SelectInputSizeOneExample brand={props.brand} />
 
 ## Placement in Layouts
 
@@ -97,11 +112,19 @@ Vertical stacking is easier to scan, reduces ambiguity about which label belongs
 
 ### Default
 
+<SelectInputDefaultStateExample brand={props.brand} />
+
 ### Focus
+
+<SelectInputFocusStateExample brand={props.brand} />
 
 ### Error
 
+<SelectInputErrorStateExample brand={props.brand} />
+
 ### Disabled
+
+<SelectInputDisabledStateExample brand={props.brand} />
 
 ## Guidance on Disabled States
 
@@ -110,7 +133,7 @@ Select inputs support a disabled state, but it should be used **sparingly and wi
 * Only use disabled inputs when absolutely necessary, and always provide a clear explanation of why the field is disabled and how it can be enabled.
 * A common acceptable use case is for displaying read-only information that the user should see but not edit.
 
-[//]  # (Example)
+<SelectInputDisabledStateExample brand={props.brand} />
 
 When used without sufficient context, disabled inputs can:
 
@@ -137,8 +160,14 @@ This approach helps users focus only on what they can skip, without having to me
 <Example do title="Do mark optional input fields">
 	<div data-o3-brand={props.brand}>
 		<Form>
-			<SelectInput title={"Your Country"} />
-			<SelectInput title={"How did you hear about us"} attributes={{optional: true}} />
+			<SelectInput label={"Your Country"}>
+				<option value="United Kingdom">United Kingdom</option>
+				<option value="France">France</option>
+			</SelectInput>
+			<SelectInput label={"How did you hear about us"} attributes={{optional: true}}>
+				<option value="United Kingdom">United Kingdom</option>
+				<option value="France">France</option>
+			</SelectInput>
 		</Form>
 	</div>
 </Example>
@@ -152,16 +181,16 @@ Write labels with only the first word capitalized, unless the label includes a p
 This makes labels easier to read at a glance and better aligns with how people naturally process language in user interfaces.
 
 <Example do={false} title="Don't use title case">
-<Form>
-	<SelectInput title="Card Type">
-		<option value="American Express">American Express</option>
-	</SelectInput>
-</Form>
+	<Form>
+		<SelectInput label="Card Type">
+			<option value="American Express">American Express</option>
+		</SelectInput>
+	</Form>
 </Example>
 
 <Example do title="Do use sentence case">
 	<Form>
-		<SelectInput title="Card type">
+		<SelectInput label="Card type">
 			<option value="American Express">American Express</option>
 		</SelectInput>
 	</Form>

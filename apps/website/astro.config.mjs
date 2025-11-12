@@ -15,7 +15,7 @@ export default defineConfig({
 	},
 	vite: {
 		ssr: {
-			noExternal: ['unist-util-visit', '@astrojs/internal-helpers'],
+			noExternal: ['unist-util-visit', '@astrojs/internal-helpers', '@financial-times/o3-form'],
 		},
 		resolve: {
 			alias: {
