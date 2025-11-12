@@ -1,0 +1,17 @@
+input[type="date"].o3-form-text-input {
+	position: relative;
+}
+
+/* Allow webkit browsers to trigger the picker overlay by clicking anywhere in the input field */
+input[type="date"].o3-form-text-input::-webkit-calendar-picker-indicator {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: auto;
+	height: auto;
+	color: transparent;
+	background: var(--o3-icon-calendar) no-repeat right 10px center;
+	background-size: 24px;
+}

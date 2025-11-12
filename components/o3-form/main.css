@@ -2,6 +2,7 @@
 @import './src/css/components/form-field.css';
 @import './src/css/components/feedback.css';
 @import './src/css/components/text-input.css';
+@import './src/css/components/date-input.css';
 @import './src/css/components/checkbox.css';
 @import './src/css/components/radio-button.css';
 @import './src/css/components/error-summary.css';
