@@ -212,9 +212,7 @@ class Autocomplete {
 		if (opts.suggestionTemplate) {
 			this.options.suggestionTemplate = opts.suggestionTemplate;
 		}
-		if (opts.isHighlightCorrespondingToMatch) {
-			this.options.isHighlightCorrespondingToMatch = Boolean(opts.isHighlightCorrespondingToMatch);
-		}
+		this.options.isHighlightCorrespondingToMatch = Boolean(opts.isHighlightCorrespondingToMatch);
 		if (opts.autoselect) {
 			this.options.autoselect = opts.autoselect;
 		}
@@ -298,7 +296,7 @@ class Autocomplete {
 					 * @returns {string|undefined} HTML string to represent a single suggestion.
 					 */
 					suggestion: (option, query) => {
-						const isHighlightCorrespondingToMatch = this.options.isHighlightCorrespondingToMatch || false;
+						const isHighlightCorrespondingToMatch = this.options.isHighlightCorrespondingToMatch;
 
 						// If the suggestionTemplate override option is provided,
 						// use that to render the suggestion.
