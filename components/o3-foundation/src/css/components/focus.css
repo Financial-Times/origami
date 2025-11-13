@@ -2,7 +2,9 @@
 /* focus styles */
 
 :focus,
-:focus-visible {
+:focus-visible,
+.o3-documentation-force-focus input,
+.o3-documentation-force-focus select {
 	--_o3-focus-rings: var(--o3-focus-use-case-ring-inner),
 		var(--o3-focus-use-case-ring-outer);
 	--_o3-focus-outline: var(--o3-focus-use-case-outline-color);
@@ -11,7 +13,11 @@
 [data-o3-theme='inverse']:focus,
 :where([data-o3-theme='inverse']) :focus,
 [data-o3-theme='inverse']:focus-visible,
-:where([data-o3-theme='inverse']) :focus-visible {
+:where([data-o3-theme='inverse']) :focus-visible,
+[data-o3-theme='inverse'].o3-documentation-force-focus input,
+:where([data-o3-theme='inverse']).o3-documentation-force-focus input,
+[data-o3-theme='inverse'].o3-documentation-force-focus select,
+:where([data-o3-theme='inverse']).o3-documentation-force-focus select {
 	--_o3-focus-outline: var(--o3-focus-use-case-outline-inverse-color);
 	--_o3-focus-rings: var(--o3-focus-use-case-ring-inverse-inner),
 		var(--o3-focus-use-case-ring-inverse-outer);
@@ -27,7 +33,9 @@ button:focus,
 [class^='o3'][class*='button']:focus,
 input:focus,
 select:focus,
-textarea:focus {
+textarea:focus,
+.o3-documentation-force-focus input,
+.o3-documentation-force-focus select {
 	box-shadow: var(--_o3-focus-rings);
 	outline: 0;
 }
@@ -39,7 +47,9 @@ textarea:focus {
 	input:focus,
 	select:focus,
 	textarea:focus,
-	:focus {
+	:focus,
+	.o3-documentation-force-focus input,
+	.o3-documentation-force-focus select {
 		box-shadow: unset;
 	}
 
@@ -53,7 +63,9 @@ textarea:focus {
 	[class^='o3'][class*='button']:focus-visible,
 	input:focus-visible,
 	select:focus-visible,
-	textarea:focus-visible {
+	textarea:focus-visible,
+	.o3-documentation-force-focus input,
+	.o3-documentation-force-focus select {
 		box-shadow: var(--_o3-focus-rings);
 		outline: 0;
 	}

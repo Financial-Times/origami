@@ -13,10 +13,10 @@ import {Form, CheckBoxItem} from '@financial-times/o3-form';
 import Tip from '../../../../components/utils/Tip.astro';
 import Example from '../../../../components/Example.astro';
 
-import {default as CheckboxAnatomy} from '../../../../components/forms/anatomy/Checkbox.astro';
+import {default as CheckBoxAnatomy} from '../../../../components/forms/anatomy/Checkbox.astro';
 
-import {default as CheckboxSelectedStates} from '../../../../components/forms/examples/Checkbox-selection-state.astro';
-import {default as CheckboxGroupExample} from '../../../../components/forms/examples/Checkbox-group.astro';
+import {default as CheckBoxSelectedStates} from '../../../../components/forms/examples/Checkbox-selection-state.astro';
+import {default as CheckBoxGroupExample} from '../../../../components/forms/examples/Checkbox-group.astro';
 
 import '@financial-times/o3-form/css/whitelabel.css';
 import '@financial-times/o3-form/css/internal.css';
@@ -41,7 +41,7 @@ Checkboxes allow users to select one or more items from a list or toggle an opti
 
 ## Anatomy
 
-<CheckboxAnatomy />
+<CheckBoxAnatomy />
 
 1. Label: Indicates the purpose of the entire group of checkboxes. It provides an instruction or context for the available options.
 2. Description: Provides additional context/instructions about the checkbox. It helps users understand what is required or gives examples of the kind of information they should enter.
@@ -52,14 +52,14 @@ Checkboxes allow users to select one or more items from a list or toggle an opti
 
 ### Selection states
 
-<CheckboxSelectedStates brand={props.brand} />
+<CheckBoxSelectedStates brand={props.brand} />
 Checkboxes have three selection states: Unchecked, Checked, and Indeterminate. The
 indeterminate state is typically used to indicate a partially selected group of options
 or when some but not all sub-options are selected.
 
 ### Group Related Checkboxes
 
-<CheckboxGroupExample brand={props.brand} />
+<CheckBoxGroupExample brand={props.brand} />
 - When possible, group related checkboxes together and provide a clear heading or label
 to describe the group. This helps users quickly understand what the options are related
 to.
