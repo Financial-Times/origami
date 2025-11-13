@@ -108,7 +108,9 @@ describe("Autocomplete", function () {
 				});
 				assert.instanceOf(autocomplete, Autocomplete);
 
-				assert.deepEqual(autocomplete.options, {});
+				assert.deepEqual(autocomplete.options, {
+					isHighlightCorrespondingToMatch: false
+				});
 			});
 		});
 
@@ -389,7 +391,11 @@ describe("Autocomplete", function () {
 
 			it('the unsupported options are not set on this.options', () => {
 				assert.instanceOf(autocomplete, Autocomplete);
-				assert.deepEqual(Object.keys(autocomplete.options), ['source', 'defaultValue']);
+				assert.deepEqual(Object.keys(autocomplete.options), [
+					'source',
+					'defaultValue',
+					'isHighlightCorrespondingToMatch',
+				]);
 				assert.isFunction(autocomplete.options.source,);
 			});
 
