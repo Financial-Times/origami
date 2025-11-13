@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0](https://github.com/Financial-Times/origami/compare/o-autocomplete-v2.0.0...o-autocomplete-v2.1.0) (2025-11-13)
+
+
+### Features
+
+* Add o-autocomplete configurable highlighting ([b0b7d01](https://github.com/Financial-Times/origami/commit/b0b7d015ec9c2fe07c18ab57bddafb49468bc3c1))
+
 ## [2.0.0](https://github.com/Financial-Times/origami/compare/o-autocomplete-v1.10.0...o-autocomplete-v2.0.0) (2025-02-20)
 
 ### ⚠ BREAKING CHANGES
