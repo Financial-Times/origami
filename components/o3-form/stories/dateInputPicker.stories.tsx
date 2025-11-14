@@ -1,12 +1,12 @@
 import type {Meta} from '@storybook/react';
 import links from '@financial-times/o3-figma-sb-links';
 
-import {DateInput as DateInputTsx} from '../src/tsx/DateInput';
+import {DateInputPicker as DateInputPickerTsx} from '../src/tsx/DateInputPicker';
 import '../src/css/brands/core.css';
 
-const meta: Meta<typeof DateInputTsx> = {
+const meta: Meta<typeof DateInputPickerTsx> = {
 	title: 'o3-form',
-	component: DateInputTsx,
+	component: DateInputPickerTsx,
 	tags: [
 		'experimental',
 		'core',
@@ -34,7 +34,7 @@ const meta: Meta<typeof DateInputTsx> = {
 	},
 } as Meta;
 
-export const DateInput = {
+export const DateInputPicker = {
 	args: {
 		label: 'Date of Birth',
 		description: 'The date you were born',
@@ -49,7 +49,7 @@ export const DateInput = {
 	},
 	render: args => {
 		return (
-			<DateInputTsx
+			<DateInputPickerTsx
 				label={args.label}
 				disabled={args.disabled}
 				description={args.description}
@@ -59,7 +59,7 @@ export const DateInput = {
 	},
 };
 
-export const DateInputErrorState = {
+export const DateInputPickerErrorState = {
 	args: {
 		label: 'Date of Birth',
 		description: 'The date you were born',
@@ -77,10 +77,11 @@ export const DateInputErrorState = {
 	},
 	render: args => {
 		return (
-			<DateInputTsx
+			<DateInputPickerTsx
 				label={args.label}
 				disabled={args.disabled}
 				description={args.description}
+				length={args.length}
 				feedback={args.feedback}
 			/>
 		);
