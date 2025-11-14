@@ -6,4 +6,6 @@ export * from './RadioButton';
 export * from './Error-summary';
 export * from './PasswordInput';
 export * from './SelectInput';
+export * from './DateInput';
+export * from './DateInputPicker';
 export * from './TextInput';

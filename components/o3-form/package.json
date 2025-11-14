@@ -43,5 +43,8 @@
 	"engines": {
 		"npm": ">7"
 	},
-	"private": false
+	"private": false,
+	"dependencies": {
+		"imask": "^7.6.1"
+	}
 }

@@ -1,6 +1,3 @@
-// src/js/PasswordInputToggle.js
-// @ts-check
-
 /**
  * @typedef {Object} PasswordInputOptions
  * @property {string} [toggleButtonId]

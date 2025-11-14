@@ -639,6 +639,14 @@
   "o3-form--check-box-group": {
     "sb": "?path=/story/o3-form--check-box-group"
   },
+  "o3-form--date-input": {
+    "sb": "?path=/story/o3-form--date-input",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2F5ATknbGociZMlnNXX4sy4f%2FWhitelabel---Origami--o3-%3Fnode-id%3D11563-275%26t%3D3LEwbWsQSmXwphOc-4"
+  },
+  "o3-form--date-input-error-state": {
+    "sb": "?path=/story/o3-form--date-input-error-state",
+    "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2F5ATknbGociZMlnNXX4sy4f%2FWhitelabel---Origami--o3-%3Fnode-id%3D11563-275%26t%3D3LEwbWsQSmXwphOc-4"
+  },
   "o3-form--error-summary": {
     "sb": "?path=/story/o3-form--error-summary"
   },
@@ -659,6 +667,12 @@
   },
   "o3-form--select-input-error-state": {
     "sb": "?path=/story/o3-form--select-input-error-state"
+  },
+  "o3-form--select-input-short-one": {
+    "sb": "?path=/story/o3-form--select-input-short-one"
+  },
+  "o3-form--select-input-short-three": {
+    "sb": "?path=/story/o3-form--select-input-short-three"
   },
   "o3-form--short-text-input": {
     "sb": "?path=/story/o3-form--short-text-input"
