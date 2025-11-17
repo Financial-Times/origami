@@ -28,7 +28,8 @@
 		"README.md"
 	],
 	"scripts": {
-		"build": "bash ../../scripts/component/build-o3.bash o3-foundation"
+		"build": "bash ../../scripts/component/build-o3.bash o3-foundation",
+		"check:type": "tsc --noEmit"
 	},
 	"engines": {
 		"npm": ">7"

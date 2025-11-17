@@ -31,7 +31,8 @@
 		"README.md"
 	],
 	"scripts": {
-		"build": "bash ../../scripts/component/build-o3.bash o3-form"
+		"build": "bash ../../scripts/component/build-o3.bash o3-form",
+		"check:type": "tsc --noEmit"
 	},
 	"peerDependencies": {
 		"@financial-times/o-utils": "^2.2.1",

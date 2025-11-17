@@ -30,7 +30,8 @@
 		"README.md"
 	],
 	"scripts": {
-		"build": "bash ../../scripts/component/build-o3.bash o3-tooltip"
+		"build": "bash ../../scripts/component/build-o3.bash o3-tooltip",
+		"check:type": "tsc --noEmit"
 	},
 	"peerDependencies": {
 		"@financial-times/o3-foundation": "^3.0.0"

@@ -52,6 +52,7 @@ jobs:
         run: npm ci
       - run: npm run -w ${{ matrix.component }} lint --if-present
       - run: npm run -w ${{ matrix.component }} test --if-present
+      - run: npm run -w ${{ matrix.component }} check:type --if-present
   test-results:
     runs-on: ubuntu-latest
     needs: test

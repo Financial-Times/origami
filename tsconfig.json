@@ -1,13 +1,19 @@
 {
-	"compilerOptions": {
-		"strict": true,
-		"forceConsistentCasingInFileNames": true,
-		"jsx": "react-jsx",
-		"esModuleInterop": true,
-		"skipLibCheck": true,
-		"target": "ES2021",
-		"module": "ES2020",
-		"moduleResolution": "Bundler",
-	},
-	"exclude": ["node_modules"]
+  "compilerOptions": {
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "target": "ES2021",
+    "module": "ES2020",
+    "moduleResolution": "Bundler"
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx"
+  ]
 }
