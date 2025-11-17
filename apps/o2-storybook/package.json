@@ -15,6 +15,7 @@
     "@babel/preset-env": "^7.22.15",
     "@babel/preset-react": "^7.22.15",
     "@babel/preset-typescript": "^7.22.15",
+    "@financial-times/o3-foundation": "^3.11.1",
     "@storybook/addon-designs": "^8.2.1",
     "@storybook/addon-essentials": "^8.6.7",
     "@storybook/addon-interactions": "^8.6.7",

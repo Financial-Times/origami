@@ -6,6 +6,7 @@ import contentPackageData from './__fixtures__/content-package.json';
 import contentPackageItemData from './__fixtures__/package-item.json';
 import promotedData from './__fixtures__/promoted.json';
 import topStoryData from './__fixtures__/top-story.json';
+import heroImageData from './__fixtures__/hero-image.json';
 import videoData from './__fixtures__/video.json';
 
 const {SmallHeavy, Hero, TopStoryLandscape, HeroVideo} = presets;
@@ -27,3 +28,5 @@ export const topStoryArgs = {
 	...TopStoryLandscape,
 };
 export const videoArgs = {...videoData, ...HeroVideo};
+
+export const heroImageArgs = {...heroImageData, ...Hero};
