@@ -23,7 +23,8 @@
 		"README.md"
 	],
 	"scripts": {
-		"build": "bash ../../scripts/component/build-o3.bash o3-button"
+		"build": "bash ../../scripts/component/build-o3.bash o3-button",
+		"check:type": "tsc --noEmit"
 	},
 	"engines": {
 		"npm": ">7"

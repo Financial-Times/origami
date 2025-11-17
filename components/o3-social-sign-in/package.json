@@ -24,7 +24,8 @@
 		"social-sign-in"
 	],
 	"scripts": {
-		"build": "bash ../../scripts/component/build-o3.bash o3-social-sign-in"
+		"build": "bash ../../scripts/component/build-o3.bash o3-social-sign-in",
+		"check:type": "tsc --noEmit"
 	},
 	"author": "",
 	"license": "ISC",

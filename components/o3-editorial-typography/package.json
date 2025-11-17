@@ -24,7 +24,8 @@
 	"module": "./esm/index.js",
 	"types": "./build/types/index.d.ts",
 	"scripts": {
-		"build": "bash ../../scripts/component/build-o3.bash o3-editorial-typography"
+		"build": "bash ../../scripts/component/build-o3.bash o3-editorial-typography",
+		"check:type": "tsc --noEmit"
 	},
 	"engines": {
 		"npm": ">7"
