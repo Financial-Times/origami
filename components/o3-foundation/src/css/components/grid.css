@@ -5,7 +5,7 @@
 	--o3-grid-columns: 4;
 	--o3-grid-gap: 16px;
 	--_o3-grid-column-width: calc(
-		(100dvw - var(--_o3-grid-gutters) * var(--o3-grid-gap)) /
+		(100vw - var(--_o3-grid-gutters) * var(--o3-grid-gap)) /
 		var(--o3-grid-columns)
 	);
 
