@@ -5,8 +5,8 @@
 	--o3-grid-columns: 4;
 	--o3-grid-gap: 16px;
 	--_o3-grid-column-width: calc(
-			(100vw - var(--_o3-grid-gutters) * var(--o3-grid-gap)) /
-			var(--o3-grid-columns)
+		(100vw - var(--_o3-grid-gutters) * var(--o3-grid-gap)) /
+		var(--o3-grid-columns)
 	);
 
 	@media screen and (min-width: 740px) {
@@ -17,8 +17,8 @@
 
 		.o3-grid * {
 			--o3-grid-columns-to-span-width: calc(
-					((var(--_o3-grid-column-width) + var(--o3-grid-gap)) *
-					var(--o3-grid-columns-to-span-count)) - var(--o3-grid-gap) - (var(--_o3-grid-bleed-size) / 2)
+				((var(--_o3-grid-column-width) + var(--o3-grid-gap)) *
+				var(--o3-grid-columns-to-span-count)) - var(--o3-grid-gap) - (var(--_o3-grid-bleed-size) / 2)
 			);
 		}
 	}
@@ -31,8 +31,8 @@
 
 		.o3-grid * {
 			--o3-grid-columns-to-span-width: calc(
-					((var(--_o3-grid-column-width) + var(--o3-grid-gap)) *
-					var(--o3-grid-columns-to-span-count)) - var(--o3-grid-gap)
+				((var(--_o3-grid-column-width) + var(--o3-grid-gap)) *
+				var(--o3-grid-columns-to-span-count)) - var(--o3-grid-gap)
 			);
 		}
 	}
@@ -41,16 +41,16 @@
 		--o3-grid-columns: 12;
 		--o3-grid-template: 1fr repeat(var(--o3-grid-columns), var(--_o3-grid-column-width)) 1fr;
 		--_o3-grid-column-width: calc(
-				(1320px - var(--_o3-grid-gutters) * var(--o3-grid-gap)) /
-				var(--o3-grid-columns)
+			(1320px - var(--_o3-grid-gutters) * var(--o3-grid-gap)) /
+			var(--o3-grid-columns)
 		);
 	}
 }
 
 .o3-grid * {
 	--o3-grid-columns-to-span-width: calc(
-			((var(--_o3-grid-column-width) + var(--o3-grid-gap)) *
-			var(--o3-grid-columns-to-span-count)) - var(--o3-grid-gap)
+		((var(--_o3-grid-column-width) + var(--o3-grid-gap)) *
+		var(--o3-grid-columns-to-span-count)) - var(--o3-grid-gap)
 	);
 }
 
