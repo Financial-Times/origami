@@ -1,5 +1,15 @@
 # Changelog
 
+## [3.11.3](https://github.com/Financial-Times/origami/compare/o3-foundation-v3.11.2...o3-foundation-v3.11.3) (2025-11-18)
+
+
+### Bug Fixes
+
+* lint css ([2c016a3](https://github.com/Financial-Times/origami/commit/2c016a31e210cf8bedfc1f88b2f1d6dcf859ae38))
+* use dvw for grid width ([164a628](https://github.com/Financial-Times/origami/commit/164a628362f45bb9cb284f9db12342145c581cc3))
+* use dvw for grid width ([d558069](https://github.com/Financial-Times/origami/commit/d558069596fffa7ba14bbce169edc9824a0a5f88))
+* use dvw for grid width ([c9e9aa3](https://github.com/Financial-Times/origami/commit/c9e9aa3d6d5087579248ff33ec868b90412752a6))
+
 ## [3.11.2](https://github.com/Financial-Times/origami/compare/o3-foundation-v3.11.1...o3-foundation-v3.11.2) (2025-11-18)
 
 
