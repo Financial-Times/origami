@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.11.2](https://github.com/Financial-Times/origami/compare/o3-foundation-v3.11.1...o3-foundation-v3.11.2) (2025-11-18)
+
+
+### Bug Fixes
+
+* fix grid constraints at 1320px+ ([a11ac85](https://github.com/Financial-Times/origami/commit/a11ac8574b398cb06cd9ddb2899b8eae773828a0))
+* reintroduce 1368px breakpoint for XL ([34d5629](https://github.com/Financial-Times/origami/commit/34d5629e4c593c07b4857a263fe15d959cff09a1))
+
 ## [3.11.1](https://github.com/Financial-Times/origami/compare/o3-foundation-v3.11.0...o3-foundation-v3.11.1) (2025-11-04)
 
 

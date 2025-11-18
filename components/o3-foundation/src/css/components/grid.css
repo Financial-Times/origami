@@ -24,10 +24,16 @@
 	}
 
 	@media screen and (min-width: 1024px) {
-		--o3-grid-template: 0px repeat(var(--o3-grid-columns), 1fr) 0px;
-		--o3-grid-area: 'bleed-left content-start . . . . . . . . . . content-end bleed-right';
 		--o3-grid-columns: 12;
 		--o3-grid-gap: 24px;
+		--o3-grid-area: 'bleed-left content-start . . . . . . . . . . content-end bleed-right';
+		
+		--o3-grid-template: 0px repeat(var(--o3-grid-columns), 1fr) 0px;
+		
+		--_o3-grid-column-width: calc(
+			(1320px - var(--_o3-grid-gutters) * var(--o3-grid-gap)) /
+			var(--o3-grid-columns)
+		);
 
 		.o3-grid * {
 			--o3-grid-columns-to-span-width: calc(
@@ -36,12 +42,14 @@
 			);
 		}
 	}
-
-	@media screen and (min-width: 1366px) {
+	
+	@media screen and (min-width: 1368px) {
 		--o3-grid-columns: 12;
-		--o3-grid-template: 1fr repeat(var(--o3-grid-columns), var(--_o3-grid-column-width)) 1fr;
+		--o3-grid-template: minmax(0, auto)
+			repeat(var(--o3-grid-columns), var(--_o3-grid-column-width))
+			minmax(0, auto);
 		--_o3-grid-column-width: calc(
-			(1320px - var(--_o3-grid-gutters) * var(--o3-grid-gap)) /
+			(1320px - (var(--_o3-grid-gutters) - 2) * var(--o3-grid-gap)) /
 			var(--o3-grid-columns)
 		);
 	}
