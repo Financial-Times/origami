@@ -16,18 +16,19 @@ import accessibleAutocomplete from '@financial-times/accessible-autocomplete';
 /**
  * @param {string} suggestion - Text which is going to be suggested to the user
  * @param {string} query - Text which was typed into the autocomplete text input field by the user
+ * @param {boolean} isHighlightCorrespondingToMatch - Boolean to determine whether matching or non-matching characters should be highlighted.
  * @returns {CharacterHighlight[]} An array of arrays which contain two items, the first is the character in the suggestion, the second is a boolean which indicates whether the character should be highlighted.
  */
-function highlightSuggestion(suggestion, query) {
+function highlightSuggestion(suggestion, query, isHighlightCorrespondingToMatch) {
 	const result = suggestion.split('');
 
 	const matchIndex = suggestion.toLocaleLowerCase().indexOf(query.toLocaleLowerCase());
 	return result.map(function(character, index) {
-		let shouldHighlight = true;
+		let shouldHighlight = !isHighlightCorrespondingToMatch;
 		const hasMatched = matchIndex > -1;
 		const characterIsWithinMatch = index >= matchIndex && index <= matchIndex + query.length - 1;
 		if (hasMatched && characterIsWithinMatch) {
-			shouldHighlight = false;
+			shouldHighlight = isHighlightCorrespondingToMatch;
 		}
 		return [character, shouldHighlight];
 	});
@@ -182,6 +183,7 @@ function initClearButton(instance) {
  * @property {MapOptionToSuggestedValue} [mapOptionToSuggestedValue] - Function which transforms a suggestion before rendering.
  * @property {onConfirm} [onConfirm] - Function which is called when the user selects an option
  * @property {SuggestionTemplate} [suggestionTemplate] - Function to override how a suggestion item is rendered.
+ * @property {boolean} [isHighlightCorrespondingToMatch] - Boolean to determine whether matching or non-matching characters should be highlighted.
  * @property {boolean} [autoselect] - Boolean to specify whether first option in suggestions list is highlighted.
  */
 
@@ -210,6 +212,7 @@ class Autocomplete {
 		if (opts.suggestionTemplate) {
 			this.options.suggestionTemplate = opts.suggestionTemplate;
 		}
+		this.options.isHighlightCorrespondingToMatch = Boolean(opts.isHighlightCorrespondingToMatch);
 		if (opts.autoselect) {
 			this.options.autoselect = opts.autoselect;
 		}
@@ -293,10 +296,17 @@ class Autocomplete {
 					 * @returns {string|undefined} HTML string to represent a single suggestion.
 					 */
 					suggestion: (option, query) => {
+						const isHighlightCorrespondingToMatch = this.options.isHighlightCorrespondingToMatch;
+
 						// If the suggestionTemplate override option is provided,
 						// use that to render the suggestion.
 						if(typeof this.options.suggestionTemplate === 'function') {
-							return this.options.suggestionTemplate(option, query);
+							return this.options.suggestionTemplate(
+								option,
+								query,
+								highlightSuggestion,
+								isHighlightCorrespondingToMatch
+							);
 						}
 						if (typeof option === 'object') {
 							// If the `mapOptionToSuggestedValue` function is defined
@@ -315,7 +325,7 @@ class Autocomplete {
 							throw new Error(`The option trying to be displayed as a suggestion is not a string, it is "${typeof option}". o-autocomplete can only display strings as suggestions. Define a \`mapOptionToSuggestedValue\` function to convert the option into a string to be used as the suggestion.`);
 						}
 
-						return this.suggestionTemplate(option);
+						return this.suggestionTemplate(option, isHighlightCorrespondingToMatch);
 					},
 					/**
 					 * Used when a suggestion is selected, the return value of this will be used as the value for the input element.
@@ -387,15 +397,20 @@ class Autocomplete {
 	 * Used when rendering suggestions, the return value of this will be used as the innerHTML for a single suggestion.
 	 *
 	 * @param {string} suggestedValue The suggestion to apply the template with.
+	 * @param {boolean} isHighlightCorrespondingToMatch Boolean to determine whether matching or non-matching characters should be highlighted.
 	 * @returns {string} HTML string to be represent a single suggestion.
 	 */
-	suggestionTemplate (suggestedValue) {
+	suggestionTemplate (suggestedValue, isHighlightCorrespondingToMatch) {
 		// o-autocomplete has a UI design to highlight characters in the suggestions.
 		const input = this.autocompleteEl.querySelector('input');
 		/**
 		 * @type {CharacterHighlight[]} An array of arrays which contain two items, the first is the character in the suggestion, the second is a boolean which indicates whether the character should be highlighted.
 		 */
-		const characters = highlightSuggestion(suggestedValue, input ? input.value : suggestedValue);
+		const characters = highlightSuggestion(
+			suggestedValue,
+			input ? input.value : suggestedValue,
+			isHighlightCorrespondingToMatch
+		);
 
 		let output = '';
 		for (const [character, shoudHighlight] of characters) {
