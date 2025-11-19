@@ -27,6 +27,6 @@ function ButtonPreview() {
 		</div>
 	);
 }
-export const filePath = 'src/components/forms/preview/Checkbox-group.tsx';
+export const filePath = 'src/components/forms/preview/CheckBox-group.tsx';
 
 export {ButtonPreview as preview};
