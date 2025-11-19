@@ -208,6 +208,13 @@ declare module 'astro:content' {
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
+"components/Forms/select-input.mdx": {
+	id: "components/Forms/select-input.mdx";
+  slug: "components/forms/select-input";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".mdx"] };
 "components/Forms/text-input.mdx": {
 	id: "components/Forms/text-input.mdx";
   slug: "components/forms/text-input";
