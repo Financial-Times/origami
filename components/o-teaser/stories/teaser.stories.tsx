@@ -2,7 +2,17 @@ import parse from 'html-react-parser';
 import DOMPurify from 'dompurify';
 import {ComponentStory, ComponentMeta} from '@storybook/react';
 import {Teaser} from '../src/tsx/teaser';
+
 import './teaser.scss';
+
+
+// Include o3 foundation. This makes our demos replicate the setup teams that have migrated to O3 have/
+import '@financial-times/o3-foundation/css/core.css';
+import '@financial-times/o3-foundation/css/professional.css';
+import '@financial-times/o3-foundation/css/internal.css';
+import '@financial-times/o3-foundation/css/sustainable-views.css';
+import '@financial-times/o3-foundation/css/whitelabel.css';
+
 import {
 	articleArgs,
 	contentPackageArgs,
@@ -12,6 +22,7 @@ import {
 	promotedArgs,
 	topStoryArgs,
 	videoArgs,
+	heroImageArgs
 } from './args';
 
 import {argTypes} from './arg-types';
@@ -24,6 +35,13 @@ export default {
 	title: 'Maintained/o-teaser',
 	component: Teaser,
 	parameters: {},
+	decorators: [
+		Story => (
+			<div data-o3-brand="core">
+				<Story />
+			</div>
+		),
+	],
 } as ComponentMeta<typeof Teaser>;
 
 const Story: ComponentStory<typeof Teaser> = args => {
@@ -227,6 +245,35 @@ export const Video: ComponentStory<typeof Teaser> = Story.bind({});
 Video.args = videoArgs;
 Video.argTypes = argTypes;
 Video.parameters = {
+	controls: {
+		exclude: [
+			'relatedLinks',
+			'headshot',
+			'imageLazyLoad',
+			'parentId',
+			'parentLabel',
+			'headlineTesting',
+			'promotedSuffixText',
+			'promotedPrefixText',
+			'relativeUrl',
+			'showCustomSlot',
+			'customSlot',
+			'showRelatedLinks',
+			'showHeadshot',
+			'showStandfirst',
+			'showStatus',
+			'showImage',
+			'indicators',
+			'altTitle',
+			'altStandfirst',
+		],
+	},
+};
+
+export const HeroImage: ComponentStory<typeof Teaser> = Story.bind({});
+HeroImage.args = heroImageArgs;
+HeroImage.argTypes = argTypes;
+HeroImage.parameters = {
 	controls: {
 		exclude: [
 			'relatedLinks',
