@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.9.0](https://github.com/Financial-Times/origami/compare/o3-form-v0.8.0...o3-form-v0.9.0) (2025-11-20)
+
+
+### Features
+
+* align checkbox descriptions to designs ([e93134b](https://github.com/Financial-Times/origami/commit/e93134b15d203b7738faf65281a6bcef04a76520))
+* introduce date input ([d040199](https://github.com/Financial-Times/origami/commit/d0401999236aeb9b2af28adccece3b997f18fe89))
+* introduce date input using native picker ([ab8a888](https://github.com/Financial-Times/origami/commit/ab8a888033107a918697bbcb508d98674cb24fd1))
+
 ## [0.8.0](https://github.com/Financial-Times/origami/compare/o3-form-v0.7.3...o3-form-v0.8.0) (2025-11-11)
 
 
