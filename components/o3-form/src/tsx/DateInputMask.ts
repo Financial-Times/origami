@@ -17,7 +17,8 @@ export class DateInputMask {
 		this._input = element;
 
 		IMask(this._input, {
-			mask: 'd{/}m{/}Y',
+			mask: Date,
+			pattern: 'd{/}m{/}Y',
 			blocks: {
 				d: {
 					mask: IMask.MaskedRange,
@@ -33,24 +34,21 @@ export class DateInputMask {
 				},
 				Y: {
 					mask: IMask.MaskedRange,
-					from: 0,
+					from: 1000,
 					to: 9999,
 					maxLength: 4,
 				},
 			},
-			format: date => {
-				let day = date.getDate();
-				let month = date.getMonth() + 1;
+			format: (date: Date) => {
+				let day = String(date.getDate()).padStart(2, '0');
+				let month = String(date.getMonth() + 1).padStart(2, '0');
 				const year = date.getFullYear();
-
-				if (day < 10) day = '0' + day;
-				if (month < 10) month = '0' + month;
 
 				return [day, month, year].join('/');
 			},
-			parse: str => {
-				const dayMonthYear = str.split('/');
-				return new Date(dayMonthYear[0], dayMonthYear[1] - 1, dayMonthYear[2]);
+			parse: (str: string) => {
+				const [d,m,y] = str.split('/');
+				return new Date( parseInt(y, 10),parseInt(m, 10) - 1, parseInt(d), );
 			},
 			lazy: false,
 		});
