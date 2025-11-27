@@ -1,5 +1,12 @@
 # Changelog
 
+## [11.0.2](https://github.com/Financial-Times/origami/compare/o-share-v11.0.1...o-share-v11.0.2) (2025-11-27)
+
+
+### Bug Fixes
+
+* Make label an optional property in SocialIconProps type to fix typescript error and make prop types compatible ([3d31960](https://github.com/Financial-Times/origami/commit/3d3196039f77b4a4e7cb08c409f2438122d07e9f))
+
 ## [11.0.1](https://github.com/Financial-Times/origami/compare/o-share-v11.0.0...o-share-v11.0.1) (2025-06-30)
 
 
