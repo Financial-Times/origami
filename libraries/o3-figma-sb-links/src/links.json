@@ -647,6 +647,12 @@
     "sb": "?path=/story/o3-form--date-input-error-state",
     "figma": "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2F5ATknbGociZMlnNXX4sy4f%2FWhitelabel---Origami--o3-%3Fnode-id%3D11563-275%26t%3D3LEwbWsQSmXwphOc-4"
   },
+  "o3-form--date-input-picker": {
+    "sb": "?path=/story/o3-form--date-input-picker"
+  },
+  "o3-form--date-input-picker-error-state": {
+    "sb": "?path=/story/o3-form--date-input-picker-error-state"
+  },
   "o3-form--error-summary": {
     "sb": "?path=/story/o3-form--error-summary"
   },
