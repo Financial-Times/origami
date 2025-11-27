@@ -1,10 +1,6 @@
-import {iconMap} from "./svgComponents";
+import {iconMap} from './svgComponents';
 
-type IconType =
-	| "x"
-	| "facebook"
-	| "linkedin"
-	| "whatsapp"
+type IconType = 'x' | 'facebook' | 'linkedin' | 'whatsapp';
 
 export type UrlProps = {
 	url: string;
@@ -12,7 +8,7 @@ export type UrlProps = {
 	titleExtra: string;
 	summary: string;
 	relatedXAccounts: string;
-}
+};
 type ShareIconProps = {
 	icon: IconType;
 	urlProps: UrlProps;
@@ -20,15 +16,10 @@ type ShareIconProps = {
 	label?: string;
 };
 
-export function ShareIcon({
-							  icon,
-							  showLabel,
-							  label,
-							  urlProps,
-						  }: ShareIconProps) {
+export function ShareIcon({icon, showLabel, label, urlProps}: ShareIconProps) {
 	const listItemClassNames = showLabel
-		? "o-share__action o-share__action--labelled"
-		: "o-share__action";
+		? 'o-share__action o-share__action--labelled'
+		: 'o-share__action';
 	const iconProps = {icon, showLabel, label};
 	return (
 		<li className={listItemClassNames}>
@@ -39,7 +30,7 @@ export function ShareIcon({
 
 type SocialIconProps = {
 	icon: IconType;
-	label: string;
+	label?: string;
 	url: string;
 	title: string;
 	titleExtra: string;
@@ -48,13 +39,13 @@ type SocialIconProps = {
 };
 
 function SocialIcon({
-						icon,
-						url,
-						title,
-						titleExtra,
-						summary,
-						relatedXAccounts,
-					}: SocialIconProps) {
+	icon,
+	url,
+	title,
+	titleExtra,
+	summary,
+	relatedXAccounts,
+}: SocialIconProps) {
 	return (
 		<a
 			className={`o-share__icon o-share__icon--${icon}`}
@@ -68,8 +59,7 @@ function SocialIcon({
 				},
 				icon
 			)}
-			rel="noopener"
-		>
+			rel="noopener">
 			<div className="o-share__icon__image">{iconMap[icon]}</div>
 			<span className="o-share__text">
 				{generateDescriptiveLinkText(title, icon)}
@@ -93,12 +83,11 @@ function generateDescriptiveLinkText(title: string, socialNetwork: IconType) {
 }
 
 interface GenerateSocialUrlConfig {
-	url: string,
-	title: string,
-	titleExtra: string
-	summary: string,
-	relatedXAccounts: string
-
+	url: string;
+	title: string;
+	titleExtra: string;
+	summary: string;
+	relatedXAccounts: string;
 }
 
 function generateSocialUrl(
@@ -109,9 +98,7 @@ function generateSocialUrl(
 	const title = encodeURIComponent(config.title);
 	const titleExtra = encodeURIComponent(config.titleExtra);
 	const summary = encodeURIComponent(config.summary);
-	const relatedXAccounts = encodeURIComponent(
-		config.relatedXAccounts
-	);
+	const relatedXAccounts = encodeURIComponent(config.relatedXAccounts);
 
 	// It seems like next article is not using pinterest and not sure how link or enterprise sharing is used and we might want to add something for the save button
 	const socialUrls = {
