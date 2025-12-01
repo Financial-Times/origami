@@ -609,7 +609,7 @@ class Overlay {
 		this.height = this.getHeight();
 
 		// E.g. viewport dimension <= overlay dimension
-		if (size <= this[dimension]) {
+		if (size <= this[dimension] - 1) {
 			this.wrapper.classList.add('o-overlay--full-' + dimension);
 			this.wrapper.style[edge] = '0';
 			this.wrapper.style['margin' + utils.capitalise(edge)] = 0;
