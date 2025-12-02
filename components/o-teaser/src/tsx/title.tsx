@@ -31,7 +31,7 @@ export default ({
 				url={displayUrl}
 				attrs={{
 					'data-trackable': 'heading-link',
-					className: 'js-teaser-heading-link o3-revert-focus',
+					className: 'js-teaser-heading-link',
 					'aria-label': ariaLabel,
 				}}>
 				{displayTitle}

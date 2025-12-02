@@ -244,6 +244,7 @@
 		// polyfill
 		&.o-teaser *:focus-visible,
 		&.o-teaser *:focus {
+			outline: revert;
 			outline-color: currentColor;
 		}
 
