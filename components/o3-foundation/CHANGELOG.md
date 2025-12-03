@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.12.0](https://github.com/Financial-Times/origami/compare/o3-foundation-v3.11.3...o3-foundation-v3.12.0) (2025-12-03)
+
+
+### Features
+
+* introduce clock, image, question, thumbs down and thumbs up icon ([19afd35](https://github.com/Financial-Times/origami/commit/19afd35c01835bf5560fd5ab5d0594b150a4f7a6))
+* introduce clock, image, question, thumbs down and thumbs up icon to o3-button ([5436329](https://github.com/Financial-Times/origami/commit/54363295bf2f3569f4ff3b38a9f679d9c802685f))
+
 ## [3.11.3](https://github.com/Financial-Times/origami/compare/o3-foundation-v3.11.2...o3-foundation-v3.11.3) (2025-11-18)
 
 
