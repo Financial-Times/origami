@@ -92,6 +92,8 @@
   --o3-color-use-case-error-background: rgba(204, 0, 0, 0.06);
   --o3-color-use-case-success-background: #d7f0d1;
   --o3-color-use-case-success-foreground: #00572c;
+  --o3-color-use-case-header-coving-text: #262a33;
+  --o3-color-use-case-header-coving-background: #c0efd8;
   --o3-spacing-5xs: 0.25rem;
   --o3-spacing-4xs: 0.5rem;
   --o3-spacing-3xs: 0.75rem;
