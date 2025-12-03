@@ -539,8 +539,16 @@
 	white-space: nowrap;
 }
 
+.o3-button-icon.o3-button-icon--clock::before {
+	--o3-button-icon: var(--o3-icon-clock);
+}
+
 .o3-button-icon.o3-button-icon--cross::before {
 	--o3-button-icon: var(--o3-icon-cross);
+}
+
+.o3-button-icon.o3-button-icon--image::before {
+	--o3-button-icon: var(--o3-icon-image);
 }
 
 .o3-button-icon.o3-button-icon--list::before {
@@ -559,11 +567,20 @@
 	--o3-button-icon: var(--o3-icon-outside-page);
 }
 
-.o3-button-icon.o3-button-icon--upload::before {
-	--o3-button-icon: var(--o3-icon-upload);
+.o3-button-icon.o3-button-icon--question::before {
+	--o3-button-icon: var(--o3-icon-question);
 }
+
 .o3-button-icon.o3-button-icon--tick::before {
 	--o3-button-icon: var(--o3-icon-tick);
+}
+
+.o3-button-icon.o3-button-icon--thumbs-down::before {
+	--o3-button-icon: var(--o3-icon-thumbs-down);
+}
+
+.o3-button-icon.o3-button-icon--thumbs-up::before {
+	--o3-button-icon: var(--o3-icon-thumbs-up);
 }
 
 .o3-button-icon.o3-button-icon--settings::before {
@@ -639,4 +656,8 @@
 
 .o3-button-icon.o3-button-icon--radar::before {
 	--o3-button-icon: var(--o3-icon-radar);
+}
+
+.o3-button-icon.o3-button-icon--upload::before {
+	--o3-button-icon: var(--o3-icon-upload);
 }
