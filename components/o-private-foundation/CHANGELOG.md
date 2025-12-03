@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.9.0](https://github.com/Financial-Times/origami/compare/o-private-foundation-v1.8.0...o-private-foundation-v1.9.0) (2025-12-03)
+
+
+### Features
+
+* introduce clock, image, question, thumbs down and thumbs up icon ([19afd35](https://github.com/Financial-Times/origami/commit/19afd35c01835bf5560fd5ab5d0594b150a4f7a6))
+* introduce clock, image, question, thumbs down and thumbs up icon to o3-button ([5436329](https://github.com/Financial-Times/origami/commit/54363295bf2f3569f4ff3b38a9f679d9c802685f))
+
 ## [1.8.0](https://github.com/Financial-Times/origami/compare/o-private-foundation-v1.7.0...o-private-foundation-v1.8.0) (2025-09-18)
 
 
