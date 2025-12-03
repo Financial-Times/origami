@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.16.0](https://github.com/Financial-Times/origami/compare/o3-button-v3.15.0...o3-button-v3.16.0) (2025-12-03)
+
+
+### Features
+
+* introduce clock, image, question, thumbs down and thumbs up icon to o3-button ([5436329](https://github.com/Financial-Times/origami/commit/54363295bf2f3569f4ff3b38a9f679d9c802685f))
+
 ## [3.15.0](https://github.com/Financial-Times/origami/compare/o3-button-v3.14.0...o3-button-v3.15.0) (2025-10-22)
 
 
