@@ -1,5 +1,12 @@
 # Changelog
 
+## [13.1.1](https://github.com/Financial-Times/origami/compare/o-comments-v13.1.0...o-comments-v13.1.1) (2025-12-04)
+
+
+### Bug Fixes
+
+* ci-2319 o-comments displayname re-open and error fixes ([22f6b92](https://github.com/Financial-Times/origami/commit/22f6b92e3f43a798e75e88e2ae8cc1b09273e342))
+
 ## [13.1.0](https://github.com/Financial-Times/origami/compare/o-comments-v13.0.1...o-comments-v13.1.0) (2025-09-22)
 
 

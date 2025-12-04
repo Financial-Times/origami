@@ -47,7 +47,7 @@ export default ({
 			) : null}
 			{displayLink ? (
 				<a
-					className="o-teaser__tag o3-revert-focus"
+					className="o-teaser__tag"
 					data-trackable="teaser-tag"
 					href={displayLink.relativeUrl || displayLink.url}
 					aria-label={`Category: ${displayLink.prefLabel}`}>

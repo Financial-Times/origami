@@ -1,5 +1,12 @@
 # Changelog
 
+## [9.1.2](https://github.com/Financial-Times/origami/compare/o-teaser-v9.1.1...o-teaser-v9.1.2) (2025-12-03)
+
+
+### Bug Fixes
+
+* revert focus styles for hero image text only ([b089867](https://github.com/Financial-Times/origami/commit/b08986790ecb7409c464f70b809b6abb56a01e23))
+
 ## [9.1.1](https://github.com/Financial-Times/origami/compare/o-teaser-v9.1.0...o-teaser-v9.1.1) (2025-11-18)
 
 

@@ -1,6 +1,6 @@
 {
 	"name": "@financial-times/o3-foundation",
-	"version": "3.11.3",
+	"version": "3.12.0",
 	"description": "Origami foundations with design tokens",
 	"keywords": [
 		"foundation",
