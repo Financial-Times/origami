@@ -56,7 +56,7 @@ describe('Display name', () => {
 				.catch(error => {
 					try {
 						proclaim.isInstanceOf(error, Error);
-						proclaim.equal(error.message, 'Unfortunately that display name is already taken');
+						proclaim.equal(error.message, 'This display name already exists.');
 						done();
 					} catch (error) {
 						done(error);

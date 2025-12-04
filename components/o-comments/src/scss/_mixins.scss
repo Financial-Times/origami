@@ -70,27 +70,32 @@
 
 		.o-comments__displayname-container {
 			margin-top: oPrivateSpacingByName("s2");
-			display: flex;
+			@include oPrivateGridRespondTo(M) {
+				display: grid;
+				grid-template-columns: 1fr auto;
+				gap: 15px;
+			}
 		}
 
 		.o-comments__displayname-field {
-			margin-bottom: 0;
+			@include oPrivateNormaliseVisuallyHidden();
 		}
 
 		.o-comments__displayname-input {
 			width: 100%;
-			margin-right: 15px;
 			margin-top: 0;
+			margin-bottom: oPrivateSpacingByName("s3");
 		}
 
 		.o-comments__displayname-submit {
 			@include oPrivateButtonsContent($opts: ("type": "primary",
 				));
+			max-height: 44px;
+			width: 100%;
 		}
 
 		.o-comments__displayname-error {
-			position: relative;
-			bottom: 0;
+			margin: 0;
 		}
 	}
 }

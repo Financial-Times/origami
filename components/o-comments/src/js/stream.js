@@ -199,13 +199,12 @@ class Stream {
 			}
 		};
 		document.addEventListener('oOverlay.ready', onOverlayReady);
-
 		const onOverlayClosed = () => {
-			overlay.context.removeEventListener('oLayers.close', onOverlayClosed);
+			overlay.context.removeEventListener('oOverlay.layerClose', onOverlayClosed);
 			document.removeEventListener('oOverlay.ready', onOverlayReady);
 			overlay.destroy();
 		};
-		overlay.context.addEventListener('oLayers.close', onOverlayClosed);
+		overlay.context.addEventListener('oOverlay.layerClose', onOverlayClosed);
 	}
 
 	/**
