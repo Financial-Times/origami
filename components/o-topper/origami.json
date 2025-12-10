@@ -2,9 +2,7 @@
 	"origamiType": "component",
 	"origamiVersion": "2.0",
 	"support": "https://github.com/Financial-Times/origami/issues/new?labels=o-topper,components",
-	"brands": [
-		"core"
-	],
+	"brands": ["core"],
 	"supportContact": {
 		"email": "origami.support@ft.com",
 		"slack": "financialtimes/ft-origami"
@@ -65,7 +63,7 @@
 			"title": "Offset Full-Bleed Image Topper",
 			"template": "/demos/src/full-bleed-offset.mustache",
 			"description": "This is a theme that editorial can choose, which comes through the API",
-			"sass":"demos/src/demo-snappy.scss",
+			"sass": "demos/src/demo-snappy.scss",
 			"hidden": true
 		},
 		{
@@ -73,7 +71,7 @@
 			"title": "Offset Full-Bleed Image Topper",
 			"template": "/demos/src/full-bleed-offset-right-rail.mustache",
 			"description": "This is a theme that editorial can choose, which comes through the API",
-			"sass":"demos/src/demo-snappy.scss",
+			"sass": "demos/src/demo-snappy.scss",
 			"hidden": true
 		},
 		{
@@ -117,6 +115,12 @@
 			"title": "Centered Topper",
 			"template": "/demos/src/centered.mustache",
 			"description": "Used where you want a centered layout"
+		},
+		{
+			"name": "Centered Image",
+			"title": "Centered Topper with Image",
+			"template": "/demos/src/centered-image.mustache",
+			"description": "Used where you want a centered layout and you want the image included in the topper"
 		},
 		{
 			"name": "pa11y",

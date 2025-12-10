@@ -1,0 +1,46 @@
+@mixin _oTopperThemeCenteredImage {
+	.o-topper__content {
+		grid-row: 2 / span 3;
+		@include oPrivateGridRespondTo($until: L) {
+			padding: 20px 0;
+		}
+	}
+
+	.o-topper__standfirst {
+		color: white;
+		opacity: 1;
+	}
+
+	.o-topper__image-caption {
+		padding: 24px 0 18px 0;
+		color: white;
+	}
+
+	.o-topper__visual {
+		grid-row: 6;
+		grid-column: 3;
+		z-index: 2;
+		margin: 0;
+		left: 0;
+		width: 100%;
+	}
+
+	.o-topper__picture {
+		display: block;
+	}
+
+	.o-topper__background {
+		grid-row: 1 / span 6;
+	}
+
+	.o-topper__read-next {
+		grid-row: 2 / span 3;
+	}
+
+	@include oPrivateGridRespondTo($until: L) {
+		// Make the background really full width
+		.o-topper__background {
+			position: absolute;
+		}
+	}
+}

@@ -43,6 +43,17 @@
 		}
 	}
 
+	@if index($themes, 'centered-image') {
+		.o-topper--centered-image {
+			@include _oTopperThemeCenteredImage;
+			@if index($themes, 'right-rail') {
+				&.o-topper--right-rail {
+					@include _oTopperGridRightRail;
+				}
+			}
+		}
+	}
+
 	@if index($themes, 'opinion') {
 		.o-topper--opinion {
 			@include _oTopperThemeOpinion;
