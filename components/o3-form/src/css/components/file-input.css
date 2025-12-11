@@ -1,7 +1,11 @@
 .o3-form-file-input {
-	display: flex;
+	display: inline-flex;
 	gap: var(--o3-spacing-2xs);
 	align-items: center;
+	height: 44px;
+
+	--o3-grid-columns-to-span-count: 4;
+	width: var(--o3-grid-columns-to-span-width);
 
 	&:focus-within {
 		box-shadow: var(--_o3-focus-outline);
@@ -14,7 +18,9 @@
 			outline: 0;
 		}
 	}
+}
 
+.o3-form-file-input__input-field {
 	&::file-selector-button {
 		display: none;
 	}
@@ -30,11 +36,13 @@
 		display: none;
 	}
 
-	& input {
-		&:focus-within,
-		&:focus {
-			outline: none;
-			box-shadow: none;
-		}
+	&:focus-within,
+	&:focus {
+		outline: none;
+		box-shadow: none;
 	}
+}
+
+.o3-form-field-input__label {
+	flex-shrink: 0;
 }

@@ -29,14 +29,14 @@ export const FileInput = ({
 			optional={optional}>
 			<>
 				<div className="o3-form-file-input">
-					<label for={id} className="o3-button o3-button--primary o3-button-icon o3-button-icon--upload">
+					<label for={id} className="o3-button o3-button--primary o3-button-icon o3-button-icon--upload o3-form-field-input__label">
 						File Upload
 					</label>
 					<input
 						{...attributes}
 						id={id}
+						className="o3-form-file-input__input-field"
 						disabled={disabled}
-						className={inputClasses.join(' ')}
 						required={!optional}
 						aria-required={!optional}
 						maxLength={length}
