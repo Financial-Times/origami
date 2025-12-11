@@ -2,7 +2,7 @@
 	"manifest_version": 3,
 	"name": "Origami",
 	"description": "Origami o3 components helper extension",
-	"version": "1.2.1",
+	"version": "1.2.2",
 	"action": {
 		"default_icon": "images/origami-logo.png",
 		"default_popup": "popup.html"
