@@ -1,0 +1,40 @@
+.o3-form-file-input {
+	display: flex;
+	gap: var(--o3-spacing-2xs);
+	align-items: center;
+
+	&:focus-within {
+		box-shadow: var(--_o3-focus-outline);
+		outline: 0;
+	}
+
+	@supports selector(:focus-visible) {
+		&:focus-within {
+			box-shadow: var(--_o3-focus-rings);
+			outline: 0;
+		}
+	}
+
+	&::file-selector-button {
+		display: none;
+	}
+
+	&::-webkit-file-upload-button {
+		display: block;
+		width: 0;
+		height: 0;
+		margin-left: -100%;
+	}
+
+	&::-ms-browse {
+		display: none;
+	}
+
+	& input {
+		&:focus-within,
+		&:focus {
+			outline: none;
+			box-shadow: none;
+		}
+	}
+}
