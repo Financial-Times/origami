@@ -270,6 +270,7 @@ function initO3FormValidation(formOrSelector, options = {}) {
 		formOrSelector instanceof HTMLFormElement
 			? formOrSelector
 			: document.querySelector(formOrSelector);
+
 	if (!formElement || !(formElement instanceof HTMLFormElement)) {
 		throw new Error(
 			'initO3FormValidation must be passed a form element or selector resolving to a form.'
