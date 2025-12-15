@@ -1,6 +1,6 @@
 .o3-form-file-input {
 	display: inline-flex;
-	gap: var(--o3-spacing-2xs);
+	gap: var(--o3-spacing-3xs);
 	align-items: center;
 	height: 44px;
 
@@ -21,6 +21,15 @@
 }
 
 .o3-form-file-input__input-field {
+	color: var(--o3-color-use-case-muted-text);
+
+	font-family: var(--o3-type-body-base-font-family);
+	font-size: var(--o3-type-body-base-font-size);
+	font-weight: var(--o3-type-body-base-font-weight);
+	line-height: var(--o3-type-body-base-line-height);
+	padding-bottom: var(--o3-spacing-5xs);
+
+
 	&::file-selector-button {
 		display: none;
 	}
@@ -42,6 +51,14 @@
 		box-shadow: none;
 	}
 }
+
+@supports (font: -apple-system-body) {
+	.o3-form-file-input__input-field {
+		padding-bottom: 6px;
+		color: red;
+	}
+}
+
 
 .o3-form-field-input__label {
 	flex-shrink: 0;
