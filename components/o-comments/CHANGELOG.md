@@ -1,5 +1,12 @@
 # Changelog
 
+## [13.2.0](https://github.com/Financial-Times/origami/compare/o-comments-v13.1.1...o-comments-v13.2.0) (2025-12-15)
+
+
+### Features
+
+* o-comments styles for collapsed username ([17817ce](https://github.com/Financial-Times/origami/commit/17817ceb7bbaeaee4b7f0f3ab936a79e6d51adc7))
+
 ## [13.1.1](https://github.com/Financial-Times/origami/compare/o-comments-v13.1.0...o-comments-v13.1.1) (2025-12-04)
 
 
