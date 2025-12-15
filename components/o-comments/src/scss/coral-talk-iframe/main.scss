@@ -342,6 +342,7 @@
 
 		// comment author
 		.coral-comment-username span,
+		.coral-comment-username,
 		.coral-comment-inReplyToUsername {
 			@include _oCommentsTag();
 			font-size: 14px;
