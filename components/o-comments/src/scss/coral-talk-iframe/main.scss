@@ -66,13 +66,13 @@
 		}
 	}
 	#coral {
-		--ft-magnify: 1.31282;
+		--ft-magnify: 1.1;
 		// See https://financialtimes.atlassian.net/jira/software/c/projects/CI/boards/1653?view=detail&selectedIssue=CI-1725
 		display: inline-block !important;
 		width: 100%;
 		.coral-comment-content {
-			font-size: 1.23077rem;
-			line-height: 1.784rem;
+			font-size: 1.05rem;
+			line-height: 1.7rem;
 		}
 	}
 	#coral.o-comments-root-font-size-1 {
@@ -352,6 +352,10 @@
 			}
 		}
 
+		.coral-comment-username span {
+			line-height: 1.4;
+		}
+
 		// comment buttons
 		.coral-comment-reactButton,
 		.coral-comment-reactedButton,
@@ -439,9 +443,8 @@
 		.coral-myComment-timestamp span,
 		.coral-comment-timestamp,
 		.coral-comment-timestamp span {
-			color: oPrivateFoundationGet("o3-color-palette-black-60");
+			color: oPrivateFoundationGet("o3-color-palette-black-80");
 			font-family: oPrivateFoundationGet("o3-type-label-font-family");
-			font-weight: oPrivateFoundationGet("o3-type-label-font-weight");
 			font-size: oPrivateFoundationGet("o3-type-label-font-size");
 			line-height: oPrivateFoundationGet("o3-type-label-line-height");
 			text-transform: oPrivateFoundationGet("o3-type-label-text-case");
@@ -678,7 +681,7 @@
 		.coral-comment-userTag,
 		.coral-rootParent-userTag {
 			font-size: var(--font-size-1) !important;
-			line-height: 1 !important;
+			line-height: 1.2 !important;
 		}
 
 		.coral-counter {
