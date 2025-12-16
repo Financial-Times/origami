@@ -4,6 +4,19 @@ export class FileUploadController {
 		fileInput.addEventListener('o3Form.uploading.start', this._displayUpload);
 		fileInput.addEventListener('o3Form.uploading.complete', this._removeUpload);
 		fileInput.addEventListener('o3Form.reset', this._reset);
+
+		const labelElement = fileInput.closest('.o3-form-field-input__label');
+
+		if(labelElement) {
+			labelElement.addEventListener('click', () => fileInput.click());
+
+			labelElement.addEventListener('keydown', (event: KeyboardEvent) => {
+				if (event.key === ' ' || event.key === 'Enter') {
+					event.preventDefault();
+					fileInput.click();
+				}
+			});
+		}
 	}
 
 	private _updateStatus(event: InputEvent): void {

@@ -137,17 +137,18 @@ export const FileInputJavascript = {
 					<label
 						htmlFor="file-input"
 						className="o3-form-field-input__label"
+						tabIndex="0"
 					>
 						<span className="o3-form-field-input__label__button o3-button o3-button--primary o3-button-icon o3-button-icon--upload">File Upload</span>
 						<span className="o3-form-field-input__label__text">No file chosen</span>
+						<input
+							id="file-input"
+							className="o3-form-file-input__input-field"
+							required
+							aria-required="true"
+							type="file"
+						/>
 					</label>
-					<input
-						id="file-input"
-						className="o3-form-file-input__input-field"
-						required
-						aria-required="true"
-						type="file"
-					/>
 				</div>
 			</div>
 		);
