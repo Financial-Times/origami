@@ -12,6 +12,7 @@ export const FileInput = ({
 							  attributes,
 							  inputId,
 							  optional,
+							  status
 						  }: FileInputProps) => {
 	const id: string = inputId || uniqueId('_');
 	const inputClasses = ['o3-form', 'o3-form-file-input'];
@@ -29,7 +30,8 @@ export const FileInput = ({
 			optional={optional}>
 			<>
 				<div className="o3-form-file-input">
-					<label for={id} className="o3-button o3-button--primary o3-button-icon o3-button-icon--upload o3-form-field-input__label">
+					<label for={id}
+						   className="o3-button o3-button--primary o3-button-icon o3-button-icon--upload o3-form-field-input__label">
 						File Upload
 					</label>
 					<input
@@ -43,6 +45,7 @@ export const FileInput = ({
 						type="file"
 					/>
 				</div>
+				{status === 'uploading' && <span className='o3-form-file-input__uploading'>Uploading</span>}
 			</>
 		</LabeledFormField>
 	);
