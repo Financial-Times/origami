@@ -73,8 +73,23 @@
 
 
 .o3-form-field-input__uploading {
-	&:before {
-		background: var(--o3-icon-at);
+	display: flex;
+	align-items: center;
+	gap: var(--o3-spacing-5xs);
+
+	&::before {
+		content: '';
+		display: inline-block;
+
+		width: var(--o3-spacing-3xs);
+		height: var(--o3-spacing-3xs);
+		border-width: 2px;
+		border-radius: 50%;
+		animation: loading 1s infinite linear;
+
+		border-style: solid;
+		border-color: rgba(51,48,46,.25);
+		border-top-color: #33302e;//TODO: find colour values
 	}
 }
 
@@ -84,6 +99,15 @@
 	width: 36px;
 	height: 36px;
 	border: none;
+}
+
+@keyframes loading {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
 }
 
 :root {
