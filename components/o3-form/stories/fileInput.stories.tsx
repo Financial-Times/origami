@@ -1,9 +1,10 @@
 import type {Meta} from '@storybook/react';
 import links from '@financial-times/o3-figma-sb-links';
 
-import {FileInput as FileInputTsx} from '../src/tsx/FileUploadController.ts';
-import {FileUploadController} from "../src/tsx/FileUploadController";
+import {FileInput as FileInputTsx} from '../src/tsx/FileInput';
+import {FileInputJavaScript, fileInputJavaScriptSetup} from "./FileInputJavaScript";
 
+import {FileUploadController} from "../src/tsx/FileUploadController";
 import '../src/css/brands/core.css';
 import '../src/css/brands/professional.css';
 import '../src/css/brands/internal.css';
@@ -105,53 +106,15 @@ export const FileInputJavascript = {
 			url: links['o3-form--file-input'].figma,
 		},
 	},
-	play: async ({canvasElement}) => {
-		const fileUploadElement = canvasElement.querySelector(
-			'#file-input'
-		) as HTMLInputElement | null;
-
-		fileUploadElement.addEventListener('change', async (event) => {
-			console.log('change fired')
-		})
+	play: async ({canvasElement}: {canvasElement: HTMLCanvasElement}) => {
+		fileInputJavaScriptSetup(canvasElement);
 
 		if (fileUploadElement) {
 			new FileUploadController(fileUploadElement)
 		}
 	},
 	render: args => {
-		return (
-			<div className="o3-form-field">
-				<label
-					className="o3-form-field__label"
-					htmlFor="o3-form-file-input-_029271636737572715"
-				>
-					Driving license
-				</label>
-				<span
-					className="o3-form-input__description"
-					id="o3-form-description_7011586203746484"
-				>
-        			The front face of your driving license
-      			</span>
-				<div className="o3-form-file-input" id="file-input-container">
-					<label
-						htmlFor="file-input"
-						className="o3-form-field-input__label"
-						tabIndex="0"
-					>
-						<span className="o3-form-field-input__label__button o3-button o3-button--primary o3-button-icon o3-button-icon--upload">File Upload</span>
-						<span className="o3-form-field-input__label__text">No file chosen</span>
-						<input
-							id="file-input"
-							className="o3-form-file-input__input-field"
-							required
-							aria-required="true"
-							type="file"
-						/>
-					</label>
-				</div>
-			</div>
-		);
+		return <FileInputJavaScript/>;
 	}
 }
 

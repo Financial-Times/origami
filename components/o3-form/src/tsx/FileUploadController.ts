@@ -7,7 +7,7 @@ export class FileUploadController {
 
 		const labelElement = fileInput.closest('.o3-form-field-input__label');
 
-		if(labelElement) {
+		if (labelElement) {
 			labelElement.addEventListener('click', () => fileInput.click());
 
 			labelElement.addEventListener('keydown', (event: KeyboardEvent) => {
@@ -20,7 +20,7 @@ export class FileUploadController {
 	}
 
 	private _updateStatus(event: InputEvent): void {
-		const formField = event.target.closest('.o3-form-field');
+		const formField = event.target?.closest('.o3-form-field');
 		const inputFileContainer = formField.querySelector('.o3-form-file-input');
 
 		const labelText = inputFileContainer.querySelector('.o3-form-field-input__label__text');
@@ -28,8 +28,7 @@ export class FileUploadController {
 		if (event.target && event.target.files.length > 0 && !formField.querySelector('.o3-form-field-input__destroy')) {
 			inputFileContainer.appendChild(FileUploadController.createDestroyElement(event.target));
 			labelText.classList.add('o3-form-field-input__label__text--file-selected');
-		}
-		else {
+		} else {
 			labelText.classList.remove('o3-form-field-input__label__text--file-selected');
 			inputFileContainer.querySelector('.o3-form-field-input__destroy').remove();
 		}
@@ -45,9 +44,14 @@ export class FileUploadController {
 	private _displayUpload = (event: InputEvent): void => {
 		const formField = event.target.closest('.o3-form-field');
 
-		if (event.target && event.target.files.length > 0 && !formField.querySelector('.o3-form-field-input__destroy')) {
+		if (event.target && !formField.querySelector('.o3-form-field-input__uploading')) {
 			formField.appendChild(FileUploadController.createUploadingElement());
 		}
+	}
+
+	private _removeUpload = (event: InputEvent): void => {
+		const formField = event.target.closest('.o3-form-field');
+		formField.querySelector('.o3-form-field-input__uploading').remove();
 	}
 
 	private static createUploadingElement(): HTMLElement {
@@ -63,8 +67,11 @@ export class FileUploadController {
 		const destroyElement = document.createElement('button');
 
 		destroyElement.classList.add('o3-form-field-input__destroy');
-		destroyElement.onclick = () => {
-			fileInput.dispatchEvent(new CustomEvent('o3Form.reset')); };
+		destroyElement.setAttribute('aria-label', 'Delete file');
+
+		destroyElement.addEventListener('click', () => {
+			fileInput.dispatchEvent(new CustomEvent('o3Form.reset'));
+		});
 
 		return destroyElement;
 	}
