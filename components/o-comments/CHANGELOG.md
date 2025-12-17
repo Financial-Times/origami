@@ -1,5 +1,12 @@
 # Changelog
 
+## [13.2.1](https://github.com/Financial-Times/origami/compare/o-comments-v13.2.0...o-comments-v13.2.1) (2025-12-17)
+
+
+### Bug Fixes
+
+* ci-3293 o3 fixes ([d461643](https://github.com/Financial-Times/origami/commit/d461643f218fbe267399178455d7d5cba0a7c39a))
+
 ## [13.2.0](https://github.com/Financial-Times/origami/compare/o-comments-v13.1.1...o-comments-v13.2.0) (2025-12-15)
 
 
