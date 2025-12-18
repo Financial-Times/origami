@@ -36,7 +36,7 @@
 }
 
 
-.o3-form-field-input__label {
+.o3-form-file-input__label {
 	cursor: pointer;
 	display: inline-flex;
 	gap: var(--o3-spacing-3xs);
@@ -59,20 +59,20 @@
 	}
 }
 
-.o3-form-field-input__label__button {
+.o3-form-file-input__label__button {
 	flex-shrink: 0;
 }
 
-.o3-form-field-input__label__text {
+.o3-form-file-input__label__text {
 	color: var(--o3-color-use-case-muted-text);
 }
 
-.o3-form-field-input__label__text--file-selected {
+.o3-form-file-input__label__text--file-selected {
 	color: var(--o3-color-use-case-body-text);
 }
 
 
-.o3-form-field-input__uploading {
+.o3-form-file-input__uploading {
 	display: flex;
 	align-items: center;
 	gap: var(--o3-spacing-5xs);

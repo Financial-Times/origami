@@ -19,12 +19,12 @@ export const FileInputJavaScript = () => {
 			<div className="o3-form-file-input" id="file-input-container">
 				<label
 					htmlFor="file-input"
-					className="o3-form-field-input__label"
+					className="o3-form-file-input__label"
 					tabIndex="0"
 				>
 				<span
-					className="o3-form-field-input__label__button o3-button o3-button--primary o3-button-icon o3-button-icon--upload">File Upload</span>
-					<span data-testid="file-input-label" className="o3-form-field-input__label__text">No file chosen</span>
+					className="o3-form-file-input__label__button o3-button o3-button--primary o3-button-icon o3-button-icon--upload">File Upload</span>
+					<span data-testid="file-input-label" className="o3-form-file-input__label__text">No file chosen</span>
 					<input
 						data-testid="file-input"
 						id="file-input"

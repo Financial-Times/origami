@@ -63,7 +63,7 @@ export const FileInput = {
 				description={args.description}
 				feedback={args.feedback}
 				attributes={{accept: 'image/png,image/jpeg,image/svg+xml'}}
-				status={args.status}
+				isUploading={args.isUploading}
 			/>
 		);
 	},
@@ -89,6 +89,7 @@ export const FileInputErrorState = {
 				description={args.description}
 				length={args.length}
 				feedback={args.feedback}
+				isUploading={args.isUploading}
 			/>
 		);
 	},

@@ -14,10 +14,8 @@ export interface TextInputProps extends BaseInputProps {
 	feedback?: FeedbackProps;
 }
 
-export type FileInputStatus = 'initial' | 'uploading' | 'done';
-
 export interface FileInputProps extends BaseInputProps {
-	status: FileInputStatus;
+	isUploading: boolean;
 }
 
 export interface DateInputProps extends BaseInputProps {

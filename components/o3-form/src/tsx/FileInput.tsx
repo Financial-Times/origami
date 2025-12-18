@@ -1,6 +1,7 @@
 import {uidBuilder} from '@financial-times/o-utils';
 import {FileInputProps} from '../types';
 import {LabeledFormField} from './fieldComponents/FormField';
+import {useState} from "react";
 
 const uniqueId = uidBuilder('o3-form-file-input');
 
@@ -12,9 +13,22 @@ export const FileInput = ({
 							  attributes,
 							  inputId,
 							  optional,
-							  status
+							  isUploading
 						  }: FileInputProps) => {
 	const id: string = inputId || uniqueId('_');
+	const [file, setFile] = useState<File | null>();
+	const [fileName, setFileName] = useState<string | null>();
+
+	const onUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setFile(event.target.files?.[0] ?? null);
+		setFileName(event.target.value ?? null);
+	};
+
+	const onReset = () => {
+		setFile(null);
+		setFileName(null)
+	}
+
 	const inputClasses = ['o3-form', 'o3-form-file-input'];
 
 	if (feedback && feedback.type === 'error') {
@@ -30,9 +44,13 @@ export const FileInput = ({
 			optional={optional}>
 			<>
 				<div className="o3-form-file-input">
-					<label for={id}
-						   className="o3-button o3-button--primary o3-button-icon o3-button-icon--upload o3-form-field-input__label">
-						File Upload
+					<label for={id} className="o3-form-file-input__label">
+						<span
+							className="o3-form-file-input__label__button o3-button o3-button--primary o3-button-icon o3-button-icon--upload">
+							File Upload
+						</span>
+						<span data-testid="file-input-label"
+							  className="o3-form-file-input__label__text">{fileName ? fileName : "No file chosen"}</span>
 					</label>
 					<input
 						{...attributes}
@@ -40,12 +58,19 @@ export const FileInput = ({
 						className="o3-form-file-input__input-field"
 						disabled={disabled}
 						required={!optional}
+						onChange={onUpload}
 						aria-required={!optional}
 						maxLength={length}
 						type="file"
 					/>
+					{file && <button
+						type="button"
+						className="o3-form-field-input__destroy"
+						aria-label="Delete file"
+						onClick={onReset}
+					/>}
 				</div>
-				{status === 'uploading' && <span className='o3-form-file-input__uploading'>Uploading</span>}
+				{isUploading && <span className='o3-form-file-input__uploading'>Uploading</span>}
 			</>
 		</LabeledFormField>
 	);
