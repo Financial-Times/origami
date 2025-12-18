@@ -5,12 +5,13 @@ export class FileUploadController {
 		fileInput.addEventListener('o3Form.uploading.complete', this._removeUpload);
 		fileInput.addEventListener('o3Form.reset', this._reset);
 
-		const labelElement = fileInput.closest('.o3-form-file-input__label');
+		const labelElement = fileInput.closest('.o3-form-file-input__label') as HTMLLabelElement | null;
+		if(!labelElement) return;
 
 		if (labelElement) {
 			labelElement.addEventListener('click', () => fileInput.click());
 
-			labelElement.addEventListener('keydown', (event: KeyboardEvent) => {
+			labelElement.addEventListener('keydown', (event: KeyboardEvent): void => {
 				if (event.key === ' ' || event.key === 'Enter') {
 					event.preventDefault();
 					fileInput.click();
@@ -19,39 +20,57 @@ export class FileUploadController {
 		}
 	}
 
-	private _updateStatus(event: InputEvent): void {
-		const formField = event.target?.closest('.o3-form-field');
+	private _updateStatus: EventListener = (event: Event): void => {
+		const target = event.target as HTMLInputElement | null;
+		if (!target) return;
+
+		const formField = target?.closest('.o3-form-field');
+		if (!formField) return;
+
 		const inputFileContainer = formField.querySelector('.o3-form-file-input');
+		if (!inputFileContainer) return;
 
 		const labelText = inputFileContainer.querySelector('.o3-form-file-input__label__text');
+		if(!labelText) return;
 
-		if (event.target && event.target.files.length > 0 && !formField.querySelector('.o3-form-field-input__destroy')) {
-			inputFileContainer.appendChild(FileUploadController.createDestroyElement(event.target));
+		if (target && target.files && target.files.length > 0 && !formField.querySelector('.o3-form-field-input__destroy')) {
+			inputFileContainer.appendChild(FileUploadController.createDestroyElement(target));
 			labelText.classList.add('o3-form-field-input__label__text--file-selected');
 		} else {
 			labelText.classList.remove('o3-form-field-input__label__text--file-selected');
 			inputFileContainer.querySelector('.o3-form-field-input__destroy').remove();
 		}
 
-		labelText.textContent = event.target.files[0]?.name || 'No file chosen';
+		labelText.textContent = target.files?.[0].name || 'No file chosen';
 	}
 
-	private _reset(event: InputEvent): void {
-		event.target.value = '';
-		event.target?.dispatchEvent(new Event('change'));
+	private _reset: EventListener = (event: Event): void => {
+		const target = event.target as HTMLInputElement | null;
+		if (!target) return;
+
+		target.value = '';
+		target?.dispatchEvent(new Event('change'));
 	}
 
-	private _displayUpload = (event: InputEvent): void => {
-		const formField = event.target.closest('.o3-form-field');
+	private _displayUpload: EventListener = (event: Event): void => {
+		const target = event.target as HTMLFormElement | null;
+		if (!target) return;
 
-		if (event.target && !formField.querySelector('.o3-form-file-input__uploading')) {
+		const formField = target.closest('.o3-form-field');
+
+		if (target && formField && !formField.querySelector('.o3-form-file-input__uploading')) {
 			formField.appendChild(FileUploadController.createUploadingElement());
 		}
 	}
 
-	private _removeUpload = (event: InputEvent): void => {
-		const formField = event.target.closest('.o3-form-field');
-		formField.querySelector('.o3-form-file-input__uploading').remove();
+	private _removeUpload: EventListener = (event: Event): void => {
+		const target = event.target as HTMLFormElement | null;
+		if (!target) return;
+
+		const formField = target.closest('.o3-form-field');
+		if(!formField) return;
+
+		formField.querySelector('.o3-form-file-input__uploading')?.remove();
 	}
 
 	private static createUploadingElement(): HTMLElement {
