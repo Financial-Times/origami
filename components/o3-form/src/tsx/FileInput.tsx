@@ -16,8 +16,8 @@ export const FileInput = ({
 							  isUploading
 						  }: FileInputProps) => {
 	const id: string = inputId || uniqueId('_');
-	const [file, setFile] = useState<File | null>();
-	const [fileName, setFileName] = useState<string | null>();
+	const [file, setFile] = useState<File | null>(null);
+	const [fileName, setFileName] = useState<string | null>(null);
 
 	const onUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setFile(event.target.files?.[0] ?? null);
