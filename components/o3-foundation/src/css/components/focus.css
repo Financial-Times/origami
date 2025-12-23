@@ -3,6 +3,7 @@
 
 :focus,
 :focus-visible,
+:focus-within,
 .o3-documentation-force-focus input,
 .o3-documentation-force-focus select {
 	--_o3-focus-rings: var(--o3-focus-use-case-ring-inner),

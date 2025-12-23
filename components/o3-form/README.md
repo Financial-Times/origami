@@ -12,6 +12,7 @@ Provides components to construct forms.
 	- [Checkbox](#checkbox)
 		- [Checkbox Group](#checkbox-group)
 	- [Select Input](#select-input)
+    - [File Upload](#file-upload)
 	- [Date Input](#date-input)
 - [Contact](#contact)
 - [Licence](#licence)
@@ -534,6 +535,74 @@ import {SelectInput} from '@financial-times/o3-form';
 	<option value="Mastercard Credit">Mastercard Credit</option>
 </SelectInput>
 ```
+
+### File Input
+
+Use to provide an interface for users to upload files.
+
+**TSX**
+```tsx
+import {FileInput} from '@financial-times/o3-form';
+
+<FileInputTsx
+	label="Driving license"
+	description="Photograph of the front side of your driving license" />
+```
+
+**HTML**
+
+```html
+
+<div className="o3-form-field">
+	<label
+		className="o3-form-field__label"
+		htmlFor="o3-form-file-input"
+	>
+		Driving license
+	</label>
+	<span
+		className="o3-form-input__description"
+		id="o3-form-description"
+	>
+        			The front face of your driving license
+      			</span>
+	<div className="o3-form-file-input" id="file-input-container">
+		<label
+			htmlFor="file-input"
+			className="o3-form-file-input__label"
+			tabIndex="0"
+		>
+				<span
+					className="o3-form-file-input__label__button o3-button o3-button--primary o3-button-icon o3-button-icon--upload">File Upload</span>
+			<span data-testid="file-input-label" className="o3-form-file-input__label__text">No file chosen</span>
+			<input
+				data-testid="file-input"
+				id="file-input"
+				className="o3-form-file-input__input-field"
+				required
+				aria-required="true"
+				type="file"
+			/>
+		</label>
+	</div>
+</div>
+```
+Be sure to enable javascript to make use of delete button and uploading status:
+
+```js
+	const fileUploadElement = canvasElement.querySelector('#file-input');
+
+	if (fileUploadElement) {
+		new FileUploadController(fileUploadElement)
+	}
+
+	// Use event listeners to control the state of loading
+	fileUploadElement.dispatchEvent('o3Form.uploading.start');
+
+	// Remove uploading indicator
+	fileUploadElement.dispatchEvent('o3Form.uploading.complete');
+```
+
 
 #### Short Text Input
 

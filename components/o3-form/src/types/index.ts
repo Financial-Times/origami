@@ -14,6 +14,12 @@ export interface TextInputProps extends BaseInputProps {
 	feedback?: FeedbackProps;
 }
 
+export interface FileInputProps extends BaseInputProps {
+	isUploading?: boolean;
+	disabled?: boolean;
+	feedback?: FeedbackProps;
+}
+
 export interface DateInputProps extends BaseInputProps {
 	disabled?: boolean;
 	feedback?: FeedbackProps;
