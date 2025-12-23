@@ -26,7 +26,7 @@ export const FileInput = ({
 		setFile(null);
 	}
 
-	const inputClasses = ['o3-form', 'o3-form-file-input'];
+	const inputClasses = ['o3-form-file-input'];
 
 	if (feedback && feedback.type === 'error') {
 		inputClasses.push('o3-form-text-file--error');
