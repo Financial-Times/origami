@@ -23,7 +23,7 @@ export default {
 	],
 	decorators: [
 		(Story, {args, globals}) => (
-			<div data-o3-brand={globals.selectedBrand || 'whitelabel'} datao-o3-theme={globals.selectedTheme || 'standard'}>
+			<div data-o3-brand={globals.selectedBrand || 'whitelabel'} data-o3-theme={globals.selectedTheme || 'standard'}>
 				<Story />
 			</div>
 		),

@@ -38,7 +38,7 @@ export class FileUploadController {
 			labelText.classList.add('o3-form-field-input__label__text--file-selected');
 		} else {
 			labelText.classList.remove('o3-form-field-input__label__text--file-selected');
-			inputFileContainer.querySelector('.o3-form-field-input__destroy').remove();
+			inputFileContainer.querySelector('.o3-form-field-input__destroy')?.remove();
 		}
 
 		labelText.textContent = target.files?.[0].name || 'No file chosen';

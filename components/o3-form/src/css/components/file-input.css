@@ -89,7 +89,7 @@
 
 		border-style: solid;
 		border-color: rgba(51,48,46,.25);
-		border-top-color: #33302e;//TODO: find colour values
+		border-top-color: var(--o3-color-use-case-body-text);
 	}
 }
 

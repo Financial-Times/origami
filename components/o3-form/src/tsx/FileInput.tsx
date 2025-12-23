@@ -60,7 +60,6 @@ export const FileInput = ({
 						required={!optional}
 						onChange={onUpload}
 						aria-required={!optional}
-						maxLength={length}
 						type="file"
 					/>
 					{file && <button

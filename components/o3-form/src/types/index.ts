@@ -15,7 +15,7 @@ export interface TextInputProps extends BaseInputProps {
 }
 
 export interface FileInputProps extends BaseInputProps {
-	isUploading: boolean;
+	isUploading?: boolean;
 	disabled?: boolean;
 	feedback?: FeedbackProps;
 }

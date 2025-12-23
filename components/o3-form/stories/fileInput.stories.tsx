@@ -87,7 +87,6 @@ export const FileInputErrorState = {
 				label={args.label}
 				disabled={args.disabled}
 				description={args.description}
-				length={args.length}
 				feedback={args.feedback}
 				isUploading={args.isUploading}
 			/>
@@ -109,10 +108,6 @@ export const FileInputJavascript = {
 	},
 	play: async ({canvasElement}: {canvasElement: HTMLCanvasElement}) => {
 		fileInputJavaScriptSetup(canvasElement);
-
-		if (fileUploadElement) {
-			new FileUploadController(fileUploadElement)
-		}
 	},
 	render: args => {
 		return <FileInputJavaScript/>;

@@ -70,7 +70,7 @@ export const FileInputJavascriptDeleteButton = {
 
 		await waitFor(() => {
 			const deleteButton = getDeleteButton();
-			console.log(deleteButton);
+
 			expect(deleteButton).not.toBeInTheDocument();
 		});
 
