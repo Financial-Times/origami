@@ -17,16 +17,13 @@ export const FileInput = ({
 						  }: FileInputProps) => {
 	const id: string = inputId || uniqueId('_');
 	const [file, setFile] = useState<File | null>(null);
-	const [fileName, setFileName] = useState<string | null>(null);
 
 	const onUpload = (event: ChangeEvent<HTMLInputElement>) => {
 		setFile(event.target.files?.[0] ?? null);
-		setFileName(event.target.value ?? null);
 	};
 
 	const onReset = () => {
 		setFile(null);
-		setFileName(null)
 	}
 
 	const inputClasses = ['o3-form', 'o3-form-file-input'];
@@ -50,7 +47,7 @@ export const FileInput = ({
 							File Upload
 						</span>
 						<span data-testid="file-input-label"
-							  className="o3-form-file-input__label__text">{fileName ? fileName : "No file chosen"}</span>
+							  className="o3-form-file-input__label__text">{file?.name ? file?.name : "No file chosen"}</span>
 					</label>
 					<input
 						{...attributes}

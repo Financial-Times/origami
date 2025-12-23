@@ -553,28 +553,28 @@ import {FileInput} from '@financial-times/o3-form';
 
 ```html
 
-<div className="o3-form-field">
+<div class="o3-form-field">
 	<label
-		className="o3-form-field__label"
+		class="o3-form-field__label"
 		htmlFor="o3-form-file-input"
 	>
 		Driving license
 	</label>
 	<span
-		className="o3-form-input__description"
+		class="o3-form-input__description"
 		id="o3-form-description"
 	>
         			The front face of your driving license
       			</span>
-	<div className="o3-form-file-input" id="file-input-container">
+	<div class="o3-form-file-input" id="file-input-container">
 		<label
 			htmlFor="file-input"
-			className="o3-form-file-input__label"
+			class="o3-form-file-input__label"
 			tabIndex="0"
 		>
 				<span
-					className="o3-form-file-input__label__button o3-button o3-button--primary o3-button-icon o3-button-icon--upload">File Upload</span>
-			<span data-testid="file-input-label" className="o3-form-file-input__label__text">No file chosen</span>
+					class="o3-form-file-input__label__button o3-button o3-button--primary o3-button-icon o3-button-icon--upload">File Upload</span>
+			<span data-testid="file-input-label" class="o3-form-file-input__label__text">No file chosen</span>
 			<input
 				data-testid="file-input"
 				id="file-input"
