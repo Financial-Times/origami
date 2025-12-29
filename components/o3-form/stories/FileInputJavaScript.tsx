@@ -6,7 +6,7 @@ export const FileInputJavaScript = () => {
 		<div className="o3-form-field">
 			<label
 				className="o3-form-field__label"
-				htmlFor="o3-form-file-input-_029271636737572715"
+				htmlFor="file-input"
 			>
 				Driving license
 			</label>
@@ -20,7 +20,7 @@ export const FileInputJavaScript = () => {
 				<label
 					htmlFor="file-input"
 					className="o3-form-file-input__label"
-					tabIndex="0"
+					tabIndex={0}
 				>
 				<span
 					className="o3-form-file-input__label__button o3-button o3-button--primary o3-button-icon o3-button-icon--upload">File Upload</span>

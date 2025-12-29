@@ -8,8 +8,6 @@ export class FileUploadController {
 		const labelElement = fileInput.closest('.o3-form-file-input__label') as HTMLLabelElement | null;
 		if (!labelElement) return;
 
-		labelElement.addEventListener('click', () => fileInput.click());
-
 		labelElement.addEventListener('keydown', (event: KeyboardEvent): void => {
 			if (event.key === ' ' || event.key === 'Enter') {
 				event.preventDefault();
@@ -40,7 +38,7 @@ export class FileUploadController {
 			inputFileContainer.querySelector('.o3-form-field-input__destroy')?.remove();
 		}
 
-		labelText.textContent = target.files?.[0].name || 'No file chosen';
+		labelText.textContent = target.files?.[0]?.name || 'No file chosen';
 	}
 
 	private _reset: EventListener = (event: Event): void => {
