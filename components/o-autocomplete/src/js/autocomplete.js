@@ -247,7 +247,33 @@ class Autocomplete {
 			 * @returns {void}
 			 */
 			this.options.source = (query, populateOptions) => {
-				showLoadingPane(this);
+				// One way this function can be invoked is following a clearButton click event.
+
+				// The consumer-provided `customSource()` function can be wrapped in `debounce()`, creating the potential
+				// for a user-defined delay between the invocation of the `customSource()` and `callback()` functions.
+				// This delay could be longer than the 100ms frequency at which accessible-autocomplete polls the value of the input.
+
+				// The following code blocks accommodate the coincident of these circumstances.
+
+				// A clearButton click event will hide the loading pane and set the input value as an empty string.
+				if (query) {
+					// Therefore only show the loading pane if a `query` (i.e. input) value is present
+					// so as to avoid temporarily re-showing the loading pane prior to this function's callback hiding it once again.
+					showLoadingPane(this);
+				}
+
+				// A clearButton click event will blur the input field, resulting in the listbox of options becoming hidden
+				// (but without de-populating the options).
+				if (!query) {
+					// If the accessible-autocomplete poll occurs after a clearButton click event
+					// but before this function's callback is invoked then the listbox and its options will be re-displayed.
+					// When the callback eventually runs, it will de-populate the options, consequently re-hiding the listbox.
+					// To prevent this, in the event of no `query` value being present
+					// (where, logically, there will be no corresponding options),
+					// immediately de-populate the options rather than waiting for the callback to do so.
+					populateOptions([]);
+				}
+
 				/**
 				 * @param {Array<string>} options - The options which match the rext which was typed into the autocomplete by the user
 				 * @returns {void}
