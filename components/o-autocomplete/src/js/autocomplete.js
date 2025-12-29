@@ -209,6 +209,7 @@ class Autocomplete {
 		if (opts.onConfirm) {
 			this.options.onConfirm = opts.onConfirm;
 		}
+		this.options.confirmOnBlur = opts.confirmOnBlur ?? true;
 		if (opts.suggestionTemplate) {
 			this.options.suggestionTemplate = opts.suggestionTemplate;
 		}
@@ -281,6 +282,7 @@ class Autocomplete {
 						this.options.onConfirm(option);
 					}
 				},
+				confirmOnBlur: this.options.confirmOnBlur,
 				source: this.options.source,
 				cssNamespace: 'o-autocomplete',
 				displayMenu: 'overlay',

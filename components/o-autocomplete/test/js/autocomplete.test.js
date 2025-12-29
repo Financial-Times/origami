@@ -109,6 +109,7 @@ describe("Autocomplete", function () {
 				assert.instanceOf(autocomplete, Autocomplete);
 
 				assert.deepEqual(autocomplete.options, {
+					confirmOnBlur: true,
 					isHighlightCorrespondingToMatch: false
 				});
 			});
@@ -394,6 +395,7 @@ describe("Autocomplete", function () {
 				assert.deepEqual(Object.keys(autocomplete.options), [
 					'source',
 					'defaultValue',
+					'confirmOnBlur',
 					'isHighlightCorrespondingToMatch',
 				]);
 				assert.isFunction(autocomplete.options.source,);
