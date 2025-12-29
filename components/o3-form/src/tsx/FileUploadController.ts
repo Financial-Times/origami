@@ -73,7 +73,7 @@ export class FileUploadController {
 	private static createUploadingElement(): HTMLElement {
 		const uploadingElement = document.createElement('span');
 
-		uploadingElement.classList.add('o3-form-field-input__uploading');
+		uploadingElement.classList.add('o3-form-file-input__uploading');
 		uploadingElement.innerText = 'Uploading';
 
 		return uploadingElement;
