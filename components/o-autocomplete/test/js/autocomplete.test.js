@@ -103,13 +103,13 @@ describe("Autocomplete", function () {
 					placeholder: 'Placeholder Text',
 					cssNamespace: 'custom-autocomplete',
 					displayMenu: 'whimsical',
-					showNoOptionsFound: "sometimes",
 					id: "hello"
 				});
 				assert.instanceOf(autocomplete, Autocomplete);
 
 				assert.deepEqual(autocomplete.options, {
-					isHighlightCorrespondingToMatch: false
+					isHighlightCorrespondingToMatch: false,
+					showNoOptionsFound: false
 				});
 			});
 		});
@@ -361,7 +361,6 @@ describe("Autocomplete", function () {
 					placeholder: 'Placeholder Text',
 					cssNamespace: 'custom-autocomplete',
 					displayMenu: 'whimsical',
-					showNoOptionsFound: "sometimes",
 					id: "hello",
 					source: function customSuggestions(query, populateResults) {
 						const suggestions = [
@@ -394,6 +393,7 @@ describe("Autocomplete", function () {
 				assert.deepEqual(Object.keys(autocomplete.options), [
 					'source',
 					'defaultValue',
+					'showNoOptionsFound',
 					'isHighlightCorrespondingToMatch',
 				]);
 				assert.isFunction(autocomplete.options.source,);
