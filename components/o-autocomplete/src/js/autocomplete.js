@@ -209,6 +209,7 @@ class Autocomplete {
 		if (opts.onConfirm) {
 			this.options.onConfirm = opts.onConfirm;
 		}
+		this.options.showNoOptionsFound = opts.showNoOptionsFound || false;
 		if (opts.suggestionTemplate) {
 			this.options.suggestionTemplate = opts.suggestionTemplate;
 		}
@@ -285,7 +286,7 @@ class Autocomplete {
 				cssNamespace: 'o-autocomplete',
 				displayMenu: 'overlay',
 				defaultValue: this.options.defaultValue || '',
-				showNoOptionsFound: false,
+				showNoOptionsFound: this.options.showNoOptionsFound,
 				autoselect: this.options.autoselect || false,
 				templates: {
 					/**
@@ -381,7 +382,7 @@ class Autocomplete {
 				placeholder: '',
 				cssNamespace: 'o-autocomplete',
 				displayMenu: 'overlay',
-				showNoOptionsFound: false,
+				showNoOptionsFound: this.options.showNoOptionsFound,
 				templates: {
 					suggestion: this.suggestionTemplate.bind(this)
 				}
