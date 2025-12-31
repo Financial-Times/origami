@@ -394,8 +394,8 @@ describe("Autocomplete", function () {
 				assert.deepEqual(Object.keys(autocomplete.options), [
 					'source',
 					'defaultValue',
-					'confirmOnBlur',
 					'showNoOptionsFound',
+					'confirmOnBlur',
 					'isHighlightCorrespondingToMatch',
 				]);
 				assert.isFunction(autocomplete.options.source,);
