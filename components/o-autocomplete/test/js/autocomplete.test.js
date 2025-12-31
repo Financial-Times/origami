@@ -103,14 +103,14 @@ describe("Autocomplete", function () {
 					placeholder: 'Placeholder Text',
 					cssNamespace: 'custom-autocomplete',
 					displayMenu: 'whimsical',
-					showNoOptionsFound: "sometimes",
 					id: "hello"
 				});
 				assert.instanceOf(autocomplete, Autocomplete);
 
 				assert.deepEqual(autocomplete.options, {
+					isHighlightCorrespondingToMatch: false,
+					showNoOptionsFound: false,
 					confirmOnBlur: true,
-					isHighlightCorrespondingToMatch: false
 				});
 			});
 		});
@@ -362,7 +362,6 @@ describe("Autocomplete", function () {
 					placeholder: 'Placeholder Text',
 					cssNamespace: 'custom-autocomplete',
 					displayMenu: 'whimsical',
-					showNoOptionsFound: "sometimes",
 					id: "hello",
 					source: function customSuggestions(query, populateResults) {
 						const suggestions = [
@@ -396,6 +395,7 @@ describe("Autocomplete", function () {
 					'source',
 					'defaultValue',
 					'confirmOnBlur',
+					'showNoOptionsFound',
 					'isHighlightCorrespondingToMatch',
 				]);
 				assert.isFunction(autocomplete.options.source,);
