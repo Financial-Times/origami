@@ -12,7 +12,6 @@ on:
 
 jobs:
   chromatic-deployment-o3:
-    if: ${{ github.event.label.name == 'chromatic' || github.event_name == 'push' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
