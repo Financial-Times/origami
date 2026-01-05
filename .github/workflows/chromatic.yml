@@ -1,19 +1,7 @@
 name: 'Chromatic deployment – O3'
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - 'package.json'
-      - 'package-lock.json'
-      - 'apps/o3-storybook/**'
-      - '!apps/o3-storybook/**/*.md'
-      - 'components/o3-*/**'
-      - '!components/o3-*/*.md'
   pull_request:
-    types:
-      - labeled
     paths:
       - 'package.json'
       - 'package-lock.json'
@@ -45,6 +33,7 @@ jobs:
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           workingDir: apps/o3-storybook
+          dryRun: true
           exitOnceUploaded: true
           onlyChanged: true
           autoAcceptChanges: 'main' # 👈 Option to accept all changes on main
