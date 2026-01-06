@@ -9,6 +9,7 @@ on:
       - 'apps/o2-storybook/**'
       - 'components/**'
       - '!components/o3-*/**'
+      - 'components/o3-foundation/**'
 
 jobs:
   chromatic-deployment-o2:
@@ -35,7 +36,7 @@ jobs:
           npm config set registry=https://npm.packages.ft.com/financial-times-internal-releases/
           npm config set //npm.packages.ft.com/financial-times-internal-releases/:_authToken=${CLOUDSMITH_API_KEY}
       - name: Install node modules
-        run: npm ci
+        run: npm ci --workspaces --include-workspace-root
         # 👇 Adds Chromatic as a step in the workflow
       - name: Publish Origami to Chromatic
         uses: chromaui/action@v1
