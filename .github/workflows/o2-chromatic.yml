@@ -42,6 +42,7 @@ jobs:
         uses: chromaui/action@v1
         with:
           projectToken: ${{ secrets[matrix.chromatic_secret] }}
+          dryRun: true
           workingDir: apps/o2-storybook
           exitOnceUploaded: true
         env:
