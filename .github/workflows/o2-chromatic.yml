@@ -2,7 +2,7 @@ name: 'Chromatic deployment – O2'
 
 on:
   push:
-    branches: [main]
+    branches: [main, yolo-see-chromatic-build-o2-storybook]
     paths:
       - 'package.json'
       - 'package-lock.json'
