@@ -1,3 +1,5 @@
+# TODO: review how to write tests for o3
+# TODO: move to origami-legacy
 name: test
 concurrency:
   group: ${{ github.head_ref }}-${{ github.workflow}}
@@ -5,7 +7,7 @@ concurrency:
 
 on:
   pull_request:
-    branches: [ main, 2025-release]
+    branches: [ main]
 
 jobs:
   changes:

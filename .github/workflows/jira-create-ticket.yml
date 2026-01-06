@@ -1,3 +1,4 @@
+# TODO: We aren't sure if we are supporting GitHub issues anymore
 on:
   issues:
     types: [opened]

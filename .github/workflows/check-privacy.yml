@@ -1,3 +1,4 @@
+# TODO: Work out if this is needed anymore
 name: "make sure every workspace has package.json#private set to `true` or `false`"
 on:
   pull_request:
