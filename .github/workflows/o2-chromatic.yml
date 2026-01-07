@@ -2,13 +2,12 @@ name: 'Chromatic deployment – O2'
 
 on:
   push:
-    branches: [main]
+    branches: [main, o2-chromatic-to-deploy-lets-go]
     paths:
       - 'package.json'
       - 'package-lock.json'
       - 'apps/o2-storybook/**'
-      - 'components/**'
-      - '!components/o3-*/**'
+      - 'components/o-*/**'
       - 'components/o3-foundation/**'
 
 jobs:
@@ -43,7 +42,8 @@ jobs:
         uses: chromaui/action@v1
         with:
           projectToken: ${{ secrets[matrix.chromatic_secret] }}
-          # dryRun: true 👈 (use this for debugging in the future)
+          # 👇 uncomment if you want to test without deploying to Chromatic
+          dryRun: true
           workingDir: apps/o2-storybook
           exitOnceUploaded: true
         env:
