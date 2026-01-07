@@ -9,6 +9,7 @@ on:
       - 'apps/o2-storybook/**'
       - 'components/o-*/**'
       - 'components/o3-foundation/**'
+      - '.github/workflows/o2-chromatic.yml'
 
 jobs:
   chromatic-deployment-o2:
@@ -42,7 +43,7 @@ jobs:
         uses: chromaui/action@v1
         with:
           projectToken: ${{ secrets[matrix.chromatic_secret] }}
-          # 👇 uncomment if you want to test without deploying to Chromatic
+          # 👇 uncomment if you want to test without deploying to Chromatic.
           dryRun: true
           workingDir: apps/o2-storybook
           exitOnceUploaded: true
