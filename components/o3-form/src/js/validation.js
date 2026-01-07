@@ -37,13 +37,21 @@ const formState = new WeakMap();
  */
 function deriveFieldName(element) {
 	if (!element) return 'Field';
+
 	if (element.id) {
 		const label = element.form?.querySelector(`label[for="${element.id}"]`);
 		if (label && label.textContent) return label.textContent.trim();
 	}
+
 	return element.getAttribute('name') || element.id || 'Field';
 }
 
+/**
+ * Check if a given HTMLElement is a valid form field element.
+ *
+ * @param fieldElement {HTMLElement}
+ * @returns {boolean}
+ */
 function isFormFieldElement(fieldElement) {
 	return fieldElement instanceof HTMLInputElement ||
 		fieldElement instanceof HTMLSelectElement ||
@@ -61,8 +69,8 @@ function collectInvalidFields(formElement, validationOptions) {
 	const elements = Array.from(formElement.elements);
 	/** @type {FieldError[]} */
 	const errors = [];
-	for (const fieldElement of elements) {
 
+	for (const fieldElement of elements) {
 		if (!isFormFieldElement(fieldElement))
 			continue;
 
@@ -84,6 +92,7 @@ function collectInvalidFields(formElement, validationOptions) {
 		} else {
 			// Data attribute overrides (e.g. data-o3-form-message-required)
 			const validity = fieldElement.validity;
+
 			const dataKey = validity.valueMissing
 				? 'required'
 				: validity.typeMismatch
@@ -103,10 +112,12 @@ function collectInvalidFields(formElement, validationOptions) {
 											: validity.badInput
 												? 'bad-input'
 												: null;
+
 			if (dataKey) {
 				const attr = fieldElement.getAttribute(
 					`data-o3-form-message-${dataKey}`
 				);
+
 				if (attr) {
 					message = attr;
 					source = 'custom';
@@ -133,6 +144,7 @@ function collectInvalidFields(formElement, validationOptions) {
 function applyInlineFeedback(formElement, errors) {
 	const invalidIds = new Set(errors.map(error => error.id));
 	const elements = Array.from(formElement.elements);
+
 	for (const fieldElement of elements) {
 		if (!(fieldElement instanceof HTMLElement)) continue;
 
@@ -160,11 +172,14 @@ function applyInlineFeedback(formElement, errors) {
  */
 function renderErrorSummary(formElement, errors, validationOptions) {
 	if (!validationOptions.errorSummary) return;
+
 	let summary = formElement.querySelector(SUMMARY_SELECTOR);
+
 	if (!errors.length) {
 		if (summary) summary.remove();
 		return;
 	}
+
 	if (!summary) {
 		summary = document.createElement('div');
 		summary.className = SUMMARY_CLASS;
@@ -173,27 +188,35 @@ function renderErrorSummary(formElement, errors, validationOptions) {
 		formElement.insertBefore(summary, formElement.firstChild);
 	}
 	summary.innerHTML = '';
+
 	const icon = document.createElement('span');
 	icon.className = 'o3-form__error-summary-icon';
+
 	const headingWrapper = document.createElement('div');
 	headingWrapper.className = 'o3-form__error-summary__heading';
 	headingWrapper.setAttribute('aria-labelledby', 'error-summary-title');
+
 	const heading = document.createElement('span');
 	heading.id = 'error-summary-title';
 	heading.className = 'o3-typography-heading5';
 	heading.textContent = 'Please correct these errors and try again.';
+
 	const list = document.createElement('ul');
 	list.className = 'o3-forms__error-summary__list o3-typography-body-small';
+
 	for (const error of errors) {
 		const listItem = document.createElement('li');
+
 		if (error.id) {
 			const link = document.createElement('a');
 			link.className = 'o3-typography-link';
 			link.href = `#${error.id}`;
 			link.textContent = error.fieldName;
 			listItem.appendChild(link);
+
 			const messageSpan = document.createElement('span');
 			messageSpan.textContent = `: ${error.message}`;
+
 			listItem.appendChild(messageSpan);
 		} else {
 			listItem.textContent = `${error.fieldName}: ${error.message}`;
@@ -202,8 +225,10 @@ function renderErrorSummary(formElement, errors, validationOptions) {
 	}
 	headingWrapper.appendChild(heading);
 	headingWrapper.appendChild(list);
+
 	summary.appendChild(icon);
 	summary.appendChild(headingWrapper);
+
 	if (validationOptions.focusFirstInvalid) {
 		heading.focus?.();
 	}
@@ -218,10 +243,12 @@ function renderErrorSummary(formElement, errors, validationOptions) {
 function createFeedbackElement(error) {
 	const errorMessageContainer = document.createElement('div');
 	errorMessageContainer.classList.add('o3-form-feedback', 'o3-form-feedback__error');
+
 	const errorMessage = document.createElement('span');
 	errorMessage.classList.add('o3-form-feedback__error-message');
 	errorMessage.innerText = error.message;
 	errorMessageContainer.appendChild(errorMessage);
+
 	return errorMessageContainer;
 }
 
@@ -233,23 +260,19 @@ function createFeedbackElement(error) {
  * @returns {FieldError|null} A field error if invalid, otherwise null.
  */
 function revalidateField(element, validationOptions) {
-	if (
-		!(
-			element instanceof HTMLInputElement ||
-			element instanceof HTMLSelectElement ||
-			element instanceof HTMLTextAreaElement
-		)
-	) {
+	if (!isFormFieldElement(element)) {
 		return null;
 	}
 
 	if (element.checkValidity()) {
 		// clear custom validity if previously set
 		element.setCustomValidity('');
+
 		if (element.classList.contains('o3-form-text-input')) {
 			element.classList.remove(ERROR_INPUT_CLASS);
 			element.parentElement.querySelector('.o3-form-feedback__error')?.remove();
 		}
+
 		if (
 			element.classList.contains('o3-form-input-radio-button') ||
 			element.classList.contains('o3-form-input-checkbox__input')
@@ -257,6 +280,7 @@ function revalidateField(element, validationOptions) {
 			element.classList.remove(ERROR_CHECK_CLASS);
 			element.parentElement.querySelector('.o3-form-feedback__error')?.remove();
 		}
+
 		return null;
 	}
 
@@ -326,9 +350,11 @@ function initO3FormValidation(formOrSelector, options = {}) {
 		},
 		options
 	);
+
 	if (validationOptions.useBrowserReport && validationOptions.preventSubmit) {
 		throw new Error('Cannot enable both useBrowserReport and preventSubmit.');
 	}
+
 	if (formState.has(formElement)) return formElement; // already initialised
 
 	const state = {validationOptions}; // future: may hold cached lastErrors etc.
@@ -390,12 +416,17 @@ function destroyO3FormValidation(formOrSelector) {
 		formOrSelector instanceof HTMLFormElement
 			? formOrSelector
 			: document.querySelector(formOrSelector);
+
 	if (!formElement || !(formElement instanceof HTMLFormElement)) return;
+
 	const state = formState.get(formElement);
+
 	if (!state) return;
+
 	// clone without listeners (simpler than tracking each bound handler)
 	const clone = formElement.cloneNode(true);
 	formElement.parentNode?.replaceChild(clone, formElement);
+
 	const summary = clone.querySelector(SUMMARY_SELECTOR);
 	summary?.remove();
 	formState.delete(clone); // new clone not initialised
