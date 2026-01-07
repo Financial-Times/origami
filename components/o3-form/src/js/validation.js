@@ -44,6 +44,12 @@ function deriveFieldName(element) {
 	return element.getAttribute('name') || element.id || 'Field';
 }
 
+function isFormFieldElement(fieldElement) {
+	return fieldElement instanceof HTMLInputElement ||
+		fieldElement instanceof HTMLSelectElement ||
+		fieldElement instanceof HTMLTextAreaElement;
+}
+
 /**
  * Collect invalid fields using the Constraint Validation API.
  *
@@ -56,19 +62,18 @@ function collectInvalidFields(formElement, validationOptions) {
 	/** @type {FieldError[]} */
 	const errors = [];
 	for (const fieldElement of elements) {
-		if (
-			!(
-				fieldElement instanceof HTMLInputElement ||
-				fieldElement instanceof HTMLSelectElement ||
-				fieldElement instanceof HTMLTextAreaElement
-			)
-		)
+
+		if (!isFormFieldElement(fieldElement))
 			continue;
+
 		if (fieldElement.checkValidity()) continue;
+
 		let message = fieldElement.validationMessage;
 		let source = 'native';
+
 		// Custom message precedence: explicit option map -> data attributes
 		const idOrName = fieldElement.id || fieldElement.name;
+
 		if (
 			idOrName &&
 			validationOptions.customMessages &&
@@ -82,22 +87,22 @@ function collectInvalidFields(formElement, validationOptions) {
 			const dataKey = validity.valueMissing
 				? 'required'
 				: validity.typeMismatch
-				? 'type'
-				: validity.patternMismatch
-				? 'pattern'
-				: validity.tooShort
-				? 'too-short'
-				: validity.tooLong
-				? 'too-long'
-				: validity.rangeUnderflow
-				? 'range-underflow'
-				: validity.rangeOverflow
-				? 'range-overflow'
-				: validity.stepMismatch
-				? 'step'
-				: validity.badInput
-				? 'bad-input'
-				: null;
+					? 'type'
+					: validity.patternMismatch
+						? 'pattern'
+						: validity.tooShort
+							? 'too-short'
+							: validity.tooLong
+								? 'too-long'
+								: validity.rangeUnderflow
+									? 'range-underflow'
+									: validity.rangeOverflow
+										? 'range-overflow'
+										: validity.stepMismatch
+											? 'step'
+											: validity.badInput
+												? 'bad-input'
+												: null;
 			if (dataKey) {
 				const attr = fieldElement.getAttribute(
 					`data-o3-form-message-${dataKey}`
@@ -108,6 +113,7 @@ function collectInvalidFields(formElement, validationOptions) {
 				}
 			}
 		}
+
 		errors.push({
 			id: fieldElement.id,
 			fieldName: deriveFieldName(fieldElement),
@@ -129,13 +135,16 @@ function applyInlineFeedback(formElement, errors) {
 	const elements = Array.from(formElement.elements);
 	for (const fieldElement of elements) {
 		if (!(fieldElement instanceof HTMLElement)) continue;
+
 		const isInvalid = fieldElement.id && invalidIds.has(fieldElement.id);
-		if (fieldElement.classList.contains('o3-form-text-input')) {
+
+		if (fieldElement.classList.contains('o3-form-text-input') && !fieldElement.classList.contains(ERROR_INPUT_CLASS)) {
 			fieldElement.classList.toggle(ERROR_INPUT_CLASS, isInvalid);
 		}
+
 		if (
-			fieldElement.classList.contains('o3-form-input-radio-button') ||
-			fieldElement.classList.contains('o3-form-input-checkbox__input')
+			(fieldElement.classList.contains('o3-form-input-radio-button') ||
+				fieldElement.classList.contains('o3-form-input-checkbox__input')) && !fieldElement.clasList.contains(ERROR_CHECK_CLASS)
 		) {
 			fieldElement.classList.toggle(ERROR_CHECK_CLASS, isInvalid);
 		}
@@ -201,6 +210,22 @@ function renderErrorSummary(formElement, errors, validationOptions) {
 }
 
 /**
+ * Creates feedback element
+ *
+ * @param {Error} error The error to create a feedback element for.
+ * @returns {HTMLElement} A field error if invalid, otherwise null.
+ */
+function createFeedbackElement(error) {
+	const errorMessageContainer = document.createElement('div');
+	errorMessageContainer.classList.add('o3-form-feedback', 'o3-form-feedback__error');
+	const errorMessage = document.createElement('span');
+	errorMessage.classList.add('o3-form-feedback__error-message');
+	errorMessage.innerText = error.message;
+	errorMessageContainer.appendChild(errorMessage);
+	return errorMessageContainer;
+}
+
+/**
  * Revalidate a single field and update inline feedback (does not rebuild summary).
  *
  * @param {HTMLElement} element The field to revalidate.
@@ -217,26 +242,41 @@ function revalidateField(element, validationOptions) {
 	) {
 		return null;
 	}
+
 	if (element.checkValidity()) {
 		// clear custom validity if previously set
 		element.setCustomValidity('');
 		if (element.classList.contains('o3-form-text-input')) {
 			element.classList.remove(ERROR_INPUT_CLASS);
+			element.parentElement.querySelector('.o3-form-feedback__error')?.remove();
 		}
 		if (
 			element.classList.contains('o3-form-input-radio-button') ||
 			element.classList.contains('o3-form-input-checkbox__input')
 		) {
 			element.classList.remove(ERROR_CHECK_CLASS);
+			element.parentElement.querySelector('.o3-form-feedback__error')?.remove();
 		}
 		return null;
 	}
-	const [error] = collectInvalidFields(element.form, validationOptions).filter(
+
+	const errors = collectInvalidFields(element.form, validationOptions).filter(
 		e => e.id === element.id
 	);
+
+	applyInlineFeedback(element.form, errors);
+
+	const [error] = errors;
 	if (error) {
+		if (!element.parentElement.querySelector('.o3-form-feedback__error')) {
+			const errorMessageContainer = createFeedbackElement(error);
+			element.closest('.o3-form-field').appendChild(errorMessageContainer);
+		}
+
 		if (element.classList.contains('o3-form-text-input'))
 			element.classList.add(ERROR_INPUT_CLASS);
+
+
 		if (
 			element.classList.contains('o3-form-input-radio-button') ||
 			element.classList.contains('o3-form-input-checkbox__input')
@@ -303,6 +343,7 @@ function initO3FormValidation(formOrSelector, options = {}) {
 			if (validationOptions.preventSubmit) event.preventDefault();
 			const errors = collectInvalidFields(formElement, validationOptions);
 			applyInlineFeedback(formElement, errors);
+
 			renderErrorSummary(formElement, errors, validationOptions);
 			if (errors.length && validationOptions.focusFirstInvalid) {
 				const target = formElement.querySelector(`#${errors[0].id}`);
@@ -320,6 +361,7 @@ function initO3FormValidation(formOrSelector, options = {}) {
 		if (!current) return;
 		revalidateField(event.target, current.validationOptions);
 	};
+
 	formElement.addEventListener('input', progressiveHandler, true);
 	formElement.addEventListener('blur', progressiveHandler, true);
 	formElement.addEventListener(
