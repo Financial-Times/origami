@@ -21,10 +21,10 @@
  * @property {('native'|'custom')} [source] Origin of message (native browser vs custom override).
  */
 
-const SUMMARY_SELECTOR = '.o3-form__error-summary';
 const SUMMARY_CLASS = 'o3-form__error-summary';
 const ERROR_INPUT_CLASS = 'o3-form-text-input--error';
-const ERROR_CHECK_CLASS = 'o3-form-input-error';
+const FORM_FEEDBACK_ERROR_CLASS = 'o3-form-feedback__error';
+const FORM_FIELD_CLASS = 'o3-form-field';
 
 /** Maintain internal state per form element */
 const formState = new WeakMap();
@@ -154,7 +154,6 @@ function initO3FormValidation(formOrSelector, options = {}) {
  * @returns {FieldError[]} An array of field error objects.
  */
 function collectInvalidFields(formElement, validationOptions) {
-	/** @type {HTMLElement[]} */
 	const elements = Array.from(formElement.elements);
 	/** @type {FieldError[]} */
 	const errors = [];
@@ -240,16 +239,16 @@ function applyInlineFeedback(formElement, errors) {
 		const [error] = errors.filter((error) => error.id === fieldElement.id);
 
 		if (!error) {
-			fieldElement.closest('.o3-form-field')?.querySelector('.o3-form-feedback__error')?.remove();
+			fieldElement.closest(`.${FORM_FIELD_CLASS}`)?.querySelector(`.${FORM_FEEDBACK_ERROR_CLASS}`)?.remove();
 			fieldElement.classList.remove(ERROR_INPUT_CLASS);
 		} else {
 			if (fieldElement.classList.contains('o3-form-text-input') && !fieldElement.classList.contains(ERROR_INPUT_CLASS)) {
 				fieldElement.classList.add(ERROR_INPUT_CLASS);
 			}
 
-			if (!fieldElement.parentElement.querySelector('.o3-form-feedback__error')) {//TODO: check if need to extract to const
+			if (!fieldElement.parentElement.querySelector(`.${FORM_FEEDBACK_ERROR_CLASS}`)) {
 				const errorMessageContainer = createFeedbackElement(error);
-				fieldElement.closest('.o3-form-field').appendChild(errorMessageContainer);//TODO: check if need to extract class to const
+				fieldElement.closest(`.${FORM_FIELD_CLASS}`).appendChild(errorMessageContainer);
 			}
 		}
 	}
@@ -275,7 +274,7 @@ function validateAndReRender(formElement, validationOptions) {
 			target?.focus();
 		}
 	} else {
-		document.querySelector(SUMMARY_SELECTOR)?.remove();
+		document.querySelector(`.${SUMMARY_CLASS}`)?.remove();
 	}
 
 	return !invalid;
@@ -289,10 +288,10 @@ function validateAndReRender(formElement, validationOptions) {
  */
 function createFeedbackElement(error) {
 	const errorMessageContainer = document.createElement('div');
-	errorMessageContainer.classList.add('o3-form-feedback', 'o3-form-feedback__error');//TODO: check if need to extract classes to const
+	errorMessageContainer.classList.add('o3-form-feedback', FORM_FEEDBACK_ERROR_CLASS);
 
 	const errorMessage = document.createElement('span');
-	errorMessage.classList.add('o3-form-feedback__error-message');//TODO: check if need to extract classes to const
+	errorMessage.classList.add(`${FORM_FEEDBACK_ERROR_CLASS}-message`);
 	errorMessage.innerText = error.message;
 	errorMessageContainer.appendChild(errorMessage);
 
@@ -309,7 +308,7 @@ function createFeedbackElement(error) {
 function createErrorSummary(formElement, errors, validationOptions) {
 	if (!validationOptions.errorSummary) return;
 
-	let summary = formElement.querySelector(SUMMARY_SELECTOR);
+	let summary = formElement.querySelector(`.${SUMMARY_CLASS}`);
 
 	if (!errors.length) {
 		if (summary) summary.remove();
@@ -326,10 +325,10 @@ function createErrorSummary(formElement, errors, validationOptions) {
 	summary.innerHTML = '';
 
 	const icon = document.createElement('span');
-	icon.className = 'o3-form__error-summary-icon';//TODO: check if we need to extract to const
+	icon.className = `${SUMMARY_CLASS}-icon`;
 
 	const headingWrapper = document.createElement('div');
-	headingWrapper.className = 'o3-form__error-summary__heading'; //TODO: check if we need to extract to const
+	headingWrapper.className = `${SUMMARY_CLASS}__heading`;
 	headingWrapper.setAttribute('aria-labelledby', 'error-summary-title');
 
 	const heading = document.createElement('span');
@@ -338,7 +337,7 @@ function createErrorSummary(formElement, errors, validationOptions) {
 	heading.textContent = 'Please correct these errors and try again.';
 
 	const list = document.createElement('ul');
-	list.className = 'o3-forms__error-summary__list o3-typography-body-small';
+	list.className = `${SUMMARY_CLASS}__list o3-typography-body-small`;
 
 	for (const error of errors) {
 		const listItem = document.createElement('li');
@@ -431,7 +430,7 @@ function destroyO3FormValidation(formOrSelector) {
 	const clone = formElement.cloneNode(true);
 	formElement.parentNode?.replaceChild(clone, formElement);
 
-	const summary = clone.querySelector(SUMMARY_SELECTOR);
+	const summary = clone.querySelector(`.${SUMMARY_CLASS}`);
 	summary?.remove();
 	formState.delete(clone); // new clone not initialised
 }
