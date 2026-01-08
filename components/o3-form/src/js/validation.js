@@ -28,6 +28,8 @@ const ERROR_CHECK_CLASS = 'o3-form-input-error';
 
 /** Maintain internal state per form element */
 const formState = new WeakMap();
+const elementsPreviouslyFocussed = [];
+let isSubmitAttempted = false;
 
 /**
  * Derive a human readable field name from its associated `<label>` or fallback attributes.
@@ -142,23 +144,24 @@ function collectInvalidFields(formElement, validationOptions) {
  * @param {FieldError[]} errors Current list of errors to reflect.
  */
 function applyInlineFeedback(formElement, errors) {
-	const invalidIds = new Set(errors.map(error => error.id));
-	const elements = Array.from(formElement.elements);
+	const elements = Array.from(formElement.elements)
 
 	for (const fieldElement of elements) {
 		if (!(fieldElement instanceof HTMLElement)) continue;
 
-		const isInvalid = fieldElement.id && invalidIds.has(fieldElement.id);
+		const [error] = errors.filter((error) => error.id === fieldElement.id);
+		if (!error) {
+			fieldElement.closest('.o3-form-field')?.querySelector('.o3-form-feedback__error')?.remove();
+			fieldElement.classList.remove(ERROR_INPUT_CLASS);
+		} else {
+			if (fieldElement.classList.contains('o3-form-text-input') && !fieldElement.classList.contains(ERROR_INPUT_CLASS)) {
+				fieldElement.classList.add(ERROR_INPUT_CLASS);
+			}
 
-		if (fieldElement.classList.contains('o3-form-text-input') && !fieldElement.classList.contains(ERROR_INPUT_CLASS)) {
-			fieldElement.classList.toggle(ERROR_INPUT_CLASS, isInvalid);
-		}
-
-		if (
-			(fieldElement.classList.contains('o3-form-input-radio-button') ||
-				fieldElement.classList.contains('o3-form-input-checkbox__input')) && !fieldElement.clasList.contains(ERROR_CHECK_CLASS)
-		) {
-			fieldElement.classList.toggle(ERROR_CHECK_CLASS, isInvalid);
+			if (!fieldElement.parentElement.querySelector('.o3-form-feedback__error')) {
+				const errorMessageContainer = createFeedbackElement(error);
+				fieldElement.closest('.o3-form-field').appendChild(errorMessageContainer);
+			}
 		}
 	}
 }
@@ -170,7 +173,7 @@ function applyInlineFeedback(formElement, errors) {
  * @param {FieldError[]} errors Errors to list; if empty the summary is removed.
  * @param {O3ValidationOptions} validationOptions Validation configuration.
  */
-function renderErrorSummary(formElement, errors, validationOptions) {
+function createErrorSummary(formElement, errors, validationOptions) {
 	if (!validationOptions.errorSummary) return;
 
 	let summary = formElement.querySelector(SUMMARY_SELECTOR);
@@ -253,65 +256,6 @@ function createFeedbackElement(error) {
 }
 
 /**
- * Revalidate a single field and update inline feedback (does not rebuild summary).
- *
- * @param {HTMLElement} element The field to revalidate.
- * @param {O3ValidationOptions} validationOptions Validation configuration.
- * @returns {FieldError|null} A field error if invalid, otherwise null.
- */
-function revalidateField(element, validationOptions) {
-	if (!isFormFieldElement(element)) {
-		return null;
-	}
-
-	if (element.checkValidity()) {
-		// clear custom validity if previously set
-		element.setCustomValidity('');
-
-		if (element.classList.contains('o3-form-text-input')) {
-			element.classList.remove(ERROR_INPUT_CLASS);
-			element.parentElement.querySelector('.o3-form-feedback__error')?.remove();
-		}
-
-		if (
-			element.classList.contains('o3-form-input-radio-button') ||
-			element.classList.contains('o3-form-input-checkbox__input')
-		) {
-			element.classList.remove(ERROR_CHECK_CLASS);
-			element.parentElement.querySelector('.o3-form-feedback__error')?.remove();
-		}
-
-		return null;
-	}
-
-	const errors = collectInvalidFields(element.form, validationOptions).filter(
-		e => e.id === element.id
-	);
-
-	applyInlineFeedback(element.form, errors);
-
-	const [error] = errors;
-	if (error) {
-		if (!element.parentElement.querySelector('.o3-form-feedback__error')) {
-			const errorMessageContainer = createFeedbackElement(error);
-			element.closest('.o3-form-field').appendChild(errorMessageContainer);
-		}
-
-		if (element.classList.contains('o3-form-text-input'))
-			element.classList.add(ERROR_INPUT_CLASS);
-
-
-		if (
-			element.classList.contains('o3-form-input-radio-button') ||
-			element.classList.contains('o3-form-input-checkbox__input')
-		)
-			element.classList.add(ERROR_CHECK_CLASS);
-		return error;
-	}
-	return null;
-}
-
-/**
  * Set a custom message for a field; clears any previous message when falsy.
  *
  * @param {HTMLInputElement|HTMLSelectElement|HTMLTextAreaElement} element The field element to annotate.
@@ -320,6 +264,30 @@ function revalidateField(element, validationOptions) {
 function setCustomMessage(element, message) {
 	if (!element) return;
 	element.setCustomValidity(message || '');
+}
+
+/**
+ * Validates form is valid and conditionally displays an error summary
+ * @param formElement
+ * @param validationOptions
+ * @returns boolean
+ */
+function validateAndReRender(formElement, validationOptions) {
+	const invalid = !formElement.checkValidity();
+	if (invalid) {
+		const errors = collectInvalidFields(formElement, validationOptions);
+		applyInlineFeedback(formElement, errors);
+		createErrorSummary(formElement, errors, validationOptions);
+
+		if (errors.length && validationOptions.focusFirstInvalid) {
+			const target = formElement.querySelector(`#${errors[0].id}`);
+			target?.focus();
+		}
+	} else {
+		document.querySelector(SUMMARY_SELECTOR)?.remove();
+	}
+
+	return !invalid;
 }
 
 /**
@@ -360,48 +328,79 @@ function initO3FormValidation(formOrSelector, options = {}) {
 	const state = {validationOptions}; // future: may hold cached lastErrors etc.
 	formState.set(formElement, state);
 
-	formElement.addEventListener('submit', event => {
-		const current = formState.get(formElement);
-		if (!current) return;
-		const {validationOptions} = current;
-		const invalid = !formElement.checkValidity();
-		if (invalid) {
-			if (validationOptions.preventSubmit) event.preventDefault();
-			const errors = collectInvalidFields(formElement, validationOptions);
-			applyInlineFeedback(formElement, errors);
-
-			renderErrorSummary(formElement, errors, validationOptions);
-			if (errors.length && validationOptions.focusFirstInvalid) {
-				const target = formElement.querySelector(`#${errors[0].id}`);
-				target?.focus();
-			}
-			if (validationOptions.useBrowserReport) {
-				formElement.reportValidity();
-			}
-		}
-	});
-
-	// progressive revalidation
-	const progressiveHandler = event => {
-		const current = formState.get(formElement);
-		if (!current) return;
-		revalidateField(event.target, current.validationOptions);
-	};
-
-	formElement.addEventListener('input', progressiveHandler, true);
-	formElement.addEventListener('blur', progressiveHandler, true);
 	formElement.addEventListener(
 		'invalid',
 		event => {
 			// suppress native tooltip when using custom summary
 			const current = formState.get(formElement);
 			if (!current) return;
-			if (current.validationOptions.errorSummary) {
-				event.preventDefault();
+			if (isSubmitAttempted) {
+				const errors = collectInvalidFields(formElement, validationOptions);
+				applyInlineFeedback(formElement, errors);
+				createErrorSummary(formElement, errors, validationOptions);
+				if (current.validationOptions.errorSummary) {
+					event.preventDefault();
+				}
+				isSubmitAttempted = false;
+				console.log('submitted false on invalid event');
 			}
 		},
 		true
 	);
+
+	// progressive revalidation
+	const progressiveHandler = event => {
+		const current = formState.get(formElement);
+		if (!current) return;
+		const errors = collectInvalidFields(event.currentTarget, validationOptions);
+
+		const focussedErrors = isSubmitAttempted ? errors : errors.filter((error) => elementsPreviouslyFocussed.includes(error.id));
+
+		applyInlineFeedback(formElement, focussedErrors);
+	};
+
+	formElement.addEventListener('submit', (event) => {
+		isSubmitAttempted = true;
+
+		const ok = validateAndReRender(formElement, validationOptions);
+		if (!ok && validationOptions.preventSubmit) event.preventDefault();
+	});
+
+	formElement.addEventListener('pointerdown', event => {
+		const target = event.target.closest('button[type="submit"], input[type="submit"]');
+
+		const isSubmit =
+			target instanceof HTMLButtonElement
+				? target.type === 'submit'
+				: target instanceof HTMLInputElement && target.type === 'submit';
+
+		if (!isSubmit) return;
+		isSubmitAttempted = true;
+
+		const current = formState.get(formElement);
+		if (!current) return;
+		const {validationOptions} = current;
+
+		for (const fieldElement of formElement.elements) {
+			elementsPreviouslyFocussed.push(fieldElement.id);
+		}
+
+		const ok = validateAndReRender(formElement, validationOptions);
+		if (!ok && validationOptions.preventSubmit) event.preventDefault();
+	}, true);
+
+	formElement.addEventListener('input', progressiveHandler, true);
+	formElement.addEventListener('blur', progressiveHandler, true);
+
+	const fieldElements = Array.from(formElement.elements);
+
+	for (const fieldElement of fieldElements) {
+		if (!isFormFieldElement(fieldElement)) continue;
+
+		fieldElement.addEventListener('focusin', () => {
+			elementsPreviouslyFocussed.push(fieldElement.id);
+		});
+	}
 
 	return formElement;
 }
@@ -436,7 +435,6 @@ export {
 	collectInvalidFields,
 	destroyO3FormValidation,
 	initO3FormValidation,
-	revalidateField,
 	setCustomMessage,
-	renderErrorSummary as showErrorSummary,
+	createErrorSummary as showErrorSummary,
 };

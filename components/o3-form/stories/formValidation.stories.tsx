@@ -55,6 +55,10 @@ export const FormValidation = {
 		if (form) {
 			initO3FormValidation(form);
 		}
+
+		form?.addEventListener('submit', (event) => {
+			event.preventDefault();
+		});
 	},
 };
 

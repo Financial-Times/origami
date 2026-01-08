@@ -64,7 +64,7 @@ export const FormValidationHtml = () => {
 					type="text"
 				/>
 			</div>
-			<button className="o3-button o3-button--primary" type="submit">Submit</button>
+			<input data-testid="submit-button" className="o3-button o3-button--primary" type="submit" value="Submit"/>
 		</form>
 	)
 }
