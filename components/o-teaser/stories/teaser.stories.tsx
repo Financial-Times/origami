@@ -1,28 +1,28 @@
-import parse from 'html-react-parser';
+import {ComponentMeta, ComponentStory} from '@storybook/react';
 import DOMPurify from 'dompurify';
-import {ComponentStory, ComponentMeta} from '@storybook/react';
+import parse from 'html-react-parser';
 import {Teaser} from '../src/tsx/teaser';
 
 import './teaser.scss';
 
-
+// TODO: Re-enable below when it doesn't break things in CI
 // Include o3 foundation. This makes our demos replicate the setup teams that have migrated to O3 have/
-import '@financial-times/o3-foundation/css/core.css';
-import '@financial-times/o3-foundation/css/professional.css';
-import '@financial-times/o3-foundation/css/internal.css';
-import '@financial-times/o3-foundation/css/sustainable-views.css';
-import '@financial-times/o3-foundation/css/whitelabel.css';
+// import '@financial-times/o3-foundation/css/core.css';
+// import '@financial-times/o3-foundation/css/professional.css';
+// import '@financial-times/o3-foundation/css/internal.css';
+// import '@financial-times/o3-foundation/css/sustainable-views.css';
+// import '@financial-times/o3-foundation/css/whitelabel.css';
 
 import {
 	articleArgs,
 	contentPackageArgs,
 	contentPackageItemArgs,
+	heroImageArgs,
 	opinionArgs,
 	podcastArgs,
 	promotedArgs,
 	topStoryArgs,
 	videoArgs,
-	heroImageArgs
 } from './args';
 
 import {argTypes} from './arg-types';
