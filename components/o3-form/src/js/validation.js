@@ -32,32 +32,118 @@ const elementsPreviouslyFocussed = [];
 let isSubmitAttempted = false;
 
 /**
- * Derive a human readable field name from its associated `<label>` or fallback attributes.
+ * Initialise validation on a form element or selector.
  *
- * @param {HTMLInputElement|HTMLSelectElement|HTMLTextAreaElement} element The form control to derive a label for.
- * @returns {string} A human friendly name for the field.
+ * @param {string|HTMLFormElement} formOrSelector A form element or a selector resolving to one.
+ * @param {O3ValidationOptions} [options] Validation configuration overrides.
+ * @returns {HTMLFormElement|null} The initialised form element.
  */
-function deriveFieldName(element) {
-	if (!element) return 'Field';
+function initO3FormValidation(formOrSelector, options = {}) {
+	const formElement =
+		formOrSelector instanceof HTMLFormElement
+			? formOrSelector
+			: document.querySelector(formOrSelector);
 
-	if (element.id) {
-		const label = element.form?.querySelector(`label[for="${element.id}"]`);
-		if (label && label.textContent) return label.textContent.trim();
+	if (!formElement || !(formElement instanceof HTMLFormElement)) {
+		throw new Error(
+			'initO3FormValidation must be passed a form element or selector resolving to a form.'
+		);
+	}
+	const validationOptions = Object.assign(
+		{
+			useBrowserReport: false,
+			errorSummary: true,
+			customMessages: undefined,
+			preventSubmit: true,
+			focusFirstInvalid: true,
+		},
+		options
+	);
+
+	if (validationOptions.useBrowserReport && validationOptions.preventSubmit) {
+		throw new Error('Cannot enable both useBrowserReport and preventSubmit.');
 	}
 
-	return element.getAttribute('name') || element.id || 'Field';
-}
+	if (formState.has(formElement)) return formElement; // already initialised
 
-/**
- * Check if a given HTMLElement is a valid form field element.
- *
- * @param fieldElement {HTMLElement}
- * @returns {boolean}
- */
-function isFormFieldElement(fieldElement) {
-	return fieldElement instanceof HTMLInputElement ||
-		fieldElement instanceof HTMLSelectElement ||
-		fieldElement instanceof HTMLTextAreaElement;
+	const state = {validationOptions}; // future: may hold cached lastErrors etc.
+	formState.set(formElement, state);
+
+	const progressiveHandler = event => {
+		const current = formState.get(formElement);
+		if (!current) return;
+		const errors = collectInvalidFields(event.currentTarget, validationOptions);
+
+		const focussedErrors = isSubmitAttempted ? errors : errors.filter((error) => elementsPreviouslyFocussed.includes(error.id));
+
+		applyInlineFeedback(formElement, focussedErrors);
+	};
+
+	formElement.addEventListener(
+		'invalid',
+		event => {
+			// suppress native tooltip when using custom summary
+			const current = formState.get(formElement);
+			if (!current) return;
+			if (isSubmitAttempted) {
+				const errors = collectInvalidFields(formElement, validationOptions);
+				applyInlineFeedback(formElement, errors);
+				createErrorSummary(formElement, errors, validationOptions);
+				if (current.validationOptions.errorSummary) {
+					event.preventDefault();
+				}
+				isSubmitAttempted = false;
+			}
+		},
+		true
+	);
+
+	formElement.addEventListener('submit', (event) => {
+		isSubmitAttempted = true;
+
+		const ok = validateAndReRender(formElement, validationOptions);
+
+		if (!ok && validationOptions.preventSubmit) event.preventDefault();
+	});
+
+	formElement.addEventListener('pointerdown', event => {
+		const target = event.target.closest('button[type="submit"], input[type="submit"]');
+
+		const isSubmit =
+			target instanceof HTMLButtonElement
+				? target.type === 'submit'
+				: target instanceof HTMLInputElement && target.type === 'submit';
+
+		if (!isSubmit) return;
+		isSubmitAttempted = true;
+
+		const current = formState.get(formElement);
+		if (!current) return;
+		const {validationOptions} = current;
+
+		for (const fieldElement of formElement.elements) {
+			elementsPreviouslyFocussed.push(fieldElement.id);
+		}
+
+		const ok = validateAndReRender(formElement, validationOptions);
+
+		if (!ok && validationOptions.preventSubmit) event.preventDefault();
+	}, true);
+
+	formElement.addEventListener('input', progressiveHandler, true);
+	formElement.addEventListener('blur', progressiveHandler, true);
+
+	const fieldElements = Array.from(formElement.elements);
+
+	for (const fieldElement of fieldElements) {
+		if (!isFormFieldElement(fieldElement)) continue;
+
+		fieldElement.addEventListener('focusin', () => {
+			elementsPreviouslyFocussed.push(fieldElement.id);
+		});
+	}
+
+	return formElement;
 }
 
 /**
@@ -68,6 +154,7 @@ function isFormFieldElement(fieldElement) {
  * @returns {FieldError[]} An array of field error objects.
  */
 function collectInvalidFields(formElement, validationOptions) {
+	/** @type {HTMLElement[]} */
 	const elements = Array.from(formElement.elements);
 	/** @type {FieldError[]} */
 	const errors = [];
@@ -78,6 +165,7 @@ function collectInvalidFields(formElement, validationOptions) {
 
 		if (fieldElement.checkValidity()) continue;
 
+		/** @type string */
 		let message = fieldElement.validationMessage;
 		let source = 'native';
 
@@ -150,6 +238,7 @@ function applyInlineFeedback(formElement, errors) {
 		if (!(fieldElement instanceof HTMLElement)) continue;
 
 		const [error] = errors.filter((error) => error.id === fieldElement.id);
+
 		if (!error) {
 			fieldElement.closest('.o3-form-field')?.querySelector('.o3-form-feedback__error')?.remove();
 			fieldElement.classList.remove(ERROR_INPUT_CLASS);
@@ -158,12 +247,56 @@ function applyInlineFeedback(formElement, errors) {
 				fieldElement.classList.add(ERROR_INPUT_CLASS);
 			}
 
-			if (!fieldElement.parentElement.querySelector('.o3-form-feedback__error')) {
+			if (!fieldElement.parentElement.querySelector('.o3-form-feedback__error')) {//TODO: check if need to extract to const
 				const errorMessageContainer = createFeedbackElement(error);
-				fieldElement.closest('.o3-form-field').appendChild(errorMessageContainer);
+				fieldElement.closest('.o3-form-field').appendChild(errorMessageContainer);//TODO: check if need to extract class to const
 			}
 		}
 	}
+}
+
+/**
+ * Validates form is valid and conditionally displays an error summary
+ * @param formElement
+ * @param validationOptions
+ * @returns boolean
+ */
+function validateAndReRender(formElement, validationOptions) {
+	const invalid = !formElement.checkValidity();
+
+	if (invalid) {
+		const errors = collectInvalidFields(formElement, validationOptions);
+
+		applyInlineFeedback(formElement, errors);
+		createErrorSummary(formElement, errors, validationOptions);
+
+		if (errors.length && validationOptions.focusFirstInvalid) {
+			const target = formElement.querySelector(`#${errors[0].id}`);
+			target?.focus();
+		}
+	} else {
+		document.querySelector(SUMMARY_SELECTOR)?.remove();
+	}
+
+	return !invalid;
+}
+
+/**
+ * Creates feedback element
+ *
+ * @param {Error} error The error to create a feedback element for.
+ * @returns {HTMLElement} A field error if invalid, otherwise null.
+ */
+function createFeedbackElement(error) {
+	const errorMessageContainer = document.createElement('div');
+	errorMessageContainer.classList.add('o3-form-feedback', 'o3-form-feedback__error');//TODO: check if need to extract classes to const
+
+	const errorMessage = document.createElement('span');
+	errorMessage.classList.add('o3-form-feedback__error-message');//TODO: check if need to extract classes to const
+	errorMessage.innerText = error.message;
+	errorMessageContainer.appendChild(errorMessage);
+
+	return errorMessageContainer;
 }
 
 /**
@@ -193,10 +326,10 @@ function createErrorSummary(formElement, errors, validationOptions) {
 	summary.innerHTML = '';
 
 	const icon = document.createElement('span');
-	icon.className = 'o3-form__error-summary-icon';
+	icon.className = 'o3-form__error-summary-icon';//TODO: check if we need to extract to const
 
 	const headingWrapper = document.createElement('div');
-	headingWrapper.className = 'o3-form__error-summary__heading';
+	headingWrapper.className = 'o3-form__error-summary__heading'; //TODO: check if we need to extract to const
 	headingWrapper.setAttribute('aria-labelledby', 'error-summary-title');
 
 	const heading = document.createElement('span');
@@ -238,21 +371,32 @@ function createErrorSummary(formElement, errors, validationOptions) {
 }
 
 /**
- * Creates feedback element
+ * Derive a human-readable field name from its associated `<label>` or fallback attributes.
  *
- * @param {Error} error The error to create a feedback element for.
- * @returns {HTMLElement} A field error if invalid, otherwise null.
+ * @param {HTMLInputElement|HTMLSelectElement|HTMLTextAreaElement} element The form control to derive a label for.
+ * @returns {string} A human friendly name for the field.
  */
-function createFeedbackElement(error) {
-	const errorMessageContainer = document.createElement('div');
-	errorMessageContainer.classList.add('o3-form-feedback', 'o3-form-feedback__error');
+function deriveFieldName(element) {
+	if (!element) return 'Field';
 
-	const errorMessage = document.createElement('span');
-	errorMessage.classList.add('o3-form-feedback__error-message');
-	errorMessage.innerText = error.message;
-	errorMessageContainer.appendChild(errorMessage);
+	if (element.id) {
+		const label = element.form?.querySelector(`label[for="${element.id}"]`);
+		if (label && label.textContent) return label.textContent.trim();
+	}
 
-	return errorMessageContainer;
+	return element.getAttribute('name') || element.id || 'Field';
+}
+
+/**
+ * Check if a given HTMLElement is a valid form field element.
+ *
+ * @param fieldElement {HTMLElement}
+ * @returns {boolean}
+ */
+function isFormFieldElement(fieldElement) {
+	return fieldElement instanceof HTMLInputElement ||
+		fieldElement instanceof HTMLSelectElement ||
+		fieldElement instanceof HTMLTextAreaElement;
 }
 
 /**
@@ -264,145 +408,6 @@ function createFeedbackElement(error) {
 function setCustomMessage(element, message) {
 	if (!element) return;
 	element.setCustomValidity(message || '');
-}
-
-/**
- * Validates form is valid and conditionally displays an error summary
- * @param formElement
- * @param validationOptions
- * @returns boolean
- */
-function validateAndReRender(formElement, validationOptions) {
-	const invalid = !formElement.checkValidity();
-	if (invalid) {
-		const errors = collectInvalidFields(formElement, validationOptions);
-		applyInlineFeedback(formElement, errors);
-		createErrorSummary(formElement, errors, validationOptions);
-
-		if (errors.length && validationOptions.focusFirstInvalid) {
-			const target = formElement.querySelector(`#${errors[0].id}`);
-			target?.focus();
-		}
-	} else {
-		document.querySelector(SUMMARY_SELECTOR)?.remove();
-	}
-
-	return !invalid;
-}
-
-/**
- * Initialise validation on a form element or selector.
- *
- * @param {string|HTMLFormElement} formOrSelector A form element or a selector resolving to one.
- * @param {O3ValidationOptions} [options] Validation configuration overrides.
- * @returns {HTMLFormElement|null} The initialised form element.
- */
-function initO3FormValidation(formOrSelector, options = {}) {
-	const formElement =
-		formOrSelector instanceof HTMLFormElement
-			? formOrSelector
-			: document.querySelector(formOrSelector);
-
-	if (!formElement || !(formElement instanceof HTMLFormElement)) {
-		throw new Error(
-			'initO3FormValidation must be passed a form element or selector resolving to a form.'
-		);
-	}
-	const validationOptions = Object.assign(
-		{
-			useBrowserReport: false,
-			errorSummary: true,
-			customMessages: undefined,
-			preventSubmit: true,
-			focusFirstInvalid: true,
-		},
-		options
-	);
-
-	if (validationOptions.useBrowserReport && validationOptions.preventSubmit) {
-		throw new Error('Cannot enable both useBrowserReport and preventSubmit.');
-	}
-
-	if (formState.has(formElement)) return formElement; // already initialised
-
-	const state = {validationOptions}; // future: may hold cached lastErrors etc.
-	formState.set(formElement, state);
-
-	formElement.addEventListener(
-		'invalid',
-		event => {
-			// suppress native tooltip when using custom summary
-			const current = formState.get(formElement);
-			if (!current) return;
-			if (isSubmitAttempted) {
-				const errors = collectInvalidFields(formElement, validationOptions);
-				applyInlineFeedback(formElement, errors);
-				createErrorSummary(formElement, errors, validationOptions);
-				if (current.validationOptions.errorSummary) {
-					event.preventDefault();
-				}
-				isSubmitAttempted = false;
-				console.log('submitted false on invalid event');
-			}
-		},
-		true
-	);
-
-	// progressive revalidation
-	const progressiveHandler = event => {
-		const current = formState.get(formElement);
-		if (!current) return;
-		const errors = collectInvalidFields(event.currentTarget, validationOptions);
-
-		const focussedErrors = isSubmitAttempted ? errors : errors.filter((error) => elementsPreviouslyFocussed.includes(error.id));
-
-		applyInlineFeedback(formElement, focussedErrors);
-	};
-
-	formElement.addEventListener('submit', (event) => {
-		isSubmitAttempted = true;
-
-		const ok = validateAndReRender(formElement, validationOptions);
-		if (!ok && validationOptions.preventSubmit) event.preventDefault();
-	});
-
-	formElement.addEventListener('pointerdown', event => {
-		const target = event.target.closest('button[type="submit"], input[type="submit"]');
-
-		const isSubmit =
-			target instanceof HTMLButtonElement
-				? target.type === 'submit'
-				: target instanceof HTMLInputElement && target.type === 'submit';
-
-		if (!isSubmit) return;
-		isSubmitAttempted = true;
-
-		const current = formState.get(formElement);
-		if (!current) return;
-		const {validationOptions} = current;
-
-		for (const fieldElement of formElement.elements) {
-			elementsPreviouslyFocussed.push(fieldElement.id);
-		}
-
-		const ok = validateAndReRender(formElement, validationOptions);
-		if (!ok && validationOptions.preventSubmit) event.preventDefault();
-	}, true);
-
-	formElement.addEventListener('input', progressiveHandler, true);
-	formElement.addEventListener('blur', progressiveHandler, true);
-
-	const fieldElements = Array.from(formElement.elements);
-
-	for (const fieldElement of fieldElements) {
-		if (!isFormFieldElement(fieldElement)) continue;
-
-		fieldElement.addEventListener('focusin', () => {
-			elementsPreviouslyFocussed.push(fieldElement.id);
-		});
-	}
-
-	return formElement;
 }
 
 /**
