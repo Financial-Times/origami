@@ -43,11 +43,11 @@ export const FileInput = ({
 				<div className={inputClasses.join(' ')}>
 					<label htmlFor={id} className="o3-form-file-input__label">
 						<span
-							className="o3-form-file-input__label__button o3-button o3-button--primary o3-button-icon o3-button-icon--upload">
+							className="o3-form-file-input__label-button o3-button o3-button--primary o3-button-icon o3-button-icon--upload">
 							File Upload
 						</span>
 						<span data-testid="file-input-label"
-							  className="o3-form-file-input__label__text">{file?.name ? file?.name : "No file chosen"}</span>
+							  className="o3-form-file-input__label-text">{file?.name ? file?.name : "No file chosen"}</span>
 					</label>
 					<input
 						{...attributes}

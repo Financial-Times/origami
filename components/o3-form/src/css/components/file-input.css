@@ -59,15 +59,15 @@
 	}
 }
 
-.o3-form-file-input__label__button {
+.o3-form-file-input__label-button {
 	flex-shrink: 0;
 }
 
-.o3-form-file-input__label__text {
+.o3-form-file-input__label-text {
 	color: var(--o3-color-use-case-muted-text);
 }
 
-.o3-form-file-input__label__text--file-selected {
+.o3-form-file-input__label-text--file-selected {
 	color: var(--o3-color-use-case-body-text);
 }
 

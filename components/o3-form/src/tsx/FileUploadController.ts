@@ -27,7 +27,7 @@ export class FileUploadController {
 		const inputFileContainer = formField.querySelector('.o3-form-file-input');
 		if (!inputFileContainer) return;
 
-		const labelText = inputFileContainer.querySelector('.o3-form-file-input__label__text');
+		const labelText = inputFileContainer.querySelector('.o3-form-file-input__label-text');
 		if (!labelText) return;
 
 		if (target && target.files && target.files.length > 0 && !formField.querySelector('.o3-form-field-input__destroy')) {
