@@ -1,16 +1,16 @@
 import Overlay from '@financial-times/o-overlay';
 
 const form = `<form id="o-comments-displayname-form" class="o-forms o-forms o-comments__displayname-form">
-			<label for="o-comments-displayname-input" class="o-forms-field o-comments__displayname-field">
-				<span class="o-forms-title">Display name</span>
+			<label for="o-comments-displayname-input" class="o-comments__displayname-field">
+				Display name
 			</label>
 			<div class="o-comments__displayname-container">
-				<span class="o-forms-input o-forms-input--text o-comments__displayname-input">
-					<input id="o-comments-displayname-input" type="text" name="text" value="" required="">
-				</span>
+				<div class="o-forms-input o-forms-input--text o-comments__displayname-input">
+					<input id="o-comments-displayname-input" type="text" name="text" value="" required="" placeholder="Display name" />
+					<span id="o-comments-displayname-error" class="o-forms-input__error o-comments__displayname-error" aria-live="assertive"></span>
+				</div>
 				<button type="submit" class="o-comments__displayname-submit">Save</button>
 			</div>
-			<span id="o-comments-displayname-error" class="o-forms-input__error o-comments__displayname-error" aria-live="assertive"></span>
 	</form>
 </form>`;
 
@@ -50,7 +50,8 @@ const findInvalidCharacters = (displayName) => {
 };
 
 const prompt = () => {
-	const overlay = new Overlay('displayName', {
+	const overlay = Overlay.getOverlays().displayName ??
+		new Overlay('displayName', {
 		html: form,
 		class: 'o-comments__displayname-prompt',
 		compact: true,
@@ -78,7 +79,7 @@ const validation = (displayName,options) => {
 			isUnique(displayName,options)
 				.then(isUnique => {
 					if (!isUnique) {
-						return reject(new Error('Unfortunately that display name is already taken'));
+						return reject(new Error('This display name already exists.'));
 					} else {
 						return resolve(displayName);
 					}
@@ -112,7 +113,6 @@ const promptValidation = (event,options = {}) => {
 			.catch(error => {
 				errorMessage.innerText = error.message;
 				displayNameForm.classList.add('o-forms-input--invalid');
-
 				if (error.name === 'CommentsApiError') {
 					throw error;
 				}

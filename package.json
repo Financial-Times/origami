@@ -85,6 +85,7 @@
 		"@actions/exec": "^1.0.4",
 		"@actions/github": "^4.0.0",
 		"@actions/io": "^1.0.2",
+		"@financial-times/o3-foundation": "^3.11.3",
 		"@percy/cli": "^1.0.5",
 		"@slack/web-api": "^7.0.2",
 		"autoprefixer": "^10.4.2",

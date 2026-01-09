@@ -278,5 +278,11 @@
   "tests-o3-form--password-input-test": "?path=/story/tests-o3-form--password-input-test",
   "o3-form--select-input": "?path=/story/o3-form--select-input",
   "o3-form--select-input-disabled": "?path=/story/o3-form--select-input-disabled",
-  "o3-form--select-input-error-state": "?path=/story/o3-form--select-input-error-state"
+  "o3-form--select-input-error-state": "?path=/story/o3-form--select-input-error-state",
+  "o3-form--date-input": "?path=/story/o3-form--date-input",
+  "o3-form--date-input-error-state": "?path=/story/o3-form--date-input-error-state",
+  "o3-form--select-input-short-three": "?path=/story/o3-form--select-input-short-three",
+  "o3-form--select-input-short-one": "?path=/story/o3-form--select-input-short-one",
+  "o3-form--date-input-picker": "?path=/story/o3-form--date-input-picker",
+  "o3-form--date-input-picker-error-state": "?path=/story/o3-form--date-input-picker-error-state"
 }

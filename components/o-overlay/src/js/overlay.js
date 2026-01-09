@@ -608,8 +608,10 @@ class Overlay {
 		this.width = this.getWidth();
 		this.height = this.getHeight();
 
-		// E.g. viewport dimension <= overlay dimension
-		if (size <= this[dimension]) {
+		const overlayEscapeSize = this[dimension] - 1;
+
+		// Make overlay full size if the viewport size is less than the overlayEscapeSize threshold.
+		if (size <= overlayEscapeSize) {
 			this.wrapper.classList.add('o-overlay--full-' + dimension);
 			this.wrapper.style[edge] = '0';
 			this.wrapper.style['margin' + utils.capitalise(edge)] = 0;

@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.0.3](https://github.com/Financial-Times/origami/compare/o-overlay-v5.0.2...o-overlay-v5.0.3) (2025-12-04)
+
+
+### Bug Fixes
+
+* prevent overlay from being stuck in a full width state ([3b8269d](https://github.com/Financial-Times/origami/commit/3b8269d9613d4759799748cc5820eccdde8a04b9))
+
 ## [5.0.2](https://github.com/Financial-Times/origami/compare/o-overlay-v5.0.1...o-overlay-v5.0.2) (2025-09-11)
 
 

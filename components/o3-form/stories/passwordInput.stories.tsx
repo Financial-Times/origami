@@ -22,7 +22,7 @@ const meta: Meta<typeof PasswordInputTsx> = {
 					className="o3-form"
 					style={{
 						gridColumn: `content-start / content-end`,
-						fontFamily: 'var(--o3-font-family-metric',
+						fontFamily: 'var(--o3-font-family-metric)',
 					}}>
 					<Story />
 				</div>

@@ -1,6 +1,6 @@
 {
 	"name": "@financial-times/o3-foundation",
-	"version": "3.11.2",
+	"version": "3.12.0",
 	"description": "Origami foundations with design tokens",
 	"keywords": [
 		"foundation",
@@ -28,7 +28,8 @@
 		"README.md"
 	],
 	"scripts": {
-		"build": "bash ../../scripts/component/build-o3.bash o3-foundation"
+		"build": "bash ../../scripts/component/build-o3.bash o3-foundation",
+		"check:type": "tsc --noEmit"
 	},
 	"engines": {
 		"npm": ">7"

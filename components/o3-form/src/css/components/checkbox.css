@@ -146,6 +146,6 @@
 	font-size: var(--o3-type-detail-font-size);
 	font-weight: var(--o3-type-detail-font-weight);
 	line-height: var(--o3-type-detail-line-height);
-	color: var(--o3-color-use-case-body-text);
-	margin-top: var(--o3-spacing-4xs)
+	color: var(--o3-color-use-case-muted-text);
+	margin-top: var(--o3-spacing-5xs)
 }

@@ -1,6 +1,6 @@
 {
 	"name": "@financial-times/o3-form",
-	"version": "0.8.0",
+	"version": "0.9.0",
 	"description": "Provides a viewport-aware tooltip for annotating or or highlighting other aspects of a product's UI",
 	"keywords": [
 		"form",
@@ -31,7 +31,8 @@
 		"README.md"
 	],
 	"scripts": {
-		"build": "bash ../../scripts/component/build-o3.bash o3-form"
+		"build": "bash ../../scripts/component/build-o3.bash o3-form",
+		"check:type": "tsc --noEmit"
 	},
 	"peerDependencies": {
 		"@financial-times/o-utils": "^2.2.1",
@@ -43,5 +44,8 @@
 	"engines": {
 		"npm": ">7"
 	},
-	"private": false
+	"private": false,
+	"dependencies": {
+		"imask": "^7.6.1"
+	}
 }

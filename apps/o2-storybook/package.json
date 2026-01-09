@@ -45,6 +45,7 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
+  	"@financial-times/o3-foundation": "^3.11.1",
     "@storybook/addons": "^7.6.17",
     "@storybook/api": "^7.6.17"
   }

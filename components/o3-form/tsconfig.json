@@ -1,5 +1,9 @@
 {
 	"extends": "../../tsconfig.json",
+	"include": [
+		"src/**/*.ts",
+		"src/**/*.tsx"
+	],
 	"compilerOptions": {
 		"allowJs": true,
 		"typeRoots": ["./src/types", "../../node_modules/@types"]

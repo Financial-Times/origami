@@ -1,7 +1,7 @@
 import {
 	Form,
 	RadioButtonGroup,
-	CheckBoxGroup,
+	CheckBoxGroup as CheckBoxGroupComponent,
 	CheckBoxItem,
 	RadioButtonItem,
 } from '@financial-times/o3-form';
@@ -37,10 +37,10 @@ export function RadioGroup() {
 	);
 }
 
-export function CheckboxGroup() {
+export function CheckBoxGroup() {
 	return (
 		<Form>
-			<CheckBoxGroup label={legend} description={legendDescription}>
+			<CheckBoxGroupComponent label={legend} description={legendDescription}>
 				{items.map((item) => {
 					return (
 						<CheckBoxItem
@@ -50,7 +50,7 @@ export function CheckboxGroup() {
 						/>
 					)
 				})}
-			</CheckBoxGroup>
+			</CheckBoxGroupComponent>
 		</Form>
 	);
 }

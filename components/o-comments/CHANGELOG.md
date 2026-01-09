@@ -1,5 +1,33 @@
 # Changelog
 
+## [13.2.2](https://github.com/Financial-Times/origami/compare/o-comments-v13.2.1...o-comments-v13.2.2) (2025-12-17)
+
+
+### Bug Fixes
+
+* ci-3293 ocomments o3 button fix ([66d1f2f](https://github.com/Financial-Times/origami/commit/66d1f2f4b944c97701e97f63608379517c9e45bd))
+
+## [13.2.1](https://github.com/Financial-Times/origami/compare/o-comments-v13.2.0...o-comments-v13.2.1) (2025-12-17)
+
+
+### Bug Fixes
+
+* ci-3293 o3 fixes ([d461643](https://github.com/Financial-Times/origami/commit/d461643f218fbe267399178455d7d5cba0a7c39a))
+
+## [13.2.0](https://github.com/Financial-Times/origami/compare/o-comments-v13.1.1...o-comments-v13.2.0) (2025-12-15)
+
+
+### Features
+
+* o-comments styles for collapsed username ([17817ce](https://github.com/Financial-Times/origami/commit/17817ceb7bbaeaee4b7f0f3ab936a79e6d51adc7))
+
+## [13.1.1](https://github.com/Financial-Times/origami/compare/o-comments-v13.1.0...o-comments-v13.1.1) (2025-12-04)
+
+
+### Bug Fixes
+
+* ci-2319 o-comments displayname re-open and error fixes ([22f6b92](https://github.com/Financial-Times/origami/commit/22f6b92e3f43a798e75e88e2ae8cc1b09273e342))
+
 ## [13.1.0](https://github.com/Financial-Times/origami/compare/o-comments-v13.0.1...o-comments-v13.1.0) (2025-09-22)
 
 

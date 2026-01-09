@@ -6,26 +6,27 @@ Demos of Origami 2 components.
 
 Ensure you have installed the dependencies for the project, execute the following in the root of the mono repo:
 
-```bash
-npm i
+```shell
+npm install
 ```
 
 Run storybook:
 
-```bash
+```shell
 npm run storybook -w apps/o2-storybook
 ```
 
 By default, storybook will build demos for the `core` brand, you can change which brand storybook will build for by changing the value of `STORYBOOK_BRAND`:
 
-```bash
+```shell
 STORYBOOK_BRAND=internal npm run storybook -w apps/o2-storybook
 ```
 
 Origami 2 supports these brands:
-* `core`
-* `internal`
-* `whitelabel`
+
+- `core`
+- `internal`
+- `whitelabel`
 
 ## Creating stories and structure
 
@@ -40,4 +41,3 @@ Each component folder has a `stories` folder, where we put all stories related t
 ```
 
 Any story file in the root of `stories/` will be built for all storybook instances. When a brand may need different stories for a specific brand, a directory with the brand's name can be created with stories inside. These will only show for the specified brand.
-

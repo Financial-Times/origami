@@ -1,6 +1,6 @@
 {
 	"name": "@financial-times/o-comments",
-	"version": "13.1.0",
+	"version": "13.2.2",
 	"description": "A component, integrated with FT authentication and user data services, to add a comment stream or comment count to content.",
 	"keywords": [
 		"comments",
@@ -28,6 +28,7 @@
 		"@financial-times/o-forms": "^10.0.0",
 		"@financial-times/o-private-foundation": "^1.0.0",
 		"@financial-times/o-overlay": "^5.0.0",
+		"@financial-times/o-grid": "^6.1.8",
 		"ftdomdelegate": "^5.0.0"
 	},
 	"devDependencies": {
