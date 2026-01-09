@@ -283,7 +283,7 @@ function validateAndReRender(formElement, validationOptions) {
 /**
  * Creates feedback element
  *
- * @param {Error} error The error to create a feedback element for.
+ * @param {FieldError} error The error to create a feedback element for.
  * @returns {HTMLElement} A field error if invalid, otherwise null.
  */
 function createFeedbackElement(error) {
