@@ -67,7 +67,7 @@ export const FormValidationDisplaysElementErrorSummary = {
 		const thirdInput = within(canvas.getByTestId('third-input'));
 		const thirdInputElement = thirdInput.getByRole('textbox');
 
-		// Whenn clicking through the form.
+		// When clicking through the form.
 		await userEvent.click(firstInputElement);
 		await userEvent.click(secondInputElement);
 		await userEvent.click(thirdInputElement);
