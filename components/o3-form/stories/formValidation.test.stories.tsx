@@ -94,7 +94,7 @@ export const FormValidationDisplaysElementErrorSummary = {
 	},
 };
 
-export const FormValidtionDisplaysErrorSummary = {
+export const FormValidationDisplaysErrorSummary = {
 	parameters: {
 		design: {
 			type: 'figma',
