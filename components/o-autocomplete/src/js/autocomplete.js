@@ -210,6 +210,7 @@ class Autocomplete {
 			this.options.onConfirm = opts.onConfirm;
 		}
 		this.options.showNoOptionsFound = opts.showNoOptionsFound || false;
+		this.options.reopenOnFocusWhenValid = opts.reopenOnFocusWhenValid || false;
 		if (opts.suggestionTemplate) {
 			this.options.suggestionTemplate = opts.suggestionTemplate;
 		}
@@ -308,6 +309,7 @@ class Autocomplete {
 						this.options.onConfirm(option);
 					}
 				},
+				reopenOnFocusWhenValid: this.options.reopenOnFocusWhenValid,
 				source: this.options.source,
 				cssNamespace: 'o-autocomplete',
 				displayMenu: 'overlay',
