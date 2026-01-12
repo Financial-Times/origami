@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.11.0](https://github.com/Financial-Times/origami/compare/o3-form-v0.10.0...o3-form-v0.11.0) (2026-01-12)
+
+
+### Features
+
+* introduce file input component to o3-form ([8329fdc](https://github.com/Financial-Times/origami/commit/8329fdce18404ccfb06e124e312d618c15421ccb))
+
 ## [0.10.0](https://github.com/Financial-Times/origami/compare/o3-form-v0.9.0...o3-form-v0.10.0) (2026-01-12)
 
 
