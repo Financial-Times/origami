@@ -8,4 +8,5 @@ export * from './PasswordInput';
 export * from './SelectInput';
 export * from './DateInput';
 export * from './DateInputPicker';
+export * from './FileInput'
 export * from './TextInput';

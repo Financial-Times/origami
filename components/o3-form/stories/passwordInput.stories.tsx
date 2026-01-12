@@ -16,8 +16,8 @@ const meta: Meta<typeof PasswordInputTsx> = {
 		'sustainable-views',
 	],
 	decorators: [
-		Story => (
-			<div data-o3-brand="core" className="o3-grid">
+		(Story, {args, globals}) => (
+			<div data-o3-brand={globals.selectedBrand || 'whitelabel'}>
 				<div
 					className="o3-form"
 					style={{
