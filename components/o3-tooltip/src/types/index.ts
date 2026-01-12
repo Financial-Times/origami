@@ -1,7 +1,9 @@
 export type TooltipProps = {
+	id?: string;
 	content: string;
 	title?: string;
 	placement: 'top' | 'right' | 'bottom' | 'left';
+	onClose?: () => void;
 };
 
 export interface OnboardingToolTipProps extends Omit<TooltipProps, 'placement'> {

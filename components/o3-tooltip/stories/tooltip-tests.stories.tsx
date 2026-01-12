@@ -5,7 +5,7 @@ import {
 	ToggleToolTipTest as ToggleToolTipInteractionStory,
 } from './story-template';
 
-import {userEvent, within, expect} from '@storybook/test';
+import {userEvent, within, expect, fn} from '@storybook/test';
 
 import '../src/css/brands/core.css';
 import '@financial-times/o3-button/src/css/brands/core.css';
@@ -28,21 +28,32 @@ export default {
 } as Meta;
 
 export const OnboardingTooltipTest = OnboardingTooltipInteractionStory;
-OnboardingTooltipTest.play = async ({canvasElement}) => {
+OnboardingTooltipTest.play = async ({canvasElement, args}) => {
 	const canvas = within(canvasElement);
 
 	const tooltipText =
 		'Tool tip content that is quite long, Tool tip content that is quite long, Tool tip content that is quite long';
 
-	await expect(await canvas.findByText(tooltipText)).not.toBeNull();
+	// When page has rendered, the tooltip should be in the document.
+	await expect(await canvas.findByText(tooltipText)).toBeInTheDocument();
 
+	// When clicking the tooltip's close button
 	await userEvent.click(canvas.getByRole('button', {name: 'Close tooltip'}));
 
-	await expect(canvas.queryByText(tooltipText)).toBeNull();
+	// It should call the onClose hook.
+	expect(args.onClose).toHaveBeenCalled();
+
+	// It should remove the tooltip from the document
+	await expect(canvas.queryByText(tooltipText)).not.toBeInTheDocument();
 };
+OnboardingTooltipTest.args = Object.assign(OnboardingTooltipTest.args, {
+	onClose: fn()
+});
+
 
 export const ToggleTooltipTest = ToggleToolTipInteractionStory;
 ToggleTooltipTest.play = async ({canvasElement}) => {
+
 	const canvas = within(canvasElement);
 
 	const tooltipText =

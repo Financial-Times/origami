@@ -9,6 +9,7 @@ o3-tooltip is hosting two components: `o3-tooltip-onboarding` and `o3-tooltip-to
 - [JSX](#jsx)
   - [TooltipOnboarding](#tooltiponboarding)
   - [TooltipToggle](#tooltiptoggle)
+- [Hooks](#hooks)
 - [Migration Guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
@@ -145,6 +146,28 @@ type Placement = 'top' | 'bottom' | 'left' | 'right';
 |   title   |   string    |  false   |        -         |   Title of the tooltip   |
 | placement | `Placement` |  false   |      'top'       | Placement of the tooltip |
 | infoLabel |   string    |  false   | more information | Label for screen readers |
+
+## Hooks
+
+`o3-tooltip` provides an `onClose` hook allowing you to perform actions before the tooltip is closed.
+
+**TSX**
+
+```tsx
+import {TooltipOnboarding} from "@financial-times/o3-tooltip";
+
+<TooltipOnboarding id='my-tooltip' onClose={() => {/* behaviour to execute when onClose is called */}} />
+```
+
+**JS**
+
+Make sure your Tooltip exists in your HTML using [our example above](#markup).
+
+```js
+const tooltip = document.querySelector('#my-tooltip');
+
+tooltip.onClose = () => {/* custom onClose code goes here */}
+```
 
 ## Migration Guide
 
