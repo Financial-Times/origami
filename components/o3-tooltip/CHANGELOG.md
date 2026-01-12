@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.0](https://github.com/Financial-Times/origami/compare/o3-tooltip-v3.1.1...o3-tooltip-v3.2.0) (2026-01-12)
+
+
+### Features
+
+* introduce onClose callback to o3-tooltip Web Component ([#2332](https://github.com/Financial-Times/origami/issues/2332)) ([4e5731e](https://github.com/Financial-Times/origami/commit/4e5731e57268c37d8f50eccc92d0d7c9e98910d9))
+
 ## [3.1.1](https://github.com/Financial-Times/origami/compare/o3-tooltip-v3.1.0...o3-tooltip-v3.1.1) (2025-10-22)
 
 

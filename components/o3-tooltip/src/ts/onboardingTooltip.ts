@@ -5,6 +5,7 @@ export class OnboardingToolTip
 	implements OnboardingToolTipProps
 {
 	private _closeButton!: HTMLElement;
+	private _onClose?: () => void;
 
 	connectedCallback() {
 		super.connectedCallback();
@@ -25,6 +26,7 @@ export class OnboardingToolTip
 	}
 
 	private _clickHandler = () => {
+		this._onClose?.();
 		this.remove();
 	};
 
@@ -46,6 +48,10 @@ export class OnboardingToolTip
 			);
 		}
 		return targetNode as HTMLElement;
+	}
+
+	set onClose(callback: () => void) {
+		this._onClose = callback;
 	}
 
 	_generateMarkup(title: string, content: string, contentId: string) {

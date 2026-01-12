@@ -40,7 +40,7 @@ const OnboardingTemplateStory: TemplateType = {
 							'aria-describedby': 'o3-tooltip-content',
 						}}
 					/>
-					<OnboardingTooltipTsx {...args} />
+					<OnboardingTooltipTsx id="tooltip-demo" {...args} />
 				</div>
 			</div>
 		);
@@ -56,12 +56,14 @@ const ToggleTemplateStory: TemplateType = {
 					<p>Click the info button to toggle the tooltip</p>
 				</div>
 				<div id="component-wrapper">
-					<ToggleTooltipTsx {...args} />
+					<ToggleTooltipTsx onClose={() => {console.log('callback executed')}} {...args} />
 				</div>
 			</div>
 		);
 	},
 };
+
+
 
 const OnboardingTooltip: OnBoardingTooltipStory = {
 	...OnboardingTemplateStory,

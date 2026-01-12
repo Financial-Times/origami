@@ -1,10 +1,10 @@
 #!/usr/bin/env node
-import * as workspaces from './lib/workspaces.js';
-import {readPackage} from 'read-pkg';
+import del from 'del';
 import {readFile, writeFile} from 'fs/promises';
 import Mustache from 'mustache';
 import {basename} from 'path';
-import del from 'del';
+import {readPackage} from 'read-pkg';
+import * as workspaces from './lib/workspaces.js';
 
 let testTemplate = await readFile('templates/test-workflow.yml', 'utf-8');
 let percyTemplate = await readFile('templates/percy-workflow.yml', 'utf-8');
@@ -27,6 +27,9 @@ await del(['.github/workflows/percy-*.yml', '.github/workflows/test-*.yml']);
 
 let dotReleasePleaseManifest = {};
 let releasePleaseConfig = {
+	$schema:
+		'https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json',
+	'include-component-in-tag': true,
 	'bootstrap-sha': '4d52a27b6c08755d6c527723c2595ade3e024898',
 	'last-release-sha': 'e00bda2104ee46cc7f99e5845dcaa8f9fd374dfe',
 	'commit-search-depth': 200,
