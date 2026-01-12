@@ -1,5 +1,34 @@
 # Changelog
 
+## [0.11.0](https://github.com/Financial-Times/origami/compare/o3-form-v0.10.0...o3-form-v0.11.0) (2026-01-12)
+
+
+### Features
+
+* introduce file input component to o3-form ([8329fdc](https://github.com/Financial-Times/origami/commit/8329fdce18404ccfb06e124e312d618c15421ccb))
+
+## [0.10.0](https://github.com/Financial-Times/origami/compare/o3-form-v0.9.0...o3-form-v0.10.0) (2026-01-12)
+
+
+### Features
+
+* align check box and radio buttons to new designs ([57c1fc0](https://github.com/Financial-Times/origami/commit/57c1fc07678f4ff43d9d33d7655c6f81fb3fda32))
+* align checkbox descriptions to designs ([e93134b](https://github.com/Financial-Times/origami/commit/e93134b15d203b7738faf65281a6bcef04a76520))
+* introduce date input ([d040199](https://github.com/Financial-Times/origami/commit/d0401999236aeb9b2af28adccece3b997f18fe89))
+* introduce date input using native picker ([ab8a888](https://github.com/Financial-Times/origami/commit/ab8a888033107a918697bbcb508d98674cb24fd1))
+* introduce select input ([#2267](https://github.com/Financial-Times/origami/issues/2267)) ([b133d20](https://github.com/Financial-Times/origami/commit/b133d200c2aca6efd99622852c68f5c5ae3aaf49))
+* introduce short text input ([5fc51e5](https://github.com/Financial-Times/origami/commit/5fc51e5eb411e55e2735757c0787ce758057fb31))
+* update password input to designs ([7a48277](https://github.com/Financial-Times/origami/commit/7a48277f6af4542aa4a76627c16214cf727a52ff))
+
+
+### Bug Fixes
+
+* export select input ([00da222](https://github.com/Financial-Times/origami/commit/00da2220fb35b71904c93482c42f4735236a4dd4))
+* fix date input type errors ([1609317](https://github.com/Financial-Times/origami/commit/1609317880c6c355099dc95380af6213cd710616))
+* fix date input typings ([ff1513a](https://github.com/Financial-Times/origami/commit/ff1513ad9375df64a4e9927b53e555f3f380ad7e))
+* fix o3-form typings ([#2271](https://github.com/Financial-Times/origami/issues/2271)) ([d2a1d86](https://github.com/Financial-Times/origami/commit/d2a1d86b5f34b74259cbe505313312b4c0ff15dc))
+* fix password js bundling ([e5e2b88](https://github.com/Financial-Times/origami/commit/e5e2b881d4b8b8fe4876974eb2fc80a2d4fc97c8))
+
 ## [0.9.0](https://github.com/Financial-Times/origami/compare/o3-form-v0.8.0...o3-form-v0.9.0) (2025-11-27)
 
 

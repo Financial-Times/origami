@@ -1,5 +1,19 @@
 # Changelog
 
+## [3.13.0](https://github.com/Financial-Times/origami/compare/o3-foundation-v3.12.1...o3-foundation-v3.13.0) (2026-01-12)
+
+
+### Features
+
+* introduce file input component to o3-form ([8329fdc](https://github.com/Financial-Times/origami/commit/8329fdce18404ccfb06e124e312d618c15421ccb))
+
+## [3.12.1](https://github.com/Financial-Times/origami/compare/o3-foundation-v3.12.0...o3-foundation-v3.12.1) (2026-01-12)
+
+
+### Bug Fixes
+
+* fix broken note icon ([50e0ac1](https://github.com/Financial-Times/origami/commit/50e0ac1f5790f62bed6819a4312a6f42ca1097a6))
+
 ## [3.12.0](https://github.com/Financial-Times/origami/compare/o3-foundation-v3.11.3...o3-foundation-v3.12.0) (2025-12-03)
 
 
