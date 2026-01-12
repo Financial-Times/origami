@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.12.1](https://github.com/Financial-Times/origami/compare/o3-foundation-v3.12.0...o3-foundation-v3.12.1) (2026-01-12)
+
+
+### Bug Fixes
+
+* fix broken note icon ([50e0ac1](https://github.com/Financial-Times/origami/commit/50e0ac1f5790f62bed6819a4312a6f42ca1097a6))
+
 ## [3.12.0](https://github.com/Financial-Times/origami/compare/o3-foundation-v3.11.3...o3-foundation-v3.12.0) (2025-12-03)
 
 
