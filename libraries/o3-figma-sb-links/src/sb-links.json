@@ -284,5 +284,8 @@
   "o3-form--select-input-short-three": "?path=/story/o3-form--select-input-short-three",
   "o3-form--select-input-short-one": "?path=/story/o3-form--select-input-short-one",
   "o3-form--date-input-picker": "?path=/story/o3-form--date-input-picker",
-  "o3-form--date-input-picker-error-state": "?path=/story/o3-form--date-input-picker-error-state"
+  "o3-form--date-input-picker-error-state": "?path=/story/o3-form--date-input-picker-error-state",
+  "o3-button--button-brand-demos": "?path=/story/o3-button--button-brand-demos",
+  "o3-form--file-input": "?path=/story/o3-form--file-input",
+  "o3-form--file-input-error-state": "?path=/story/o3-form--file-input-error-state"
 }
