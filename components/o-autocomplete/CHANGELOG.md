@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.2.0](https://github.com/Financial-Times/origami/compare/o-autocomplete-v2.1.0...o-autocomplete-v2.2.0) (2026-01-12)
+
+
+### Features
+
+* Add o-autocomplete showNoOptionsFound option ([a869a04](https://github.com/Financial-Times/origami/commit/a869a04ffc045d526bb1facf7c89215c4933754f))
+
+
+### Bug Fixes
+
+* Add o-autocomplete clear button post-click logic ([67f4fed](https://github.com/Financial-Times/origami/commit/67f4fed14380e8e7b12d3d36156604e0a51e6446))
+
 ## [2.1.0](https://github.com/Financial-Times/origami/compare/o-autocomplete-v2.0.0...o-autocomplete-v2.1.0) (2025-11-13)
 
 
