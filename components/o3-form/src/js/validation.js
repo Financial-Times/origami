@@ -397,7 +397,7 @@ function deriveFieldName(element) {
 	if (!element) return 'Field';
 
 	if (element.id) {
-		const escapeId = isCSSEscapeExist() ? CSS.escape(element.id) : element.id.replace(/\\/g, '\\\\"').replace(/"/g, '\\"');;
+		const escapeId = isCSSEscapeExist() ? CSS.escape(element.id) : element.id.replace(/\\/g, '\\\\"').replace(/"/g, '\\"');
 
 		const label = element.form?.querySelector(`label[for="${escapeId}"]`);
 
