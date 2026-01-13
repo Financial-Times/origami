@@ -257,6 +257,10 @@ function applyInlineFeedback(formElement, errors) {
 	}
 }
 
+function isCSSEscapeExist() {
+	return typeof CSS !== 'undefined' & typeof CSS.escape === 'function';
+}
+
 /**
  * Validates form is valid and conditionally displays an error summary
  * @param formElement
@@ -273,8 +277,17 @@ function validateAndReRender(formElement, validationOptions) {
 		createErrorSummary(formElement, errors, validationOptions);
 
 		if (errors.length && validationOptions.focusFirstInvalid) {
-			const target = formElement.querySelector(`#${errors[0].id}`);
-			target?.focus();
+			const firstErrorId = errors[0].id;
+			let target;
+
+			if(firstErrorId) {
+				if(isCSSEscapeExist()) {
+					target = formElement.querySelector(`#${CSS.escape(firstErrorId)}`);
+				} else {
+					const safeId = String(firstErrorId).replace(/"/g, '\\"');
+					target = formElement.querySelector(`[id="${safeId}"]`);
+				}
+			}
 		}
 	} else {
 		document.querySelector(`.${SUMMARY_CLASS}`)?.remove();
@@ -348,7 +361,7 @@ function createErrorSummary(formElement, errors, validationOptions) {
 		if (error.id) {
 			const link = document.createElement('a');
 			link.className = 'o3-typography-link';
-			link.href = `#${error.id}`;
+			link.href = `#${encodeURIComponent(error.id)}`;
 			link.textContent = error.fieldName;
 			listItem.appendChild(link);
 
@@ -382,7 +395,10 @@ function deriveFieldName(element) {
 	if (!element) return 'Field';
 
 	if (element.id) {
-		const label = element.form?.querySelector(`label[for="${element.id}"]`);
+		const escapeId = isCSSEscapeExist() ? CSS.escape(element.id) : element.id.replace(/"/g, '\\"');
+
+		const label = element.form?.querySelector(`label[for="${escapeId}"]`);
+
 		if (label && label.textContent) return label.textContent.trim();
 	}
 
