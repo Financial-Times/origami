@@ -73,15 +73,15 @@ export const FormValidationDisplaysElementErrorSummary = {
 		await userEvent.click(thirdInputElement);
 
 		// It should highlight the first input field as invalid
-		expect(firstInput.queryByText('Please fill in this field.')).toBeInTheDocument();
+		expect(firstInput.queryByText(getInlineErrorText(), {selector: ".o3-form-feedback__error-message"})).toBeInTheDocument();
 		expect(firstInputElement.classList).toContain('o3-form-text-input--error');
 
 		// It should highlight the second input field as invalid
-		expect(secondInput.queryByText('Please fill in this field.')).toBeInTheDocument();
+		expect(secondInput.queryByText(getInlineErrorText(), {selector: ".o3-form-feedback__error-message"})).toBeInTheDocument();
 		expect(secondInputElement.classList).toContain('o3-form-text-input--error');
 
 		// It should not highlight the third input field as invalid
-		expect(thirdInput.queryByText('Please fill in this field.')).not.toBeInTheDocument();
+		expect(thirdInput.queryByText(getInlineErrorText(), {selector: ".o3-form-feedback__error-message"})).not.toBeInTheDocument();
 		expect(thirdInputElement.classList).not.toContain('o3-form-text-input--error');
 
 		// When correcting an error
@@ -89,7 +89,7 @@ export const FormValidationDisplaysElementErrorSummary = {
 		await userEvent.type(firstInputElement, 'My resolving text');
 
 		// It should not highlight the first input field as invalid
-		expect(firstInput.queryByText('Please fill in this field.')).not.toBeInTheDocument();
+		expect(firstInput.queryByText(getInlineErrorText(), {selector: ".o3-form-feedback__error-message"})).not.toBeInTheDocument();
 		expect(firstInputElement.classList).not.toContain('o3-form-text-input--error');
 	},
 };
@@ -111,6 +111,9 @@ export const FormValidationDisplaysErrorSummary = {
 		) as HTMLFormElement | null;
 
 		if (form) {
+			form.addEventListener('submit', (event) => {
+				event.preventDefault();
+			});
 			initO3FormValidation(form);
 		} else {
 			return false;
@@ -120,13 +123,17 @@ export const FormValidationDisplaysErrorSummary = {
 		const submitButton = canvas.getByTestId('submit-button');
 		await userEvent.click(submitButton);
 
+		const errorSummary = canvasElement.querySelector('.o3-form__error-summary');
 		// It should render an error summary
-		expect(canvasElement.querySelector('.o3-form__error-summary')).toBeInTheDocument();
+		expect(errorSummary).toBeInTheDocument();
+
 
 		// It should list all erroring fields with a reason
-		expect(canvas.queryByText(getErrorSummaryLineItemText('First name'))).toBeInTheDocument();
-		expect(canvas.queryByText(getErrorSummaryLineItemText('Last name'))).toBeInTheDocument();
-		expect(canvas.queryByText(getErrorSummaryLineItemText('CVV code'))).toBeInTheDocument();
+		const summaryWithin = within(errorSummary);
+
+		await summaryWithin.findByText(getErrorSummaryLineItemText('First name'));
+		await summaryWithin.findByText(getErrorSummaryLineItemText('Last name'));
+		await summaryWithin.findByText(getErrorSummaryLineItemText('CVV code'));
 
 		const firstInput = within(canvas.getByTestId('first-input'));
 		const firstInputElement = firstInput.getByRole('textbox');
@@ -138,15 +145,15 @@ export const FormValidationDisplaysErrorSummary = {
 		const thirdInputElement = thirdInput.getByRole('textbox');
 
 		// It should highlight the first input field as invalid
-		expect(firstInput.queryByText('Please fill in this field.')).toBeInTheDocument();
+		expect(firstInput.queryByText(getInlineErrorText(), {selector: ".o3-form-feedback__error-message"})).toBeInTheDocument();
 		expect(firstInputElement.classList).toContain('o3-form-text-input--error');
 
 		// It should highlight the second input field as invalid
-		expect(secondInput.queryByText('Please fill in this field.')).toBeInTheDocument();
+		expect(secondInput.queryByText(getInlineErrorText(), {selector: ".o3-form-feedback__error-message"})).toBeInTheDocument();
 		expect(secondInputElement.classList).toContain('o3-form-text-input--error');
 
 		// It should not highlight the third input field as invalid
-		expect(thirdInput.queryByText('Please fill in this field.')).toBeInTheDocument();
+		expect(thirdInput.queryByText(getInlineErrorText(), {selector: ".o3-form-feedback__error-message"})).toBeInTheDocument();
 		expect(thirdInputElement.classList).toContain('o3-form-text-input--error');
 
 		// When resolving one field
@@ -159,21 +166,18 @@ export const FormValidationDisplaysErrorSummary = {
 		expect(canvas.queryByText(getErrorSummaryLineItemText('CVV code'))).toBeInTheDocument();
 
 		// It should not highlight the first input field as invalid
-		expect(firstInput.queryByText('Please fill in this field.')).not.toBeInTheDocument();
+		expect(firstInput.queryByText(getInlineErrorText(), {selector: ".o3-form-feedback__error-message"})).not.toBeInTheDocument();
 		expect(firstInputElement.classList).not.toContain('o3-form-text-input--error');
 
 		// It should highlight the second input field as invalid
-		expect(secondInput.queryByText('Please fill in this field.')).toBeInTheDocument();
+		expect(secondInput.queryByText(getInlineErrorText(), {selector: ".o3-form-feedback__error-message"})).toBeInTheDocument();
 		expect(secondInputElement.classList).toContain('o3-form-text-input--error');
 
 		// It should not highlight the third input field as invalid
-		expect(thirdInput.queryByText('Please fill in this field.')).toBeInTheDocument();
+		expect(thirdInput.queryByText(getInlineErrorText(), {selector: ".o3-form-feedback__error-message"})).toBeInTheDocument();
 		expect(thirdInputElement.classList).toContain('o3-form-text-input--error');
 
 		// When resolving all other fields.
-		form.addEventListener('submit', (event) => {
-			event.preventDefault();
-		});
 		await userEvent.type(secondInputElement, 'My resolving text');
 		await userEvent.type(thirdInputElement, 'My resolving text');
 		await userEvent.click(submitButton);
@@ -183,9 +187,12 @@ export const FormValidationDisplaysErrorSummary = {
 	},
 };
 
-const getErrorSummaryLineItemText = (expectedText: string) => (text: string, element: HTMLElement) => {
-	return element.textContent === `${expectedText}: Please fill in this field.`;
+const getErrorSummaryLineItemText = (expectedText: string) => (_: string, element: HTMLElement) => {
+	return element.textContent === `${expectedText}: Please fill out this field.` || element.textContent === `${expectedText}: Please fill in this field.`;
+}
 
+const getInlineErrorText = () => (_: string, element: HTMLElement) => {
+	return element.textContent === `Please fill out this field.` || element.textContent === `Please fill in this field.`;
 }
 
 export default meta;
