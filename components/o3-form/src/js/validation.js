@@ -246,9 +246,12 @@ function applyInlineFeedback(formElement, errors) {
 				fieldElement.classList.add(ERROR_INPUT_CLASS);
 			}
 
-			if (!fieldElement.parentElement.querySelector(`.${FORM_FEEDBACK_ERROR_CLASS}`)) {
+			const parentElement = fieldElement.parentElement;
+			const formFieldElement = fieldElement.closest(`.${FORM_FIELD_CLASS}`);
+
+			if (parentElement && formFieldElement && !parentElement.querySelector(`.${FORM_FEEDBACK_ERROR_CLASS}`)) {
 				const errorMessageContainer = createFeedbackElement(error);
-				fieldElement.closest(`.${FORM_FIELD_CLASS}`).appendChild(errorMessageContainer);
+				formFieldElement.appendChild(errorMessageContainer);
 			}
 		}
 	}
