@@ -109,7 +109,8 @@ describe("Autocomplete", function () {
 
 				assert.deepEqual(autocomplete.options, {
 					isHighlightCorrespondingToMatch: false,
-					showNoOptionsFound: false
+					showNoOptionsFound: false,
+					confirmOnBlur: true,
 				});
 			});
 		});
@@ -394,6 +395,7 @@ describe("Autocomplete", function () {
 					'source',
 					'defaultValue',
 					'showNoOptionsFound',
+					'confirmOnBlur',
 					'isHighlightCorrespondingToMatch',
 				]);
 				assert.isFunction(autocomplete.options.source,);

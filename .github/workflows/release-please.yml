@@ -2,30 +2,45 @@ on:
   push:
     branches:
       - main
+
 name: release-please
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
 jobs:
   release-please:
     runs-on: ubuntu-latest
     steps:
-      - uses: GoogleCloudPlatform/release-please-action@v3
+      - uses: googleapis/release-please-action@v4
         id: release
         with:
           token: ${{ secrets.ORIGAMI_GITHUB_TOKEN }}
-          command: manifest
-          monorepo-tags: true
+          # v4: manifest is default if you DON'T set release-type
+          # v4 replacement for monorepo-tags: true
+          include-component-in-tag: true
+          # optional if you use the defaults already:
+          # config-file: release-please-config.json
+          # manifest-file: .release-please-manifest.json
+
       - uses: actions/checkout@v4
         if: ${{ steps.release.outputs.releases_created }}
+
       - uses: actions/setup-node@v4
         with:
           cache: 'npm'
           node-version: 22
           registry-url: 'https://registry.npmjs.org'
         if: ${{ steps.release.outputs.releases_created }}
+
       - run: npm ci
         if: ${{ steps.release.outputs.releases_created }}
-      - run: node ./scripts/publish.js '${{toJSON(steps.release.outputs)}}'
+
+      - run: node ./scripts/publish.js '${{ toJSON(steps.release.outputs) }}'
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-          SLACK_ANNOUNCER_AUTH_TOKEN: ${{secrets.SLACK_ANNOUNCER_AUTH_TOKEN}}
-          SLACK_ANNOUNCER_CHANNEL_ID: ${{secrets.SLACK_ANNOUNCER_CHANNEL_ID}}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          SLACK_ANNOUNCER_AUTH_TOKEN: ${{ secrets.SLACK_ANNOUNCER_AUTH_TOKEN }}
+          SLACK_ANNOUNCER_CHANNEL_ID: ${{ secrets.SLACK_ANNOUNCER_CHANNEL_ID }}
         if: ${{ steps.release.outputs.releases_created }}
