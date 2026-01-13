@@ -263,7 +263,7 @@ function isCSSEscapeExist() {
 
 /**
  * Validates form is valid and conditionally displays an error summary
- * @param {HTMLFontElement} formElement
+ * @param {HTMLFormElement} formElement
  * @param {O3ValidationOptions} validationOptions
  * @returns boolean
  */
