@@ -258,7 +258,7 @@ function applyInlineFeedback(formElement, errors) {
 }
 
 function isCSSEscapeExist() {
-	return typeof CSS !== 'undefined' & typeof CSS.escape === 'function';
+	return typeof CSS !== 'undefined' && typeof CSS.escape === 'function';
 }
 
 /**
