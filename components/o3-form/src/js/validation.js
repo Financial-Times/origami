@@ -284,7 +284,9 @@ function validateAndReRender(formElement, validationOptions) {
 				if(isCSSEscapeExist()) {
 					target = formElement.querySelector(`#${CSS.escape(firstErrorId)}`);
 				} else {
-					const safeId = String(firstErrorId).replace(/"/g, '\\"');
+					const safeId = String(firstErrorId)
+						.replace(/\\/g, '\\\\')
+						.replace(/"/g, '\\"');
 					target = formElement.querySelector(`[id="${safeId}"]`);
 				}
 			}
