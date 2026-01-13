@@ -28,8 +28,6 @@ const FORM_FIELD_CLASS = 'o3-form-field';
 
 /** Maintain internal state per form element */
 const formState = new WeakMap();
-const elementsPreviouslyFocussed = [];
-let isSubmitAttempted = false;
 
 /**
  * Initialise validation on a form element or selector.
@@ -66,7 +64,7 @@ function initO3FormValidation(formOrSelector, options = {}) {
 
 	if (formState.has(formElement)) return formElement; // already initialised
 
-	const state = {validationOptions}; // future: may hold cached lastErrors etc.
+	const state = {validationOptions, isSubmitAttempted: false, elementsPreviouslyFocussed: []}; // future: may hold cached lastErrors etc.
 	formState.set(formElement, state);
 
 	const progressiveHandler = event => {
@@ -74,7 +72,7 @@ function initO3FormValidation(formOrSelector, options = {}) {
 		if (!current) return;
 		const errors = collectInvalidFields(event.currentTarget, validationOptions);
 
-		const focussedErrors = isSubmitAttempted ? errors : errors.filter((error) => elementsPreviouslyFocussed.includes(error.id));
+		const focussedErrors = current.isSubmitAttempted ? errors : errors.filter((error) => current.elementsPreviouslyFocussed.includes(error.id));
 
 		applyInlineFeedback(formElement, focussedErrors);
 	};
@@ -85,21 +83,22 @@ function initO3FormValidation(formOrSelector, options = {}) {
 			// suppress native tooltip when using custom summary
 			const current = formState.get(formElement);
 			if (!current) return;
-			if (isSubmitAttempted) {
+			if (current.isSubmitAttempted) {
 				const errors = collectInvalidFields(formElement, validationOptions);
 				applyInlineFeedback(formElement, errors);
 				createErrorSummary(formElement, errors, validationOptions);
 				if (current.validationOptions.errorSummary) {
 					event.preventDefault();
 				}
-				isSubmitAttempted = false;
+				current.isSubmitAttempted = false;
 			}
 		},
 		true
 	);
 
 	formElement.addEventListener('submit', (event) => {
-		isSubmitAttempted = true;
+		const current = formState.get(formElement);
+		current.isSubmitAttempted = true;
 
 		const ok = validateAndReRender(formElement, validationOptions);
 
@@ -107,6 +106,7 @@ function initO3FormValidation(formOrSelector, options = {}) {
 	});
 
 	formElement.addEventListener('pointerdown', event => {
+		const current = formState.get(formElement);
 		const target = event.target.closest('button[type="submit"], input[type="submit"]');
 
 		const isSubmit =
@@ -115,14 +115,13 @@ function initO3FormValidation(formOrSelector, options = {}) {
 				: target instanceof HTMLInputElement && target.type === 'submit';
 
 		if (!isSubmit) return;
-		isSubmitAttempted = true;
 
-		const current = formState.get(formElement);
 		if (!current) return;
 		const {validationOptions} = current;
+		current.isSubmitAttempted = true;
 
 		for (const fieldElement of formElement.elements) {
-			elementsPreviouslyFocussed.push(fieldElement.id);
+			current.elementsPreviouslyFocussed.push(fieldElement.id);
 		}
 
 		const ok = validateAndReRender(formElement, validationOptions);
@@ -139,7 +138,8 @@ function initO3FormValidation(formOrSelector, options = {}) {
 		if (!isFormFieldElement(fieldElement)) continue;
 
 		fieldElement.addEventListener('focusin', () => {
-			elementsPreviouslyFocussed.push(fieldElement.id);
+			const current = formState.get(formElement);
+			current.elementsPreviouslyFocussed.push(fieldElement.id);
 		});
 	}
 
