@@ -2,7 +2,7 @@ import path from 'node:path';
 import {webTransformers} from '../transformers.js';
 
 /**
- * @typedef {import('./build.js')} Brand
+ * @typedef {import('./../../build.js')} Brand
  */
 
 /**
