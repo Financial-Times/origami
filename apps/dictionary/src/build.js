@@ -6,7 +6,7 @@ import {sassConfigForBrand} from './config/platforms/sass.js';
 import {toolingConfigForBrand} from './config/platforms/tooling.js';
 
 /**
- * @typedef {String} Brand - A brand defined by Tokens Studio. Sub brands are identifiable with a slash "/"
+ * @typedef {string} Brand - A brand defined by Tokens Studio. Sub brands are identifiable with a slash "/"
  * 							separator between the brand and sub brand. For example: "core/professional"
  */
 
