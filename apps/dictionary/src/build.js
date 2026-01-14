@@ -5,13 +5,20 @@ import {cssConfigForBrand} from './config/platforms/css.js';
 import {sassConfigForBrand} from './config/platforms/sass.js';
 import {toolingConfigForBrand} from './config/platforms/tooling.js';
 
+/**
+ * @typedef {String} Brand - A brand defined by Tokens Studio. Sub brands are identifiable with a slash "/"
+ * 							separator between the brand and sub brand. For example: "core/professional"
+ */
+
 const brands = getBrandNames();
 for (const brand of brands) {
 	await buildForBrand(brand);
 }
 
 /**
- * @param {string} brand - A string param.
+ * Initialises Style Dictionary's build for a given brand. Outputs tokens into file system in target packages in Origami.
+ *
+ * @param {string} brand - The brand to build.
  * @returns {Promise<undefined>}
  */
 export async function buildForBrand(brand) {

@@ -1,6 +1,18 @@
 import path from 'node:path';
 import {toolingTransformers} from '../transformers.js';
 
+/**
+ * @typedef {import('./../../build.js')} Brand
+ */
+
+/**
+ * Build a Style Dictionary Tooling config for a given brand.
+ *
+ * This particular config is used to generate tokens for use in Origami projects such as apps/website.
+ *
+ * @param {Brand} brand - brand to build config for.
+ * @returns {Object}
+ */
 function toolingConfigForBrand(brand) {
 	const parentBrand = brand.split('/').slice(-1);
 	return {
