@@ -1,209 +1,129 @@
 export default {
-	"o3-spacing-5xs": {
-		"shortName": "5xs",
-		"value": "4px",
-		"originalValue": "4px",
-		"type": "dimension",
+	"o3-color-palette-ft-pink": {
+		"shortName": "ft-pink",
+		"value": "#fcd0b1",
+		"originalValue": "#FCD0B1",
+		"type": "color",
+		"description": "FT Pink is used for the FT logo",
 		"attributes": {
-				"item": "5xs"
+				"item": "palette",
+				"subitem": "ft-pink"
 		},
+		"origamiKeys": [
+				"palette",
+				"primary"
+		],
 		"path": [
 				"o3",
-				"spacing",
-				"5xs"
+				"color",
+				"palette",
+				"ft-pink"
 		],
-		"css": "--o3-spacing-5xs",
-		"figma": "o3/spacing/5xs"
+		"css": "--o3-color-palette-ft-pink",
+		"figma": "o3/color/palette/ft-pink"
 },
-	"o3-spacing-4xs": {
-		"shortName": "4xs",
-		"value": "8px",
-		"originalValue": "8px",
-		"type": "dimension",
+	"o3-color-palette-ft-grey": {
+		"shortName": "ft-grey",
+		"value": "#333333",
+		"originalValue": "#333333ff",
+		"type": "color",
+		"description": "",
 		"attributes": {
-				"item": "4xs"
+				"item": "palette",
+				"subitem": "ft-grey"
 		},
+		"origamiKeys": [
+				"palette",
+				"primary"
+		],
 		"path": [
 				"o3",
-				"spacing",
-				"4xs"
+				"color",
+				"palette",
+				"ft-grey"
 		],
-		"css": "--o3-spacing-4xs",
-		"figma": "o3/spacing/4xs"
+		"css": "--o3-color-palette-ft-grey",
+		"figma": "o3/color/palette/ft-grey"
 },
-	"o3-spacing-3xs": {
-		"shortName": "3xs",
-		"value": "12px",
-		"originalValue": "12px",
-		"type": "dimension",
+	"o3-color-palette-white": {
+		"shortName": "white",
+		"value": "#ffffff",
+		"originalValue": "#fff",
+		"type": "color",
 		"attributes": {
-				"item": "3xs"
+				"item": "palette",
+				"subitem": "white"
 		},
+		"origamiKeys": [
+				"palette",
+				"primary"
+		],
 		"path": [
 				"o3",
-				"spacing",
-				"3xs"
+				"color",
+				"palette",
+				"white"
 		],
-		"css": "--o3-spacing-3xs",
-		"figma": "o3/spacing/3xs"
+		"css": "--o3-color-palette-white",
+		"figma": "o3/color/palette/white"
 },
-	"o3-spacing-2xs": {
-		"shortName": "2xs",
-		"value": "16px",
-		"originalValue": "16px",
-		"type": "dimension",
+	"o3-color-palette-black": {
+		"shortName": "black",
+		"value": "#000000",
+		"originalValue": "#000",
+		"type": "color",
 		"attributes": {
-				"item": "2xs"
+				"item": "palette",
+				"subitem": "black"
 		},
+		"origamiKeys": [
+				"palette",
+				"primary"
+		],
 		"path": [
 				"o3",
-				"spacing",
-				"2xs"
+				"color",
+				"palette",
+				"black"
 		],
-		"css": "--o3-spacing-2xs",
-		"figma": "o3/spacing/2xs"
+		"css": "--o3-color-palette-black",
+		"figma": "o3/color/palette/black"
 },
-	"o3-spacing-xs": {
-		"shortName": "xs",
-		"value": "20px",
-		"originalValue": "20px",
-		"type": "dimension",
+	"o3-color-palette-claret": {
+		"shortName": "claret",
+		"value": "#990f3d",
+		"originalValue": "#990f3dff",
+		"type": "color",
+		"description": "Claret is the main branding colour for MyFT related products. It should be used sparingly and never be used as a background colour.\n\nUsage example: MyFT branding; MyFT CTAs",
 		"attributes": {
-				"item": "xs"
+				"item": "palette",
+				"subitem": "claret"
 		},
+		"origamiKeys": [
+				"palette",
+				"secondary"
+		],
 		"path": [
 				"o3",
-				"spacing",
-				"xs"
+				"color",
+				"palette",
+				"claret"
 		],
-		"css": "--o3-spacing-xs",
-		"figma": "o3/spacing/xs"
-},
-	"o3-spacing-s": {
-		"shortName": "s",
-		"value": "24px",
-		"originalValue": "24px",
-		"type": "dimension",
-		"attributes": {
-				"item": "s"
-		},
-		"path": [
-				"o3",
-				"spacing",
-				"s"
-		],
-		"css": "--o3-spacing-s",
-		"figma": "o3/spacing/s"
-},
-	"o3-spacing-m": {
-		"shortName": "m",
-		"value": "32px",
-		"originalValue": "32px",
-		"type": "dimension",
-		"attributes": {
-				"item": "m"
-		},
-		"path": [
-				"o3",
-				"spacing",
-				"m"
-		],
-		"css": "--o3-spacing-m",
-		"figma": "o3/spacing/m"
-},
-	"o3-spacing-l": {
-		"shortName": "l",
-		"value": "40px",
-		"originalValue": "40px",
-		"type": "dimension",
-		"attributes": {
-				"item": "l"
-		},
-		"path": [
-				"o3",
-				"spacing",
-				"l"
-		],
-		"css": "--o3-spacing-l",
-		"figma": "o3/spacing/l"
-},
-	"o3-spacing-xl": {
-		"shortName": "xl",
-		"value": "48px",
-		"originalValue": "48px",
-		"type": "dimension",
-		"attributes": {
-				"item": "xl"
-		},
-		"path": [
-				"o3",
-				"spacing",
-				"xl"
-		],
-		"css": "--o3-spacing-xl",
-		"figma": "o3/spacing/xl"
-},
-	"o3-spacing-2xl": {
-		"shortName": "2xl",
-		"value": "64px",
-		"originalValue": "64px",
-		"type": "dimension",
-		"attributes": {
-				"item": "2xl"
-		},
-		"path": [
-				"o3",
-				"spacing",
-				"2xl"
-		],
-		"css": "--o3-spacing-2xl",
-		"figma": "o3/spacing/2xl"
-},
-	"o3-spacing-3xl": {
-		"shortName": "3xl",
-		"value": "80px",
-		"originalValue": "80px",
-		"type": "dimension",
-		"attributes": {
-				"item": "3xl"
-		},
-		"path": [
-				"o3",
-				"spacing",
-				"3xl"
-		],
-		"css": "--o3-spacing-3xl",
-		"figma": "o3/spacing/3xl"
-},
-	"o3-spacing-4xl": {
-		"shortName": "4xl",
-		"value": "96px",
-		"originalValue": "96px",
-		"type": "dimension",
-		"attributes": {
-				"item": "4xl"
-		},
-		"path": [
-				"o3",
-				"spacing",
-				"4xl"
-		],
-		"css": "--o3-spacing-4xl",
-		"figma": "o3/spacing/4xl"
+		"css": "--o3-color-palette-claret",
+		"figma": "o3/color/palette/claret"
 },
 	"o3-color-palette-teal": {
 		"shortName": "teal",
 		"value": "#0d7680",
-		"originalValue": "#0d7680ff",
+		"originalValue": "#0D7680",
 		"type": "color",
-		"description": "",
 		"attributes": {
 				"item": "palette",
 				"subitem": "teal"
 		},
 		"origamiKeys": [
 				"palette",
-				"secondary"
+				"primary"
 		],
 		"path": [
 				"o3",
@@ -214,14 +134,14 @@ export default {
 		"css": "--o3-color-palette-teal",
 		"figma": "o3/color/palette/teal"
 },
-	"o3-color-palette-oceanwave": {
-		"shortName": "oceanwave",
-		"value": "#c9f5ea",
-		"originalValue": "#C9F5EA",
+	"o3-color-palette-oxford": {
+		"shortName": "oxford",
+		"value": "#0f5499",
+		"originalValue": "#0F5499",
 		"type": "color",
 		"attributes": {
 				"item": "palette",
-				"subitem": "oceanwave"
+				"subitem": "oxford"
 		},
 		"origamiKeys": [
 				"palette",
@@ -231,10 +151,10 @@ export default {
 				"o3",
 				"color",
 				"palette",
-				"oceanwave"
+				"oxford"
 		],
-		"css": "--o3-color-palette-oceanwave",
-		"figma": "o3/color/palette/oceanwave"
+		"css": "--o3-color-palette-oxford",
+		"figma": "o3/color/palette/oxford"
 },
 	"o3-color-palette-slate": {
 		"shortName": "slate",
@@ -258,61 +178,15 @@ export default {
 		"css": "--o3-color-palette-slate",
 		"figma": "o3/color/palette/slate"
 },
-	"o3-color-palette-white": {
-		"shortName": "white",
-		"value": "#ffffff",
-		"originalValue": "#ffffffff",
+	"o3-color-palette-paper": {
+		"shortName": "paper",
+		"value": "#fff1e5",
+		"originalValue": "#fff1e5ff",
 		"type": "color",
-		"description": "",
+		"description": "Paper, as it’s name implies, is the FT’s main background colour. It is the main expression of the brand colour on product. It is a lighter, more legible shade of FT Pink and can be seen as a kind of replacement of white.",
 		"attributes": {
 				"item": "palette",
-				"subitem": "white"
-		},
-		"origamiKeys": [
-				"palette",
-				"primary"
-		],
-		"path": [
-				"o3",
-				"color",
-				"palette",
-				"white"
-		],
-		"css": "--o3-color-palette-white",
-		"figma": "o3/color/palette/white"
-},
-	"o3-color-palette-black": {
-		"shortName": "black",
-		"value": "#000000",
-		"originalValue": "#000000ff",
-		"type": "color",
-		"description": "",
-		"attributes": {
-				"item": "palette",
-				"subitem": "black"
-		},
-		"origamiKeys": [
-				"palette",
-				"primary"
-		],
-		"path": [
-				"o3",
-				"color",
-				"palette",
-				"black"
-		],
-		"css": "--o3-color-palette-black",
-		"figma": "o3/color/palette/black"
-},
-	"o3-color-palette-claret": {
-		"shortName": "claret",
-		"value": "#990f3d",
-		"originalValue": "#990f3dff",
-		"type": "color",
-		"description": "",
-		"attributes": {
-				"item": "palette",
-				"subitem": "claret"
+				"subitem": "paper"
 		},
 		"origamiKeys": [
 				"palette",
@@ -322,148 +196,316 @@ export default {
 				"o3",
 				"color",
 				"palette",
-				"claret"
+				"paper"
 		],
-		"css": "--o3-color-palette-claret",
-		"figma": "o3/color/palette/claret"
+		"css": "--o3-color-palette-paper",
+		"figma": "o3/color/palette/paper"
 },
-	"o3-color-palette-black-90": {
-		"shortName": "black-90",
-		"value": "#1a1817",
-		"originalValue": "#1a1817ff",
+	"o3-color-palette-mandarin": {
+		"shortName": "mandarin",
+		"value": "#ff8833",
+		"originalValue": "#ff8833ff",
 		"type": "color",
+		"description": "",
 		"attributes": {
 				"item": "palette",
-				"subitem": "black-90"
+				"subitem": "mandarin"
+		},
+		"origamiKeys": [
+				"palette",
+				"tertiary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"mandarin"
+		],
+		"css": "--o3-color-palette-mandarin",
+		"figma": "o3/color/palette/mandarin"
+},
+	"o3-color-palette-light-blue": {
+		"shortName": "light-blue",
+		"value": "#00a0dd",
+		"originalValue": "#00a0ddff",
+		"type": "color",
+		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "light-blue"
+		},
+		"origamiKeys": [
+				"palette",
+				"tertiary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"light-blue"
+		],
+		"css": "--o3-color-palette-light-blue",
+		"figma": "o3/color/palette/light-blue"
+},
+	"o3-color-palette-crimson": {
+		"shortName": "crimson",
+		"value": "#cc0000",
+		"originalValue": "#cc0000ff",
+		"type": "color",
+		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "crimson"
+		},
+		"origamiKeys": [
+				"palette",
+				"tertiary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"crimson"
+		],
+		"css": "--o3-color-palette-crimson",
+		"figma": "o3/color/palette/crimson"
+},
+	"o3-color-palette-graphics-dark-blue": {
+		"shortName": "graphics-dark-blue",
+		"value": "#006f9b",
+		"originalValue": "#006f9bff",
+		"type": "color",
+		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "graphics-dark-blue"
+		},
+		"origamiKeys": [
+				"palette",
+				"tertiary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"graphics-dark-blue"
+		],
+		"css": "--o3-color-palette-graphics-dark-blue",
+		"figma": "o3/color/palette/graphics-dark-blue"
+},
+	"o3-color-palette-wheat": {
+		"shortName": "wheat",
+		"value": "#f2dfce",
+		"originalValue": "#f2dfceff",
+		"type": "color",
+		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "wheat"
+		},
+		"origamiKeys": [
+				"palette",
+				"tertiary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"wheat"
+		],
+		"css": "--o3-color-palette-wheat",
+		"figma": "o3/color/palette/wheat"
+},
+	"o3-color-palette-candy": {
+		"shortName": "candy",
+		"value": "#ff7faa",
+		"originalValue": "#ff7faaff",
+		"type": "color",
+		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "candy"
+		},
+		"origamiKeys": [
+				"palette",
+				"tertiary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"candy"
+		],
+		"css": "--o3-color-palette-candy",
+		"figma": "o3/color/palette/candy"
+},
+	"o3-color-palette-wasabi": {
+		"shortName": "wasabi",
+		"value": "#96cc28",
+		"originalValue": "#96cc28ff",
+		"type": "color",
+		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "wasabi"
+		},
+		"origamiKeys": [
+				"palette",
+				"tertiary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"wasabi"
+		],
+		"css": "--o3-color-palette-wasabi",
+		"figma": "o3/color/palette/wasabi"
+},
+	"o3-color-palette-jade": {
+		"shortName": "jade",
+		"value": "#00994d",
+		"originalValue": "#00994dff",
+		"type": "color",
+		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "jade"
+		},
+		"origamiKeys": [
+				"palette",
+				"tertiary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"jade"
+		],
+		"css": "--o3-color-palette-jade",
+		"figma": "o3/color/palette/jade"
+},
+	"o3-color-palette-velvet": {
+		"shortName": "velvet",
+		"value": "#593380",
+		"originalValue": "#593380ff",
+		"type": "color",
+		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "velvet"
+		},
+		"origamiKeys": [
+				"palette",
+				"tertiary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"velvet"
+		],
+		"css": "--o3-color-palette-velvet",
+		"figma": "o3/color/palette/velvet"
+},
+	"o3-color-palette-lemon": {
+		"shortName": "lemon",
+		"value": "#ffec1a",
+		"originalValue": "#ffec1aff",
+		"type": "color",
+		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "lemon"
+		},
+		"origamiKeys": [
+				"palette",
+				"tertiary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"lemon"
+		],
+		"css": "--o3-color-palette-lemon",
+		"figma": "o3/color/palette/lemon"
+},
+	"o3-color-palette-sky": {
+		"shortName": "sky",
+		"value": "#cce6ff",
+		"originalValue": "#cce6ffff",
+		"type": "color",
+		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "sky"
+		},
+		"origamiKeys": [
+				"palette",
+				"tertiary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"sky"
+		],
+		"css": "--o3-color-palette-sky",
+		"figma": "o3/color/palette/sky"
+},
+	"o3-color-palette-matisse-blue": {
+		"shortName": "matisse-blue",
+		"value": "#355778",
+		"originalValue": "#355778ff",
+		"type": "color",
+		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "matisse-blue"
+		},
+		"origamiKeys": [
+				"palette",
+				"tertiary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"matisse-blue"
+		],
+		"css": "--o3-color-palette-matisse-blue",
+		"figma": "o3/color/palette/matisse-blue"
+},
+	"o3-color-palette-black-5": {
+		"shortName": "black-5",
+		"value": "#f2e5da",
+		"originalValue": "#f2e5daff",
+		"type": "color",
+		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "black-5"
 		},
 		"path": [
 				"o3",
 				"color",
 				"palette",
-				"black-90"
+				"black-5"
 		],
 		"origamiTint": {
 				"base": "black",
-				"value": "90"
+				"value": "5"
 		},
-		"css": "--o3-color-palette-black-90",
-		"figma": "o3/color/palette/black-90"
-},
-	"o3-color-palette-black-50": {
-		"shortName": "black-50",
-		"value": "#807973",
-		"originalValue": "#807973ff",
-		"type": "color",
-		"attributes": {
-				"item": "palette",
-				"subitem": "black-50"
-		},
-		"path": [
-				"o3",
-				"color",
-				"palette",
-				"black-50"
-		],
-		"origamiTint": {
-				"base": "black",
-				"value": "50"
-		},
-		"css": "--o3-color-palette-black-50",
-		"figma": "o3/color/palette/black-50"
-},
-	"o3-color-palette-black-70": {
-		"shortName": "black-70",
-		"value": "#4d4d4d",
-		"originalValue": "#4d4d4d",
-		"type": "color",
-		"attributes": {
-				"item": "palette",
-				"subitem": "black-70"
-		},
-		"path": [
-				"o3",
-				"color",
-				"palette",
-				"black-70"
-		],
-		"origamiTint": {
-				"base": "black",
-				"value": "70"
-		},
-		"css": "--o3-color-palette-black-70",
-		"figma": "o3/color/palette/black-70"
-},
-	"o3-color-palette-teal-40": {
-		"shortName": "teal-40",
-		"value": "#0a5e66",
-		"originalValue": "#0a5e66ff",
-		"type": "color",
-		"attributes": {
-				"item": "palette",
-				"subitem": "teal-40"
-		},
-		"path": [
-				"o3",
-				"color",
-				"palette",
-				"teal-40"
-		],
-		"origamiTint": {
-				"base": "teal",
-				"value": "40"
-		},
-		"css": "--o3-color-palette-teal-40",
-		"figma": "o3/color/palette/teal-40"
-},
-	"o3-color-palette-teal-20": {
-		"shortName": "teal-20",
-		"value": "#052f33",
-		"originalValue": "#052f33ff",
-		"type": "color",
-		"attributes": {
-				"item": "palette",
-				"subitem": "teal-20"
-		},
-		"path": [
-				"o3",
-				"color",
-				"palette",
-				"teal-20"
-		],
-		"origamiTint": {
-				"base": "teal",
-				"value": "20"
-		},
-		"css": "--o3-color-palette-teal-20",
-		"figma": "o3/color/palette/teal-20"
-},
-	"o3-color-palette-black-30": {
-		"shortName": "black-30",
-		"value": "#b3a9a0",
-		"originalValue": "#b3a9a0ff",
-		"type": "color",
-		"attributes": {
-				"item": "palette",
-				"subitem": "black-30"
-		},
-		"path": [
-				"o3",
-				"color",
-				"palette",
-				"black-30"
-		],
-		"origamiTint": {
-				"base": "black",
-				"value": "30"
-		},
-		"css": "--o3-color-palette-black-30",
-		"figma": "o3/color/palette/black-30"
+		"css": "--o3-color-palette-black-5",
+		"figma": "o3/color/palette/black-5"
 },
 	"o3-color-palette-black-10": {
 		"shortName": "black-10",
 		"value": "#e6d9ce",
 		"originalValue": "#e6d9ceff",
 		"type": "color",
+		"description": "",
 		"attributes": {
 				"item": "palette",
 				"subitem": "black-10"
@@ -481,23 +523,1121 @@ export default {
 		"css": "--o3-color-palette-black-10",
 		"figma": "o3/color/palette/black-10"
 },
-	"o3-color-palette-crimson": {
-		"shortName": "crimson",
-		"value": "#cc0000",
-		"originalValue": "#cc0000ff",
+	"o3-color-palette-black-20": {
+		"shortName": "black-20",
+		"value": "#ccc1b7",
+		"originalValue": "#ccc1b7ff",
 		"type": "color",
+		"description": "",
 		"attributes": {
 				"item": "palette",
-				"subitem": "crimson"
+				"subitem": "black-20"
 		},
 		"path": [
 				"o3",
 				"color",
 				"palette",
-				"crimson"
+				"black-20"
 		],
-		"css": "--o3-color-palette-crimson",
-		"figma": "o3/color/palette/crimson"
+		"origamiTint": {
+				"base": "black",
+				"value": "20"
+		},
+		"css": "--o3-color-palette-black-20",
+		"figma": "o3/color/palette/black-20"
+},
+	"o3-color-palette-black-30": {
+		"shortName": "black-30",
+		"value": "#b3a9a0",
+		"originalValue": "#b3a9a0ff",
+		"type": "color",
+		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "black-30"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"black-30"
+		],
+		"origamiTint": {
+				"base": "black",
+				"value": "30"
+		},
+		"css": "--o3-color-palette-black-30",
+		"figma": "o3/color/palette/black-30"
+},
+	"o3-color-palette-black-40": {
+		"shortName": "black-40",
+		"value": "#999189",
+		"originalValue": "#999189ff",
+		"type": "color",
+		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "black-40"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"black-40"
+		],
+		"origamiTint": {
+				"base": "black",
+				"value": "40"
+		},
+		"css": "--o3-color-palette-black-40",
+		"figma": "o3/color/palette/black-40"
+},
+	"o3-color-palette-black-50": {
+		"shortName": "black-50",
+		"value": "#807973",
+		"originalValue": "#807973ff",
+		"type": "color",
+		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "black-50"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"black-50"
+		],
+		"origamiTint": {
+				"base": "black",
+				"value": "50"
+		},
+		"css": "--o3-color-palette-black-50",
+		"figma": "o3/color/palette/black-50"
+},
+	"o3-color-palette-black-60": {
+		"shortName": "black-60",
+		"value": "#66605c",
+		"originalValue": "#66605cff",
+		"type": "color",
+		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "black-60"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"black-60"
+		],
+		"origamiTint": {
+				"base": "black",
+				"value": "60"
+		},
+		"css": "--o3-color-palette-black-60",
+		"figma": "o3/color/palette/black-60"
+},
+	"o3-color-palette-black-70": {
+		"shortName": "black-70",
+		"value": "#4d4845",
+		"originalValue": "#4d4845ff",
+		"type": "color",
+		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "black-70"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"black-70"
+		],
+		"origamiTint": {
+				"base": "black",
+				"value": "70"
+		},
+		"css": "--o3-color-palette-black-70",
+		"figma": "o3/color/palette/black-70"
+},
+	"o3-color-palette-black-80": {
+		"shortName": "black-80",
+		"value": "#33302e",
+		"originalValue": "#33302eff",
+		"type": "color",
+		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "black-80"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"black-80"
+		],
+		"origamiTint": {
+				"base": "black",
+				"value": "80"
+		},
+		"css": "--o3-color-palette-black-80",
+		"figma": "o3/color/palette/black-80"
+},
+	"o3-color-palette-black-90": {
+		"shortName": "black-90",
+		"value": "#1a1817",
+		"originalValue": "#1a1817ff",
+		"type": "color",
+		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "black-90"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"black-90"
+		],
+		"origamiTint": {
+				"base": "black",
+				"value": "90"
+		},
+		"css": "--o3-color-palette-black-90",
+		"figma": "o3/color/palette/black-90"
+},
+	"o3-color-palette-white-10": {
+		"shortName": "white-10",
+		"value": "#fff2e8",
+		"originalValue": "#fff2e8ff",
+		"type": "color",
+		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "white-10"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"white-10"
+		],
+		"origamiTint": {
+				"base": "white",
+				"value": "10"
+		},
+		"css": "--o3-color-palette-white-10",
+		"figma": "o3/color/palette/white-10"
+},
+	"o3-color-palette-white-20": {
+		"shortName": "white-20",
+		"value": "#fff4ea",
+		"originalValue": "#fff4eaff",
+		"type": "color",
+		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "white-20"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"white-20"
+		],
+		"origamiTint": {
+				"base": "white",
+				"value": "20"
+		},
+		"css": "--o3-color-palette-white-20",
+		"figma": "o3/color/palette/white-20"
+},
+	"o3-color-palette-white-40": {
+		"shortName": "white-40",
+		"value": "#fff7ef",
+		"originalValue": "#fff7efff",
+		"type": "color",
+		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "white-40"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"white-40"
+		],
+		"origamiTint": {
+				"base": "white",
+				"value": "40"
+		},
+		"css": "--o3-color-palette-white-40",
+		"figma": "o3/color/palette/white-40"
+},
+	"o3-color-palette-white-60": {
+		"shortName": "white-60",
+		"value": "#fff9f5",
+		"originalValue": "#fff9f5ff",
+		"type": "color",
+		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "white-60"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"white-60"
+		],
+		"origamiTint": {
+				"base": "white",
+				"value": "60"
+		},
+		"css": "--o3-color-palette-white-60",
+		"figma": "o3/color/palette/white-60"
+},
+	"o3-color-palette-white-80": {
+		"shortName": "white-80",
+		"value": "#fffcfa",
+		"originalValue": "#fffcfaff",
+		"type": "color",
+		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "white-80"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"white-80"
+		],
+		"origamiTint": {
+				"base": "white",
+				"value": "80"
+		},
+		"css": "--o3-color-palette-white-80",
+		"figma": "o3/color/palette/white-80"
+},
+	"o3-color-palette-oxford-30": {
+		"shortName": "oxford-30",
+		"value": "#082a4d",
+		"originalValue": "#082a4dff",
+		"type": "color",
+		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "oxford-30"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"oxford-30"
+		],
+		"origamiTint": {
+				"base": "oxford",
+				"value": "30"
+		},
+		"css": "--o3-color-palette-oxford-30",
+		"figma": "o3/color/palette/oxford-30"
+},
+	"o3-color-palette-oxford-40": {
+		"shortName": "oxford-40",
+		"value": "#0a3866",
+		"originalValue": "#0a3866ff",
+		"type": "color",
+		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "oxford-40"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"oxford-40"
+		],
+		"origamiTint": {
+				"base": "oxford",
+				"value": "40"
+		},
+		"css": "--o3-color-palette-oxford-40",
+		"figma": "o3/color/palette/oxford-40"
+},
+	"o3-color-palette-oxford-50": {
+		"shortName": "oxford-50",
+		"value": "#0d4680",
+		"originalValue": "#0d4680ff",
+		"type": "color",
+		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "oxford-50"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"oxford-50"
+		],
+		"origamiTint": {
+				"base": "oxford",
+				"value": "50"
+		},
+		"css": "--o3-color-palette-oxford-50",
+		"figma": "o3/color/palette/oxford-50"
+},
+	"o3-color-palette-oxford-60": {
+		"shortName": "oxford-60",
+		"value": "#0f5499",
+		"originalValue": "#0f5499ff",
+		"type": "color",
+		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "oxford-60"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"oxford-60"
+		],
+		"origamiTint": {
+				"base": "oxford",
+				"value": "60"
+		},
+		"css": "--o3-color-palette-oxford-60",
+		"figma": "o3/color/palette/oxford-60"
+},
+	"o3-color-palette-oxford-70": {
+		"shortName": "oxford-70",
+		"value": "#1262b3",
+		"originalValue": "#1262b3ff",
+		"type": "color",
+		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "oxford-70"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"oxford-70"
+		],
+		"origamiTint": {
+				"base": "oxford",
+				"value": "70"
+		},
+		"css": "--o3-color-palette-oxford-70",
+		"figma": "o3/color/palette/oxford-70"
+},
+	"o3-color-palette-oxford-80": {
+		"shortName": "oxford-80",
+		"value": "#1470cc",
+		"originalValue": "#1470ccff",
+		"type": "color",
+		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "oxford-80"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"oxford-80"
+		],
+		"origamiTint": {
+				"base": "oxford",
+				"value": "80"
+		},
+		"css": "--o3-color-palette-oxford-80",
+		"figma": "o3/color/palette/oxford-80"
+},
+	"o3-color-palette-oxford-90": {
+		"shortName": "oxford-90",
+		"value": "#177ee6",
+		"originalValue": "#177ee6ff",
+		"type": "color",
+		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "oxford-90"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"oxford-90"
+		],
+		"origamiTint": {
+				"base": "oxford",
+				"value": "90"
+		},
+		"css": "--o3-color-palette-oxford-90",
+		"figma": "o3/color/palette/oxford-90"
+},
+	"o3-color-palette-oxford-100": {
+		"shortName": "oxford-100",
+		"value": "#1a8cff",
+		"originalValue": "#1a8cffff",
+		"type": "color",
+		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "oxford-100"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"oxford-100"
+		],
+		"origamiTint": {
+				"base": "oxford",
+				"value": "100"
+		},
+		"css": "--o3-color-palette-oxford-100",
+		"figma": "o3/color/palette/oxford-100"
+},
+	"o3-color-palette-teal-20": {
+		"shortName": "teal-20",
+		"value": "#052f33",
+		"originalValue": "#052f33ff",
+		"type": "color",
+		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "teal-20"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"teal-20"
+		],
+		"origamiTint": {
+				"base": "teal",
+				"value": "20"
+		},
+		"css": "--o3-color-palette-teal-20",
+		"figma": "o3/color/palette/teal-20"
+},
+	"o3-color-palette-teal-30": {
+		"shortName": "teal-30",
+		"value": "#08474d",
+		"originalValue": "#08474dff",
+		"type": "color",
+		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "teal-30"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"teal-30"
+		],
+		"origamiTint": {
+				"base": "teal",
+				"value": "30"
+		},
+		"css": "--o3-color-palette-teal-30",
+		"figma": "o3/color/palette/teal-30"
+},
+	"o3-color-palette-teal-40": {
+		"shortName": "teal-40",
+		"value": "#0a5e66",
+		"originalValue": "#0a5e66ff",
+		"type": "color",
+		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "teal-40"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"teal-40"
+		],
+		"origamiTint": {
+				"base": "teal",
+				"value": "40"
+		},
+		"css": "--o3-color-palette-teal-40",
+		"figma": "o3/color/palette/teal-40"
+},
+	"o3-color-palette-teal-50": {
+		"shortName": "teal-50",
+		"value": "#0d7680",
+		"originalValue": "#0d7680ff",
+		"type": "color",
+		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "teal-50"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"teal-50"
+		],
+		"origamiTint": {
+				"base": "teal",
+				"value": "50"
+		},
+		"css": "--o3-color-palette-teal-50",
+		"figma": "o3/color/palette/teal-50"
+},
+	"o3-color-palette-teal-60": {
+		"shortName": "teal-60",
+		"value": "#0f8e99",
+		"originalValue": "#0f8e99ff",
+		"type": "color",
+		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "teal-60"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"teal-60"
+		],
+		"origamiTint": {
+				"base": "teal",
+				"value": "60"
+		},
+		"css": "--o3-color-palette-teal-60",
+		"figma": "o3/color/palette/teal-60"
+},
+	"o3-color-palette-teal-70": {
+		"shortName": "teal-70",
+		"value": "#12a5b3",
+		"originalValue": "#12a5b3ff",
+		"type": "color",
+		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "teal-70"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"teal-70"
+		],
+		"origamiTint": {
+				"base": "teal",
+				"value": "70"
+		},
+		"css": "--o3-color-palette-teal-70",
+		"figma": "o3/color/palette/teal-70"
+},
+	"o3-color-palette-teal-80": {
+		"shortName": "teal-80",
+		"value": "#14bdcc",
+		"originalValue": "#14bdccff",
+		"type": "color",
+		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "teal-80"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"teal-80"
+		],
+		"origamiTint": {
+				"base": "teal",
+				"value": "80"
+		},
+		"css": "--o3-color-palette-teal-80",
+		"figma": "o3/color/palette/teal-80"
+},
+	"o3-color-palette-teal-90": {
+		"shortName": "teal-90",
+		"value": "#17d4e6",
+		"originalValue": "#17d4e6ff",
+		"type": "color",
+		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "teal-90"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"teal-90"
+		],
+		"origamiTint": {
+				"base": "teal",
+				"value": "90"
+		},
+		"css": "--o3-color-palette-teal-90",
+		"figma": "o3/color/palette/teal-90"
+},
+	"o3-color-palette-teal-100": {
+		"shortName": "teal-100",
+		"value": "#1aecff",
+		"originalValue": "#1aecffff",
+		"type": "color",
+		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "teal-100"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"teal-100"
+		],
+		"origamiTint": {
+				"base": "teal",
+				"value": "100"
+		},
+		"css": "--o3-color-palette-teal-100",
+		"figma": "o3/color/palette/teal-100"
+},
+	"o3-color-palette-claret-30": {
+		"shortName": "claret-30",
+		"value": "#4d081f",
+		"originalValue": "#4d081fff",
+		"type": "color",
+		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "claret-30"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"claret-30"
+		],
+		"origamiTint": {
+				"base": "claret",
+				"value": "30"
+		},
+		"css": "--o3-color-palette-claret-30",
+		"figma": "o3/color/palette/claret-30"
+},
+	"o3-color-palette-claret-40": {
+		"shortName": "claret-40",
+		"value": "#660a29",
+		"originalValue": "#660a29ff",
+		"type": "color",
+		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "claret-40"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"claret-40"
+		],
+		"origamiTint": {
+				"base": "claret",
+				"value": "40"
+		},
+		"css": "--o3-color-palette-claret-40",
+		"figma": "o3/color/palette/claret-40"
+},
+	"o3-color-palette-claret-50": {
+		"shortName": "claret-50",
+		"value": "#800d33",
+		"originalValue": "#800d33ff",
+		"type": "color",
+		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "claret-50"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"claret-50"
+		],
+		"origamiTint": {
+				"base": "claret",
+				"value": "50"
+		},
+		"css": "--o3-color-palette-claret-50",
+		"figma": "o3/color/palette/claret-50"
+},
+	"o3-color-palette-claret-60": {
+		"shortName": "claret-60",
+		"value": "#990f3d",
+		"originalValue": "#990f3dff",
+		"type": "color",
+		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "claret-60"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"claret-60"
+		],
+		"origamiTint": {
+				"base": "claret",
+				"value": "60"
+		},
+		"css": "--o3-color-palette-claret-60",
+		"figma": "o3/color/palette/claret-60"
+},
+	"o3-color-palette-claret-70": {
+		"shortName": "claret-70",
+		"value": "#b31247",
+		"originalValue": "#b31247ff",
+		"type": "color",
+		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "claret-70"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"claret-70"
+		],
+		"origamiTint": {
+				"base": "claret",
+				"value": "70"
+		},
+		"css": "--o3-color-palette-claret-70",
+		"figma": "o3/color/palette/claret-70"
+},
+	"o3-color-palette-claret-80": {
+		"shortName": "claret-80",
+		"value": "#cc1452",
+		"originalValue": "#cc1452ff",
+		"type": "color",
+		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "claret-80"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"claret-80"
+		],
+		"origamiTint": {
+				"base": "claret",
+				"value": "80"
+		},
+		"css": "--o3-color-palette-claret-80",
+		"figma": "o3/color/palette/claret-80"
+},
+	"o3-color-palette-claret-90": {
+		"shortName": "claret-90",
+		"value": "#e6175c",
+		"originalValue": "#e6175cff",
+		"type": "color",
+		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "claret-90"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"claret-90"
+		],
+		"origamiTint": {
+				"base": "claret",
+				"value": "90"
+		},
+		"css": "--o3-color-palette-claret-90",
+		"figma": "o3/color/palette/claret-90"
+},
+	"o3-color-palette-claret-100": {
+		"shortName": "claret-100",
+		"value": "#ff1a66",
+		"originalValue": "#ff1a66ff",
+		"type": "color",
+		"description": "",
+		"attributes": {
+				"item": "palette",
+				"subitem": "claret-100"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"claret-100"
+		],
+		"origamiTint": {
+				"base": "claret",
+				"value": "100"
+		},
+		"css": "--o3-color-palette-claret-100",
+		"figma": "o3/color/palette/claret-100"
+},
+	"o3-color-palette-wheat-100": {
+		"shortName": "wheat-100",
+		"value": "#ffebd9",
+		"originalValue": "#FFEBD9",
+		"type": "color",
+		"attributes": {
+				"item": "palette",
+				"subitem": "wheat-100"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"wheat-100"
+		],
+		"origamiTint": {
+				"base": "wheat",
+				"value": "100"
+		},
+		"css": "--o3-color-palette-wheat-100",
+		"figma": "o3/color/palette/wheat-100"
+},
+	"o3-color-palette-mint": {
+		"shortName": "mint",
+		"value": "#c0efd8",
+		"originalValue": "#c0efd8",
+		"type": "color",
+		"attributes": {
+				"item": "palette",
+				"subitem": "mint"
+		},
+		"origamiKeys": [
+				"palette",
+				"primary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"mint"
+		],
+		"css": "--o3-color-palette-mint",
+		"figma": "o3/color/palette/mint"
+},
+	"o3-color-palette-mint-80": {
+		"shortName": "mint-80",
+		"value": "#a4ccb8",
+		"originalValue": "#A4CCB8",
+		"type": "color",
+		"attributes": {
+				"item": "palette",
+				"subitem": "mint-80"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"mint-80"
+		],
+		"origamiTint": {
+				"base": "mint",
+				"value": "80"
+		},
+		"css": "--o3-color-palette-mint-80",
+		"figma": "o3/color/palette/mint-80"
+},
+	"o3-color-palette-mint-70": {
+		"shortName": "mint-70",
+		"value": "#8fb3a1",
+		"originalValue": "#8FB3A1",
+		"type": "color",
+		"attributes": {
+				"item": "palette",
+				"subitem": "mint-70"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"mint-70"
+		],
+		"origamiTint": {
+				"base": "mint",
+				"value": "70"
+		},
+		"css": "--o3-color-palette-mint-70",
+		"figma": "o3/color/palette/mint-70"
+},
+	"o3-color-palette-mint-60": {
+		"shortName": "mint-60",
+		"value": "#7b998a",
+		"originalValue": "#7B998A",
+		"type": "color",
+		"attributes": {
+				"item": "palette",
+				"subitem": "mint-60"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"mint-60"
+		],
+		"origamiTint": {
+				"base": "mint",
+				"value": "60"
+		},
+		"css": "--o3-color-palette-mint-60",
+		"figma": "o3/color/palette/mint-60"
+},
+	"o3-color-palette-mint-50": {
+		"shortName": "mint-50",
+		"value": "#668073",
+		"originalValue": "#668073",
+		"type": "color",
+		"attributes": {
+				"item": "palette",
+				"subitem": "mint-50"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"mint-50"
+		],
+		"origamiTint": {
+				"base": "mint",
+				"value": "50"
+		},
+		"css": "--o3-color-palette-mint-50",
+		"figma": "o3/color/palette/mint-50"
+},
+	"o3-color-palette-mint-40": {
+		"shortName": "mint-40",
+		"value": "#52665c",
+		"originalValue": "#52665C",
+		"type": "color",
+		"attributes": {
+				"item": "palette",
+				"subitem": "mint-40"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"mint-40"
+		],
+		"origamiTint": {
+				"base": "mint",
+				"value": "40"
+		},
+		"css": "--o3-color-palette-mint-40",
+		"figma": "o3/color/palette/mint-40"
+},
+	"o3-color-palette-mint-30": {
+		"shortName": "mint-30",
+		"value": "#3d4d45",
+		"originalValue": "#3D4D45",
+		"type": "color",
+		"attributes": {
+				"item": "palette",
+				"subitem": "mint-30"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"mint-30"
+		],
+		"origamiTint": {
+				"base": "mint",
+				"value": "30"
+		},
+		"css": "--o3-color-palette-mint-30",
+		"figma": "o3/color/palette/mint-30"
+},
+	"o3-color-palette-slate-white-5": {
+		"shortName": "slate-white-5",
+		"value": "#f4f4f5",
+		"originalValue": "#F4F4F5",
+		"type": "color",
+		"attributes": {
+				"item": "palette",
+				"subitem": "slate-white-5"
+		},
+		"origamiKeys": [
+				"palette",
+				"secondary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"slate-white-5"
+		],
+		"css": "--o3-color-palette-slate-white-5",
+		"figma": "o3/color/palette/slate-white-5"
+},
+	"o3-color-palette-slate-white-15": {
+		"shortName": "slate-white-15",
+		"value": "#dedfe0",
+		"originalValue": "#DEDFE0",
+		"type": "color",
+		"attributes": {
+				"item": "palette",
+				"subitem": "slate-white-15"
+		},
+		"origamiKeys": [
+				"palette",
+				"secondary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"slate-white-15"
+		],
+		"css": "--o3-color-palette-slate-white-15",
+		"figma": "o3/color/palette/slate-white-15"
+},
+	"o3-color-palette-oceanwave": {
+		"shortName": "oceanwave",
+		"value": "#c9f5ea",
+		"originalValue": "#C9F5EA",
+		"type": "color",
+		"attributes": {
+				"item": "palette",
+				"subitem": "oceanwave"
+		},
+		"origamiKeys": [
+				"palette",
+				"primary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"oceanwave"
+		],
+		"css": "--o3-color-palette-oceanwave",
+		"figma": "o3/color/palette/oceanwave"
 },
 	"o3-color-use-case-link-text": {
 		"shortName": "@",
@@ -647,7 +1787,7 @@ export default {
 },
 	"o3-color-use-case-support-text": {
 		"shortName": "text",
-		"value": "#4d4d4d",
+		"value": "#4d4845",
 		"originalValue": "{o3.color.palette.black-70}",
 		"type": "color",
 		"attributes": {
@@ -1040,6 +2180,198 @@ export default {
 		],
 		"css": "--o3-color-use-case-success-foreground",
 		"figma": "o3/color/use-case/success-foreground"
+},
+	"o3-spacing-5xs": {
+		"shortName": "5xs",
+		"value": "4px",
+		"originalValue": "4px",
+		"type": "dimension",
+		"attributes": {
+				"item": "5xs"
+		},
+		"path": [
+				"o3",
+				"spacing",
+				"5xs"
+		],
+		"css": "--o3-spacing-5xs",
+		"figma": "o3/spacing/5xs"
+},
+	"o3-spacing-4xs": {
+		"shortName": "4xs",
+		"value": "8px",
+		"originalValue": "8px",
+		"type": "dimension",
+		"attributes": {
+				"item": "4xs"
+		},
+		"path": [
+				"o3",
+				"spacing",
+				"4xs"
+		],
+		"css": "--o3-spacing-4xs",
+		"figma": "o3/spacing/4xs"
+},
+	"o3-spacing-3xs": {
+		"shortName": "3xs",
+		"value": "12px",
+		"originalValue": "12px",
+		"type": "dimension",
+		"attributes": {
+				"item": "3xs"
+		},
+		"path": [
+				"o3",
+				"spacing",
+				"3xs"
+		],
+		"css": "--o3-spacing-3xs",
+		"figma": "o3/spacing/3xs"
+},
+	"o3-spacing-2xs": {
+		"shortName": "2xs",
+		"value": "16px",
+		"originalValue": "16px",
+		"type": "dimension",
+		"attributes": {
+				"item": "2xs"
+		},
+		"path": [
+				"o3",
+				"spacing",
+				"2xs"
+		],
+		"css": "--o3-spacing-2xs",
+		"figma": "o3/spacing/2xs"
+},
+	"o3-spacing-xs": {
+		"shortName": "xs",
+		"value": "20px",
+		"originalValue": "20px",
+		"type": "dimension",
+		"attributes": {
+				"item": "xs"
+		},
+		"path": [
+				"o3",
+				"spacing",
+				"xs"
+		],
+		"css": "--o3-spacing-xs",
+		"figma": "o3/spacing/xs"
+},
+	"o3-spacing-s": {
+		"shortName": "s",
+		"value": "24px",
+		"originalValue": "24px",
+		"type": "dimension",
+		"attributes": {
+				"item": "s"
+		},
+		"path": [
+				"o3",
+				"spacing",
+				"s"
+		],
+		"css": "--o3-spacing-s",
+		"figma": "o3/spacing/s"
+},
+	"o3-spacing-m": {
+		"shortName": "m",
+		"value": "32px",
+		"originalValue": "32px",
+		"type": "dimension",
+		"attributes": {
+				"item": "m"
+		},
+		"path": [
+				"o3",
+				"spacing",
+				"m"
+		],
+		"css": "--o3-spacing-m",
+		"figma": "o3/spacing/m"
+},
+	"o3-spacing-l": {
+		"shortName": "l",
+		"value": "40px",
+		"originalValue": "40px",
+		"type": "dimension",
+		"attributes": {
+				"item": "l"
+		},
+		"path": [
+				"o3",
+				"spacing",
+				"l"
+		],
+		"css": "--o3-spacing-l",
+		"figma": "o3/spacing/l"
+},
+	"o3-spacing-xl": {
+		"shortName": "xl",
+		"value": "48px",
+		"originalValue": "48px",
+		"type": "dimension",
+		"attributes": {
+				"item": "xl"
+		},
+		"path": [
+				"o3",
+				"spacing",
+				"xl"
+		],
+		"css": "--o3-spacing-xl",
+		"figma": "o3/spacing/xl"
+},
+	"o3-spacing-2xl": {
+		"shortName": "2xl",
+		"value": "64px",
+		"originalValue": "64px",
+		"type": "dimension",
+		"attributes": {
+				"item": "2xl"
+		},
+		"path": [
+				"o3",
+				"spacing",
+				"2xl"
+		],
+		"css": "--o3-spacing-2xl",
+		"figma": "o3/spacing/2xl"
+},
+	"o3-spacing-3xl": {
+		"shortName": "3xl",
+		"value": "80px",
+		"originalValue": "80px",
+		"type": "dimension",
+		"attributes": {
+				"item": "3xl"
+		},
+		"path": [
+				"o3",
+				"spacing",
+				"3xl"
+		],
+		"css": "--o3-spacing-3xl",
+		"figma": "o3/spacing/3xl"
+},
+	"o3-spacing-4xl": {
+		"shortName": "4xl",
+		"value": "96px",
+		"originalValue": "96px",
+		"type": "dimension",
+		"attributes": {
+				"item": "4xl"
+		},
+		"path": [
+				"o3",
+				"spacing",
+				"4xl"
+		],
+		"css": "--o3-spacing-4xl",
+		"figma": "o3/spacing/4xl"
 },
 	"o3-type-display-lg-font-family": {
 		"shortName": "fontFamily",

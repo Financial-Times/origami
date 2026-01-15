@@ -10,12 +10,9 @@ export const o3_color_palette_black = "#000000";
 //
 // Usage example: MyFT branding; MyFT CTAs
 export const o3_color_palette_claret = "#990f3d";
-export const o3_color_palette_teal = "#0d7680"; // Teal is the most striking colour and main CTA colour on ft.com. It is reserved for important action items that need to stand out: buttons, text links and other critical functional use cases.
-// Oxford is used to denote opinion pieces (in combination with Sky). It is used on the homepage and in articles. Use for information and callouts in general.
-//
-// Usage example: opinion branding; opinion topic tags.
+export const o3_color_palette_teal = "#0d7680";
 export const o3_color_palette_oxford = "#0f5499";
-export const o3_color_palette_slate = "#262a33"; // Slate is a warmer version of black. It is used as inverse backgrounds for editorial content and as a theme option(Mono) for buttons.
+export const o3_color_palette_slate = "#262a33";
 export const o3_color_palette_paper = "#fff1e5"; // Paper, as it’s name implies, is the FT’s main background colour. It is the main expression of the brand colour on product. It is a lighter, more legible shade of FT Pink and can be seen as a kind of replacement of white.
 export const o3_color_palette_mandarin = "#ff8833";
 export const o3_color_palette_light_blue = "#00a0dd";
@@ -70,6 +67,16 @@ export const o3_color_palette_claret_80 = "#cc1452";
 export const o3_color_palette_claret_90 = "#e6175c";
 export const o3_color_palette_claret_100 = "#ff1a66";
 export const o3_color_palette_wheat_100 = "#ffebd9";
+export const o3_color_palette_mint = "#c0efd8";
+export const o3_color_palette_mint_80 = "#a4ccb8";
+export const o3_color_palette_mint_70 = "#8fb3a1";
+export const o3_color_palette_mint_60 = "#7b998a";
+export const o3_color_palette_mint_50 = "#668073";
+export const o3_color_palette_mint_40 = "#52665c";
+export const o3_color_palette_mint_30 = "#3d4d45";
+export const o3_color_palette_slate_white_5 = "#f4f4f5";
+export const o3_color_palette_slate_white_15 = "#dedfe0";
+export const o3_color_palette_oceanwave = "#c9f5ea";
 export const o3_color_use_case_link_text = "#0d7680";
 export const o3_color_use_case_link_text_hover = "#08474d";
 export const o3_color_use_case_link_underline = "#cfd8d1";
