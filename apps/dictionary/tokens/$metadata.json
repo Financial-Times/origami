@@ -45,6 +45,7 @@
     "sustainable-views/base/spacing",
     "sustainable-views/base/typography",
     "sustainable-views/base/color",
+    "palette/color",
     "sustainable-views/use-case/color",
     "sustainable-views/use-case/focus",
     "sustainable-views/use-case/typography",
