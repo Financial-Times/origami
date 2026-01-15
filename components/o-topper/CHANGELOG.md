@@ -1,5 +1,13 @@
 # Changelog
 
+## [7.1.3](https://github.com/Financial-Times/origami/compare/o-topper-v7.1.2...o-topper-v7.1.3) (2026-01-15)
+
+
+### Bug Fixes
+
+* ci-2860 add padding to avoid overlap ([3c68843](https://github.com/Financial-Times/origami/commit/3c688439c098576e397fbea656769e6fc6502381))
+* ci-2860 add padding to avoid overlap ([95b72ae](https://github.com/Financial-Times/origami/commit/95b72ae1fe05e485c54b371f62ff3194e815bca7))
+
 ## [7.1.2](https://github.com/Financial-Times/origami/compare/o-topper-v7.1.1...o-topper-v7.1.2) (2025-10-28)
 
 
