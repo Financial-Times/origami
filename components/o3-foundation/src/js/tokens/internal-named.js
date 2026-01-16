@@ -2,27 +2,45 @@
  * Do not edit directly, this file was auto-generated.
  */
 
-export const o3_color_palette_black = "#000000";
+export const o3_color_palette_ft_pink = "#fcd0b1"; // FT Pink is used for the FT logo
+export const o3_color_palette_ft_grey = "#333333";
 export const o3_color_palette_white = "#ffffff";
-export const o3_color_palette_oxford = "#0f5499";
+export const o3_color_palette_black = "#000000";
+// Claret is the main branding colour for MyFT related products. It should be used sparingly and never be used as a background colour.
+//
+// Usage example: MyFT branding; MyFT CTAs
+export const o3_color_palette_claret = "#990f3d";
 export const o3_color_palette_teal = "#0d7680";
+export const o3_color_palette_oxford = "#0f5499";
 export const o3_color_palette_slate = "#262a33";
-export const o3_color_palette_slate_white_5 = "#f4f4f5";
-export const o3_color_palette_slate_white_15 = "#dedfe0";
-export const o3_color_palette_lemon = "#ffec1a";
-export const o3_color_palette_jade = "#00994d";
+export const o3_color_palette_paper = "#fff1e5"; // Paper, as it’s name implies, is the FT’s main background colour. It is the main expression of the brand colour on product. It is a lighter, more legible shade of FT Pink and can be seen as a kind of replacement of white.
 export const o3_color_palette_mandarin = "#ff8833";
+export const o3_color_palette_light_blue = "#00a0dd";
 export const o3_color_palette_crimson = "#cc0000";
-export const o3_color_palette_black_5 = "#f2f2f2";
-export const o3_color_palette_black_10 = "#e6e6e6";
-export const o3_color_palette_black_20 = "#cccccc";
-export const o3_color_palette_black_30 = "#b3b3b3";
-export const o3_color_palette_black_40 = "#999999";
-export const o3_color_palette_black_50 = "#808080";
-export const o3_color_palette_black_60 = "#666666";
-export const o3_color_palette_black_70 = "#4d4d4d";
-export const o3_color_palette_black_80 = "#333333";
-export const o3_color_palette_black_90 = "#1a1a1a";
+export const o3_color_palette_graphics_dark_blue = "#006f9b";
+export const o3_color_palette_wheat = "#f2dfce";
+export const o3_color_palette_candy = "#ff7faa";
+export const o3_color_palette_wasabi = "#96cc28";
+export const o3_color_palette_jade = "#00994d";
+export const o3_color_palette_velvet = "#593380";
+export const o3_color_palette_lemon = "#ffec1a";
+export const o3_color_palette_sky = "#cce6ff";
+export const o3_color_palette_matisse_blue = "#355778";
+export const o3_color_palette_black_5 = "#f2e5da";
+export const o3_color_palette_black_10 = "#e6d9ce";
+export const o3_color_palette_black_20 = "#ccc1b7";
+export const o3_color_palette_black_30 = "#b3a9a0";
+export const o3_color_palette_black_40 = "#999189";
+export const o3_color_palette_black_50 = "#807973";
+export const o3_color_palette_black_60 = "#66605c";
+export const o3_color_palette_black_70 = "#4d4845";
+export const o3_color_palette_black_80 = "#33302e";
+export const o3_color_palette_black_90 = "#1a1817";
+export const o3_color_palette_white_10 = "#fff2e8";
+export const o3_color_palette_white_20 = "#fff4ea";
+export const o3_color_palette_white_40 = "#fff7ef";
+export const o3_color_palette_white_60 = "#fff9f5";
+export const o3_color_palette_white_80 = "#fffcfa";
 export const o3_color_palette_oxford_30 = "#082a4d";
 export const o3_color_palette_oxford_40 = "#0a3866";
 export const o3_color_palette_oxford_50 = "#0d4680";
@@ -30,33 +48,52 @@ export const o3_color_palette_oxford_60 = "#0f5499";
 export const o3_color_palette_oxford_70 = "#1262b3";
 export const o3_color_palette_oxford_80 = "#1470cc";
 export const o3_color_palette_oxford_90 = "#177ee6";
-export const o3_color_palette_oxford_100 = "#198cff";
+export const o3_color_palette_oxford_100 = "#1a8cff";
 export const o3_color_palette_teal_20 = "#052f33";
 export const o3_color_palette_teal_30 = "#08474d";
 export const o3_color_palette_teal_40 = "#0a5e66";
 export const o3_color_palette_teal_50 = "#0d7680";
-export const o3_color_palette_teal_60 = "#108d99";
+export const o3_color_palette_teal_60 = "#0f8e99";
 export const o3_color_palette_teal_70 = "#12a5b3";
-export const o3_color_palette_teal_80 = "#15bccc";
+export const o3_color_palette_teal_80 = "#14bdcc";
 export const o3_color_palette_teal_90 = "#17d4e6";
-export const o3_color_palette_teal_100 = "#1aebff";
+export const o3_color_palette_teal_100 = "#1aecff";
+export const o3_color_palette_claret_30 = "#4d081f";
+export const o3_color_palette_claret_40 = "#660a29";
+export const o3_color_palette_claret_50 = "#800d33";
+export const o3_color_palette_claret_60 = "#990f3d";
+export const o3_color_palette_claret_70 = "#b31247";
+export const o3_color_palette_claret_80 = "#cc1452";
+export const o3_color_palette_claret_90 = "#e6175c";
+export const o3_color_palette_claret_100 = "#ff1a66";
+export const o3_color_palette_wheat_100 = "#ffebd9";
+export const o3_color_palette_mint = "#c0efd8";
+export const o3_color_palette_mint_80 = "#a4ccb8";
+export const o3_color_palette_mint_70 = "#8fb3a1";
+export const o3_color_palette_mint_60 = "#7b998a";
+export const o3_color_palette_mint_50 = "#668073";
+export const o3_color_palette_mint_40 = "#52665c";
+export const o3_color_palette_mint_30 = "#3d4d45";
+export const o3_color_palette_slate_white_5 = "#f4f4f5";
+export const o3_color_palette_slate_white_15 = "#dedfe0";
+export const o3_color_palette_oceanwave = "#c9f5ea";
 export const o3_color_use_case_link_text = "#0d7680";
 export const o3_color_use_case_link_text_hover = "#08474d";
 export const o3_color_use_case_link_underline = "#cfd8d1";
 export const o3_color_use_case_link_underline_hover = "#9ec0bd";
 export const o3_color_use_case_link_inverse_text = "#ffffff";
-export const o3_color_use_case_link_inverse_text_hover = "#cccccc";
+export const o3_color_use_case_link_inverse_text_hover = "#ccc1b7";
 export const o3_color_use_case_link_inverse_underline = "#ffffff";
-export const o3_color_use_case_link_inverse_underline_hover = "#cccccc";
+export const o3_color_use_case_link_inverse_underline_hover = "#ccc1b7";
 export const o3_color_use_case_page_background = "#ffffff";
 export const o3_color_use_case_page_inverse_background = "#262a33";
-export const o3_color_use_case_body_text = "#333333";
-export const o3_color_use_case_support_text = "#4d4d4d";
+export const o3_color_use_case_body_text = "#33302e";
+export const o3_color_use_case_support_text = "#4d4845";
 export const o3_color_use_case_support_inverse_text = "#e9eaeb";
 export const o3_color_use_case_body_inverse_text = "#ffffff";
-export const o3_color_use_case_muted_text = "#cccccc"; // "Muted" text is less prominent, for example credits and captions.
+export const o3_color_use_case_muted_text = "#ccc1b7"; // "Muted" text is less prominent, for example credits and captions.
 export const o3_color_use_case_muted_inverse_text = "#a8aaad"; // "Muted" text is less prominent, for example credits and captions.
-export const o3_color_use_case_heading_text = "#1a1a1a";
+export const o3_color_use_case_heading_text = "#1a1817";
 export const o3_color_use_case_heading_inverse_text = "#ffffff";
 export const o3_color_use_case_button_foreground = "#ffffff";
 export const o3_color_use_case_button_foreground_disabled = "#ffffff";
@@ -195,7 +232,7 @@ export const o3_focus_use_case_ring_inner = {
 export const o3_focus_use_case_ring_outer = {
   blur: "0",
   spread: "4",
-  color: "#4d4d4d",
+  color: "#4d4845",
   type: "dropShadow",
   offsetX: "0",
   offsetY: "0",
@@ -203,7 +240,7 @@ export const o3_focus_use_case_ring_outer = {
 export const o3_focus_use_case_ring_inverse_inner = {
   blur: "0",
   spread: "2",
-  color: "#4d4d4d",
+  color: "#4d4845",
   type: "dropShadow",
   offsetX: "0",
   offsetY: "0",
@@ -219,7 +256,7 @@ export const o3_focus_use_case_ring_inverse_outer = {
 export const o3_focus_use_case_outline_color = {
   blur: "0",
   spread: "2",
-  color: "#808080",
+  color: "#807973",
   type: "dropShadow",
   offsetX: "0",
   offsetY: "0",

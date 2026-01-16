@@ -48,9 +48,8 @@ export default {
 	"o3-color-palette-white": {
 		"shortName": "white",
 		"value": "#ffffff",
-		"originalValue": "#ffffffff",
+		"originalValue": "#fff",
 		"type": "color",
-		"description": "",
 		"attributes": {
 				"item": "palette",
 				"subitem": "white"
@@ -71,9 +70,8 @@ export default {
 	"o3-color-palette-black": {
 		"shortName": "black",
 		"value": "#000000",
-		"originalValue": "#000000ff",
+		"originalValue": "#000",
 		"type": "color",
-		"description": "",
 		"attributes": {
 				"item": "palette",
 				"subitem": "black"
@@ -117,16 +115,15 @@ export default {
 	"o3-color-palette-teal": {
 		"shortName": "teal",
 		"value": "#0d7680",
-		"originalValue": "#0d7680ff",
+		"originalValue": "#0D7680",
 		"type": "color",
-		"description": "Teal is the most striking colour and main CTA colour on ft.com. It is reserved for important action items that need to stand out: buttons, text links and other critical functional use cases.",
 		"attributes": {
 				"item": "palette",
 				"subitem": "teal"
 		},
 		"origamiKeys": [
 				"palette",
-				"secondary"
+				"primary"
 		],
 		"path": [
 				"o3",
@@ -140,16 +137,15 @@ export default {
 	"o3-color-palette-oxford": {
 		"shortName": "oxford",
 		"value": "#0f5499",
-		"originalValue": "#0f5499ff",
+		"originalValue": "#0F5499",
 		"type": "color",
-		"description": "Oxford is used to denote opinion pieces (in combination with Sky). It is used on the homepage and in articles. Use for information and callouts in general.\n\nUsage example: opinion branding; opinion topic tags.",
 		"attributes": {
 				"item": "palette",
 				"subitem": "oxford"
 		},
 		"origamiKeys": [
 				"palette",
-				"secondary"
+				"primary"
 		],
 		"path": [
 				"o3",
@@ -163,9 +159,8 @@ export default {
 	"o3-color-palette-slate": {
 		"shortName": "slate",
 		"value": "#262a33",
-		"originalValue": "#262a33ff",
+		"originalValue": "#262A33",
 		"type": "color",
-		"description": "Slate is a warmer version of black. It is used as inverse backgrounds for editorial content and as a theme option(Mono) for buttons.",
 		"attributes": {
 				"item": "palette",
 				"subitem": "slate"
@@ -1423,6 +1418,226 @@ export default {
 		},
 		"css": "--o3-color-palette-wheat-100",
 		"figma": "o3/color/palette/wheat-100"
+},
+	"o3-color-palette-mint": {
+		"shortName": "mint",
+		"value": "#c0efd8",
+		"originalValue": "#c0efd8",
+		"type": "color",
+		"attributes": {
+				"item": "palette",
+				"subitem": "mint"
+		},
+		"origamiKeys": [
+				"palette",
+				"primary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"mint"
+		],
+		"css": "--o3-color-palette-mint",
+		"figma": "o3/color/palette/mint"
+},
+	"o3-color-palette-mint-80": {
+		"shortName": "mint-80",
+		"value": "#a4ccb8",
+		"originalValue": "#A4CCB8",
+		"type": "color",
+		"attributes": {
+				"item": "palette",
+				"subitem": "mint-80"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"mint-80"
+		],
+		"origamiTint": {
+				"base": "mint",
+				"value": "80"
+		},
+		"css": "--o3-color-palette-mint-80",
+		"figma": "o3/color/palette/mint-80"
+},
+	"o3-color-palette-mint-70": {
+		"shortName": "mint-70",
+		"value": "#8fb3a1",
+		"originalValue": "#8FB3A1",
+		"type": "color",
+		"attributes": {
+				"item": "palette",
+				"subitem": "mint-70"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"mint-70"
+		],
+		"origamiTint": {
+				"base": "mint",
+				"value": "70"
+		},
+		"css": "--o3-color-palette-mint-70",
+		"figma": "o3/color/palette/mint-70"
+},
+	"o3-color-palette-mint-60": {
+		"shortName": "mint-60",
+		"value": "#7b998a",
+		"originalValue": "#7B998A",
+		"type": "color",
+		"attributes": {
+				"item": "palette",
+				"subitem": "mint-60"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"mint-60"
+		],
+		"origamiTint": {
+				"base": "mint",
+				"value": "60"
+		},
+		"css": "--o3-color-palette-mint-60",
+		"figma": "o3/color/palette/mint-60"
+},
+	"o3-color-palette-mint-50": {
+		"shortName": "mint-50",
+		"value": "#668073",
+		"originalValue": "#668073",
+		"type": "color",
+		"attributes": {
+				"item": "palette",
+				"subitem": "mint-50"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"mint-50"
+		],
+		"origamiTint": {
+				"base": "mint",
+				"value": "50"
+		},
+		"css": "--o3-color-palette-mint-50",
+		"figma": "o3/color/palette/mint-50"
+},
+	"o3-color-palette-mint-40": {
+		"shortName": "mint-40",
+		"value": "#52665c",
+		"originalValue": "#52665C",
+		"type": "color",
+		"attributes": {
+				"item": "palette",
+				"subitem": "mint-40"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"mint-40"
+		],
+		"origamiTint": {
+				"base": "mint",
+				"value": "40"
+		},
+		"css": "--o3-color-palette-mint-40",
+		"figma": "o3/color/palette/mint-40"
+},
+	"o3-color-palette-mint-30": {
+		"shortName": "mint-30",
+		"value": "#3d4d45",
+		"originalValue": "#3D4D45",
+		"type": "color",
+		"attributes": {
+				"item": "palette",
+				"subitem": "mint-30"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"mint-30"
+		],
+		"origamiTint": {
+				"base": "mint",
+				"value": "30"
+		},
+		"css": "--o3-color-palette-mint-30",
+		"figma": "o3/color/palette/mint-30"
+},
+	"o3-color-palette-slate-white-5": {
+		"shortName": "slate-white-5",
+		"value": "#f4f4f5",
+		"originalValue": "#F4F4F5",
+		"type": "color",
+		"attributes": {
+				"item": "palette",
+				"subitem": "slate-white-5"
+		},
+		"origamiKeys": [
+				"palette",
+				"secondary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"slate-white-5"
+		],
+		"css": "--o3-color-palette-slate-white-5",
+		"figma": "o3/color/palette/slate-white-5"
+},
+	"o3-color-palette-slate-white-15": {
+		"shortName": "slate-white-15",
+		"value": "#dedfe0",
+		"originalValue": "#DEDFE0",
+		"type": "color",
+		"attributes": {
+				"item": "palette",
+				"subitem": "slate-white-15"
+		},
+		"origamiKeys": [
+				"palette",
+				"secondary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"slate-white-15"
+		],
+		"css": "--o3-color-palette-slate-white-15",
+		"figma": "o3/color/palette/slate-white-15"
+},
+	"o3-color-palette-oceanwave": {
+		"shortName": "oceanwave",
+		"value": "#c9f5ea",
+		"originalValue": "#C9F5EA",
+		"type": "color",
+		"attributes": {
+				"item": "palette",
+				"subitem": "oceanwave"
+		},
+		"origamiKeys": [
+				"palette",
+				"primary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"oceanwave"
+		],
+		"css": "--o3-color-palette-oceanwave",
+		"figma": "o3/color/palette/oceanwave"
 },
 	"o3-color-use-case-link-text": {
 		"shortName": "@",
