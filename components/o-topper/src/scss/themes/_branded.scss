@@ -46,6 +46,19 @@
 			);
 		}
 	}
+	// Add padding to prevent headline text colliding with headshot
+	// not needed for opinion toppers as they have a different layout
+	// meaning there is no risk of collision and we want the headline
+	// to take up all of the available space where possible
+	&:not(.o-topper--opinion) {
+		.o-topper__headline {
+			@include oPrivateGridRespondTo($until: M) {
+				padding-right: calc(
+					#{$_o-topper-headshot-width} + #{oPrivateSpacingByName('s3')}
+				);
+			}
+		}
+	}
 }
 
 @mixin _oTopperThemeOpinion {
