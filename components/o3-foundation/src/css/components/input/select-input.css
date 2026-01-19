@@ -1,0 +1,57 @@
+.o3-form-select-input {
+	border: var(--_o3-form-input-border);
+	padding: var(--o3-spacing-4xs) var(--o3-spacing-l) var(--o3-spacing-4xs) var(--o3-spacing-2xs) ;
+	background: var(--_o3-form-color-use-case-background);
+	box-sizing: border-box;
+	border-radius: var(--_o3-form-input-border-radius);
+	font-family: var(--o3-type-body-lg-font-family);
+	font-size: var(--o3-type-body-lg-font-size);
+	font-weight: var(--o3-type-body-lg-font-weight);
+	line-height: var(--o3-type-body-lg-line-height);
+	width: 100%;
+	min-height: 44px;
+	appearance: none;
+}
+
+.o3-form-select-input__container.o3-form-select-input--short-1 {
+	--_o3-form-select-input-max-width: calc(1.8em + 48px);
+	max-width: var(--_o3-form-select-input-max-width);
+}
+
+.o3-form-select-input__container.o3-form-select-input--short-3 {
+	--_o3-form-select-input-max-width: calc(2.5em + 48px);
+	max-width: var(--_o3-form-select-input-max-width);
+}
+
+.o3-form-select-input__container {
+	position: relative;
+	display: inline-block;
+	--o3-grid-columns-to-span-count: 4;
+	max-width: var(--o3-grid-columns-to-span-width, 100%);
+}
+
+.o3-form-select-input__container:after {
+	content: "";
+	position: absolute;
+	right: 8px;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 24px;
+	height: 24px;
+	mask: var(--o3-icon-chevron-down) no-repeat center;
+	-webkit-mask: var(--o3-icon-chevron-down) no-repeat center;
+	background-color: var(--o3-color-palette-black-60);
+	pointer-events: none;
+}
+
+.o3-form-select-input--error {
+	border: var(--_o3-form-input-border-error);
+	background-color: var(--_o3-form-color-use-case-background-error);
+}
+
+select[class*='o3-form-select-input']:disabled,
+select[class*='o3-form-select-input']:disabled {
+	color: var(--o3-color-use-case-muted-text);
+	background-color: var(--_o3-form-color-use-case-background-disabled);
+	border-color: var(--_o3-form-color-use-case-border-disabled);
+}

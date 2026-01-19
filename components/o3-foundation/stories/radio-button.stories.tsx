@@ -1,0 +1,34 @@
+import links from '@financial-times/o3-figma-sb-links';
+import type {Meta} from '@storybook/react';
+import '../src/css/brands/core.css';
+import {RadioButtonGroup as RadioButtonTsx} from '../src/tsx';
+import {RadioButtonGroupStory} from './story-template';
+
+export default {
+	title: 'o3-foundation/o3-input/radio-button',
+	component: RadioButtonTsx,
+	tags: [
+		'new',
+		'core',
+		'professional',
+		'internal',
+		'whitelabel',
+		'sustainable-views',
+	],
+	decorators: [
+		(Story, {args, globals}) => (
+			<div data-o3-brand={globals.selectedBrand || 'whitelabel'}>
+				<Story />
+			</div>
+		),
+	],
+	parameters: {
+		backgrounds: {disable: true},
+		design: {
+			type: 'figma',
+			url: links['whitelabel-o3-form--radio-button'].figma,
+		},
+	},
+} as Meta;
+
+export const RadioButton = RadioButtonGroupStory;

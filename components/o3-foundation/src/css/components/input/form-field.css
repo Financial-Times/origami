@@ -1,0 +1,49 @@
+.o3-form-field {
+	display: flex;
+	flex-direction: column;
+	font-family: var(--o3-font-family-metric);
+	gap: var(--o3-spacing-3xs);
+
+	&:where(fieldset) {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		legend {
+			margin-bottom: var(--o3-spacing-3xs);
+			.o3-form-input__description {
+				margin-top: var(--o3-spacing-5xs);
+				display: block;
+			}
+		}
+	}
+
+	.o3-form-field__label,
+	.o3-form-field__title,
+	.o3-form-field__legend {
+		font-family: var(--o3-type-body-highlight-font-family);
+		font-size: var(--o3-type-body-highlight-font-size);
+		font-weight: var(--o3-type-body-highlight-font-weight);
+		line-height: var(--o3-type-body-highlight-line-height);
+		color: var(--o3-color-use-case-body-text);
+
+		&.o3-form-field--optional::after {
+			content: '(optional)';
+			margin-left: var(--o3-spacing-3xs);
+			color: var(--o3-color-use-case-muted-text);
+			font-weight: var(--o3-font-weight-regular);
+		}
+	}
+
+	.o3-form-input__description {
+		font-family: var(--o3-type-body-base-font-family);
+		font-size: var(--o3-type-body-base-font-size);
+		font-weight: var(--o3-type-body-base-font-weight);
+		line-height: var(--o3-type-body-base-line-height);
+		color: var(--o3-color-use-case-body-text);
+	}
+
+	.o3-form-field__label + .o3-form-input__description,
+	.o3-form-field__title + .o3-form-input__description {
+		margin-top: calc(-1 * var(--o3-spacing-4xs));
+	}
+}

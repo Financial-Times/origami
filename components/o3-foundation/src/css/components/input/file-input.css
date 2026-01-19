@@ -1,0 +1,112 @@
+.o3-form-file-input {
+	display: inline-flex;
+	align-items: center;
+}
+
+.o3-form-file-input__input-field {
+	color: var(--o3-color-use-case-muted-text);
+
+	font-family: var(--o3-type-body-base-font-family);
+	font-size: var(--o3-type-body-base-font-size);
+	font-weight: var(--o3-type-body-base-font-weight);
+	line-height: var(--o3-type-body-base-line-height);
+	padding-bottom: var(--o3-spacing-5xs);
+	display: none;
+
+	&::file-selector-button {
+		display: none;
+	}
+
+	&::-webkit-file-upload-button {
+		display: block;
+		width: 0;
+		height: 0;
+		margin-left: -100%;
+	}
+
+	&::-ms-browse {
+		display: none;
+	}
+
+	&:focus-within,
+	&:focus {
+		outline: none;
+		box-shadow: none;
+	}
+}
+
+
+.o3-form-file-input__label {
+	cursor: pointer;
+	display: inline-flex;
+	gap: var(--o3-spacing-3xs);
+	align-items: center;
+	height: 44px;
+
+	--o3-grid-columns-to-span-count: 4;
+	width: var(--o3-grid-columns-to-span-width);
+
+	&:focus-within {
+		box-shadow: var(--_o3-focus-outline);
+		outline: 0;
+	}
+
+	@supports selector(:focus-visible) {
+		&:focus-within {
+			box-shadow: var(--_o3-focus-rings);
+			outline: 0;
+		}
+	}
+}
+
+.o3-form-file-input__label-button {
+	flex-shrink: 0;
+}
+
+.o3-form-file-input__label-text {
+	color: var(--o3-color-use-case-muted-text);
+}
+
+.o3-form-file-input__label-text--file-selected {
+	color: var(--o3-color-use-case-body-text);
+}
+
+
+.o3-form-file-input__uploading {
+	display: flex;
+	align-items: center;
+	gap: var(--o3-spacing-5xs);
+
+	&::before {
+		content: '';
+		display: inline-block;
+
+		width: var(--o3-spacing-3xs);
+		height: var(--o3-spacing-3xs);
+		border-width: 2px;
+		border-radius: 50%;
+		animation: loading 1s infinite linear;
+
+		border-style: solid;
+		border-color: rgba(51,48,46,.25);
+		border-top-color: var(--o3-color-use-case-body-text);
+	}
+}
+
+.o3-form-field-input__destroy {
+	background: var(--o3-icon-trash) no-repeat center;
+	background-size: cover;
+	margin-left: var(--o3-spacing-4xs);
+	width: 21px;
+	height: 21px;
+	border: none;
+}
+
+@keyframes loading {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
