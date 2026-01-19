@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.3.0](https://github.com/Financial-Times/origami/compare/o-autocomplete-v2.2.0...o-autocomplete-v2.3.0) (2026-01-15)
+
+
+### Features
+
+* Add o-autocomplete confirmOnBlur option ([#2322](https://github.com/Financial-Times/origami/issues/2322)) ([ba27a93](https://github.com/Financial-Times/origami/commit/ba27a93fa1c91ce2f8f1d3897095b88ed34ef6cc))
+
 ## [2.2.0](https://github.com/Financial-Times/origami/compare/o-autocomplete-v2.1.0...o-autocomplete-v2.2.0) (2026-01-12)
 
 
