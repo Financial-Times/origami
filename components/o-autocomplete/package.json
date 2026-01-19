@@ -1,6 +1,6 @@
 {
 	"name": "@financial-times/o-autocomplete",
-	"version": "2.2.0",
+	"version": "2.3.0",
 	"description": "An origami component for autocomplete inputs",
 	"keywords": [
 		"autocomplete",
