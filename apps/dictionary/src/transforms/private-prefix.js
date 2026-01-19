@@ -4,7 +4,7 @@ const sourceExceptions = ['base/typography', 'base/border-radius']
 
 /**
  * Append an underscore to a token if it is in the private token set.
- * @param token
+ * @param {{filePath: string, name: string}} token
  * @returns {string} the name of the token with the underscore prefix applied.
  */
 const privatePrefix = token => {
