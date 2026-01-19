@@ -207,8 +207,7 @@
       "o3.color.palette.claret-100": "9e0fe84cf2d60dfec40506f7171706232ab724ec",
       "o3.color.palette.wheat-100": "e2cae875f3a7e4695f572a71e14fff8e39020055",
       "o3.color.palette.mint": "3367805156c281d32a7e3b1e32cabfa7a347b3e8"
-    },
-    "group": "core"
+    }
   },
   {
     "id": "81b69fd146e906716402c7d9955fc36ba8b4b651",
@@ -414,8 +413,7 @@
       "o3.color.palette.claret-90": "fb67cb812d5304685ecba1eee51f483d772fc378",
       "o3.color.palette.claret-100": "9e0fe84cf2d60dfec40506f7171706232ab724ec",
       "o3.color.palette.wheat-100": "e2cae875f3a7e4695f572a71e14fff8e39020055"
-    },
-    "group": "core"
+    }
   },
   {
     "id": "a2f70789c7452c19ef3ae7872137a48fe9d947a5",
@@ -505,8 +503,7 @@
       "o3.color.palette.teal-80": "e284381c95c0525683d10f2d844bf620b1944787",
       "o3.color.palette.teal-90": "5e9c74ce8c8f2a576481cc4819d5c9754a443bcd",
       "o3.color.palette.teal-100": "47d05592604c5ce6b683cc938f4491d68c5c399a"
-    },
-    "group": "core"
+    }
   },
   {
     "id": "37de6f6538c94fdd5d9474954d21f61d92a7c593",
@@ -563,8 +560,7 @@
       "o3.spacing.2xl": "a5091c59b450ad62a5609bed2f95bba9a2016491",
       "o3.spacing.3xl": "401cb3f59bcdb3fa2d11e57be0c0f55bee74ae3f",
       "o3.spacing.4xl": "9842876bb417b69da6bcb6c55256f5f376f744b0"
-    },
-    "group": "core"
+    }
   },
   {
     "id": "67a1e4f5cdc0ed496798cb25e22424a9dc9a7127",
@@ -702,7 +698,6 @@
       "o3.color.use-case.error-text": "dd68b1b3980216216d2de2f659930514a91b292c",
       "o3.color.use-case.error": "2df13ab09eef3fffb3039bce0639049fb1dcd99f",
       "DO-NOT-USE": "972085f4862da8c7335baf171e4fc6d6ff3cbed9"
-    },
-    "group": "core"
+    }
   }
 ]
