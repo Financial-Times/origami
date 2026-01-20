@@ -3,6 +3,16 @@ import {webTransformers} from '../transformers.js';
 import components from '../components.js';
 import {outputReferencesTransformed} from 'style-dictionary/utils';
 
+
+/**
+ * @typedef {import('./../../build.js')} Brand
+ */
+
+/**
+ * Build a Style Dictionary CSS config for a given brand
+ * @param {Brand} brand - brand to build config for.
+ * @returns {Object}
+ */
 function cssConfigForBrand(brand) {
 	const parentBrand = brand.split('/').slice(-1);
 	return {

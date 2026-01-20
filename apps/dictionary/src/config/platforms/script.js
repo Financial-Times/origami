@@ -1,6 +1,15 @@
 import path from 'node:path';
 import {webTransformers} from '../transformers.js';
 
+/**
+ * @typedef {import('./../../build.js')} Brand
+ */
+
+/**
+ * Build a Style Dictionary JavaScript ESM config for a given brand
+ * @param {Brand} brand - brand to build config for.
+ * @returns {Object}
+ */
 function jsObjectConfigForBrand(brand) {
 	const subBrand = brand.split('/').pop();
 	return {
@@ -40,6 +49,11 @@ function jsObjectConfigForBrand(brand) {
 	};
 }
 
+/**
+ * Build a Style Dictionary JavaScript ES6 config for a given brand
+ * @param {Brand} brand - brand to build config for.
+ * @returns {Object}
+ */
 function jsNamedExportConfigForBrand(brand) {
 	const subBrand = brand.split('/').pop();
 	return {

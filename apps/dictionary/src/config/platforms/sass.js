@@ -1,6 +1,15 @@
 import path from 'node:path';
 import {webTransformers} from '../transformers.js';
 
+/**
+ * @typedef {import('./../../build.js')} Brand
+ */
+
+/**
+ * Build a Style Dictionary SASS config for a given brand
+ * @param {Brand} brand - brand to build config for.
+ * @returns {Object}
+ */
 function sassConfigForBrand(brand) {
 	const parentBrand = brand.split('/').slice(-1);
 	return {
