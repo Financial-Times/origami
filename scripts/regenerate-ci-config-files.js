@@ -7,7 +7,6 @@ import {readPackage} from 'read-pkg';
 import * as workspaces from './lib/workspaces.js';
 
 let testTemplate = await readFile('templates/test-workflow.yml', 'utf-8');
-let percyTemplate = await readFile('templates/percy-workflow.yml', 'utf-8');
 let labelerTemplate = await readFile('templates/labeler.yml', 'utf-8');
 
 let workspacePaths = await workspaces.paths();
@@ -37,22 +36,17 @@ let releasePleaseConfig = {
 	packages: {},
 };
 
-const percyProjects = [];
 const allProjects = [];
 
 for (let workspace of workspacePaths) {
 	const projectConfig = {
 		workspace: workspace,
-		percyTokenName: workspace.replace(/[/-]/g, '_').toUpperCase(),
 		workspaceFilename: workspace.replaceAll('/', '-'),
 	};
 
 	allProjects.push(projectConfig);
 
 	let pkg = await readPackage({cwd: workspace});
-	if (pkg.percy === true) {
-		percyProjects.push(projectConfig);
-	}
 
 	if (pkg.private !== true) {
 		dotReleasePleaseManifest[workspace] = pkg.version;
@@ -65,11 +59,6 @@ let testFile = Mustache.render(testTemplate, {
 });
 
 await writeFile(`.github/workflows/test.yml`, testFile);
-
-let percyFile = Mustache.render(percyTemplate, {
-	projects: percyProjects,
-});
-await writeFile(`.github/workflows/percy.yml`, percyFile);
 
 await writeFile(
 	'.release-please-manifest.json',
