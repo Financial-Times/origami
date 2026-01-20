@@ -22,7 +22,7 @@ let labelerFile = Mustache.render(labelerTemplate, {
 
 await writeFile(`.github/labeler.yml`, labelerFile);
 
-await del(['.github/workflows/percy-*.yml', '.github/workflows/test-*.yml']);
+await del(['.github/workflows/test-*.yml']);
 
 let dotReleasePleaseManifest = {};
 let releasePleaseConfig = {
