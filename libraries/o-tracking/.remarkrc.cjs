@@ -1,1 +1,1 @@
-module.exports.plugins = [require("remark-preset-lint-origami-component")]
+module.exports.plugins = [require("../../.remarkrc.cjs")]
