@@ -163,8 +163,6 @@ jobs:
             - 'libraries/sass-mq/**'
           presets/eslint-config-origami-component:
             - 'presets/eslint-config-origami-component/**'
-          presets/remark-preset-lint-origami-component:
-            - 'presets/remark-preset-lint-origami-component/**'
           presets/stylelint-config-origami-component:
             - 'presets/stylelint-config-origami-component/**'
           tools/a11y:
