@@ -114,7 +114,9 @@ export class ToggleToolTip extends ToolTip implements ToggleToolTipProps {
 	}
 }
 
-customElements.define('o3-tooltip-toggle', ToggleToolTip);
+if(!customElements.get('o3-tooltip-toggle')) {
+	customElements.define('o3-tooltip-toggle', ToggleToolTip);
+}
 
 declare global {
 	interface HTMLElementTagNameMap {
