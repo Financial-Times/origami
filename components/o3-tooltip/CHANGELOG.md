@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.2.1](https://github.com/Financial-Times/origami/compare/o3-tooltip-v3.2.0...o3-tooltip-v3.2.1) (2026-01-21)
+
+
+### Bug Fixes
+
+* define o3 tooltip custom element only if it exist ([29f5aee](https://github.com/Financial-Times/origami/commit/29f5aeea9ddbf680f62f29264d179a8cf86f3c67))
+* define o3 tooltip custom element only if it exist ([a1823fb](https://github.com/Financial-Times/origami/commit/a1823fb5ababc0ec4291fdc99ac2e2306f288338))
+
 ## [3.2.0](https://github.com/Financial-Times/origami/compare/o3-tooltip-v3.1.1...o3-tooltip-v3.2.0) (2026-01-12)
 
 
