@@ -1,0 +1,151 @@
+.o3-form-input-checkbox__input {
+	+ label::before {
+		content: '';
+		display: inline-block;
+		width: var(--o3-spacing-s);
+		height: var(--o3-spacing-s);
+		margin-right: var(--o3-spacing-3xs);
+		border: var(--_o3-form-input-border);
+		border-radius: var(--_o3-form-input-border-radius);
+		box-sizing: border-box;
+	}
+
+	&:hover + label::before {
+		border-color: var(--_o3-form-color-use-case-selected-hover);
+	}
+
+	&:active + label::before {
+		border-color: var(--_o3-form-color-use-case-selected-active);
+	}
+
+	&:checked + label::after {
+		position: absolute;
+		content: '';
+		width: var(--o3-spacing-s);
+		height: var(--o3-spacing-s);
+		background-color: var(--_o3-form-color-use-case-background);
+		mask-image: var(--o3-icon-tick);
+		mask-repeat: no-repeat;
+		mask-size: contain;
+	}
+
+	&:checked + label::before {
+		background-color: var(--_o3-form-color-use-case-selected);
+		border-color: var(--_o3-form-color-use-case-selected);
+	}
+
+	&:checked:hover + label::before {
+		background-color: var(--_o3-form-color-use-case-selected-hover);
+		border-color: var(--_o3-form-color-use-case-selected-hover);
+	}
+
+	&:checked:active + label::before {
+		background-color: var(--_o3-form-color-use-case-selected-active);
+		border-color: var(--_o3-form-color-use-case-selected-active);
+	}
+
+	&:disabled + label::before {
+		border-color: var(--_o3-form-color-use-case-border-disabled);
+		background-color: var(--_o3-form-color-use-case-border-disabled);
+	}
+
+	&:disabled + label {
+		color: var(--_o3-form-color-use-case-border-disabled);
+	}
+
+	&:disabled + label .o3-form-input-checkbox__description {
+		color: var(--_o3-form-color-use-case-border-disabled);
+	}
+
+	&:checked:disabled + label::before {
+		background-color: var(--_o3-form-color-use-case-selected-disabled);
+		border-color: var(--_o3-form-color-use-case-selected-disabled);
+	}
+
+	&.o3-form-input-error + label::before {
+		border-color: var(--o3-color-use-case-error);
+		background-color: var(--o3-color-use-case-error-background);
+	}
+
+	&.o3-form-input-error:checked + label::before {
+		border-color: var(--o3-color-use-case-error);
+		background-color: var(--o3-color-use-case-error-background);
+	}
+
+	&.o3-form-input-error:checked + label::after {
+		background-color: var(--o3-color-use-case-error);
+	}
+
+	&:indeterminate + label::before {
+		border-color: var(--_o3-form-color-use-case-selected);
+		background-color: var(--_o3-form-color-use-case-selected);
+	}
+
+	&:indeterminate + label::after {
+		position: absolute;
+		content: '';
+		width: var(--o3-spacing-s);
+		height: var(--o3-spacing-s);
+		background-color: var(--_o3-form-color-use-case-background);
+		mask-image: var(--o3-icon-minus);
+		mask-repeat: no-repeat;
+		mask-size: contain;
+	}
+
+	&:indeterminate:hover + label::before {
+		border-color: var(--_o3-form-color-use-case-selected-hover);
+		background-color: var(--_o3-form-color-use-case-selected-hover);
+	}
+
+	&:indeterminate:active + label::before,
+	&:indeterminate:disabled + label::before {
+		border-color: var(--_o3-form-color-use-case-selected-hover);
+		background-color: var(--_o3-form-color-use-case-selected-hover);
+	}
+
+	&.o3-form-input-error:indeterminate + label::before {
+		border-color: var(--o3-color-use-case-error);
+		background-color: var(--o3-color-use-case-error-background);
+	}
+
+	&.o3-form-input-error:indeterminate + label::after {
+		background-color: var(--o3-color-use-case-error);
+	}
+
+	&:focus + label::before {
+		box-shadow: var(--o3-focus-use-case-ring-inner),
+			var(--03-focus-use-case-ring-outer);
+		outline: 3px solid transparent; /* For Windows high contrast mode. */
+	}
+
+	@supports selector(:focus-visible) {
+		&:focus + label::before {
+			box-shadow: unset;
+		}
+		&:focus-visible + label::before {
+			box-shadow: var(--o3-focus-use-case-ring-inner),
+				var(--o3-focus-use-case-ring-outer);
+			outline: 3px solid transparent; /* For Windows high contrast mode. */
+		}
+	}
+}
+
+.o3-form-input-checkbox__label {
+	display: flex;
+	align-items: flex-start;
+	font-family: var(--o3-type-body-base-font-family);
+	font-size: var(--o3-type-body-base-font-size);
+	font-weight: var(--o3-type-body-base-font-weight);
+	line-height: var(--o3-type-body-base-line-height);
+	color: var(--o3-color-use-case-body-text);
+}
+
+.o3-form-input-checkbox__description {
+	display: block;
+	font-family: var(--o3-type-detail-font-family);
+	font-size: var(--o3-type-detail-font-size);
+	font-weight: var(--o3-type-detail-font-weight);
+	line-height: var(--o3-type-detail-line-height);
+	color: var(--o3-color-use-case-muted-text);
+	margin-top: var(--o3-spacing-5xs)
+}
