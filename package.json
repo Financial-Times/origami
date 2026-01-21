@@ -77,7 +77,6 @@
 		"serve": "^12.0.1",
 		"sinon": "^10.0.0",
 		"stylelint": "^13.12.0",
-		"stylelint-config-origami-component": "^1.0.4",
 		"stylelint-config-prettier": "^9.0.3"
 	},
 	"dependencies": {
