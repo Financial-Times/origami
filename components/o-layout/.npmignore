@@ -1,7 +1,6 @@
 .env
 .gitignore
 .eslintrc.cjs
-
 .stylelintrc.cjs
 .prettierrc.toml
 .eslintignore

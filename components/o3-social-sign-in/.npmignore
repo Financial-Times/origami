@@ -2,7 +2,6 @@
 .gitignore
 .npmignore
 .eslintrc.cjs
-
 .prettierrc.toml
 .eslintignore
 .stylelintignore
