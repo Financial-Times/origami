@@ -225,7 +225,7 @@ exports[`Component template files Root non ejs files expect .eslintignore ejsRen
 
 exports[`Component template files Root non ejs files expect .eslintrc.cjs ejsRenderer fn output to match snapshot 1`] = `
 "module.exports = {
-	\\"extends\\": \\"origami-component\\"
+	\\"extends\\":  \\"../../.eslintrc.cjs\\"
 };
 "
 `;
