@@ -248,7 +248,7 @@ exports[`Component template files Root non ejs files expect .npmignore ejsRender
 .gitignore
 .npmignore
 .eslintrc.cjs
-.remarkrc.cjs
+
 .stylelintrc.cjs
 .prettierrc.toml
 .eslintignore
@@ -259,11 +259,6 @@ src/tsx/
 test/
 demos/local/
 
-"
-`;
-
-exports[`Component template files Root non ejs files expect .remarkrc.cjs ejsRenderer fn output to match snapshot 1`] = `
-"module.exports.plugins = [require(\\"remark-preset-lint-origami-component\\")]
 "
 `;
 

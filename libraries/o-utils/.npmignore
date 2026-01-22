@@ -5,6 +5,6 @@ build/
 .eslintrc.cjs
 .github
 .gitignore
-.remarkrc.cjs
+
 .stylelintrc.cjs
 test

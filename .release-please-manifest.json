@@ -66,6 +66,5 @@
 	"libraries/o-tracking": "4.10.0",
 	"libraries/o-utils": "2.2.1",
 	"libraries/sass-mq": "5.2.4",
-	"presets/remark-preset-lint-origami-component": "2.0.2",
 	"tools/origami-bower-safe-version-supervisor": "1.1.2"
 }
