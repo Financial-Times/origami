@@ -160,8 +160,6 @@ sass-mq:
   - libraries/sass-mq/**/*
 eslint-config-origami-component:
   - presets/eslint-config-origami-component/**/*
-stylelint-config-origami-component:
-  - presets/stylelint-config-origami-component/**/*
 a11y:
   - tools/a11y/**/*
 create-component:

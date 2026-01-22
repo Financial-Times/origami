@@ -274,8 +274,9 @@ exports[`Component template files Root non ejs files expect .stylelintignore ejs
 
 exports[`Component template files Root non ejs files expect .stylelintrc.cjs ejsRenderer fn output to match snapshot 1`] = `
 "module.exports = {
-    \\"extends\\": \\"stylelint-config-origami-component\\"
-};"
+    \\"extends\\": \\"../../stylelintrc.cjs\\"
+};
+"
 `;
 
 exports[`Component template files demos ejs files expect demo.js ejsRenderer fn output to match snapshot 1`] = `
