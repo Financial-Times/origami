@@ -1,3 +1,3 @@
 module.exports = {
-	extends: ["origami-component", "prettier"],
+	extends: ["../../.eslintrc.cjs", "prettier"],
 };
