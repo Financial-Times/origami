@@ -136,10 +136,10 @@ module.exports = {
 	},
 	"overrides": [
 		{
-		  "files": ["test/**/*.js"],
-		  "rules": {
-			 "@lwc/lwc/no-async-await": "off"
-		  }
+			"files": ["test/**/*.js"],
+			"rules": {
+				"@lwc/lwc/no-async-await": "off"
+			}
 		}
-	 ]
+	]
 }

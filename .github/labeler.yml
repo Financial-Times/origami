@@ -158,8 +158,6 @@ o3-tooling-token:
   - libraries/o3-tooling-token/**/*
 sass-mq:
   - libraries/sass-mq/**/*
-eslint-config-origami-component:
-  - presets/eslint-config-origami-component/**/*
 a11y:
   - tools/a11y/**/*
 create-component:
