@@ -68,6 +68,5 @@
 	"libraries/sass-mq": "5.2.4",
 	"presets/eslint-config-origami-component": "2.2.0",
 	"presets/remark-preset-lint-origami-component": "2.0.2",
-	"presets/stylelint-config-origami-component": "1.0.6",
 	"tools/origami-bower-safe-version-supervisor": "1.1.2"
 }
