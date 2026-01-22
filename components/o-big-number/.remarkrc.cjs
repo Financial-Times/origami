@@ -1,1 +1,1 @@
-module.exports.plugins = [require("../../.remarkrc.cjs")];
+module.exports.plugins = [import("../../.remarkrc.cjs")];
