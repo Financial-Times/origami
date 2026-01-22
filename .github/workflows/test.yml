@@ -161,8 +161,6 @@ jobs:
             - 'libraries/o3-tooling-token/**'
           libraries/sass-mq:
             - 'libraries/sass-mq/**'
-          presets/eslint-config-origami-component:
-            - 'presets/eslint-config-origami-component/**'
           presets/remark-preset-lint-origami-component:
             - 'presets/remark-preset-lint-origami-component/**'
           tools/a11y:
