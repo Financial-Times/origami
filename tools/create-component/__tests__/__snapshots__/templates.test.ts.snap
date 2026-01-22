@@ -263,7 +263,7 @@ demos/local/
 `;
 
 exports[`Component template files Root non ejs files expect .remarkrc.cjs ejsRenderer fn output to match snapshot 1`] = `
-"module.exports.plugins = [require(\\"remark-preset-lint-origami-component\\")]
+"module.exports.plugins = [import(\\"../../.remarkrc.cjs\\")]
 "
 `;
 
