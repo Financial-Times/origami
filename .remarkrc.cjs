@@ -12,13 +12,28 @@ function readmeHasGeneralUsage(tree, file) {
 	}
 
 	const generalUsageLink = "https://origami.ft.com/documentation/components";
+	const generalUsageUrl = new URL(generalUsageLink);
 
 	let hasGeneralUsageLink = false;
 	walk(tree, "link" , function (node) {
-		// Check includes to allow anchor links to more specific sections.
-		if (node.url && node.url.includes(generalUsageLink)) {
-			hasGeneralUsageLink = true;
+		if (!node.url) {
 			return;
+		}
+
+		// Allow links to the general usage page, including anchor links
+		// (for example: https://origami.ft.com/documentation/components#usage).
+		try {
+			const parsed = new URL(node.url, generalUsageUrl);
+			if (
+				node.url === generalUsageLink ||
+				(parsed.origin === generalUsageUrl.origin &&
+				 parsed.pathname === generalUsageUrl.pathname)
+			) {
+				hasGeneralUsageLink = true;
+				return;
+			}
+		} catch {
+			// Ignore invalid URLs and continue checking other links.
 		}
 	});
 
