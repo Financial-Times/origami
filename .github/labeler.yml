@@ -160,8 +160,6 @@ sass-mq:
   - libraries/sass-mq/**/*
 remark-preset-lint-origami-component:
   - presets/remark-preset-lint-origami-component/**/*
-stylelint-config-origami-component:
-  - presets/stylelint-config-origami-component/**/*
 a11y:
   - tools/a11y/**/*
 create-component:
