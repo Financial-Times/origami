@@ -1,3 +1,3 @@
 module.exports = {
-	extends: ["../../.eslintrc.cjs"", "prettier"],
+	extends: ["../../.eslintrc.cjs", "prettier"],
 };
