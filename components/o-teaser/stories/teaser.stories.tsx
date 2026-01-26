@@ -15,6 +15,7 @@ import './teaser.scss';
 
 import {
 	articleArgs,
+	articleWithStreamLinksTitlePrefixArgs,
 	contentPackageArgs,
 	contentPackageItemArgs,
 	heroImageArgs,
@@ -57,6 +58,31 @@ export const Article: ComponentStory<typeof Teaser> = Story.bind({});
 Article.args = articleArgs;
 Article.argTypes = argTypes;
 Article.parameters = {
+	controls: {
+		exclude: [
+			'relatedLinks',
+			'video',
+			'headshot',
+			'imageLazyLoad',
+			'parentId',
+			'parentLabel',
+			'headlineTesting',
+			'promotedSuffixText',
+			'promotedPrefixText',
+			'relativeUrl',
+			'showCustomSlot',
+			'customSlot',
+			'showRelatedLinks',
+			'showVideo',
+			'showHeadshot',
+		],
+	},
+};
+
+export const ArticleWithStreamLinksTitlePrefix: ComponentStory<typeof Teaser> = Story.bind({});
+ArticleWithStreamLinksTitlePrefix.args = articleWithStreamLinksTitlePrefixArgs;
+ArticleWithStreamLinksTitlePrefix.argTypes = argTypes;
+ArticleWithStreamLinksTitlePrefix.parameters = {
 	controls: {
 		exclude: [
 			'relatedLinks',

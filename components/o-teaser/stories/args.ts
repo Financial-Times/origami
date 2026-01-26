@@ -1,5 +1,6 @@
 import presets from '../src/tsx/concerns/presets';
 import articleData from './__fixtures__/article.json';
+import articleWithStreamLinksTitlePrefixData from './__fixtures__/article-with-streamLinks-titlePrefix.json';
 import podcastData from './__fixtures__/podcast.json';
 import opinionData from './__fixtures__/opinion.json';
 import opinionWithBylineData from './__fixtures__/opinion-with-byline.json';
@@ -13,6 +14,7 @@ import videoData from './__fixtures__/video.json';
 const {SmallHeavy, Hero, TopStoryLandscape, HeroVideo} = presets;
 
 export const articleArgs = {...articleData, ...SmallHeavy};
+export const articleWithStreamLinksTitlePrefixArgs = {...articleWithStreamLinksTitlePrefixData, ...SmallHeavy, showStreamLink: true, showTitlePrefix: true};
 export const podcastArgs = {...podcastData, ...SmallHeavy};
 export const opinionArgs = {...opinionData, ...SmallHeavy, showHeadshot: true};
 export const opinionWithBylineArgs = {...opinionWithBylineData, ...SmallHeavy, showByline: true, showBylineHeadshot: true};

@@ -80,6 +80,8 @@ export interface Meta {
 	/** Promoted content type. Will take precedence over links */
 	promotedPrefixText?: string;
 	promotedSuffixText?: string;
+	/** Array of [label, link] */
+	streamLinks?: [string, string][];
 }
 
 export interface Title {
