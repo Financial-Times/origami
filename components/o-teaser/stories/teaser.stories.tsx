@@ -19,6 +19,7 @@ import {
 	contentPackageItemArgs,
 	heroImageArgs,
 	opinionArgs,
+	opinionWithBylineArgs,
 	podcastArgs,
 	promotedArgs,
 	topStoryArgs,
@@ -109,6 +110,30 @@ Opinion.args = opinionArgs;
 Opinion.argTypes = argTypes;
 
 Opinion.parameters = {
+	controls: {
+		exclude: [
+			'relatedLinks',
+			'video',
+			'imageLazyLoad',
+			'parentId',
+			'parentLabel',
+			'headlineTesting',
+			'promotedSuffixText',
+			'promotedPrefixText',
+			'relativeUrl',
+			'showCustomSlot',
+			'customSlot',
+			'showRelatedLinks',
+			'showVideo',
+		],
+	},
+};
+
+export const OpinionWithByline: ComponentStory<typeof Teaser> = Story.bind({});
+OpinionWithByline.args = opinionWithBylineArgs;
+OpinionWithByline.argTypes = argTypes;
+
+OpinionWithByline.parameters = {
 	controls: {
 		exclude: [
 			'relatedLinks',
