@@ -1,5 +1,6 @@
 export const ImageSizes = {
 	Headshot: 75,
+	BylineHeadshot: 40,
 	XS: 180,
 	Small: 240,
 	Medium: 340,

@@ -45,6 +45,11 @@ export interface Features {
 	 */
 	showHeadshot?: boolean;
 	/**
+	 * Takes precedence over legacy headshot.
+	 * byline component includes headshot
+	 */
+	showByline?: boolean;
+	/**
 	 * Takes precedence over image or headshot
 	 */
 	showVideo?: boolean;
@@ -160,6 +165,12 @@ export interface MetaLink {
 	prefLabel: string;
 }
 
+/** [text, url, headshot][] */
+type StructuredByline = [string, string?, string?][];
+export interface Byline {
+	byline?: StructuredByline
+}
+
 export interface Link {
 	/** Content UUID */
 	id: string;
@@ -204,6 +215,7 @@ export interface TeaserProps
 		Status,
 		Image,
 		Headshot,
+		Byline,
 		Video,
 		RelatedLinks,
 		Context,
