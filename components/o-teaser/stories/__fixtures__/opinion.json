@@ -23,12 +23,18 @@
     "width": 2048,
     "height": 1152
   },
+  "byline": [
+    [
+      "Gideon Rachman",
+      "/gideon-rachman",
+      "fthead-v1:gideon-rachman"
+    ]
+  ],
   "headshot": "fthead-v1:gideon-rachman",
   "indicators": {
     "isOpinion": true,
     "isColumn": true
   },
-  "showHeadshot": true,
   "status": "",
   "headshotTint": "",
   "accessLevel": "free",
