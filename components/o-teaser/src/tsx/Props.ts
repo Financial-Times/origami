@@ -37,6 +37,7 @@ export type ImageSize =
 export interface Features {
 	showMeta?: boolean;
 	showTitle?: boolean;
+	showTitlePrefix?: boolean;
 	showStandfirst?: boolean;
 	showStatus?: boolean;
 	showImage?: boolean;
@@ -86,6 +87,7 @@ export interface Title {
 	title: string;
 	/** Used for testing headline variations */
 	altTitle: string;
+	titlePrefix?: string;
 }
 
 export interface Standfirst {
