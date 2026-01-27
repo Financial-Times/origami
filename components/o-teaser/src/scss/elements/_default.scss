@@ -17,6 +17,15 @@
 	margin-bottom: 0;
 }
 
+/// Teaser heading prefix styles.
+@mixin oTeaserHeadingPrefix {
+	font-family: inherit;
+	font-size: inherit;
+	font-weight: oPrivateFoundationGet('o3-font-weight-semibold');
+	line-height: inherit;
+	color: inherit;
+}
+
 /// Base styles for a teaser
 /// sets the font and basic display properties
 @mixin _oTeaserBase {
