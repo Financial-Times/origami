@@ -64,6 +64,42 @@
 	}
 }
 
+@mixin _oTeaserByline {
+	@include _oTeaserLink();
+	a:focus,
+	a:hover {
+		color: $_o-teaser-focus-hover;
+	}
+	a:visited {
+		color: $_o-teaser-base-color;
+	}
+	font-family: oPrivateFoundationGet('o3-font-family-metric');
+	font-size: oPrivateFoundationGet('o3-font-size-metric2-0');
+	font-weight: oPrivateFoundationGet('o3-font-weight-regular');
+	line-height: oPrivateFoundationGet('o3-font-lineheight-2');
+	color: $_o-teaser-base-color;
+	margin-top: oPrivateSpacingByName('s3');
+	margin-bottom: 0;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: oPrivateSpacingByName('s1');
+
+	.o-teaser__byline-link {
+		display: flex;
+		align-items: center;
+
+		img {
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			border: 1px solid oPrivateFoundationGet('o3-color-palette-black-20');
+			background-color: oPrivateFoundationGet('o3-color-palette-black-10');
+			margin-right: oPrivateSpacingByName('s3');
+		}
+	}
+}
+
 /// Links within title or standfirst
 @mixin _oTeaserLink {
 	a {
