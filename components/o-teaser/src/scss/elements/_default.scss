@@ -15,6 +15,14 @@
 	color: $_o-teaser-base-color;
 	margin-top: 0;
 	margin-bottom: 0;
+
+	.o-teaser__heading-prefix {
+		font-family: inherit;
+		font-size: inherit;
+		font-weight: oPrivateFoundationGet('o3-font-weight-semibold');
+		line-height: inherit;
+		color: inherit;
+	}
 }
 
 /// Base styles for a teaser
