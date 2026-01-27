@@ -76,7 +76,8 @@
 		color: oPrivateFoundationGet('o3-color-palette-claret-60');
 		margin-right: oPrivateSpacingByName('s1');
 	}
-	.o-teaser__tag {
+	.o-teaser__tag,
+	.o-teaser__stream-link {
 		font-family: oPrivateFoundationGet('o3-type-body-base-font-family');
 		font-size: oPrivateFoundationGet('o3-type-body-base-font-size');
 		font-weight: oPrivateFoundationGet('o3-type-body-base-font-weight');
@@ -156,7 +157,8 @@
 		background-size: cover;
 		margin-left: -5px;
 	}
-	.o-teaser__tag {
+	.o-teaser__tag,
+	.o-teaser__stream-link {
 		color: oPrivateFoundationGet('o3-color-palette-oxford');
 	}
 	.o-teaser__tag-prefix {

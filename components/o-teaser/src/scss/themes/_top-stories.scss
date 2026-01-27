@@ -40,7 +40,9 @@
 	padding: 12px;
 
 	.o-teaser__tag:hover,
-	.o-teaser__tag:focus {
+	.o-teaser__tag:focus,
+	.o-teaser__stream-link:hover,
+	.o-teaser__stream-link:focus {
 		color: oPrivateColorsMix(
 			oPrivateFoundationGet('o3-color-palette-black'),
 			oPrivateFoundationGet('o3-color-palette-wheat'),

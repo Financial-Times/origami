@@ -51,6 +51,7 @@
 	.o-teaser__meta,
 	.o-teaser__tag-suffix,
 	.o-teaser__tag,
+	.o-teaser__stream-link,
 	.o-teaser__tag-prefix {
 		font-family: oPrivateFoundationGet('o3-type-body-base-font-family');
 		font-size: oPrivateFoundationGet('o3-type-body-base-font-size');
@@ -59,7 +60,8 @@
 	}
 
 	a.o-teaser__tag-prefix,
-	a.o-teaser__tag {
+	a.o-teaser__tag,
+	a.o-teaser__stream-link {
 		font-family: oPrivateFoundationGet('o3-type-body-highlight-font-family');
 		font-size: oPrivateFoundationGet('o3-type-body-highlight-font-size');
 		font-weight: oPrivateFoundationGet('o3-type-body-highlight-font-weight');
@@ -79,7 +81,8 @@
 		margin-right: 0.25em;
 	}
 
-	.o-teaser__tag {
+	.o-teaser__tag,
+	.o-teaser__stream-link {
 		color: inherit;
 		text-decoration: none;
 		border: 0;
