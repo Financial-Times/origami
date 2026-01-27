@@ -64,6 +64,31 @@
 	}
 }
 
+@mixin _oTeaserByline {
+	@include _oTeaserLink();
+	a:focus,
+	a:hover {
+		color: $_o-teaser-focus-hover;
+	}
+	a:visited {
+		color: $_o-teaser-base-color;
+	}
+
+	font-family: oPrivateFoundationGet('o3-font-family-metric');
+	font-size: oPrivateFoundationGet('o3-font-size-metric2-0');
+	font-weight: oPrivateFoundationGet('o3-font-weight-regular');
+	line-height: oPrivateFoundationGet('o3-font-lineheight-2');
+	color: $_o-teaser-base-color;
+	margin-top: oPrivateSpacingByName('s2');
+	margin-bottom: 0;
+	display: flex;
+	align-items: center;
+
+	.o-teaser__byline__headshot + .o-teaser__byline__author-links{
+		padding-left: oPrivateSpacingByName('s3');
+	}
+}
+
 /// Links within title or standfirst
 @mixin _oTeaserLink {
 	a {
