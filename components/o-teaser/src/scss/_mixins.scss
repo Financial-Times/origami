@@ -105,6 +105,10 @@
 	.o-teaser__visually-hidden {
 		@include oPrivateNormaliseVisuallyHidden;
 	}
+
+	.o-teaser__byline {
+		@include _oTeaserByline;
+	}
 }
 
 @mixin _oTeaserElementsImages {
