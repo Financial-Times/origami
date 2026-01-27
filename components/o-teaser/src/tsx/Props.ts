@@ -88,6 +88,7 @@ export interface Title {
 	title: string;
 	/** Used for testing headline variations */
 	altTitle: string;
+	titlePrefix?: string;
 }
 
 export interface Standfirst {
