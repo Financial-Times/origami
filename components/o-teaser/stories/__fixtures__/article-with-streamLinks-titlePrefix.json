@@ -1,0 +1,49 @@
+{
+	"type": "article",
+	"id": "",
+	"url": "#",
+	"indicators": {
+		"isPodcast": false,
+		"isColumn": false,
+		"isOpinion": false,
+		"isScoop": false,
+		"isExclusive": false,
+		"isEditorsChoice": false,
+		"accessLevel": "subscribed",
+		"isFTEdit": false,
+		"hasHeadshot": false
+	},
+	"metaPrefixText": "FT Magazine",
+	"metaSuffixText": null,
+	"metaLink": {
+		"url": "#",
+		"prefLabel": "The joy of January — a food & drink special"
+	},
+	"metaAltLink": {
+		"prefLabel": "Food & Drink",
+		"url": "/food-drink"
+	},
+	"streamLinks": [
+		[
+			"The joy of January — a food & drink special",
+			"/content/b3a86e2b-07e2-4382-ba11-06c31ecbc936"
+		],
+		[
+			"Food & Drink",
+			"/food-drink"
+		]
+	],
+	"byline": [],
+	"titlePrefix": "FT Magazine",
+	"title": "How to become a master broth maker ",
+	"standfirst": "Three recipes, and a whole new framework for cold-weather cooking",
+	"altStandfirst": null,
+	"publishedDate": "2025-12-27T05:00:16.738Z",
+	"firstPublishedDate": "2025-12-27T05:00:16.738Z",
+	"image": {
+		"url": "https://d1e00ek4ebabms.cloudfront.net/production/a3877986-5d4c-41ea-b5fc-0232a36e6521.jpg",
+		"width": 2289,
+		"height": 1287
+	},
+	"headshot": null
+}

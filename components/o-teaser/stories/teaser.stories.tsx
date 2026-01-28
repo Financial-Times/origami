@@ -15,10 +15,12 @@ import './teaser.scss';
 
 import {
 	articleArgs,
+	articleWithStreamLinksTitlePrefixArgs,
 	contentPackageArgs,
 	contentPackageItemArgs,
 	heroImageArgs,
 	opinionArgs,
+	opinionWithBylineArgs,
 	podcastArgs,
 	promotedArgs,
 	topStoryArgs,
@@ -77,6 +79,31 @@ Article.parameters = {
 	},
 };
 
+export const ArticleWithStreamLinksTitlePrefix: ComponentStory<typeof Teaser> = Story.bind({});
+ArticleWithStreamLinksTitlePrefix.args = articleWithStreamLinksTitlePrefixArgs;
+ArticleWithStreamLinksTitlePrefix.argTypes = argTypes;
+ArticleWithStreamLinksTitlePrefix.parameters = {
+	controls: {
+		exclude: [
+			'relatedLinks',
+			'video',
+			'headshot',
+			'imageLazyLoad',
+			'parentId',
+			'parentLabel',
+			'headlineTesting',
+			'promotedSuffixText',
+			'promotedPrefixText',
+			'relativeUrl',
+			'showCustomSlot',
+			'customSlot',
+			'showRelatedLinks',
+			'showVideo',
+			'showHeadshot',
+		],
+	},
+};
+
 export const Podcast: ComponentStory<typeof Teaser> = Story.bind({});
 Podcast.args = podcastArgs;
 Podcast.argTypes = argTypes;
@@ -109,6 +136,30 @@ Opinion.args = opinionArgs;
 Opinion.argTypes = argTypes;
 
 Opinion.parameters = {
+	controls: {
+		exclude: [
+			'relatedLinks',
+			'video',
+			'imageLazyLoad',
+			'parentId',
+			'parentLabel',
+			'headlineTesting',
+			'promotedSuffixText',
+			'promotedPrefixText',
+			'relativeUrl',
+			'showCustomSlot',
+			'customSlot',
+			'showRelatedLinks',
+			'showVideo',
+		],
+	},
+};
+
+export const OpinionWithByline: ComponentStory<typeof Teaser> = Story.bind({});
+OpinionWithByline.args = opinionWithBylineArgs;
+OpinionWithByline.argTypes = argTypes;
+
+OpinionWithByline.parameters = {
 	controls: {
 		exclude: [
 			'relatedLinks',
