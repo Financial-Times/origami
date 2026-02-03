@@ -57,6 +57,23 @@
 	.o-teaser__meta {
 		color: oPrivateFoundationGet('o3-color-palette-oxford');
 	}
+
+	.o-teaser__heading {
+		&:before {
+			display: inline-block;
+			background-color: oPrivateFoundationGet('o3-color-palette-oxford');
+			mask-image:  oPrivateFoundationGet(o3-icon-quote-left);
+			width: 1.1em;
+			height: 1.1em;
+		}
+	}
+
+	&.o-teaser--inverse,
+	&.o-teaser--hero {
+		.o-teaser__heading:before {
+			background-color: oPrivateFoundationGet('o3-color-palette-white');
+		}
+	}
 }
 
 /// Opinion background theme - colours background blue and adjust text
