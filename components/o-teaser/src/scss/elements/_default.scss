@@ -16,6 +16,17 @@
 	margin-top: 0;
 	margin-bottom: 0;
 
+	&:before {
+		display: none;
+		mask-repeat: no-repeat;
+		mask-size: contain;
+		vertical-align: text-bottom;
+		content: '';
+		margin-right: 0.2em;
+		width: 1em;
+		height: 1em;
+	}
+
 	.o-teaser__heading-prefix {
 		font-family: inherit;
 		font-size: inherit;
