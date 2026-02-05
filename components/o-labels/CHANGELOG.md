@@ -1,5 +1,16 @@
 # Changelog
 
+## [8.0.0](https://github.com/Financial-Times/origami/compare/o-labels-v7.1.2...o-labels-v8.0.0) (2026-02-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* Replace `scoop` with `exclusive`
+
+### Features
+
+* Replace `scoop` with `exclusive` ([8ff2c0d](https://github.com/Financial-Times/origami/commit/8ff2c0d3cfd25cec7d3d5046ca66134fc1af1633))
+
 ## [7.1.2](https://github.com/Financial-Times/origami/compare/o-labels-v7.1.1...o-labels-v7.1.2) (2025-10-28)
 
 
