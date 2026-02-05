@@ -25,7 +25,7 @@ export interface ColourLabelProps extends BaseLabelProps {
 		| 'mandarin';
 }
 export interface ContentLabelProps extends BaseLabelProps {
-	state: 'content-commercial' | 'content-premium' | 'content-scoop';
+	state: 'content-commercial' | 'content-premium' | 'content-exclusive';
 }
 export interface LifeCycleLabelProps extends BaseLabelProps {
 	state: 'lifecycle-beta';
