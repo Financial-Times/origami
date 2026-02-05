@@ -1,5 +1,14 @@
 # Migration Guide
 
+## Migrating from v7 to v8
+
+This release removes the `content-scoop` label and replaces with `content-exclusive'. Ensure any references to `content-scoop` are updated:
+
+```diff
+- <span class="o-labels o-labels--content-scoop">Exclusive</span>
++ <span class="o-labels o-labels--content-exclusive">Exclusive</span>
+```
+
 ## Migrating from v6 to v7
 
 This major release introduces a new design language and visually breaking changes. This includes mobile optimised typography, icons, and buttons. It also removes peer dependencies from deprecated "o2" components.
