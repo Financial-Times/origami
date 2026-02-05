@@ -1,5 +1,12 @@
 # Changelog
 
+## [9.1.3](https://github.com/Financial-Times/origami/compare/o-teaser-v9.1.2...o-teaser-v9.1.3) (2026-02-05)
+
+
+### Bug Fixes
+
+* depend on v7 and v8 of o-labels on o-teaser ([#2360](https://github.com/Financial-Times/origami/issues/2360)) ([e4d4c46](https://github.com/Financial-Times/origami/commit/e4d4c464ad3acfa412002a550590d497a246de45))
+
 ## [9.1.2](https://github.com/Financial-Times/origami/compare/o-teaser-v9.1.1...o-teaser-v9.1.2) (2025-12-03)
 
 
