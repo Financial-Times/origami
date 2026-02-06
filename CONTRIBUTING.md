@@ -69,3 +69,12 @@ When your component is reviewed by the component's code owners, usually the Orig
    - Publish to the npm package manager.
    - Trigger a notification the [#origami-support](https://financialtimes.enterprise.slack.com/archives/C02FU5ARJ) Slack channel.
 6. Confirm your release is successful by waiting for the [#origami-support](https://financialtimes.enterprise.slack.com/archives/C02FU5ARJ) Slack announcement or by checking the npm package manager.
+
+### Re-running a failed release
+
+If the Release Please Github Action fails to run, follow these steps to attempt re-release.
+
+1) Remove all tags and releases created by release please from [GitHub](https://github.com/Financial-Times/origami/releases).
+2) Remove `autorelease: tagged` label from the release PR and add the `autorelease: pending` tag.
+3) Re-run the failed publish GitHub Action
+
