@@ -13,6 +13,7 @@ const Headshot = ({headshot, bylineLabel}: {headshot?: string, bylineLabel: stri
 			className="o-teaser__byline-link-headshot"
 			width={ImageSizes.BylineHeadshot}
 			height={ImageSizes.BylineHeadshot}
+			onError={(e) => { e.currentTarget.style.display = 'none'; }}
 			alt={`${bylineLabel} headshot`}
 			aria-hidden="true"
 			src={imageService(headshot, ImageSizes.BylineHeadshot, {})}

@@ -113,16 +113,13 @@
 		align-items: center;
 	}
 
-	.o-teaser__byline-link-headshot + .o-teaser__byline-link-label {
-		padding-left: oPrivateSpacingByName('s3');
-	}
-
 	.o-teaser__byline-link-headshot {
 		width: 40px;
 		height: 40px;
 		border-radius: 50%;
 		border: 1px solid oPrivateFoundationGet('o3-color-palette-black-20');
 		background-color: oPrivateFoundationGet('o3-color-palette-black-10');
+		margin-right: oPrivateSpacingByName('s3');
 	}
 }
 
