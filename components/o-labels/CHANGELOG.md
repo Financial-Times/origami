@@ -1,5 +1,23 @@
 # Changelog
 
+## [9.0.0](https://github.com/Financial-Times/origami/compare/o-labels-v8.0.0...o-labels-v9.0.0) (2026-02-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* Replace `scoop` with `exclusive`
+
+### Features
+
+* hide status indicator for updated and new labels in o-labels ([5e5e8f0](https://github.com/Financial-Times/origami/commit/5e5e8f0e7f1c3fc7ea8904d9a6a6a422b7a71f67))
+* Replace `scoop` with `exclusive` ([8ff2c0d](https://github.com/Financial-Times/origami/commit/8ff2c0d3cfd25cec7d3d5046ca66134fc1af1633))
+
+
+### Bug Fixes
+
+* force release of unreleased components ([#2264](https://github.com/Financial-Times/origami/issues/2264)) ([c4faddc](https://github.com/Financial-Times/origami/commit/c4faddc35b69c712ca6a967353871d9921cd4dfc))
+* update o-labels badge styling to match new designs ([#2246](https://github.com/Financial-Times/origami/issues/2246)) ([66aa1fc](https://github.com/Financial-Times/origami/commit/66aa1fc8c6ee2d95a7c1d531c15875f66c70d1ab))
+
 ## [8.0.0](https://github.com/Financial-Times/origami/compare/o-labels-v7.1.2...o-labels-v8.0.0) (2026-02-05)
 
 

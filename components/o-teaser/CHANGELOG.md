@@ -1,5 +1,25 @@
 # Changelog
 
+## [10.0.0](https://github.com/Financial-Times/origami/compare/o-teaser-v9.1.3...o-teaser-v10.0.0) (2026-02-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* bump html-react-parser ([#2256](https://github.com/Financial-Times/origami/issues/2256))
+
+### Features
+
+* Add new styling for o-teaser labels ([#2268](https://github.com/Financial-Times/origami/issues/2268)) ([b356c83](https://github.com/Financial-Times/origami/commit/b356c8377817cadafc3e1da5614156f7d7159c63))
+* bump html-react-parser ([#2256](https://github.com/Financial-Times/origami/issues/2256)) ([81b1498](https://github.com/Financial-Times/origami/commit/81b149882e72a60a1311c1aae51ec447c1c9d532))
+
+
+### Bug Fixes
+
+* depend on v7 and v8 of o-labels on o-teaser ([#2360](https://github.com/Financial-Times/origami/issues/2360)) ([e4d4c46](https://github.com/Financial-Times/origami/commit/e4d4c464ad3acfa412002a550590d497a246de45))
+* Remove standfirst hover and focus colour changes ([#2232](https://github.com/Financial-Times/origami/issues/2232)) ([741e2d3](https://github.com/Financial-Times/origami/commit/741e2d38df52335699ee0e448df6384ecb619772))
+* revert focus styles for hero image text only ([b089867](https://github.com/Financial-Times/origami/commit/b08986790ecb7409c464f70b809b6abb56a01e23))
+* revert o3 focus styles on o-teaser links ([8d13d89](https://github.com/Financial-Times/origami/commit/8d13d89968893977a112b8c59779123fd43c9434))
+
 ## [9.1.3](https://github.com/Financial-Times/origami/compare/o-teaser-v9.1.2...o-teaser-v9.1.3) (2026-02-05)
 
 
