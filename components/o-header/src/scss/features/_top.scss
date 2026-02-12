@@ -224,12 +224,12 @@
 
 	.o-header__mpr-button {
 		@include oPrivateButtonsContent(
-				(
-					'type': 'primary',
-					'theme': 'mono',
-				)
+			(
+				'type': 'primary',
+				'theme': 'mono',
+			)
 		);
-		border-radius: 4px;
+		border-radius: 2px;
 
 		@include oPrivateGridRespondTo($until: 'L') {
 			display: none;
