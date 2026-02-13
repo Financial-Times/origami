@@ -229,7 +229,7 @@
 				'theme': 'mono',
 			)
 		);
-		border-radius: 2px;
+		border-radius: oPrivateFoundationGet('o3-border-radius-1');
 
 		@include oPrivateGridRespondTo($until: 'L') {
 			display: none;
