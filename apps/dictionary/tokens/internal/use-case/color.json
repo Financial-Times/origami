@@ -2,18 +2,92 @@
   "o3": {
     "color": {
       "use-case": {
-        "link": {
+        "outline": {
+          "@": {
+            "value": "{o3.color.palette.black-20}",
+            "type": "color",
+            "description": ""
+          },
+          "focus": {
+            "value": "{o3.color.palette.teal}",
+            "type": "color"
+          }
+        },
+        "background": {
+          "neutral": {
+            "value": "{o3.color.palette.slate-white-15}",
+            "type": "color"
+          },
+          "neutral-light": {
+            "value": "{o3.color.palette.slate-white-5}",
+            "type": "color"
+          }
+        },
+        "success": {
+          "foreground": {
+            "value": "#00572C",
+            "type": "color"
+          },
+          "background": {
+            "value": "#CCEBDB",
+            "type": "color"
+          },
+          "highlight": {
+            "value": "#00994D",
+            "type": "color"
+          }
+        },
+        "error": {
+          "foreground": {
+            "value": "#B30000",
+            "type": "color"
+          },
+          "background": {
+            "value": "#FAE6E6",
+            "type": "color"
+          }
+        },
+        "warning": {
+          "foreground": {
+            "value": "#695008",
+            "type": "color"
+          },
+          "background": {
+            "value": "#FFF2CC",
+            "type": "color"
+          },
+          "highlight": {
+            "value": "#FABF14",
+            "type": "color"
+          }
+        },
+        "interactive": {
           "text": {
             "@": {
               "value": "{o3.color.palette.teal}",
-              "type": "color",
-              "description": ""
+              "type": "color"
             },
             "hover": {
               "value": "{o3.color.palette.teal-30}",
               "type": "color"
             }
           },
+          "background": {
+            "@": {
+              "value": "{o3.color.palette.white}",
+              "type": "color"
+            },
+            "hover": {
+              "value": "#EBF6F7",
+              "type": "color"
+            },
+            "hover-layered": {
+              "value": "#DAE5E5",
+              "type": "color"
+            }
+          }
+        },
+        "link": {
           "underline": {
             "@": {
               "value": "#CFD8D1",
@@ -24,147 +98,6 @@
               "type": "color"
             }
           }
-        },
-        "link-inverse": {
-          "text": {
-            "@": {
-              "value": "{o3.color.palette.white}",
-              "type": "color"
-            },
-            "hover": {
-              "value": "{o3.color.palette.black-20}",
-              "type": "color"
-            }
-          },
-          "underline": {
-            "@": {
-              "value": "{o3.color.palette.white}",
-              "type": "color"
-            },
-            "hover": {
-              "value": "{o3.color.palette.black-20}",
-              "type": "color"
-            }
-          }
-        },
-        "page": {
-          "background": {
-            "value": "{o3.color.palette.white}",
-            "type": "color"
-          }
-        },
-        "page-inverse": {
-          "background": {
-            "value": "{o3.color.palette.slate}",
-            "type": "color"
-          }
-        },
-        "body": {
-          "text": {
-            "value": "{o3.color.palette.black-80}",
-            "type": "color"
-          }
-        },
-        "support": {
-          "text": {
-            "value": "{o3.color.palette.black-70}",
-            "type": "color"
-          }
-        },
-        "support-inverse": {
-          "text": {
-            "value": "{o3.color.palette.white}",
-            "type": "color",
-            "$extensions": {
-              "studio.tokens": {
-                "modify": {
-                  "type": "mix",
-                  "value": "0.1",
-                  "space": "srgb",
-                  "color": "{o3.color.palette.slate} "
-                }
-              }
-            }
-          }
-        },
-        "body-inverse": {
-          "text": {
-            "value": "{o3.color.palette.white}",
-            "type": "color"
-          }
-        },
-        "muted": {
-          "text": {
-            "value": "{o3.color.palette.black-20}",
-            "type": "color",
-            "description": "\"Muted\" text is less prominent, for example credits and captions."
-          }
-        },
-        "muted-inverse": {
-          "text": {
-            "value": "#a8aaad",
-            "type": "color",
-            "description": "\"Muted\" text is less prominent, for example credits and captions."
-          }
-        },
-        "heading": {
-          "text": {
-            "value": "{o3.color.palette.black-90}",
-            "type": "color"
-          }
-        },
-        "heading-inverse": {
-          "text": {
-            "value": "{o3.color.palette.white}",
-            "type": "color"
-          }
-        },
-        "button": {
-          "foreground": {
-            "value": "{o3.color.palette.white}",
-            "type": "color"
-          },
-          "foreground-disabled": {
-            "value": "{o3.color.palette.white}",
-            "type": "color"
-          },
-          "default": {
-            "value": "{o3.color.palette.teal}",
-            "type": "color"
-          },
-          "hover": {
-            "value": "{o3.color.palette.teal-40}",
-            "type": "color"
-          },
-          "pressed": {
-            "value": "{o3.color.palette.teal-20}",
-            "type": "color"
-          },
-          "disabled": {
-            "value": "#9EC0BD",
-            "type": "color"
-          }
-        },
-        "error-background": {
-          "value": "rgba(204,0,0,0.06)",
-          "type": "color"
-        },
-        "error-text": {
-          "value": "{o3.color.palette.crimson}",
-          "type": "color"
-        },
-        "error": {
-          "value": "{o3.color.palette.crimson}",
-          "type": "color",
-          "description": "[DEPRECATED] This token is going to be looked at in the upcoming audit."
-        },
-        "success-background": {
-          "value": "#D7F0D1",
-          "type": "color"
-        },
-        "success-foreground": {
-          "value": "#00572C",
-          "type": "color"
         }
       }
     }
