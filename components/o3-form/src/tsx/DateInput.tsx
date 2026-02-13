@@ -36,7 +36,7 @@ export const DateInput = ({
 				label={label}
 				feedback={feedback}
 				description={description}
-				inputId={inputId}
+				labelsElement={inputId}
 				optional={optional}>
 					<input
 						{...attributes}

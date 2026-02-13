@@ -38,6 +38,7 @@ export const CheckBox = (props: CheckBoxProps) => {
 	const newProps = {
 		...props,
 		labelId: props.inputId,
+		labelsElement: props.inputId,
 		descriptionId: props.inputId,
 	};
 

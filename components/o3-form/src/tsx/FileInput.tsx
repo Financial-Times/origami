@@ -34,7 +34,7 @@ export const FileInput = ({
 			label={label}
 			feedback={feedback}
 			description={description}
-			inputId={inputId}
+			labelsElement={inputId}
 			optional={optional}>
 			<>
 				<div className={inputClasses.join(' ')}>

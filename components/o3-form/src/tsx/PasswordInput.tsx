@@ -50,7 +50,7 @@ export const PasswordInput = ({
 				label={label}
 				feedback={feedback}
 				description={description}
-				inputId={inputId}
+				labelsElement={inputId}
 				optional={optional}>
 				<div className="o3-password-input__container">
 					<input

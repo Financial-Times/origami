@@ -23,7 +23,7 @@ export const SelectInput = ({
 			label={label}
 			feedback={feedback}
 			description={description}
-			inputId={inputId}
+			labelsElement={inputId}
 			optional={optional}>
 			<div
 				className={`o3-form-select-input__container ${

@@ -1,7 +1,7 @@
 // Base Input Props
 export type BaseInputProps = {
 	inputId: string;
-	label?: string;
+	label: string;
 	description?: string;
 	optional?: boolean;
 	error?: boolean;
@@ -31,7 +31,7 @@ export interface SelectInputProps {
 	feedback?: FeedbackProps;
 	children?: React.JSX.Element[];
 	inputId: string;
-	label?: string;
+	label: string;
 	length?: 1 | 3;
 	description?: string;
 	optional?: boolean;
@@ -66,7 +66,8 @@ export interface FormFieldsetProps {
 	optional?: boolean;
 }
 
-export interface FormFieldProps extends BaseInputProps {
+export interface FormFieldProps extends Omit<BaseInputProps, 'inputId'> {
+	labelsElement: string;
 	feedback?: FeedbackProps;
 	children: React.JSX.Element & JSX.IntrinsicElements['input'];
 }

@@ -25,7 +25,7 @@ export const TextInput = ({
 			label={label}
 			feedback={feedback}
 			description={description}
-			inputId={inputId}
+			labelsElement={inputId}
 			optional={optional}>
 			<input
 				{...attributes}

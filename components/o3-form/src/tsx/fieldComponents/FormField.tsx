@@ -3,21 +3,22 @@ import {Feedback} from './Feedback';
 import type {FormFieldProps, FormFieldsetProps} from '../../types';
 
 export const LabeledFormField = ({
-	inputId,
 	label,
+	labelsElement,
 	description,
 	feedback,
 	children,
 	optional,
 }: FormFieldProps) => {
-	const descriptionId = description ? `description_${inputId}` : undefined;
+	const descriptionId = description ? `description_${labelsElement}` : undefined;
+	const labelId = `label_${labelsElement}`;
 	const labelClasses = ['o3-form-field__label'];
 	if (optional) {
 		labelClasses.push('o3-form-field--optional');
 	}
 	return (
 		<div className="o3-form-field">
-			<label className={labelClasses.join(' ')} htmlFor={inputId}>
+			<label className={labelClasses.join(' ')} id={labelId} htmlFor={labelsElement}>
 				{label}
 			</label>
 
@@ -34,14 +35,14 @@ export const LabeledFormField = ({
 
 export const TitledFormField = ({
 	label,
+	labelsElement,
 	description,
 	feedback,
 	children,
 	optional,
-	inputId
 }: FormFieldProps) => {
-	const descriptionId = description ? `description_${inputId}` : undefined;
-	const labelId = `label_${inputId}`;
+	const descriptionId = description ? `description_${labelsElement}` : undefined;
+	const labelId = `label_${labelsElement}`;
 	const labelClasses = ['o3-form-field__title'];
 	if (optional) {
 		labelClasses.push('o3-form-field--optional');
