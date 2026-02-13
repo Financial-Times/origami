@@ -76,7 +76,8 @@
 		"stylelint": "^13.13.1",
 		"stylelint-config-prettier": "^9.0.3",
 		"stylelint-order": "^4.1.0",
-		"stylelint-scss": "^3.21.0"
+		"stylelint-scss": "^3.21.0",
+		"unist-util-visit": "^5.1.0"
 	},
 	"dependencies": {
 		"@actions/core": "^1.2.6",
