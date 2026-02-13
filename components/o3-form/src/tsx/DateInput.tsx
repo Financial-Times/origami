@@ -1,10 +1,7 @@
-import {uidBuilder} from '@financial-times/o-utils';
 import {DateInputProps} from '../types';
 import {LabeledFormField} from './fieldComponents/FormField';
 import {useEffect, useRef} from 'react';
 import {DateInputMask} from './DateInputMask';
-
-const uniqueId = uidBuilder('o3-form-date-input');
 
 export const DateInput = ({
 																label,
@@ -16,8 +13,6 @@ export const DateInput = ({
 																optional,
 															}: DateInputProps) => {
 	let inputRef = useRef<HTMLInputElement | null>(null);
-
-	const id = inputId || uniqueId('_');
 
 	const inputClasses = [
 		'o3-form',
@@ -41,11 +36,11 @@ export const DateInput = ({
 				label={label}
 				feedback={feedback}
 				description={description}
-				inputId={id}
+				inputId={inputId}
 				optional={optional}>
 					<input
 						{...attributes}
-						id={id}
+						id={inputId}
 						ref={inputRef}
 						disabled={disabled}
 						className={inputClasses.join(' ')}

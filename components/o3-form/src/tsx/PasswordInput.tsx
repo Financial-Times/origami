@@ -1,10 +1,7 @@
-import {uidBuilder} from '@financial-times/o-utils';
 import {PasswordInputProps} from '../types';
 import {LabeledFormField} from './fieldComponents/FormField';
 import {PasswordInputToggle as PasswordInputToggleController} from './PasswordInputToggle';
 import {useEffect, useRef} from 'react';
-
-const uniqueId = uidBuilder('o3-form-password-input');
 
 export const PasswordInput = ({
 	label,
@@ -16,7 +13,6 @@ export const PasswordInput = ({
 	optional,
 	forgotPasswordLink,
 }: PasswordInputProps) => {
-	const id = inputId || uniqueId('_');
 
 	let inputRef = useRef<HTMLInputElement | null>(null);
 	let buttonRef = useRef<HTMLButtonElement | null>(null);
@@ -54,12 +50,12 @@ export const PasswordInput = ({
 				label={label}
 				feedback={feedback}
 				description={description}
-				inputId={id}
+				inputId={inputId}
 				optional={optional}>
 				<div className="o3-password-input__container">
 					<input
 						{...attributes}
-						id={id}
+						id={inputId}
 						ref={inputRef}
 						disabled={disabled}
 						data-testid="o3-password-input"

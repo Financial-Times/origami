@@ -1,8 +1,5 @@
-import {uidBuilder} from '@financial-times/o-utils';
 import {DateInputProps} from '../types';
 import {LabeledFormField} from './fieldComponents/FormField';
-
-const uniqueId = uidBuilder('o3-form-date-input');
 
 export const DateInputPicker = ({
 																	label,
@@ -13,7 +10,6 @@ export const DateInputPicker = ({
 																	inputId,
 																	optional,
 																}: DateInputProps) => {
-	const id = inputId || uniqueId('_');
 
 	const inputClasses = [
 		'o3-form',
@@ -29,11 +25,11 @@ export const DateInputPicker = ({
 			label={label}
 			feedback={feedback}
 			description={description}
-			inputId={id}
+			inputId={inputId}
 			optional={optional}>
 			<input
 				{...attributes}
-				id={id}
+				id={inputId}
 				disabled={disabled}
 				className={inputClasses.join(' ')}
 				required={!optional}

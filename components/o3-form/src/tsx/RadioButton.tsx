@@ -1,14 +1,9 @@
-import {uidBuilder} from '@financial-times/o-utils';
 import {FormFieldset} from './fieldComponents/FormField';
 import type {RadioButtonProps, FormFieldsetProps} from '../types';
 
-const uniqueId = uidBuilder('o3-form-radio-button-input');
-
 export const RadioButtonItem = (props: RadioButtonProps) => {
 	let {inputId, attributes, optional, error} = props;
-	if (!inputId) {
-		inputId = uniqueId('_');
-	}
+
 	const classNames = ['o3-form-input-radio-button', 'o3-visually-hidden'];
 
 	if (error) {

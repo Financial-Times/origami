@@ -1,9 +1,6 @@
-import {uidBuilder} from '@financial-times/o-utils';
 import {Feedback} from './Feedback';
 
 import type {FormFieldProps, FormFieldsetProps} from '../../types';
-
-const uniqueId = uidBuilder('o3-form');
 
 export const LabeledFormField = ({
 	inputId,
@@ -13,15 +10,14 @@ export const LabeledFormField = ({
 	children,
 	optional,
 }: FormFieldProps) => {
-	const id = inputId || uniqueId('input_');
-	const descriptionId = description ? uniqueId('description_') : undefined;
+	const descriptionId = description ? `description_${inputId}` : undefined;
 	const labelClasses = ['o3-form-field__label'];
 	if (optional) {
 		labelClasses.push('o3-form-field--optional');
 	}
 	return (
 		<div className="o3-form-field">
-			<label className={labelClasses.join(' ')} htmlFor={id}>
+			<label className={labelClasses.join(' ')} htmlFor={inputId}>
 				{label}
 			</label>
 
@@ -42,9 +38,10 @@ export const TitledFormField = ({
 	feedback,
 	children,
 	optional,
+	inputId
 }: FormFieldProps) => {
-	const descriptionId = description ? uniqueId('description_') : undefined;
-	const labelId = uniqueId('label_');
+	const descriptionId = description ? `description_${inputId}` : undefined;
+	const labelId = `label_${inputId}`;
 	const labelClasses = ['o3-form-field__title'];
 	if (optional) {
 		labelClasses.push('o3-form-field--optional');
@@ -71,8 +68,9 @@ export const FormFieldset = ({
 	feedback,
 	children,
 	optional,
+	inputId
 }: FormFieldsetProps) => {
-	const descriptionId = uniqueId('checkbox_');
+	const descriptionId = `checkbox_${inputId}`;
 	const labelClasses = ['o3-form-field__legend'];
 	if (optional) {
 		labelClasses.push('o3-form-field--optional');

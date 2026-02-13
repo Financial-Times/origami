@@ -1,8 +1,5 @@
-import {uidBuilder} from '@financial-times/o-utils';
 import {SelectInputProps} from '../types/index';
 import {LabeledFormField} from './fieldComponents/FormField';
-
-const uniqueId = uidBuilder('o3-form-select-input');
 
 export const SelectInput = ({
 	label,
@@ -15,7 +12,6 @@ export const SelectInput = ({
 	children,
 	length,
 }: SelectInputProps) => {
-	const id = inputId || uniqueId('_');
 	const inputClasses = ['o3-form', 'o3-form-select-input'];
 
 	if (feedback && feedback.type === 'error') {
@@ -27,7 +23,7 @@ export const SelectInput = ({
 			label={label}
 			feedback={feedback}
 			description={description}
-			inputId={id}
+			inputId={inputId}
 			optional={optional}>
 			<div
 				className={`o3-form-select-input__container ${
@@ -35,7 +31,7 @@ export const SelectInput = ({
 				}`}>
 				<select
 					{...attributes}
-					id={id}
+					id={inputId}
 					disabled={disabled}
 					className={inputClasses.join(' ')}
 					required={!optional}

@@ -1,6 +1,6 @@
 // Base Input Props
 export type BaseInputProps = {
-	inputId?: string;
+	inputId: string;
 	label?: string;
 	description?: string;
 	optional?: boolean;
@@ -30,7 +30,7 @@ export interface SelectInputProps {
 	disabled?: boolean;
 	feedback?: FeedbackProps;
 	children?: React.JSX.Element[];
-	inputId?: string;
+	inputId: string;
 	label?: string;
 	length?: 1 | 3;
 	description?: string;
@@ -58,6 +58,7 @@ export interface RadioButtonProps extends BaseInputProps {
 	radioButtonLabel: string; // Label specifically for the radio button.
 }
 export interface FormFieldsetProps {
+	inputId: string;
 	label: string;
 	description?: string;
 	children: React.JSX.Element | React.JSX.Element[];

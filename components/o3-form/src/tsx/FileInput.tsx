@@ -1,9 +1,6 @@
-import {uidBuilder} from '@financial-times/o-utils';
 import {FileInputProps} from '../types';
 import {LabeledFormField} from './fieldComponents/FormField';
 import {ChangeEvent, useState} from "react";
-
-const uniqueId = uidBuilder('o3-form-file-input');
 
 export const FileInput = ({
 							  label,
@@ -15,7 +12,7 @@ export const FileInput = ({
 							  optional,
 							  isUploading
 						  }: FileInputProps) => {
-	const id: string = inputId || uniqueId('_');
+
 	const [file, setFile] = useState<File | null>(null);
 
 	const onUpload = (event: ChangeEvent<HTMLInputElement>) => {
@@ -37,11 +34,11 @@ export const FileInput = ({
 			label={label}
 			feedback={feedback}
 			description={description}
-			inputId={id}
+			inputId={inputId}
 			optional={optional}>
 			<>
 				<div className={inputClasses.join(' ')}>
-					<label htmlFor={id} className="o3-form-file-input__label">
+					<label htmlFor={inputId} className="o3-form-file-input__label">
 						<span
 							className="o3-form-file-input__label-button o3-button o3-button--primary o3-button-icon o3-button-icon--upload">
 							File Upload
@@ -51,7 +48,7 @@ export const FileInput = ({
 					</label>
 					<input
 						{...attributes}
-						id={id}
+						id={inputId}
 						className="o3-form-file-input__input-field"
 						disabled={disabled}
 						required={!optional}
