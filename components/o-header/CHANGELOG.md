@@ -1,5 +1,12 @@
 # Changelog
 
+## [15.3.1](https://github.com/Financial-Times/origami/compare/o-header-v15.3.0...o-header-v15.3.1) (2026-02-13)
+
+
+### Bug Fixes
+
+* set mpr-button border radius to be 2px ([#2364](https://github.com/Financial-Times/origami/issues/2364)) ([abafc7b](https://github.com/Financial-Times/origami/commit/abafc7bdde6a63b392593cca9cfb85d9799f4bed))
+
 ## [15.3.0](https://github.com/Financial-Times/origami/compare/o-header-v15.2.0...o-header-v15.3.0) (2025-10-22)
 
 
