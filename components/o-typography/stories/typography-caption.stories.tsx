@@ -20,7 +20,7 @@ export const FigureCaption = args => (
 	<figure>
 		<img
 			alt="illustration of people at a picnic bench, used as a demo image"
-			src="https://images.ft.com/v3/image/raw/http%3A%2F%2Fim.ft-static.com%2Fcontent%2Fimages%2Fa60ae24b-b87f-439c-bf1b-6e54946b4cf2.img?source=origami-build-tools"
+			src="https://images.ft.com/v3/image/raw/http%3A%2F%2Fim.ft-static.com%2Fcontent%2Fimages%2Fa60ae24b-b87f-439c-bf1b-6e54946b4cf2.img?source=origami"
 		/>
 		<FigCaption {...args}>
 			{args.children ? (
