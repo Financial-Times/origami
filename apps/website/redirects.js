@@ -18,25 +18,25 @@ export const redirects = {
 		'https://github.com/Financial-Times/origami/tree/main/docs/o3-getting-started.md',
 	'/docs/syntax/design-guidelines/': '/getting-started/design-guide/',
 	'/docs/developer-guide/modules/core-vs-enhanced-experience/':
-		'/getting-started/technical-guide/o3-specification/',
+		'https://github.com/Financial-Times/origami/tree/main/docs/o3-specification.md',
 	'/docs/developer-guide/modules/using-the-polyfill-service/':
-		'/getting-started/technical-guide/o3-specification/',
+		'https://github.com/Financial-Times/origami/tree/main/docs/o3-specification.md',
 	'/docs/components/branding/': '/contribution/',
 	'/docs/developer-guide/modules/initialising-modules/':
 		'https://github.com/Financial-Times/origami/tree/main/docs/o3-getting-started.md',
 	'/docs/components/initialising/':
 		'https://github.com/Financial-Times/origami/tree/main/docs/o3-getting-started.md',
 	'/docs/developer-guide/modules/module-versioning/':
-		'/getting-started/technical-guide/o3-specification/',
+		'https://github.com/Financial-Times/origami/tree/main/docs/o3-specification.md',
 	'/docs/': '/getting-started/',
 	'/docs/developer-guide/': '/getting-started/',
 	'/documentation/': '/getting-started/',
 	'/documentation/components/': '/getting-started/technical-guide/',
 	'/documentation/components/brand-definitions/': '/about/faq/',
 	'/documentation/components/code/':
-		'/getting-started/technical-guide/o3-specification/',
+		'https://github.com/Financial-Times/origami/tree/main/docs/o3-specification.md',
 	'/documentation/components/compatibility/':
-		'/getting-started/technical-guide/o3-specification/',
+		'https://github.com/Financial-Times/origami/tree/main/docs/o3-specification.md',
 	'/documentation/components/contributing/': '/contribution/',
 	'/documentation/components/customisation/': '/getting-started/customisation/',
 	'/documentation/components/getting-started/':
@@ -45,11 +45,11 @@ export const redirects = {
 		'/blog/2019/10/31/major-cascade/#the-major-cascade',
 	'/documentation/components/silent-mode/': '/o2-components/technical-guide/',
 	'/documentation/components/versioning/':
-		'/getting-started/technical-guide/o3-specification/',
+		'https://github.com/Financial-Times/origami/tree/main/docs/o3-specification.md',
 	'/documentation/manifests/':
-		'/getting-started/technical-guide/o3-specification/',
+		'https://github.com/Financial-Times/origami/tree/main/docs/o3-specification.md',
 	'/documentation/manifests/origami-json/':
-		'/getting-started/technical-guide/o3-specification/',
+		'https://github.com/Financial-Times/origami/tree/main/docs/o3-specification.md',
 	'/documentation/principles/': '/foundations/',
 	'/documentation/principles/accessibility/': '/foundations/',
 	'/documentation/principles/design/': '/getting-started/design-guide/',
