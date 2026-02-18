@@ -2,8 +2,12 @@
 
 Welcome to Origami!
 
-This is the repository for the Origami components, libraries, and apps that make
+This is the repository for the Origami o2 & o3 components, libraries, and apps that make
 up the Origami Component System.
+
+## Using Origami o3 in your project
+
+Read the [_o3 Getting Started_](docs/o3-getting-started.md) guide to use Origami o3 styles and components in your project.
 
 ## Proposals
 
@@ -44,6 +48,8 @@ Default scripts used in component package.jsons for building and testing compone
 Tools used to build and test Origami components
 
 ## Running Origami locally
+
+Below are the steps to run and maintain this repository locally.
 
 ### Requirements
 
