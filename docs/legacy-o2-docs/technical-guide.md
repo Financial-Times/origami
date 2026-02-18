@@ -1,26 +1,20 @@
----
-title: Technical Guide (o2)
-description: A reference of components
-sidebar:
-  label: Technical Guide
-  order: 3
----
+# Technical Guide
 
 ## Using Origami in your project
 
 "o2" Origami packages can be included in a project via:
 
-1. The [npm package manager](/o2-components/technical-guide/package-manager-npm).
-2. The [Origami Build Service](/o2-components/technical-guide/origami-build-service).
+1. The [npm package manager](/docs/legacy-o2-docs/technical-guide/package-manager-npm).
+2. The [Origami Build Service](/docs/legacy-o2-docs/technical-guide/origami-build-service).
 
-For most cases we recommend the [npm package manager](/o2-components/technical-guide/package-manager-npm) approach. Though the Origami Build Service can be helpful for teams who can't or don't want to maintain front-end build tooling; and where customisation and performance is less of a concern.
+For most cases we recommend the [npm package manager](/docs/legacy-o2-docs/technical-guide/package-manager-npm) approach. Though the Origami Build Service can be helpful for teams who can't or don't want to maintain front-end build tooling; and where customisation and performance is less of a concern.
 
 ## Code Structure & Languages
 
 ### Manifest
 
 Origami components contain an `origami.json` file at the top of the
-component's directory structure, with the `type` property set to `"component"`. The [`origami.json` manifest documentation](/o2-components/technical-guide/origami-json/) covers the contents of this file.
+component's directory structure, with the `type` property set to `"component"`. The [`origami.json` manifest documentation](/docs/legacy-o2-docs/technical-guide/origami-json/) covers the contents of this file.
 
 ### Naming conventions
 

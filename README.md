@@ -9,6 +9,10 @@ up the Origami Component System.
 
 Read the [_o3 Getting Started_](docs/o3-getting-started.md) guide to use Origami o3 styles and components in your project.
 
+## Maintaining Origami o2 in your project
+
+Legacy documentation for using the o2 component system can be found in [docs/legacy-o2-docs](/docs/legacy-o2-docs/index.md).
+
 ## Proposals
 
 If you'd like to make a proposal for a new component or anything else, go ahead and [open an issue](https://github.com/Financial-Times/origami/issues/new).

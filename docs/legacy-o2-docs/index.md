@@ -1,10 +1,4 @@
----
-title: Package List (o2)
-description: A reference of components
-sidebar:
-  label: Package List
-  order: 1
----
+# o2 Guide
 
 Origami 2 "o2" packages include foundational styles, components, and patterns. These will be gradually deprecated over time, as we conduct design audits and build Origami 3 "o3" alternatives. Where components are deprecated, begin to use the o3 alternative.
 
@@ -37,7 +31,7 @@ These o2 packages do not have an o3 alternative yet, and may be used alongside o
 o-tooltip is a component usually used for annotating or highlighting areas of user interface. It's a flexible component which leaves open many design decisions. This is often misused to create inconsistent and inaccessible experiences. We recommend using our new ["o3" tooltip components](../../components/tooltip/) where possible, which are designed with specific usecases in mind.
 
 - **Status: Maintained**
-- Alternative: o3-tooltip. Consider [o3 tooltip components](../../components/tooltip/) for onboarding of toggle tips.
+- Alternative: o3-tooltip. Consider [o3 tooltip components](../../components/o3-tooltip/) for onboarding of toggle tips.
 - [Storybook: o-tooltip](https://o2-core.origami.ft.com/?path=/docs/maintained-o-tooltip-readme--docs)
 - [Figma: FT-UI-Library / Tooltip](<https://www.figma.com/file/MyHQ1qdwYyek5IBdhEEaND/%F0%9F%92%A0-FT-UI-Library---Origami-(o2)?type=design&node-id=130-0&mode=design>) (incomplete)
 
