@@ -1,10 +1,4 @@
----
-title: Using components (o2) via npm
-description: A reference of components
-sidebar:
-  order: 3
-  hidden: true
----
+# Using components (o2) via npm
 
 This guide shows an example of including "o2" Origami components in a project via npm.
 
@@ -12,7 +6,7 @@ This guide shows an example of including "o2" Origami components in a project vi
 
 Knowledge about these and other technologies is assumed. We also assume you're already setup to bundle assets, e.g. transpile Sass to CSS.
 
-If you have questions or need further help please [reach out to the Origami team](/getting-started/support/).
+If you have questions or need further help please [reach out to #origami-support](https://financialtimes.enterprise.slack.com/archives/C02FU5ARJ).
 
 ## Install npm peer dependencies
 
@@ -90,4 +84,4 @@ const myTable = oTable(myTableHTMLElement);
 
 ## Wrap-up
 
-We've briefly covered how to include the HTML, CSS (via Sass), and JavaScript for an "o2" Origami component. If you have questions or need help please [reach out to the Origami team](/getting-started/support/) at any time.
+We've briefly covered how to include the HTML, CSS (via Sass), and JavaScript for an "o2" Origami component. If you have questions or need help please [reach out to #origami-support](https://financialtimes.enterprise.slack.com/archives/C02FU5ARJ) at any time.

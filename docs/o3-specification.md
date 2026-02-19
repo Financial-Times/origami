@@ -1,9 +1,4 @@
----
-title: O3 Specification
-description: A technical guide to using "o3" Origami.
-sidebar:
-  hidden: true
----
+# o3 Specification
 
 ## Code Structure & Languages
 
@@ -11,7 +6,7 @@ sidebar:
 
 Any Origami project contains an `origami.json` file, including those with components. It's a <a href="https://www.json.org/"><abbr title="JavaScript Object Notation">JSON</abbr></a> format file that is responsible for describing various aspects of the project.
 
-It is under active development and subject to change. For reference, see [`origami.json` manifest documentation for "o2"](/o2-components/technical-guide/origami-json/), which covers the contents of this file.
+It is under active development and subject to change. For reference, see [`origami.json` manifest documentation for "o2"](/docs/legacy-o2-docs/technical-guide/origami-json.md/), which covers the contents of this file.
 
 ### Naming conventions
 

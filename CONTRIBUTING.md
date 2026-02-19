@@ -6,6 +6,10 @@ Hey, so you want to contribute to Origami.
 
 Make sure you set up the required software listed in [the readme](./README.md#requirements).
 
+## Contributing to o3
+
+Read [o3 Specification](docs/o3-specification.md) document.
+
 ## Committing
 
 Our commit messages use a simplified form of [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/). This is how our automated release system knows what a given commit means.
