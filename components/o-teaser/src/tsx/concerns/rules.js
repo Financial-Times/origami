@@ -9,7 +9,12 @@ const rulesets = {
 			return 'video';
 		}
 
-		if (props.showHeadshot && props.headshot && props.indicators.isColumn) {
+		// Headshot is a legacy element.
+		// The author headshot has been moved into the Byline component and the layout has changed.
+		// This rule adds the o-teaser--has-headshot modifier class to apply legacy styles
+		// such as hiding the content image.
+		// This rule should not be applied when the Byline component is used.
+		if (!props.showByline && props.showHeadshot && props.headshot && props.indicators.isColumn) {
 			return 'headshot';
 		}
 

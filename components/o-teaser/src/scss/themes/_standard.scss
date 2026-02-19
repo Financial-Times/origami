@@ -6,6 +6,8 @@
 	.o-teaser__heading a:hover,
 	.o-teaser__heading a:focus,
 	.o-teaser__heading a:visited,
+	.o-teaser__byline a:hover,
+	.o-teaser__byline a:focus,
 	.o-teaser__standfirst a:visited,
 	.o-teaser__tag:hover,
 	.o-teaser__tag:focus {
@@ -17,6 +19,8 @@
 	}
 
 	.o-teaser__meta,
+	.o-teaser__byline,
+	.o-teaser__byline a:visited,
 	.o-teaser__tag-suffix,
 	.o-teaser__heading {
 		color: oPrivateFoundationGet('o3-color-palette-white');
@@ -52,6 +56,23 @@
 @mixin _oTeaserOpinion {
 	.o-teaser__meta {
 		color: oPrivateFoundationGet('o3-color-palette-oxford');
+	}
+
+	.o-teaser__heading {
+		&:before {
+			display: inline-block;
+			background-color: oPrivateFoundationGet('o3-color-palette-oxford');
+			mask-image:  oPrivateFoundationGet(o3-icon-quote-left);
+			width: 1.1em;
+			height: 1.1em;
+		}
+	}
+
+	&.o-teaser--inverse,
+	&.o-teaser--hero {
+		.o-teaser__heading:before {
+			background-color: oPrivateFoundationGet('o3-color-palette-white');
+		}
 	}
 }
 
@@ -100,6 +121,8 @@
 	.o-teaser__heading a:hover,
 	.o-teaser__heading a:focus,
 	.o-teaser__heading a:visited,
+	.o-teaser__byline a:hover,
+	.o-teaser__byline a:focus,
 	.o-teaser__standfirst a:visited,
 	.o-teaser__tag:hover,
 	.o-teaser__tag:focus {
