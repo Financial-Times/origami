@@ -355,20 +355,6 @@ declare module 'astro:content' {
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
-"getting-started/technical-guide/o3-specification.md": {
-	id: "getting-started/technical-guide/o3-specification.md";
-  slug: "getting-started/technical-guide/o3-specification";
-  body: string;
-  collection: "docs";
-  data: InferEntrySchema<"docs">
-} & { render(): Render[".md"] };
-"getting-started/technical-guide/package-manager-npm.md": {
-	id: "getting-started/technical-guide/package-manager-npm.md";
-  slug: "getting-started/technical-guide/package-manager-npm";
-  body: string;
-  collection: "docs";
-  data: InferEntrySchema<"docs">
-} & { render(): Render[".md"] };
 "index.mdx": {
 	id: "index.mdx";
   slug: "index";
@@ -379,41 +365,6 @@ declare module 'astro:content' {
 "o2-components/design-guide.md": {
 	id: "o2-components/design-guide.md";
   slug: "o2-components/design-guide";
-  body: string;
-  collection: "docs";
-  data: InferEntrySchema<"docs">
-} & { render(): Render[".md"] };
-"o2-components/index.md": {
-	id: "o2-components/index.md";
-  slug: "o2-components";
-  body: string;
-  collection: "docs";
-  data: InferEntrySchema<"docs">
-} & { render(): Render[".md"] };
-"o2-components/technical-guide.md": {
-	id: "o2-components/technical-guide.md";
-  slug: "o2-components/technical-guide";
-  body: string;
-  collection: "docs";
-  data: InferEntrySchema<"docs">
-} & { render(): Render[".md"] };
-"o2-components/technical-guide/origami-build-service.md": {
-	id: "o2-components/technical-guide/origami-build-service.md";
-  slug: "o2-components/technical-guide/origami-build-service";
-  body: string;
-  collection: "docs";
-  data: InferEntrySchema<"docs">
-} & { render(): Render[".md"] };
-"o2-components/technical-guide/origami-json.md": {
-	id: "o2-components/technical-guide/origami-json.md";
-  slug: "o2-components/technical-guide/origami-json";
-  body: string;
-  collection: "docs";
-  data: InferEntrySchema<"docs">
-} & { render(): Render[".md"] };
-"o2-components/technical-guide/package-manager-npm.md": {
-	id: "o2-components/technical-guide/package-manager-npm.md";
-  slug: "o2-components/technical-guide/package-manager-npm";
   body: string;
   collection: "docs";
   data: InferEntrySchema<"docs">
