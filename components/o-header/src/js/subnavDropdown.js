@@ -2,6 +2,14 @@ const INTENT_ENTER = 300;
 const INTENT_LEAVE = 400;
 
 const expandedDropdowns = [];
+let scrollListenerAdded = false;
+
+function handleScroll() {
+	expandedDropdowns.forEach(dropdown => {
+		const parent = dropdown.parentNode;
+		positionDropdown(dropdown, parent);
+	});
+}
 
 function addDropdownEvents(parent, dropdown) {
 	let timeout;
@@ -54,21 +62,15 @@ function positionDropdown(dropdown, hoverTarget) {
 	}
 	
 	const targetRect = hoverTarget.getBoundingClientRect();
-	const viewportHeight = window.innerHeight;
 	const viewportWidth = window.innerWidth;
 	
-	const dropdownWidth = 300;
-	const dropdownHeight = 200;
+	const dropdownWidth = 285;
 
-	let top = targetRect.bottom;
+	let top = targetRect.bottom + 4;
 	let left = targetRect.left;
 
 	if (left + dropdownWidth > viewportWidth) {
-		left = Math.max(10, viewportWidth - dropdownWidth - 10);
-	}
-
-	if (top + dropdownHeight > viewportHeight) {
-		top = targetRect.top - dropdownHeight;
+		left = Math.max(4, viewportWidth - dropdownWidth - 4);
 	}
 
 	dropdown.style.position = 'fixed';
@@ -95,6 +97,12 @@ function showDropdown(dropdown, animate) {
 	dropdown.dispatchEvent(new CustomEvent('oHeader.SubnavDropdownShow', { bubbles: true }));
 
 	expandedDropdowns.push(dropdown);
+
+	// Add scroll listener when first dropdown opens
+	if (!scrollListenerAdded) {
+		window.addEventListener('scroll', handleScroll, true);
+		scrollListenerAdded = true;
+	}
 }
 
 function hideDropdown(dropdown) {
@@ -106,6 +114,12 @@ function hideDropdown(dropdown) {
 	dropdown.dispatchEvent(new CustomEvent('oHeader.SubnavDropdownHide', { bubbles: true }));
 
 	expandedDropdowns.splice(expandedDropdowns.indexOf(dropdown), 1);
+
+	// Remove scroll listener when no dropdowns are open
+	if (expandedDropdowns.length === 0 && scrollListenerAdded) {
+		window.removeEventListener('scroll', handleScroll, true);
+		scrollListenerAdded = false;
+	}
 }
 
 function initSubnavDropdowns(headerEl) {
@@ -115,5 +129,5 @@ function initSubnavDropdowns(headerEl) {
 	parents.forEach((parent, i) => addDropdownEvents(parent, dropdowns[i]));
 }
 
-export { initSubnavDropdowns, showDropdown, hideDropdown };
-export default { initSubnavDropdowns, showDropdown, hideDropdown };
+export { initSubnavDropdowns };
+export default { initSubnavDropdowns };

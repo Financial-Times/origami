@@ -1,6 +1,6 @@
 import viewport from '@financial-times/o-viewport';
 import * as oUtils from '@financial-times/o-utils';
-import { initSubnavDropdowns, showDropdown, hideDropdown } from './subnavDropdown.js';
+import { initSubnavDropdowns } from './subnavDropdown.js';
 
 function init(headerEl) {
 	const subnav = headerEl.querySelector('[data-o-header-subnav]');
@@ -94,5 +94,5 @@ function init(headerEl) {
 	checkCurrentPosition();
 }
 
-export { init, showDropdown, hideDropdown };
-export default { init, showDropdown, hideDropdown };
+export { init };
+export default { init };
