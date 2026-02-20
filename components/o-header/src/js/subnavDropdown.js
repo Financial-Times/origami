@@ -26,10 +26,8 @@ function addDropdownEvents(parent, dropdown) {
 		timeout = setTimeout(() => {
 			if (expandedDropdowns.length) {
 				hideDropdown(expandedDropdowns[0]);
-				showDropdown(dropdown, false);
-			} else {
-				showDropdown(dropdown, true);
 			}
+			showDropdown(dropdown);
 		}, INTENT_ENTER);
 	});
 
@@ -84,11 +82,7 @@ function positionDropdown(dropdown, hoverTarget) {
 	dropdown.offsetHeight;
 }
 
-function showDropdown(dropdown, animate) {
-	if (animate) {
-		dropdown.classList.add('o-header__subnav-dropdown--animation');
-	}
-
+function showDropdown(dropdown) {
 	dropdown.setAttribute('aria-hidden', 'false');
 	dropdown.setAttribute('aria-expanded', 'true');
 	dropdown.style.display = 'block';
@@ -102,7 +96,6 @@ function showDropdown(dropdown, animate) {
 }
 
 function hideDropdown(dropdown) {
-	dropdown.classList.remove('o-header__subnav-dropdown--animation');
 	dropdown.setAttribute('aria-hidden', 'true');
 	dropdown.setAttribute('aria-expanded', 'false');
 	dropdown.style.display = 'none';
