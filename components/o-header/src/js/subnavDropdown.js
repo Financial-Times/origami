@@ -1,7 +1,10 @@
 const INTENT_ENTER = 300;
 const INTENT_LEAVE = 400;
+const DEFAULT_DROPDOWN_WIDTH = 285;
+const POSITIONING_OFFSET = 8;
 
-const expandedDropdowns = [];
+const expandedDropdowns = new Set();
+const keydownListeners = new WeakMap();
 let scrollListenerAdded = false;
 
 function handleScroll() {
@@ -24,33 +27,41 @@ function addDropdownEvents(parent, dropdown) {
 		positionDropdown(dropdown, parent);
 
 		timeout = setTimeout(() => {
-			if (expandedDropdowns.length) {
-				hideDropdown(expandedDropdowns[0]);
+			if (expandedDropdowns.size > 0) {
+				closeAllDropdowns();
 			}
 			showDropdown(dropdown);
 		}, INTENT_ENTER);
 	});
 
 	const handleKeydown = (event) => {
-		const key = event.key || event.keyCode;
+		const key = event.key;
 
-		if (key === 'Escape' || key === 'Esc' || key === 27) {
-			if (isDropdownOpen(dropdown)) {
-				hideDropdown(dropdown);
-			}
+		if (key === 'Escape' && isDropdownOpen(dropdown)) {
+			hideDropdown(dropdown);
 		}
 	};
 
+	keydownListeners.set(dropdown, handleKeydown);
 	document.addEventListener('keydown', handleKeydown);
 
 	parent.addEventListener('mouseleave', () => {
 		clearTimeout(timeout);
-		timeout = setTimeout(() => isDropdownOpen(dropdown) && hideDropdown(dropdown), INTENT_LEAVE);
+		timeout = setTimeout(() => {
+			if (isDropdownOpen(dropdown)) {
+				hideDropdown(dropdown);
+			}
+		}, INTENT_LEAVE);
 	});
 }
 
+function closeAllDropdowns() {
+	const dropdownsToClose = new Set(expandedDropdowns);
+	dropdownsToClose.forEach(hideDropdown);
+}
+
 function isDropdownOpen(dropdown) {
-	return expandedDropdowns.indexOf(dropdown) !== -1;
+	return expandedDropdowns.has(dropdown);
 }
 
 function positionDropdown(dropdown, hoverTarget) {
@@ -61,25 +72,24 @@ function positionDropdown(dropdown, hoverTarget) {
 	const targetRect = hoverTarget.getBoundingClientRect();
 	const viewportWidth = window.innerWidth;
 	
-	const dropdownWidth = 285;
+	const dropdownWidth = DEFAULT_DROPDOWN_WIDTH;
 
-	let top = targetRect.bottom + 8;
 	let left = targetRect.left;
 
 	if (left + dropdownWidth > viewportWidth) {
-		left = Math.max(8, viewportWidth - dropdownWidth - 8);
+		left = Math.max(POSITIONING_OFFSET, viewportWidth - dropdownWidth - POSITIONING_OFFSET);
 	}
 
-	dropdown.style.position = 'fixed';
-	dropdown.style.top = `${top}px`;
-	dropdown.style.left = `${left}px`;
-	dropdown.style.zIndex = '10000';
-	dropdown.style.transform = 'none';
-	dropdown.style.right = 'auto';
-	dropdown.style.bottom = 'auto';
-	dropdown.style.margin = '0';
-	
-	dropdown.offsetHeight;
+	Object.assign(dropdown.style, {
+		position: 'fixed',
+		top: `${targetRect.bottom + POSITIONING_OFFSET}px`,
+		left: `${left}px`,
+		zIndex: '10000',
+		transform: 'none',
+		right: 'auto',
+		bottom: 'auto',
+		margin: '0'
+	});
 }
 
 function showDropdown(dropdown) {
@@ -87,7 +97,7 @@ function showDropdown(dropdown) {
 	dropdown.setAttribute('aria-expanded', 'true');
 	dropdown.style.display = 'block';
 		
-	expandedDropdowns.push(dropdown);
+	expandedDropdowns.add(dropdown);
 
 	if (!scrollListenerAdded) {
 		window.addEventListener('scroll', handleScroll, true);
@@ -100,9 +110,15 @@ function hideDropdown(dropdown) {
 	dropdown.setAttribute('aria-expanded', 'false');
 	dropdown.style.display = 'none';
 
-	expandedDropdowns.splice(expandedDropdowns.indexOf(dropdown), 1);
+	expandedDropdowns.delete(dropdown);
 
-	if (expandedDropdowns.length === 0 && scrollListenerAdded) {
+	const keydownListener = keydownListeners.get(dropdown);
+	if (keydownListener) {
+		document.removeEventListener('keydown', keydownListener);
+		keydownListeners.delete(dropdown);
+	}
+
+	if (expandedDropdowns.size === 0 && scrollListenerAdded) {
 		window.removeEventListener('scroll', handleScroll, true);
 		scrollListenerAdded = false;
 	}
