@@ -37,6 +37,7 @@ export type ImageSize =
 export interface Features {
 	showMeta?: boolean;
 	showTitle?: boolean;
+	showTitlePrefix?: boolean;
 	showStandfirst?: boolean;
 	showStatus?: boolean;
 	showImage?: boolean;
@@ -44,6 +45,12 @@ export interface Features {
 	 * Takes precedence over image
 	 */
 	showHeadshot?: boolean;
+	/**
+	 * Takes precedence over legacy headshot.
+	 * byline component includes headshot
+	 */
+	showByline?: boolean;
+	showBylineHeadshot?: boolean;
 	/**
 	 * Takes precedence over image or headshot
 	 */
@@ -80,6 +87,7 @@ export interface Title {
 	title: string;
 	/** Used for testing headline variations */
 	altTitle: string;
+	titlePrefix?: string;
 }
 
 export interface Standfirst {
@@ -160,6 +168,12 @@ export interface MetaLink {
 	prefLabel: string;
 }
 
+/** [text, url, headshot][] */
+type StructuredByline = [string, string?, string?][];
+export interface Byline {
+	byline?: StructuredByline
+}
+
 export interface Link {
 	/** Content UUID */
 	id: string;
@@ -204,6 +218,7 @@ export interface TeaserProps
 		Status,
 		Image,
 		Headshot,
+		Byline,
 		Video,
 		RelatedLinks,
 		Context,

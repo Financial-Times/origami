@@ -1,5 +1,20 @@
 # Changelog
 
+## [10.0.0](https://github.com/Financial-Times/origami/compare/o-teaser-v9.1.3...o-teaser-v10.0.0) (2026-02-19)
+
+
+### ⚠ BREAKING CHANGES
+
+* Add Byline component
+
+### Features
+
+* Add Byline component ([4d01245](https://github.com/Financial-Times/origami/commit/4d01245fb5d767a0f1cf5972714b603fab66383f))
+* Add Byline stylings ([be46170](https://github.com/Financial-Times/origami/commit/be461709df3c64537e0519ca45009e1b116765e5))
+* Add title indicator icon with Opinion teasers ([fc23079](https://github.com/Financial-Times/origami/commit/fc23079fdac6d2591842854058e26a2873e4985f))
+* Add titlePrefix into Title component ([7e754f1](https://github.com/Financial-Times/origami/commit/7e754f111ca880defbe2cdc8ddba36fa624a0bad))
+* Add titlePrefix stylings ([3ce1ae0](https://github.com/Financial-Times/origami/commit/3ce1ae0cdfdefe325f7ea2f9f2f930ba9c55cba9))
+
 ## [9.1.3](https://github.com/Financial-Times/origami/compare/o-teaser-v9.1.2...o-teaser-v9.1.3) (2026-02-05)
 
 

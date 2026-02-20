@@ -37,6 +37,8 @@
 	.o-teaser__heading a:focus,
 	.o-teaser__heading a:visited,
 	.o-teaser__standfirst a:visited,
+	.o-teaser__byline a:hover,
+	.o-teaser__byline a:focus,
 	.o-teaser__tag:hover,
 	.o-teaser__tag:focus {
 		color: oPrivateColorsMix(
@@ -116,6 +118,8 @@
 		.o-teaser__heading,
 		.o-teaser__heading a,
 		.o-teaser__heading a:visited,
+		.o-teaser__byline a,
+		.o-teaser__byline a:visited,
 		.o-teaser__meta,
 		.o-teaser__standfirst,
 		.o-teaser__standfirst a,
@@ -177,6 +181,10 @@
 		font-weight: oPrivateFoundationGet('o3-type-headline-md-font-weight');
 		line-height: oPrivateFoundationGet('o3-type-headline-md-line-height');
 	}
+
+	.o-teaser__byline {
+		justify-self: center;
+	}
 }
 
 /// Centred hero teaser styles to centre image
@@ -213,7 +221,9 @@
 	$hero-extra-highlight-border: oPrivateFoundationGet('o3-color-palette-lemon');
 	$hero-extra-highlight-color: oPrivateFoundationGet('o3-color-palette-lemon');
 	.o-teaser__heading a:hover,
-	.o-teaser__heading a:focus {
+	.o-teaser__heading a:focus,
+	.o-teaser__byline a:hover,
+	.o-teaser__byline a:focus {
 		color: $hero-extra-highlight-color;
 	}
 

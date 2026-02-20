@@ -18,17 +18,24 @@
     "url": "#",
     "prefLabel": "Anti-Semitism"
   },
+  "titlePrefix": null,
   "image": {
     "url": "http://prod-upp-image-read.ft.com/1005ca96-364b-11e8-8b98-2f31af407cc8",
     "width": 2048,
     "height": 1152
   },
+  "byline": [
+    [
+      "Gideon Rachman",
+      "/gideon-rachman",
+      "fthead-v1:gideon-rachman"
+    ]
+  ],
   "headshot": "fthead-v1:gideon-rachman",
   "indicators": {
     "isOpinion": true,
     "isColumn": true
   },
-  "showHeadshot": true,
   "status": "",
   "headshotTint": "",
   "accessLevel": "free",
