@@ -65,11 +65,11 @@ function positionDropdown(dropdown, hoverTarget) {
 	
 	const dropdownWidth = 285;
 
-	let top = targetRect.bottom + 4;
+	let top = targetRect.bottom + 8;
 	let left = targetRect.left;
 
 	if (left + dropdownWidth > viewportWidth) {
-		left = Math.max(4, viewportWidth - dropdownWidth - 4);
+		left = Math.max(8, viewportWidth - dropdownWidth - 8);
 	}
 
 	dropdown.style.position = 'fixed';
