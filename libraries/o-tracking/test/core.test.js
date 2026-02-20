@@ -5,7 +5,7 @@ import sinon from 'sinon/pkg/sinon-esm.js';
 import {set, destroy} from '../src/javascript/core/settings.js';
 import {Queue} from '../src/javascript/core/queue.js';
 import {session, init} from '../src/javascript/core/session.js';
-import {init as initSend, run} from '../src/javascript/core/send.js';
+import {init as initSend} from '../src/javascript/core/send.js';
 import core from '../src/javascript/core.js';
 import { errorNextSend } from './setup.js';
 
@@ -100,7 +100,7 @@ describe('Core', function () {
 			proclaim.equal(callback.called, 1, 'Callback called once.');
 
 			// Try again
-			run();
+			initSend();
 
 			proclaim.ok(callback.calledOnce, 'Callback should only be called once as next send could be on a different page.');
 		});

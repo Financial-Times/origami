@@ -4,11 +4,10 @@ import proclaim from 'proclaim';
 import sinon from 'sinon/pkg/sinon-esm.js';
 import {
 	init,
-	add,
 	addAndRun
 } from '../../src/javascript/core/send.js';
 import {Queue} from "../../src/javascript/core/queue.js";
-import {unmockTransport, mockTransport, sendSpy} from '../setup.js';
+import {unmockTransport, mockTransport, sendSpy, errorNextSend} from '../setup.js';
 import {set, destroy} from '../../src/javascript/core/settings.js';
 
 const request = {
@@ -51,13 +50,6 @@ describe('Core.Send', function () {
 			init();
 		});
 	});
-
-	it('should add a request', function () {
-		proclaim.doesNotThrow(function () {
-			add(request);
-		});
-	});
-
 
 	describe('fallback transports', function () {
 		before(function () {
@@ -252,41 +244,164 @@ describe('Core.Send', function () {
 		});
 	});
 
-	it('should cope with the huge queue bug', function (done) {
-		const server = sinon.fakeServer.create(); // Catch AJAX requests
-		let queue = new Queue('requests');
+	describe('queue bug', function () {
+		let queue;
 
-		queue.replace([]);
+		beforeEach(function () {
+			set('config', {queue: true});
+			queue = init();
+		});
 
-		for (let i=0; i<201; i++) {
-			queue.add({});
-		}
+		afterEach(function () {
+			queue.storage.destroy();
+		});
 
-		queue.save();
-
-		server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
-
-		// Run the queue
-		init();
-
-		server.respond();
-
-		// Wait for localStorage
-		setTimeout(() => {
-			try {
-				// Refresh our queue as it's kept in memory
-				queue = new Queue('requests');
-
-				// Event added for the debugging info
-				proclaim.equal(queue.all().length, 0);
-
-				// console.log(queue.all());
-				server.restore();
-				done();
-			} catch (error) {
-				done(error);
+		it('should summarise large numbers of offline events to avoid the huge queue bug', function () {
+			// queue up 200 'offline' events
+			for (let i = 0; i < 200; i++) {
+				errorNextSend();
+				addAndRun({
+					category: 'page',
+					action: 'view',
+				});
 			}
-		}, 200);
+
+			// Go online, and send the events with a clean sinon.spy history
+			sendSpy.resetHistory();
+			addAndRun({
+				category: 'button',
+				action: 'click',
+			});
+
+			// Only one event should be sent
+			proclaim.equal(sendSpy.callCount, 1);
+
+			const payload = JSON.parse(sendSpy.firstCall.args[1]);
+			proclaim.equal(payload.category, 'o-tracking');
+			proclaim.equal(payload.action, 'queue-bug');
+			proclaim.equal(payload.context.queue_length, 201);
+			proclaim.deepEqual(payload.context.counts, {
+				'page:view': 200,
+				'button:click': 1,
+			});
+
+			proclaim.equal(queue.all().length, 0);
+		});
+
+		it('should summarise all offline events rather than discard previous summaries', function () {
+			// queue up 200 'offline' events
+			for (let i = 0; i < 200; i++) {
+				errorNextSend();
+				addAndRun({
+					category: 'page',
+					action: 'view',
+				});
+			}
+
+			// this failure will generate a queue-bug event which fails to be sent
+			errorNextSend();
+			addAndRun({
+				category: 'button',
+				action: 'click',
+			});
+
+			// queue up 200 more 'offline' events
+			for (let i = 0; i < 200; i++) {
+				errorNextSend();
+				addAndRun({
+					category: 'page',
+					action: 'view',
+				});
+			}
+
+			// Go online, and send the events with a clean sinon.spy history
+			sendSpy.resetHistory();
+			addAndRun({
+				category: 'button',
+				action: 'click',
+			});
+
+			// Two send events should have been attempted
+			proclaim.equal(sendSpy.callCount, 2);
+
+			// NB: our mockTransport completes synchronously, so the last click event is
+			// sent before the queue-bug event. It'll be the other way around with
+			// a real HTTP call, but harder to observe the test framework.
+			const firstEvent = JSON.parse(sendSpy.firstCall.args[1]);
+			proclaim.equal(firstEvent.category, 'button');
+			proclaim.equal(firstEvent.action, 'click');
+
+			const secondEvent = JSON.parse(sendSpy.secondCall.args[1]);
+			proclaim.equal(secondEvent.category, 'o-tracking');
+			proclaim.equal(secondEvent.action, 'queue-bug');
+			proclaim.equal(secondEvent.context.queue_length, 401);
+			proclaim.deepEqual(secondEvent.context.counts, {
+				'page:view': 400,
+				'button:click': 1,
+			});
+
+			proclaim.equal(queue.all().length, 0);
+		});
+
+		it('should summarise offline status and queue time', async function () {
+			const clock = sinon.useFakeTimers({
+				now: new Date(0),
+				toFake: ['Date'],
+			});
+
+			// queue up 100 'online' events which fail to send
+			for (let i = 0; i < 100; i++) {
+				errorNextSend();
+				addAndRun({
+					category: 'page',
+					action: 'view',
+				});
+				clock.tick(1);
+			}
+
+			// queue up 301 'offline' events with a queue lag
+			for (let i = 0; i < 301; i++) {
+				errorNextSend();
+				addAndRun({
+					category: 'page',
+					action: 'view',
+					device: {
+						is_offline: true,
+					},
+				});
+				clock.tick(1);
+			}
+
+			// Go online, and send the events with a clean sinon.spy history
+			sendSpy.resetHistory();
+			addAndRun({
+				category: 'button',
+				action: 'click',
+			});
+
+			// Two send events should have been attempted
+			proclaim.equal(sendSpy.callCount, 2);
+
+			// NB: our mockTransport completes synchronously, so the last click event is
+			// sent before the queue-bug event. It'll be the other way around with
+			// a real HTTP call, but harder to observe the test framework.
+			const firstEvent = JSON.parse(sendSpy.firstCall.args[1]);
+			proclaim.equal(firstEvent.category, 'button');
+			proclaim.equal(firstEvent.action, 'click');
+
+			const secondEvent = JSON.parse(sendSpy.secondCall.args[1]);
+			proclaim.equal(secondEvent.category, 'o-tracking');
+			proclaim.equal(secondEvent.action, 'queue-bug');
+			proclaim.equal(secondEvent.context.maxOfflineLag, 200);
+			proclaim.equal(secondEvent.context.averageOfflineLag, 100);
+			proclaim.equal(secondEvent.context.totalOfflineLag, 40000);
+			proclaim.deepEqual(secondEvent.context.isOfflineCounts, {
+				true: 301,
+				false: 100,
+			});
+
+			clock.restore();
+		});
 	});
 
 	it('should replace circular references with warning strings', function (done) {
@@ -329,6 +444,4 @@ describe('Core.Send', function () {
 			}
 		}, 100);
 	});
-
-
 });

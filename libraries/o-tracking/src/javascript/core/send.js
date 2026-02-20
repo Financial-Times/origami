@@ -129,20 +129,61 @@ function run(callback = function () { /* empty */}) {
 	// Investigate queue lengths bug
 	// https://jira.ft.com/browse/DTP-330
 	const all_events = queue.all();
+	let queue_length = all_events.length;
 
-	if (all_events.length > 200) {
+	if (queue_length > 200) {
 		const counts = {};
+		const isOfflineCounts = {
+			true: 0,
+			false: 0,
+		};
+		let maxOfflineLag = 0;
+		let totalOfflineLag = 0;
 
-		all_events.forEach(function (event) {
-			const label = [event.category, event.action].join(':');
+		all_events.forEach(function ({
+			queueTime,
+			category,
+			action,
+			context = {},
+			device: {is_offline = false} = {},
+		}) {
+			const offlineLag = new Date().getTime() - queueTime;
 
-			if (!Object.prototype.hasOwnProperty.call(counts, label)) {
-				counts[label] = 0;
+			// If a previously-queued event was a 'queue-bug' summary,
+			// extract the information and merge with the current context
+			if (category === 'o-tracking' && action === 'queue-bug') {
+				const previousCounts = context.counts || {};
+				const previousOfflineCounts = context.isOfflineCounts || {
+					true: 0,
+					false: 0,
+				};
+				const previousMaxOfflineLag = context.maxOfflineLag || 0;
+				const previousTotalOfflineLag = context.totalOfflineLag || 0;
+
+				for (const [label, count] of Object.entries(previousCounts)) {
+					counts[label] = (counts[label] || 0) + count;
+					queue_length += count;
+				}
+
+				isOfflineCounts[true] += previousOfflineCounts.true;
+				isOfflineCounts[false] += previousOfflineCounts.false;
+
+				maxOfflineLag = Math.max(maxOfflineLag, previousMaxOfflineLag);
+				totalOfflineLag += previousTotalOfflineLag;
+
+				// Data from this old 'queue-bug' event has been exported,
+				// so the event can now be forgotten
+				queue_length -= 1;
+			} else {
+				const label = [category, action].join(':');
+				counts[label] = (counts[label] || 0) + 1;
+				isOfflineCounts[is_offline] += 1;
+				maxOfflineLag = Math.max(maxOfflineLag, offlineLag);
+				totalOfflineLag += offlineLag;
 			}
-
-			counts[label] += 1;
 		});
 
+		const averageOfflineLag = Math.round(totalOfflineLag / queue_length);
 		queue.replace([]);
 
 		queue.add({
@@ -150,10 +191,14 @@ function run(callback = function () { /* empty */}) {
 			action: 'queue-bug',
 			context: {
 				url: document.URL,
-				queue_length: all_events.length,
+				queue_length,
 				counts: counts,
-				storage: queue.storage.storage._type
-			}
+				isOfflineCounts,
+				maxOfflineLag,
+				averageOfflineLag,
+				totalOfflineLag,
+				storage: queue.storage.storage._type,
+			},
 		});
 	}
 
@@ -202,9 +247,4 @@ function init() {
 	return queue;
 }
 
-export {
-	init,
-	add,
-	run,
-	addAndRun
-};
+export {init, addAndRun};
