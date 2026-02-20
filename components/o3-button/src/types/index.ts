@@ -5,6 +5,9 @@ export interface ButtonProps {
 	size?: 'small' | '';
 	fluid?: boolean;
 	theme?: 'inverse' | 'mono' | 'neutral';
+	ref?:
+		| LegacyRef<HTMLButtonElement | null>
+		| MutableRef<HTMLButtonElement | null>;
 	icon?:
 		| 'chevron-left'
 		| 'chevron-right'
@@ -77,3 +80,17 @@ export type Ellipsis = Pick<ButtonProps, 'theme'> & {
 export interface ButtonGroupProps {
 	children: React.JSX.Element[];
 }
+
+export interface MutableRef<T> {
+	current: T;
+}
+
+export type RefObject<T> = {
+	readonly current: T | null;
+};
+
+export type RefCallback<T> = (instance: T | null) => void;
+
+export type Ref<T> = RefCallback<T> | RefObject<T> | null;
+
+export type LegacyRef<T> = string | Ref<T>;
