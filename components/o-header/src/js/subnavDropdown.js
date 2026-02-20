@@ -36,7 +36,6 @@ function addDropdownEvents(parent, dropdown) {
 	const handleKeydown = (event) => {
 		const key = event.key || event.keyCode;
 
-		// Internet Explorer 11 incorrectly maps the escape key to `Esc` instead of `Escape`
 		if (key === 'Escape' || key === 'Esc' || key === 27) {
 			if (isDropdownOpen(dropdown)) {
 				hideDropdown(dropdown);
@@ -94,11 +93,8 @@ function showDropdown(dropdown, animate) {
 	dropdown.setAttribute('aria-expanded', 'true');
 	dropdown.style.display = 'block';
 		
-	dropdown.dispatchEvent(new CustomEvent('oHeader.SubnavDropdownShow', { bubbles: true }));
-
 	expandedDropdowns.push(dropdown);
 
-	// Add scroll listener when first dropdown opens
 	if (!scrollListenerAdded) {
 		window.addEventListener('scroll', handleScroll, true);
 		scrollListenerAdded = true;
@@ -111,11 +107,8 @@ function hideDropdown(dropdown) {
 	dropdown.setAttribute('aria-expanded', 'false');
 	dropdown.style.display = 'none';
 
-	dropdown.dispatchEvent(new CustomEvent('oHeader.SubnavDropdownHide', { bubbles: true }));
-
 	expandedDropdowns.splice(expandedDropdowns.indexOf(dropdown), 1);
 
-	// Remove scroll listener when no dropdowns are open
 	if (expandedDropdowns.length === 0 && scrollListenerAdded) {
 		window.removeEventListener('scroll', handleScroll, true);
 		scrollListenerAdded = false;
