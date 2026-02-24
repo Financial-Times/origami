@@ -2378,7 +2378,7 @@ https://github.com/Financial-Times/o-comments/pull/170 - Glynn&lt;/p&gt;
 &lt;h3&gt;Placeholder Images&lt;/h3&gt;
 &lt;p&gt;The &lt;a href=&quot;https://www.ft.com/__origami/service/image/v2/&quot;&gt;Origami Image Service&lt;/a&gt; can now generate placeholder images at specified dimensions and quality. It&apos;s a super useful feature to support prototypes and testing. 🎉&lt;/p&gt;
 &lt;p&gt;Here&apos;s an example placeholder request, for an image that&apos;s 500px square, of maximum quality:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;https://www.ft.com/__origami/service/image/v2/images/placeholder/?width=500&amp;amp;height=500&amp;amp;quality=lossless&amp;amp;source=test
+&lt;pre&gt;&lt;code&gt;https://www.ft.com/__origami/service/image/v2/images/placeholder/?width=500&amp;amp;height=500&amp;amp;quality=lossless&amp;amp;source=origami
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;/p&gt;
 &lt;h3&gt;Build Service Updater&lt;/h3&gt;
