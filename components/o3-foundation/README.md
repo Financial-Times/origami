@@ -308,7 +308,7 @@ Example:
 }
 ```
 
-See our documentation website for a [full list of spacing tokens](https://origami-for-everyone.ft.com/guides/spacing/).
+See the documentation for a [full list of spacing tokens](/components/o3-foundation/docs/spacing.md).
 
 ## Grid
 
