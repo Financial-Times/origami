@@ -125,6 +125,38 @@
         "teal-100": {
           "value": "#1AEBFF",
           "type": "color"
+        },
+        "jade-90": {
+          "value": "#00572C",
+          "type": "color"
+        },
+        "jade": {
+          "value": "#00994D",
+          "type": "color"
+        },
+        "jade-10": {
+          "value": "#CCEBDB",
+          "type": "color"
+        },
+        "crimson": {
+          "value": "#B30000",
+          "type": "color"
+        },
+        "crimson-10": {
+          "value": "#FAE6E6",
+          "type": "color"
+        },
+        "lemon-90": {
+          "value": "#695008",
+          "type": "color"
+        },
+        "lemon": {
+          "value": "#FABF14",
+          "type": "color"
+        },
+        "lemon-10": {
+          "value": "#FFF2CC",
+          "type": "color"
         }
       }
     }

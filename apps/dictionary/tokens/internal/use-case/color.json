@@ -25,39 +25,39 @@
         },
         "success": {
           "foreground": {
-            "value": "#00572C",
+            "value": "{o3.color.palette.jade-90}",
             "type": "color"
           },
           "background": {
-            "value": "#CCEBDB",
+            "value": "{o3.color.palette.jade-10}",
             "type": "color"
           },
           "highlight": {
-            "value": "#00994D",
+            "value": "{o3.color.palette.jade-90}",
             "type": "color"
           }
         },
         "error": {
           "foreground": {
-            "value": "#B30000",
+            "value": "{o3.color.palette.crimson}",
             "type": "color"
           },
           "background": {
-            "value": "#FAE6E6",
+            "value": "{o3.color.palette.crimson-10}",
             "type": "color"
           }
         },
         "warning": {
           "foreground": {
-            "value": "#695008",
+            "value": "{o3.color.palette.lemon-90}",
             "type": "color"
           },
           "background": {
-            "value": "#FFF2CC",
+            "value": "{o3.color.palette.lemon-10}",
             "type": "color"
           },
           "highlight": {
-            "value": "#FABF14",
+            "value": "{o3.color.palette.lemon}",
             "type": "color"
           }
         },
