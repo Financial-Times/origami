@@ -1,5 +1,6 @@
 import viewport from '@financial-times/o-viewport';
 import * as oUtils from '@financial-times/o-utils';
+import { initSubnavDropdowns } from './subnavDropdown.js';
 
 function init(headerEl) {
 	const subnav = headerEl.querySelector('[data-o-header-subnav]');
@@ -87,6 +88,8 @@ function init(headerEl) {
 	buttons.forEach(button => {
 		button.onclick = scroll;
 	});
+
+	initSubnavDropdowns(headerEl);
 
 	checkCurrentPosition();
 }
