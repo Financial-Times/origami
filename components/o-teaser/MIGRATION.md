@@ -1,5 +1,61 @@
 # Migration guide
 
+### Migrating to v10.0.0
+
+v10.0.0 introduces:
+
+* **Byline** component, which replaces the legacy Headshot component
+* **title indicator icon** for only Opinion teaser
+* **titlePrefix**
+
+#### Byline
+
+The Byline component is enabled by default (`showByline: true`) in the presets.
+When `byline` data is provided, the Byline component will be rendered instead of Headshot.
+
+If you are not ready to use the Byline component, pass:
+
+```js
+showByline: false
+```
+
+This keeps the existing Headshot behaviour.
+
+If you are migrating to the Byline component, you must provide a `byline` property:
+
+| Property name | Type                           | Note                               |
+| ------------- | ------------------------------ | ---------------------------------- |
+| `byline`      | `[string, string?, string?][]` | `[text, linkUrl?, headshotUrl?][]` |
+
+Example with single author with headshot:
+
+```js
+byline: [
+  ['Martin Wolf', '/martin-wolf', '/martin-wolf-headshot']
+]
+```
+
+Example with multiple authors:
+
+```js
+// This will render: Martin Wolf & Paul Krugman
+byline: [
+  ['Martin Wolf', '/martin-wolf'],
+  [' & '],
+  ['Paul Krugman', '/paul-krugman']
+]
+```
+
+#### titlePrefix
+
+`titlePrefix` is enabled by default (`showTitlePrefix: true`) in the presets.
+Nothing will be rendered unless a `titlePrefix` string is provided.
+
+| Property name | Type     | Note                            |
+| ------------- | -------- | ------------------------------- |
+| `titlePrefix` | `string` | Text displayed before the title |
+
+
 ### Migrating to v9.0.0
 
 v9 upgrades [html-react-parser to v5.2.7](https://github.com/remarkablemark/html-react-parser), which has a dependency on React 19.
