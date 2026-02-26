@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.6](https://github.com/Financial-Times/origami/compare/o-spacing-v3.2.5...o-spacing-v3.2.6) (2026-02-25)
+
+
+### Bug Fixes
+
+* update tests to use origami as source code rather than test ([47fe5f4](https://github.com/Financial-Times/origami/commit/47fe5f4357d8da10a0988a7049e55b8973a52d7a))
+
 ## [3.2.5](https://github.com/Financial-Times/origami/compare/o-spacing-v3.2.4...o-spacing-v3.2.5) (2023-10-27)
 
 
