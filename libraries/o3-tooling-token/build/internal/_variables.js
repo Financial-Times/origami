@@ -549,6 +549,170 @@ export default {
 		"css": "--o3-color-palette-teal-100",
 		"figma": "o3/color/palette/teal-100"
 },
+	"o3-color-palette-jade-90": {
+		"shortName": "jade-90",
+		"value": "#00572c",
+		"originalValue": "#00572C",
+		"type": "color",
+		"attributes": {
+				"item": "palette",
+				"subitem": "jade-90"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"jade-90"
+		],
+		"origamiTint": {
+				"base": "jade",
+				"value": "90"
+		},
+		"css": "--o3-color-palette-jade-90",
+		"figma": "o3/color/palette/jade-90"
+},
+	"o3-color-palette-jade": {
+		"shortName": "jade",
+		"value": "#00994d",
+		"originalValue": "#00994D",
+		"type": "color",
+		"attributes": {
+				"item": "palette",
+				"subitem": "jade"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"jade"
+		],
+		"css": "--o3-color-palette-jade",
+		"figma": "o3/color/palette/jade"
+},
+	"o3-color-palette-jade-10": {
+		"shortName": "jade-10",
+		"value": "#ccebdb",
+		"originalValue": "#CCEBDB",
+		"type": "color",
+		"attributes": {
+				"item": "palette",
+				"subitem": "jade-10"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"jade-10"
+		],
+		"origamiTint": {
+				"base": "jade",
+				"value": "10"
+		},
+		"css": "--o3-color-palette-jade-10",
+		"figma": "o3/color/palette/jade-10"
+},
+	"o3-color-palette-crimson": {
+		"shortName": "crimson",
+		"value": "#b30000",
+		"originalValue": "#B30000",
+		"type": "color",
+		"attributes": {
+				"item": "palette",
+				"subitem": "crimson"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"crimson"
+		],
+		"css": "--o3-color-palette-crimson",
+		"figma": "o3/color/palette/crimson"
+},
+	"o3-color-palette-crimson-10": {
+		"shortName": "crimson-10",
+		"value": "#fae6e6",
+		"originalValue": "#FAE6E6",
+		"type": "color",
+		"attributes": {
+				"item": "palette",
+				"subitem": "crimson-10"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"crimson-10"
+		],
+		"origamiTint": {
+				"base": "crimson",
+				"value": "10"
+		},
+		"css": "--o3-color-palette-crimson-10",
+		"figma": "o3/color/palette/crimson-10"
+},
+	"o3-color-palette-lemon-90": {
+		"shortName": "lemon-90",
+		"value": "#695008",
+		"originalValue": "#695008",
+		"type": "color",
+		"attributes": {
+				"item": "palette",
+				"subitem": "lemon-90"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"lemon-90"
+		],
+		"origamiTint": {
+				"base": "lemon",
+				"value": "90"
+		},
+		"css": "--o3-color-palette-lemon-90",
+		"figma": "o3/color/palette/lemon-90"
+},
+	"o3-color-palette-lemon": {
+		"shortName": "lemon",
+		"value": "#fabf14",
+		"originalValue": "#FABF14",
+		"type": "color",
+		"attributes": {
+				"item": "palette",
+				"subitem": "lemon"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"lemon"
+		],
+		"css": "--o3-color-palette-lemon",
+		"figma": "o3/color/palette/lemon"
+},
+	"o3-color-palette-lemon-10": {
+		"shortName": "lemon-10",
+		"value": "#fff2cc",
+		"originalValue": "#FFF2CC",
+		"type": "color",
+		"attributes": {
+				"item": "palette",
+				"subitem": "lemon-10"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"lemon-10"
+		],
+		"origamiTint": {
+				"base": "lemon",
+				"value": "10"
+		},
+		"css": "--o3-color-palette-lemon-10",
+		"figma": "o3/color/palette/lemon-10"
+},
 	"o3-color-use-case-outline": {
 		"shortName": "@",
 		"value": "#cccccc",
@@ -633,7 +797,7 @@ export default {
 	"o3-color-use-case-success-foreground": {
 		"shortName": "foreground",
 		"value": "#00572c",
-		"originalValue": "#00572C",
+		"originalValue": "{o3.color.palette.jade-90}",
 		"type": "color",
 		"attributes": {
 				"item": "use-case",
@@ -653,7 +817,7 @@ export default {
 	"o3-color-use-case-success-background": {
 		"shortName": "background",
 		"value": "#ccebdb",
-		"originalValue": "#CCEBDB",
+		"originalValue": "{o3.color.palette.jade-10}",
 		"type": "color",
 		"attributes": {
 				"item": "use-case",
@@ -672,8 +836,8 @@ export default {
 },
 	"o3-color-use-case-success-highlight": {
 		"shortName": "highlight",
-		"value": "#00994d",
-		"originalValue": "#00994D",
+		"value": "#00572c",
+		"originalValue": "{o3.color.palette.jade-90}",
 		"type": "color",
 		"attributes": {
 				"item": "use-case",
@@ -693,7 +857,7 @@ export default {
 	"o3-color-use-case-error-foreground": {
 		"shortName": "foreground",
 		"value": "#b30000",
-		"originalValue": "#B30000",
+		"originalValue": "{o3.color.palette.crimson}",
 		"type": "color",
 		"attributes": {
 				"item": "use-case",
@@ -713,7 +877,7 @@ export default {
 	"o3-color-use-case-error-background": {
 		"shortName": "background",
 		"value": "#fae6e6",
-		"originalValue": "#FAE6E6",
+		"originalValue": "{o3.color.palette.crimson-10}",
 		"type": "color",
 		"attributes": {
 				"item": "use-case",
@@ -733,7 +897,7 @@ export default {
 	"o3-color-use-case-warning-foreground": {
 		"shortName": "foreground",
 		"value": "#695008",
-		"originalValue": "#695008",
+		"originalValue": "{o3.color.palette.lemon-90}",
 		"type": "color",
 		"attributes": {
 				"item": "use-case",
@@ -753,7 +917,7 @@ export default {
 	"o3-color-use-case-warning-background": {
 		"shortName": "background",
 		"value": "#fff2cc",
-		"originalValue": "#FFF2CC",
+		"originalValue": "{o3.color.palette.lemon-10}",
 		"type": "color",
 		"attributes": {
 				"item": "use-case",
@@ -773,7 +937,7 @@ export default {
 	"o3-color-use-case-warning-highlight": {
 		"shortName": "highlight",
 		"value": "#fabf14",
-		"originalValue": "#FABF14",
+		"originalValue": "{o3.color.palette.lemon}",
 		"type": "color",
 		"attributes": {
 				"item": "use-case",
