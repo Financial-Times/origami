@@ -665,6 +665,9 @@
   "o3-form--file-input-error-state": {
     "sb": "?path=/story/o3-form--file-input-error-state"
   },
+  "o3-form--file-input-javascript": {
+    "sb": "?path=/story/o3-form--file-input-javascript"
+  },
   "o3-form--password-input": {
     "sb": "?path=/story/o3-form--password-input"
   },
@@ -957,6 +960,12 @@
   },
   "sustainable-views-o3-typography-unorderedlist--unordered-list-story": {
     "sb": "?path=/story/sustainable-views-o3-typography-unorderedlist--unordered-list-story"
+  },
+  "tests-o3-form--file-input-javascript-delete-button": {
+    "sb": "?path=/story/tests-o3-form--file-input-javascript-delete-button"
+  },
+  "tests-o3-form--file-input-javascript-upload-display": {
+    "sb": "?path=/story/tests-o3-form--file-input-javascript-upload-display"
   },
   "tests-o3-form--password-input-test": {
     "sb": "?path=/story/tests-o3-form--password-input-test"

@@ -43,28 +43,6 @@ export default {
 		"css": "--o3-color-palette-white",
 		"figma": "o3/color/palette/white"
 },
-	"o3-color-palette-oxford": {
-		"shortName": "oxford",
-		"value": "#0f5499",
-		"originalValue": "#0F5499",
-		"type": "color",
-		"attributes": {
-				"item": "palette",
-				"subitem": "oxford"
-		},
-		"origamiKeys": [
-				"palette",
-				"primary"
-		],
-		"path": [
-				"o3",
-				"color",
-				"palette",
-				"oxford"
-		],
-		"css": "--o3-color-palette-oxford",
-		"figma": "o3/color/palette/oxford"
-},
 	"o3-color-palette-teal": {
 		"shortName": "teal",
 		"value": "#0d7680",
@@ -152,94 +130,6 @@ export default {
 		],
 		"css": "--o3-color-palette-slate-white-15",
 		"figma": "o3/color/palette/slate-white-15"
-},
-	"o3-color-palette-lemon": {
-		"shortName": "lemon",
-		"value": "#ffec1a",
-		"originalValue": "#FFEC1A",
-		"type": "color",
-		"attributes": {
-				"item": "palette",
-				"subitem": "lemon"
-		},
-		"origamiKeys": [
-				"palette",
-				"secondary"
-		],
-		"path": [
-				"o3",
-				"color",
-				"palette",
-				"lemon"
-		],
-		"css": "--o3-color-palette-lemon",
-		"figma": "o3/color/palette/lemon"
-},
-	"o3-color-palette-jade": {
-		"shortName": "jade",
-		"value": "#00994d",
-		"originalValue": "#00994d",
-		"type": "color",
-		"attributes": {
-				"item": "palette",
-				"subitem": "jade"
-		},
-		"origamiKeys": [
-				"palette",
-				"tertiary"
-		],
-		"path": [
-				"o3",
-				"color",
-				"palette",
-				"jade"
-		],
-		"css": "--o3-color-palette-jade",
-		"figma": "o3/color/palette/jade"
-},
-	"o3-color-palette-mandarin": {
-		"shortName": "mandarin",
-		"value": "#ff8833",
-		"originalValue": "#F83",
-		"type": "color",
-		"attributes": {
-				"item": "palette",
-				"subitem": "mandarin"
-		},
-		"origamiKeys": [
-				"palette",
-				"tertiary"
-		],
-		"path": [
-				"o3",
-				"color",
-				"palette",
-				"mandarin"
-		],
-		"css": "--o3-color-palette-mandarin",
-		"figma": "o3/color/palette/mandarin"
-},
-	"o3-color-palette-crimson": {
-		"shortName": "crimson",
-		"value": "#cc0000",
-		"originalValue": "#c00",
-		"type": "color",
-		"attributes": {
-				"item": "palette",
-				"subitem": "crimson"
-		},
-		"origamiKeys": [
-				"palette",
-				"tertiary"
-		],
-		"path": [
-				"o3",
-				"color",
-				"palette",
-				"crimson"
-		],
-		"css": "--o3-color-palette-crimson",
-		"figma": "o3/color/palette/crimson"
 },
 	"o3-color-palette-black-5": {
 		"shortName": "black-5",
@@ -461,182 +351,6 @@ export default {
 		"css": "--o3-color-palette-black-90",
 		"figma": "o3/color/palette/black-90"
 },
-	"o3-color-palette-oxford-30": {
-		"shortName": "oxford-30",
-		"value": "#082a4d",
-		"originalValue": "#082A4D",
-		"type": "color",
-		"attributes": {
-				"item": "palette",
-				"subitem": "oxford-30"
-		},
-		"path": [
-				"o3",
-				"color",
-				"palette",
-				"oxford-30"
-		],
-		"origamiTint": {
-				"base": "oxford",
-				"value": "30"
-		},
-		"css": "--o3-color-palette-oxford-30",
-		"figma": "o3/color/palette/oxford-30"
-},
-	"o3-color-palette-oxford-40": {
-		"shortName": "oxford-40",
-		"value": "#0a3866",
-		"originalValue": "#0A3866",
-		"type": "color",
-		"attributes": {
-				"item": "palette",
-				"subitem": "oxford-40"
-		},
-		"path": [
-				"o3",
-				"color",
-				"palette",
-				"oxford-40"
-		],
-		"origamiTint": {
-				"base": "oxford",
-				"value": "40"
-		},
-		"css": "--o3-color-palette-oxford-40",
-		"figma": "o3/color/palette/oxford-40"
-},
-	"o3-color-palette-oxford-50": {
-		"shortName": "oxford-50",
-		"value": "#0d4680",
-		"originalValue": "#0D4680",
-		"type": "color",
-		"attributes": {
-				"item": "palette",
-				"subitem": "oxford-50"
-		},
-		"path": [
-				"o3",
-				"color",
-				"palette",
-				"oxford-50"
-		],
-		"origamiTint": {
-				"base": "oxford",
-				"value": "50"
-		},
-		"css": "--o3-color-palette-oxford-50",
-		"figma": "o3/color/palette/oxford-50"
-},
-	"o3-color-palette-oxford-60": {
-		"shortName": "oxford-60",
-		"value": "#0f5499",
-		"originalValue": "#0F5499",
-		"type": "color",
-		"attributes": {
-				"item": "palette",
-				"subitem": "oxford-60"
-		},
-		"path": [
-				"o3",
-				"color",
-				"palette",
-				"oxford-60"
-		],
-		"origamiTint": {
-				"base": "oxford",
-				"value": "60"
-		},
-		"css": "--o3-color-palette-oxford-60",
-		"figma": "o3/color/palette/oxford-60"
-},
-	"o3-color-palette-oxford-70": {
-		"shortName": "oxford-70",
-		"value": "#1262b3",
-		"originalValue": "#1262B3",
-		"type": "color",
-		"attributes": {
-				"item": "palette",
-				"subitem": "oxford-70"
-		},
-		"path": [
-				"o3",
-				"color",
-				"palette",
-				"oxford-70"
-		],
-		"origamiTint": {
-				"base": "oxford",
-				"value": "70"
-		},
-		"css": "--o3-color-palette-oxford-70",
-		"figma": "o3/color/palette/oxford-70"
-},
-	"o3-color-palette-oxford-80": {
-		"shortName": "oxford-80",
-		"value": "#1470cc",
-		"originalValue": "#1470CC",
-		"type": "color",
-		"attributes": {
-				"item": "palette",
-				"subitem": "oxford-80"
-		},
-		"path": [
-				"o3",
-				"color",
-				"palette",
-				"oxford-80"
-		],
-		"origamiTint": {
-				"base": "oxford",
-				"value": "80"
-		},
-		"css": "--o3-color-palette-oxford-80",
-		"figma": "o3/color/palette/oxford-80"
-},
-	"o3-color-palette-oxford-90": {
-		"shortName": "oxford-90",
-		"value": "#177ee6",
-		"originalValue": "#177EE6",
-		"type": "color",
-		"attributes": {
-				"item": "palette",
-				"subitem": "oxford-90"
-		},
-		"path": [
-				"o3",
-				"color",
-				"palette",
-				"oxford-90"
-		],
-		"origamiTint": {
-				"base": "oxford",
-				"value": "90"
-		},
-		"css": "--o3-color-palette-oxford-90",
-		"figma": "o3/color/palette/oxford-90"
-},
-	"o3-color-palette-oxford-100": {
-		"shortName": "oxford-100",
-		"value": "#198cff",
-		"originalValue": "#198CFF",
-		"type": "color",
-		"attributes": {
-				"item": "palette",
-				"subitem": "oxford-100"
-		},
-		"path": [
-				"o3",
-				"color",
-				"palette",
-				"oxford-100"
-		],
-		"origamiTint": {
-				"base": "oxford",
-				"value": "100"
-		},
-		"css": "--o3-color-palette-oxford-100",
-		"figma": "o3/color/palette/oxford-100"
-},
 	"o3-color-palette-teal-20": {
 		"shortName": "teal-20",
 		"value": "#052f33",
@@ -835,48 +549,515 @@ export default {
 		"css": "--o3-color-palette-teal-100",
 		"figma": "o3/color/palette/teal-100"
 },
-	"o3-color-use-case-link-text": {
+	"o3-color-palette-jade-90": {
+		"shortName": "jade-90",
+		"value": "#00572c",
+		"originalValue": "#00572C",
+		"type": "color",
+		"attributes": {
+				"item": "palette",
+				"subitem": "jade-90"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"jade-90"
+		],
+		"origamiTint": {
+				"base": "jade",
+				"value": "90"
+		},
+		"css": "--o3-color-palette-jade-90",
+		"figma": "o3/color/palette/jade-90"
+},
+	"o3-color-palette-jade": {
+		"shortName": "jade",
+		"value": "#00994d",
+		"originalValue": "#00994D",
+		"type": "color",
+		"attributes": {
+				"item": "palette",
+				"subitem": "jade"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"jade"
+		],
+		"css": "--o3-color-palette-jade",
+		"figma": "o3/color/palette/jade"
+},
+	"o3-color-palette-jade-10": {
+		"shortName": "jade-10",
+		"value": "#ccebdb",
+		"originalValue": "#CCEBDB",
+		"type": "color",
+		"attributes": {
+				"item": "palette",
+				"subitem": "jade-10"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"jade-10"
+		],
+		"origamiTint": {
+				"base": "jade",
+				"value": "10"
+		},
+		"css": "--o3-color-palette-jade-10",
+		"figma": "o3/color/palette/jade-10"
+},
+	"o3-color-palette-crimson": {
+		"shortName": "crimson",
+		"value": "#b30000",
+		"originalValue": "#B30000",
+		"type": "color",
+		"attributes": {
+				"item": "palette",
+				"subitem": "crimson"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"crimson"
+		],
+		"css": "--o3-color-palette-crimson",
+		"figma": "o3/color/palette/crimson"
+},
+	"o3-color-palette-crimson-10": {
+		"shortName": "crimson-10",
+		"value": "#fae6e6",
+		"originalValue": "#FAE6E6",
+		"type": "color",
+		"attributes": {
+				"item": "palette",
+				"subitem": "crimson-10"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"crimson-10"
+		],
+		"origamiTint": {
+				"base": "crimson",
+				"value": "10"
+		},
+		"css": "--o3-color-palette-crimson-10",
+		"figma": "o3/color/palette/crimson-10"
+},
+	"o3-color-palette-lemon-90": {
+		"shortName": "lemon-90",
+		"value": "#695008",
+		"originalValue": "#695008",
+		"type": "color",
+		"attributes": {
+				"item": "palette",
+				"subitem": "lemon-90"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"lemon-90"
+		],
+		"origamiTint": {
+				"base": "lemon",
+				"value": "90"
+		},
+		"css": "--o3-color-palette-lemon-90",
+		"figma": "o3/color/palette/lemon-90"
+},
+	"o3-color-palette-lemon": {
+		"shortName": "lemon",
+		"value": "#fabf14",
+		"originalValue": "#FABF14",
+		"type": "color",
+		"attributes": {
+				"item": "palette",
+				"subitem": "lemon"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"lemon"
+		],
+		"css": "--o3-color-palette-lemon",
+		"figma": "o3/color/palette/lemon"
+},
+	"o3-color-palette-lemon-10": {
+		"shortName": "lemon-10",
+		"value": "#fff2cc",
+		"originalValue": "#FFF2CC",
+		"type": "color",
+		"attributes": {
+				"item": "palette",
+				"subitem": "lemon-10"
+		},
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"lemon-10"
+		],
+		"origamiTint": {
+				"base": "lemon",
+				"value": "10"
+		},
+		"css": "--o3-color-palette-lemon-10",
+		"figma": "o3/color/palette/lemon-10"
+},
+	"o3-color-use-case-outline": {
 		"shortName": "@",
-		"value": "#0d7680",
-		"originalValue": "{o3.color.palette.teal}",
+		"value": "#cccccc",
+		"originalValue": "{o3.color.palette.black-20}",
 		"type": "color",
 		"description": "",
 		"attributes": {
 				"item": "use-case",
-				"subitem": "link",
+				"subitem": "outline",
+				"state": "@"
+		},
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"outline",
+				"@"
+		],
+		"css": "--o3-color-use-case-outline",
+		"figma": "o3/color/use-case/outline/@"
+},
+	"o3-color-use-case-outline-focus": {
+		"shortName": "focus",
+		"value": "#0d7680",
+		"originalValue": "{o3.color.palette.teal}",
+		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "outline",
+				"state": "focus"
+		},
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"outline",
+				"focus"
+		],
+		"css": "--o3-color-use-case-outline-focus",
+		"figma": "o3/color/use-case/outline/focus"
+},
+	"o3-color-use-case-background-neutral": {
+		"shortName": "neutral",
+		"value": "#dedfe0",
+		"originalValue": "{o3.color.palette.slate-white-15}",
+		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "background",
+				"state": "neutral"
+		},
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"background",
+				"neutral"
+		],
+		"css": "--o3-color-use-case-background-neutral",
+		"figma": "o3/color/use-case/background/neutral"
+},
+	"o3-color-use-case-background-neutral-light": {
+		"shortName": "neutral-light",
+		"value": "#f4f4f5",
+		"originalValue": "{o3.color.palette.slate-white-5}",
+		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "background",
+				"state": "neutral-light"
+		},
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"background",
+				"neutral-light"
+		],
+		"css": "--o3-color-use-case-background-neutral-light",
+		"figma": "o3/color/use-case/background/neutral-light"
+},
+	"o3-color-use-case-success-foreground": {
+		"shortName": "foreground",
+		"value": "#00572c",
+		"originalValue": "{o3.color.palette.jade-90}",
+		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "success",
+				"state": "foreground"
+		},
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"success",
+				"foreground"
+		],
+		"css": "--o3-color-use-case-success-foreground",
+		"figma": "o3/color/use-case/success/foreground"
+},
+	"o3-color-use-case-success-background": {
+		"shortName": "background",
+		"value": "#ccebdb",
+		"originalValue": "{o3.color.palette.jade-10}",
+		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "success",
+				"state": "background"
+		},
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"success",
+				"background"
+		],
+		"css": "--o3-color-use-case-success-background",
+		"figma": "o3/color/use-case/success/background"
+},
+	"o3-color-use-case-success-highlight": {
+		"shortName": "highlight",
+		"value": "#00572c",
+		"originalValue": "{o3.color.palette.jade-90}",
+		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "success",
+				"state": "highlight"
+		},
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"success",
+				"highlight"
+		],
+		"css": "--o3-color-use-case-success-highlight",
+		"figma": "o3/color/use-case/success/highlight"
+},
+	"o3-color-use-case-error-foreground": {
+		"shortName": "foreground",
+		"value": "#b30000",
+		"originalValue": "{o3.color.palette.crimson}",
+		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "error",
+				"state": "foreground"
+		},
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"error",
+				"foreground"
+		],
+		"css": "--o3-color-use-case-error-foreground",
+		"figma": "o3/color/use-case/error/foreground"
+},
+	"o3-color-use-case-error-background": {
+		"shortName": "background",
+		"value": "#fae6e6",
+		"originalValue": "{o3.color.palette.crimson-10}",
+		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "error",
+				"state": "background"
+		},
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"error",
+				"background"
+		],
+		"css": "--o3-color-use-case-error-background",
+		"figma": "o3/color/use-case/error/background"
+},
+	"o3-color-use-case-warning-foreground": {
+		"shortName": "foreground",
+		"value": "#695008",
+		"originalValue": "{o3.color.palette.lemon-90}",
+		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "warning",
+				"state": "foreground"
+		},
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"warning",
+				"foreground"
+		],
+		"css": "--o3-color-use-case-warning-foreground",
+		"figma": "o3/color/use-case/warning/foreground"
+},
+	"o3-color-use-case-warning-background": {
+		"shortName": "background",
+		"value": "#fff2cc",
+		"originalValue": "{o3.color.palette.lemon-10}",
+		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "warning",
+				"state": "background"
+		},
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"warning",
+				"background"
+		],
+		"css": "--o3-color-use-case-warning-background",
+		"figma": "o3/color/use-case/warning/background"
+},
+	"o3-color-use-case-warning-highlight": {
+		"shortName": "highlight",
+		"value": "#fabf14",
+		"originalValue": "{o3.color.palette.lemon}",
+		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "warning",
+				"state": "highlight"
+		},
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"warning",
+				"highlight"
+		],
+		"css": "--o3-color-use-case-warning-highlight",
+		"figma": "o3/color/use-case/warning/highlight"
+},
+	"o3-color-use-case-interactive-text": {
+		"shortName": "@",
+		"value": "#0d7680",
+		"originalValue": "{o3.color.palette.teal}",
+		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "interactive",
 				"state": "text"
 		},
 		"path": [
 				"o3",
 				"color",
 				"use-case",
-				"link",
+				"interactive",
 				"text",
 				"@"
 		],
-		"css": "--o3-color-use-case-link-text",
-		"figma": "o3/color/use-case/link/text/@"
+		"css": "--o3-color-use-case-interactive-text",
+		"figma": "o3/color/use-case/interactive/text/@"
 },
-	"o3-color-use-case-link-text-hover": {
+	"o3-color-use-case-interactive-text-hover": {
 		"shortName": "hover",
 		"value": "#08474d",
 		"originalValue": "{o3.color.palette.teal-30}",
 		"type": "color",
 		"attributes": {
 				"item": "use-case",
-				"subitem": "link",
+				"subitem": "interactive",
 				"state": "text"
 		},
 		"path": [
 				"o3",
 				"color",
 				"use-case",
-				"link",
+				"interactive",
 				"text",
 				"hover"
 		],
-		"css": "--o3-color-use-case-link-text-hover",
-		"figma": "o3/color/use-case/link/text/hover"
+		"css": "--o3-color-use-case-interactive-text-hover",
+		"figma": "o3/color/use-case/interactive/text/hover"
+},
+	"o3-color-use-case-interactive-background": {
+		"shortName": "@",
+		"value": "#ffffff",
+		"originalValue": "{o3.color.palette.white}",
+		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "interactive",
+				"state": "background"
+		},
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"interactive",
+				"background",
+				"@"
+		],
+		"css": "--o3-color-use-case-interactive-background",
+		"figma": "o3/color/use-case/interactive/background/@"
+},
+	"o3-color-use-case-interactive-background-hover": {
+		"shortName": "hover",
+		"value": "#ebf6f7",
+		"originalValue": "#EBF6F7",
+		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "interactive",
+				"state": "background"
+		},
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"interactive",
+				"background",
+				"hover"
+		],
+		"css": "--o3-color-use-case-interactive-background-hover",
+		"figma": "o3/color/use-case/interactive/background/hover"
+},
+	"o3-color-use-case-interactive-background-hover-layered": {
+		"shortName": "hover-layered",
+		"value": "#dae5e5",
+		"originalValue": "#DAE5E5",
+		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "interactive",
+				"state": "background"
+		},
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"interactive",
+				"background",
+				"hover-layered"
+		],
+		"css": "--o3-color-use-case-interactive-background-hover-layered",
+		"figma": "o3/color/use-case/interactive/background/hover-layered"
 },
 	"o3-color-use-case-link-underline": {
 		"shortName": "@",
@@ -919,503 +1100,6 @@ export default {
 		],
 		"css": "--o3-color-use-case-link-underline-hover",
 		"figma": "o3/color/use-case/link/underline/hover"
-},
-	"o3-color-use-case-link-inverse-text": {
-		"shortName": "@",
-		"value": "#ffffff",
-		"originalValue": "{o3.color.palette.white}",
-		"type": "color",
-		"attributes": {
-				"item": "use-case",
-				"subitem": "link-inverse",
-				"state": "text"
-		},
-		"path": [
-				"o3",
-				"color",
-				"use-case",
-				"link-inverse",
-				"text",
-				"@"
-		],
-		"css": "--o3-color-use-case-link-inverse-text",
-		"figma": "o3/color/use-case/link-inverse/text/@"
-},
-	"o3-color-use-case-link-inverse-text-hover": {
-		"shortName": "hover",
-		"value": "#cccccc",
-		"originalValue": "{o3.color.palette.black-20}",
-		"type": "color",
-		"attributes": {
-				"item": "use-case",
-				"subitem": "link-inverse",
-				"state": "text"
-		},
-		"path": [
-				"o3",
-				"color",
-				"use-case",
-				"link-inverse",
-				"text",
-				"hover"
-		],
-		"css": "--o3-color-use-case-link-inverse-text-hover",
-		"figma": "o3/color/use-case/link-inverse/text/hover"
-},
-	"o3-color-use-case-link-inverse-underline": {
-		"shortName": "@",
-		"value": "#ffffff",
-		"originalValue": "{o3.color.palette.white}",
-		"type": "color",
-		"attributes": {
-				"item": "use-case",
-				"subitem": "link-inverse",
-				"state": "underline"
-		},
-		"path": [
-				"o3",
-				"color",
-				"use-case",
-				"link-inverse",
-				"underline",
-				"@"
-		],
-		"css": "--o3-color-use-case-link-inverse-underline",
-		"figma": "o3/color/use-case/link-inverse/underline/@"
-},
-	"o3-color-use-case-link-inverse-underline-hover": {
-		"shortName": "hover",
-		"value": "#cccccc",
-		"originalValue": "{o3.color.palette.black-20}",
-		"type": "color",
-		"attributes": {
-				"item": "use-case",
-				"subitem": "link-inverse",
-				"state": "underline"
-		},
-		"path": [
-				"o3",
-				"color",
-				"use-case",
-				"link-inverse",
-				"underline",
-				"hover"
-		],
-		"css": "--o3-color-use-case-link-inverse-underline-hover",
-		"figma": "o3/color/use-case/link-inverse/underline/hover"
-},
-	"o3-color-use-case-page-background": {
-		"shortName": "background",
-		"value": "#ffffff",
-		"originalValue": "{o3.color.palette.white}",
-		"type": "color",
-		"attributes": {
-				"item": "use-case",
-				"subitem": "page",
-				"state": "background"
-		},
-		"path": [
-				"o3",
-				"color",
-				"use-case",
-				"page",
-				"background"
-		],
-		"css": "--o3-color-use-case-page-background",
-		"figma": "o3/color/use-case/page/background"
-},
-	"o3-color-use-case-page-inverse-background": {
-		"shortName": "background",
-		"value": "#262a33",
-		"originalValue": "{o3.color.palette.slate}",
-		"type": "color",
-		"attributes": {
-				"item": "use-case",
-				"subitem": "page-inverse",
-				"state": "background"
-		},
-		"path": [
-				"o3",
-				"color",
-				"use-case",
-				"page-inverse",
-				"background"
-		],
-		"css": "--o3-color-use-case-page-inverse-background",
-		"figma": "o3/color/use-case/page-inverse/background"
-},
-	"o3-color-use-case-body-text": {
-		"shortName": "text",
-		"value": "#333333",
-		"originalValue": "{o3.color.palette.black-80}",
-		"type": "color",
-		"attributes": {
-				"item": "use-case",
-				"subitem": "body",
-				"state": "text"
-		},
-		"path": [
-				"o3",
-				"color",
-				"use-case",
-				"body",
-				"text"
-		],
-		"css": "--o3-color-use-case-body-text",
-		"figma": "o3/color/use-case/body/text"
-},
-	"o3-color-use-case-support-text": {
-		"shortName": "text",
-		"value": "#4d4d4d",
-		"originalValue": "{o3.color.palette.black-70}",
-		"type": "color",
-		"attributes": {
-				"item": "use-case",
-				"subitem": "support",
-				"state": "text"
-		},
-		"path": [
-				"o3",
-				"color",
-				"use-case",
-				"support",
-				"text"
-		],
-		"css": "--o3-color-use-case-support-text",
-		"figma": "o3/color/use-case/support/text"
-},
-	"o3-color-use-case-support-inverse-text": {
-		"shortName": "text",
-		"value": "#e9eaeb",
-		"originalValue": "{o3.color.palette.white}",
-		"type": "color",
-		"attributes": {
-				"item": "use-case",
-				"subitem": "support-inverse",
-				"state": "text"
-		},
-		"path": [
-				"o3",
-				"color",
-				"use-case",
-				"support-inverse",
-				"text"
-		],
-		"css": "--o3-color-use-case-support-inverse-text",
-		"figma": "o3/color/use-case/support-inverse/text"
-},
-	"o3-color-use-case-body-inverse-text": {
-		"shortName": "text",
-		"value": "#ffffff",
-		"originalValue": "{o3.color.palette.white}",
-		"type": "color",
-		"attributes": {
-				"item": "use-case",
-				"subitem": "body-inverse",
-				"state": "text"
-		},
-		"path": [
-				"o3",
-				"color",
-				"use-case",
-				"body-inverse",
-				"text"
-		],
-		"css": "--o3-color-use-case-body-inverse-text",
-		"figma": "o3/color/use-case/body-inverse/text"
-},
-	"o3-color-use-case-muted-text": {
-		"shortName": "text",
-		"value": "#cccccc",
-		"originalValue": "{o3.color.palette.black-20}",
-		"type": "color",
-		"description": "\"Muted\" text is less prominent, for example credits and captions.",
-		"attributes": {
-				"item": "use-case",
-				"subitem": "muted",
-				"state": "text"
-		},
-		"path": [
-				"o3",
-				"color",
-				"use-case",
-				"muted",
-				"text"
-		],
-		"css": "--o3-color-use-case-muted-text",
-		"figma": "o3/color/use-case/muted/text"
-},
-	"o3-color-use-case-muted-inverse-text": {
-		"shortName": "text",
-		"value": "#a8aaad",
-		"originalValue": "#a8aaad",
-		"type": "color",
-		"description": "\"Muted\" text is less prominent, for example credits and captions.",
-		"attributes": {
-				"item": "use-case",
-				"subitem": "muted-inverse",
-				"state": "text"
-		},
-		"path": [
-				"o3",
-				"color",
-				"use-case",
-				"muted-inverse",
-				"text"
-		],
-		"css": "--o3-color-use-case-muted-inverse-text",
-		"figma": "o3/color/use-case/muted-inverse/text"
-},
-	"o3-color-use-case-heading-text": {
-		"shortName": "text",
-		"value": "#1a1a1a",
-		"originalValue": "{o3.color.palette.black-90}",
-		"type": "color",
-		"attributes": {
-				"item": "use-case",
-				"subitem": "heading",
-				"state": "text"
-		},
-		"path": [
-				"o3",
-				"color",
-				"use-case",
-				"heading",
-				"text"
-		],
-		"css": "--o3-color-use-case-heading-text",
-		"figma": "o3/color/use-case/heading/text"
-},
-	"o3-color-use-case-heading-inverse-text": {
-		"shortName": "text",
-		"value": "#ffffff",
-		"originalValue": "{o3.color.palette.white}",
-		"type": "color",
-		"attributes": {
-				"item": "use-case",
-				"subitem": "heading-inverse",
-				"state": "text"
-		},
-		"path": [
-				"o3",
-				"color",
-				"use-case",
-				"heading-inverse",
-				"text"
-		],
-		"css": "--o3-color-use-case-heading-inverse-text",
-		"figma": "o3/color/use-case/heading-inverse/text"
-},
-	"o3-color-use-case-button-foreground": {
-		"shortName": "foreground",
-		"value": "#ffffff",
-		"originalValue": "{o3.color.palette.white}",
-		"type": "color",
-		"attributes": {
-				"item": "use-case",
-				"subitem": "button",
-				"state": "foreground"
-		},
-		"path": [
-				"o3",
-				"color",
-				"use-case",
-				"button",
-				"foreground"
-		],
-		"css": "--o3-color-use-case-button-foreground",
-		"figma": "o3/color/use-case/button/foreground"
-},
-	"o3-color-use-case-button-foreground-disabled": {
-		"shortName": "foreground-disabled",
-		"value": "#ffffff",
-		"originalValue": "{o3.color.palette.white}",
-		"type": "color",
-		"attributes": {
-				"item": "use-case",
-				"subitem": "button",
-				"state": "foreground-disabled"
-		},
-		"path": [
-				"o3",
-				"color",
-				"use-case",
-				"button",
-				"foreground-disabled"
-		],
-		"css": "--o3-color-use-case-button-foreground-disabled",
-		"figma": "o3/color/use-case/button/foreground-disabled"
-},
-	"o3-color-use-case-button-default": {
-		"shortName": "default",
-		"value": "#0d7680",
-		"originalValue": "{o3.color.palette.teal}",
-		"type": "color",
-		"attributes": {
-				"item": "use-case",
-				"subitem": "button",
-				"state": "default"
-		},
-		"path": [
-				"o3",
-				"color",
-				"use-case",
-				"button",
-				"default"
-		],
-		"css": "--o3-color-use-case-button-default",
-		"figma": "o3/color/use-case/button/default"
-},
-	"o3-color-use-case-button-hover": {
-		"shortName": "hover",
-		"value": "#0a5e66",
-		"originalValue": "{o3.color.palette.teal-40}",
-		"type": "color",
-		"attributes": {
-				"item": "use-case",
-				"subitem": "button",
-				"state": "hover"
-		},
-		"path": [
-				"o3",
-				"color",
-				"use-case",
-				"button",
-				"hover"
-		],
-		"css": "--o3-color-use-case-button-hover",
-		"figma": "o3/color/use-case/button/hover"
-},
-	"o3-color-use-case-button-pressed": {
-		"shortName": "pressed",
-		"value": "#052f33",
-		"originalValue": "{o3.color.palette.teal-20}",
-		"type": "color",
-		"attributes": {
-				"item": "use-case",
-				"subitem": "button",
-				"state": "pressed"
-		},
-		"path": [
-				"o3",
-				"color",
-				"use-case",
-				"button",
-				"pressed"
-		],
-		"css": "--o3-color-use-case-button-pressed",
-		"figma": "o3/color/use-case/button/pressed"
-},
-	"o3-color-use-case-button-disabled": {
-		"shortName": "disabled",
-		"value": "#9ec0bd",
-		"originalValue": "#9EC0BD",
-		"type": "color",
-		"attributes": {
-				"item": "use-case",
-				"subitem": "button",
-				"state": "disabled"
-		},
-		"path": [
-				"o3",
-				"color",
-				"use-case",
-				"button",
-				"disabled"
-		],
-		"css": "--o3-color-use-case-button-disabled",
-		"figma": "o3/color/use-case/button/disabled"
-},
-	"o3-color-use-case-error-background": {
-		"shortName": "error-background",
-		"value": "rgba(204, 0, 0, 0.06)",
-		"originalValue": "rgba(204,0,0,0.06)",
-		"type": "color",
-		"attributes": {
-				"item": "use-case",
-				"subitem": "error-background"
-		},
-		"path": [
-				"o3",
-				"color",
-				"use-case",
-				"error-background"
-		],
-		"css": "--o3-color-use-case-error-background",
-		"figma": "o3/color/use-case/error-background"
-},
-	"o3-color-use-case-error-text": {
-		"shortName": "error-text",
-		"value": "#cc0000",
-		"originalValue": "{o3.color.palette.crimson}",
-		"type": "color",
-		"attributes": {
-				"item": "use-case",
-				"subitem": "error-text"
-		},
-		"path": [
-				"o3",
-				"color",
-				"use-case",
-				"error-text"
-		],
-		"css": "--o3-color-use-case-error-text",
-		"figma": "o3/color/use-case/error-text"
-},
-	"o3-color-use-case-error": {
-		"shortName": "error",
-		"value": "#cc0000",
-		"originalValue": "{o3.color.palette.crimson}",
-		"type": "color",
-		"description": "[DEPRECATED] This token is going to be looked at in the upcoming audit.",
-		"attributes": {
-				"item": "use-case",
-				"subitem": "error"
-		},
-		"path": [
-				"o3",
-				"color",
-				"use-case",
-				"error"
-		],
-		"css": "--o3-color-use-case-error",
-		"figma": "o3/color/use-case/error"
-},
-	"o3-color-use-case-success-background": {
-		"shortName": "success-background",
-		"value": "#d7f0d1",
-		"originalValue": "#D7F0D1",
-		"type": "color",
-		"attributes": {
-				"item": "use-case",
-				"subitem": "success-background"
-		},
-		"path": [
-				"o3",
-				"color",
-				"use-case",
-				"success-background"
-		],
-		"css": "--o3-color-use-case-success-background",
-		"figma": "o3/color/use-case/success-background"
-},
-	"o3-color-use-case-success-foreground": {
-		"shortName": "success-foreground",
-		"value": "#00572c",
-		"originalValue": "#00572C",
-		"type": "color",
-		"attributes": {
-				"item": "use-case",
-				"subitem": "success-foreground"
-		},
-		"path": [
-				"o3",
-				"color",
-				"use-case",
-				"success-foreground"
-		],
-		"css": "--o3-color-use-case-success-foreground",
-		"figma": "o3/color/use-case/success-foreground"
 },
 	"o3-spacing-5xs": {
 		"shortName": "5xs",
