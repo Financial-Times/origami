@@ -62,6 +62,14 @@ Then apply the brand data selector `data-o3-brand="[BRAND]"` on a container elem
 </body>
 ```
 
+See all CSS Tokens available in each brand's `_variables.css` file:
+
+* [FT Pink (Core)](./src/css/tokens/core/_variables.css)
+* [FT Professional](./src/css/tokens/core/professional/_variables.css)
+* [White-label](./src/css/tokens/white-label/_variables.css)
+* [Internal](./src/css/tokens/internal/_variables.css)
+* [Sustainable Views](./src/css/tokens/sustainable-views/_variables.css)
+
 # JS Tokens
 
 Foundational tokens are also available as JavaScript. There are two formats:
@@ -103,6 +111,12 @@ const example = `The hex for FT Pink is ${o3_color_palette_ft_pink}`;
 ```
 
 ## Typography
+
+### Resources
+
+* Origami site - https://origami.ft.com/foundations/typography/
+* Storybook - https://o3.origami.ft.com/?path=/docs/o3-foundation-o3-typography-readme--jsx-documentation
+* Figma - https://www.figma.com/design/VVM0PixrY3IRZq2ZUTdWfU/%F0%9F%92%A0-Core---Origami--o3-?node-id=3-2&p=f&m=dev
 
 ### List
 
@@ -274,7 +288,10 @@ For example, to create a `1rem` sized icon which inherits its colour from the cu
 }
 ```
 
-See our documentation website for a [full list of icons](https://origami-for-everyone.ft.com/guides/icons/) and more details.
+### Resources
+
+* Origami site - https://origami.ft.com/foundations/icons/
+* Storybook - https://o3.origami.ft.com/?path=/story/o3-foundation-o3-icon--icon
 
 ## Colours
 
@@ -294,7 +311,11 @@ Example:
 }
 ```
 
-See our documentation website for a [full list of colours and where to use them](https://origami-for-everyone.ft.com/guides/colours/).
+### Resources
+
+* Origami site - https://origami.ft.com/foundations/colours/
+* Storybook - https://o3.origami.ft.com/?path=/story/o3-foundation-o3-color--primary-palette
+* Figma - https://www.figma.com/design/VVM0PixrY3IRZq2ZUTdWfU/%F0%9F%92%A0-Core---Origami--o3-?node-id=0-1&p=f&m=dev
 
 ## Spacing
 
@@ -309,6 +330,12 @@ Example:
 ```
 
 See the documentation for a [full list of spacing tokens](/components/o3-foundation/docs/spacing.md).
+
+### Resources
+
+* Origami site - https://origami.ft.com/foundations/spacing/
+* Storybook - https://o3.origami.ft.com/?path=/story/o3-foundation-o3-spacing--spacing
+* Figma - https://www.figma.com/design/VVM0PixrY3IRZq2ZUTdWfU/%F0%9F%92%A0-Core---Origami--o3-?node-id=5499-2000&p=f&m=dev
 
 ## Grid
 
@@ -333,6 +360,11 @@ The o3-grid system adapts to different screen sizes, the number of columns is va
 - Content-area: The grid's main content area is defined by `content-start` and `content-end` boundaries.
 - Bleed Columns for Extended Layouts: `bleed-start` & `bleed-end`: These special columns extend beyond the 12-column grid, reaching the edges of the viewport. This allows you to create "full-bleed" layouts where content extends off the screen. These columns are used as margin areas, providing visual breathing room around your central content.
 - `[REST_OF_THE_COLUMNS]`: This represents any additional columns you might need in your grid.
+
+### Resources
+
+* Origami site - https://origami.ft.com/foundations/grid/
+* Storybook - https://o3.origami.ft.com/?path=/story/o3-foundation-o3-grid--grid
 
 ### Positioning grid items
 
