@@ -18,5 +18,6 @@
   --_o3-form-color-use-case-selected-hover: var(--o3-color-palette-teal-40);
   --_o3-form-color-use-case-selected-active: var(--o3-color-palette-teal-20);
   --_o3-form-color-use-case-selected-disabled: var(--o3-color-palette-black-5);
+  --_o3-form-input-border-error: 1.5px solid #b30000;
   --_o3-form-color-use-case-border: var(--o3-color-use-case-outline);
 }
