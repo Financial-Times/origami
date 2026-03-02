@@ -37,6 +37,9 @@ export default {
 			type: 'figma',
 			url: links['core-o3-button--button'].figma,
 		},
+		zeroheight: {
+			pageUrl: 'https://financialtimes.zeroheight.com/styleguide/s/139271/p/539e60-main-button', // e.g. https://developers.zeroheight.com/75fe5b2ed/p/8811ef-get
+		},
 	},
 } as Meta;
 
