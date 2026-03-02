@@ -7,17 +7,17 @@
   --_o3-form-error-summary-background-color: rgba(204, 0, 0, 0.14);
   --_o3-form-icon-error: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M17.4528 11.25C17.4528 10.9739 17.229 10.75 16.9528 10.75H7.04718C6.77104 10.75 6.54718 10.9739 6.54718 11.25V12.75C6.54718 13.0261 6.77104 13.25 7.04718 13.25H16.9528C17.229 13.25 17.4528 13.0261 17.4528 12.75V11.25Z' fill='black'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12ZM20 12C20 16.4183 16.4183 20 12 20C7.58172 20 4 16.4183 4 12C4 7.58172 7.58172 4 12 4C16.4183 4 20 7.58172 20 12Z' fill='black'/%3E%3C/svg%3E");
   --_o3-form-color-use-case-background-error: rgba(204, 0, 0, 0.06);
+  --_o3-form-color-use-case-border-disabled: #9ec0bd;
   --_o3-form-input-border: 1.5px solid #b3b3b3;
   --_o3-form-input-border-radius: var(--o3-border-radius-1);
   --_o3-form-color-use-case-background: var(--o3-color-palette-white);
   --_o3-form-color-use-case-background-disabled: var(--o3-color-palette-black-10);
-  --_o3-form-color-use-case-border: var(--o3-color-palette-black-50);
-  --_o3-form-color-use-case-border-disabled: var(--o3-color-use-case-button-disabled);
+  --_o3-form-color-use-case-border-hover: var(--o3-color-palette-teal-40);
+  --_o3-form-color-use-case-border-active: var(--o3-color-palette-teal-40);
+  --_o3-form-color-use-case-selected: var(--o3-color-palette-teal);
+  --_o3-form-color-use-case-selected-hover: var(--o3-color-palette-teal-40);
+  --_o3-form-color-use-case-selected-active: var(--o3-color-palette-teal-20);
   --_o3-form-color-use-case-selected-disabled: var(--o3-color-palette-black-5);
-  --_o3-form-input-border-error: 1.5px solid #cc0000;
-  --_o3-form-color-use-case-border-hover: var(--o3-color-use-case-button-hover);
-  --_o3-form-color-use-case-border-active: var(--o3-color-use-case-button-pressed);
-  --_o3-form-color-use-case-selected: var(--o3-color-use-case-button-default);
-  --_o3-form-color-use-case-selected-hover: var(--o3-color-use-case-button-hover);
-  --_o3-form-color-use-case-selected-active: var(--o3-color-use-case-button-pressed);
+  --_o3-form-input-border-error: 1.5px solid #b30000;
+  --_o3-form-color-use-case-border: var(--o3-color-use-case-outline);
 }
