@@ -74,7 +74,7 @@ function SubnavWithDropdownsDemo({items}: {items: SubnavItem[]}) {
 							data-o-header-subnav-wrapper>
 							<div className="o-header__subnav-content">
 								<ul
-									className="o-header__subnav-list o-header__subnav-list--children"
+									className="o-header__subnav-list o-header__subnav-list-children"
 									aria-label="Subsections">
 									{items.map((item, i) => {
 										const selectedClass = item.selected
