@@ -26,7 +26,7 @@
 	"peerDependencies": {
 		"@financial-times/o-loading": "^6.0.0",
 		"@financial-times/o-viewport": "^5.1.2",
-		"@financial-times/o-private-foundation": "^1.0.0"
+		"@financial-times/o-private-foundation": "^1.0.0 || ^2.0.0"
 	},
 	"devDependencies": {
 		"@financial-times/o-fonts": "^5.3.5",
