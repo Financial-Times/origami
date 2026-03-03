@@ -19,33 +19,33 @@
           },
           "border": {
             "@": {
-              "value": "{o3.color.use-case.outline.@}",
+              "value": "{o3.color.palette.black-50}",
               "type": "color"
             },
             "hover": {
-              "value": "{o3.color.palette.teal-40}",
+              "value": "{o3.color.use-case.button.hover}",
               "type": "color"
             },
             "active": {
-              "value": "{o3.color.palette.teal-40}",
+              "value": "{o3.color.use-case.button.pressed}",
               "type": "color"
             },
             "disabled": {
-              "value": "#9EC0BD",
+              "value": "{o3.color.use-case.button.disabled}",
               "type": "color"
             }
           },
           "selected": {
             "@": {
-              "value": "{o3.color.palette.teal}",
+              "value": "{o3.color.use-case.button.default}",
               "type": "color"
             },
             "hover": {
-              "value": "{o3.color.palette.teal-40}",
+              "value": "{o3.color.use-case.button.hover}",
               "type": "color"
             },
             "active": {
-              "value": "{o3.color.palette.teal-20}",
+              "value": "{o3.color.use-case.button.pressed}",
               "type": "color"
             },
             "disabled": {
