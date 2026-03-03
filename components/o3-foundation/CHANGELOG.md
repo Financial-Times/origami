@@ -1,5 +1,16 @@
 # Changelog
 
+## [4.0.0](https://github.com/Financial-Times/origami/compare/o3-foundation-v3.13.0...o3-foundation-v4.0.0) (2026-03-03)
+
+
+### ⚠ BREAKING CHANGES
+
+* update internal brand colours and use cases ([#2363](https://github.com/Financial-Times/origami/issues/2363))
+
+### Features
+
+* update internal brand colours and use cases ([#2363](https://github.com/Financial-Times/origami/issues/2363)) ([799b72b](https://github.com/Financial-Times/origami/commit/799b72bdef11bcda74931b5a06fd9ac07dc73209))
+
 ## [3.13.0](https://github.com/Financial-Times/origami/compare/o3-foundation-v3.12.1...o3-foundation-v3.13.0) (2026-01-12)
 
 

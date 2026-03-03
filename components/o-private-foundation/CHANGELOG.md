@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/Financial-Times/origami/compare/o-private-foundation-v1.9.1...o-private-foundation-v2.0.0) (2026-03-03)
+
+
+### ⚠ BREAKING CHANGES
+
+* update internal brand colours and use cases ([#2363](https://github.com/Financial-Times/origami/issues/2363))
+
+### Features
+
+* update internal brand colours and use cases ([#2363](https://github.com/Financial-Times/origami/issues/2363)) ([799b72b](https://github.com/Financial-Times/origami/commit/799b72bdef11bcda74931b5a06fd9ac07dc73209))
+
 ## [1.9.1](https://github.com/Financial-Times/origami/compare/o-private-foundation-v1.9.0...o-private-foundation-v1.9.1) (2026-01-12)
 
 

@@ -1,5 +1,15 @@
 # Changelog
 
+## [15.4.0](https://github.com/Financial-Times/origami/compare/o-header-v15.3.1...o-header-v15.4.0) (2026-03-03)
+
+
+### Features
+
+* add mobile implemenation behaviour ([9095fe4](https://github.com/Financial-Times/origami/commit/9095fe4d0089d64af5687067a1fdb19ce91168bb))
+* Dropdown options for sub navigation are shown, hidden and positioned appropriately ([16f0928](https://github.com/Financial-Times/origami/commit/16f09283cb50bc996ddabeb67e82e387ba008ec4))
+* subnavigation dropdown options - Add storybook example ([ae44fbd](https://github.com/Financial-Times/origami/commit/ae44fbd017a0c64a4f0ad22e7d9cd408fb8e0454))
+* subnavigation dropdown options - Use design tokens in subnav story ([3cf16d1](https://github.com/Financial-Times/origami/commit/3cf16d1133aa50f46af0bcaf15146b9a28b88d43))
+
 ## [15.3.1](https://github.com/Financial-Times/origami/compare/o-header-v15.3.0...o-header-v15.3.1) (2026-02-13)
 
 
