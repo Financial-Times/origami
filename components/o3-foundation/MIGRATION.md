@@ -1,45 +1,10 @@
 # Migration Guide
 
-## Migrating from v3 to v4
-
-This change only affects `internal` brand. No action is needed for users of `core`, `professional`, `whitelabel`, and
-`sustainable-views`.
-
-### Update usage of internal brand tokens
-
-The structure of `internal` brand's tokens has changed. Please ensure you update to the corresponding replacement
-tokens:
-
-| v3 token name                            | v4 token name                            |
-|------------------------------------------|------------------------------------------|
-| `--o3-color-use-case-link`               | `--o3-color-use-case-link`               |
-| `--o3-color-use-case-link-inverse`       | No replacement                           |
-| `--o3-color-use-case-page`               | No replacement                           |
-| `--o3-color-use-case-page-inverse`       | No replacement                           |
-| `--o3-color-use-case-body`               | No replacement                           |
-| `--o3-color-use-case-support`            | No replacement                           |
-| `--o3-color-use-case-support-inverse`    | No replacement                           |
-| `--o3-color-use-case-body-inverse`       | No replacement                           |
-| `--o3-color-use-case-muted`              | No replacement                           |
-| `--o3-color-use-case-muted-inverse`      | No replacement                           |
-| `--o3-color-use-case-heading`            | No replacement                           |
-| `--o3-color-use-case-heading-inverse`    | No replacement                           |
-| `--o3-color-use-case-button`             | No replacement                           |
-| `--o3-color-use-case-error-background`   | `--o3-color-use-case-error-background`   |
-| `--o3-color-use-case-error-text`         | `--o3-color-use-case-error-foreground`   |
-| `--o3-color-use-case-success-text`       | `--o3-color-use-case-success-foreground` |
-| `--o3-color-use-case-success-background` | `--o3-color-use-case-success-background` |
-
-If you require assistance or cannot find a suitable replacement for these tokens, please speak to the Origami team in #origami-support.
-
-
 ## Migrating from v2 to v3
 
 ### Replace heading components
 
-We have deleted the UI `Heading` JSX component, and replaced it with more generic "title" typography use-cases. This
-reduces the total number of typography styles to choose from across "UI" (product) and "Editorial" (article) contexts.
-Please consult with the design team to decide the best match for your context.
+We have deleted the UI `Heading` JSX component, and replaced it with more generic "title" typography use-cases. This reduces the total number of typography styles to choose from across "UI" (product) and "Editorial" (article) contexts. Please consult with the design team to decide the best match for your context.
 
 ```diff
 -<h1 class="o3-typography-h1">Welcome to Origami</h1>
@@ -55,9 +20,7 @@ Please consult with the design team to decide the best match for your context.
 
 ### Replace body and link components
 
-We have deleted the UI `Body` JSX component, and replaced it with more generic "body-\*" typography use-cases. This
-reduces the total number of typography styles to choose from across "UI" (product) and "Editorial" (article) contexts.
-Please consult with the design team to decide the best match for your context.
+We have deleted the UI `Body` JSX component, and replaced it with more generic "body-\*" typography use-cases. This reduces the total number of typography styles to choose from across "UI" (product) and "Editorial" (article) contexts. Please consult with the design team to decide the best match for your context.
 
 Link styles are now applied to anchor tags by default.
 
@@ -135,17 +98,15 @@ v2 introduces changes to the scale for Metric2:
 - Scale for font size and line height has been offset by `-1`, meaning the value of scale `--o3-font-size-metric2-1` is
   now scale `--o3-font-size-metric2-0` and so on.
 
-For usages of `--o3-font-lineheight-metric2-negative-2`, we recommend to continue using
-`--o3-font-lineheight-metric2-negative-2`.
+For usages of `--o3-font-lineheight-metric2-negative-2`, we recommend to continue using `--o3-font-lineheight-metric2-negative-2`.
 
 Usages of `--o3-font-lineheight-metric2-10`
-or `--o3-font-font-size-metric2-10` will break. Usages of any other token will visually break and require changes. The
-below table shows what CSS Custom Properties to replace when migrating to v2.
+or `--o3-font-font-size-metric2-10` will break. Usages of any other token will visually break and require changes. The below table shows what CSS Custom Properties to replace when migrating to v2.
 
 **Lineheight**
 
 | v1 name                                   | v2 name                                                   | value  |
-|-------------------------------------------|-----------------------------------------------------------|--------|
+| ----------------------------------------- | --------------------------------------------------------- | ------ |
 | `--o3-font-lineheight-metric2-negative-2` | none (continue using `--o3-font-size-metric2-negative-2`) |        |
 | `--o3-font-lineheight-metric2-negative-1` | `--o3-font-lineheight-metric2-negative-2`                 | `16px` |
 | `--o3-font-lineheight-metric2-0`          | `--o3-font-lineheight-metric2-negative-1`                 | `20px` |
@@ -163,7 +124,7 @@ below table shows what CSS Custom Properties to replace when migrating to v2.
 **Font Size**
 
 | v1 name                             | v2 name                                                   | value  |
-|-------------------------------------|-----------------------------------------------------------|--------|
+| ----------------------------------- | --------------------------------------------------------- | ------ |
 | `--o3-font-size-metric2-negative-2` | none (continue using `--o3-font-size-metric2-negative-2`) |        |
 | `--o3-font-size-metric2-negative-1` | `--o3-font-size-metric2-negative-2`                       | `12px` |
 | `--o3-font-size-metric2-0`          | `--o3-font-size-metric2-negative-1`                       | `14px` |
