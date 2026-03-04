@@ -40,8 +40,9 @@ export class ToggleToolTip extends ToolTip implements ToggleToolTipProps {
 		this._removeEventListeners();
 	}
 
-	private _clickHandler = () => {
+	private _clickHandler = (e: Event) => {
 		if (this._contentWrapper.style.display === 'none') {
+			e.stopPropagation();
 			this._addContentInLiveRegion();
 			return;
 		}
