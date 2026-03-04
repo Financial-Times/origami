@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.0.0](https://github.com/Financial-Times/origami/compare/o3-form-v0.11.0...o3-form-v1.0.0) (2026-03-04)
+
+
+### ⚠ BREAKING CHANGES
+
+* update internal brand colours and use cases ([#2363](https://github.com/Financial-Times/origami/issues/2363))
+
+### Features
+
+* update internal brand colours and use cases ([#2363](https://github.com/Financial-Times/origami/issues/2363)) ([799b72b](https://github.com/Financial-Times/origami/commit/799b72bdef11bcda74931b5a06fd9ac07dc73209))
+
 ## [0.11.0](https://github.com/Financial-Times/origami/compare/o3-form-v0.10.0...o3-form-v0.11.0) (2026-01-12)
 
 

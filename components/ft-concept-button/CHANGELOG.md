@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.1](https://github.com/Financial-Times/origami/compare/ft-concept-button-v2.0.0...ft-concept-button-v2.0.1) (2026-03-04)
+
+
+### Bug Fixes
+
+* bump ft-concept-button peer deps ([#2378](https://github.com/Financial-Times/origami/issues/2378)) ([2dfa22a](https://github.com/Financial-Times/origami/commit/2dfa22a5b270610eda78d5cc257914657c3df272))
+
 ## [2.0.0](https://github.com/Financial-Times/origami/compare/ft-concept-button-v1.3.0...ft-concept-button-v2.0.0) (2025-02-20)
 
 ### ⚠ BREAKING CHANGES
