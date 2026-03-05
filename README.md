@@ -203,7 +203,7 @@ o-labels/
 
 ##### Legacy
 
-Legacy Origami Registry component demos are branded through the `origami.json` manifest in the component's root directory. You can find how to use this file in the [Origami documentation](https://origami.ft.com/documentation/manifests/origami-json/#brands).
+Legacy Origami Registry component demos are branded through the `origami.json` manifest in the component's root directory. You can find how to use this file in the [Origami documentation](./docs/legacy-o2-docs/technical-guide/origami-json.md).
 
 #### Test
 

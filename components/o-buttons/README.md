@@ -88,7 +88,7 @@ Any button may be made larger using the `o-buttons--big` modifier class.
 
 To add an icon to your button add the class `o-buttons-icon` and `o-buttons-icon--{icon-name}` to your button.
 
-[Sass](#sass) users may output any icon from the [fticons](https://registry.origami.ft.com/components/fticons/) set. However if you're using the [Build Service](https://www.ft.com/__origami/service/build/) a limited number of button icons are available. Limiting the number of icons keeps the CSS bundle smaller, but if you need an icon button that we don't currently support then please contact the Origami team:
+[Sass](#sass) users may output any icon from the [fticons](https://o2-core.origami.ft.com/?path=/story/deprecated-o-icons--icons) set. However if you're using the [Build Service](https://www.ft.com/__origami/service/build/) a limited number of button icons are available. Limiting the number of icons keeps the CSS bundle smaller, but if you need an icon button that we don't currently support then please contact the Origami team:
 - arrow-left
 - arrow-right
 - upload
@@ -236,7 +236,7 @@ To create a new button theme call `oButtonsAddTheme` with the colour of your the
 	- color: The main colour of your button. Any o-colors palette colour name.
 	- context (optional): The background colour your button is placed on. Defaults to the page colour (paper for the core brand, white otherwise). This is used to confirm accessibility and in some cases changes the colour of the button.
 - types: A list of button types your theme is used with.
-- icons: A list of icons your theme is used with. Any [fticons](https://registry.origami.ft.com/components/fticons/) icon name.
+- icons: A list of icons your theme is used with. Any [fticons](https://o2-core.origami.ft.com/?path=/story/deprecated-o-icons--icons) icon name.
 
 ```scss
 /// .o-buttons--my-special-button
