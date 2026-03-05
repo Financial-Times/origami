@@ -148,9 +148,9 @@ Or to disable sort per table column, add `data-o-table-heading-disable-sort` to 
 
 There are three options for small viewports where the table does not fit.
 
-1. [overflow](https://registry.origami.ft.com/components/o-table#demo-responsive-overflow) - Scroll the whole table including headings horizontally. This option also supports an [expander](#expander).
-2. [scroll](https://registry.origami.ft.com/components/o-table#demo-responsive-scroll) - Flip the table so headings are in the first column and sticky, data is scrollable horizontally.
-3. [flat](https://registry.origami.ft.com/components/o-table#demo-responsive-flat) - Split each row into an individual item and repeat headings.
+1. [overflow](https://o2-core.origami.ft.com/?path=/story/maintained-o-table-responsive-overflow--responsive-overflow&globals=backgrounds:!undefined) - Scroll the whole table including headings horizontally. This option also supports an [expander](#expander).
+2. [scroll](https://o2-core.origami.ft.com/?path=/story/maintained-o-table-responsive-scroll--responsive-scroll) - Flip the table so headings are in the first column and sticky, data is scrollable horizontally.
+3. [flat](https://o2-core.origami.ft.com/?path=/story/maintained-o-table-responsive-flat--responsive-flat&globals=backgrounds:!undefined) - Split each row into an individual item and repeat headings.
 
 To enable these set `data-o-table-responsive` to the type of responsive table desired and add the classes for that type of table. Then wrap the table in `o-table-container`, `o-table-overlay-wrapper`, `o-table-scroll-wrapper`. E.g for an "overflow" table:
 
@@ -171,7 +171,7 @@ To enable these set `data-o-table-responsive` to the type of responsive table de
 ```
 
 If your project does not use the build service, you may need to specify an [extra Sass option](#sass) for responsive features and initialise [o-table JavaScript](#JavaScript).
-More examples are available in [the registry](https://registry.origami.ft.com/components/o-table).
+More examples are available in [Storybook](https://o2-core.origami.ft.com/?path=/docs/maintained-o-table-readme--docs&globals=backgrounds:!undefined).
 
 ### Expander
 
@@ -220,7 +220,7 @@ To add a footnote to an expandable table, for example with disclaimers or source
 - `o-table__cell--numeric` - Apply to numeric cells to align content to the right.
 - `o-table__cell--vertically-center` - Apply to cells which should center vertically.
 
-See more in the registry: [o-table demos](https://registry.origami.ft.com/components/o-table).
+See more in Storybook: [o-table demos](https://o2-core.origami.ft.com/?path=/docs/maintained-o-table-readme--docs&globals=backgrounds:!undefined).
 
 ## Sass
 
@@ -287,7 +287,7 @@ OTable.init(document.body, {
 
 All `o-table` instances support filtering on a single column. Filters may be applied declaratively in HTML or by calling the `o-table` JavaScript method `filter`.
 
-The style of form elements used to filter a table are not determined by `o-table`. However we recommend using [o-forms](https://registry.origami.ft.com/components/o-forms) to style form elements used to filter an `o-table`, such as `input` or `select` elements. See the [o-table filter demos](https://registry.origami.ft.com/components/o-table#demo-filter) in the component registry for a demo using `o-forms` styles.
+The style of form elements used to filter a table are not determined by `o-table`. However we recommend using [o-forms](https://o2-core.origami.ft.com/?path=/docs/maintained-o-forms-readme--docs&globals=backgrounds:!undefined) to style form elements used to filter an `o-table`, such as `input` or `select` elements. See the [o-table filter demos](https://o2-core.origami.ft.com/?path=/story/maintained-o-table-filter-with-a-text-input--filterwithatextinput&globals=backgrounds:!undefined) in Storybook for a demo using `o-forms` styles.
 
 #### Filter (declarative)
 

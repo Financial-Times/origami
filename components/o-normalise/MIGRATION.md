@@ -91,8 +91,6 @@ V3 drops support for Bower and version 2 of the Origami Build Service.
 
 If you were already using npm, no changes should be required.
 
-If you have been using Bower or the Origami Build Service, follow [the migration guide on the Origami website](https://origami.ft.com/documentation/tutorials/bower-to-npm/)
-
 ### Migrating from v1 to v2
 
 `o-normalise` now depends on `o-colors`. Ensure your project builds successfully and upgrade `o-colors` if there is a conflict.

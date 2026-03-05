@@ -1,6 +1,6 @@
 # o-footer-services [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
-o-footer-services is an [o-footer](https://registry.origami.ft.com/components/o-footer) alternative for tools, internal products, and specialist titles at the FT.
+o-footer-services is an [o-footer](https://o2-core.origami.ft.com/?path=/docs/maintained-o-footer-readme--docs&globals=backgrounds:!undefined) alternative for tools, internal products, and specialist titles at the FT.
 
 - [Usage](#usage)
 - [Markup](#markup)
@@ -40,7 +40,7 @@ A footer requires the following markup:
 </footer>
 ```
 
-All elements within the `.o-footer-services__wrapper--top` section are entirely optional. You can find examples of the variations [in the registry](https://registry.origami.ft.com/components/o-footer-services@1.0.2).
+All elements within the `.o-footer-services__wrapper--top` section are entirely optional. You can find examples of the variations [in Storybook](https://o2-core.origami.ft.com/?path=/docs/maintained-o-footer-services-readme--docs&globals=backgrounds:!undefined).
 
 As a move to future proof this component and the products that may use it, **`.o-footer-services__wrapper--legal` is not optional.**
 

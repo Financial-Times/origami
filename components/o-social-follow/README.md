@@ -1,6 +1,6 @@
 # o-social-follow [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
-Follow on social media links. For social share buttons see [o-share](https://registry.origami.ft.com/components/o-share).
+Follow on social media links. For social share buttons see [o-share](https://o2-core.origami.ft.com/?path=/docs/maintained-o-share-readme--docs&globals=backgrounds:!undefined).
 
 - [Overview](#overview)
 - [Usage](#usage)
@@ -16,7 +16,7 @@ Check out [how to include Origami components in your project](https://origami.ft
 
 Social follow can be used when wanting to give more freedom for users when choosing how they engage with our content adding social media platform links to easily allow users to follow us on specific platforms.
 
-It should not be used to re-share content, for this use [o-share](https://registry.origami.ft.com/components/o-share).
+It should not be used to re-share content, for this use [o-share](https://o2-core.origami.ft.com/?path=/docs/maintained-o-share-readme--docs&globals=backgrounds:!undefined).
 
 ## Socials
 

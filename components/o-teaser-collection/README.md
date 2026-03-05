@@ -1,6 +1,6 @@
 # o-teaser-collection
 
-This component is for displaying collections of [o-teasers](http://registry.origami.ft.com/components/o-teaser).
+This component is for displaying collections of [o-teasers](https://o2-core.origami.ft.com/?path=/docs/maintained-o-teaser-readme--docs&globals=backgrounds:!undefined).
 
 - [Usage](#usage)
 - [Markup](#markup)
@@ -27,7 +27,7 @@ The basic markup structure for a teaser collection will look something like this
 </div>
 ```
 
-Teaser collections can be arranged using [o-grid](http://registry.origami.ft.com/components/o-grid), or by using the `o-teaser-collection__items` and `o-teaser-collection__item` classes. These classes are designed to work on list elements, as seen in the `o-teaser-collection--numbered` example:
+Teaser collections can be arranged using [o-grid](https://o2-core.origami.ft.com/?path=/docs/maintained-o-grid-readme--docs&globals=backgrounds:!undefined), or by using the `o-teaser-collection__items` and `o-teaser-collection__item` classes. These classes are designed to work on list elements, as seen in the `o-teaser-collection--numbered` example:
 
 ```html
 <div class="o-teaser-collection o-teaser-collection--numbered">
@@ -86,9 +86,9 @@ Options include:
 | headings    | 'inverse', 'full-width', 'half-width', 'small'                                                                                      | `o-teaser-collection__heading--[option]`. Apply to `o-teaser-collection__heading`, e.g. `class="o-teaser-collection__heading o-teaser-collection__heading--inverse"` |
 | items       | 'stretched'                                                                                                                         | `o-teaser-collection__item--[option]`. Apply to `o-teaser-collection__item`, e.g. `o-teaser-collection__item o-teaser-collection__item--stretched`                   |
 
-Use `o-teaser-collection--numbered` to number the list of teasers in the collection, see an [example in the registry](http://registry.origami.ft.com/components/o-teaser-collection).
+Use `o-teaser-collection--numbered` to number the list of teasers in the collection, see an [example in Storybook](https://o2-core.origami.ft.com/?path=/docs/maintained-o-teaser-collection-readme--docs&globals=backgrounds:!undefined).
 
-Use `o-teaser-collection--special` to add a darker background across the full width of the containing relative element, see an [example in the registry](http://registry.origami.ft.com/components/o-teaser-collection).
+Use `o-teaser-collection--special` to add a darker background across the full width of the containing relative element, see an [example in Storybook](https://o2-core.origami.ft.com/?path=/docs/maintained-o-teaser-collection-readme--docs&globals=backgrounds:!undefined).
 
 ### Headings
 

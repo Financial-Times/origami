@@ -25,8 +25,6 @@ The `blockquote` element is no longer styled by default. We do not believe this 
 
 Support for Bower and version 2 of the Origami Build Service have been removed.
 
-Follow [the migration guide on the Origami website](https://origami.ft.com/documentation/tutorials/bower-to-npm/).
-
 ## Migrating from v3 to v4
 
 ### Updated dependencies
@@ -105,7 +103,7 @@ If your project relies on `o-layout` JavaScript to generate a nav, no action is 
 ### Other Changes
 
 - The ability to [customise the `o-layout` CSS class names has been removed](https://github.com/Financial-Times/origami-proposals/issues/4). The public `$o-layout-class` variable has been removed, the `$class` parameter has been removed from SCSS mixins, and the `baseClass` property has been removed from the JS `options` object. Check your project does not use these parameters and update class names to `o-layout` if needed.
-- All variables and mixins except `oLayout` are now private. Instead of `oLayoutBreakPoint` use [o-grid's oGridRespondTo](https://registry.origami.ft.com/components/o-grid/sassdoc#o-grid-mixin-oGridRespondTo). If your project depends on other `o-layout` mixins or variables, please contact the team.
+- All variables and mixins except `oLayout` are now private. Instead of `oLayoutBreakPoint` use [o-grid's oGridRespondTo](https://o2-core.origami.ft.com/?path=/docs/maintained-o-grid-sassdoc--docs&globals=backgrounds:!undefined#ogridrespondto). If your project depends on other `o-layout` mixins or variables, please contact the team.
 - The main content area no longer uses CSS Grid to place asides, so make sure your project has no custom CSS which is relying on the grid inside the main content area.
 - Required font faces are now output by `o-layout`, so `o-fonts` may be removed as a direct dependency.
 

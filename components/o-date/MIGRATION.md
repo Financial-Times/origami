@@ -23,8 +23,6 @@ To add the literal 't' update the custom date format string from `t` to `\t`.
 
 Support for Bower and version 2 of the Origami Build Service have been removed.
 
-Follow [the migration guide on the Origami website](https://origami.ft.com/documentation/tutorials/bower-to-npm/).
-
 ## Migrating from v3 to v4
 `o-date` is an [esm module](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) now. We recommend using the esm syntax:
 

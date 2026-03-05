@@ -71,7 +71,7 @@ Styles for a custom button theme `.o-buttons--[$name]`.
 | Parameter | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
 | name | String | - |A theme name e.g. `my-special-button`. |
-| opts | Map | - |A custom theme map with a `color` and optional `context` key. The context key indicates the background colour your button is placed on, it defaults to the page colour (paper for the core brand, white otherwise). See [the README](https://registry.origami.ft.com/components/o-buttons/readme) for more details. |
+| opts | Map | - |A custom theme map with a `color` and optional `context` key. The context key indicates the background colour your button is placed on, it defaults to the page colour (paper for the core brand, white otherwise). See [the README](https://github.com/Financial-Times/origami/components/o-buttons/README.md) for more details. |
 | types | List | - |The types of button to output the theme for e.g. ('primary', 'secondary'). |
 | icons | List,Null | null |The button icons to output for this theme. |
 
@@ -121,7 +121,7 @@ a new claret theme for buttons with icons.
 
 Create a single button with a custom class. To avoid duplicate CSS this is
 not recommended unless `o-buttons` default classes cannot be used. See [the
-README](https://registry.origami.ft.com/components/o-buttons/readme) for
+README](https://github.com/Financial-Times/origami/components/o-buttons/README.md) for
 more details.
 
 Button CSS declarations without any selectors.

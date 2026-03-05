@@ -17,7 +17,7 @@ Check out [how to include Origami components in your project](https://origami.ft
 
 ## Markup
 
-The subs card will expand to fill the width of its containing element, so you will need to build your own container system depending on how you want to arrange your page. An example of several subs packages together in a collection can be seen in the demos on the [registry](http://registry.origami.ft.com/components/o-subs-card)
+The subs card will expand to fill the width of its containing element, so you will need to build your own container system depending on how you want to arrange your page. An example of several subs packages together in a collection can be seen in the demos on [Storybook](https://o2-core.origami.ft.com/?path=/story/maintained-o-subs-card-demo--demo&globals=backgrounds:!undefined)
 
 ```html
 <div class="o-subs-card__container">

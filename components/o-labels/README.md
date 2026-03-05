@@ -190,7 +190,7 @@ Use the modifier class `o-labels-indicator--closed` for a closed label:
 </span>
 ```
 
-For an updated or new label use the associated modifier class, e.g. `o-labels-indicator--updated`, and add a child element `o-labels-indicator__timestamp` to show the new/updated time. We recommend using [o-date](https://registry.origami.ft.com/components/o-date) to format the timestamp element.
+For an updated or new label use the associated modifier class, e.g. `o-labels-indicator--updated`, and add a child element `o-labels-indicator__timestamp` to show the new/updated time. We recommend using [o-date](https://o2-core.origami.ft.com/?path=/docs/maintained-o-date-readme--docs&globals=backgrounds:!undefined) to format the timestamp element.
 
 ```html
 <span class="o-labels-indicator o-labels-indicator--new">
@@ -228,7 +228,7 @@ To include a timestamp label use the following markup. Note the timestamp label 
 </span>
 ```
 
-As with the indicator label, we recommend using [o-date](https://registry.origami.ft.com/components/o-date) to format the timestamp element.
+As with the indicator label, we recommend using [o-date](https://o2-core.origami.ft.com/?path=/docs/maintained-o-date-readme--docs&globals=backgrounds:!undefined) to format the timestamp element.
 
 ## Sass
 
@@ -282,7 +282,7 @@ Or pass an options map `$opts` argument to output just the label styles you need
 
 ### Custom Standard Label State
 
-Use `oLabelsAddState` mixin to add a custom label state for the standard label. See the [`oLabelsAddState` SassDoc](https://registry.origami.ft.com/components/o-labels/sassdoc?brand=core#mixin-olabelsaddstate) for more details.
+Use `oLabelsAddState` mixin to add a custom label state for the standard label. See the [`oLabelsAddState` SassDoc](https://o2-core.origami.ft.com/?path=/docs/maintained-o-labels-sassdoc--docs&globals=backgrounds:!undefined#olabelsaddstate) for more details.
 
 ```scss
 // outputs a class .o-labels--citrus-fruit

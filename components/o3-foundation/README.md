@@ -114,7 +114,7 @@ const example = `The hex for FT Pink is ${o3_color_palette_ft_pink}`;
 
 ### Resources
 
-* Origami site - https://origami.ft.com/foundations/typography/
+* Origami site - https://zeroheight.com/04668e87f/v/latest/p/03a2c7-typography
 * Storybook - https://o3.origami.ft.com/?path=/docs/o3-foundation-o3-typography-readme--jsx-documentation
 * Figma - https://www.figma.com/design/VVM0PixrY3IRZq2ZUTdWfU/%F0%9F%92%A0-Core---Origami--o3-?node-id=3-2&p=f&m=dev
 
@@ -290,7 +290,7 @@ For example, to create a `1rem` sized icon which inherits its colour from the cu
 
 ### Resources
 
-* Origami site - https://origami.ft.com/foundations/icons/
+* Origami site - https://zeroheight.com/04668e87f/v/latest/p/48c763-iconography
 * Storybook - https://o3.origami.ft.com/?path=/story/o3-foundation-o3-icon--icon
 
 ## Colours
@@ -313,7 +313,7 @@ Example:
 
 ### Resources
 
-* Origami site - https://origami.ft.com/foundations/colours/
+* Origami site - https://zeroheight.com/04668e87f/v/latest/p/22a635-colour
 * Storybook - https://o3.origami.ft.com/?path=/story/o3-foundation-o3-color--primary-palette
 * Figma - https://www.figma.com/design/VVM0PixrY3IRZq2ZUTdWfU/%F0%9F%92%A0-Core---Origami--o3-?node-id=0-1&p=f&m=dev
 
@@ -333,7 +333,7 @@ See the documentation for a [full list of spacing tokens](/components/o3-foundat
 
 ### Resources
 
-* Origami site - https://origami.ft.com/foundations/spacing/
+* Origami site - https://zeroheight.com/04668e87f/v/latest/p/43ea5b-scale
 * Storybook - https://o3.origami.ft.com/?path=/story/o3-foundation-o3-spacing--spacing
 * Figma - https://www.figma.com/design/VVM0PixrY3IRZq2ZUTdWfU/%F0%9F%92%A0-Core---Origami--o3-?node-id=5499-2000&p=f&m=dev
 

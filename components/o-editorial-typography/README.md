@@ -11,7 +11,7 @@ _Typography styles for editorial content._
 - [Contact](#contact)
 - [Licence](#licence)
 
-[o-typography](https://registry.origami.ft.com/components/o-typography) provides fundamental typographic tooling and styles for user interfaces. o-editorial-typography builds on that with typography for editorial content including headlines, tags, and bylines. It makes no assumption about where the editorial typography will be used -- it could be a page, another component, or email for example -- so no default margins are provided. To apply typography and layout editorial typography within an article see [o-editorial-layout](https://registry.origami.ft.com/components/o-editorial-layout).
+[o-typography](https://o2-core.origami.ft.com/?path=/story/deprecated-o-typography--body&globals=backgrounds:!undefined) provides fundamental typographic tooling and styles for user interfaces. o-editorial-typography builds on that with typography for editorial content including headlines, tags, and bylines. It makes no assumption about where the editorial typography will be used -- it could be a page, another component, or email for example -- so no default margins are provided. To apply typography and layout editorial typography within an article see [o-editorial-layout](https://registry.origami.ft.com/components/o-editorial-layout).
 
 ## Usage
 
@@ -207,11 +207,11 @@ Or a topic tag:
 }
 ```
 
-See the [o-editorial-typography Sassdoc](https://registry.origami.ft.com/components/o-editorial-typography/sassdoc) for full details and more examples.
+See the [o-editorial-typography Sassdoc](https://o2-core.origami.ft.com/?path=/docs/deprecated-o-typography-readme--docs&globals=backgrounds:!undefined) for full details and more examples.
 
 #### Font Loading
 
-Calling `oEditorialTypography` will output font faces to download custom Financial Times fonts. However IE11 may download fonts which are not used. To include font faces more granularly based on your use set `$o-editorial-typography-load-fonts: false` and use [o-fonts](https://registry.origami.ft.com/components/o-fonts). This is not required if your project also uses o-typography and has already set [$o-typography-load-fonts](https://registry.origami.ft.com/components/o-typography).
+Calling `oEditorialTypography` will output font faces to download custom Financial Times fonts. However IE11 may download fonts which are not used. To include font faces more granularly based on your use set `$o-editorial-typography-load-fonts: false` and use [o-fonts](https://o2-core.origami.ft.com/?path=/docs/deprecated-o-fonts-readme--docs&globals=backgrounds:!undefined). This is not required if your project also uses o-typography and has already set [$o-typography-load-fonts](https://registry.origami.ft.com/components/o-typography).
 
 ```scss
 // configure $o-editorial-typography-load-fonts to not include fonts

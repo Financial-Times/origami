@@ -6,8 +6,6 @@ V6 has dropped support for use through Bower.
 
 If you were already using npm, no changes should be required.
 
-If you have been using Bower or the Origami Build Service, follow [the migration guide on the Origami website](https://origami.ft.com/documentation/tutorials/bower-to-npm/).
-
 ### Migrating from v4 to v5
 
 ### Sass

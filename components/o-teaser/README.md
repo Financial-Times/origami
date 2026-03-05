@@ -41,9 +41,9 @@ The basic markup structure for a teaser will look something like this:
 </div>
 ```
 
-Optionally include the [o-date](https://registry.origami.ft.com/components/o-date) component within your project to render a formatted date within the timestamp element `o-teaser__timestamp`. This is required to render relative timestamps e.g. "1hr ago".
+Optionally include the [o-date](https://o2-core.origami.ft.com/?path=/docs/maintained-o-date-readme--docs&globals=backgrounds:!undefined) component within your project to render a formatted date within the timestamp element `o-teaser__timestamp`. This is required to render relative timestamps e.g. "1hr ago".
 
-Teasers support a wide array of [elements](#supported-elements) and can be customised using several [themes](#themes) and should be used as required. For a full list of examples including example markup, see [o-teaser in the Registry](http://registry.origami.ft.com/components/o-teaser).
+Teasers support a wide array of [elements](#supported-elements) and can be customised using several [themes](#themes) and should be used as required. For a full list of examples including example markup, see [o-teaser in the Registry](https://o2-core.origami.ft.com/?path=/docs/maintained-o-teaser-readme--docs&globals=backgrounds:!undefined).
 
 ### Images
 
@@ -137,8 +137,6 @@ Elements are specified via groups, they include:
 
 Uses the `o-teaser--small` modifier.
 
-[View example on the Registry](http://registry.origami.ft.com/components/o-teaser#demo-small)
-
 Additional modifiers:
 
 - `stacked`: moves the image to the top of the teaser
@@ -150,8 +148,6 @@ Additional modifiers:
 
 Uses the `o-teaser--large` modifier.
 
-[View example on the Registry](http://registry.origami.ft.com/components/o-teaser#demo-large)
-
 Additional modifiers:
 
 - `opinion`: adds a blue background
@@ -161,7 +157,7 @@ Additional modifiers:
 
 Uses the `o-teaser--hero` modifier.
 
-[View example on the Registry](http://registry.origami.ft.com/components/o-teaser#demo-hero)
+[View example on Storybook](https://o2-core.origami.ft.com/?path=/story/maintained-o-teaser--hero-image&globals=backgrounds:!undefined)
 
 Additional modifiers:
 
@@ -174,13 +170,11 @@ Additional modifiers:
 
 Uses the `o-teaser--video` modifier.
 
-[View example on the Registry](http://registry.origami.ft.com/components/o-teaser#demo-video)
+[View example on Storybook](https://o2-core.origami.ft.com/?path=/story/maintained-o-teaser--video&globals=backgrounds:!undefined)
 
 #### Video teasers
 
 Uses the `o-teaser--audio` modifier.
-
-[View example on the Registry](http://registry.origami.ft.com/components/o-teaser#demo-audio)
 
 ## Migration guide
 

@@ -39,7 +39,7 @@ For paragraphs use the `o-editorial-layout-body` class:
 
 Adjacent `figure`, `aside`, and `div` elements will have margin applied.
 
-A wrapper class `o-editorial-layout-wrapper` may be used to style child elements based on their semantic meaning. This includes headings, paragraphs, lists, figure captions, footers, blockquotes, and more. See a [full example in the wrapper registry](https://registry.origami.ft.com/components/o-editorial-layout). Only direct children, and in some cases the children of paragraph elements, are styled.
+A wrapper class `o-editorial-layout-wrapper` may be used to style child elements based on their semantic meaning. This includes headings, paragraphs, lists, figure captions, footers, blockquotes, and more. See a [full example in the wrapper Storybook demo](https://o2-core.origami.ft.com/?path=/story/maintained-o-editorial-layout--wrapper-with-nested-elements&globals=backgrounds:!undefined). Only direct children, and in some cases the children of paragraph elements, are styled.
 
 ```html
 <div class="o-editorial-layout-wrapper">
@@ -107,7 +107,7 @@ For example to output a heading:
 }
 ```
 
-See the [o-editorial-layout Sassdoc](https://registry.origami.ft.com/components/o-editorial-layout/sassdoc) for more details.
+See the [o-editorial-layout Sassdoc](https://o2-core.origami.ft.com/?path=/docs/maintained-o-editorial-layout-sassdoc--docs&globals=backgrounds:!undefined) for more details.
 
 ## Migration guide
 

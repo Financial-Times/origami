@@ -131,7 +131,7 @@ Once you have stepped progress instances, you can interact with them using the m
 - `mySteppedProgress.isComplete()`: Get whether the stepped progress has been completed
 - `mySteppedProgress.progress()`: Mark the current step as complete, and move onto the next step
 
-There is [full API documentation available in the Origami Registry](https://registry.origami.ft.com/components/o-stepped-progress/jsdoc).
+There is [full API documentation available in the Origami Registry](https://o2-core.origami.ft.com/?path=/docs/maintained-o-stepped-progress-jsdoc--docs&globals=backgrounds:!undefined).
 
 ## Sass
 
@@ -172,7 +172,7 @@ If you wish to specify a subset of themes to output styles for, you can pass in 
 );
 ```
 
-There is [full Sass documentation available in the Origami Registry](https://registry.origami.ft.com/components/o-stepped-progress/sassdoc).
+There is [full Sass documentation available in Storybook](https://o2-core.origami.ft.com/?path=/docs/maintained-o-stepped-progress-sassdoc--docs&globals=backgrounds:!undefined).
 
 ### Themes
 
