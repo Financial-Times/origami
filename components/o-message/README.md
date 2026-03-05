@@ -15,8 +15,6 @@
 
 `o-message` uses Sass and Javascript to show and hide a message component.
 
-It can be initialised declaratively if markup is provided on the page, or it can be initialised imperatively when using the [manual build process](http://origami.ft.com/documentation/developer-guide/modules/building-modules/).
-
 ## Usage
 
 Check out [how to include Origami components in your project](../../docs/legacy-o2-docs/technical-guide.md) to get started with `o-message`.
