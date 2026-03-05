@@ -276,7 +276,7 @@ const myCustomExpander = Expander.createCustom(myExpanderElement, {
 });
 ```
 
-See [o-exapnder JSDocs](https://registry.origami.ft.com/components/o-expander/jsdoc) for more details.
+See [o-exapnder JSDocs](https://o2-core.origami.ft.com/?path=/docs/maintained-o-expander-jsdoc--docs&globals=backgrounds:!undefined) for more details.
 
 ### Events
 

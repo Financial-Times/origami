@@ -1,6 +1,6 @@
 # o-top-banner
 
-o-top-banner is used for marketing or enhancement messages along the top of the page. For similar messaging as an overlay, typically bottom left, see [o-banner](https://registry.origami.ft.com/components/o-banner). For service messaging such as "success" or "error" see [o-message](https://registry.origami.ft.com/components/o-message).
+o-top-banner is used for marketing or enhancement messages along the top of the page. For similar messaging as an overlay, typically bottom left, see [o-banner](https://o2-core.origami.ft.com/?path=/docs/maintained-o-banner-readme--docs&globals=backgrounds:!undefined). For service messaging such as "success" or "error" see [o-message](https://registry.origami.ft.com/components/o-message).
 
 - [Usage](#usage)
 - [Themes](#theme)

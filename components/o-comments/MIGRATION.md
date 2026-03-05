@@ -5,7 +5,7 @@
 v13.1.0 includes a change to use Image Service V3. Whilst the change should be unobtrusive, there are some checks you will need to perform.
 
 Image service V3 uses a hosts configuration, meaning **a valid system code must be used in order to make image requests** this can be set in your Sass configuration as a global.
- 
+
 ```scss
 //global scope of your Sass code
 $system-code: 'next-article';
@@ -50,8 +50,6 @@ To migrate update your projects use of the `oComments` sass mixin. Set its `cora
 ### Migrating from v7 to v8
 
 Support for Bower and version 2 of the Origami Build Service have been removed.
-
-Follow [the migration guide on the Origami website](https://origami.ft.com/documentation/tutorials/bower-to-npm/).
 
 ### Migrating from v6 to v7
 

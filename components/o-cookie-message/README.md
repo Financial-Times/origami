@@ -23,7 +23,7 @@ Use the following HTML to get a full width banner with the legal approved cookie
 <div data-o-component="o-cookie-message"></div>
 ```
 
-Optionally add a theme attribute to change the colours of the cookie message `data-o=cookie-message-theme="alternative"`, see [`the registry demos`](https://registry.origami.ft.com/components/o-cookie-message#demo-approved-alternative-cookie-banner) for an example.
+Optionally add a theme attribute to change the colours of the cookie message `data-o=cookie-message-theme="alternative"`, see [`Storybook demos`](https://o2-core.origami.ft.com/?path=/story/maintained-o-cookie-message--alternative-design-cookie-message&globals=backgrounds:!undefined) for an example.
 
 ### Custom Cookie Message
 
@@ -168,7 +168,7 @@ Include all themes:
 @include oCookieMessage();
 ```
 
-Include only the [default cookie message](https://registry.origami.ft.com/components/o-cookie-message#demo-approved-cookie-banner):
+Include only the [default cookie message](https://o2-core.origami.ft.com/?path=/story/maintained-o-cookie-message--cookie-message&globals=backgrounds:!undefined):
 
 ```scss
 @include oCookieMessage(
@@ -180,7 +180,7 @@ Include only the [default cookie message](https://registry.origami.ft.com/compon
 
 _Note: "standard" used to be required as a theme option to output the default theme, this is now output by default without any themes set._
 
-Include the [`alternative` cookie message theme](https://registry.origami.ft.com/components/o-cookie-message#demo-approved-alternative-cookie-banner):
+Include the [`alternative` cookie message theme](https://o2-core.origami.ft.com/?path=/story/maintained-o-cookie-message--alternative-design-cookie-message&globals=backgrounds:!undefined):
 
 ```scss
 @include oCookieMessage(

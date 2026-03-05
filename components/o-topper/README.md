@@ -38,7 +38,7 @@ The basic markup structure for a topper will look something like this:
 </div>
 ```
 
-Toppers support a wide array of [elements](#supported-elements) and can be customised using several [themes](#themes) and [background colors](#colors). For a full list of examples, including example markup, see [o-topper in the Registry](http://registry.origami.ft.com/components/o-topper).
+Toppers support a wide array of [elements](#supported-elements) and can be customised using several [themes](#themes) and [background colors](#colors). For a full list of examples, including example markup, see [o-topper in Storybook](https://o2-core.origami.ft.com/?path=/docs/maintained-o-topper-readme--docs&globals=backgrounds:!undefined).
 
 ### Supported elements
 
@@ -63,7 +63,7 @@ Toppers support a wide array of [elements](#supported-elements) and can be custo
 
 ### Themes
 
-These themes affect the layout and visual style of all elements. See the [demos](http://registry.origami.ft.com/components/o-topper) for examples.
+These themes affect the layout and visual style of all elements. See the [demos](https://o2-core.origami.ft.com/?path=/story/maintained-o-topper-basic-article-topper--basic-article-topper&globals=backgrounds:!undefined) for examples.
 
 ```
 .o-topper--basic

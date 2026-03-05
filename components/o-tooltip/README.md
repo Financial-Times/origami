@@ -173,7 +173,7 @@ You may also choose to output tooltips for only specific themes:
 );
 ```
 
-There is [full Sass documentation available in the Origami Registry](https://registry.origami.ft.com/components/o-tooltip/sassdoc).
+There is [full Sass documentation available in Storybook](hhttps://o2-core.origami.ft.com/?path=/docs/maintained-o-tooltip-sassdoc--docs&globals=backgrounds:!undefined).
 
 ## Custom Themes
 

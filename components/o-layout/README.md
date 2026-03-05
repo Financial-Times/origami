@@ -77,7 +77,7 @@ This will style child headings, paragraphs, lists, anchor, and more tags but wil
 </div>
 ```
 
-To style typographic elements individually see the [o-typography component](https://registry.origami.ft.com/components/o-typography?brand=internal).
+To style typographic elements individually see the [o-typography component](https://o2-core.origami.ft.com/?path=/docs/deprecated-o-typography-readme--docs&globals=backgrounds:!undefined).
 
 ```html
 <h1 class="o-typography-heading-level-1">Page title</h1>
@@ -86,7 +86,7 @@ To style typographic elements individually see the [o-typography component](http
 
 ## Messages
 
-All layouts include a header and footer area. These can be thought of as "top" and "bottom" areas that may include multiple components. For example the header area may include a heading component such as [o-header-services](https://registry.origami.ft.com/components/o-header-services?brand=internal) and a full bleed alert such as from [o-message](https://registry.origami.ft.com/components/o-message/?brand=internal).
+All layouts include a header and footer area. These can be thought of as "top" and "bottom" areas that may include multiple components. For example the header area may include a heading component such as [o-header-services](https://o2-core.origami.ft.com/?path=/docs/maintained-o-header-services-readme--docs&globals=backgrounds:!undefined).
 
 ## Default And Bleed Layout
 
@@ -121,7 +121,7 @@ The default layout has a single content area "Main Content"
 </div>
 ```
 
-The content area has a max width by default. To make the content area full width use the bleed layout. To use the bleed layout add a modifier class `o-layout--bleed`. Do not use the bleed layout with any other layout. _Note: If you are using [o-header-services](https://registry.origami.ft.com/components/o-header-services) as your header set it to bleed also._
+The content area has a max width by default. To make the content area full width use the bleed layout. To use the bleed layout add a modifier class `o-layout--bleed`. Do not use the bleed layout with any other layout. _Note: If you are using [o-header-services](https://o2-core.origami.ft.com/?path=/docs/maintained-o-header-services-readme--docs&globals=backgrounds:!undefined) as your header set it to bleed also._
 
 ```diff
 -<div class="o-layout" data-o-component="o-layout">
@@ -443,7 +443,7 @@ Sometimes a page may have multiple overview sections. In this case it can appear
 ├———————————————————————————————————————┤
 ```
 
-[See the registry demos](https://registry.origami.ft.com/components/o-layout#demo-landing-layout) for an example landing page.
+[See the Storybook demos](https://o2-core.origami.ft.com/?path=/docs/maintained-o-header-services-readme--docs&globals=backgrounds:!undefined) for an example landing page.
 
 ### Article List
 

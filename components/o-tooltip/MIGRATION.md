@@ -21,8 +21,6 @@ To upgrade, replace the following "o2" components with their "o3" equivalent:
 
 Support for Bower and version 2 of the Origami Build Service have been removed.
 
-Follow [the migration guide on the Origami website](https://origami.ft.com/documentation/tutorials/bower-to-npm/).
-
 ## Migrating from v3 to v4
 
 Tooltip typography is now included by default, and no longer inherits typography from its container. Confirm tooltip typography is correct for your project. If possible remove custom CSS which sets tooltip typography.

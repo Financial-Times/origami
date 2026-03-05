@@ -34,8 +34,6 @@ To upgrade, replace the following "o2" components with their "o3" equivalent:
 
 V7 drops support for Bower and version 2 of Origami Build Service.
 
-Follow [the migration guide on the Origami website](https://origami.ft.com/documentation/tutorials/bower-to-npm/).
-
 ## Migrating from v3 to v4
 
 ### Updated dependencies

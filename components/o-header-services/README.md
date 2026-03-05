@@ -41,7 +41,7 @@ You can choose to include a product tagline to describe your product concisely, 
 
 _Note: If there is a 'Sign in' option, it should be consistent with other FT products by aligning itself to the right and avoiding different wording such as 'Log in' or 'Login'._
 
-For an example and markup, see the [title-only header in the Origami Registry](https://registry.origami.ft.com/components/o-header-services@3.2.10#demo-header-with-title-section).
+For an example and markup, see the [title-only header in Storybook](https://o2-core.origami.ft.com/?path=/story/maintained-o-header-services--header-with-title-section&globals=backgrounds:!undefined).
 
 ### Primary Navigation
 
@@ -51,7 +51,7 @@ This section of the header has specific behaviour, as it turns into a drawer at 
 
 If you are using extra content (such as a 'Sign in' link), that will be pulled into the drawer, as well. (This behaviour can be supressed by adding the class `.o-header-services__related-content--always-visible`)
 
-For an example and markup, see the [primary navigation in the Origami Registry](https://registry.origami.ft.com/components/o-header-services@3.2.10#demo-header-with-primary-navigation).
+For an example and markup, see the [primary navigation in Storybook(https://o2-core.origami.ft.com/?path=/story/maintained-o-header-services--header-with-primary-and-secondary-navigation).
 
 ### Core Experience Of The Drawer
 
@@ -63,7 +63,7 @@ The primary navigation can also handle dropdown menus. These menus are hidden be
 
 Drop down menus also get pulled into the drawer on smaller viewports.
 
-For an example and markup, see the [primary navigation with drop downs in the Origami Registry](https://registry.origami.ft.com/components/o-header-services#demo-header-with-primary-navigation-and-drop-down-menus).
+For an example and markup, see the [demo on Storybook](https://o2-core.origami.ft.com/?path=/story/maintained-o-header-services--header-with-primary-and-secondary-navigation).
 
 If copying markup from the above example, update the following attributes of dropdown navigation items:
 
@@ -100,7 +100,7 @@ The 'ancestor' section works in the form of a breadcrumb, and the children are r
 
 At smaller viewports, it does _not_ collapse into the drawer, but becomes scrollable instead.
 
-For an example and markup, see the [secondary navigation in the Origami Registry](https://registry.origami.ft.com/components/o-header-services@3.2.10#demo-header-with-a-primary-and-a-secondary-navigation).
+For an example and markup, see the [demo on Storybook](https://o2-core.origami.ft.com/?path=/story/maintained-o-header-services--header-with-primary-and-secondary-navigation).
 
 ### Themes
 
@@ -114,8 +114,6 @@ To add a theme to the header, add the appropriate class to the header element. F
 	<!-- Your header markup -->
 </header>
 ```
-
-For an example and markup, see the [B2B and B2C headers in the Origami Registry](https://registry.origami.ft.com/components/o-header-services@3.2.10#demo-product-theme-b2c).
 
 ### Bleed Header
 

@@ -11,7 +11,7 @@
 ### oTeaserCollection
 
 Output all o-teaser-collection styles. Accepts an options map to include features granularly.
-See the [README](https://registry.origami.ft.com/components/o-teaser-collection/readme) for more details of all available options.
+See the [README](https://o2-core.origami.ft.com/?path=/docs/maintained-o-teaser-collection-readme--docs&globals=backgrounds:!undefined) for more details of all available options.
 
 | Parameter | Type | Default                                                                                                                                                                                                                                      | Description |
 | --------- | ---- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |

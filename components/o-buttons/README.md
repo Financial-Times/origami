@@ -168,7 +168,7 @@ The number of pages to display is not enforced by Origami. However we recommend 
 	- The 3rd from last page is selected show 2 pages, the ellipsis, and 4 more pages.
 	- The selected page is more than 3 from the first and last page show the first page, ellipsis, three pages, ellipsis, and the last page.
 
-For an example see the [pagination demos in the Origami registry](https://registry.origami.ft.com/components/o-buttons@6.0.19#demo-pagination-layout).
+For an example see the [pagination demos in Storybook](https://o2-core.origami.ft.com/?path=/story/deprecated-o-buttons--pagination).
 
 #### Pagination Theme
 
@@ -276,7 +276,7 @@ We recommend using `o-buttons` markup as this encourages CSS reuse and smaller b
 }
 ```
 
-`oButtonsContent` has options to recreate all buttons, including for different sizes and icon only buttons. See the [o-buttons SassDoc](https://registry.origami.ft.com/components/o-buttons/sassdoc) for more details and examples.
+`oButtonsContent` has options to recreate all buttons, including for different sizes and icon only buttons. See the [o-buttons SassDoc](https://o2-core.origami.ft.com/?path=/docs/deprecated-o-buttons-sassdoc--docs&globals=backgrounds:!undefined) for more details and examples.
 
 ## References
 

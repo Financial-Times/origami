@@ -58,7 +58,7 @@ To lazy load a `<picture>` element add the `o-lazy-load` class and prefix the `s
 </picture>
 ```
 
-o-lazy-load is also capable of lazy loading iframes and toggle class names. [See the component demos](https://registry.origami.ft.com/components/o-lazy-load) for more information about these features.
+o-lazy-load is also capable of lazy loading iframes and toggle class names. [See the component demos](https://o2-core.origami.ft.com/?path=/docs/maintained-o-lazy-load-readme--docs&globals=backgrounds:!undefined) for more information about these features.
 
 ## JavaScript
 
