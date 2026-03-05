@@ -55,7 +55,7 @@ For an example and markup, see the [primary navigation in Storybook(https://o2-c
 
 ### Core Experience Of The Drawer
 
-Small screen users should still be able to access the contents of the drawer even if their browser doesn't [cut the mustard](https://origami.ft.com/documentation/components/compatibility/#cuts-the-mustard) or the JavaScript has failed to load. In this case we recommend you have the contents of the drawer at the bottom of the page in a footer that is only visible if the body has a `.core` class. In core experience the hamburger menu links to an anchor at the bottom of the page.
+Small screen users should still be able to access the contents of the drawer even if their browser doesn't [cut the mustard](../../docs/o3-specification.md) or the JavaScript has failed to load. In this case we recommend you have the contents of the drawer at the bottom of the page in a footer that is only visible if the body has a `.core` class. In core experience the hamburger menu links to an anchor at the bottom of the page.
 
 ### Primary Navigation With Drop Down
 
@@ -159,7 +159,7 @@ To use a logo that is **not** the FT logo, the logo can be modified in one of tw
 - By using a logo name from the logo image set (e.g. 'origami')
 - By passing in a full url or data url that points at the SVG you want to use as a logo (e.g. `'https://www.example.com/logo.svg'`). Bear in mind that you can also run your chosen SVG through the [Image Service's URL Builder](https://www.ft.com/__origami/service/image/v2/docs/url-builder), which will optimise the image and provide a URL for it.
 
-In this example we include only the styles for a [primary navigation](#primary-navigation) with the [bleed modifier](#bleed-header). We opt to use the Origami logo from the [logo image set](https://registry.origami.ft.com/components/logo-images@1.8.0).
+In this example we include only the styles for a [primary navigation](#primary-navigation) with the [bleed modifier](#bleed-header). We opt to use the Origami logo from the logo image set.
 
 ```scss
 	@import '@financial-times/o-header-services/main';
