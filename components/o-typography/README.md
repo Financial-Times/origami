@@ -44,7 +44,7 @@ This scale makes up all typographic styles available through o-typography. It is
 
 ## Usage
 
-Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-typography`.
+Check out [how to include Origami components in your project](../../docs/legacy-o2-docs/technical-guide.md) to get started with `o-typography`.
 
 ## Markup
 

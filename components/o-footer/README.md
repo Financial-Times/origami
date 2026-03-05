@@ -12,7 +12,7 @@ Core brand FT page footer component. See the [Origami Navigation Service](https:
 
 ## Usage
 
-Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-footer`.
+Check out [how to include Origami components in your project](../../docs/legacy-o2-docs/technical-guide.md) to get started with `o-footer`.
 
 _See [o-footer-services](https://o2-core.origami.ft.com/?path=/docs/maintained-o-footer-services-readme--docs&globals=backgrounds:!undefined) for an alternate footer style for tools and specialist titles. _
 

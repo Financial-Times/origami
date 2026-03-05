@@ -14,7 +14,7 @@ o-buttons provides Sass mixins and variables to create buttons.
 
 ## Usage
 
-Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-buttons`.
+Check out [how to include Origami components in your project](../../docs/legacy-o2-docs/technical-guide.md) to get started with `o-buttons`.
 
 Buttons allow users to interact with the page or product. Each page or product area (a form, modal, within an article) should not have more than 1 primary button, any remaining CTA's should be displayed as secondary or ghost buttons.
 

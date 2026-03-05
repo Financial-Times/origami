@@ -12,7 +12,7 @@ Follow on social media links. For social share buttons see [o-share](https://o2-
 
 ## Usage
 
-Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-social-follow`.
+Check out [how to include Origami components in your project](../../docs/legacy-o2-docs/technical-guide.md) to get started with `o-social-follow`.
 
 Social follow can be used when wanting to give more freedom for users when choosing how they engage with our content adding social media platform links to easily allow users to follow us on specific platforms.
 

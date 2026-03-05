@@ -11,7 +11,7 @@ This is an [Origami](http://origami.ft.com/) component that provides a visual lo
 
 ## Usage
 
-Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-loading`.
+Check out [how to include Origami components in your project](../../docs/legacy-o2-docs/technical-guide.md) to get started with `o-loading`.
 
 ## Markup
 

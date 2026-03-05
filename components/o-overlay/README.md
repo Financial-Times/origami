@@ -18,7 +18,7 @@ Configurable custom overlay box that can be used to show overlay windows. The ov
 
 ## Usage
 
-Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-overlay`.
+Check out [how to include Origami components in your project](../../docs/legacy-o2-docs/technical-guide.md) to get started with `o-overlay`.
 
 ## Markup
 

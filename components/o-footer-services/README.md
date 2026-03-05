@@ -11,7 +11,7 @@ o-footer-services is an [o-footer](https://o2-core.origami.ft.com/?path=/docs/ma
 
 ## Usage
 
-Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-footer-services`.
+Check out [how to include Origami components in your project](../../docs/legacy-o2-docs/technical-guide.md) to get started with `o-footer-services`.
 
 ## Markup
 

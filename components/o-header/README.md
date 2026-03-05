@@ -13,7 +13,7 @@ Responsive header for FT branded sites. See the [Origami Navigation Service](htt
 
 ## Usage
 
-Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-header`.
+Check out [how to include Origami components in your project](../../docs/legacy-o2-docs/technical-guide.md) to get started with `o-header`.
 
 ## Markup
 
