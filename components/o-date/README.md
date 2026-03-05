@@ -27,7 +27,7 @@ _The rendered date will be a relative time or timestamp for a given date, in acc
 
 ### Core Experience
 
-We recommend a human readable date is added to the `time` element to support a [core experience](https://origami.ft.com/documentation/components/compatibility/#core--enhanced-experiences) without JavaScript:
+We recommend a human readable date is added to the `time` element to support a [core experience](../../docs/o3-specification.md) without JavaScript:
 ```html
 <time data-o-component="o-date" class="o-date" datetime="2000-06-14T23:00:00.000Z">
 	June 15 2000
@@ -88,8 +88,6 @@ Render a date multiple times within the same `o-date` component by including mul
 _Previously a CSS class `o-date__printer` was used instead of the `data-o-date-printer` attribute. The class `o-date__printer` is now deprecated._
 
 ## JavaScript
-
-Instantiate o-date JavaScript in the [same way as other Origami components](https://origami.ft.com/documentation/components/initialising/).
 
 For example call the `init` method to initialise all `o-date` instances on the page:
 ```js
