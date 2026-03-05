@@ -85,7 +85,7 @@ All options include:
 | Option      | Description                                                                                                                                       | Brand support              |
 | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
 | logo        | A logo from the [image service](https://github.com/Financial-Times/origami-image-service.) to include in the footer (e.g. `ftlogo-v1:origami`).   | core, internal, whitelabel |
-| icons       | A list of [social share](https://registry.origami.ft.com/components/social-images) icons to include links for, defaults to '('slack', 'github')`. | core, internal, whitelabel |
+| icons       | A list of [social share](https://o2-core.origami.ft.com/?path=/story/deprecated-o-icons--icons&globals=backgrounds:!undefined) icons to include links for, defaults to '('slack', 'github')`. | core, internal, whitelabel |
 | brand-strip | Whether to include styles for the brand strip at the bottom of the footer, "a Nikkei company".                                                    | core, internal, whitelabel |
 | themes      | A list of themes to include. Currently the only theme is `dark`, which is only supported by the core brand.                                       | core                       |
 
