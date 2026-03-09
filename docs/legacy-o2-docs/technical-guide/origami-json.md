@@ -1,10 +1,4 @@
----
-title: origami.json (o2)
-description: Responsible for describing various aspects of an Origami project.
-sidebar:
-  order: 3
-  hidden: true
----
+# Origami Manifest
 
 `origami.json` is a <a href="https://www.json.org/"><abbr title="JavaScript Object Notation">JSON</abbr></a> format file that is responsible for describing various aspects of an Origami project. It is under active development and subject to change, `required` properties indicate those that Origami tools or services may still rely on.
 
@@ -79,7 +73,7 @@ Defines the type of Origami project that the manifest belongs to:
 	</tr>
 </table>
 
-The version of the [Origami specification](/specification/) the project follows. Note that the specification is now deprecated as of v1, any value other than `1`, for example `2.0`, indicates the project does not follow a specification:
+The version of the [Origami specification](https://origami.ft.com/specification/) the project follows. Note that the specification is now deprecated as of v1, any value other than `1`, for example `2.0`, indicates the project does not follow a specification:
 
 ```json
 {
@@ -100,7 +94,7 @@ The version of the [Origami specification](/specification/) the project follows.
 	</tr>
 </table>
 
-For components which support [brands](/documentation/components/customisation/), an array of one or more brands: "core", "internal, "whitelabel".
+For components which support [brands](https://origami.ft.com/documentation/components/customisation/), an array of one or more brands: "core", "internal, "whitelabel".
 If the brands property does not exist, this means the component is unbranded and supports all the brands.
 
 ### keywords

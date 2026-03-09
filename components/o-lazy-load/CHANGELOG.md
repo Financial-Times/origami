@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.4](https://github.com/Financial-Times/origami/compare/o-lazy-load-v3.1.3...o-lazy-load-v3.1.4) (2026-02-25)
+
+
+### Bug Fixes
+
+* update tests to use origami as source code rather than test ([47fe5f4](https://github.com/Financial-Times/origami/commit/47fe5f4357d8da10a0988a7049e55b8973a52d7a))
+
 ## [3.1.3](https://github.com/Financial-Times/origami/compare/o-lazy-load-v3.1.2...o-lazy-load-v3.1.3) (2023-10-27)
 
 

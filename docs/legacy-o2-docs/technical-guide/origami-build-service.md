@@ -1,17 +1,11 @@
----
-title: Using components (o2) with the Origami Build Service
-description: A reference of components
-sidebar:
-  order: 3
-  hidden: true
----
+# Using components (o2) with the Origami Build Service
 
 With the [Origami Build Service](https://www.ft.com/__origami/service/build/v3/) you can add "o2" components to your website with a single `link` and `script` tag. This is a good approach for:
 
 1. Teams who can't or don't want to maintain front-end build tooling.
 2. Projects where customisation and performance is less of a concern.
 
-Note that the Origami Build Service doesn't support newer "o3" components. Please [let the team know](/getting-started/support/) if this is a feature you would like to see.
+Note that the Origami Build Service doesn't support newer "o3" components. Please [let the team know](https://financialtimes.enterprise.slack.com/archives/C02FU5ARJ) if this is a feature you would like to see.
 
 ## Example
 
@@ -47,4 +41,4 @@ Components also include a markup section in their [README file](https://o2-core.
 </footer>
 ```
 
-If you have questions or need help please [reach out to the Origami team](/getting-started/support/) at any time.
+If you have questions or need help please [reach out to #origami-support](https://financialtimes.enterprise.slack.com/archives/C02FU5ARJ) at any time.

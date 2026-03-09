@@ -1,15 +1,10 @@
----
-title: Using Components (o3) via npm
-description: A reference of components
-sidebar:
-  hidden: true
----
+# Getting started with Origami o3 via npm
 
 Origami components are published to npm as [Custom Elements](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements), and other standards based web component technologies.
 
 This guide aims to take you through the key steps to install and use Origami components. Familiarity with npm, CSS, and JavaScript is assumed. We also assume your project includes a build step e.g. [webpack](https://webpack.js.org/), [vite](https://vitejs.dev/), [postcss](https://postcss.org/).
 
-If you are having difficulty getting Origami working for your setup, please [reach out to the team](/getting-started/support/). We can help you get setup and update our documentation as needed.
+If you are having difficulty getting Origami working for your setup, contact us on [#origami-support](https://financialtimes.enterprise.slack.com/archives/C02FU5ARJ). We can help you get setup and update our documentation as needed.
 
 ## Install
 
@@ -46,7 +41,7 @@ We recommend JSX templates for React projects. This will reduce the number of ma
 
 ### HTML from Storybook
 
-This example shows including a button which is described by an "[onboarding tooltip](/components/tooltip/#onboarding-tooltips)". It includes HTML copied from the [HTML tab in Storybook](https://o3.origami.ft.com/?path=/story/core-o3-tooltip--onboarding-tooltip):
+This example shows including a button which is described by an "[onboarding tooltip](https://origami.ft.com/components/tooltip/#onboarding-tooltips)". It includes HTML copied from the [HTML tab in Storybook](https://o3.origami.ft.com/?path=/story/core-o3-tooltip--onboarding-tooltip):
 
 ```html
 <body data-o3-brand="core">
@@ -70,7 +65,7 @@ This example shows including a button which is described by an "[onboarding tool
 
 ### HTML via JSX
 
-This example shows including a button which is described by an "[onboarding tooltip](/components/tooltip/#onboarding-tooltips)" using the component's JSX:
+This example shows including a button which is described by an "[onboarding tooltip](https://origami.ft.com/components/tooltip/#onboarding-tooltips)" using the component's JSX:
 
 ```jsx
 import {Button} from '@financial-times/o3-button';
@@ -191,7 +186,7 @@ align-items: flex-start;
 gap: var(--o3-spacing-m, 2rem);
 ```
 
-[![](/assets/images/new/dev-mode-1.png)](/assets/images/new/dev-mode-1.png)
+[![](_images/dev-mode-1.png)](_images/dev-mode-1.png)
 
 ### Figma to JSX
 
@@ -199,13 +194,13 @@ Where possible we align Figma Variants to our JSX properties. After selecting an
 
 In the following screenshot we have selected a button and can see we need to include a button with `type='primary'` set.
 
-[![](/assets/images/new/dev-mode-3.png)](/assets/images/new/dev-mode-3.png)
+[![](_images/dev-mode-3.png)](_images/dev-mode-3.png)
 
 ### Figma to Storybook
 
 After selecting an Origami component within a design we can also use Dev Mode to jump to design guidelines, Storybook, and any other developer resources.
 
-[![](/assets/images/new/dev-mode-2.png)](/assets/images/new/dev-mode-2.png)
+[![](_images/dev-mode-2.png)](_images/dev-mode-2.png)
 
 ## VSCode extension recommendations
 
@@ -214,13 +209,13 @@ After selecting an Origami component within a design we can also use Dev Mode to
 Similar to Dev Mode, [Figma for VSCode](https://marketplace.visualstudio.com/items?itemName=figma.figma-vscode-extension) allows you to navigate and inspect design files within your text editor. These benefit from code auto completion based on the selected design.
 
 The following screenshot shows Figma For VSCode suggesting the `--o3-spacing-m` CSS Custom Property based on the selected Figma design.
-![Origami code autocompletion from Figma](/assets/images/new/vs-code-1.png)
+![Origami code autocompletion from Figma](_images/vs-code-1.png)
 
 ### CSS Variable Autocomplete
 
 [CSS Variable Autocomplete](https://marketplace.visualstudio.com/items?itemName=vunguyentuan.vscode-css-variables) makes applying Origami foundations such as colours, typography, and spacing far easier as these are published as CSS Custom Properties. Instead of referencing documentation or design files, this plugin allows for autocompletion based on memory and search.
 
-![Origami CSS autocompletion for colours, showing name and hex value](/assets/images/new/vs-code-3.png)
+![Origami CSS autocompletion for colours, showing name and hex value](_images/vs-code-3.png)
 
 By default [CSS Variable Autocomplete](https://marketplace.visualstudio.com/items?itemName=vunguyentuan.vscode-css-variables) does not look for CSS in `node_modules`. We recommend setting its [configuration](https://code.visualstudio.com/docs/getstarted/settings) to specify which CSS to use for autocompletion. This will vary per project. E.g:
 

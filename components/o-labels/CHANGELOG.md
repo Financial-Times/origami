@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.0.1](https://github.com/Financial-Times/origami/compare/o-labels-v8.0.0...o-labels-v8.0.1) (2026-02-25)
+
+
+### Bug Fixes
+
+* update tests to use origami as source code rather than test ([47fe5f4](https://github.com/Financial-Times/origami/commit/47fe5f4357d8da10a0988a7049e55b8973a52d7a))
+
 ## [8.0.0](https://github.com/Financial-Times/origami/compare/o-labels-v7.1.2...o-labels-v8.0.0) (2026-02-05)
 
 

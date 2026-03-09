@@ -3,10 +3,13 @@ import {Title, General} from './props';
 
 interface TitleProps extends Title, General {
 	headlineTesting?: boolean;
+	showTitlePrefix?: boolean;
 }
 export default ({
 	title,
 	altTitle,
+	showTitlePrefix,
+	titlePrefix,
 	headlineTesting,
 	relativeUrl,
 	url,
@@ -34,7 +37,14 @@ export default ({
 					className: 'js-teaser-heading-link',
 					'aria-label': ariaLabel,
 				}}>
-				{displayTitle}
+					<>
+						{showTitlePrefix && titlePrefix &&
+							<span className="o-teaser__heading-prefix">
+								{`${titlePrefix}. `}
+							</span>
+						}
+						{displayTitle}
+					</>
 			</Link>
 			{indicators && indicators.accessLevel === 'premium' ? (
 				<span>

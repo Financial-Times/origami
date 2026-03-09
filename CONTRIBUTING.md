@@ -6,6 +6,10 @@ Hey, so you want to contribute to Origami.
 
 Make sure you set up the required software listed in [the readme](./README.md#requirements).
 
+## Contributing to o3
+
+Read [o3 Specification](docs/o3-specification.md) document.
+
 ## Committing
 
 Our commit messages use a simplified form of [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/). This is how our automated release system knows what a given commit means.
@@ -72,9 +76,22 @@ When your component is reviewed by the component's code owners, usually the Orig
 
 ### Re-running a failed release
 
-If the Release Please Github Action fails to run, follow these steps to attempt re-release.
+If the Release Please Github Action fails to run after merging the release PR, follow these steps to attempt re-release.
 
 1) Remove all tags and releases created by release please from [GitHub](https://github.com/Financial-Times/origami/releases).
 2) Remove `autorelease: tagged` label from the release PR and add the `autorelease: pending` tag.
 3) Re-run the failed publish GitHub Action
 
+### Removing changes before releasing
+
+If you have merged changes to main that are no longer required, but are staged for release by release please, the following steps can be taken to revert the release:
+
+1) Raise revert PRs for the changes you do not want to release, approve and merge.
+2) On the original PRs that introduced the changes, add the following to the PR description:
+```text
+BEGIN_COMMIT_OVERRIDE
+chore: revert unpublished change
+END_COMMIT_OVERRIDE
+```
+3) Close the open release-please PR.
+4) Re-run the `release-please` GitHub action job.

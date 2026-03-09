@@ -1,5 +1,17 @@
 # Changelog
 
+## [7.1.4](https://github.com/Financial-Times/origami/compare/o-topper-v7.1.3...o-topper-v7.1.4) (2026-02-25)
+
+
+### Bug Fixes
+
+* Correct the URL scheme for one path ([917970e](https://github.com/Financial-Times/origami/commit/917970e197423c4d6bdbb3671f4f89dd3dd2ba60))
+* Correct the URL scheme for one path ([82a37fd](https://github.com/Financial-Times/origami/commit/82a37fd24b19dec3652be2dca738c5a5716a7402))
+* remove a space in the url ([ddf089c](https://github.com/Financial-Times/origami/commit/ddf089c7b1dc7caf93d27eee73e3f73b7c2665f7))
+* remove a space in the url ([ab5584f](https://github.com/Financial-Times/origami/commit/ab5584f8fd3d3ae9fef2748bfd2019b8e6c89113))
+* Update all locations of Image Service sources with a valid source ([789ca8b](https://github.com/Financial-Times/origami/commit/789ca8b29b8369698006b478e4c66ee22fb9c5c0))
+* Update all locations of Image Service sources with a valid source ([0af78c9](https://github.com/Financial-Times/origami/commit/0af78c9bacf665b6ea124193593881d0bf7aa765))
+
 ## [7.1.3](https://github.com/Financial-Times/origami/compare/o-topper-v7.1.2...o-topper-v7.1.3) (2026-01-15)
 
 

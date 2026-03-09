@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.0.2](https://github.com/Financial-Times/origami/compare/o-visual-effects-v5.0.1...o-visual-effects-v5.0.2) (2026-02-25)
+
+
+### Bug Fixes
+
+* update tests to use origami as source code rather than test ([47fe5f4](https://github.com/Financial-Times/origami/commit/47fe5f4357d8da10a0988a7049e55b8973a52d7a))
+
 ## [5.0.1](https://github.com/Financial-Times/origami/compare/o-visual-effects-v5.0.0...o-visual-effects-v5.0.1) (2025-02-26)
 
 
