@@ -1,6 +1,9 @@
 import {allModes} from './modes';
 
 export const parameters = {
+	docs: {
+		codePanel: true
+	},
 	viewport: {
 		viewports: {
 			default: {name: 'Default', styles: {width: '240px', height: '900px'}},
