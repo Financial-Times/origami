@@ -35,7 +35,6 @@
 		"check:type": "tsc --noEmit"
 	},
 	"peerDependencies": {
-		"@financial-times/o-utils": "^2.2.1",
 		"@financial-times/o3-foundation": "^3.0.0"
 	},
 	"devDependencies": {
