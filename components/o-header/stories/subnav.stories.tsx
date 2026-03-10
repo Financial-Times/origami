@@ -93,7 +93,9 @@ function SubnavWithDropdownsDemo({items}: {items: SubnavItem[]}) {
 														aria-label={ariaLabel}
 														aria-current={ariaCurrent}
 														data-trackable={item.label}
-														style={{cursor: 'pointer'}}>
+														role="button"
+														tabIndex={0}
+														style={{cursor: 'default'}}>
 														{item.label}
 														<SubNavDropdown
 															items={item.dropdown}
