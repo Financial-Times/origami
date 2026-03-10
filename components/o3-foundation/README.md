@@ -2,13 +2,11 @@
 
 - [o3-foundation](#o3-foundation)
   - [CSS Tokens](#css-tokens)
-  - [JS Tokens](#JS-tokens)
+  - [JS Tokens](#js-tokens)
   - [Typography](#typography)
-    - [Headings](#headings)
-    - [Body/Paragraphs](#bodyparagraphs)
-    - [Links](#links)
     - [List](#list)
     - [Wrapper](#wrapper)
+    - [Highlight (Bold)](#highlight-bold)
     - [Custom Properties](#custom-properties)
   - [Normalisation](#normalisation)
   - [Stacking with z-index](#stacking-with-z-index)
@@ -23,7 +21,7 @@
   - [Contact](#contact)
   - [Licence](#licence)
 
-# CSS Tokens
+## CSS Tokens
 
 `o3-foundation` provides CSS Custom Properties for design tokens representing colours, typographic scale, spacing, iconography, grid and typography components such as headings, body, link and etc.
 
@@ -70,7 +68,7 @@ See all CSS Tokens available in each brand's `_variables.css` file:
 * [Internal](./src/css/tokens/internal/_variables.css)
 * [Sustainable Views](./src/css/tokens/sustainable-views/_variables.css)
 
-# JS Tokens
+## JS Tokens
 
 Foundational tokens are also available as JavaScript. There are two formats:
 
@@ -82,7 +80,7 @@ Each format provides two token files:
 1. Icon tokens.
 1. All other branded tokens.
 
-## Default export
+### Default export
 
 - `esm/tokens/[brand].js`
 - `esm/tokens/icons.js`
@@ -96,7 +94,7 @@ import tokens from '@financial-times/o3-foundation/esm/tokens/[brand].js';
 const example = `The hex for FT Pink is ${tokens['o3-color-palette-ft-pink']}`;
 ```
 
-## Named export
+### Named export
 
 - `esm/tokens/[brand]-named.js`
 - `esm/tokens/icons-named.js`
@@ -111,6 +109,8 @@ const example = `The hex for FT Pink is ${o3_color_palette_ft_pink}`;
 ```
 
 ## Typography
+
+See the documentation for a [full list of typography CSS variables](./docs/typography.md) that can be utilised.
 
 ### Resources
 

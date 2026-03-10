@@ -30,7 +30,7 @@ Font weight can be used to express hierarchy or urgency of information. As with 
 
 Typography usecase tokens provide low level typography styles for use in a variety of contexts.
 
-In addition to these usecase tokens, Origami provides typography components which use these. For example the [display heading component](#headings) combines all three [display sizes](#display) at different breakpoints for a responsive heading.
+In addition to these usecase tokens, Origami provides typography components which use these. For example the [display heading component](#headline) combines all three [display sizes](#display) at different breakpoints for a responsive heading.
 
 ### Display
 
@@ -282,7 +282,3 @@ Use this style only for the body copy of content pages, such as articles, live n
 ### Links
 
 The link style can be applied inline (within a paragraph or body text) or standalone. The inline links inherit the text properties of the body it is in. Its focus style follows the global Origami focus for single ring element.
-
-This example shows a link within copy that uses `body-base`.
-
-Here's another example which shows a link within `body-content-base`.
