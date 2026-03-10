@@ -112,12 +112,16 @@ function positionDropdown(dropdown, hoverTarget) {
 	});
 }
 
-function showDropdown(dropdown, isDesktop) {
+function showDropdown({ dropdown, isDesktop, parent }) {
 	dropdown.setAttribute('aria-hidden', 'false');
 	dropdown.setAttribute('aria-expanded', 'true');
 	dropdown.style.display = 'block';
 		
 	expandedDropdowns.add(dropdown);
+
+	if (isDesktop) {
+		positionDropdown(dropdown, parent)
+	}
 
 	addDropdownControlEvents(dropdown, isDesktop)
 }
@@ -136,6 +140,17 @@ function addDropdownShowHideEvents(parent, dropdown) {
 	let timeout;
 	const isDesktop = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 	if (isDesktop) {
+		parent.addEventListener('keydown', (event) => {
+            const key = event.key;
+
+            if (key === 'Enter' || key === ' ') {
+                event.preventDefault(); // avoid scrolling on Space / following link immediately
+				if (expandedDropdowns.size > 0) {
+					closeAllDropdowns();
+				}
+                showDropdown({ dropdown, isDesktop: true, parent });
+            }
+        });
 		parent.addEventListener('mouseenter', () => {
 			clearTimeout(timeout);
 
@@ -149,7 +164,7 @@ function addDropdownShowHideEvents(parent, dropdown) {
 				if (expandedDropdowns.size > 0) {
 					closeAllDropdowns();
 				}
-				showDropdown(dropdown, true);
+				showDropdown({ dropdown, isDesktop: true, parent });
 			}, INTENT_ENTER);
 		});
 
@@ -161,17 +176,16 @@ function addDropdownShowHideEvents(parent, dropdown) {
 				}
 			}, INTENT_LEAVE);
 		});
-	} else {
-		// For Mobile: click/tap events
-		parent.addEventListener('click', () => {
-			if (!isDropdownOpen(dropdown)) {
-				if (expandedDropdowns.size > 0) {
-					closeAllDropdowns();
-				}
-				showDropdown(dropdown, false);
-			}
-		});
 	}
+
+	parent.addEventListener('click', () => {
+		if (!isDropdownOpen(dropdown)) {
+			if (expandedDropdowns.size > 0) {
+				closeAllDropdowns();
+			}
+			showDropdown({ dropdown, isDesktop, parent });
+		}
+	});
 }
 
 function initSubnavDropdowns(headerEl) {
