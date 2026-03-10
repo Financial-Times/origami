@@ -37,8 +37,15 @@ let releasePleaseConfig = {
 };
 
 const allProjects = [];
+const ignoredWorkspaces = [
+	"components/o-topper",
+];
 
 for (let workspace of workspacePaths) {
+	if (ignoredWorkspaces.includes(workspace)) {
+		continue;
+	}
+
 	const projectConfig = {
 		workspace: workspace,
 		workspaceFilename: workspace.replaceAll('/', '-'),
