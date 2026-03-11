@@ -64,6 +64,5 @@
 	"libraries/o-errors": "5.2.3",
 	"libraries/o-tracking": "4.10.0",
 	"libraries/o-utils": "2.2.1",
-	"libraries/sass-mq": "5.2.4",
-	"tools/origami-bower-safe-version-supervisor": "1.1.2"
+	"libraries/sass-mq": "5.2.4"
 }
