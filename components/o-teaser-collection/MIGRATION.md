@@ -23,8 +23,6 @@ The sass variable named `$o-teaser-collection-is-silent` has had its default val
 
 Support for Bower and version 2 of the Origami Build Service have been removed.
 
-Follow [the migration guide on the Origami website](https://origami.ft.com/documentation/tutorials/bower-to-npm/).
-
 ### Migrating from v2 to v3
 
 Confirm the `o-teaser-collection__heading--inverse` modifier is used with `o-teaser-collection__heading`. I.e. `o-teaser-collection__heading o-teaser-collection__heading--inverse`. This was optional before.

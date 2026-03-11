@@ -12,9 +12,9 @@ Core brand FT page footer component. See the [Origami Navigation Service](https:
 
 ## Usage
 
-Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-footer`.
+Check out [how to include Origami components in your project](../../docs/legacy-o2-docs/technical-guide.md) to get started with `o-footer`.
 
-_See [o-footer-services](https://registry.origami.ft.com/components/o-footer-services) for an alternate footer style for tools and specialist titles. _
+_See [o-footer-services](https://o2-core.origami.ft.com/?path=/docs/maintained-o-footer-services-readme--docs&globals=backgrounds:!undefined) for an alternate footer style for tools and specialist titles. _
 
 ## Markup
 
@@ -163,7 +163,7 @@ The width of the columns and the way they collapse on smaller viewports may be c
 </footer>
 ```
 
-See [demos in the registry for full markup examples](https://registry.origami.ft.com/components/o-footer).
+See [demos in Storybook full markup examples](https://o2-core.origami.ft.com/?path=/story/maintained-o-footer-services-brand-strip--brand-strip&globals=backgrounds:!undefined).
 
 ## Sass
 

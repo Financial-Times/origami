@@ -239,8 +239,6 @@ Follow the migration steps above to safely delete this variable. If set to `fals
 
 Support for Bower and version 2 of the Origami Build Service have been removed.
 
-Follow [the migration guide on the Origami website](https://origami.ft.com/documentation/tutorials/bower-to-npm/).
-
 ### Upgrading from v4 to v5
 
 #### CSS Classes

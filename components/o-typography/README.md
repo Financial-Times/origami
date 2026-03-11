@@ -44,7 +44,7 @@ This scale makes up all typographic styles available through o-typography. It is
 
 ## Usage
 
-Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-typography`.
+Check out [how to include Origami components in your project](../../docs/legacy-o2-docs/technical-guide.md) to get started with `o-typography`.
 
 ## Markup
 
@@ -67,7 +67,7 @@ A link _may_ open in a new window/tab with `target="_blank"` but we recommend ag
 <a href="https://www.w3.org/TR/WCAG20-TECHS/G200.html" rel="noreferrer noopener" target="_blank" class="o-typography-link">Some external link.</a>
 ```
 
-See the [demos](http://registry.origami.ft.com/components/o-typography) for a full list of the classes provided and their effects.
+See the [demos](https://o2-core.origami.ft.com/?path=/docs/deprecated-o-typography-readme--docs&globals=backgrounds:!undefined) for a full list of the classes provided and their effects.
 
 ### Wrapper Class
 
@@ -84,7 +84,7 @@ Example:
 </div>
 ```
 
-See the [demos](http://registry.origami.ft.com/components/o-typography) for a full list of the classes provided and their effects.
+See the [demos](https://o2-core.origami.ft.com/?path=/docs/deprecated-o-typography-readme--docs&globals=backgrounds:!undefined) for a full list of the classes provided and their effects.
 
 #### Theme Class
 
@@ -184,11 +184,11 @@ To include typography styles granularly pass an options argument with the featur
 | footer           | A class to style footers.                                                                                                                                                                                                                 | core, internal, whitelabel |
 | utilities        | A collection of classes to modify typography including weight, style, superscript, and subscript.                                                                                                                                         | core, internal, whitelabel |
 
-[See the demos](http://registry.origami.ft.com/components/o-typography) for a full list of the CSS classes provided by these features.
+[See the demos](https://o2-core.origami.ft.com/?path=/docs/deprecated-o-typography-readme--docs&globals=backgrounds:!undefined) for a full list of the CSS classes provided by these features.
 
 **Note: Including fonts**
 
-Calling `oTypography` will output font faces to download custom Financial Times fonts. However IE11 may download fonts which are not used. To include font faces more granularly based on your use of o-typography set `$o-typography-load-fonts: false` and use [o-fonts](https://registry.origami.ft.com/components/o-fonts).
+Calling `oTypography` will output font faces to download custom Financial Times fonts. However IE11 may download fonts which are not used. To include font faces more granularly based on your use of o-typography set `$o-typography-load-fonts: false` and use [o-fonts](https://o2-core.origami.ft.com/?path=/docs/deprecated-o-fonts-readme--docs&globals=backgrounds:!undefined).
 
 ```scss
 // import dependencies
@@ -230,7 +230,7 @@ The Sass in o-typography also provides several mixins for use in your project. T
 
 To avoid duplicated CSS we recommend using default o-typography classes output by [oTypography](#sass). Where you are unable to use o-typography markup, Sass mixins may be used to output styles for usecases such as headings, body copy, and links.
 
-See [o-typography SassDoc](https://registry.origami.ft.com/components/o-typography/sassdoc) for a full list of mixins including more details and examples. Also see [editorial typography](https://github.com/Financial-Times/o-editorial-typography), [quotes](https://github.com/Financial-Times/o-quote/), and [big numbers](https://github.com/Financial-Times/o-big-number/) for more specific typography usecases.
+See [o-typography SassDoc](https://o2-core.origami.ft.com/?path=/docs/deprecated-o-typography-sassdoc--docs&globals=backgrounds:!undefined) for a full list of mixins including more details and examples. Also see [editorial typography](https://github.com/Financial-Times/o-editorial-typography), [quotes](https://github.com/Financial-Times/o-quote/), and [big numbers](https://github.com/Financial-Times/o-big-number/) for more specific typography usecases.
 
 #### oTypographyHeading
 
@@ -283,9 +283,9 @@ a {
 
 To create a custom link style set the `$theme` argument to a map:
 
-- **base**: an [o-colors](https://registry.origami.ft.com/components/o-colors) palette colour name or colour for the link
-- **hover**: an [o-colors](https://registry.origami.ft.com/components/o-colors) palette colour name or colour for link on hover
-- **context** (optional): an [o-colors](https://registry.origami.ft.com/components/o-colors) palette colour name or colour to indicate the background colour behind the link (defaults to paper for the core brand, white otherwise)
+- **base**: an [o-colors](https://o2-core.origami.ft.com/?path=/docs/deprecated-o-colors-readme--docs&globals=backgrounds:!undefined) palette colour name or colour for the link
+- **hover**: an [o-colors](https://o2-core.origami.ft.com/?path=/docs/deprecated-o-colors-readme--docs&globals=backgrounds:!undefined) palette colour name or colour for link on hover
+- **context** (optional): an [o-colors](https://o2-core.origami.ft.com/?path=/docs/deprecated-o-colors-readme--docs&globals=backgrounds:!undefined) palette colour name or colour to indicate the background colour behind the link (defaults to paper for the core brand, white otherwise)
 
 ```scss
 .my-custom-link {
@@ -418,7 +418,7 @@ max-width: oTypographyMaxLineWidth();
 
 ### Use A Custom Font
 
-To set a custom font, [first register the font using o-fonts](https://registry.origami.ft.com/components/o-fonts).
+To set a custom font, [first register the font using o-fonts](https://o2-core.origami.ft.com/?path=/docs/deprecated-o-fonts-readme--docs&globals=backgrounds:!undefined).
 
 Then set the custom font using `oTypographySetFont` before calling any other `o-typography` mixins. It accepts a font type (sans, serif, or display) and the custom font family.
 
@@ -464,10 +464,10 @@ Currently `oTypographyCustomize` can only update heading styles of whitelabel br
 
 - `weight`: The heading weight (e.g. `semibold`)
 - `scale`: The default heading scale, used when no other scales are set (e.g. 5)
-- `scale-s`: The heading scale for [small viewports](https://registry.origami.ft.com/components/o-grid/readme?brand=core#layout-sizes) and above.
-- `scale-m`: The heading scale for [medium viewports](https://registry.origami.ft.com/components/o-grid/readme?brand=core#layout-sizes) and above.
-- `scale-l`: The heading scale for [large viewports](https://registry.origami.ft.com/components/o-grid/readme?brand=core#layout-sizes) and above.
-- `scale-xl`: The heading scale for [extra-large viewports](https://registry.origami.ft.com/components/o-grid/readme?brand=core#layout-sizes) and above.
+- `scale-s`: The heading scale for small viewports and above.
+- `scale-m`: The heading scale for medium viewports and above.
+- `scale-l`: The heading scale for large viewports and above.
+- `scale-xl`: The heading scale for extra-large viewports and above.
 
 In the below example, we update the size and weight of h1 and h2 headings:
 
@@ -502,8 +502,6 @@ h2 {
 	@include oTypographyHeading($level: 2);
 }
 ```
-
-_For more details is the [oTypographyCustomize SassDoc](https://registry.origami.ft.com/components/o-typography/sassdoc?brand=whitelabel#mixin-oTypographyCustomize)._
 
 ## JavaScript
 

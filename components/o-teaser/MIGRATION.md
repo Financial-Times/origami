@@ -112,11 +112,9 @@ To upgrade, replace the following "o2" components with their "o3" equivalent:
 
 v6 drops support for Bower and version 2 of the Origami Build Service.
 
-Follow [the migration guide on the Origami website](https://origami.ft.com/documentation/tutorials/bower-to-npm/).
-
 ## Migrating from v4 to v5
 
-v5 introduces the font FinancierDisplayWeb at medium weight and normal style. To upgrade make sure your project includes the FinancierDisplayWeb medium font face using [o-fonts](https://registry.origami.ft.com/components/o-fonts).
+v5 introduces the font FinancierDisplayWeb at medium weight and normal style. To upgrade make sure your project includes the FinancierDisplayWeb medium font face using [o-fonts](https://o2-core.origami.ft.com/?path=/docs/deprecated-o-icons-sassdoc--docs).
 
 ## Migrating from v3 to v4
 
@@ -135,9 +133,9 @@ All [o-teaser colours and colour usecases](https://github.com/Financial-Times/o-
 + color: oColorsByUsecase('o-teaser/tag', 'text');
 ```
 
-The `commercial-content` colour has been removed. Include [o-labels](https://registry.origami.ft.com/components/o-labels) and use `o-labels/commercial-content` instead.
+The `commercial-content` colour has been removed. Include [o-labels](https://o2-core.origami.ft.com/?path=/docs/maintained-o-labels-readme--docs&globals=backgrounds:!undefined) and use `o-labels/commercial-content` instead.
 
-The deprecated `o-teaser-promoted-prefix` usecase has been removed. Include [o-labels](https://registry.origami.ft.com/components/o-labels) and use the `o-labels/commercial-content` colour instead.
+The deprecated `o-teaser-promoted-prefix` usecase has been removed. Include [o-labels](https://o2-core.origami.ft.com/?path=/docs/maintained-o-labels-readme--docs&globals=backgrounds:!undefined) and use the `o-labels/commercial-content` colour instead.
 
 ### Markup
 

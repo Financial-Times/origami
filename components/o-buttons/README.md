@@ -14,7 +14,7 @@ o-buttons provides Sass mixins and variables to create buttons.
 
 ## Usage
 
-Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-buttons`.
+Check out [how to include Origami components in your project](../../docs/legacy-o2-docs/technical-guide.md) to get started with `o-buttons`.
 
 Buttons allow users to interact with the page or product. Each page or product area (a form, modal, within an article) should not have more than 1 primary button, any remaining CTA's should be displayed as secondary or ghost buttons.
 
@@ -88,7 +88,7 @@ Any button may be made larger using the `o-buttons--big` modifier class.
 
 To add an icon to your button add the class `o-buttons-icon` and `o-buttons-icon--{icon-name}` to your button.
 
-[Sass](#sass) users may output any icon from the [fticons](https://registry.origami.ft.com/components/fticons/) set. However if you're using the [Build Service](https://www.ft.com/__origami/service/build/) a limited number of button icons are available. Limiting the number of icons keeps the CSS bundle smaller, but if you need an icon button that we don't currently support then please contact the Origami team:
+[Sass](#sass) users may output any icon from the [fticons](https://o2-core.origami.ft.com/?path=/story/deprecated-o-icons--icons) set. However if you're using the [Build Service](https://www.ft.com/__origami/service/build/) a limited number of button icons are available. Limiting the number of icons keeps the CSS bundle smaller, but if you need an icon button that we don't currently support then please contact the Origami team:
 - arrow-left
 - arrow-right
 - upload
@@ -168,7 +168,7 @@ The number of pages to display is not enforced by Origami. However we recommend 
 	- The 3rd from last page is selected show 2 pages, the ellipsis, and 4 more pages.
 	- The selected page is more than 3 from the first and last page show the first page, ellipsis, three pages, ellipsis, and the last page.
 
-For an example see the [pagination demos in the Origami registry](https://registry.origami.ft.com/components/o-buttons@6.0.19#demo-pagination-layout).
+For an example see the [pagination demos in Storybook](https://o2-core.origami.ft.com/?path=/story/deprecated-o-buttons--pagination).
 
 #### Pagination Theme
 
@@ -236,7 +236,7 @@ To create a new button theme call `oButtonsAddTheme` with the colour of your the
 	- color: The main colour of your button. Any o-colors palette colour name.
 	- context (optional): The background colour your button is placed on. Defaults to the page colour (paper for the core brand, white otherwise). This is used to confirm accessibility and in some cases changes the colour of the button.
 - types: A list of button types your theme is used with.
-- icons: A list of icons your theme is used with. Any [fticons](https://registry.origami.ft.com/components/fticons/) icon name.
+- icons: A list of icons your theme is used with. Any [fticons](https://o2-core.origami.ft.com/?path=/story/deprecated-o-icons--icons) icon name.
 
 ```scss
 /// .o-buttons--my-special-button
@@ -276,7 +276,7 @@ We recommend using `o-buttons` markup as this encourages CSS reuse and smaller b
 }
 ```
 
-`oButtonsContent` has options to recreate all buttons, including for different sizes and icon only buttons. See the [o-buttons SassDoc](https://registry.origami.ft.com/components/o-buttons/sassdoc) for more details and examples.
+`oButtonsContent` has options to recreate all buttons, including for different sizes and icon only buttons. See the [o-buttons SassDoc](https://o2-core.origami.ft.com/?path=/docs/deprecated-o-buttons-sassdoc--docs&globals=backgrounds:!undefined) for more details and examples.
 
 ## References
 

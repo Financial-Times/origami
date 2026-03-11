@@ -47,7 +47,7 @@ If copying component HTML, update:
 2. The icon SVG.
 3. The share text description.
 
-To do this, obtain the full markup required from [the o-share demos](https://registry.origami.ft.com/components/o-share@10.0.0). Here is a simplified example:
+To do this, obtain the full markup required from [the o-share demos](https://o2-core.origami.ft.com/?path=/story/maintained-o-share--horizontal&globals=backgrounds:!undefined). Here is a simplified example:
 
 ```diff
 +<a class="o-share__icon o-share__icon--x" href="#" rel="noopener">
@@ -87,7 +87,7 @@ If using TSX templates:
 
 o-share v9 incudes a number of changes to improve accessibility. To migrate follow these steps and see below for more details:
 
-- o-share no longer provides client side JavaScript to generate markup. New markup can be copied from the [Origami registry](https://registry.origami.ft.com/components/o-share) or [StoryBook](https://origami.ft.com/storybook/) via the `HTML` tab.
+- o-share no longer provides client side JavaScript to generate markup. New markup can be copied from [Storybook](https://o2-core.origami.ft.com/?path=/docs/maintained-o-share-readme--docs&globals=backgrounds:!undefined) via the `HTML` tab.
 
 ### Inlined SVG icons
 
@@ -152,8 +152,6 @@ Instead use full markup of the component:
 ## Migrating from v7 to v8
 
 Support for Bower and version 2 of the Origami Build Service have been removed.
-
-Follow [the migration guide on the Origami website](https://origami.ft.com/documentation/tutorials/bower-to-npm/).
 
 ## Migrating from v6 to v7
 

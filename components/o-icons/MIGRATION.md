@@ -133,8 +133,6 @@ This approach can also be used to reduce duplication from use of `oIconsContent`
 
 Support for Bower and version 2 of the Origami Build Service have been removed.
 
-Follow [the migration guide on the Origami website](https://origami.ft.com/documentation/tutorials/bower-to-npm/).
-
 ### Migrating from v5 to v6
 
 

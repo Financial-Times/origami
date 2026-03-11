@@ -23,7 +23,7 @@ An Origami component for autocomplete inputs. This is built on top of the excell
 
 ## Usage
 
-Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-autocomplete`.
+Check out [how to include Origami components in your project](../../docs/legacy-o2-docs/technical-guide.md) to get started with `o-autocomplete`.
 
 ## Markup
 
@@ -56,7 +56,7 @@ The input element requires an `id` attribute, this is used within the component 
 
 ### Use with o-forms
 
-To have styling for labels, you will need to use [o-forms](https://registry.origami.ft.com/components/o-forms) as part of the autocomplete implementation.
+To have styling for labels, you will need to use [o-forms](https://github.com/Financial-Times/origami/components/o-forms) as part of the autocomplete implementation.
 
 Below is an example of how to combine o-forms and o-autocomplete components together. Note the `label` and `select` element are connected using `for` and `id` attributes.
 

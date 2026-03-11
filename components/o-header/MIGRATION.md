@@ -260,8 +260,6 @@ o-header v10 includes markup changes. Use demo markup to update your project. Ch
 
 v9 drops support for Bower and version 2 of the Origami Build Service.
 
-Follow [the migration guide on the Origami website](https://origami.ft.com/documentation/tutorials/bower-to-npm/).
-
 ## Migrating from v7 to v8
 
 v8 removes support for the internal brand. Consider using [o-header-services](https://github.com/Financial-Times/o-header-services) instead, or contact the Origami team to discuss bring back support for the internal brand.
@@ -341,7 +339,7 @@ There is no direct replacement for the following mixins. Please contact the Orig
 - `oHeaderLogoSize`
 - `oHeaderBrandImage`
 
-Also replace `oHeaderVisuallyHidden` with the o-normalise mixin [oNormaliseVisuallyHidden](https://registry.origami.ft.com/components/o-normalise/sassdoc).
+Also replace `oHeaderVisuallyHidden` with the o-normalise mixin [oNormaliseVisuallyHidden](https://o2-core.origami.ft.com/?path=/docs/deprecated-o-normalise-sassdoc--docs&globals=backgrounds:!undefined).
 
 Finally [all deprecated colour usecases](https://github.com/Financial-Times/o-header/blob/v7.8.12/src/scss/_deprecated.scss) have been removed. Please contact the Origami team if your project requires these.
 

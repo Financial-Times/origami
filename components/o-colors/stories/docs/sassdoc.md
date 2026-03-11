@@ -26,9 +26,9 @@
 
 Output `o-colors` CSS.
 
-| Parameter | Type | Default | Description                                                                                                                        |
-| --------- | ---- | ------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| opts      | Map  | -       | The o-colors features to output. See the [readme](https://registry.origami.ft.com/components/o-colors) for a full list of options. |
+| Parameter | Type | Default | Description                                                                                                                                             |
+| --------- | ---- | ------- |---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| opts      | Map  | -       | The o-colors features to output. See the [readme](https://github.com/Financial-Times/origami/components/o-colors/README.md) for a full list of options. |
 
 #### Examples
 

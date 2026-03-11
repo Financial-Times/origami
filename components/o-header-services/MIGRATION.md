@@ -34,8 +34,6 @@ To upgrade, replace the following "o2" components with their "o3" equivalent:
 
 V7 drops support for Bower and version 2 of Origami Build Service.
 
-Follow [the migration guide on the Origami website](https://origami.ft.com/documentation/tutorials/bower-to-npm/).
-
 ## Migrating from v3 to v4
 
 ### Updated dependencies
@@ -47,7 +45,7 @@ its dependencies. See [the Bower config for these](./bower.json).
 ### Sass
 
 - Origami components now require a `$system-code` Sass variable is set by the project, which must be a valid [Bizops system code](https://biz-ops.in.ft.com/list/Systems).
-- If a logo has been included by name using `oHeaderServices` or `oHeaderServicesCustomize` mixins, its Origami imageset is no longer assumed to be [logo-images](https://registry.origami.ft.com/components/logo-images). Prepend the imageset to your logo name with a colon e.g. a logo `origami` should be `ftlogo-v1:origami`.
+- If a logo has been included by name using `oHeaderServices` or `oHeaderServicesCustomize` mixins, its Origami imageset is no longer assumed to be logo-images. Prepend the imageset to your logo name with a colon e.g. a logo `origami` should be `ftlogo-v1:origami`.
 
 ## Migrating from v2 to v3
 

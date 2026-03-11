@@ -22,13 +22,14 @@ If you'd like to make a proposal for a new component or anything else, go ahead 
 This repository houses many projects of different kinds. Most of them have
 READMEs of their own where you can learn more about them.
 
-### apps/storybook
+### apps/o2-storybook
 
-[Origami's storybook](./apps/storybook), served at <https://origami.ft.com/storybook/>.
+[Origami 2's storybook](./apps/o2-storybook), served at <https://o2-core.origami.ft.com/>.
 
-### apps/website
+### apps/o3-storybook
 
-[Origami Design System](https://origami.ft.com/) documentation and usage guides.
+[Origami 3's storybook](./apps/o2-storybook), served at <https://o3.origami.ft.com/>.
+
 
 ### components and libraries
 
@@ -206,7 +207,7 @@ o-labels/
 
 ##### Legacy
 
-Legacy Origami Registry component demos are branded through the `origami.json` manifest in the component's root directory. You can find how to use this file in the [Origami documentation](https://origami.ft.com/documentation/manifests/origami-json/#brands).
+Legacy Origami Registry component demos are branded through the `origami.json` manifest in the component's root directory. You can find how to use this file in the [Origami documentation](./docs/legacy-o2-docs/technical-guide/origami-json.md).
 
 #### Test
 

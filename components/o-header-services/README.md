@@ -20,7 +20,7 @@ This header is for tools and services built by the Financial Times.
 
 ## Usage
 
-Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-header-services`.
+Check out [how to include Origami components in your project](../../docs/legacy-o2-docs/technical-guide.md) to get started with `o-header-services`.
 
 ## Markup
 
@@ -41,7 +41,7 @@ You can choose to include a product tagline to describe your product concisely, 
 
 _Note: If there is a 'Sign in' option, it should be consistent with other FT products by aligning itself to the right and avoiding different wording such as 'Log in' or 'Login'._
 
-For an example and markup, see the [title-only header in the Origami Registry](https://registry.origami.ft.com/components/o-header-services@3.2.10#demo-header-with-title-section).
+For an example and markup, see the [title-only header in Storybook](https://o2-core.origami.ft.com/?path=/story/maintained-o-header-services--header-with-title-section&globals=backgrounds:!undefined).
 
 ### Primary Navigation
 
@@ -51,11 +51,11 @@ This section of the header has specific behaviour, as it turns into a drawer at 
 
 If you are using extra content (such as a 'Sign in' link), that will be pulled into the drawer, as well. (This behaviour can be supressed by adding the class `.o-header-services__related-content--always-visible`)
 
-For an example and markup, see the [primary navigation in the Origami Registry](https://registry.origami.ft.com/components/o-header-services@3.2.10#demo-header-with-primary-navigation).
+For an example and markup, see the [primary navigation in Storybook(https://o2-core.origami.ft.com/?path=/story/maintained-o-header-services--header-with-primary-and-secondary-navigation).
 
 ### Core Experience Of The Drawer
 
-Small screen users should still be able to access the contents of the drawer even if their browser doesn't [cut the mustard](https://origami.ft.com/documentation/components/compatibility/#cuts-the-mustard) or the JavaScript has failed to load. In this case we recommend you have the contents of the drawer at the bottom of the page in a footer that is only visible if the body has a `.core` class. In core experience the hamburger menu links to an anchor at the bottom of the page.
+Small screen users should still be able to access the contents of the drawer even if their browser doesn't [cut the mustard](../../docs/o3-specification.md) or the JavaScript has failed to load. In this case we recommend you have the contents of the drawer at the bottom of the page in a footer that is only visible if the body has a `.core` class. In core experience the hamburger menu links to an anchor at the bottom of the page.
 
 ### Primary Navigation With Drop Down
 
@@ -63,7 +63,7 @@ The primary navigation can also handle dropdown menus. These menus are hidden be
 
 Drop down menus also get pulled into the drawer on smaller viewports.
 
-For an example and markup, see the [primary navigation with drop downs in the Origami Registry](https://registry.origami.ft.com/components/o-header-services#demo-header-with-primary-navigation-and-drop-down-menus).
+For an example and markup, see the [demo on Storybook](https://o2-core.origami.ft.com/?path=/story/maintained-o-header-services--header-with-primary-and-secondary-navigation).
 
 If copying markup from the above example, update the following attributes of dropdown navigation items:
 
@@ -100,7 +100,7 @@ The 'ancestor' section works in the form of a breadcrumb, and the children are r
 
 At smaller viewports, it does _not_ collapse into the drawer, but becomes scrollable instead.
 
-For an example and markup, see the [secondary navigation in the Origami Registry](https://registry.origami.ft.com/components/o-header-services@3.2.10#demo-header-with-a-primary-and-a-secondary-navigation).
+For an example and markup, see the [demo on Storybook](https://o2-core.origami.ft.com/?path=/story/maintained-o-header-services--header-with-primary-and-secondary-navigation).
 
 ### Themes
 
@@ -114,8 +114,6 @@ To add a theme to the header, add the appropriate class to the header element. F
 	<!-- Your header markup -->
 </header>
 ```
-
-For an example and markup, see the [B2B and B2C headers in the Origami Registry](https://registry.origami.ft.com/components/o-header-services@3.2.10#demo-product-theme-b2c).
 
 ### Bleed Header
 
@@ -161,7 +159,7 @@ To use a logo that is **not** the FT logo, the logo can be modified in one of tw
 - By using a logo name from the logo image set (e.g. 'origami')
 - By passing in a full url or data url that points at the SVG you want to use as a logo (e.g. `'https://www.example.com/logo.svg'`). Bear in mind that you can also run your chosen SVG through the [Image Service's URL Builder](https://www.ft.com/__origami/service/image/v2/docs/url-builder), which will optimise the image and provide a URL for it.
 
-In this example we include only the styles for a [primary navigation](#primary-navigation) with the [bleed modifier](#bleed-header). We opt to use the Origami logo from the [logo image set](https://registry.origami.ft.com/components/logo-images@1.8.0).
+In this example we include only the styles for a [primary navigation](#primary-navigation) with the [bleed modifier](#bleed-header). We opt to use the Origami logo from the logo image set.
 
 ```scss
 	@import '@financial-times/o-header-services/main';
