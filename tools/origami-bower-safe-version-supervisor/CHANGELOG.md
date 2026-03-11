@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/Financial-Times/origami/compare/origami-bower-safe-version-supervisor-v1.1.2...origami-bower-safe-version-supervisor-v2.0.0) (2026-03-11)
+
+
+### ⚠ BREAKING CHANGES
+
+* ci-3357 remove o-topper from Origami (moved to content-pipeline-ui)
+
+### Miscellaneous Chores
+
+* ci-3357 remove o-topper from Origami (moved to content-pipeline-ui) ([d3e1d19](https://github.com/Financial-Times/origami/commit/d3e1d19c5861af9d933a0fccd05dd08ca2ded1f0))
+
 ### [1.1.2](https://www.github.com/Financial-Times/origami/compare/origami-bower-safe-version-supervisor-v1.1.1...origami-bower-safe-version-supervisor-v1.1.2) (2021-11-25)
 
 
