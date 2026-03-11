@@ -89,12 +89,6 @@ o-tooltip is a component usually used for annotating or highlighting areas of us
 - [Storybook: o-footer](https://o2-core.origami.ft.com/?path=/docs/maintained-o-footer-readme--docs)
 - Figma: -
 
-### o-topper
-
-- **Status: Maintained**
-- [Storybook: o-topper](https://o2-core.origami.ft.com/?path=/docs/maintained-o-topper-readme--docs)
-- Figma: -
-
 ### o-header
 
 - **Status: Maintained**
@@ -365,4 +359,10 @@ o-typography provides typographical fundamentals such as font scales, vertical r
 - **Status: Deprecated**
 - [Migrate to: o3-editorial-typography](https://github.com/Financial-Times/origami/blob/main/components/o-big-number/MIGRATION.md)
 - [Storybook: o-big-number](https://o2-core.origami.ft.com/?path=/docs/deprecated-o-big-number-readme--docs)
+- Figma: -
+
+### o-topper
+
+- **Status: Deprecated**
+- [Storybook: o-topper](https://o2-core.origami.ft.com/?path=/docs/deprecated-o-topper-readme--docs)
 - Figma: -

@@ -52,6 +52,10 @@ Default scripts used in component package.jsons for building and testing compone
 
 Tools used to build and test Origami components
 
+#### Origami Chrome Extension
+
+This was previously maintained from this repository. However it has now moved to [its own repository](https://github.com/Financial-Times/origami-chrome-extension).
+
 ## Running Origami locally
 
 Below are the steps to run and maintain this repository locally.

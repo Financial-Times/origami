@@ -1,6 +1,6 @@
 {
 	"name": "@financial-times/o3-form",
-	"version": "0.11.0",
+	"version": "0.12.0",
 	"description": "Provides a viewport-aware tooltip for annotating or or highlighting other aspects of a product's UI",
 	"keywords": [
 		"form",
@@ -35,7 +35,6 @@
 		"check:type": "tsc --noEmit"
 	},
 	"peerDependencies": {
-		"@financial-times/o-utils": "^2.2.1",
 		"@financial-times/o3-foundation": "^3.0.0"
 	},
 	"devDependencies": {

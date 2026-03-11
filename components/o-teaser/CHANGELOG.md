@@ -1,5 +1,13 @@
 # Changelog
 
+## [10.0.1](https://github.com/Financial-Times/origami/compare/o-teaser-v10.0.0...o-teaser-v10.0.1) (2026-03-11)
+
+
+### Bug Fixes
+
+* broken live blog opinion indicator icon ([b747ce2](https://github.com/Financial-Times/origami/commit/b747ce203de7cbcc878d279c5c61d029ca97f554))
+* broken live blog opinion indicator icon ([e704163](https://github.com/Financial-Times/origami/commit/e70416356266e8bc33f7055aae3ba74c1a91e606))
+
 ## [10.0.0](https://github.com/Financial-Times/origami/compare/o-teaser-v9.1.3...o-teaser-v10.0.0) (2026-02-19)
 
 
