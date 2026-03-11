@@ -2,7 +2,7 @@
 
 To get the latest exact versions, this command was used:
 ```
-for package in o-autoinit o-banner o-big-number o-brand o-buttons o-colors o-cookie-message o-date o-editorial-layout o-editorial-typography o-errors o-expander o-fonts o-fonts-assets o-footer o-footer-services o-forms o-ft-affiliate-ribbon ftdomdelegate o-grid o-header o-header-services o-icons o-labels o-layers o-layout o-lazy-load o-loading o-message o-meter o-normalise o-overlay o-quote o-share o-spacing o-stepped-progress o-subs-card o-syntax-highlight o-table o-tabs o-teaser o-teaser-collection o-toggle o-tooltip o-topper o-tracking o-typography o-utils o-viewport o-visual-effects
+for package in o-autoinit o-banner o-big-number o-brand o-buttons o-colors o-cookie-message o-date o-editorial-layout o-editorial-typography o-errors o-expander o-fonts o-fonts-assets o-footer o-footer-services o-forms o-ft-affiliate-ribbon ftdomdelegate o-grid o-header o-header-services o-icons o-labels o-layers o-layout o-lazy-load o-loading o-message o-meter o-normalise o-overlay o-quote o-share o-spacing o-stepped-progress o-subs-card o-syntax-highlight o-table o-tabs o-teaser o-teaser-collection o-toggle o-tooltip o-tracking o-typography o-utils o-viewport o-visual-effects
 do
   echo "\"$package\": $(bower info $package --verbose --json 2>/dev/null | jq -r '.versions[0]'),"
 done
@@ -52,7 +52,6 @@ export default {
     "@financial-times/o-teaser-collection":"3.0.8",
     "@financial-times/o-toggle":"2.1.3",
     "@financial-times/o-tooltip":"4.1.0",
-    "@financial-times/o-topper":"3.1.7",
     "@financial-times/o-tracking":"4.1.2",
     "@financial-times/o-typography":"6.4.6",
     "@financial-times/o-utils":"1.1.7",

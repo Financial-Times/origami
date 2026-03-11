@@ -115,8 +115,6 @@ jobs:
             - 'components/o-tooltip/**'
           components/o-top-banner:
             - 'components/o-top-banner/**'
-          components/o-topper:
-            - 'components/o-topper/**'
           components/o-typography:
             - 'components/o-typography/**'
           components/o-video:
