@@ -262,7 +262,7 @@ Users can also revert the focus rings by using the `o3-revert-focus` class on th
 
 ## Fonts
 
-`o3-foundation` defines two `@font-face`-s. The first one is `Metric2-VF` and it is used fot all brands. The second one is `FinancierDisplayWeb` and currently used by core brand only.
+`o3-foundation` defines two `@font-face`-s. The first one is `Metric2-VF` and it is used for all brands. The second one is `FinancierDisplayWeb` and currently used by core brand only.
 
 ## Icons
 
