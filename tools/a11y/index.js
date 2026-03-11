@@ -11,6 +11,7 @@ import { prettyPrintAxeReport } from 'axe-result-pretty-print';
 const cwd = process.cwd()
 
 const builtDemoHtmlFiles = await glob(path.join(cwd, '/demos/local/*.html'), {onlyFiles: true})
+const elementsToExclude = [];
 const axeRulesToIgnore = [
 // ignoring the href="#" error
 // pa11y demos are for pa11y only and may include multiple versions
