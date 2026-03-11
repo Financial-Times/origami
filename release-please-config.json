@@ -71,7 +71,6 @@
 		"libraries/o-errors": {},
 		"libraries/o-tracking": {},
 		"libraries/o-utils": {},
-		"libraries/sass-mq": {},
-		"tools/origami-bower-safe-version-supervisor": {}
+		"libraries/sass-mq": {}
 	}
 }
