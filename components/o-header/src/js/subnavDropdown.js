@@ -63,12 +63,18 @@ function addDropdownControlEvents(dropdown, isDesktop) {
 		// The close button is only visible on mobile
         const closeButton = dropdown.querySelector('[data-o-header-subnav-dropdown-close]');
         if (closeButton) {
-            const closeButtonClickHandler = (event) => {
-                event.preventDefault();
-                event.stopPropagation();
-                hideDropdown(dropdown);
-            };
-            registerListener(closeButton, 'click', closeButtonClickHandler);
+			const closeButtonSelectionHandler = (event) => {
+				event.preventDefault();
+				event.stopPropagation();
+				hideDropdown(dropdown);
+			};
+			const closeButtonKeyboardHandler = (event) => {
+				if (event.key === 'Enter' || event.key === ' ') {
+					closeButtonSelectionHandler(event);
+				}
+			}
+			registerListener(closeButton, 'click', closeButtonSelectionHandler);
+			registerListener(closeButton, 'keydown', closeButtonKeyboardHandler);
         }
     }
 
