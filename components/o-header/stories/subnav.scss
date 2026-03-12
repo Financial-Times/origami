@@ -66,6 +66,10 @@
   }
 }
 
+.o-header__subnav-link:has([data-o-header-subnav-dropdown]) {
+  background-color: inherit;
+}
+
 @media (hover: none) {
   .o-header__subnav-link:has([data-o-header-subnav-dropdown]) {
     -webkit-tap-highlight-color: transparent;
