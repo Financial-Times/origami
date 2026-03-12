@@ -139,32 +139,21 @@ function hideDropdown(dropdown) {
 function addDropdownShowHideEvents(parent, dropdown) {
 	let timeout;
 	const isDesktop = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-	if (isDesktop) {
-		parent.addEventListener('keydown', (event) => {
-            const key = event.key;
+	const openDropdown = () => {
+		if (isDropdownOpen(dropdown)) return;
 
-            if (key === 'Enter' || key === ' ') {
-                event.preventDefault(); // avoid scrolling on Space / following link immediately
-				if (expandedDropdowns.size > 0) {
-					closeAllDropdowns();
-				}
-                showDropdown({ dropdown, isDesktop: true, parent });
-            }
-        });
+		if (expandedDropdowns.size > 0) {
+			closeAllDropdowns();
+		}
+        showDropdown({ dropdown, isDesktop, parent });
+	}
+
+	if (isDesktop) {
 		parent.addEventListener('mouseenter', () => {
 			clearTimeout(timeout);
 
-			if (isDropdownOpen(dropdown)) {
-				return;
-			}
-
-			positionDropdown(dropdown, parent);
-
 			timeout = setTimeout(() => {
-				if (expandedDropdowns.size > 0) {
-					closeAllDropdowns();
-				}
-				showDropdown({ dropdown, isDesktop: true, parent });
+				openDropdown();
 			}, INTENT_ENTER);
 		});
 
@@ -179,17 +168,12 @@ function addDropdownShowHideEvents(parent, dropdown) {
 	}
 
 	parent.addEventListener('click', () => {
-		if (!isDropdownOpen(dropdown)) {
-			if (expandedDropdowns.size > 0) {
-				closeAllDropdowns();
-			}
-			showDropdown({ dropdown, isDesktop, parent });
-		}
+		openDropdown();
 	});
 }
 
-function initSubnavDropdowns(headerEl) {
-	const dropdowns = Array.from(headerEl.querySelectorAll('[data-o-header-subnav-dropdown]'));
+function initSubnavDropdowns(subnav) {
+	const dropdowns = Array.from(subnav.querySelectorAll('[data-o-header-subnav-dropdown]'));
 	const parents = dropdowns.map(dropdown => dropdown.parentNode);
 
 	parents.forEach((parent, i) => addDropdownShowHideEvents(parent, dropdowns[i]));
