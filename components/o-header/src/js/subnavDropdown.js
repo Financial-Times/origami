@@ -21,10 +21,14 @@ const POSITIONING_OFFSET = 8;
 const expandedDropdowns = new Set();
 const dropdownEventListeners = new WeakMap();
 
+function getButtonForDropdown(dropdown) {
+	return dropdown.parentNode.querySelector('[data-o-header-subnav-dropdown-button]')
+}
+
 function handleScroll() {
 	expandedDropdowns.forEach(dropdown => {
-		const parent = dropdown.parentNode;
-		positionDropdown(dropdown, parent);
+		const button = getButtonForDropdown(dropdown);
+		positionDropdown(dropdown, button);
 	});
 }
 
@@ -63,18 +67,12 @@ function addDropdownControlEvents(dropdown, isDesktop) {
 		// The close button is only visible on mobile
         const closeButton = dropdown.querySelector('[data-o-header-subnav-dropdown-close]');
         if (closeButton) {
-			const closeButtonSelectionHandler = (event) => {
-				event.preventDefault();
-				event.stopPropagation();
-				hideDropdown(dropdown);
-			};
-			const closeButtonKeyboardHandler = (event) => {
-				if (event.key === 'Enter' || event.key === ' ') {
-					closeButtonSelectionHandler(event);
-				}
-			}
-			registerListener(closeButton, 'click', closeButtonSelectionHandler);
-			registerListener(closeButton, 'keydown', closeButtonKeyboardHandler);
+            const closeButtonClickHandler = (event) => {
+                event.preventDefault();
+                event.stopPropagation();
+                hideDropdown(dropdown);
+            };
+            registerListener(closeButton, 'click', closeButtonClickHandler);
         }
     }
 
@@ -118,23 +116,22 @@ function positionDropdown(dropdown, hoverTarget) {
 	});
 }
 
-function showDropdown({ dropdown, isDesktop, parent }) {
-	dropdown.setAttribute('aria-hidden', 'false');
-	dropdown.setAttribute('aria-expanded', 'true');
+function showDropdown({ button, dropdown, isDesktop }) {
+	button.setAttribute('aria-expanded', 'true');
 	dropdown.style.display = 'block';
 		
 	expandedDropdowns.add(dropdown);
 
 	if (isDesktop) {
-		positionDropdown(dropdown, parent)
+		positionDropdown(dropdown, button)
 	}
 
 	addDropdownControlEvents(dropdown, isDesktop)
 }
 
 function hideDropdown(dropdown) {
-	dropdown.setAttribute('aria-hidden', 'true');
-	dropdown.setAttribute('aria-expanded', 'false');
+	const button = getButtonForDropdown(dropdown);
+	button.setAttribute('aria-expanded', 'false');
 	dropdown.style.display = 'none';
 
 	expandedDropdowns.delete(dropdown);
@@ -142,7 +139,7 @@ function hideDropdown(dropdown) {
 	removeDropdownControlEvents(dropdown)
 }
 
-function addDropdownShowHideEvents(parent, dropdown) {
+function addDropdownShowHideEvents({ button, dropdown, parent }) {
 	let timeout;
 	const isDesktop = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 	const openDropdown = () => {
@@ -151,11 +148,11 @@ function addDropdownShowHideEvents(parent, dropdown) {
 		if (expandedDropdowns.size > 0) {
 			closeAllDropdowns();
 		}
-        showDropdown({ dropdown, isDesktop, parent });
+        showDropdown({ button, dropdown, isDesktop });
 	}
 
 	if (isDesktop) {
-		parent.addEventListener('mouseenter', () => {
+		button.addEventListener('mouseenter', () => {
 			clearTimeout(timeout);
 
 			timeout = setTimeout(() => {
@@ -173,16 +170,20 @@ function addDropdownShowHideEvents(parent, dropdown) {
 		});
 	}
 
-	parent.addEventListener('click', () => {
+	button.addEventListener('click', () => {
 		openDropdown();
 	});
 }
 
 function initSubnavDropdowns(subnav) {
-	const dropdowns = Array.from(subnav.querySelectorAll('[data-o-header-subnav-dropdown]'));
-	const parents = dropdowns.map(dropdown => dropdown.parentNode);
+	const dropdownParents = Array.from(subnav.querySelectorAll('[data-o-header-subnav-dropdown-parent]'));
 
-	parents.forEach((parent, i) => addDropdownShowHideEvents(parent, dropdowns[i]));
+	dropdownParents.forEach((parent) => {
+		const button = parent.querySelector('[data-o-header-subnav-dropdown-button]')
+		const dropdown = parent.querySelector('[data-o-header-subnav-dropdown-modal]')
+
+		addDropdownShowHideEvents({ button, dropdown, parent })
+	});
 }
 
 export { initSubnavDropdowns };

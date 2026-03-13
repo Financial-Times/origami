@@ -21,28 +21,30 @@ interface SubnavItem {
 /**
 * Renders a modal to display a set of dropdown options for a specific subnavigation item.
 */
-const SubNavDropdown: React.FC<{items: DropdownItem[]; title?: string}> = ({
+const SubNavDropdown: React.FC<{items: DropdownItem[]; title?: string; labelledById: string; id: string;}> = ({
 	items,
 	title,
+	labelledById,
+	id,
 }) => {
 	return (
 		<div
+			id={id}
 			className="o-header__subnav-dropdown"
-			data-o-header-subnav-dropdown
+			data-o-header-subnav-dropdown-modal
 			aria-hidden="true"
 			aria-expanded="false"
 			role="dialog"
 			aria-modal="true"
+			aria-labelledby={labelledById}
 			aria-label={title || 'Navigation menu'}>
 			{title && <h2 className="o-header__subnav-dropdown-title">{title}</h2>}
-			<span
+			<button
 				className="o-header__subnav-dropdown-close"
 				data-o-header-subnav-dropdown-close
-				aria-label="Close menu"
-				tabIndex={0}
-				role="button">
+				aria-label="Close menu">
 				<span className="o-header__subnav-dropdown-close-icon" />
-			</span>
+			</button>
 			<ul className="o-header__subnav-dropdown-list">
 				{items.map((item, index) => (
 					<li key={index} className="o-header__subnav-dropdown-item">
@@ -84,28 +86,36 @@ function SubnavWithDropdownsDemo({items}: {items: SubnavItem[]}) {
 										const ariaLabel = item.selected
 											? `${item.label}, current page`
 											: undefined;
-										const ariaCurrent = item.selected ? 'page' : undefined;
+										const buttonId = `subnav-dropdown-button-${i}`;
+										const modalId = `subnav-dropdown-modal-${i}`;
 
 										return (
 											<li className="o-header__subnav-item" key={i}>
 												{item.dropdown ? (
-													<button
-														className={`o-header__subnav-link ${selectedClass}`}
-														aria-label={ariaLabel}
-														aria-current={ariaCurrent}
-														data-trackable={item.label}
-														style={{cursor: 'default'}}>
-														{item.label}
+													<div data-o-header-subnav-dropdown-parent>
+														<button
+															id={buttonId}
+															className={`o-header__subnav-link ${selectedClass}`}
+															aria-label={ariaLabel}
+															aria-controls={modalId}
+															aria-haspopup="dialog"
+															aria-expanded="false"
+															data-trackable={item.label}
+															data-o-header-subnav-dropdown-button
+														>
+															{item.label}
+														</button>
 														<SubNavDropdown
+															id={modalId}
 															items={item.dropdown}
+															labelledById={buttonId}
 															title={item.label}
 														/>
-													</button>
+													</div>
 												) : (
 													<a
 														className={`o-header__subnav-link ${selectedClass}`}
 														aria-label={ariaLabel}
-														aria-current={ariaCurrent}
 														href={item.url}
 														data-trackable={item.label}>
 														{item.label}
