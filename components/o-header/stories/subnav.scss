@@ -66,12 +66,16 @@
   }
 }
 
-.o-header__subnav-link:has([data-o-header-subnav-dropdown]) {
+[data-o-header-subnav-dropdown-button] {
   background-color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  cursor: default;
 }
 
 @media (hover: none) {
-  .o-header__subnav-link:has([data-o-header-subnav-dropdown]) {
+  [data-o-header-subnav-dropdown-parent] {
     -webkit-tap-highlight-color: transparent;
   }
 
