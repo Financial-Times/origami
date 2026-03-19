@@ -19,13 +19,13 @@ Check out [how to include Origami components in your project](../../docs/legacy-
 
 ### Tracking without JavaScript
 
-o-tracking does not work without JavaScript but, you can still send basic tracking requests to the Spoor API by setting a css background image url which points to the Spoor tracking pixel endpoint (`https://spoor-api.ft.com/px.gif`). Click events and other interactive events will not be tracked without JavaScript but basic page view events can be tracked.
+o-tracking does not work without JavaScript but, you can still send basic tracking requests to the Spoor API by setting a css background image url which points to the Spoor tracking pixel endpoint (`https://runtime-api.ft.com/px.gif`). Click events and other interactive events will not be tracked without JavaScript but basic page view events can be tracked.
 
 The Spoor tracking pixel endpoint takes a `data` query parameter which is a url-encoded JSON string that represents the data to track in Spoor.
 
 ```html
 <div class="o-tracking o--if-no-js" data-o-component="o-tracking">
-	<div style="background: url('https://spoor-api.ft.com/px.gif?data=YOUR_URL_ENCODED_JSON_DATA_HERE');"></div>
+	<div style="background: url('https://runtime-api.ft.com/px.gif?data=YOUR_URL_ENCODED_JSON_DATA_HERE');"></div>
 </div>
 ```
 
@@ -52,7 +52,7 @@ _Recommendation:_ Using a different `system.source` value from the one used in o
 Here is the corresponding tracking pixel setup:
 ```html
 <div class="o-tracking o--if-no-js" data-o-component="o-tracking">
-    <div style="background: url('https://spoor-api.ft.com/px.gif?data=%7B%22category%22:%22page%22,%20%22action%22:%22view%22,%20%22system%22:%7B%22apiKey%22:%22qUb9maKfKbtpRsdp0p2J7uWxRPGJEP%22,%22source%22:%22o-tracking%22,%22version%22:%221.0.0%22%7D,%22context%22:%7B%22product%22:%22ft.com%22,%22content%22:%7B%22asset_type%22:%22page%22%7D%7D%7D');"></div>
+    <div style="background: url('https://runtime-api.ft.com/px.gif?data=%7B%22category%22:%22page%22,%20%22action%22:%22view%22,%20%22system%22:%7B%22apiKey%22:%22qUb9maKfKbtpRsdp0p2J7uWxRPGJEP%22,%22source%22:%22o-tracking%22,%22version%22:%221.0.0%22%7D,%22context%22:%7B%22product%22:%22ft.com%22,%22content%22:%7B%22asset_type%22:%22page%22%7D%7D%7D');"></div>
 </div>
 ```
 
