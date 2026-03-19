@@ -1,5 +1,13 @@
 # Changelog
 
+## [10.0.2](https://github.com/Financial-Times/origami/compare/o-teaser-v10.0.1...o-teaser-v10.0.2) (2026-03-19)
+
+
+### Bug Fixes
+
+* visited link color for teaser heading prefix ([f156091](https://github.com/Financial-Times/origami/commit/f15609131e9963099389531bf21e29b09b54991e))
+* visited link color for teaser heading prefix ([ed8adcf](https://github.com/Financial-Times/origami/commit/ed8adcf16afb189f1f0ae670b0dbd49c0acc187d))
+
 ## [10.0.1](https://github.com/Financial-Times/origami/compare/o-teaser-v10.0.0...o-teaser-v10.0.1) (2026-03-11)
 
 
