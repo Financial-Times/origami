@@ -21,11 +21,9 @@ To upgrade, replace the following "o2" components with their "o3" equivalent:
 
 Support for Bower and version 2 of the Origami Build Service have been removed.
 
-Follow [the migration guide on the Origami website](https://origami.ft.com/documentation/tutorials/bower-to-npm/).
-
 ### Migrating from v3 to v4
 
-The `$o-loading-themes` variable is now private. If you are a whitelabel brand user and would like to customise the colours of `o-loading`, use the `oLoadingCustomize` mixin instead. See [o-loading Sassdoc](https://registry.origami.ft.com/components/o-loading/sassdoc?brand=whitelabel) for more details.
+The `$o-loading-themes` variable is now private. If you are a whitelabel brand user and would like to customise the colours of `o-loading`, use the `oLoadingCustomize` mixin instead. See [o-loading Sassdoc](https://o2-core.origami.ft.com/?path=/docs/maintained-o-loading-sassdoc--docs&globals=backgrounds:!undefined) for more details.
 
 The `$o-loading-sizes` is also now private. If your project uses this to configure which sizes of `o-loading` to output, use the `oLoading` mixin instead, e.g.
 

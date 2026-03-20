@@ -448,8 +448,6 @@ V7 drops support for Bower and version 2 of Origami Build Service.
 
 If you were already using npm, no changes should be required.
 
-If you have been using Bower or the Origami Build Service, follow [the migration guide on the Origami website](https://origami.ft.com/documentation/tutorials/bower-to-npm/).
-
 ### Migrating from v5 to v6
 
 #### Progressive Font Loading
@@ -463,24 +461,24 @@ The class `o-typography--loading-sansBold` is now `o-typography--loading-sans-bo
 - `o-typography-big-number` is removed, replace with [o-big-number](https://github.com/Financial-Times/o-big-number/) markup.
 - `o-typography-blockquote` is removed, replace with [o-quote](https://github.com/Financial-Times/o-quote/) markup.
 - `o-typography-product-heading-level-7--thin-rule` is removed. Please contact Origami if your project requires this style.
-- `o-typography-collection-heading` has been removed. Please contact Origami if your project requires this style to discuss using [o-teaser-collection](https://registry.origami.ft.com/components/o-teaser-collection) styles.
+- `o-typography-collection-heading` has been removed. Please contact Origami if your project requires this style to discuss using [o-teaser-collection](https://o2-core.origami.ft.com/?path=/docs/maintained-o-teaser-collection-readme--docs&globals=backgrounds:!undefined) styles.
 
 ##### Editorial Markup (Master Brand Only)
 
-The following editorial style css classes have been moved to [o-editorial-typography](https://registry.origami.ft.com/components/o-editorial-typography). No changes are required by internal or whitelabel brand products. Include `o-editorial-typography` in your project and update your markup:
+The following editorial style css classes have been moved to [o-editorial-typography](https://o2-core.origami.ft.com/?path=/docs/deprecated-o-editorial-typography-readme--docs&globals=backgrounds:!undefined). No changes are required by internal or whitelabel brand products. Include `o-editorial-typography` in your project and update your markup:
 - `o-typography-topic` is now `o-editorial-typography-topic`
 - `o-typography-author` is now `o-editorial-typography-author`
 - `o-typography-standfirst` is now `o-editorial-typography-standfirst`
 - `o-typography-timestamp` is now `o-editorial-typography-byline-timestamp`
 - `o-typography-read-next` has no direct replacement, but there is a mixin in the editorial typography component `oEditorialTypographyDecorated` to apply the decorative underline. Please speak to Origami if your team uses this class.
 
-The previous default wrapper `o-typography-wrapper` has been removed. Consider using [o-editorial-layout](https://registry.origami.ft.com/components/o-editorial-layout) and [o-editorial-typography](https://registry.origami.ft.com/components/o-editorial-typography) classes, or contact the Origami team to discuss this feature. No changes are required by internal or whitelabel brand products.
+The previous default wrapper `o-typography-wrapper` has been removed. Consider using [o-editorial-layout](https://o2-core.origami.ft.com/?path=/docs/maintained-o-editorial-layout-readme--docs&globals=backgrounds:!undefined) classes, or contact the Origami team to discuss this feature. No changes are required by internal or whitelabel brand products.
 
 The product wrapper is now the default wrapper:
 - `o-typography-wrapper--product` is now `o-typography-wrapper`
 - the wrapper no longer styles blockquotes, instead use [o-quote](https://github.com/Financial-Times/o-quote/)
 
-For master brand products, the previous default headings have been moved to [o-editorial-typography](https://registry.origami.ft.com/components/o-editorial-typography). No changes are required by internal or whitelabel brand products. Include `o-editorial-typography` in your project and update your markup:
+For master brand products, the previous default headings have been moved to [o-editorial-typography](https://o2-core.origami.ft.com/?path=/docs/deprecated-o-editorial-typography-readme--docs&globals=backgrounds:!undefined). No changes are required by internal or whitelabel brand products. Include `o-editorial-typography` in your project and update your markup:
 - `o-typography-headline--large` is now `o-editorial-typography-headline`
 - `o-typography-heading-level-1--large` is now `o-editorial-typography-headline`
 - `o-typography-headline` is now `o-editorial-typography-heading-level-1`
@@ -712,9 +710,9 @@ Progressive font fallback styles are now consistently output by other typography
 
 ##### oTypographySpacingSize, oTypographyPadding, oTypographyMargin
 
-The deprecated mixins `oTypographySpacingSize`, `oTypographyPadding`, and `oTypographyMargin` have been removed. Instead set `margin` and `padding` properties manually using the [o-spacing](https://registry.origami.ft.com/components/o-spacing) functions.
+The deprecated mixins `oTypographySpacingSize`, `oTypographyPadding`, and `oTypographyMargin` have been removed. Instead set `margin` and `padding` properties manually using the [o-spacing](https://o2-core.origami.ft.com/?path=/docs/deprecated-o-spacing-readme--docs&globals=backgrounds:!undefined) functions.
 
-For more consistent spacing use a [named space](https://registry.origami.ft.com/components/o-spacing@2.0.0#demo-named-spaces) `oSpacingByName` if possible, or any o-space increment `oSpacingByIncrement` for a more direct migration.
+For more consistent spacing use a [named space](https://o2-core.origami.ft.com/?path=/docs/deprecated-o-spacing-sassdoc--docs&globals=backgrounds:!undefined#ospacingbyname-) `oSpacingByName` if possible, or any o-space increment `oSpacingByIncrement` for a more direct migration.
 
 ```diff
 -@include oTypographyPadding($top: 1, $bottom: 2);
@@ -739,11 +737,11 @@ The mixin `oTypographyWrapper` has been removed. Instead include the wrapper cla
 
 ##### Editorial Sass (Master Brand Only)
 
-- `oTypographyCollectionHeader` has been removed. Please contact Origami if your project requires this style to discuss using [o-teaser-collection](https://registry.origami.ft.com/components/o-teaser-collection) styles.
+- `oTypographyCollectionHeader` has been removed. Please contact Origami if your project requires this style to discuss using [o-teaser-collection](https://o2-core.origami.ft.com/?path=/docs/maintained-o-teaser-collection-readme--docs&globals=backgrounds:!undefined) styles.
 - `oTypographyBigNumber` is replaced by [o-big-number](https://github.com/Financial-Times/o-big-number/) sass.
 - `oTypographyBlockquote` is replaced by [o-quote](https://github.com/Financial-Times/o-quote/) sass.
 
-Editorial typography, such as that used in article pages, has moved to a new component [o-editorial-typography](https://registry.origami.ft.com/components/o-editorial-typography). No changes are required by internal or whitelabel brand products. Include `o-editorial-typography` in your project and update your Sass:
+Editorial typography, such as that used in article pages, has moved to a new component [o-editorial-typography](https://o2-core.origami.ft.com/?path=/docs/deprecated-o-editorial-typography-readme--docs&globals=backgrounds:!undefined). No changes are required by internal or whitelabel brand products. Include `o-editorial-typography` in your project and update your Sass:
 
 - `oTypographyTag` becomes `oEditorialTypographyTag($type: null)`
 - `oTypographyTopic` becomes `oEditorialTypographyTag($type: 'topic')`
@@ -752,7 +750,7 @@ Editorial typography, such as that used in article pages, has moved to a new com
 - `oTypographyTimestamp` becomes `oEditorialTypographyTimestamp`
 - `oTypographyReadNext` has no direct replacement as it didn't appear to be used, but `oEditorialTypographyDecorated` may be used to apply a decorative underline to typography of any size in the style of "read next".
 
-For master brand products, the previous default headings have been moved to [o-editorial-typography](https://registry.origami.ft.com/components/o-editorial-typography). No changes are required by internal or whitelabel brand products. Include `o-editorial-typography` in your project and update your Sass:
+For master brand products, the previous default headings have been moved to [o-editorial-typography](https://o2-core.origami.ft.com/?path=/docs/deprecated-o-editorial-typography-readme--docs&globals=backgrounds:!undefined). No changes are required by internal or whitelabel brand products. Include `o-editorial-typography` in your project and update your Sass:
 
 - `oTypographyHeadlineLarge` becomes `oEditorialTypographyHeadline` (plus margin)
 - `oTypographyHeadline` becomes `oEditorialTypographyHeading($level: 1)` (plus margin)
@@ -763,7 +761,7 @@ For master brand products, the previous default headings have been moved to [o-e
 - `oTypographyHeadingLevel5` becomes `oEditorialTypographyHeading($level: 5)` (plus margin)
 - `oTypographyHeadingLevel6` becomes `oEditorialTypographyHeading($level: 6)` (plus margin)
 
-_Note: `o-editorial-typography` does not apply margin as it makes no assumption about where the editorial typography is being used -- it could be a page, another component, or email for example. Include margin as required by your project or, for article and article-like pages, use [o-editorial-layout](https://registry.origami.ft.com/components/o-editorial-layout) instead._
+_Note: `o-editorial-typography` does not apply margin as it makes no assumption about where the editorial typography is being used -- it could be a page, another component, or email for example. Include margin as required by your project or, for article and article-like pages, use [o-editorial-layout](https://o2-core.origami.ft.com/?path=/docs/maintained-o-editorial-layout-readme--docs&globals=backgrounds:!undefined) instead._
 
 For master brand products, the "product" headings are now the default o-typography heading. Note the size and weight of these headings have changed, so you may wish to choose a different heading level:
 - `oTypographyProductHeadingLevel1` becomes `oTypographyHeading($level: 1)`

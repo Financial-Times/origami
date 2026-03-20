@@ -25,8 +25,6 @@ Support for IE9 has been dropped. No other changes.
 
 Support for Bower and version 2 of the Origami Build Service have been removed.
 
-Follow [the migration guide on the Origami website](https://origami.ft.com/documentation/tutorials/bower-to-npm/).
-
 ## Migrating from v1 to v2
 
 The dependencies for this component have all been updated to the latest major versions.

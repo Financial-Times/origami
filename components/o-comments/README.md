@@ -26,7 +26,7 @@ A component, integrated with FT authentication and [Coral Talk](https://coralpro
 
 ## Usage
 
-Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-comments`.
+Check out [how to include Origami components in your project](../../docs/legacy-o2-docs/technical-guide.md) to get started with `o-comments`.
 
 Unlike other Origami components [`o-comments` requires additional peer dependencies](#additional-dependencies).
 

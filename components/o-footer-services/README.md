@@ -1,6 +1,6 @@
 # o-footer-services [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
-o-footer-services is an [o-footer](https://registry.origami.ft.com/components/o-footer) alternative for tools, internal products, and specialist titles at the FT.
+o-footer-services is an [o-footer](https://o2-core.origami.ft.com/?path=/docs/maintained-o-footer-readme--docs&globals=backgrounds:!undefined) alternative for tools, internal products, and specialist titles at the FT.
 
 - [Usage](#usage)
 - [Markup](#markup)
@@ -11,7 +11,7 @@ o-footer-services is an [o-footer](https://registry.origami.ft.com/components/o-
 
 ## Usage
 
-Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-footer-services`.
+Check out [how to include Origami components in your project](../../docs/legacy-o2-docs/technical-guide.md) to get started with `o-footer-services`.
 
 ## Markup
 
@@ -40,7 +40,7 @@ A footer requires the following markup:
 </footer>
 ```
 
-All elements within the `.o-footer-services__wrapper--top` section are entirely optional. You can find examples of the variations [in the registry](https://registry.origami.ft.com/components/o-footer-services@1.0.2).
+All elements within the `.o-footer-services__wrapper--top` section are entirely optional. You can find examples of the variations [in Storybook](https://o2-core.origami.ft.com/?path=/docs/maintained-o-footer-services-readme--docs&globals=backgrounds:!undefined).
 
 As a move to future proof this component and the products that may use it, **`.o-footer-services__wrapper--legal` is not optional.**
 
@@ -85,7 +85,7 @@ All options include:
 | Option      | Description                                                                                                                                       | Brand support              |
 | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
 | logo        | A logo from the [image service](https://github.com/Financial-Times/origami-image-service.) to include in the footer (e.g. `ftlogo-v1:origami`).   | core, internal, whitelabel |
-| icons       | A list of [social share](https://registry.origami.ft.com/components/social-images) icons to include links for, defaults to '('slack', 'github')`. | core, internal, whitelabel |
+| icons       | A list of [social share](https://o2-core.origami.ft.com/?path=/story/deprecated-o-icons--icons&globals=backgrounds:!undefined) icons to include links for, defaults to '('slack', 'github')`. | core, internal, whitelabel |
 | brand-strip | Whether to include styles for the brand strip at the bottom of the footer, "a Nikkei company".                                                    | core, internal, whitelabel |
 | themes      | A list of themes to include. Currently the only theme is `dark`, which is only supported by the core brand.                                       | core                       |
 

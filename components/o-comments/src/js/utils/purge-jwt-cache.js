@@ -3,7 +3,7 @@ export default function purgeJwtCache(options = {}) {
 
 	const url = `${commentsAPIUrl}/user/auth`;
 	return fetch(url, {
-		method: 'PURGE',
+		method: 'POST',
 		credentials: 'include'
 	});
 }

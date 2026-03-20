@@ -143,19 +143,6 @@
 @mixin _oTeaserPostOpinion {
 	@include _oTeaserPost;
 
-	.o-teaser__heading:before {
-		@include oPrivateIconsContent(
-			'speech-left',
-			oPrivateFoundationGet('o3-color-palette-oxford'),
-			30,
-			$iconset-version: 1
-		);
-		content: '';
-		height: 13px;
-		position: relative;
-		background-size: cover;
-		margin-left: -5px;
-	}
 	.o-teaser__tag {
 		color: oPrivateFoundationGet('o3-color-palette-oxford');
 	}

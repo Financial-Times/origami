@@ -15,7 +15,7 @@ A styling utility component to aid projects and component with consistent spacin
 
 ## Usage
 
-Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-spacing`.
+Check out [how to include Origami components in your project](../../docs/legacy-o2-docs/technical-guide.md) to get started with `o-spacing`.
 
 For [Build Service](https://www.ft.com/__origami/service/build/) users, `o-spacing` provides [CSS classes](#markup) for vertical space and [CSS Custom Properties (CSS Variables)](#css-custom-properties) for other usecases. For Sass users `o-spacing` also provides a number of [Sass functions and mixins](#sass) for applying space to a project.
 
@@ -98,7 +98,7 @@ For compatibility with existing Origami projects, `o-spacing` outputs `px` value
 	}
 ```
 
-_If using `o-typography` set [$o-typography-relative-units](https://registry.origami.ft.com/components/o-typography@5.11.3/sassdoc?brand=core#variable-o-typography-relative-units) also._
+_If using `o-typography` set [$o-typography-relative-units](https://o2-core.origami.ft.com/?path=/docs/deprecated-o-typography-readme--docs&globals=backgrounds:!undefined) also._
 
 ### Named Space
 

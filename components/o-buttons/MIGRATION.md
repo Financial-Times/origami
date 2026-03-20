@@ -144,8 +144,6 @@ There is no direct replacement for `oButtonsAddTheme`. Adding new button themes 
 
 Support for Bower and version 2 of the Origami Build Service have been removed.
 
-Follow [the migration guide on the Origami website](https://origami.ft.com/documentation/tutorials/bower-to-npm/).
-
 ## Migrating from v5 to v6
 
 v6 of o-buttons simplifies the `o-buttons` interface, encourages CSS reuse, and makes custom buttons consistent with default buttons.
@@ -235,7 +233,7 @@ Replace calls for the following mixins with a single `oButtons` call with the op
 - `oButtonsGroup`
 - `oButtonsPagination`
 
-Replace `oButtonsIconButtonLabel` with the o-normalise mixin [oNormaliseVisuallyHidden](https://registry.origami.ft.com/components/o-normalise/sassdoc).
+Replace `oButtonsIconButtonLabel` with the o-normalise mixin [oNormaliseVisuallyHidden](https://github.com/Financial-Times/origami/components/o-normalise/sassdoc).
 
 #### Themes
 

@@ -163,8 +163,6 @@ This mixin was used to include all o-quote standard cite author CSS under custom
 
 Support for Bower and version 2 of the Origami Build Service have been removed.
 
-Follow [the migration guide on the Origami website](https://origami.ft.com/documentation/tutorials/bower-to-npm/).
-
 ## Migrating from v3 to v4
 
 This major version was released to correct an error in the publishing of v3.0.0. There are no changes, aside from using stable major releases in dependencies rather than beta ones.

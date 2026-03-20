@@ -166,8 +166,6 @@ demo-build:
   - tools/demo-build/**/*
 o3-compilation:
   - tools/o3-compilation/**/*
-origami-bower-safe-version-supervisor:
-  - tools/origami-bower-safe-version-supervisor/**/*
 origami-tools-helpers:
   - tools/origami-tools-helpers/**/*
 sass-compilation:

@@ -8,7 +8,7 @@
 	"components/o-big-number": "3.2.3",
 	"components/o-buttons": "7.11.1",
 	"components/o-colors": "6.7.1",
-	"components/o-comments": "13.2.3",
+	"components/o-comments": "13.2.4",
 	"components/o-cookie-message": "7.0.1",
 	"components/o-date": "7.0.1",
 	"components/o-editorial-layout": "3.0.2",
@@ -42,12 +42,11 @@
 	"components/o-syntax-highlight": "5.0.0",
 	"components/o-table": "10.0.2",
 	"components/o-tabs": "9.0.0",
-	"components/o-teaser": "10.0.0",
+	"components/o-teaser": "10.0.2",
 	"components/o-teaser-collection": "5.0.3",
 	"components/o-toggle": "3.2.6",
 	"components/o-tooltip": "6.0.1",
 	"components/o-top-banner": "2.0.0",
-	"components/o-topper": "7.1.4",
 	"components/o-typography": "7.7.1",
 	"components/o-video": "8.0.1",
 	"components/o-viewport": "5.1.2",
@@ -65,6 +64,5 @@
 	"libraries/o-errors": "5.2.3",
 	"libraries/o-tracking": "4.10.0",
 	"libraries/o-utils": "2.2.1",
-	"libraries/sass-mq": "5.2.4",
-	"tools/origami-bower-safe-version-supervisor": "1.1.2"
+	"libraries/sass-mq": "5.2.4"
 }

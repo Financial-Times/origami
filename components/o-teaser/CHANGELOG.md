@@ -1,5 +1,21 @@
 # Changelog
 
+## [10.0.2](https://github.com/Financial-Times/origami/compare/o-teaser-v10.0.1...o-teaser-v10.0.2) (2026-03-19)
+
+
+### Bug Fixes
+
+* visited link color for teaser heading prefix ([f156091](https://github.com/Financial-Times/origami/commit/f15609131e9963099389531bf21e29b09b54991e))
+* visited link color for teaser heading prefix ([ed8adcf](https://github.com/Financial-Times/origami/commit/ed8adcf16afb189f1f0ae670b0dbd49c0acc187d))
+
+## [10.0.1](https://github.com/Financial-Times/origami/compare/o-teaser-v10.0.0...o-teaser-v10.0.1) (2026-03-11)
+
+
+### Bug Fixes
+
+* broken live blog opinion indicator icon ([b747ce2](https://github.com/Financial-Times/origami/commit/b747ce203de7cbcc878d279c5c61d029ca97f554))
+* broken live blog opinion indicator icon ([e704163](https://github.com/Financial-Times/origami/commit/e70416356266e8bc33f7055aae3ba74c1a91e606))
+
 ## [10.0.0](https://github.com/Financial-Times/origami/compare/o-teaser-v9.1.3...o-teaser-v10.0.0) (2026-02-19)
 
 

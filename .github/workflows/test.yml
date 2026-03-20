@@ -115,8 +115,6 @@ jobs:
             - 'components/o-tooltip/**'
           components/o-top-banner:
             - 'components/o-top-banner/**'
-          components/o-topper:
-            - 'components/o-topper/**'
           components/o-typography:
             - 'components/o-typography/**'
           components/o-video:
@@ -169,8 +167,6 @@ jobs:
             - 'tools/demo-build/**'
           tools/o3-compilation:
             - 'tools/o3-compilation/**'
-          tools/origami-bower-safe-version-supervisor:
-            - 'tools/origami-bower-safe-version-supervisor/**'
           tools/origami-tools-helpers:
             - 'tools/origami-tools-helpers/**'
           tools/sass-compilation:

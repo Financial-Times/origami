@@ -28,11 +28,11 @@ Social media buttons.
 
 ## Usage
 
-Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-share`.
+Check out [how to include Origami components in your project](../../docs/legacy-o2-docs/technical-guide.md) to get started with `o-share`.
 
 ## Markup
 
-Include the [complete markup, available in the Origami registry](https://registry.origami.ft.com/components/o-share) directly to:
+Include the [complete markup, available in Storybook](https://o2-core.origami.ft.com/?path=/docs/maintained-o-share-readme--docs&globals=backgrounds:!undefined) directly to:
 
 - Support a core experience, where JavaScript is unavailable or has failed.
 - Add [custom share actions](#custom-actions) with [text labels](#text-labels).
@@ -113,7 +113,7 @@ Form markup is allowed within the `o-share__action` label to to handle custom sh
 </li>
 ```
 
-The `share` icon is made available by default for custom share features as shown in the [Origami registry demos](https://registry.origami.ft.com/components/o-share).
+The `share` icon is made available by default for custom share features as shown in [Storybook](https://o2-core.origami.ft.com/?path=/docs/maintained-o-share-readme--docs&globals=backgrounds:!undefined).
 
 ## Sass
 
@@ -153,7 +153,7 @@ For example:
 
 All `$opts` options include:
 
-- `icons` (list) a list of social share icons to output. One or more of the following, or any [o-icon name](https://registry.origami.ft.com/components/o-icons):
+- `icons` (list) a list of social share icons to output. One or more of the following, or any [o-icon name](https://o2-core.origami.ft.com/?path=/docs/deprecated-o-icons-readme--docs&globals=backgrounds:!undefined):
   - `x`
   - `facebook`
   - `linkedin`
@@ -177,7 +177,6 @@ All `$opts` options include:
 | `o-share/ft-icon`                 | background, border, text | Colours to highlight FT icon social buttons like email (e.g. on hover).                          |
 | `o-share/[social-icon-name]-icon` | background, border, text | Colours to highlight social buttons with a brand, like Twitter (e.g. `o-share/x-icon` on hover). |
 
-Use the [oColorsByUsecase mixin from o-colors](https://registry.origami.ft.com/components/o-colors/sassdoc?brand=core#function-ocolorsbyusecase) to retrieve custom colour usecases set by o-share.
 
 ```scss
 .my-icon:hover {
@@ -208,7 +207,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 ```
 
-Check out the [API docs](https://registry.origami.ft.com/components/o-share/jsdoc)
+Check out the [API docs](https://o2-core.origami.ft.com/?path=/docs/maintained-o-share-jsdoc--docs&globals=backgrounds:!undefined)
 
 ### Events
 

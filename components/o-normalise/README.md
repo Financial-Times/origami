@@ -16,7 +16,7 @@ Foundation styles and standardised utilities
 ## Usage
 
 Check
-out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project)
+out [how to include Origami components in your project](../../docs/legacy-o2-docs/technical-guide.md)
 to get started with `o-normalise`.
 
 ## Sass

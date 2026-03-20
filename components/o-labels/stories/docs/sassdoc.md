@@ -143,7 +143,7 @@ o-labels markup. This should only be used where using o-labels markup is
 not possible.
 
 If outputting a timestamp in a non-label context see
-[o-editorial-typography](https://registry.origami.ft.com/components/o-editorial-typography).
+[o-editorial-typography](https://o2-core.origami.ft.com/?path=/docs/deprecated-o-editorial-typography-readme--docs&globals=backgrounds:!undefined).
 
 #### Examples
 

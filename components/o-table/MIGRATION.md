@@ -21,11 +21,9 @@ To upgrade, replace the following "o2" components with their "o3" equivalent:
 
 Support for Bower and version 2 of the Origami Build Service have been removed.
 
-Follow [the migration guide on the Origami website](https://origami.ft.com/documentation/tutorials/bower-to-npm/).
-
 ### Migrating from v7 to v8
 
-- `.o-table-margin-bottom` has been removed. Use `.o-spacing-s4` from [o-spacing](https://registry.origami.ft.com/components/o-spacing) instead, or apply margin as needed, depending on the context of the table e.g.
+- `.o-table-margin-bottom` has been removed. Use `.o-spacing-s4` from [o-spacing](https://o2-core.origami.ft.com/?path=/story/deprecated-o-spacing--spacing&args=name:s4&globals=backgrounds:!undefined) instead, or apply margin as needed, depending on the context of the table e.g.
 
 ```
 .o-table {
@@ -33,7 +31,7 @@ Follow [the migration guide on the Origami website](https://origami.ft.com/docum
 }
 ```
 
-- v8 updates the required version on the [o-icons](https://registry.origami.ft.com/components/o-icons) and [ftdomdelegate](https://github.com/Financial-Times/ftdomdelegate) dependencies. Make sure your project still builds with the new versions!
+- v8 updates the required version on the [o-icons](https://o2-core.origami.ft.com/?path=/docs/deprecated-o-icons-readme--docs&args=name:s4&globals=backgrounds:!undefined) and [ftdomdelegate](https://github.com/Financial-Times/ftdomdelegate) dependencies. Make sure your project still builds with the new versions!
 
 #### Updated dependencies
 
@@ -72,7 +70,7 @@ its dependencies. See [the Bower config for these](./bower.json).
 ```
 
 - Style updates:
-  - The default bottom margin of `o-table` has been removed. Please apply the margin as needed, depending on the context of the table e.g. [see o-spacing](https://registry.origami.ft.com/components/o-spacing):
+  - The default bottom margin of `o-table` has been removed. Please apply the margin as needed, depending on the context of the table e.g. [see o-spacing](https://o2-core.origami.ft.com/?path=/docs/deprecated-o-spacing-readme--docs&args=name:s4&globals=backgrounds:!undefined):
   ```scss
   .o-table {
   	margin-bottom: oSpacingByName('s4');

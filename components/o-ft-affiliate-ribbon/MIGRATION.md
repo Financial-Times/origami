@@ -34,13 +34,11 @@ To upgrade, replace the following "o2" components with their "o3" equivalent:
 
 Support for Bower and version 2 of the Origami Build Service have been removed.
 
-Follow [the migration guide on the Origami website](https://origami.ft.com/documentation/tutorials/bower-to-npm/).
-
 ### Migrating from v3 to v4
 
 Origami components now require a `$system-code` Sass variable is set by the project, which must be a valid [Bizops system code](https://biz-ops.in.ft.com/list/Systems).
 
-v4 removes the mixin `oFtAffiliateRibbonVisuallyHidden`. Replace with the o-normalise mixin [oNormaliseVisuallyHidden](https://registry.origami.ft.com/components/o-normalise/sassdoc). The mixin `oFtAffiliateRibbonBrandImage` has also been removed, there is no replacement, please contact the Origami team if your project has a usecase for this mixin.
+v4 removes the mixin `oFtAffiliateRibbonVisuallyHidden`. Replace with the o-normalise mixin [oNormaliseVisuallyHidden](https://o2-core.origami.ft.com/?path=/docs/deprecated-o-normalise-readme--docs&globals=backgrounds:!undefined). The mixin `oFtAffiliateRibbonBrandImage` has also been removed, there is no replacement, please contact the Origami team if your project has a usecase for this mixin.
 
 Custom colours and colour usecases have also been removed from the palette and should not be used. Please contact Origami if your project does have a usecase for these however:
 

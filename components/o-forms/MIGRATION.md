@@ -21,8 +21,6 @@ To upgrade, replace the following "o2" components with their "o3" equivalent:
 
 Support for Bower and version 2 of the Origami Build Service have been removed.
 
-Follow [the migration guide on the Origami website](https://origami.ft.com/documentation/tutorials/bower-to-npm/).
-
 ### Migrating from v7 to v8
 
 Version 8 removes a deprecated interface: the `Forms.setState` method no longer accepts a boolean third argument to specify the `iconOnly` option.

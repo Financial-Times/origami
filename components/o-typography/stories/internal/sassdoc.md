@@ -36,7 +36,7 @@ Output o-typography features.
 
 | Parameter | Type | Default                                                                                                                                                               | Description                                                                                                                                            |
 | --------- | ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| opts      | Map  | ('headings': (1, 2, 3, 4, 5, 6), 'wrapper': true, 'body': true, 'links': true, 'lists': ('ordered', 'unordered'), 'caption': true, 'footer': true, 'utilities': true) | The features of o-typography to output classes for. See the [README](https://registry.origami.ft.com/components/o-typography/readme) for more details. |
+| opts      | Map  | ('headings': (1, 2, 3, 4, 5, 6), 'wrapper': true, 'body': true, 'links': true, 'lists': ('ordered', 'unordered'), 'caption': true, 'footer': true, 'utilities': true) | The features of o-typography to output classes for. See the [README](https://o2-core.origami.ft.com/?path=/docs/deprecated-o-typography-readme--docs) for more details. |
 
 #### Examples
 
@@ -50,7 +50,7 @@ all o-typography css classes.
 
 ##### Example 2
 
-a granular selection of o-typography css classes. See the [README](https://registry.origami.ft.com/components/o-typography/readme) for a full list of options.
+a granular selection of o-typography css classes. See the [README](https://o2-core.origami.ft.com/?path=/docs/deprecated-o-typography-readme--docs) for a full list of options.
 
 ```Output
 @include oTypography((
