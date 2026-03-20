@@ -1,5 +1,13 @@
 # Changelog
 
+## [13.2.4](https://github.com/Financial-Times/origami/compare/o-comments-v13.2.3...o-comments-v13.2.4) (2026-03-20)
+
+
+### Bug Fixes
+
+* update to cdn compatible fetch method ([32e7f30](https://github.com/Financial-Times/origami/commit/32e7f308c61b70149d7a94f832a076553fe26020))
+* update to cdn compatible fetch method ([f0fcc3c](https://github.com/Financial-Times/origami/commit/f0fcc3cd5bdf5f1749ced8fc09bcb9886ef55b0a))
+
 ## [13.2.3](https://github.com/Financial-Times/origami/compare/o-comments-v13.2.2...o-comments-v13.2.3) (2026-02-25)
 
 
