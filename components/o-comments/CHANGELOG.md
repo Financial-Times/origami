@@ -1,5 +1,13 @@
 # Changelog
 
+## [13.2.5](https://github.com/Financial-Times/origami/compare/o-comments-v13.2.4...o-comments-v13.2.5) (2026-03-23)
+
+
+### Bug Fixes
+
+* add comment in functions sass file ([d8b2c9f](https://github.com/Financial-Times/origami/commit/d8b2c9f3c6b9df590fab933522b96a2b93e5dd76))
+* add comment in functions sass file ([bd53b74](https://github.com/Financial-Times/origami/commit/bd53b748e4b3a3c035f5586735702c874d27661f))
+
 ## [13.2.4](https://github.com/Financial-Times/origami/compare/o-comments-v13.2.3...o-comments-v13.2.4) (2026-03-20)
 
 
