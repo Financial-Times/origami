@@ -1,5 +1,13 @@
 # Changelog
 
+## [10.0.3](https://github.com/Financial-Times/origami/compare/o-teaser-v10.0.2...o-teaser-v10.0.3) (2026-03-23)
+
+
+### Bug Fixes
+
+* comment link no longer exists ([c82a7b3](https://github.com/Financial-Times/origami/commit/c82a7b3084e08274263725b31113f4aa54fce17a))
+* comment link no longer exists ([fa33229](https://github.com/Financial-Times/origami/commit/fa3322918cc6de31e4815a6cbface1b21ee5b566))
+
 ## [10.0.2](https://github.com/Financial-Times/origami/compare/o-teaser-v10.0.1...o-teaser-v10.0.2) (2026-03-19)
 
 
