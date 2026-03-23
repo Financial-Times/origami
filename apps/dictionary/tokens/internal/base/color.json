@@ -59,7 +59,7 @@
           ]
         },
         "lemon": {
-          "value": "#FFEC1A",
+          "value": "#FABF14",
           "type": "color",
           "origamiKeys": [
             "palette",
@@ -115,7 +115,7 @@
           ]
         },
         "crimson": {
-          "value": "#c00",
+          "value": "#B30000",
           "type": "color",
           "origamiKeys": [
             "palette",
