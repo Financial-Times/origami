@@ -152,7 +152,7 @@ function addDropdownShowHideEvents({ button, dropdown, parent }) {
 	}
 
 	if (isDesktop) {
-		button.addEventListener('mouseenter', () => {
+		parent.addEventListener('mouseenter', () => {
 			clearTimeout(timeout);
 
 			timeout = setTimeout(() => {
