@@ -11,15 +11,13 @@ describe('Subnav Dropdown', () => {
 	let clock;
 	let matchMediaStub;
 
-	function assertDropdownIsHidden(dropdown) {
-		proclaim.equal(dropdown.getAttribute('aria-hidden'), 'true');
-		proclaim.equal(dropdown.getAttribute('aria-expanded'), 'false');
+	function assertDropdownIsHidden(button, dropdown) {
+		proclaim.equal(button.getAttribute('aria-expanded'), 'false');
 		proclaim.equal(dropdown.style.display, 'none');
 	}
 
-	function assertDropdownIsVisible(dropdown) {
-		proclaim.equal(dropdown.getAttribute('aria-hidden'), 'false');
-		proclaim.equal(dropdown.getAttribute('aria-expanded'), 'true');
+	function assertDropdownIsVisible(button, dropdown) {
+		proclaim.equal(button.getAttribute('aria-expanded'), 'true');
 		proclaim.equal(dropdown.style.display, 'block');
 	}
 
@@ -28,22 +26,30 @@ describe('Subnav Dropdown', () => {
 		containerEl = document.createElement('div');
 		containerEl.innerHTML = `
 			<header class="o-header">
-				<nav>
+				<nav data-o-header-subnav>
 					<ul>
 						<li class="o-header__nav-item">
-							<a href="#">Item 1</a>
-							<div data-o-header-subnav-dropdown aria-hidden="true" aria-expanded="false" style="display: none;">
-								<a href="#">Subnav Link 1</a>
-								<a href="#">Subnav Link 2</a>
-								<button data-o-header-subnav-dropdown-close>Close</button>
+							<div data-o-header-subnav-dropdown-parent>
+								<button aria-expanded="false" data-o-header-subnav-dropdown-button>
+									Item 1
+								</button>
+								<div data-o-header-subnav-dropdown-modal style="display: none;">
+									<a href="#">Subnav Link 1</a>
+									<a href="#">Subnav Link 2</a>
+									<button data-o-header-subnav-dropdown-close>Close</button>
+								</div>
 							</div>
 						</li>
 						<li class="o-header__nav-item">
-							<a href="#">Item 2</a>
-							<div data-o-header-subnav-dropdown aria-hidden="true" aria-expanded="false" style="display: none;">
-								<a href="#">Subnav Link 3</a>
-								<a href="#">Subnav Link 4</a>
-								<button data-o-header-subnav-dropdown-close>Close</button>
+							<div data-o-header-subnav-dropdown-parent>
+								<button aria-expanded="false" data-o-header-subnav-dropdown-button>
+									Item 2
+								</button>
+								<div data-o-header-subnav-dropdown-modal style="display: none;">
+									<a href="#">Subnav Link 3</a>
+									<a href="#">Subnav Link 4</a>
+									<button data-o-header-subnav-dropdown-close>Close</button>
+								</div>
 							</div>
 						</li>
 					</ul>
@@ -74,26 +80,28 @@ describe('Subnav Dropdown', () => {
 			const headerEl = containerEl.querySelector('.o-header');
 			initSubnavDropdowns(headerEl);
 
-			const parent = containerEl.querySelector('.o-header__nav-item');
-			const dropdown = parent.querySelector('[data-o-header-subnav-dropdown]');
+			const parent = headerEl.querySelector('[data-o-header-subnav-dropdown-parent]');
+			const button = parent.querySelector('[data-o-header-subnav-dropdown-button]');
+			const dropdown = parent.querySelector('[data-o-header-subnav-dropdown-modal]');
 
-			parent.dispatchEvent(new Event('mouseenter', { bubbles: true }));
+			button.dispatchEvent(new Event('mouseenter', { bubbles: true }));
 			
-			assertDropdownIsHidden(dropdown);
+			assertDropdownIsHidden(button, dropdown);
 
 			clock.tick(300);
 			
-			assertDropdownIsVisible(dropdown);
+			assertDropdownIsVisible(button, dropdown);
 		});
 
 		it('positions the dropdown below the parent element', () => {
 			const headerEl = containerEl.querySelector('.o-header');
 			initSubnavDropdowns(headerEl);
 
-			const parent = containerEl.querySelector('.o-header__nav-item');
-			const dropdown = parent.querySelector('[data-o-header-subnav-dropdown]');
+			const parent = containerEl.querySelector('[data-o-header-subnav-dropdown-parent]');
+			const button = parent.querySelector('[data-o-header-subnav-dropdown-button]');
+			const dropdown = parent.querySelector('[data-o-header-subnav-dropdown-modal]');
 
-			parent.dispatchEvent(new Event('mouseenter', { bubbles: true }));
+			button.dispatchEvent(new Event('mouseenter', { bubbles: true }));
 			clock.tick(300);
 
 			proclaim.equal(dropdown.style.position, 'fixed');
@@ -105,67 +113,70 @@ describe('Subnav Dropdown', () => {
 			const headerEl = containerEl.querySelector('.o-header');
 			initSubnavDropdowns(headerEl);
 
-			const parent = containerEl.querySelector('.o-header__nav-item');
-			const dropdown = parent.querySelector('[data-o-header-subnav-dropdown]');
+			const parent = containerEl.querySelector('[data-o-header-subnav-dropdown-parent]');
+			const button = parent.querySelector('[data-o-header-subnav-dropdown-button]');
+			const dropdown = parent.querySelector('[data-o-header-subnav-dropdown-modal]');
 
-			parent.dispatchEvent(new Event('mouseenter', { bubbles: true }));
+			button.dispatchEvent(new Event('mouseenter', { bubbles: true }));
 			clock.tick(300);
 
-			assertDropdownIsVisible(dropdown);
+			assertDropdownIsVisible(button, dropdown);
 
 			parent.dispatchEvent(new Event('mouseleave', { bubbles: true }));
 
-			assertDropdownIsVisible(dropdown);
+			assertDropdownIsVisible(button, dropdown);
 
 			clock.tick(400);
 
-			assertDropdownIsHidden(dropdown);
+			assertDropdownIsHidden(button, dropdown);
 		});
 
 		it('hides the dropdown when Escape is pressed', () => {
 			const headerEl = containerEl.querySelector('.o-header');
 			initSubnavDropdowns(headerEl);
 
-			const parent = containerEl.querySelector('.o-header__nav-item');
-			const dropdown = parent.querySelector('[data-o-header-subnav-dropdown]');
+			const parent = containerEl.querySelector('[data-o-header-subnav-dropdown-parent]');
+			const button = parent.querySelector('[data-o-header-subnav-dropdown-button]');
+			const dropdown = parent.querySelector('[data-o-header-subnav-dropdown-modal]');
 
-			parent.dispatchEvent(new Event('mouseenter', { bubbles: true }));
+			button.dispatchEvent(new Event('mouseenter', { bubbles: true }));
 			clock.tick(300);
 
-			assertDropdownIsVisible(dropdown);
+			assertDropdownIsVisible(button, dropdown);
 
 			userEvent.keyboard('{Escape}');
 
-			assertDropdownIsHidden(dropdown);
+			assertDropdownIsHidden(button, dropdown);
 		});
 
 		it('closes the first dropdown when hovering over a second item', () => {
 			const headerEl = containerEl.querySelector('.o-header');
 			initSubnavDropdowns(headerEl);
 
-			const parents = containerEl.querySelectorAll('.o-header__nav-item');
-			const dropdowns = containerEl.querySelectorAll('[data-o-header-subnav-dropdown]');
+			const buttons = containerEl.querySelectorAll('[data-o-header-subnav-dropdown-button]');
+			const dropdowns = containerEl.querySelectorAll('[data-o-header-subnav-dropdown-modal]');
 
-			parents[0].dispatchEvent(new Event('mouseenter', { bubbles: true }));
+			buttons[0].dispatchEvent(new Event('mouseenter', { bubbles: true }));
 			clock.tick(300);
 
-			assertDropdownIsVisible(dropdowns[0]);
+			assertDropdownIsVisible(buttons[0], dropdowns[0]);
 
-			parents[1].dispatchEvent(new Event('mouseenter', { bubbles: true }));
+			buttons[1].dispatchEvent(new Event('mouseenter', { bubbles: true }));
 			clock.tick(300);
 
-			assertDropdownIsHidden(dropdowns[0]);
-			assertDropdownIsVisible(dropdowns[1]);
+			assertDropdownIsHidden(buttons[0], dropdowns[0]);
+			assertDropdownIsVisible(buttons[1], dropdowns[1]);
 		});
 
 		it('updates dropdown position when window scrolls', () => {
 			const headerEl = containerEl.querySelector('.o-header');
 			initSubnavDropdowns(headerEl);
 
-			const parent = containerEl.querySelector('.o-header__nav-item');
-			const dropdown = parent.querySelector('[data-o-header-subnav-dropdown]');
+			const parent = containerEl.querySelector('[data-o-header-subnav-dropdown-parent]');
+			const button = parent.querySelector('[data-o-header-subnav-dropdown-button]');
+			const dropdown = parent.querySelector('[data-o-header-subnav-dropdown-modal]');
 
-			parent.dispatchEvent(new Event('mouseenter', { bubbles: true }));
+			button.dispatchEvent(new Event('mouseenter', { bubbles: true }));
 			clock.tick(300);
 
 			window.dispatchEvent(new Event('scroll', { bubbles: true }));
@@ -176,39 +187,41 @@ describe('Subnav Dropdown', () => {
 			const headerEl = containerEl.querySelector('.o-header');
 			initSubnavDropdowns(headerEl);
 
-			const parent = containerEl.querySelector('.o-header__nav-item');
-			const dropdown = parent.querySelector('[data-o-header-subnav-dropdown]');
+			const parent = containerEl.querySelector('[data-o-header-subnav-dropdown-parent]');
+			const button = parent.querySelector('[data-o-header-subnav-dropdown-button]');
+			const dropdown = parent.querySelector('[data-o-header-subnav-dropdown-modal]');
 
-			parent.dispatchEvent(new Event('mouseenter', { bubbles: true }));
+			button.dispatchEvent(new Event('mouseenter', { bubbles: true }));
 			
 			clock.tick(100);
 			parent.dispatchEvent(new Event('mouseleave', { bubbles: true }));
 			
 			clock.tick(200);
 
-			assertDropdownIsHidden(dropdown);
+			assertDropdownIsHidden(button, dropdown);
 		});
 
 		it('does not hide dropdown if mouse re-enters before leave delay', () => {
 			const headerEl = containerEl.querySelector('.o-header');
 			initSubnavDropdowns(headerEl);
 
-			const parent = containerEl.querySelector('.o-header__nav-item');
-			const dropdown = parent.querySelector('[data-o-header-subnav-dropdown]');
+			const parent = containerEl.querySelector('[data-o-header-subnav-dropdown-parent]');
+			const button = parent.querySelector('[data-o-header-subnav-dropdown-button]');
+			const dropdown = parent.querySelector('[data-o-header-subnav-dropdown-modal]');
 
-			parent.dispatchEvent(new Event('mouseenter', { bubbles: true }));
+			button.dispatchEvent(new Event('mouseenter', { bubbles: true }));
 			clock.tick(300);
 
-			assertDropdownIsVisible(dropdown);
+			assertDropdownIsVisible(button, dropdown);
 
 			parent.dispatchEvent(new Event('mouseleave', { bubbles: true }));
 			
 			clock.tick(100);
-			parent.dispatchEvent(new Event('mouseenter', { bubbles: true }));
+			button.dispatchEvent(new Event('mouseenter', { bubbles: true }));
 			
 			clock.tick(300);
 			
-			assertDropdownIsVisible(dropdown);
+			assertDropdownIsVisible(button, dropdown);
 		});
 	});
 
@@ -224,45 +237,48 @@ describe('Subnav Dropdown', () => {
 			const headerEl = containerEl.querySelector('.o-header');
 			initSubnavDropdowns(headerEl);
 
-			const parent = containerEl.querySelector('.o-header__nav-item');
-			const dropdown = parent.querySelector('[data-o-header-subnav-dropdown]');
+			const parent = containerEl.querySelector('[data-o-header-subnav-dropdown-parent]');
+			const button = parent.querySelector('[data-o-header-subnav-dropdown-button]');
+			const dropdown = parent.querySelector('[data-o-header-subnav-dropdown-modal]');
 			const closeButton = dropdown.querySelector('[data-o-header-subnav-dropdown-close]');
 
-			parent.dispatchEvent(new Event('click', { bubbles: true }));
-			assertDropdownIsVisible(dropdown);
+			button.dispatchEvent(new Event('click', { bubbles: true }));
+			assertDropdownIsVisible(button, dropdown);
 
 			closeButton.dispatchEvent(new Event('click', { bubbles: true }));
-			assertDropdownIsHidden(dropdown);
+			assertDropdownIsHidden(button, dropdown);
 		});
 
 		it('does not respond to hover events on mobile', () => {
 			const headerEl = containerEl.querySelector('.o-header');
 			initSubnavDropdowns(headerEl);
 
-			const parent = containerEl.querySelector('.o-header__nav-item');
-			const dropdown = parent.querySelector('[data-o-header-subnav-dropdown]');
+			const parent = containerEl.querySelector('[data-o-header-subnav-dropdown-parent]');
+			const button = parent.querySelector('[data-o-header-subnav-dropdown-button]');
+			const dropdown = parent.querySelector('[data-o-header-subnav-dropdown-modal]');
 
-			parent.dispatchEvent(new Event('mouseenter', { bubbles: true }));
+			button.dispatchEvent(new Event('mouseenter', { bubbles: true }));
 			clock.tick(300);
-			assertDropdownIsHidden(dropdown);
+			assertDropdownIsHidden(button, dropdown);
 
-			parent.dispatchEvent(new Event('click', { bubbles: true }));
-			assertDropdownIsVisible(dropdown);
+			button.dispatchEvent(new Event('click', { bubbles: true }));
+			assertDropdownIsVisible(button, dropdown);
 
 			parent.dispatchEvent(new Event('mouseleave', { bubbles: true }));
 			clock.tick(400);
-			assertDropdownIsVisible(dropdown);
+			assertDropdownIsVisible(button, dropdown);
 		});
 
 		it('does not update dropdown position when window scrolls on mobile', () => {
 			const headerEl = containerEl.querySelector('.o-header');
 			initSubnavDropdowns(headerEl);
 
-			const parent = containerEl.querySelector('.o-header__nav-item');
-			const dropdown = parent.querySelector('[data-o-header-subnav-dropdown]');
+			const parent = containerEl.querySelector('[data-o-header-subnav-dropdown-parent]');
+			const button = parent.querySelector('[data-o-header-subnav-dropdown-button]');
+			const dropdown = parent.querySelector('[data-o-header-subnav-dropdown-modal]');
 
-			parent.dispatchEvent(new Event('click', { bubbles: true }));
-			assertDropdownIsVisible(dropdown);
+			button.dispatchEvent(new Event('click', { bubbles: true }));
+			assertDropdownIsVisible(button, dropdown);
 
 			const initialTop = dropdown.style.top;
 			const initialLeft = dropdown.style.left;

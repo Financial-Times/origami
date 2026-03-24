@@ -4,17 +4,21 @@ import { initSubnavDropdowns } from './subnavDropdown.js';
 
 function init(headerEl) {
 	const subnav = headerEl.querySelector('[data-o-header-subnav]');
-
 	if (subnav === null) {
 		return;
 	}
+	setupSubnav(subnav)
+}
 
+function setupSubnav(subnav) {
 	// Looks like we can't remove this on destroy,
 	// as another component may be using it.
 	viewport.listenTo('resize');
 
-	const buttons = Array.from(subnav.getElementsByTagName('button'));
-	const wrapper = subnav.querySelector('[data-o-header-subnav-wrapper]');
+	const directionButtons = Array
+		.from(subnav.getElementsByTagName('button'))
+		.filter(btn => btn.className.includes('left') || btn.className.includes('right'));
+  	const wrapper = subnav.querySelector('[data-o-header-subnav-wrapper]');
 
 	function checkCurrentPosition() {
 		const wrapperWidth = wrapper.clientWidth;
@@ -47,7 +51,7 @@ function init(headerEl) {
 		const scrollWidth = wrapper.scrollWidth;
 		const wrapperWidth = wrapper.clientWidth;
 
-		buttons.forEach(button => {
+		directionButtons.forEach(button => {
 			if (direction(button) === 'left') {
 				button.disabled = wrapper.scrollLeft === 0;
 			} else {
@@ -85,14 +89,14 @@ function init(headerEl) {
 		subtree: true
 	});
 
-	buttons.forEach(button => {
+	directionButtons.forEach(button => {
 		button.onclick = scroll;
 	});
 
-	initSubnavDropdowns(headerEl);
+	initSubnavDropdowns(subnav);
 
 	checkCurrentPosition();
 }
 
-export { init };
+export { init, setupSubnav };
 export default { init };
