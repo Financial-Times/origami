@@ -1,5 +1,16 @@
 # Changelog
 
+## [15.4.1](https://github.com/Financial-Times/origami/compare/o-header-v15.4.0...o-header-v15.4.1) (2026-03-24)
+
+
+### Bug Fixes
+
+* Add keyboard handlers for close button ([4bdb3b8](https://github.com/Financial-Times/origami/commit/4bdb3b80f2e90bd12d8e404a710f38dd2160fbf2))
+* button children to subnav no longer cause right/left buttons to break ([27e6841](https://github.com/Financial-Times/origami/commit/27e6841cabad68d5b722000e1da0ed0e2f861582))
+* customers can access subnav options via keyboard only ([3993b4c](https://github.com/Financial-Times/origami/commit/3993b4c422a1315baee2b3ee644b14dd63900bed))
+* recompose modal/button as siblings to improve accessibility ([d80ee43](https://github.com/Financial-Times/origami/commit/d80ee43b569779d09df4534350b7457a609dc3b8))
+* subnavigation modal stays open while choosing options ([c100b81](https://github.com/Financial-Times/origami/commit/c100b815a63d539d3162c8c31db40573eb6b3f6c))
+
 ## [15.4.0](https://github.com/Financial-Times/origami/compare/o-header-v15.3.1...o-header-v15.4.0) (2026-03-04)
 
 
