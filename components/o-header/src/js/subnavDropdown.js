@@ -20,6 +20,7 @@ const POSITIONING_OFFSET = 8;
 
 const expandedDropdowns = new Set();
 const dropdownEventListeners = new WeakMap();
+const showHideEventListeners = new WeakMap();
 
 function getButtonForDropdown(dropdown) {
 	return dropdown.parentNode.querySelector('[data-o-header-subnav-dropdown-button]')
@@ -88,6 +89,24 @@ function removeDropdownControlEvents (dropdown) {
 	dropdownEventListeners.delete(dropdown);
 }
 
+function removeShowHideControlEvents (target) {
+	const currentDropdownEventListeners = showHideEventListeners.get(target);
+	currentDropdownEventListeners.forEach((listener) => {
+		const { target, type, callback } = listener;
+		target.removeEventListener(type, callback)
+	})
+	showHideEventListeners.delete(target);
+}
+function resetDropdownPosition(dropdown) {
+	dropdown.style.removeProperty('top');
+	dropdown.style.removeProperty('left');
+	dropdown.style.removeProperty('zIndex');
+	dropdown.style.removeProperty('transform');
+	dropdown.style.removeProperty('right');
+	dropdown.style.removeProperty('bottom');
+	dropdown.style.removeProperty('margin');
+}
+
 function positionDropdown(dropdown, hoverTarget) {
 	if (!hoverTarget) {
 		return;
@@ -105,7 +124,6 @@ function positionDropdown(dropdown, hoverTarget) {
 	}
 
 	Object.assign(dropdown.style, {
-		position: 'fixed',
 		top: `${targetRect.bottom + POSITIONING_OFFSET}px`,
 		left: `${left}px`,
 		zIndex: '10000',
@@ -139,9 +157,8 @@ function hideDropdown(dropdown) {
 	removeDropdownControlEvents(dropdown)
 }
 
-function addDropdownShowHideEvents({ button, dropdown, parent }) {
+function addDropdownShowHideEvents({ button, dropdown, parent, isDesktop }) {
 	let timeout;
-	const isDesktop = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 	const openDropdown = () => {
 		if (isDropdownOpen(dropdown)) return;
 
@@ -151,38 +168,64 @@ function addDropdownShowHideEvents({ button, dropdown, parent }) {
         showDropdown({ button, dropdown, isDesktop });
 	}
 
+	const listeners = new Set();
+    const registerListener = (target, type, callback) => {
+        target.addEventListener(type, callback);
+        listeners.add({ target, type, callback });
+    };
+
 	if (isDesktop) {
-		parent.addEventListener('mouseenter', () => {
+		const handleMouseEnter = () => {
 			clearTimeout(timeout);
 
 			timeout = setTimeout(() => {
 				openDropdown();
-			}, INTENT_ENTER);
-		});
+				}, INTENT_ENTER);
+		}
+    	registerListener(parent, 'mouseenter', handleMouseEnter);
 
-		parent.addEventListener('mouseleave', () => {
+		const handleMouseLeave = () => {
 			clearTimeout(timeout);
+
 			timeout = setTimeout(() => {
 				if (isDropdownOpen(dropdown)) {
 					hideDropdown(dropdown);
 				}
 			}, INTENT_LEAVE);
-		});
-	}
+		}
+    	registerListener(parent, 'mouseleave', handleMouseLeave);
+	} 
 
-	button.addEventListener('click', () => {
+	const clickHandler = () => {
 		openDropdown();
-	});
+	};
+	registerListener(button, 'click', clickHandler);
+
+	showHideEventListeners.set(parent, listeners);
 }
 
 function initSubnavDropdowns(subnav) {
 	const dropdownParents = Array.from(subnav.querySelectorAll('[data-o-header-subnav-dropdown-parent]'));
 
+	const isDesktopQuery = window.matchMedia('(min-width: 740px)');
+	
+	isDesktopQuery.addEventListener('change', () => {
+		dropdownParents.forEach((parent) => {
+			removeShowHideControlEvents(parent);
+			const button = parent.querySelector('[data-o-header-subnav-dropdown-button]')
+			const dropdown = parent.querySelector('[data-o-header-subnav-dropdown-modal]')
+			resetDropdownPosition(dropdown);
+
+			addDropdownShowHideEvents({ button, dropdown, parent, isDesktop: isDesktopQuery.matches })
+		});
+	});
+
+
 	dropdownParents.forEach((parent) => {
 		const button = parent.querySelector('[data-o-header-subnav-dropdown-button]')
 		const dropdown = parent.querySelector('[data-o-header-subnav-dropdown-modal]')
 
-		addDropdownShowHideEvents({ button, dropdown, parent })
+		addDropdownShowHideEvents({ button, dropdown, parent, isDesktop: isDesktopQuery.matches })
 	});
 }
 
