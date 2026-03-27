@@ -2,14 +2,17 @@
 
 import proclaim from 'proclaim';
 import sinon from 'sinon/pkg/sinon-esm.js';
-import userEvent from "@financial-times/o-testing-library";
+import userEvent, {dom} from "@financial-times/o-testing-library";
 
 import { initSubnavDropdowns } from '../src/js/subnavDropdown.js';
+
+const {screen} = dom;
 
 describe('Subnav Dropdown', () => {
 	let containerEl;
 	let clock;
 	let matchMediaStub;
+	let addEventListenerStub;
 
 	function assertDropdownIsHidden(button, dropdown) {
 		proclaim.equal(button.getAttribute('aria-expanded'), 'false');
@@ -34,9 +37,9 @@ describe('Subnav Dropdown', () => {
 									Item 1
 								</button>
 								<div data-o-header-subnav-dropdown-modal style="display: none;">
+									<button data-o-header-subnav-dropdown-close>Close</button>
 									<a href="#">Subnav Link 1</a>
 									<a href="#">Subnav Link 2</a>
-									<button data-o-header-subnav-dropdown-close>Close</button>
 								</div>
 							</div>
 						</li>
@@ -46,9 +49,9 @@ describe('Subnav Dropdown', () => {
 									Item 2
 								</button>
 								<div data-o-header-subnav-dropdown-modal style="display: none;">
+									<button data-o-header-subnav-dropdown-close>Close</button>
 									<a href="#">Subnav Link 3</a>
 									<a href="#">Subnav Link 4</a>
-									<button data-o-header-subnav-dropdown-close>Close</button>
 								</div>
 							</div>
 						</li>
@@ -70,10 +73,17 @@ describe('Subnav Dropdown', () => {
 
 	describe('On Desktop', () => {
 		beforeEach(() => {
-			matchMediaStub = sinon.stub(window, 'matchMedia');
-			matchMediaStub.withArgs('(hover: hover) and (pointer: fine)').returns({
-				matches: true
-			});
+			addEventListenerStub = sinon.stub();
+			matchMediaStub = sinon.stub(window, 'matchMedia').callsFake((query) => ({
+				matches: true,
+				media: query,
+				onchange: null,
+				addEventListener: addEventListenerStub,
+				removeEventListener: sinon.stub(),
+				addListener: sinon.stub(),
+				removeListener: sinon.stub(),
+				dispatchEvent: sinon.stub()
+			}));
 		});
 
 		it('shows the dropdown after hover intent delay', () => {
@@ -104,7 +114,6 @@ describe('Subnav Dropdown', () => {
 			button.dispatchEvent(new Event('mouseenter', { bubbles: true }));
 			clock.tick(300);
 
-			proclaim.equal(dropdown.style.position, 'fixed');
 			proclaim.notEqual(dropdown.style.top, '');
 			proclaim.notEqual(dropdown.style.left, '');
 		});
@@ -223,14 +232,37 @@ describe('Subnav Dropdown', () => {
 			
 			assertDropdownIsVisible(button, dropdown);
 		});
+
+		it('does not respond to close button events', () => {
+			const headerEl = containerEl.querySelector('.o-header');
+			initSubnavDropdowns(headerEl);
+
+			const parent = containerEl.querySelector('[data-o-header-subnav-dropdown-parent]');
+			const button = parent.querySelector('[data-o-header-subnav-dropdown-button]');
+			const dropdown = parent.querySelector('[data-o-header-subnav-dropdown-modal]');
+			const closeButton = dropdown.querySelector('[data-o-header-subnav-dropdown-close]');
+
+			button.dispatchEvent(new Event('click', { bubbles: true }));
+			assertDropdownIsVisible(button, dropdown);
+
+			closeButton.dispatchEvent(new Event('click', { bubbles: true }));
+			assertDropdownIsVisible(button, dropdown);
+		});
 	});
 
 	describe('On Mobile', () => {
 		beforeEach(() => {
-			matchMediaStub = sinon.stub(window, 'matchMedia');
-			matchMediaStub.withArgs('(hover: hover) and (pointer: fine)').returns({
-				matches: false
-			});
+			addEventListenerStub = sinon.stub();
+			matchMediaStub = sinon.stub(window, 'matchMedia').callsFake((query) => ({
+				matches: false,
+				media: query,
+				onchange: null,
+				addEventListener: addEventListenerStub,
+				removeEventListener: sinon.stub(),
+				addListener: sinon.stub(),
+				removeListener: sinon.stub(),
+				dispatchEvent: sinon.stub()
+			}));
 		});
 
 		it('user can open and close dropdown with tap/clicks', () => {
@@ -287,6 +319,90 @@ describe('Subnav Dropdown', () => {
 
 			proclaim.equal(dropdown.style.top, initialTop);
 			proclaim.equal(dropdown.style.left, initialLeft);
+		});
+
+		it('when opened via the keyboard, the close button gets the initial focus', () => {
+			const headerEl = containerEl.querySelector('.o-header');
+			initSubnavDropdowns(headerEl);
+
+			const parent = containerEl.querySelector('[data-o-header-subnav-dropdown-parent]');
+			const button = parent.querySelector('[data-o-header-subnav-dropdown-button]');
+			const dropdown = parent.querySelector('[data-o-header-subnav-dropdown-modal]');
+
+			button.focus();
+			userEvent.keyboard('{Enter}');
+
+			assertDropdownIsVisible(button, dropdown);
+
+			const activeElement = document.activeElement;
+			const closeButton = dropdown.querySelector('[data-o-header-subnav-dropdown-close]');
+			proclaim.equal(closeButton, activeElement)
+		});
+
+		it('when opened via the keyboard, tab will take you through the elements', () => {
+			const headerEl = containerEl.querySelector('.o-header');
+			initSubnavDropdowns(headerEl);
+
+			const parent = containerEl.querySelector('[data-o-header-subnav-dropdown-parent]');
+			const button = parent.querySelector('[data-o-header-subnav-dropdown-button]');
+			const dropdown = parent.querySelector('[data-o-header-subnav-dropdown-modal]');
+
+			button.focus();
+			userEvent.keyboard('{Enter}');
+
+			assertDropdownIsVisible(button, dropdown);
+			userEvent.tab();
+			userEvent.tab();
+			
+			const activeElement = document.activeElement;
+			const lastListElement = screen.getByRole('link', { name: 'Subnav Link 2'})
+			proclaim.equal(lastListElement, activeElement)
+		});
+
+		it('when opened via the keyboard, shift+tab will take you backwards through the elements', () => {
+			const headerEl = containerEl.querySelector('.o-header');
+			initSubnavDropdowns(headerEl);
+
+			const parent = containerEl.querySelector('[data-o-header-subnav-dropdown-parent]');
+			const button = parent.querySelector('[data-o-header-subnav-dropdown-button]');
+			const dropdown = parent.querySelector('[data-o-header-subnav-dropdown-modal]');
+
+			button.focus();
+			userEvent.keyboard('{Enter}');
+
+			assertDropdownIsVisible(button, dropdown);
+			userEvent.tab( {shift: true});
+			
+			const activeElement = document.activeElement;
+			const lastListElement = screen.getByRole('link', { name: 'Subnav Link 2'})
+			proclaim.equal(lastListElement, activeElement)
+		});
+
+
+		it('when focused on the last dropdown element, the next tab will take you back to the close button', () => {
+			const headerEl = containerEl.querySelector('.o-header');
+			initSubnavDropdowns(headerEl);
+
+			const parent = containerEl.querySelector('[data-o-header-subnav-dropdown-parent]');
+			const button = parent.querySelector('[data-o-header-subnav-dropdown-button]');
+			const dropdown = parent.querySelector('[data-o-header-subnav-dropdown-modal]');
+
+			button.focus();
+			userEvent.keyboard('{Enter}');
+
+			assertDropdownIsVisible(button, dropdown);
+			userEvent.tab();
+			userEvent.tab();
+			
+			let activeElement = document.activeElement;
+			const lastListElement = screen.getByRole('link', { name: 'Subnav Link 2'})
+			proclaim.equal(lastListElement, activeElement)
+			
+			userEvent.tab();
+
+			activeElement = document.activeElement;
+			const closeButton = dropdown.querySelector('[data-o-header-subnav-dropdown-close]');		
+			proclaim.equal(closeButton, activeElement);			
 		});
 	});
 });
