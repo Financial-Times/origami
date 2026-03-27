@@ -35,14 +35,17 @@ function handleScroll() {
 
 function closeAllDropdowns() {
 	const dropdownsToClose = new Set(expandedDropdowns);
-	dropdownsToClose.forEach(hideDropdown);
+	dropdownsToClose.forEach((dropdown) => {
+		const button = getButtonForDropdown(dropdown);
+		hideDropdown(dropdown, button);
+	});
 }
 
 function isDropdownOpen(dropdown) {
 	return expandedDropdowns.has(dropdown);
 }
 
-function addDropdownControlEvents(dropdown, isDesktop) {
+function addDropdownControlEvents(dropdown, button, isDesktop) {
     const currentDropdownEventListeners = dropdownEventListeners.get(dropdown);
     if (currentDropdownEventListeners) return;
 
@@ -60,7 +63,7 @@ function addDropdownControlEvents(dropdown, isDesktop) {
 			const key = event.key;
 
 			if (key === 'Escape' && isDropdownOpen(dropdown)) {
-				hideDropdown(dropdown);
+				hideDropdown(dropdown, button);
 			}
 		}
     	registerListener(document, 'keydown', keydownHandler);
@@ -71,7 +74,7 @@ function addDropdownControlEvents(dropdown, isDesktop) {
             const closeButtonClickHandler = (event) => {
                 event.preventDefault();
                 event.stopPropagation();
-                hideDropdown(dropdown);
+                hideDropdown(dropdown, button);
             };
             registerListener(closeButton, 'click', closeButtonClickHandler);
         }
@@ -97,6 +100,15 @@ function removeShowHideControlEvents (target) {
 	})
 	showHideEventListeners.delete(target);
 }
+
+function removeScrollLock () {
+		document.body.classList.remove('o-header__subnav-dropdown-body-scroll-lock');
+}
+
+function addScrollLock () {
+		document.body.classList.add('o-header__subnav-dropdown-body-scroll-lock');
+}
+
 function resetDropdownPosition(dropdown) {
 	dropdown.style.removeProperty('top');
 	dropdown.style.removeProperty('left');
@@ -142,17 +154,19 @@ function showDropdown({ button, dropdown, isDesktop }) {
 
 	if (isDesktop) {
 		positionDropdown(dropdown, button)
+	} else {
+		addScrollLock();
 	}
 
-	addDropdownControlEvents(dropdown, isDesktop)
+	addDropdownControlEvents(dropdown, button, isDesktop)
 }
 
-function hideDropdown(dropdown) {
-	const button = getButtonForDropdown(dropdown);
+function hideDropdown(dropdown, button) {
 	button.setAttribute('aria-expanded', 'false');
 	dropdown.style.display = 'none';
 
 	expandedDropdowns.delete(dropdown);
+	removeScrollLock();
 
 	removeDropdownControlEvents(dropdown)
 }
@@ -189,7 +203,7 @@ function addDropdownShowHideEvents({ button, dropdown, parent, isDesktop }) {
 
 			timeout = setTimeout(() => {
 				if (isDropdownOpen(dropdown)) {
-					hideDropdown(dropdown);
+					hideDropdown(dropdown, button);
 				}
 			}, INTENT_LEAVE);
 		}
@@ -214,6 +228,12 @@ function initSubnavDropdowns(subnav) {
 			removeShowHideControlEvents(parent);
 			const button = parent.querySelector('[data-o-header-subnav-dropdown-button]')
 			const dropdown = parent.querySelector('[data-o-header-subnav-dropdown-modal]')
+			
+			if (button.hasAttribute('aria-expanded')) {
+				if (button.getAttribute('aria-expanded') === 'true') {
+					hideDropdown(dropdown, button);
+				}
+			}
 			resetDropdownPosition(dropdown);
 
 			addDropdownShowHideEvents({ button, dropdown, parent, isDesktop: isDesktopQuery.matches })
