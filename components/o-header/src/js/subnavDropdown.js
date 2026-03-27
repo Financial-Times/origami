@@ -22,6 +22,11 @@ const expandedDropdowns = new Set();
 const dropdownEventListeners = new WeakMap();
 const showHideEventListeners = new WeakMap();
 
+const focusableElements = [
+  'a[href]',
+  'button:not([disabled])'
+  ].join(',');
+
 function getButtonForDropdown(dropdown) {
 	return dropdown.parentNode.querySelector('[data-o-header-subnav-dropdown-button]')
 }
@@ -45,6 +50,11 @@ function isDropdownOpen(dropdown) {
 	return expandedDropdowns.has(dropdown);
 }
 
+function getFocusableElementsInDropdown(dropdown) {
+return [...dropdown.querySelectorAll(focusableElements)]
+    .filter(el => !el.hasAttribute('hidden') && el.offsetParent !== null);
+}
+
 function addDropdownControlEvents(dropdown, button, isDesktop) {
     const currentDropdownEventListeners = dropdownEventListeners.get(dropdown);
     if (currentDropdownEventListeners) return;
@@ -55,18 +65,42 @@ function addDropdownControlEvents(dropdown, button, isDesktop) {
         listeners.add({ target, type, callback });
     };
 
+	const keydownHandler = (event) => {
+		const key = event.key;
+		if (key === 'Escape' && isDropdownOpen(dropdown)) {
+			hideDropdown(dropdown, button);
+			button.focus();
+		}
+
+		if (key !== 'Tab') {
+			return;
+		}
+
+		const focusTrapElements = getFocusableElementsInDropdown(dropdown);
+		if (focusTrapElements.length === 0) { 
+			event.preventDefault();
+    		return;
+  		}
+
+		const firstElement = focusTrapElements[0];
+		const lastElement = focusTrapElements[focusTrapElements.length - 1];
+		if (event.shiftKey) {
+			if (document.activeElement === firstElement || document.activeElement === dropdown) {
+				event.preventDefault();
+				lastElement.focus();
+			}
+		} else {
+			if (document.activeElement === lastElement) {
+				event.preventDefault();
+				firstElement.focus();
+			}
+		}
+	}
+	registerListener(document, 'keydown', keydownHandler);
+
     if (isDesktop) {
 		// Dropdowns scroll with the user on desktop
         registerListener(window, 'scroll', handleScroll);
-		
-		const keydownHandler = (event) => {
-			const key = event.key;
-
-			if (key === 'Escape' && isDropdownOpen(dropdown)) {
-				hideDropdown(dropdown, button);
-			}
-		}
-    	registerListener(document, 'keydown', keydownHandler);
     } else {
 		// The close button is only visible on mobile
         const closeButton = dropdown.querySelector('[data-o-header-subnav-dropdown-close]');
@@ -75,6 +109,7 @@ function addDropdownControlEvents(dropdown, button, isDesktop) {
                 event.preventDefault();
                 event.stopPropagation();
                 hideDropdown(dropdown, button);
+				button.focus();			
             };
             registerListener(closeButton, 'click', closeButtonClickHandler);
         }
@@ -102,11 +137,11 @@ function removeShowHideControlEvents (target) {
 }
 
 function removeScrollLock () {
-		document.body.classList.remove('o-header__subnav-dropdown-body-scroll-lock');
+	document.body.classList.remove('o-header__subnav-dropdown-body-scroll-lock');
 }
 
 function addScrollLock () {
-		document.body.classList.add('o-header__subnav-dropdown-body-scroll-lock');
+	document.body.classList.add('o-header__subnav-dropdown-body-scroll-lock');
 }
 
 function resetDropdownPosition(dropdown) {
@@ -212,6 +247,10 @@ function addDropdownShowHideEvents({ button, dropdown, parent, isDesktop }) {
 
 	const clickHandler = () => {
 		openDropdown();
+		const dropdownElements = getFocusableElementsInDropdown(dropdown);
+		if (dropdownElements.length) {
+			dropdownElements[0].focus();
+		}
 	};
 	registerListener(button, 'click', clickHandler);
 
