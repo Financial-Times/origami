@@ -16,7 +16,7 @@
 const INTENT_ENTER = 300;
 const INTENT_LEAVE = 400;
 const DEFAULT_DROPDOWN_WIDTH = 285;
-const POSITIONING_OFFSET = 8;
+const POSITIONING_OFFSET = 4;
 
 const expandedDropdowns = new Set();
 const dropdownEventListeners = new WeakMap();
