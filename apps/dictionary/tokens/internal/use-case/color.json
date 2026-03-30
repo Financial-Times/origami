@@ -150,6 +150,22 @@
         "success-highlight": {
           "value": "{o3.color.palette.jade}",
           "type": "color"
+        },
+        "border": {
+          "value": "{o3.color.palette.black-20}",
+          "type": "color"
+        },
+        "surface": {
+          "background": {
+            "value": "{o3.color.palette.slate-white-15}",
+            "type": "color"
+          }
+        },
+        "surface-light": {
+          "background": {
+            "value": "{o3.color.palette.slate-white-5}",
+            "type": "color"
+          }
         }
       }
     }
