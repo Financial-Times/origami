@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.10.0](https://github.com/Financial-Times/origami/compare/o-private-foundation-v1.9.1...o-private-foundation-v1.10.0) (2026-03-31)
+
+
+### Features
+
+* Update internal colour keep token structure ([#2407](https://github.com/Financial-Times/origami/issues/2407)) ([249a274](https://github.com/Financial-Times/origami/commit/249a2741107bbeb0df48f65cf225b198a28a1649))
+
 ## [1.9.1](https://github.com/Financial-Times/origami/compare/o-private-foundation-v1.9.0...o-private-foundation-v1.9.1) (2026-01-12)
 
 

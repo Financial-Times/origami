@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.14.0](https://github.com/Financial-Times/origami/compare/o3-foundation-v3.13.0...o3-foundation-v3.14.0) (2026-03-31)
+
+
+### Features
+
+* Update internal colour keep token structure ([#2407](https://github.com/Financial-Times/origami/issues/2407)) ([249a274](https://github.com/Financial-Times/origami/commit/249a2741107bbeb0df48f65cf225b198a28a1649))
+
 ## [3.13.0](https://github.com/Financial-Times/origami/compare/o3-foundation-v3.12.1...o3-foundation-v3.13.0) (2026-01-12)
 
 
