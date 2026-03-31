@@ -76,21 +76,36 @@ function addDropdownControlEvents(dropdown, button, isDesktop) {
 			return;
 		}
 
-		const focusTrapElements = getFocusableElementsInDropdown(dropdown);
-		if (focusTrapElements.length === 0) { 
+		const focusElements = getFocusableElementsInDropdown(dropdown);
+		if (focusElements.length === 0) { 
 			event.preventDefault();
     		return;
   		}
 
-		const firstElement = focusTrapElements[0];
-		const lastElement = focusTrapElements[focusTrapElements.length - 1];
-		if (event.shiftKey) {
-			if (document.activeElement === firstElement || document.activeElement === dropdown) {
-				event.preventDefault();
-				lastElement.focus();
+		const firstElement = focusElements[0];
+		const lastElement = focusElements[focusElements.length - 1];
+		
+		const focusAtStart = document.activeElement === firstElement || document.activeElement === dropdown;
+		const focusAtEnd = document.activeElement === lastElement;
+		const isShiftTab = event.shiftKey;
+
+		if (isDesktop) {
+			if (isShiftTab && focusAtStart) {
+				hideDropdown(dropdown, button);
+				return;
+			}
+			
+			if (!isShiftTab && focusAtEnd) {
+				hideDropdown(dropdown, button);
 			}
 		} else {
-			if (document.activeElement === lastElement) {
+			if (isShiftTab && focusAtStart) {
+				event.preventDefault();
+				lastElement.focus();
+				return;				
+			}
+		
+			if (!isShiftTab && focusAtEnd) {
 				event.preventDefault();
 				firstElement.focus();
 			}
