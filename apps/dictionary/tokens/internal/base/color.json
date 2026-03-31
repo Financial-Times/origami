@@ -18,14 +18,6 @@
             "primary"
           ]
         },
-        "oxford": {
-          "value": "#0F5499",
-          "type": "color",
-          "origamiKeys": [
-            "palette",
-            "primary"
-          ]
-        },
         "teal": {
           "value": "#0D7680",
           "type": "color",
@@ -59,7 +51,23 @@
           ]
         },
         "lemon": {
-          "value": "#FFEC1A",
+          "value": "#FABF14",
+          "type": "color",
+          "origamiKeys": [
+            "palette",
+            "secondary"
+          ]
+        },
+        "lemon-10": {
+          "value": "#FFF2CC",
+          "type": "color",
+          "origamiKeys": [
+            "palette",
+            "secondary"
+          ]
+        },
+        "lemon-90": {
+          "value": "#695008",
           "type": "color",
           "origamiKeys": [
             "palette",
@@ -74,8 +82,16 @@
             "tertiary"
           ]
         },
-        "mandarin": {
-          "value": "#F83",
+        "jade-10": {
+          "value": "#CCEBDB",
+          "type": "color",
+          "origamiKeys": [
+            "palette",
+            "tertiary"
+          ]
+        },
+        "jade-90": {
+          "value": "#00572C",
           "type": "color",
           "origamiKeys": [
             "palette",
@@ -83,7 +99,15 @@
           ]
         },
         "crimson": {
-          "value": "#c00",
+          "value": "#B30000",
+          "type": "color",
+          "origamiKeys": [
+            "palette",
+            "tertiary"
+          ]
+        },
+        "crimson-10": {
+          "value": "#FAE6E6",
           "type": "color",
           "origamiKeys": [
             "palette",
@@ -128,38 +152,6 @@
         },
         "black-90": {
           "value": "#1a1a1a",
-          "type": "color"
-        },
-        "oxford-30": {
-          "value": "#082A4D",
-          "type": "color"
-        },
-        "oxford-40": {
-          "value": "#0A3866",
-          "type": "color"
-        },
-        "oxford-50": {
-          "value": "#0D4680",
-          "type": "color"
-        },
-        "oxford-60": {
-          "value": "#0F5499",
-          "type": "color"
-        },
-        "oxford-70": {
-          "value": "#1262B3",
-          "type": "color"
-        },
-        "oxford-80": {
-          "value": "#1470CC",
-          "type": "color"
-        },
-        "oxford-90": {
-          "value": "#177EE6",
-          "type": "color"
-        },
-        "oxford-100": {
-          "value": "#198CFF",
           "type": "color"
         },
         "teal-20": {
