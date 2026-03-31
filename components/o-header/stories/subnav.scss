@@ -87,6 +87,9 @@
 	font-size: inherit;
 	font-weight: inherit;
 	cursor: default;
+	&:focus-visible {
+		box-shadow: 0px 0px 0px 2px #807973;
+	}
 }
 
 [data-o-header-subnav-dropdown-parent] {

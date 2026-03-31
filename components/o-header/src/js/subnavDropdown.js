@@ -19,7 +19,7 @@ const DEFAULT_DROPDOWN_WIDTH = 285;
 const POSITIONING_OFFSET = 4;
 
 const expandedDropdowns = new Set();
-const dropdownEventListeners = new WeakMap();
+const activeDropdownEventListeners = new WeakMap();
 const showHideEventListeners = new WeakMap();
 
 const focusableElements = [
@@ -51,12 +51,12 @@ function isDropdownOpen(dropdown) {
 }
 
 function getFocusableElementsInDropdown(dropdown) {
-return [...dropdown.querySelectorAll(focusableElements)]
-    .filter(el => !el.hasAttribute('hidden') && el.offsetParent !== null);
+	return [...dropdown.querySelectorAll(focusableElements)]
+    	.filter(el => !el.hasAttribute('hidden') && el.offsetParent !== null);
 }
 
 function addDropdownControlEvents(dropdown, button, isDesktop) {
-    const currentDropdownEventListeners = dropdownEventListeners.get(dropdown);
+    const currentDropdownEventListeners = activeDropdownEventListeners.get(dropdown);
     if (currentDropdownEventListeners) return;
 
     const listeners = new Set();
@@ -115,16 +115,16 @@ function addDropdownControlEvents(dropdown, button, isDesktop) {
         }
     }
 
-    dropdownEventListeners.set(dropdown, listeners);
+    activeDropdownEventListeners.set(dropdown, listeners);
 }
 
 function removeDropdownControlEvents (dropdown) {
-	const currentDropdownEventListeners = dropdownEventListeners.get(dropdown);
+	const currentDropdownEventListeners = activeDropdownEventListeners.get(dropdown);
 	currentDropdownEventListeners.forEach((listener) => {
 		const { target, type, callback } = listener;
 		target.removeEventListener(type, callback)
 	})
-	dropdownEventListeners.delete(dropdown);
+	activeDropdownEventListeners.delete(dropdown);
 }
 
 function removeShowHideControlEvents (target) {
