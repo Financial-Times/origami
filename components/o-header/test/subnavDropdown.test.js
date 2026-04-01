@@ -33,9 +33,7 @@ describe('Subnav Dropdown', () => {
 					<ul>
 						<li class="o-header__nav-item">
 							<div data-o-header-subnav-dropdown-parent>
-								<button aria-expanded="false" data-o-header-subnav-dropdown-button>
-									Item 1
-								</button>
+								<button aria-expanded="false" data-o-header-subnav-dropdown-button>Item 1</button>
 								<div data-o-header-subnav-dropdown-modal style="display: none;">
 									<button data-o-header-subnav-dropdown-close>Close</button>
 									<a href="#">Subnav Link 1</a>
@@ -45,9 +43,7 @@ describe('Subnav Dropdown', () => {
 						</li>
 						<li class="o-header__nav-item">
 							<div data-o-header-subnav-dropdown-parent>
-								<button aria-expanded="false" data-o-header-subnav-dropdown-button>
-									Item 2
-								</button>
+								<button aria-expanded="false" data-o-header-subnav-dropdown-button>Item 2</button>
 								<div data-o-header-subnav-dropdown-modal style="display: none;">
 									<button data-o-header-subnav-dropdown-close>Close</button>
 									<a href="#">Subnav Link 3</a>
@@ -248,6 +244,74 @@ describe('Subnav Dropdown', () => {
 			closeButton.dispatchEvent(new Event('click', { bubbles: true }));
 			assertDropdownIsVisible(button, dropdown);
 		});
+		
+		context('when opened via the keyboard', () => {
+			it('tab will take you through the elements', () => {
+				const headerEl = containerEl.querySelector('.o-header');
+				initSubnavDropdowns(headerEl);
+
+				const parent = containerEl.querySelector('[data-o-header-subnav-dropdown-parent]');
+				const button = parent.querySelector('[data-o-header-subnav-dropdown-button]');
+				const dropdown = parent.querySelector('[data-o-header-subnav-dropdown-modal]');
+
+				button.focus();
+				userEvent.keyboard('{Enter}');
+
+				assertDropdownIsVisible(button, dropdown);
+
+				userEvent.tab();
+				userEvent.tab();
+			
+				const activeElement = document.activeElement;
+				const lastDropdownItem = screen.getByRole('link', { name: 'Subnav Link 2'})
+
+				proclaim.equal(lastDropdownItem, activeElement)
+			});
+
+			it('if you tab from the last dropdown item, the dropdown will close and focus will be on the next button', () => {
+				const headerEl = containerEl.querySelector('.o-header');
+				initSubnavDropdowns(headerEl);
+
+				const parent = containerEl.querySelector('[data-o-header-subnav-dropdown-parent]');
+				const button = parent.querySelector('[data-o-header-subnav-dropdown-button]');
+				const dropdown = parent.querySelector('[data-o-header-subnav-dropdown-modal]');
+
+				button.focus();
+				userEvent.keyboard('{Enter}');
+				userEvent.tab();
+				userEvent.tab();
+			
+				let activeElement = document.activeElement;
+				const lastDropdownItem = screen.getByRole('link', { name: 'Subnav Link 2'})
+				proclaim.equal(lastDropdownItem, activeElement)
+
+				userEvent.tab();
+
+				activeElement = document.activeElement;
+				const nextDropdownButton = screen.getByRole('button', { name: 'Item 2'})
+				proclaim.equal(activeElement, nextDropdownButton);
+				assertDropdownIsHidden(button, dropdown);
+			});
+
+			it('if you shift+tab from the first dropdown item, the dropdown will close and focus will return to the initial button', () => {
+				const headerEl = containerEl.querySelector('.o-header');
+				initSubnavDropdowns(headerEl);
+
+				const parent = containerEl.querySelector('[data-o-header-subnav-dropdown-parent]');
+				const button = parent.querySelector('[data-o-header-subnav-dropdown-button]');
+				const dropdown = parent.querySelector('[data-o-header-subnav-dropdown-modal]');
+
+				button.focus();
+				userEvent.keyboard('{Enter}');
+				assertDropdownIsVisible(button, dropdown);	
+			
+				userEvent.tab({ shift: true });
+
+				const activeElement = document.activeElement;
+				proclaim.equal(activeElement, button);
+				assertDropdownIsHidden(button, dropdown);
+			});
+		})
 	});
 
 	describe('On Mobile', () => {
@@ -321,88 +385,89 @@ describe('Subnav Dropdown', () => {
 			proclaim.equal(dropdown.style.left, initialLeft);
 		});
 
-		it('when opened via the keyboard, the close button gets the initial focus', () => {
-			const headerEl = containerEl.querySelector('.o-header');
-			initSubnavDropdowns(headerEl);
+		context('when opened via the keyboard', () => {
+			it('the close button gets the initial focus', () => {
+				const headerEl = containerEl.querySelector('.o-header');
+				initSubnavDropdowns(headerEl);
 
-			const parent = containerEl.querySelector('[data-o-header-subnav-dropdown-parent]');
-			const button = parent.querySelector('[data-o-header-subnav-dropdown-button]');
-			const dropdown = parent.querySelector('[data-o-header-subnav-dropdown-modal]');
+				const parent = containerEl.querySelector('[data-o-header-subnav-dropdown-parent]');
+				const button = parent.querySelector('[data-o-header-subnav-dropdown-button]');
+				const dropdown = parent.querySelector('[data-o-header-subnav-dropdown-modal]');
 
-			button.focus();
-			userEvent.keyboard('{Enter}');
+				button.focus();
+				userEvent.keyboard('{Enter}');
 
-			assertDropdownIsVisible(button, dropdown);
+				assertDropdownIsVisible(button, dropdown);
 
-			const activeElement = document.activeElement;
-			const closeButton = dropdown.querySelector('[data-o-header-subnav-dropdown-close]');
-			proclaim.equal(closeButton, activeElement)
-		});
+				const activeElement = document.activeElement;
+				const closeButton = dropdown.querySelector('[data-o-header-subnav-dropdown-close]');
+				proclaim.equal(closeButton, activeElement)
+			});
 
-		it('when opened via the keyboard, tab will take you through the elements', () => {
-			const headerEl = containerEl.querySelector('.o-header');
-			initSubnavDropdowns(headerEl);
+			it('tab will take you through the elements', () => {
+				const headerEl = containerEl.querySelector('.o-header');
+				initSubnavDropdowns(headerEl);
 
-			const parent = containerEl.querySelector('[data-o-header-subnav-dropdown-parent]');
-			const button = parent.querySelector('[data-o-header-subnav-dropdown-button]');
-			const dropdown = parent.querySelector('[data-o-header-subnav-dropdown-modal]');
+				const parent = containerEl.querySelector('[data-o-header-subnav-dropdown-parent]');
+				const button = parent.querySelector('[data-o-header-subnav-dropdown-button]');
+				const dropdown = parent.querySelector('[data-o-header-subnav-dropdown-modal]');
 
-			button.focus();
-			userEvent.keyboard('{Enter}');
+				button.focus();
+				userEvent.keyboard('{Enter}');
 
-			assertDropdownIsVisible(button, dropdown);
-			userEvent.tab();
-			userEvent.tab();
+				assertDropdownIsVisible(button, dropdown);
+				userEvent.tab();
+				userEvent.tab();
 			
-			const activeElement = document.activeElement;
-			const lastListElement = screen.getByRole('link', { name: 'Subnav Link 2'})
-			proclaim.equal(lastListElement, activeElement)
-		});
+				const activeElement = document.activeElement;
+				const lastListElement = screen.getByRole('link', { name: 'Subnav Link 2'})
+				proclaim.equal(lastListElement, activeElement)
+			});
 
-		it('when opened via the keyboard, shift+tab will take you backwards through the elements', () => {
-			const headerEl = containerEl.querySelector('.o-header');
-			initSubnavDropdowns(headerEl);
+			it('shift+tab will take you backwards through the elements', () => {
+				const headerEl = containerEl.querySelector('.o-header');
+				initSubnavDropdowns(headerEl);
 
-			const parent = containerEl.querySelector('[data-o-header-subnav-dropdown-parent]');
-			const button = parent.querySelector('[data-o-header-subnav-dropdown-button]');
-			const dropdown = parent.querySelector('[data-o-header-subnav-dropdown-modal]');
+				const parent = containerEl.querySelector('[data-o-header-subnav-dropdown-parent]');
+				const button = parent.querySelector('[data-o-header-subnav-dropdown-button]');
+				const dropdown = parent.querySelector('[data-o-header-subnav-dropdown-modal]');
 
-			button.focus();
-			userEvent.keyboard('{Enter}');
+				button.focus();
+				userEvent.keyboard('{Enter}');
 
-			assertDropdownIsVisible(button, dropdown);
-			userEvent.tab( {shift: true});
+				assertDropdownIsVisible(button, dropdown);
+				userEvent.tab({ shift: true });
 			
-			const activeElement = document.activeElement;
-			const lastListElement = screen.getByRole('link', { name: 'Subnav Link 2'})
-			proclaim.equal(lastListElement, activeElement)
-		});
+				const activeElement = document.activeElement;
+				const lastListElement = screen.getByRole('link', { name: 'Subnav Link 2'})
+				proclaim.equal(lastListElement, activeElement)
+			});
 
+			it('when focused on the last dropdown element, the next tab will take you back to the close button', () => {
+				const headerEl = containerEl.querySelector('.o-header');
+				initSubnavDropdowns(headerEl);
 
-		it('when focused on the last dropdown element, the next tab will take you back to the close button', () => {
-			const headerEl = containerEl.querySelector('.o-header');
-			initSubnavDropdowns(headerEl);
+				const parent = containerEl.querySelector('[data-o-header-subnav-dropdown-parent]');
+				const button = parent.querySelector('[data-o-header-subnav-dropdown-button]');
+				const dropdown = parent.querySelector('[data-o-header-subnav-dropdown-modal]');
 
-			const parent = containerEl.querySelector('[data-o-header-subnav-dropdown-parent]');
-			const button = parent.querySelector('[data-o-header-subnav-dropdown-button]');
-			const dropdown = parent.querySelector('[data-o-header-subnav-dropdown-modal]');
+				button.focus();
+				userEvent.keyboard('{Enter}');
 
-			button.focus();
-			userEvent.keyboard('{Enter}');
-
-			assertDropdownIsVisible(button, dropdown);
-			userEvent.tab();
-			userEvent.tab();
+				assertDropdownIsVisible(button, dropdown);
+				userEvent.tab();
+				userEvent.tab();
 			
-			let activeElement = document.activeElement;
-			const lastListElement = screen.getByRole('link', { name: 'Subnav Link 2'})
-			proclaim.equal(lastListElement, activeElement)
+				let activeElement = document.activeElement;
+				const lastListElement = screen.getByRole('link', { name: 'Subnav Link 2'})
+				proclaim.equal(lastListElement, activeElement)
 			
-			userEvent.tab();
+				userEvent.tab();
 
-			activeElement = document.activeElement;
-			const closeButton = dropdown.querySelector('[data-o-header-subnav-dropdown-close]');		
-			proclaim.equal(closeButton, activeElement);			
+				activeElement = document.activeElement;
+				const closeButton = dropdown.querySelector('[data-o-header-subnav-dropdown-close]');		
+				proclaim.equal(closeButton, activeElement);			
+			});
 		});
 	});
 });
