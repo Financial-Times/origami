@@ -4,6 +4,13 @@
 
 - Add skip link for screen reader users
 
+## [6.0.2](https://github.com/Financial-Times/origami/compare/o-layout-v6.0.1...o-layout-v6.0.2) (2026-04-02)
+
+
+### Bug Fixes
+
+* hard code usages of missing tokens from internal brand ([#2412](https://github.com/Financial-Times/origami/issues/2412)) ([f19fd71](https://github.com/Financial-Times/origami/commit/f19fd71dccce3c27f2ac6f7ef2a1776088c7e479))
+
 ## [6.0.1](https://github.com/Financial-Times/origami/compare/o-layout-v6.0.0...o-layout-v6.0.1) (2025-06-30)
 
 
