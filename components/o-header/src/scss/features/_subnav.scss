@@ -68,13 +68,15 @@
 
 			&:first-child:before {
 				top: 50%;
-				margin-top: -$_o-header-subnav-height-base * div($_o-header-item-separator-percentage-height, 2);
+				margin-top: -$_o-header-subnav-height-base *
+					div($_o-header-item-separator-percentage-height, 2);
 				height: $_o-header-subnav-height-base *
 					$_o-header-item-separator-percentage-height;
 
 				@include oPrivateGridRespondTo('M') {
 					// stylelint-disable-line max-nesting-depth
-					margin-top: -$_o-header-subnav-height-medium * div($_o-header-item-separator-percentage-height, 2);
+					margin-top: -$_o-header-subnav-height-medium *
+						div($_o-header-item-separator-percentage-height, 2);
 					height: $_o-header-subnav-height-medium *
 						$_o-header-item-separator-percentage-height;
 				}
@@ -188,5 +190,11 @@
 		right: 0;
 		// don't download another icon...
 		transform: rotate(180deg);
+	}
+
+	.o-header__subnav-dropdown-body-scroll-lock {
+		position: fixed;
+		overflow: hidden;
+		width: 100%;
 	}
 }
