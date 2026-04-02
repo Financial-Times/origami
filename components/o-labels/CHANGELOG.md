@@ -1,5 +1,13 @@
 # Changelog
 
+## [8.0.2](https://github.com/Financial-Times/origami/compare/o-labels-v8.0.1...o-labels-v8.0.2) (2026-04-02)
+
+
+### Bug Fixes
+
+* hard code usages of missing tokens from internal brand ([#2412](https://github.com/Financial-Times/origami/issues/2412)) ([f19fd71](https://github.com/Financial-Times/origami/commit/f19fd71dccce3c27f2ac6f7ef2a1776088c7e479))
+* restore mandarin and oxford supports-variants ([#2414](https://github.com/Financial-Times/origami/issues/2414)) ([fa13277](https://github.com/Financial-Times/origami/commit/fa1327731f9e3a0a7f4d8d7e3659b1b6ef3e10b3))
+
 ## [8.0.1](https://github.com/Financial-Times/origami/compare/o-labels-v8.0.0...o-labels-v8.0.1) (2026-02-25)
 
 
