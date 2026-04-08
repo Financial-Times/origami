@@ -1,3 +1,4 @@
+> :warning: Origami Dictionary is now deprecated. Please make any token changes in [o3-foundaton in the origami-3 repository](https://github.com/Financial-Times/origami-3/tree/main/packages/foundation/dictionary).
 # Origami Dictionary
 
 The Origami Dictionary is the repository for storing, managing and publishing Origami Design Tokens.
