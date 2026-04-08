@@ -45,7 +45,7 @@ describe('click', function () {
 		const clickEventStoredInQueue = {
 			"created_at": 1625589236422,
 			"item": {
-				"server": "https://spoor-api.ft.com/ingest",
+				"server": "https://runtime-api.ft.com/sync",
 				"context": {
 					"product": "desktop",
 					"url": "https://www.example.com/",
