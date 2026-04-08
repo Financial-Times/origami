@@ -40,8 +40,9 @@ export class ToggleToolTip extends ToolTip implements ToggleToolTipProps {
 		this._removeEventListeners();
 	}
 
-	private _clickHandler = () => {
+	private _clickHandler = (e: Event) => {
 		if (this._contentWrapper.style.display === 'none') {
+			e.stopPropagation();
 			this._addContentInLiveRegion();
 			return;
 		}
@@ -114,7 +115,9 @@ export class ToggleToolTip extends ToolTip implements ToggleToolTipProps {
 	}
 }
 
-customElements.define('o3-tooltip-toggle', ToggleToolTip);
+if(!customElements.get('o3-tooltip-toggle')) {
+	customElements.define('o3-tooltip-toggle', ToggleToolTip);
+}
 
 declare global {
 	interface HTMLElementTagNameMap {

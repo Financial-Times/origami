@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.13.0](https://github.com/Financial-Times/origami/compare/o3-form-v0.12.0...o3-form-v0.13.0) (2026-03-31)
+
+
+### Features
+
+* Update internal colour keep token structure ([#2407](https://github.com/Financial-Times/origami/issues/2407)) ([249a274](https://github.com/Financial-Times/origami/commit/249a2741107bbeb0df48f65cf225b198a28a1649))
+
+## [0.12.0](https://github.com/Financial-Times/origami/compare/o3-form-v0.11.0...o3-form-v0.12.0) (2026-03-09)
+
+
+### Features
+
+* remove dependency on o-utils from o3-form, require inputId ([#2365](https://github.com/Financial-Times/origami/issues/2365)) ([e3cea4c](https://github.com/Financial-Times/origami/commit/e3cea4cefdfe4cf8338e0ffde939c235ff87ca03))
+
 ## [0.11.0](https://github.com/Financial-Times/origami/compare/o3-form-v0.10.0...o3-form-v0.11.0) (2026-01-12)
 
 

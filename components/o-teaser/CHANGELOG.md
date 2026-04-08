@@ -1,5 +1,58 @@
 # Changelog
 
+## [10.0.4](https://github.com/Financial-Times/origami/compare/o-teaser-v10.0.3...o-teaser-v10.0.4) (2026-04-02)
+
+
+### Bug Fixes
+
+* hard code usages of missing tokens from internal brand ([#2412](https://github.com/Financial-Times/origami/issues/2412)) ([f19fd71](https://github.com/Financial-Times/origami/commit/f19fd71dccce3c27f2ac6f7ef2a1776088c7e479))
+
+## [10.0.3](https://github.com/Financial-Times/origami/compare/o-teaser-v10.0.2...o-teaser-v10.0.3) (2026-03-23)
+
+
+### Bug Fixes
+
+* comment link no longer exists ([c82a7b3](https://github.com/Financial-Times/origami/commit/c82a7b3084e08274263725b31113f4aa54fce17a))
+* comment link no longer exists ([fa33229](https://github.com/Financial-Times/origami/commit/fa3322918cc6de31e4815a6cbface1b21ee5b566))
+
+## [10.0.2](https://github.com/Financial-Times/origami/compare/o-teaser-v10.0.1...o-teaser-v10.0.2) (2026-03-19)
+
+
+### Bug Fixes
+
+* visited link color for teaser heading prefix ([f156091](https://github.com/Financial-Times/origami/commit/f15609131e9963099389531bf21e29b09b54991e))
+* visited link color for teaser heading prefix ([ed8adcf](https://github.com/Financial-Times/origami/commit/ed8adcf16afb189f1f0ae670b0dbd49c0acc187d))
+
+## [10.0.1](https://github.com/Financial-Times/origami/compare/o-teaser-v10.0.0...o-teaser-v10.0.1) (2026-03-11)
+
+
+### Bug Fixes
+
+* broken live blog opinion indicator icon ([b747ce2](https://github.com/Financial-Times/origami/commit/b747ce203de7cbcc878d279c5c61d029ca97f554))
+* broken live blog opinion indicator icon ([e704163](https://github.com/Financial-Times/origami/commit/e70416356266e8bc33f7055aae3ba74c1a91e606))
+
+## [10.0.0](https://github.com/Financial-Times/origami/compare/o-teaser-v9.1.3...o-teaser-v10.0.0) (2026-02-19)
+
+
+### ⚠ BREAKING CHANGES
+
+* Add Byline component
+
+### Features
+
+* Add Byline component ([4d01245](https://github.com/Financial-Times/origami/commit/4d01245fb5d767a0f1cf5972714b603fab66383f))
+* Add Byline stylings ([be46170](https://github.com/Financial-Times/origami/commit/be461709df3c64537e0519ca45009e1b116765e5))
+* Add title indicator icon with Opinion teasers ([fc23079](https://github.com/Financial-Times/origami/commit/fc23079fdac6d2591842854058e26a2873e4985f))
+* Add titlePrefix into Title component ([7e754f1](https://github.com/Financial-Times/origami/commit/7e754f111ca880defbe2cdc8ddba36fa624a0bad))
+* Add titlePrefix stylings ([3ce1ae0](https://github.com/Financial-Times/origami/commit/3ce1ae0cdfdefe325f7ea2f9f2f930ba9c55cba9))
+
+## [9.1.3](https://github.com/Financial-Times/origami/compare/o-teaser-v9.1.2...o-teaser-v9.1.3) (2026-02-05)
+
+
+### Bug Fixes
+
+* depend on v7 and v8 of o-labels on o-teaser ([#2360](https://github.com/Financial-Times/origami/issues/2360)) ([e4d4c46](https://github.com/Financial-Times/origami/commit/e4d4c464ad3acfa412002a550590d497a246de45))
+
 ## [9.1.2](https://github.com/Financial-Times/origami/compare/o-teaser-v9.1.1...o-teaser-v9.1.2) (2025-12-03)
 
 

@@ -220,7 +220,7 @@
 		}
 
 		@each $icon in $icons {
-			// Allowed social images: https://registry.origami.ft.com/components/social-images
+			// Allowed social images: https://o2-core.origami.ft.com/?path=/story/deprecated-o-icons--icons&globals=backgrounds:!undefined
 			$allowed-social-images: (
 				facebook,
 				github,

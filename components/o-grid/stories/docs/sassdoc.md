@@ -39,7 +39,7 @@
 
 Output o-grid styles. This mixin outputs all styles by default.
 Pass an options argument to include styles granularly, see the
-[README](https://registry.origami.ft.com/components/o-grid/readme) for more details.
+[README](https://github.com/Financial-Times/origami/components/o-grid/readme) for more details.
 
 | Parameter | Type | Default                                                                                                                                    | Description |
 | --------- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |

@@ -15,11 +15,9 @@
 
 `o-message` uses Sass and Javascript to show and hide a message component.
 
-It can be initialised declaratively if markup is provided on the page, or it can be initialised imperatively when using the [manual build process](http://origami.ft.com/documentation/developer-guide/modules/building-modules/).
-
 ## Usage
 
-Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-message`.
+Check out [how to include Origami components in your project](../../docs/legacy-o2-docs/technical-guide.md) to get started with `o-message`.
 
 ## Message Types
 
@@ -29,7 +27,7 @@ Check out [how to include Origami components in your project](https://origami.ft
 - A **notice** message should be used to provide information or warnings about a product. (e.g. beta version of a product).
 - An **action** message should be used as a static call to action, usually within or below main content, that is not necessarily a response to a user's interaction with a product (e.g. requesting feedback in general).
 
-You can find a demo for each of the messages above in the [Origami registry](https://registry.origami.ft.com/components/o-message).
+You can find a demo for each of the messages above in [Storybook](https://o2-core.origami.ft.com/?path=/story/maintained-o-message--alert-success&globals=backgrounds:!undefined).
 
 A default message is designed to span across a page in whatever container it is placed in.
 An 'inner' message is meant to sit within a smaller container, as it stacks information, instead.
@@ -305,10 +303,10 @@ Options include:
 To create a new message with a unique look call `oMessageAddSate`. The mixin accepts three arguments:
 
 - `name`: The name of your state. This is used for the modifier class output o-message--{name}.
-- `opts`: A map of options for your state. Note colours may be an [o-colors](https://registry.origami.ft.com/components/o-colors) colour name or a hex value:
+- `opts`: A map of options for your state. Note colours may be an [o-colors](https://o2-core.origami.ft.com/?path=/docs/deprecated-o-colors-readme--docs&globals=backgrounds:!undefined) colour name or a hex value:
   - `foreground-color`: The colour used for message text, and the button where a highlight colour has not been given.
   - `background-color`: The background colour used for the message.
-  - `icon`: The [o-icons](https://registry.origami.ft.com/components/o-icons) icon name to show in an alert message. Required only for your state to support an alert message type.
+  - `icon`: The [o-icons](https://o2-core.origami.ft.com/?path=/story/deprecated-o-icons--icons&globals=backgrounds:!undefined) icon name to show in an alert message. Required only for your state to support an alert message type.
   - `button-type` (optional): The type of button. One of `primary` or `secondary` (defaults to `secondary`).
   - `highlight-color` (optional): The highlight colour is used for the message button. It can also be used to highlight message copy with the CSS class `o-message__content-highlight-color`.
 - `types`: A list of [message types](#message-types) your state supports, one or more of (`alert`, `notice`, `action`).

@@ -54,7 +54,6 @@
 		"components/o-toggle": {},
 		"components/o-tooltip": {},
 		"components/o-top-banner": {},
-		"components/o-topper": {},
 		"components/o-typography": {},
 		"components/o-video": {},
 		"components/o-viewport": {},
@@ -72,10 +71,6 @@
 		"libraries/o-errors": {},
 		"libraries/o-tracking": {},
 		"libraries/o-utils": {},
-		"libraries/sass-mq": {},
-		"presets/eslint-config-origami-component": {},
-		"presets/remark-preset-lint-origami-component": {},
-		"presets/stylelint-config-origami-component": {},
-		"tools/origami-bower-safe-version-supervisor": {}
+		"libraries/sass-mq": {}
 	}
 }

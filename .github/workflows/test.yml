@@ -115,8 +115,6 @@ jobs:
             - 'components/o-tooltip/**'
           components/o-top-banner:
             - 'components/o-top-banner/**'
-          components/o-topper:
-            - 'components/o-topper/**'
           components/o-typography:
             - 'components/o-typography/**'
           components/o-video:
@@ -161,24 +159,14 @@ jobs:
             - 'libraries/o3-tooling-token/**'
           libraries/sass-mq:
             - 'libraries/sass-mq/**'
-          presets/eslint-config-origami-component:
-            - 'presets/eslint-config-origami-component/**'
-          presets/remark-preset-lint-origami-component:
-            - 'presets/remark-preset-lint-origami-component/**'
-          presets/stylelint-config-origami-component:
-            - 'presets/stylelint-config-origami-component/**'
           tools/a11y:
             - 'tools/a11y/**'
           tools/create-component:
             - 'tools/create-component/**'
           tools/demo-build:
             - 'tools/demo-build/**'
-          tools/o3-chrome-extension:
-            - 'tools/o3-chrome-extension/**'
           tools/o3-compilation:
             - 'tools/o3-compilation/**'
-          tools/origami-bower-safe-version-supervisor:
-            - 'tools/origami-bower-safe-version-supervisor/**'
           tools/origami-tools-helpers:
             - 'tools/origami-tools-helpers/**'
           tools/sass-compilation:

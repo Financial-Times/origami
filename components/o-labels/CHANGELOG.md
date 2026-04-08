@@ -1,5 +1,31 @@
 # Changelog
 
+## [8.0.2](https://github.com/Financial-Times/origami/compare/o-labels-v8.0.1...o-labels-v8.0.2) (2026-04-02)
+
+
+### Bug Fixes
+
+* hard code usages of missing tokens from internal brand ([#2412](https://github.com/Financial-Times/origami/issues/2412)) ([f19fd71](https://github.com/Financial-Times/origami/commit/f19fd71dccce3c27f2ac6f7ef2a1776088c7e479))
+* restore mandarin and oxford supports-variants ([#2414](https://github.com/Financial-Times/origami/issues/2414)) ([fa13277](https://github.com/Financial-Times/origami/commit/fa1327731f9e3a0a7f4d8d7e3659b1b6ef3e10b3))
+
+## [8.0.1](https://github.com/Financial-Times/origami/compare/o-labels-v8.0.0...o-labels-v8.0.1) (2026-02-25)
+
+
+### Bug Fixes
+
+* update tests to use origami as source code rather than test ([47fe5f4](https://github.com/Financial-Times/origami/commit/47fe5f4357d8da10a0988a7049e55b8973a52d7a))
+
+## [8.0.0](https://github.com/Financial-Times/origami/compare/o-labels-v7.1.2...o-labels-v8.0.0) (2026-02-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* Replace `scoop` with `exclusive`
+
+### Features
+
+* Replace `scoop` with `exclusive` ([8ff2c0d](https://github.com/Financial-Times/origami/commit/8ff2c0d3cfd25cec7d3d5046ca66134fc1af1633))
+
 ## [7.1.2](https://github.com/Financial-Times/origami/compare/o-labels-v7.1.1...o-labels-v7.1.2) (2025-10-28)
 
 

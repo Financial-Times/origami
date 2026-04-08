@@ -1,8 +1,5 @@
-import {uidBuilder} from '@financial-times/o-utils';
 import {TextInputProps} from '../types/index';
 import {LabeledFormField} from './fieldComponents/FormField';
-
-const uniqueId = uidBuilder('o3-form-text-input');
 
 export const TextInput = ({
 	label,
@@ -14,7 +11,6 @@ export const TextInput = ({
 	inputId,
 	optional,
 }: TextInputProps) => {
-	const id = inputId || uniqueId('_');
 	const inputClasses = ['o3-form', 'o3-form-text-input'];
 
 	if (feedback && feedback.type === 'error') {
@@ -29,11 +25,11 @@ export const TextInput = ({
 			label={label}
 			feedback={feedback}
 			description={description}
-			inputId={id}
+			labelsElement={inputId}
 			optional={optional}>
 			<input
 				{...attributes}
-				id={id}
+				id={inputId}
 				disabled={disabled}
 				className={inputClasses.join(' ')}
 				required={!optional}

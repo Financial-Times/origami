@@ -1,9 +1,0 @@
-@import '../../main';
-
-@include oTopper();
-@import '@financial-times/o-normalise/main';
-@include oNormalise();
-
-body {
-	background: oColorsByUsecase('page', 'background');
-}

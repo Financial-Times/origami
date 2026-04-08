@@ -1,5 +1,52 @@
 # Changelog
 
+## [15.5.0](https://github.com/Financial-Times/origami/compare/o-header-v15.4.1...o-header-v15.5.0) (2026-04-08)
+
+
+### Features
+
+* add focus trap for keyboard navigation of subnav dropdown ([94dabf7](https://github.com/Financial-Times/origami/commit/94dabf7a4a858f9fb4a62240a854868d7077707b))
+* add scroll lock for when menu is open on mobile ([11f8091](https://github.com/Financial-Times/origami/commit/11f80914604a8b206d6c9abacc435e0ca3f6b3a4))
+* provide better tab support on desktop ([456a6bf](https://github.com/Financial-Times/origami/commit/456a6bf5ce76e5d32d8160b97890d200a8a50fbb))
+* update based on PR feedback ([799deeb](https://github.com/Financial-Times/origami/commit/799deeb9d0b13177002691af17ae9671960e6ac6))
+* update subnav dropdown button styling in storybook ([87ef775](https://github.com/Financial-Times/origami/commit/87ef775db53cfb656c3ba0d0544aeacecaff3cfe))
+* Update subnav to menus to change based on screen size and not hover availability ([b90bf37](https://github.com/Financial-Times/origami/commit/b90bf37e8a115d3bd04a2f6106895edbfa0ac0a8))
+* update tests for desktop tab behaviour ([0698aa7](https://github.com/Financial-Times/origami/commit/0698aa77cf5d9f65512b202ea3639099e9f6cf7c))
+* update tests for subnav dropdown updates ([6338dba](https://github.com/Financial-Times/origami/commit/6338dba2d27270339e904bf57baea013ee699dc2))
+
+
+### Bug Fixes
+
+* update offset between nav bar and dropdown ([31a0be8](https://github.com/Financial-Times/origami/commit/31a0be8426583e4eea25863d9b16482f6029093a))
+
+## [15.4.1](https://github.com/Financial-Times/origami/compare/o-header-v15.4.0...o-header-v15.4.1) (2026-03-24)
+
+
+### Bug Fixes
+
+* Add keyboard handlers for close button ([4bdb3b8](https://github.com/Financial-Times/origami/commit/4bdb3b80f2e90bd12d8e404a710f38dd2160fbf2))
+* button children to subnav no longer cause right/left buttons to break ([27e6841](https://github.com/Financial-Times/origami/commit/27e6841cabad68d5b722000e1da0ed0e2f861582))
+* customers can access subnav options via keyboard only ([3993b4c](https://github.com/Financial-Times/origami/commit/3993b4c422a1315baee2b3ee644b14dd63900bed))
+* recompose modal/button as siblings to improve accessibility ([d80ee43](https://github.com/Financial-Times/origami/commit/d80ee43b569779d09df4534350b7457a609dc3b8))
+* subnavigation modal stays open while choosing options ([c100b81](https://github.com/Financial-Times/origami/commit/c100b815a63d539d3162c8c31db40573eb6b3f6c))
+
+## [15.4.0](https://github.com/Financial-Times/origami/compare/o-header-v15.3.1...o-header-v15.4.0) (2026-03-04)
+
+
+### Features
+
+* add mobile implemenation behaviour ([9095fe4](https://github.com/Financial-Times/origami/commit/9095fe4d0089d64af5687067a1fdb19ce91168bb))
+* Dropdown options for sub navigation are shown, hidden and positioned appropriately ([16f0928](https://github.com/Financial-Times/origami/commit/16f09283cb50bc996ddabeb67e82e387ba008ec4))
+* subnavigation dropdown options - Add storybook example ([ae44fbd](https://github.com/Financial-Times/origami/commit/ae44fbd017a0c64a4f0ad22e7d9cd408fb8e0454))
+* subnavigation dropdown options - Use design tokens in subnav story ([3cf16d1](https://github.com/Financial-Times/origami/commit/3cf16d1133aa50f46af0bcaf15146b9a28b88d43))
+
+## [15.3.1](https://github.com/Financial-Times/origami/compare/o-header-v15.3.0...o-header-v15.3.1) (2026-02-13)
+
+
+### Bug Fixes
+
+* set mpr-button border radius to be 2px ([#2364](https://github.com/Financial-Times/origami/issues/2364)) ([abafc7b](https://github.com/Financial-Times/origami/commit/abafc7bdde6a63b392593cca9cfb85d9799f4bed))
+
 ## [15.3.0](https://github.com/Financial-Times/origami/compare/o-header-v15.2.0...o-header-v15.3.0) (2025-10-22)
 
 

@@ -28,10 +28,10 @@ The [Origami Image Service](https://www.ft.com/__origami/service/image/v2/) can 
 Here's an example placeholder request, for an image that's 500px square, of maximum quality:
 
 ```
-https://www.ft.com/__origami/service/image/v2/images/placeholder/?width=500&height=500&quality=lossless&source=test
+https://www.ft.com/__origami/service/image/v2/images/placeholder/?width=500&height=500&quality=lossless&source=origami
 ```
 
-![A placeholder image which displays the width, height, format, and quality of the image requested as text within the image.](https://www.ft.com/__origami/service/image/v2/images/placeholder/?width=500&height=500&quality=lossless&source=test)
+![A placeholder image which displays the width, height, format, and quality of the image requested as text within the image.](https://www.ft.com/__origami/service/image/v2/images/placeholder/?width=500&height=500&quality=lossless&source=origami)
 
 
 

@@ -248,7 +248,6 @@ exports[`Component template files Root non ejs files expect .npmignore ejsRender
 .gitignore
 .npmignore
 .eslintrc.cjs
-.remarkrc.cjs
 .stylelintrc.cjs
 .prettierrc.toml
 .eslintignore
@@ -262,11 +261,6 @@ demos/local/
 "
 `;
 
-exports[`Component template files Root non ejs files expect .remarkrc.cjs ejsRenderer fn output to match snapshot 1`] = `
-"module.exports.plugins = [require(\\"remark-preset-lint-origami-component\\")]
-"
-`;
-
 exports[`Component template files Root non ejs files expect .stylelintignore ejsRenderer fn output to match snapshot 1`] = `
 "demos/local/**
 "
@@ -274,8 +268,9 @@ exports[`Component template files Root non ejs files expect .stylelintignore ejs
 
 exports[`Component template files Root non ejs files expect .stylelintrc.cjs ejsRenderer fn output to match snapshot 1`] = `
 "module.exports = {
-    \\"extends\\": \\"stylelint-config-origami-component\\"
-};"
+    \\"extends\\": \\"../../stylelintrc.cjs\\"
+};
+"
 `;
 
 exports[`Component template files demos ejs files expect demo.js ejsRenderer fn output to match snapshot 1`] = `

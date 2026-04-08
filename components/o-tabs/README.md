@@ -13,7 +13,7 @@ Tabs component for dividing content into meaningful sections.
 
 ## Usage
 
-Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-tabs`.
+Check out [how to include Origami components in your project](../../docs/legacy-o2-docs/technical-guide.md) to get started with `o-tabs`.
 
 ## Markup
 

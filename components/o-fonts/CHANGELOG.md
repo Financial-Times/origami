@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.3.6](https://github.com/Financial-Times/origami/compare/o-fonts-v5.3.5...o-fonts-v5.3.6) (2026-02-25)
+
+
+### Bug Fixes
+
+* update tests to use origami as source code rather than test ([47fe5f4](https://github.com/Financial-Times/origami/commit/47fe5f4357d8da10a0988a7049e55b8973a52d7a))
+
 ## [5.3.5](https://github.com/Financial-Times/origami/compare/o-fonts-v5.3.4...o-fonts-v5.3.5) (2023-10-27)
 
 

@@ -9,8 +9,6 @@
 
 Support for Bower and version 2 of the Origami Build Service have been removed.
 
-Follow [the migration guide on the Origami website](https://origami.ft.com/documentation/tutorials/bower-to-npm/).
-
 ## Migrating from v2 to v3
 
 o-tracking now uses the Beacon API in all browsers which support it. In v2 this was an opt-in feature, now it is always enabled in browsers which support it. For browsers which do not support Beacon API o-tracking will revert to the XMLHTTPRequest API.

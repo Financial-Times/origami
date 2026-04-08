@@ -127,13 +127,10 @@ The following variables are not replaced in o3 foundation:
 * $o-fonts-build-service-path
 * $o-fonts-self-host-path
 * $o-fonts-display
-* 
 
 ### Migrating from v4 to v5
 
 V5 has dropped support for use through Bower.
-
-Follow [the migration guide on the Origami website](https://origami.ft.com/documentation/tutorials/bower-to-npm/).
 
 ### Migrating from v3 to v4
 

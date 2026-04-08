@@ -1,5 +1,14 @@
 # Migration Guide
 
+## Migrating from v7 to v8
+
+This release removes the `content-scoop` label and replaces with `content-exclusive'. Ensure any references to `content-scoop` are updated:
+
+```diff
+- <span class="o-labels o-labels--content-scoop">Exclusive</span>
++ <span class="o-labels o-labels--content-exclusive">Exclusive</span>
+```
+
 ## Migrating from v6 to v7
 
 This major release introduces a new design language and visually breaking changes. This includes mobile optimised typography, icons, and buttons. It also removes peer dependencies from deprecated "o2" components.
@@ -20,8 +29,6 @@ To upgrade, replace the following "o2" components with their "o3" equivalent:
 ## Migrating from v5 to v6
 
 Support for Bower and version 2 of the Origami Build Service have been removed.
-
-Follow [the migration guide on the Origami website](https://origami.ft.com/documentation/tutorials/bower-to-npm/).
 
 ## Migrating from v4 to v5
 

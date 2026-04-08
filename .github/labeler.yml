@@ -158,24 +158,14 @@ o3-tooling-token:
   - libraries/o3-tooling-token/**/*
 sass-mq:
   - libraries/sass-mq/**/*
-eslint-config-origami-component:
-  - presets/eslint-config-origami-component/**/*
-remark-preset-lint-origami-component:
-  - presets/remark-preset-lint-origami-component/**/*
-stylelint-config-origami-component:
-  - presets/stylelint-config-origami-component/**/*
 a11y:
   - tools/a11y/**/*
 create-component:
   - tools/create-component/**/*
 demo-build:
   - tools/demo-build/**/*
-o3-chrome-extension:
-  - tools/o3-chrome-extension/**/*
 o3-compilation:
   - tools/o3-compilation/**/*
-origami-bower-safe-version-supervisor:
-  - tools/origami-bower-safe-version-supervisor/**/*
 origami-tools-helpers:
   - tools/origami-tools-helpers/**/*
 sass-compilation:

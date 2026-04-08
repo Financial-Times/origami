@@ -13,7 +13,7 @@ Styling for quotes
 
 ## Usage
 
-Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-quote`.
+Check out [how to include Origami components in your project](../../docs/legacy-o2-docs/technical-guide.md) to get started with `o-quote`.
 
 ## Markup
 
@@ -33,7 +33,7 @@ For a standard blockquote style use classes `o-quote o-quote--standard` and the 
 </blockquote>
 ```
 
-For an editorial style blockquote swap the `o-quote--standard` class for `o-quote--editorial`. The editorial variant inherits font size and colour to support multiple editorial contexts. For example at the time of writing [live blogs](https://www.ft.com/content/f61c179d-fd47-38ba-b1ab-df158fa62dd9) and article pages have different font sizes on large viewports but both should share the editorial quote style. Therefore the editorial quote must be within an element that sets typography styles such as [o-editorial-typography-body](https://registry.origami.ft.com/components/o-editorial-typography/readme?brand=core#body).
+For an editorial style blockquote swap the `o-quote--standard` class for `o-quote--editorial`. The editorial variant inherits font size and colour to support multiple editorial contexts. For example at the time of writing [live blogs](https://www.ft.com/content/f61c179d-fd47-38ba-b1ab-df158fa62dd9) and article pages have different font sizes on large viewports but both should share the editorial quote style. Therefore the editorial quote must be within an element that sets typography styles such as [o-editorial-typography-body](https://o2-core.origami.ft.com/?path=/story/deprecated-o-editorial-typography-body--body&globals=backgrounds:!undefined).
 ```diff
 -<blockquote class="o-quote o-quote--standard">
 +<blockquote class="o-quote o-quote--editorial">
@@ -95,7 +95,7 @@ You may also use o-quote mixins with custom HTML markup. For example if your mar
 }
 ```
 
-The `oQuoteEditorial` mixins shown here are only available to core brand users. For a full list of o-quote mixins see [o-quote SassDoc in the registry](https://registry.origami.ft.com/components/o-quote/sassdoc).
+The `oQuoteEditorial` mixins shown here are only available to core brand users. For a full list of o-quote mixins see [o-quote SassDoc in Storybook](https://o2-core.origami.ft.com/?path=/docs/deprecated-o-quote-sassdoc--docs&globals=backgrounds:!undefined).
 
 
 ## Migration Guide

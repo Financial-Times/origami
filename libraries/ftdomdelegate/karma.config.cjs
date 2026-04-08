@@ -22,7 +22,11 @@ module.exports = function (config) {
 		frameworks: ['mocha'],
 
 		plugins: [
-			'karma-*'
+			require("karma-babel-preprocessor"),
+			require("karma-chrome-launcher"),
+			require("karma-esbuild"),
+			require("karma-mocha"),
+			require("karma-sourcemap-loader"),
 		],
 
 		// web server port

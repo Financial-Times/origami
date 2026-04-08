@@ -72,7 +72,9 @@ export class OnboardingToolTip
 	}
 }
 
-customElements.define('o3-tooltip-onboarding', OnboardingToolTip);
+if(!customElements.get('o3-tooltip-onboarding')) {
+	customElements.define('o3-tooltip-onboarding', OnboardingToolTip);
+}
 
 declare global {
 	interface HTMLElementTagNameMap {

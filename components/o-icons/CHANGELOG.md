@@ -1,5 +1,14 @@
 # Changelog
 
+## [7.10.1](https://github.com/Financial-Times/origami/compare/o-icons-v7.10.0...o-icons-v7.10.1) (2026-02-25)
+
+
+### Bug Fixes
+
+* Update all locations of Image Service sources with a valid source ([789ca8b](https://github.com/Financial-Times/origami/commit/789ca8b29b8369698006b478e4c66ee22fb9c5c0))
+* Update all locations of Image Service sources with a valid source ([0af78c9](https://github.com/Financial-Times/origami/commit/0af78c9bacf665b6ea124193593881d0bf7aa765))
+* update tests to use origami as source code rather than test ([47fe5f4](https://github.com/Financial-Times/origami/commit/47fe5f4357d8da10a0988a7049e55b8973a52d7a))
+
 ## [7.10.0](https://github.com/Financial-Times/origami/compare/o-icons-v7.9.1...o-icons-v7.10.0) (2025-09-22)
 
 

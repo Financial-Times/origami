@@ -6,7 +6,7 @@ const ComponentDescription = {
 	component: ContentLabelTsx,
 	argTypes: {
 		state: {
-			options: ['content-commercial', 'content-premium', 'content-scoop'],
+			options: ['content-commercial', 'content-premium', 'content-exclusive'],
 			defaultValue: 'content-premium',
 		},
 		size: {
@@ -35,7 +35,7 @@ export const ContentLabel = args => {
 			case 'content-commercial':
 				copy = 'Paid Post';
 				break;
-			case 'content-scoop':
+			case 'content-exclusive':
 				copy = 'Exclusive';
 				break;
 			default:

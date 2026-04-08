@@ -1,3 +1,3 @@
 module.exports = {
-	extends: ['stylelint-config-origami-component', 'stylelint-config-prettier'],
+	extends: ['../../stylelintrc.cjs', 'stylelint-config-prettier'],
 };

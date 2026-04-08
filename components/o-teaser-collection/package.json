@@ -1,6 +1,6 @@
 {
 	"name": "@financial-times/o-teaser-collection",
-	"version": "5.0.2",
+	"version": "5.0.3",
 	"description": "Provides styles to layout out multiple teasers in one section.",
 	"keywords": [
 		"article",

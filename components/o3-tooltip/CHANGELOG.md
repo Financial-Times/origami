@@ -1,5 +1,20 @@
 # Changelog
 
+## [3.2.2](https://github.com/Financial-Times/origami/compare/o3-tooltip-v3.2.1...o3-tooltip-v3.2.2) (2026-03-04)
+
+
+### Bug Fixes
+
+* stop propagation of tooltip click handler ([#2385](https://github.com/Financial-Times/origami/issues/2385)) ([7de304d](https://github.com/Financial-Times/origami/commit/7de304dd7231fcc5ed6f5a9df33cc5015835cbb1))
+
+## [3.2.1](https://github.com/Financial-Times/origami/compare/o3-tooltip-v3.2.0...o3-tooltip-v3.2.1) (2026-01-21)
+
+
+### Bug Fixes
+
+* define o3 tooltip custom element only if it exist ([29f5aee](https://github.com/Financial-Times/origami/commit/29f5aeea9ddbf680f62f29264d179a8cf86f3c67))
+* define o3 tooltip custom element only if it exist ([a1823fb](https://github.com/Financial-Times/origami/commit/a1823fb5ababc0ec4291fdc99ac2e2306f288338))
+
 ## [3.2.0](https://github.com/Financial-Times/origami/compare/o3-tooltip-v3.1.1...o3-tooltip-v3.2.0) (2026-01-12)
 
 

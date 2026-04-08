@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.1.9](https://github.com/Financial-Times/origami/compare/o-grid-v6.1.8...o-grid-v6.1.9) (2026-02-25)
+
+
+### Bug Fixes
+
+* update tests to use origami as source code rather than test ([47fe5f4](https://github.com/Financial-Times/origami/commit/47fe5f4357d8da10a0988a7049e55b8973a52d7a))
+
 ## [6.1.8](https://github.com/Financial-Times/origami/compare/o-grid-v6.1.7...o-grid-v6.1.8) (2023-10-27)
 
 

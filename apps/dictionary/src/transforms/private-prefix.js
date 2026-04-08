@@ -2,6 +2,11 @@ import {tokenStudioThemeToBrand, getTokenStudioThemes} from '../utils.js';
 
 const sourceExceptions = ['base/typography', 'base/border-radius']
 
+/**
+ * Append an underscore to a token if it is in the private token set.
+ * @param {{filePath: string, name: string}} token
+ * @returns {string} the name of the token with the underscore prefix applied.
+ */
 const privatePrefix = token => {
 	const isSourceExceptionForEngineering = token => {
 		// We do not want to export our typography scale and border radius in Figma for end users.

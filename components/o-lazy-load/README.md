@@ -12,7 +12,7 @@ This component provides lazy loading functionality for images, pictures, iframes
 
 ## Usage
 
-Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-lazy-load`.
+Check out [how to include Origami components in your project](../../docs/legacy-o2-docs/technical-guide.md) to get started with `o-lazy-load`.
 
 ## Markup
 
@@ -58,7 +58,7 @@ To lazy load a `<picture>` element add the `o-lazy-load` class and prefix the `s
 </picture>
 ```
 
-o-lazy-load is also capable of lazy loading iframes and toggle class names. [See the component demos](https://registry.origami.ft.com/components/o-lazy-load) for more information about these features.
+o-lazy-load is also capable of lazy loading iframes and toggle class names. [See the component demos](https://o2-core.origami.ft.com/?path=/docs/maintained-o-lazy-load-readme--docs&globals=backgrounds:!undefined) for more information about these features.
 
 ## JavaScript
 

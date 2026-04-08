@@ -17,7 +17,7 @@ An Origami component for selecting multiple options.
 
 ## Usage
 
-Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-multi-select`.
+Check out [how to include Origami components in your project](../../docs/legacy-o2-docs/technical-guide.md) to get started with `o-multi-select`.
 
 ## Markup
 
@@ -35,7 +35,7 @@ The value must not contain whitespace characters, as it should be valid as an [i
 </div>
 ```
 
-To style form labels, we recommend using [o-forms](https://registry.origami.ft.com/components/o-forms).
+To style form labels, we recommend using [o-forms](https://o2-core.origami.ft.com/?path=/docs/maintained-o-forms-readme--docs&globals=backgrounds:!undefined).
 
 Below is an example of how to combine o-forms and o-multi-select components together. Note the `label` and `select` element are connected using `for` and `id` attributes.
 
@@ -91,7 +91,7 @@ Use `@include oMultiSelect()` to include styles for all `o-multi-select` feature
 
 JavaScript is initialised automatically for [Origami Build Service](https://www.ft.com/__origami/service/build/v2/) users.
 
-If your project is using a manual build process, [initialise `o-multi-select` manually](https://origami.ft.com/docs/tutorials/manual-build/). For example call the `init` method to initialise all `o-multi-select` instances in the document:
+If your project is using a manual build process, [initialise `o-multi-select` manually](https://o2-core.origami.ft.com/?path=/docs/maintained-o-multi-select-readme--docs&globals=backgrounds:!undefined). For example call the `init` method to initialise all `o-multi-select` instances in the document:
 
 ```js
 import oMultiSelect from 'o-multi-select';

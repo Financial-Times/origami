@@ -1,5 +1,28 @@
 # Changelog
 
+## [13.2.5](https://github.com/Financial-Times/origami/compare/o-comments-v13.2.4...o-comments-v13.2.5) (2026-03-23)
+
+
+### Bug Fixes
+
+* add comment in functions sass file ([d8b2c9f](https://github.com/Financial-Times/origami/commit/d8b2c9f3c6b9df590fab933522b96a2b93e5dd76))
+* add comment in functions sass file ([bd53b74](https://github.com/Financial-Times/origami/commit/bd53b748e4b3a3c035f5586735702c874d27661f))
+
+## [13.2.4](https://github.com/Financial-Times/origami/compare/o-comments-v13.2.3...o-comments-v13.2.4) (2026-03-20)
+
+
+### Bug Fixes
+
+* update to cdn compatible fetch method ([32e7f30](https://github.com/Financial-Times/origami/commit/32e7f308c61b70149d7a94f832a076553fe26020))
+* update to cdn compatible fetch method ([f0fcc3c](https://github.com/Financial-Times/origami/commit/f0fcc3cd5bdf5f1749ced8fc09bcb9886ef55b0a))
+
+## [13.2.3](https://github.com/Financial-Times/origami/compare/o-comments-v13.2.2...o-comments-v13.2.3) (2026-02-25)
+
+
+### Bug Fixes
+
+* update tests to use origami as source code rather than test ([47fe5f4](https://github.com/Financial-Times/origami/commit/47fe5f4357d8da10a0988a7049e55b8973a52d7a))
+
 ## [13.2.2](https://github.com/Financial-Times/origami/compare/o-comments-v13.2.1...o-comments-v13.2.2) (2025-12-17)
 
 

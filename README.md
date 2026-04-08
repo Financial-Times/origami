@@ -2,8 +2,16 @@
 
 Welcome to Origami!
 
-This is the repository for the Origami components, libraries, and apps that make
+This is the repository for the Origami o2 & o3 components, libraries, and apps that make
 up the Origami Component System.
+
+## Using Origami o3 in your project
+
+Read the [_o3 Getting Started_](docs/o3-getting-started.md) guide to use Origami o3 styles and components in your project.
+
+## Maintaining Origami o2 in your project
+
+Legacy documentation for using the o2 component system can be found in [docs/legacy-o2-docs](/docs/legacy-o2-docs/index.md).
 
 ## Proposals
 
@@ -14,13 +22,14 @@ If you'd like to make a proposal for a new component or anything else, go ahead 
 This repository houses many projects of different kinds. Most of them have
 READMEs of their own where you can learn more about them.
 
-### apps/storybook
+### apps/o2-storybook
 
-[Origami's storybook](./apps/storybook), served at <https://origami.ft.com/storybook/>.
+[Origami 2's storybook](./apps/o2-storybook), served at <https://o2-core.origami.ft.com/>.
 
-### apps/website
+### apps/o3-storybook
 
-[Origami Design System](https://origami.ft.com/) documentation and usage guides.
+[Origami 3's storybook](./apps/o2-storybook), served at <https://o3.origami.ft.com/>.
+
 
 ### components and libraries
 
@@ -43,7 +52,13 @@ Default scripts used in component package.jsons for building and testing compone
 
 Tools used to build and test Origami components
 
+#### Origami Chrome Extension
+
+This was previously maintained from this repository. However it has now moved to [its own repository](https://github.com/Financial-Times/origami-chrome-extension).
+
 ## Running Origami locally
+
+Below are the steps to run and maintain this repository locally.
 
 ### Requirements
 
@@ -192,7 +207,7 @@ o-labels/
 
 ##### Legacy
 
-Legacy Origami Registry component demos are branded through the `origami.json` manifest in the component's root directory. You can find how to use this file in the [Origami documentation](https://origami.ft.com/documentation/manifests/origami-json/#brands).
+Legacy Origami Registry component demos are branded through the `origami.json` manifest in the component's root directory. You can find how to use this file in the [Origami documentation](./docs/legacy-o2-docs/technical-guide/origami-json.md).
 
 #### Test
 

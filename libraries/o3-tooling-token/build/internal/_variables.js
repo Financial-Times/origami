@@ -43,28 +43,6 @@ export default {
 		"css": "--o3-color-palette-white",
 		"figma": "o3/color/palette/white"
 },
-	"o3-color-palette-oxford": {
-		"shortName": "oxford",
-		"value": "#0f5499",
-		"originalValue": "#0F5499",
-		"type": "color",
-		"attributes": {
-				"item": "palette",
-				"subitem": "oxford"
-		},
-		"origamiKeys": [
-				"palette",
-				"primary"
-		],
-		"path": [
-				"o3",
-				"color",
-				"palette",
-				"oxford"
-		],
-		"css": "--o3-color-palette-oxford",
-		"figma": "o3/color/palette/oxford"
-},
 	"o3-color-palette-teal": {
 		"shortName": "teal",
 		"value": "#0d7680",
@@ -155,8 +133,8 @@ export default {
 },
 	"o3-color-palette-lemon": {
 		"shortName": "lemon",
-		"value": "#ffec1a",
-		"originalValue": "#FFEC1A",
+		"value": "#fabf14",
+		"originalValue": "#FABF14",
 		"type": "color",
 		"attributes": {
 				"item": "palette",
@@ -174,6 +152,58 @@ export default {
 		],
 		"css": "--o3-color-palette-lemon",
 		"figma": "o3/color/palette/lemon"
+},
+	"o3-color-palette-lemon-10": {
+		"shortName": "lemon-10",
+		"value": "#fff2cc",
+		"originalValue": "#FFF2CC",
+		"type": "color",
+		"attributes": {
+				"item": "palette",
+				"subitem": "lemon-10"
+		},
+		"origamiKeys": [
+				"palette",
+				"secondary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"lemon-10"
+		],
+		"origamiTint": {
+				"base": "lemon",
+				"value": "10"
+		},
+		"css": "--o3-color-palette-lemon-10",
+		"figma": "o3/color/palette/lemon-10"
+},
+	"o3-color-palette-lemon-90": {
+		"shortName": "lemon-90",
+		"value": "#695008",
+		"originalValue": "#695008",
+		"type": "color",
+		"attributes": {
+				"item": "palette",
+				"subitem": "lemon-90"
+		},
+		"origamiKeys": [
+				"palette",
+				"secondary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"lemon-90"
+		],
+		"origamiTint": {
+				"base": "lemon",
+				"value": "90"
+		},
+		"css": "--o3-color-palette-lemon-90",
+		"figma": "o3/color/palette/lemon-90"
 },
 	"o3-color-palette-jade": {
 		"shortName": "jade",
@@ -197,14 +227,14 @@ export default {
 		"css": "--o3-color-palette-jade",
 		"figma": "o3/color/palette/jade"
 },
-	"o3-color-palette-mandarin": {
-		"shortName": "mandarin",
-		"value": "#ff8833",
-		"originalValue": "#F83",
+	"o3-color-palette-jade-10": {
+		"shortName": "jade-10",
+		"value": "#ccebdb",
+		"originalValue": "#CCEBDB",
 		"type": "color",
 		"attributes": {
 				"item": "palette",
-				"subitem": "mandarin"
+				"subitem": "jade-10"
 		},
 		"origamiKeys": [
 				"palette",
@@ -214,15 +244,45 @@ export default {
 				"o3",
 				"color",
 				"palette",
-				"mandarin"
+				"jade-10"
 		],
-		"css": "--o3-color-palette-mandarin",
-		"figma": "o3/color/palette/mandarin"
+		"origamiTint": {
+				"base": "jade",
+				"value": "10"
+		},
+		"css": "--o3-color-palette-jade-10",
+		"figma": "o3/color/palette/jade-10"
+},
+	"o3-color-palette-jade-90": {
+		"shortName": "jade-90",
+		"value": "#00572c",
+		"originalValue": "#00572C",
+		"type": "color",
+		"attributes": {
+				"item": "palette",
+				"subitem": "jade-90"
+		},
+		"origamiKeys": [
+				"palette",
+				"tertiary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"jade-90"
+		],
+		"origamiTint": {
+				"base": "jade",
+				"value": "90"
+		},
+		"css": "--o3-color-palette-jade-90",
+		"figma": "o3/color/palette/jade-90"
 },
 	"o3-color-palette-crimson": {
 		"shortName": "crimson",
-		"value": "#cc0000",
-		"originalValue": "#c00",
+		"value": "#b30000",
+		"originalValue": "#B30000",
 		"type": "color",
 		"attributes": {
 				"item": "palette",
@@ -240,6 +300,32 @@ export default {
 		],
 		"css": "--o3-color-palette-crimson",
 		"figma": "o3/color/palette/crimson"
+},
+	"o3-color-palette-crimson-10": {
+		"shortName": "crimson-10",
+		"value": "#fae6e6",
+		"originalValue": "#FAE6E6",
+		"type": "color",
+		"attributes": {
+				"item": "palette",
+				"subitem": "crimson-10"
+		},
+		"origamiKeys": [
+				"palette",
+				"tertiary"
+		],
+		"path": [
+				"o3",
+				"color",
+				"palette",
+				"crimson-10"
+		],
+		"origamiTint": {
+				"base": "crimson",
+				"value": "10"
+		},
+		"css": "--o3-color-palette-crimson-10",
+		"figma": "o3/color/palette/crimson-10"
 },
 	"o3-color-palette-black-5": {
 		"shortName": "black-5",
@@ -460,182 +546,6 @@ export default {
 		},
 		"css": "--o3-color-palette-black-90",
 		"figma": "o3/color/palette/black-90"
-},
-	"o3-color-palette-oxford-30": {
-		"shortName": "oxford-30",
-		"value": "#082a4d",
-		"originalValue": "#082A4D",
-		"type": "color",
-		"attributes": {
-				"item": "palette",
-				"subitem": "oxford-30"
-		},
-		"path": [
-				"o3",
-				"color",
-				"palette",
-				"oxford-30"
-		],
-		"origamiTint": {
-				"base": "oxford",
-				"value": "30"
-		},
-		"css": "--o3-color-palette-oxford-30",
-		"figma": "o3/color/palette/oxford-30"
-},
-	"o3-color-palette-oxford-40": {
-		"shortName": "oxford-40",
-		"value": "#0a3866",
-		"originalValue": "#0A3866",
-		"type": "color",
-		"attributes": {
-				"item": "palette",
-				"subitem": "oxford-40"
-		},
-		"path": [
-				"o3",
-				"color",
-				"palette",
-				"oxford-40"
-		],
-		"origamiTint": {
-				"base": "oxford",
-				"value": "40"
-		},
-		"css": "--o3-color-palette-oxford-40",
-		"figma": "o3/color/palette/oxford-40"
-},
-	"o3-color-palette-oxford-50": {
-		"shortName": "oxford-50",
-		"value": "#0d4680",
-		"originalValue": "#0D4680",
-		"type": "color",
-		"attributes": {
-				"item": "palette",
-				"subitem": "oxford-50"
-		},
-		"path": [
-				"o3",
-				"color",
-				"palette",
-				"oxford-50"
-		],
-		"origamiTint": {
-				"base": "oxford",
-				"value": "50"
-		},
-		"css": "--o3-color-palette-oxford-50",
-		"figma": "o3/color/palette/oxford-50"
-},
-	"o3-color-palette-oxford-60": {
-		"shortName": "oxford-60",
-		"value": "#0f5499",
-		"originalValue": "#0F5499",
-		"type": "color",
-		"attributes": {
-				"item": "palette",
-				"subitem": "oxford-60"
-		},
-		"path": [
-				"o3",
-				"color",
-				"palette",
-				"oxford-60"
-		],
-		"origamiTint": {
-				"base": "oxford",
-				"value": "60"
-		},
-		"css": "--o3-color-palette-oxford-60",
-		"figma": "o3/color/palette/oxford-60"
-},
-	"o3-color-palette-oxford-70": {
-		"shortName": "oxford-70",
-		"value": "#1262b3",
-		"originalValue": "#1262B3",
-		"type": "color",
-		"attributes": {
-				"item": "palette",
-				"subitem": "oxford-70"
-		},
-		"path": [
-				"o3",
-				"color",
-				"palette",
-				"oxford-70"
-		],
-		"origamiTint": {
-				"base": "oxford",
-				"value": "70"
-		},
-		"css": "--o3-color-palette-oxford-70",
-		"figma": "o3/color/palette/oxford-70"
-},
-	"o3-color-palette-oxford-80": {
-		"shortName": "oxford-80",
-		"value": "#1470cc",
-		"originalValue": "#1470CC",
-		"type": "color",
-		"attributes": {
-				"item": "palette",
-				"subitem": "oxford-80"
-		},
-		"path": [
-				"o3",
-				"color",
-				"palette",
-				"oxford-80"
-		],
-		"origamiTint": {
-				"base": "oxford",
-				"value": "80"
-		},
-		"css": "--o3-color-palette-oxford-80",
-		"figma": "o3/color/palette/oxford-80"
-},
-	"o3-color-palette-oxford-90": {
-		"shortName": "oxford-90",
-		"value": "#177ee6",
-		"originalValue": "#177EE6",
-		"type": "color",
-		"attributes": {
-				"item": "palette",
-				"subitem": "oxford-90"
-		},
-		"path": [
-				"o3",
-				"color",
-				"palette",
-				"oxford-90"
-		],
-		"origamiTint": {
-				"base": "oxford",
-				"value": "90"
-		},
-		"css": "--o3-color-palette-oxford-90",
-		"figma": "o3/color/palette/oxford-90"
-},
-	"o3-color-palette-oxford-100": {
-		"shortName": "oxford-100",
-		"value": "#198cff",
-		"originalValue": "#198CFF",
-		"type": "color",
-		"attributes": {
-				"item": "palette",
-				"subitem": "oxford-100"
-		},
-		"path": [
-				"o3",
-				"color",
-				"palette",
-				"oxford-100"
-		],
-		"origamiTint": {
-				"base": "oxford",
-				"value": "100"
-		},
-		"css": "--o3-color-palette-oxford-100",
-		"figma": "o3/color/palette/oxford-100"
 },
 	"o3-color-palette-teal-20": {
 		"shortName": "teal-20",
@@ -1326,10 +1236,28 @@ export default {
 		"css": "--o3-color-use-case-button-disabled",
 		"figma": "o3/color/use-case/button/disabled"
 },
+	"o3-color-use-case-error-foreground": {
+		"shortName": "error-foreground",
+		"value": "#b30000",
+		"originalValue": "{o3.color.palette.crimson}",
+		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "error-foreground"
+		},
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"error-foreground"
+		],
+		"css": "--o3-color-use-case-error-foreground",
+		"figma": "o3/color/use-case/error-foreground"
+},
 	"o3-color-use-case-error-background": {
 		"shortName": "error-background",
-		"value": "rgba(204, 0, 0, 0.06)",
-		"originalValue": "rgba(204,0,0,0.06)",
+		"value": "#fae6e6",
+		"originalValue": "{o3.color.palette.crimson-10}",
 		"type": "color",
 		"attributes": {
 				"item": "use-case",
@@ -1344,47 +1272,64 @@ export default {
 		"css": "--o3-color-use-case-error-background",
 		"figma": "o3/color/use-case/error-background"
 },
-	"o3-color-use-case-error-text": {
-		"shortName": "error-text",
-		"value": "#cc0000",
-		"originalValue": "{o3.color.palette.crimson}",
+	"o3-color-use-case-warning-background": {
+		"shortName": "warning-background",
+		"value": "#fff2cc",
+		"originalValue": "{o3.color.palette.lemon-10}",
 		"type": "color",
 		"attributes": {
 				"item": "use-case",
-				"subitem": "error-text"
+				"subitem": "warning-background"
 		},
 		"path": [
 				"o3",
 				"color",
 				"use-case",
-				"error-text"
+				"warning-background"
 		],
-		"css": "--o3-color-use-case-error-text",
-		"figma": "o3/color/use-case/error-text"
+		"css": "--o3-color-use-case-warning-background",
+		"figma": "o3/color/use-case/warning-background"
 },
-	"o3-color-use-case-error": {
-		"shortName": "error",
-		"value": "#cc0000",
-		"originalValue": "{o3.color.palette.crimson}",
+	"o3-color-use-case-warning-foreground": {
+		"shortName": "warning-foreground",
+		"value": "#695008",
+		"originalValue": "{o3.color.palette.lemon-90}",
 		"type": "color",
-		"description": "[DEPRECATED] This token is going to be looked at in the upcoming audit.",
 		"attributes": {
 				"item": "use-case",
-				"subitem": "error"
+				"subitem": "warning-foreground"
 		},
 		"path": [
 				"o3",
 				"color",
 				"use-case",
-				"error"
+				"warning-foreground"
 		],
-		"css": "--o3-color-use-case-error",
-		"figma": "o3/color/use-case/error"
+		"css": "--o3-color-use-case-warning-foreground",
+		"figma": "o3/color/use-case/warning-foreground"
+},
+	"o3-color-use-case-warning-highlight": {
+		"shortName": "warning-highlight",
+		"value": "#fabf14",
+		"originalValue": "{o3.color.palette.lemon}",
+		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "warning-highlight"
+		},
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"warning-highlight"
+		],
+		"css": "--o3-color-use-case-warning-highlight",
+		"figma": "o3/color/use-case/warning-highlight"
 },
 	"o3-color-use-case-success-background": {
 		"shortName": "success-background",
-		"value": "#d7f0d1",
-		"originalValue": "#D7F0D1",
+		"value": "#ccebdb",
+		"originalValue": "{o3.color.palette.jade-10}",
 		"type": "color",
 		"attributes": {
 				"item": "use-case",
@@ -1402,7 +1347,7 @@ export default {
 	"o3-color-use-case-success-foreground": {
 		"shortName": "success-foreground",
 		"value": "#00572c",
-		"originalValue": "#00572C",
+		"originalValue": "{o3.color.palette.jade-90}",
 		"type": "color",
 		"attributes": {
 				"item": "use-case",
@@ -1416,6 +1361,82 @@ export default {
 		],
 		"css": "--o3-color-use-case-success-foreground",
 		"figma": "o3/color/use-case/success-foreground"
+},
+	"o3-color-use-case-success-highlight": {
+		"shortName": "success-highlight",
+		"value": "#00994d",
+		"originalValue": "{o3.color.palette.jade}",
+		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "success-highlight"
+		},
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"success-highlight"
+		],
+		"css": "--o3-color-use-case-success-highlight",
+		"figma": "o3/color/use-case/success-highlight"
+},
+	"o3-color-use-case-border": {
+		"shortName": "border",
+		"value": "#cccccc",
+		"originalValue": "{o3.color.palette.black-20}",
+		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "border"
+		},
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"border"
+		],
+		"css": "--o3-color-use-case-border",
+		"figma": "o3/color/use-case/border"
+},
+	"o3-color-use-case-surface-background": {
+		"shortName": "background",
+		"value": "#dedfe0",
+		"originalValue": "{o3.color.palette.slate-white-15}",
+		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "surface",
+				"state": "background"
+		},
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"surface",
+				"background"
+		],
+		"css": "--o3-color-use-case-surface-background",
+		"figma": "o3/color/use-case/surface/background"
+},
+	"o3-color-use-case-surface-light-background": {
+		"shortName": "background",
+		"value": "#f4f4f5",
+		"originalValue": "{o3.color.palette.slate-white-5}",
+		"type": "color",
+		"attributes": {
+				"item": "use-case",
+				"subitem": "surface-light",
+				"state": "background"
+		},
+		"path": [
+				"o3",
+				"color",
+				"use-case",
+				"surface-light",
+				"background"
+		],
+		"css": "--o3-color-use-case-surface-light-background",
+		"figma": "o3/color/use-case/surface-light/background"
 },
 	"o3-spacing-5xs": {
 		"shortName": "5xs",
@@ -3651,7 +3672,7 @@ export default {
 		"value": {
 				"blur": "0",
 				"spread": "2",
-				"color": "#808080",
+				"color": "#0d7680",
 				"type": "dropShadow",
 				"offsetX": "0",
 				"offsetY": "0"
@@ -3659,7 +3680,7 @@ export default {
 		"originalValue": {
 				"blur": "0",
 				"spread": "2",
-				"color": "{o3.color.palette.black-50}",
+				"color": "{o3.color.palette.teal}",
 				"type": "dropShadow",
 				"offsetX": "0",
 				"offsetY": "0"

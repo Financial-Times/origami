@@ -14,7 +14,7 @@ A component to manage colours. Includes the FT colour palette.
 
 ## Usage
 
-Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-colors`.
+Check out [how to include Origami components in your project](../../docs/legacy-o2-docs/technical-guide.md) to get started with `o-colors`.
 
 ## Markup
 
@@ -42,7 +42,7 @@ More colours are available for build service users as [CSS Custom Properties](#c
 
 All palette colors, including default mixes and tones, are available as CSS Custom Properties (CSS Variables) in the format `--o-colors-[NAME]`.
 
-See [all palette colours available](https://registry.origami.ft.com/components/o-colors) in the registry.
+See [all palette colours available](https://o2-core.origami.ft.com/?path=/story/deprecated-o-colors-primary-palette--primary-palette&globals=backgrounds:!undefined) in Storybook.
 
 ```css
 .ft-pink {
@@ -87,7 +87,7 @@ o-colors has a number of mixins and functions for you to access the color palett
 
 ### Palette Colours
 
-o-colors defines a colour palette (a set of named colours) which may be [previewed in the registry](https://registry.origami.ft.com/components/o-colors). Custom palette colours may be added to the palette to share them with dependencies.
+o-colors defines a colour palette (a set of named colours) which may be [previewed in Storybook](https://o2-core.origami.ft.com/?path=/story/deprecated-o-colors-primary-palette--primary-palette&globals=backgrounds:!undefined). Custom palette colours may be added to the palette to share them with dependencies.
 
 | Color Name                         | Brand Support              |
 | ---------------------------------- | -------------------------- |
@@ -116,7 +116,7 @@ o-colors defines a colour palette (a set of named colours) which may be [preview
 | org-b2c-light                      | core                       |
 | mint                               | core                       |
 
-There are additional colours in the palette by default including tones and mixes. [See the registry demos](https://registry.origami.ft.com/components/o-colors) for a full list.
+There are additional colours in the palette by default including tones and mixes. [See the Storybook demos](https://o2-core.origami.ft.com/?path=/story/deprecated-o-colors-primary-palette--primary-palette&globals=backgrounds:!undefined) for a full list.
 
 `ft-pink` and `ft-grey` are brand colours which are used in some digital assets, such as the FT logo, but have a limited number of valid use-cases for digital UI. Instead consider `paper` and `slate` or a black/paper mix such as `black-80`. As an example of a usecase for `ft-pink`, it could be used to prevent a flash of the wrong colour as a logo image loads.
 
@@ -181,7 +181,7 @@ Removing a colour is considered a breaking change and requires a major release. 
 );
 ```
 
-See [o-colors SassDoc](https://registry.origami.ft.com/components/o-colors/sassdoc?brand=core#o-colors-mixin-ocolorssetusecase) for more details and examples.
+See [o-colors SassDoc](https://o2-core.origami.ft.com/?path=/docs/deprecated-o-colors-sassdoc--docs&globals=backgrounds:!undefined) for more details and examples.
 
 ### Usecases
 
@@ -357,7 +357,7 @@ $color: oColorsMix(
 
 An o-colors tone is a palette colour with modified saturation and luminosity, to create a lighter or darker colour whilst retaining vibrancy.
 
-Recommended tones are already in the colour palette, e.g. `teal-80` (see [default tones in the registry](https://registry.origami.ft.com/components/o-colors)). However for cases where a new tone is required use `oColorsGetTone`. It will return a new color based on a specified brightness.
+Recommended tones are already in the colour palette, e.g. `teal-80` (see [default tones in Storybook](https://o2-core.origami.ft.com/?path=/story/deprecated-o-colors-tones-and-mixes--tonesand-mixes&globals=backgrounds:!undefined)). However for cases where a new tone is required use `oColorsGetTone`. It will return a new color based on a specified brightness.
 
 ```scss
 .teal-tone-example {
@@ -375,7 +375,7 @@ o-colors provides other useful functions for working with colours, including:
 - oColorsColorBrightness
 - oColorsColorLuminance
 
-See [o-colors SassDoc](https://registry.origami.ft.com/components/o-colors/sassdoc) for more details and examples.
+See [o-colors SassDoc](https://o2-core.origami.ft.com/?path=/docs/deprecated-o-colors-sassdoc--docs) for more details and examples.
 
 ## Migration
 

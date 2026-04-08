@@ -13,7 +13,7 @@ o-tooltip is a component usually used for annotating or highlighting bits of use
 
 ## Usage
 
-Check out [how to include Origami components in your project](https://origami.ft.com/documentation/components/#including-origami-components-in-your-project) to get started with `o-tracking`.
+Check out [how to include Origami components in your project](../../docs/legacy-o2-docs/technical-guide.md) to get started with `o-tracking`.
 
 ### Markup
 
@@ -173,7 +173,7 @@ You may also choose to output tooltips for only specific themes:
 );
 ```
 
-There is [full Sass documentation available in the Origami Registry](https://registry.origami.ft.com/components/o-tooltip/sassdoc).
+There is [full Sass documentation available in Storybook](hhttps://o2-core.origami.ft.com/?path=/docs/maintained-o-tooltip-sassdoc--docs&globals=backgrounds:!undefined).
 
 ## Custom Themes
 
