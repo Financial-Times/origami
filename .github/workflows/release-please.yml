@@ -38,8 +38,9 @@ jobs:
       - run: npm ci
         if: ${{ steps.release.outputs.releases_created }}
 
-      - run: node ./scripts/publish.js '${{ toJSON(steps.release.outputs) }}'
+      - run: node ./scripts/publish.js
         env:
+          RELEASE_OUTPUT: ${{ toJSON(steps.release.outputs) }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           SLACK_ANNOUNCER_AUTH_TOKEN: ${{ secrets.SLACK_ANNOUNCER_AUTH_TOKEN }}
           SLACK_ANNOUNCER_CHANNEL_ID: ${{ secrets.SLACK_ANNOUNCER_CHANNEL_ID }}

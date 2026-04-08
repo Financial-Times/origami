@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.13.0](https://github.com/Financial-Times/origami/compare/o3-form-v0.12.0...o3-form-v0.13.0) (2026-03-31)
+
+
+### Features
+
+* Update internal colour keep token structure ([#2407](https://github.com/Financial-Times/origami/issues/2407)) ([249a274](https://github.com/Financial-Times/origami/commit/249a2741107bbeb0df48f65cf225b198a28a1649))
+
 ## [0.12.0](https://github.com/Financial-Times/origami/compare/o3-form-v0.11.0...o3-form-v0.12.0) (2026-03-09)
 
 

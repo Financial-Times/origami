@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.0.1](https://github.com/Financial-Times/origami/compare/o-syntax-highlight-v5.0.0...o-syntax-highlight-v5.0.1) (2026-04-02)
+
+
+### Bug Fixes
+
+* hard code usages of missing tokens from internal brand ([#2412](https://github.com/Financial-Times/origami/issues/2412)) ([f19fd71](https://github.com/Financial-Times/origami/commit/f19fd71dccce3c27f2ac6f7ef2a1776088c7e479))
+
 ## [5.0.0](https://github.com/Financial-Times/origami/compare/o-syntax-highlight-v4.2.5...o-syntax-highlight-v5.0.0) (2025-02-20)
 
 ### ⚠ BREAKING CHANGES

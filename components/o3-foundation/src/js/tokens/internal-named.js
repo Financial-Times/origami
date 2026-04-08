@@ -4,15 +4,18 @@
 
 export const o3_color_palette_black = "#000000";
 export const o3_color_palette_white = "#ffffff";
-export const o3_color_palette_oxford = "#0f5499";
 export const o3_color_palette_teal = "#0d7680";
 export const o3_color_palette_slate = "#262a33";
 export const o3_color_palette_slate_white_5 = "#f4f4f5";
 export const o3_color_palette_slate_white_15 = "#dedfe0";
-export const o3_color_palette_lemon = "#ffec1a";
+export const o3_color_palette_lemon = "#fabf14";
+export const o3_color_palette_lemon_10 = "#fff2cc";
+export const o3_color_palette_lemon_90 = "#695008";
 export const o3_color_palette_jade = "#00994d";
-export const o3_color_palette_mandarin = "#ff8833";
-export const o3_color_palette_crimson = "#cc0000";
+export const o3_color_palette_jade_10 = "#ccebdb";
+export const o3_color_palette_jade_90 = "#00572c";
+export const o3_color_palette_crimson = "#b30000";
+export const o3_color_palette_crimson_10 = "#fae6e6";
 export const o3_color_palette_black_5 = "#f2f2f2";
 export const o3_color_palette_black_10 = "#e6e6e6";
 export const o3_color_palette_black_20 = "#cccccc";
@@ -23,14 +26,6 @@ export const o3_color_palette_black_60 = "#666666";
 export const o3_color_palette_black_70 = "#4d4d4d";
 export const o3_color_palette_black_80 = "#333333";
 export const o3_color_palette_black_90 = "#1a1a1a";
-export const o3_color_palette_oxford_30 = "#082a4d";
-export const o3_color_palette_oxford_40 = "#0a3866";
-export const o3_color_palette_oxford_50 = "#0d4680";
-export const o3_color_palette_oxford_60 = "#0f5499";
-export const o3_color_palette_oxford_70 = "#1262b3";
-export const o3_color_palette_oxford_80 = "#1470cc";
-export const o3_color_palette_oxford_90 = "#177ee6";
-export const o3_color_palette_oxford_100 = "#198cff";
 export const o3_color_palette_teal_20 = "#052f33";
 export const o3_color_palette_teal_30 = "#08474d";
 export const o3_color_palette_teal_40 = "#0a5e66";
@@ -64,11 +59,17 @@ export const o3_color_use_case_button_default = "#0d7680";
 export const o3_color_use_case_button_hover = "#0a5e66";
 export const o3_color_use_case_button_pressed = "#052f33";
 export const o3_color_use_case_button_disabled = "#9ec0bd";
-export const o3_color_use_case_error_background = "rgba(204, 0, 0, 0.06)";
-export const o3_color_use_case_error_text = "#cc0000";
-export const o3_color_use_case_error = "#cc0000"; // [DEPRECATED] This token is going to be looked at in the upcoming audit.
-export const o3_color_use_case_success_background = "#d7f0d1";
+export const o3_color_use_case_error_foreground = "#b30000";
+export const o3_color_use_case_error_background = "#fae6e6";
+export const o3_color_use_case_warning_background = "#fff2cc";
+export const o3_color_use_case_warning_foreground = "#695008";
+export const o3_color_use_case_warning_highlight = "#fabf14";
+export const o3_color_use_case_success_background = "#ccebdb";
 export const o3_color_use_case_success_foreground = "#00572c";
+export const o3_color_use_case_success_highlight = "#00994d";
+export const o3_color_use_case_border = "#cccccc";
+export const o3_color_use_case_surface_background = "#dedfe0";
+export const o3_color_use_case_surface_light_background = "#f4f4f5";
 export const o3_spacing_5xs = "0.25rem";
 export const o3_spacing_4xs = "0.5rem";
 export const o3_spacing_3xs = "0.75rem";
@@ -219,7 +220,7 @@ export const o3_focus_use_case_ring_inverse_outer = {
 export const o3_focus_use_case_outline_color = {
   blur: "0",
   spread: "2",
-  color: "#808080",
+  color: "#0d7680",
   type: "dropShadow",
   offsetX: "0",
   offsetY: "0",

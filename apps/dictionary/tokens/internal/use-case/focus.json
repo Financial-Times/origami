@@ -57,7 +57,7 @@
               "y": "0",
               "blur": "0",
               "spread": "2",
-              "color": "{o3.color.palette.black-50}",
+              "color": "{o3.color.palette.teal}",
               "type": "dropShadow"
             },
             "type": "boxShadow"
